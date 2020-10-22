@@ -30,3 +30,7 @@
      - Number of watchers
      - Percentage of PRs accepted
      - Total merged pull requests
+
+## Credits
+[Ana Ribeiro](https://github.com/anasofiagribeiro) created the original version
+of the script `FDroidStats.py`.
