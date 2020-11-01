@@ -22,8 +22,8 @@
    The number of repositories is quite large and since Github only allows 5,000
    requests per hour, execution might take a while.
 
- - The output file is `FDroidStats.xlsx`. By default, it will sort the
-   repositories by:
+ - The output files are `FDroidStats.xlsx` and `FDroidStats_Sorted.xlsx`. By default,
+   the second file will sort the repositories by:
 
      - Date of last commit
      - Number of stars
