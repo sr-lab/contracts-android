@@ -2,7 +2,7 @@
 
 from xml.dom import minidom
 from github import Github
-from github import RateLimitExceededException
+from github import RateLimitExceededException, UnknownObjectException
 import xlsxwriter
 import pandas as pd
 import time
@@ -19,6 +19,7 @@ index = 2
 java = 0
 archived = 0
 date = 0
+non_existent = 0
 
 #################### ---------------- PROCESS REPOSITORIES ---------------- ####################
 
@@ -54,7 +55,10 @@ def processRepo(repo_name, worksheet):
 	mergedPulls = list(filter(lambda x: x.merged, closedPulls))
 	percentage = 0
 	if(closedPulls.totalCount > 0):
-		percentage = len(mergedPulls) / totalClosedPulls
+		if totalClosedPulls == 0:
+			percentage = 0
+		else:
+			percentage = len(mergedPulls) / totalClosedPulls
 
 	#writing to the output file
 	worksheet.write('A' + str(index), str(repo.full_name))
@@ -120,6 +124,11 @@ for url in sourceTag:
 						continue
 					except:
 						continue
+				except UnknownObjectException:
+					# Repository does not exist, so we skip this one
+					print("ERROR4: REPOSITORY DOES NOT EXIST")
+					non_existent += 1
+					continue
 
 workbook.close()
 
@@ -132,9 +141,9 @@ print("TOO OLD ERRORS")
 print(date)
 
 #sorting values and writing them to an output file
-df = pd.read_excel('FDroidStatsTRY.xlsx')
+df = pd.read_excel('FDroidStats.xlsx')
 # df = df.sort_values(by = ['% OF PULL REQUESTS ACCEPTED', 'DATE OF LAST COMMIT', 'TOTAL MERGED PULL REQUESTS', '#STARS', '#WATCHERS'], ascending = [False, False, False, False, False])
 df = df.sort_values(by = ['DATE OF LAST COMMIT', '#STARS', '#WATCHERS', '% OF PULL REQUESTS ACCEPTED', 'TOTAL MERGED PULL REQUESTS'], ascending = [False, False, False, False, False])
-writer = pd.ExcelWriter('sortedValues.xlsx')
+writer = pd.ExcelWriter('FDroidStats_Sorted.xlsx')
 df.to_excel(writer, sheet_name = 'Sorted Values', index = False)
-
+writer.save()
