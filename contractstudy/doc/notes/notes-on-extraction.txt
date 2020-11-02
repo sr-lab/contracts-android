@@ -1,0 +1,12 @@
+limitations of extraction
+
+JSR305 defines this annotation (similar annotations exist in FindBugs):
+
+javax.annotation.ParametersAreNonnullByDefault
+
+This annotation can be applied to a package, class or method to indicate that the method parameters in that element are nonnull by default unless there is:
+- An explicit nullness annotation ..
+
+with our setup we cannot model this kind of "contract inheritance" or "contract annotation"
+
+discuss this in threads to validity, argue with low usage of this (ca 12% of programs uses this package, but less might use this annotation)

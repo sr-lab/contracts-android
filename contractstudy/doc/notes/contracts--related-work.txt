@@ -1,0 +1,136 @@
+
+
+Contracts in Java - survey of existing approaches
+=================================================
+
+Two broad classes, research- and industry-originating. No particular order.
+
+
+Research originating
+====================
+
+Overview and Evaluation of Constraint Validation Approaches in Java (Froihofer et al, TU Vienna)
+-------------------------------------------------------------------
+
+froihofer2007overview
+http://dl.acm.org/citation.cfm?id=1248864
+ICSE 2007
+32 scholar citations --> nil
+
+Survey and evaluation of various approaches to run-time checking of constraints, incl pre/post-conditions.  Lists: Dresden OCL toolkit, Handshake, iContract, Jass (-> CoFoJa; see Modern Jass below), jContractor, JML, JMSAssert, Kopi, USE.  Classifies constraint implementation approaches: handcrafted, code instrumentation in-place/wrapper, compiler-based, explicit constraint classes, interceptor mechanisms.
+
+Handshake (Duncan, Hoelzle; Uni Calif Santa Barbara)
+---------
+
+duncan98adding
+https://scholar.google.cz/scholar?cluster=2455396307287046046&hl=en&as_sdt=0,5
+techreport
+103 scholar citations --> Cheon, Leavens: A runtime assertion checker for the Java Modeling Language (JML); Findler, Felleisen: Contract soundness for object-oriented languages (OOPSLA 2001, 164 scholar citations); Froihofer et al: Overview and Evaluation of Constraint Validation Approaches in Java 
+
+pre/post-conditions + invariants, separate contract file for each class (binding by class name), run-time weaving to pristine bytecode to generate CRE.
+
+jContractor (Abercrombie 2014, off Holzle 2010?)
+-----------
+
+http://jcontractor.sourceforge.net/
+Murat Karaorman, Urs Hölzle, John Bruno: jContractor: A Reflective Java Library to Support Design By Contract. Reflection’99 Second International Conference 
+Parker Abercrombie, Murat Karaorman: jContractor: Bytecode Instrumentation Techniques for Implementing Design by Contract in Java. Runtime Verification 2002 (FLoC Satellite Event)
+
+
+"Contracts are written as methods that follow a simple naming convention. jContractor provides runtime contract checking by instrumenting the bytecode of classes that define contracts. jContractor can either add contract checking code to class files to be executed later, or it can instrument classes at runtime as they are loaded. All contracts are written in standard Java, so there is no need to learn a special contract specification language. Contracts can be written in the class that they apply too, or in a separate contract class. (...) jContractor supports predicate logic quantifiers such as forall and exists using JaQuaL, Java Quantification Library."
+
+Rather cumbersome... based on documentation/tutorial only:
+
+class Stack implements Cloneable {
+    private Stack OLD;
+
+    private Vector implementation;
+
+    public Stack () { ... }
+
+    public Stack (Object [] initialContents) { ... }
+
+    public void push (Object o) { ... }
+
+    ...
+
+  protected boolean push_Precondition (Object o) {
+    return o != null;
+  }
+
+  protected boolean push_Postcondition (Object o, Void RESULT) {
+    return implementation.contains(o) && (size() == OLD.size() + 1);
+  }
+
+  protected boolean _Invariant () {
+    return size() >= 0;
+  }
+}
+
+Running jContractor
+
+ $ java jContractor [options] class   -> runs "class" as main, with contracts checked
+
+ $ java  jInstrument ./MyProgram.class   -> instruments, then can be run independently
+ $ java MyProgram
+
+
+Modern Jass (Rieken 2007, Uni Oldenburg)
+-----------
+
+rieken2007modern-jass
+http://modernjass.sourceforge.net/docs/mastersthesis-johannes_rieken.pdf
+master thesis
+
+has interesting (maybe useful?) discussion of the "front-end" and "back-end" of the contract machinery: front-end is how contract is specified, back-end is how it is enforced at run-time.
+
+Design by Contract to Improve Software Vigilance (Le Traon, Baudry, Jezequel; IEEE TSE 2006)
+------------------------------------------------
+
+traon2006dbc-vigilance   -->   meyer2003proving-with-contracts
+http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1703388
+journal
+71 citations
+
+Intro sentence: "Several works advocate the use of assertions to improve software quality, but very few are actually interested in measuring this improvement" -> define models of vigilance (aka robustness) and diagnosability in sw, based on DBC design/code, and measure which parameters influence them.  Concludes that even basic use of contracts (not contracts optimised for 100% error detection coverage) highly improves overall system error detection ability (section 4).
+
+A Framework for Proving Contract-Equipped Classes (Meyer, Abstract State Machines 2003)
+-------------------------------------------------
+
+meyer2003proving-with-contracts
+http://link.springer.com/chapter/10.1007/3-540-36498-6_6
+LNCS book chapter
+
+"Although devised from their origin with the ultimate goal of permitting proofs, contracts have been used so far in Eiffel for other purposes (...)" -- no citation as to the ultimate original goal.
+
+
+Industry originating
+====================
+
+IntelliJ IDEA annotations
+-------------------------
+
+https://www.jetbrains.com/help/idea/2016.2/annotating-source-code.html)
+
+
+CoFoJa
+------
+
+https://github.com/nhatminhle/cofoja
+
+Originally Google SoC project, based on Modern Jass (see Research originating).
+
+
+OCL and its implementations
+---------------------------
+
+http://www.omg.org/spec/OCL/
+http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.ocl.doc%2Fhelp%2FCompleteOCLTutorial.html
+
+Object Constraint Language has first-class support for DBC constructs:
+
+  context Typename::operationName(param1 : Type1, ... ): ReturnType
+    pre : param1 > ...
+    post: result = ...
+
+Eclipse OCL support can both validate EMF/Ecore models against OCL specifications, and generate Java code that evaluates the OCL/DBC constructs at run-time.
