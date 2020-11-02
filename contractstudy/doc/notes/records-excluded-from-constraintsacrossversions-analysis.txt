@@ -1,0 +1,18 @@
+NO METHOD THAT CAN BE USED FOR SCALING
+
+program	            version1	methods1	constraints1	version2	methods2	constraints2
+scalatest_2.10	    1.9	        18	        0	            3.0.0	    0	        0
+scalatest_2.11	    2.1.3	    0	        0	            3.0.0	    0	        0
+jsr250-api	        1	        0	        0	            1	        0	        0
+
+
+ONLYONE VERSION IN DATASET
+
+geronimo-servlet_3.0_spec
+javaee-api
+javax.inject
+jsr305
+jta
+libthrift
+open-jdk
+portlet-api
