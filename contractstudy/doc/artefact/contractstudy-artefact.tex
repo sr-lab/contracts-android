@@ -1,0 +1,294 @@
+% This is a template for producing artifact descriptions associated with ECOOP 2017 papers
+%
+% Following is the notice from Camil Demetrescu's ECOOP 2016 template on which this
+% template is based:
+% This is a template for producing artifact descriptions associated with ECOOP papers
+% Adapted from the standard LIPIcs template by Camil Demetrescu
+% See lipics-manual.pdf for further information.
+% April 22, 2015
+
+\documentclass[a4paper,UKenglish]{darts}
+% for A4 paper format use option "a4paper", for US-letter use option "letterpaper"
+% for british hyphenation rules use option "UKenglish", for american hyphenation rules use option "USenglish"
+% for section-numbered lemmas etc., use "numberwithinsect"
+ 
+\usepackage{microtype}%if unwanted, comment out or use option "draft"
+\usepackage{todonotes}
+
+%\graphicspath{{./graphics/}}%helpful if your graphic files are in another directory
+
+\bibliographystyle{plainurl}% the recommended bibstyle
+
+% ARTIFACT: Include the following input command here
+\input{artifactcmds}
+
+% Author macros::begin %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ARTIFACT: Please use the same title as the corresponding ECOOP paper and append the text "(Artifact)"
+% ARTIFACT: Add as a footnote the reference to the corresponding ECOOP paper
+\title{Contracts in the Wild: A Study of Java Programs (Artifact)\footnote{This artifact is a companion of the paper:  Jens Dietrich, David J. Pearce, Kamil Jezek and Premek Brada, ``Contracts in the Wild: A Study of Java Programs'', Proceedings of the 31st European Conference on Object-Oriented Programming (ECOOP 2017), June 18-23, 2017, Barcelona, Spain. 
+}}
+\titlerunning{Contracts in the Wild (Artifact)} %optional, in case that the title is too long; the running title should fit into the top page column
+
+% ARTIFACT: Authors may not be exactly the same as the ECOOP paper, e.g., you may want to include authors who contributed to the preparation of the artifact, but not to the ECOOP companion paper
+%% Please provide for each author the \author and \affil macro, even when authors have the same affiliation, i.e. for each author there needs to be the  \author and \affil macros
+\author[1]{Jens Dietrich}
+\author[2]{David J. Pearce}
+\author[3]{Kamil Jezek}
+\author[4]{Premek Brada}
+
+\affil[1]{School of Engineering and Advanced Technology, Massey University\\ Palmerston North, New Zealand 
+	\\ \texttt{j.b.dietrich@massey.ac.nz}}
+\affil[2]{School of Engineering and Computer Science
+	\\ Victoria University of Wellington, Wellington, New Zealand \\ \texttt{djp@ecs.vuw.ac.nz}}
+\affil[3,4]{NTIS – New Technologies for the Information Society \\ Faculty of Applied Sciences, University of West Bohemia, Pilsen, Czech Republic \\ \texttt{\{kjezek,brada\}@kiv.zcu.cz}}
+
+
+\Copyright{Jens Dietrich, David J. Pearce, Kamil Jezek and Premek Brada}
+%mandatory, please use full first names. LIPIcs license is "CC-BY";  http://creativecommons.org/licenses/by/3.0/
+
+\subjclass{
+	D.1.5 Object-oriented Programming
+	D.2.4 Software/Program Verification 
+	D.3.3 Language Constructs and Features	
+}
+
+\keywords{verification,design-by-contract,assertions,preconditions,postconditions,runtime checking,java,input validation}% mandatory: Please provide 1-5 keywords -- ARTIFACT: You may use the same as the corresponding ECOOP paper.
+% Author macros::end %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Editor-only macros:: begin (do not touch as author)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Volume{3}
+\Issue{2}
+\Article{1}
+\RelatedConference{European Conference on Object-Oriented Programming (ECOOP 2017), June 18-23, 2017, Barcelona, Spain}
+% Editor-only macros::end %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This artefact contains a dataset of open-source programs obtained from the Maven Central Repository
+and a set of scripts that first extract contracts from these programs and then perform several
+analyses on the contracts extracted. The extraction and analysis is fully automated and directly 
+produces the tables presented in the accompanying paper. 
+The results show how contracts are used in real-world program, how their usage changes between  versions and within inheritance hierarchies 
+
+%The scripts may be reused for performing the same analysis on another dataset as the input data folder is configurable. The extracted contracts are stored as JSON files and these files can also be reused in other studies. 
+
+ \end{abstract}
+
+% ARTIFACT: please stick to the structure of 7 sections provided below
+
+% ARTIFACT: section on the scope of the artifact (what claims of the paper are intended to be backed by this artifact?)
+
+\begin{scope}
+  The artefact is designed to support repeatability of all experiments reported in the 
+  companion paper. The artefact contains a script that automatically performs all experiments and directly produces the (\LaTeX \hspace{1mm} sources of the) tables presented in the paper. 
+  
+  The provided script first extracts contracts from the programs in the data set and then performs several analyses on those contracts. The analysis and extraction scripts and the data sets (programs and extracted contracts) are all designed to be reusable. 
+  
+  Note that the scripts used for the initial dataset from the Maven repository are not part of this artefact. This is because this was a snapshot taken at a certain point in time (3 August 16) that cannot be reproduced by executing the same scripts later. Instead, the artefact contains a physical copy of those programs. 
+  
+  For convenience, the artefact contains a master scripts \texttt{run-all.sh} that invokes all extraction and analysis scripts , and places the results in the \texttt{\textasciitilde/contractstudy/results} folder. The files generated in this folder are mapped to the tables in paper as described in Table \ref{tab:results_location}. The output files are actually those tables, as the output format is \LaTeX. An exception is the spreadsheet data in csv format containing data used in Section 4.2. This is processed as follows: scaled contract counts for the first / last version are computed by dividing the values from column 3 (6) by values from column 5 (7). These values are then copied into the spreadsheet \texttt{\textasciitilde/doc/notes/box-plot.xlsx} in order to create the boxcharts included in the paper (Figure 2). 
+  
+  %The time to finish all experiments is about 8 hours on a single core on an Intel Core i7 processor host. See also Tested Platform below. 
+  
+  
+  The main script is divided into several subscripts implemented as executable Java classes. Each Java class performs certain data analysis as denoted in the Table \ref{tab:scripts}. The package name \texttt{contractstudy.scripts} is omitted for brevity.  The source code of those classes is included in the artefact in the \texttt{\textasciitilde/contractstudy/src/} folder. 
+  
+  
+    \begin{table}[t]
+  	\centering
+  	\caption{Results Location}
+  	\label{tab:results_location}
+  	\begin{tabular}{p{5cm} p{4cm} p{4cm} } \hline
+  		File & Description & Location in Paper \\ \hline
+  		
+  		dataset.tex & Data set metrics & Table 2 \\
+  		topusers-lvonly.tex & Top programs using contracts (latest versions only) & Table 3 \\
+  		contractsbytype.tex & Contract elements by type & Table 4  \\
+  		contractsbyclassification.tex & Contracts by classification & Table 5 \\
+  		evolution.tex & Contract evolution data result summary & Table 6 \\
+  		hierarchy.tex & Contract hierarchy data result summary & Table 7 \\
+  		
+  		gini-annotations.tex & Gini for annotations & Gini in Section 4.1 \\
+  		gini-apis.tex & Gini for API & Gini in Section 4.1 \\
+  		gini-assertions.tex & Gini for assertions & Gini in Section 4.1 \\
+  		gini-runtimeexceptions.tex & Gini for runtime ex. & Gini in Section 4.1 \\
+  		gini.tex & Gini for all data & Gini in Section 4.1 \\
+  		contraints\_across\_versions.csv & Number of constraints across versions & Data for Section 4.2\\
+  		postconditions\_removed.log, preconditions\_added.log, contracts\_ cannot\_be\_classified.log & Textual contracts classification & Discussion in Section 4.3 \\
+  		preconditions\_hierarchy\_added.log & Textual contracts classification for LSP & Discussion in Section 4.4 \\
+  		\hline
+  	\end{tabular}
+  \end{table}
+
+
+  
+  \begin{table}[t]
+  	\centering
+  	\caption{Script Details}
+  	\label{tab:scripts}
+  	\begin{tabular}{p{6cm} p{8cm} } \hline
+  		Executable Java Class & Output \\ \hline
+  		CollectContracts & Contracts in JSON files in \texttt{out/contracts/}   \\
+  		AnalyseContractEvolution & Table \texttt{results/evolution.tex}	 \\
+  		AnalyseContractUsage & \texttt{contractsbytype.tex}, \texttt{contractsbyclassification.tex}, \texttt{topusers-lvonly.tex} and Gini in \texttt{results/} \\
+  		CollectDataSetStats & Dataset statistics in \texttt{results/dataset.tex}   \\
+  		% CollectProgramVersionStats &  CSV files with program version statistics in \texttt{results} \\
+  		AnalyseContractUsageAcrossVersions & CSV files with program version statistics in \texttt{results} \\
+  		AnalyseHierarchyContracts & Table \texttt{results/hierarchy.tex} \\
+  		\hline
+  	\end{tabular}
+  \end{table}
+  
+  
+  
+
+
+   	
+\end{scope}
+
+% ARTIFACT: section on the contents of the artifact (code, data, etc.)
+\begin{content}
+	
+	
+The artefact is distributed as a VirtualBox image. The virtual machine is pre-installed with Ubuntu Server 16.04.2 LTS, the account used has the user name \textbf{artefact} and the password \textbf{artefact}, please note the British spelling. The VM was installed with following additional packages:
+
+\begin{verbatim}
+sudo apt install openjdk-8-jdk
+sudo apt install maven
+sudo apt install mercurial 
+\end{verbatim}
+
+The structure of the VM file system and the location of the various data files and scripts is described in Table~\ref{tab:structure}.
+
+\begin{table}[t]
+	\centering
+	\caption{Directory structure}
+	\label{tab:structure}
+	\begin{tabular}{p{6cm} p{8cm} } \hline
+		Directory & Content \\ \hline
+		\textasciitilde/contractstudy/ & Project home \\
+		\textasciitilde/mvn-data/  & Data corpus according to Section 3.1 \\
+		\textasciitilde/contractstudy/results & Results \\
+		\textasciitilde/contractstudy/out/contracts/ & Extracted contracts in JSON format \\
+		\textasciitilde/contractstudy/out/struct/ & Class structures in JSON format \\
+		\textasciitilde/contractstudy/run-all.sh & Script to run all experiments. It generates “results” and “out”  \\
+		\textasciitilde/contractstudy/run-all-continue.sh & Script to run all experiments. It skips all already generated results \\
+		\textasciitilde/contractstudy/src & Project sources  \\
+		\textasciitilde/contractstudy/target & Project binaries  \\
+		\textasciitilde/contractstudy/pom.xml & Maven build script  \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+
+\end{content} 
+
+% ARTIFACT: section containing links to sites holding the
+% latest version of the code/data, if any
+\begin{getting}
+% leave empty if the artifact is only available on the DROPS server.
+% otherwise, provide links to the latest version of the artifact (e.g., on github)
+  
+  The latest version of our code is available on Bitbucket:
+  {\url https://bitbucket.org/jensdietrich/contractstudy}. 
+  
+\end{getting} 
+
+% ARTIFACT: section specifying the platforms on which the artifact is known to
+% work, including requirements beyond the operating system such as large
+% amounts of memory or many processor cores
+\begin{platforms}
+  The artefact is known to work on any platform running Oracle VirtualBox
+  version~5 ({\url https://www.virtualbox.org/}) with at least 6~GB of free space in RAM.
+  
+
+
+
+  
+\end{platforms}
+
+% ARTIFACT: section specifying the license under which the artifact is
+% made available
+\license{MIT License (https://opensource.org/licenses/MIT)}
+
+% ARTIFACT: section specifying the md5 sum of the artifact master file
+% uploaded to the Dagstuhl Research Online Publication Server, enabling 
+% downloaders to check that the file is the expected version and suffered 
+% no damage during download.
+\mdsum{145d668d34aa8afb16eb479a0ef31a3d}
+
+% ARTIFACT: section specifying the size of the artifact master file uploaded
+% to the Dagstuhl Research Online Publication Server
+\artifactsize{7.3 GB}
+
+%\subparagraph*{Acknowledgements}
+%
+%The authors wish to thank \dots
+
+% ARTIFACT: optional appendix
+\appendix
+
+\section{Importing and Starting the VM}
+
+\begin{enumerate}
+	\item Download and install VirtualBox 5.0 from https://www.virtualbox.org/
+	\item Open VirtualBox
+	\item Click Machine → Import Appliance and add the OVF file
+	The VM image will appear. Go to  Settings → System → Motherboard and set at least 6 GB of RAM (mo re is recommended)
+	\item Start the VM 
+	\item Login with a user \texttt{artefact} and a password \texttt{artefact}
+	\item To start the experiments, use the following commands:
+	\begin{verbatim} 
+	> cd ~/contractstudy
+	> ./run-all.sh
+	\end{verbatim} 
+\end{enumerate}
+
+The time to finish all experiments is about 8 hours on a single core on an Intel Core i7 processor host.
+
+
+
+\section{Setting up a SSH Connection to the VM}
+
+The VM contains the \texttt{SSH} server and another linux terminal may be used to interact with the VM via SSH. There are several options how to set network setting in Virtual Box. One of the options is to  using NAT + Port forwarding. See Figure \ref{fig:ssh}. 
+
+\begin{enumerate}
+	\item In the VirtualBox click \texttt{Settings} → \texttt{Network} → \texttt{Choose Adapter 1} →  \texttt{switch to NAT} → \texttt{Port Forwarding}. 
+	\item Fill in the table. Set the host port \texttt{3333} and guest port to \texttt{22}. 
+	\item Set Host IP to \texttt{127.0.1.1} and Guest IP to the IP of VM (it should be \texttt{10.0.2.15}, verify it by running the \texttt{ifconfig} command in VM). 
+	\item Connect from the host machine \texttt{>  ssh -p 3333 artefact@127.0.1.1}. The password is \texttt{artefact}
+\end{enumerate}
+
+\begin{figure}[hbt]
+	\includegraphics[width=0.7\textwidth]{ssh.png}
+	\caption{SSH settings}
+	\label{fig:ssh}
+\end{figure}
+
+\section{Configuration and Troubleshooting}
+
+Experiments can be sped up by using multiple threads. To configure the number of threads used, edit the file \texttt{\textasciitilde/contractstudy/preferences.properties} and modify the key threads. Make sure to increase VM RAM to have 6GB for every thread. 
+
+If an \texttt{OutOfMemoryError} is thrown, the memory available to the VM should be increased, at least 6GB of RAM dedicated for the VM are needed. If one of the output files is missing after analysis, please check the console output log for errors, and re-run only unfinished experiments using the following command: \texttt{\textasciitilde/run-all-continue.sh}
+
+
+% ARTIFACT: include here any additional references, if needed...
+
+%% Either use bibtex (recommended), but commented out in this sample
+
+%\bibliography{dummybib}
+
+%% .. or use the thebibliography environment explicitely
+
+%\nocite{Simpson}
+%
+%\begin{thebibliography}{50}
+%\bibitem{Simpson} Homer J. Simpson. \textsl{Mmmmm...donuts}. Evergreen Terrace Printing Co., Springfield, Somewhere, USA, 1998
+%\end{thebibliography}
+
+
+\end{document}

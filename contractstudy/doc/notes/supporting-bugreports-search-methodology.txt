@@ -1,0 +1,122 @@
+
+This file collects the notes on how issues related to the use of contracts have been searched for.
+
+Annotations on issues found
+* YES -- relevant to study and the program is in dataset
+* YES-BUT -- relevant to study but program not in dataset
+* PART -- partially/indirectly relevant, e.g. evidence of contract use
+* NO -- not really, listed for reference only
+* EVO -- potential sign of contract evolution
+
+
+0. Totals
+=========
+
+commons validate:	17 issues, 2 relevant 
+spring assert:		36 issues, 1 relevant
+guava precond:		371 issues, 7+ relevant
+javax annotation:	no relevant issues
+
+
+1. Apache Sw Foundation JIRA
+============================
+
+Searched (top level) for strings indicating use of contracts (see paper and contractstudy.extractors classes),
+sometimes delved into consequent github pull requests to look for the usage. 
+
+"org.apache.commons.lang.Validate"
+----------------------------------
+
+ --> 8 issues, 2 relevant
+
+YES-BUT,EVO  https://issues.apache.org/jira/browse/FALCON-459 "Lineage resource API fails with NPE for bad query params" 
+stacktrace contains
+    com.google.common.base.Preconditions.checkNotNull(Preconditions.java:187)
+        at com.thinkaurelius.titan.graphdb.transaction.StandardTitanTx.getVertices(StandardTitanTx.java:982)
+code patches submitted and integrated, however this patch uses StringUtils in a home-brown validateInputs() method        
+
+PART   https://issues.apache.org/jira/browse/WW-2728 "Shade Commons Lang"
+use of commons.Validate suggested among top-3 apache commons libraries to use in the project
+
+"org.springframework.util.Assert" (Spring Assert)
+---------------------------------
+
+--> 4 issues, none relevant
+
+
+"com.google.common.base.Preconditions" (Guava)
+--------------------------------------
+
+ --> 106 issues, 5+ partially relevant
+ 
+YES-BUT,EVO   https://issues.apache.org/jira/browse/DRILL-2618 "BasicFormatMatcher calls getFirstPath(...) without checking # of paths is not zero"
+IndexOutOfBoundsException failure detected by whatever means, final bugfix includes use of Guava Precondition 
+(not extensively) to check some problematic cases: https://github.com/apache/drill/commit/367d74a65ce2871a1452361cbd13bbd5f4a6cc95
+
+PART,EVO   https://issues.apache.org/jira/browse/STREAMS-70 "Generic Json Processors"
+feature request to "perform basic operations on documents without strict typing", patch uses Guava Preconditions in a few places
+
+PART,EVO   https://issues.apache.org/jira/browse/FLINK-2837 "FlinkTopologyBuilder cannot handle multiple input stream"
+insufficiency detected by whatever means, patch uses pre-cond relatively often
+
+PART,EVO   https://issues.apache.org/jira/browse/DRILL-3714 "Query runs out of memory and remains in CANCELLATION_REQUESTED state until drillbit is restarted"
+insufficiency detected by whatever means, patch uses pre-cond relatively often
+
+PART   https://issues.apache.org/jira/browse/MAHOUT-615, https://issues.apache.org/jira/browse/MAPREDUCE-3336, https://issues.apache.org/jira/browse/DROIDS-106, https://issues.apache.org/jira/browse/FLINK-3763
+indicate use -- and increasing adoption -- of Guava in Mahout, Hadoop, etc
+
+NO   https://issues.apache.org/jira/browse/FLINK-4032
+project replaced Guava pre-cond with home-brown one
+
+"javax.annotation"
+------------------
+
+--> 3 pages of issues, probably none relevant
+
+Most ASF JIRA bugs are related to "cannot start/build due to missing javax.annotation package"
+
+
+2. GitHub Issues
+================
+
+Searched (top level), filtered the Issues subset. Code usually provided straight in the issue.
+
+"org.apache.commons.lang.Validate"
+----------------------------------
+
+--> 9 issues, none relevant
+
+"org.springframework.util.Assert" (Spring Assert)
+---------------------------------
+
+--> 32 issues, 1 relevant
+
+YES-BUT,EVO   https://github.com/spring-projects/spring-security/issues/523
+enhancement of Spring Security, "added this to the 2.0.4 milestone", released as part of the milestone
+ 
+
+"com.google.common.base.Preconditions" (Guava)
+--------------------------------------
+
+--> 265 issues, 2+ relevant
+
+YES,EVO   https://github.com/SeleniumHQ/selenium-google-code-issue-archive/issues/2763 "NPE on selenium-server"
+bugreport, NPE caught by Preconditions, "This issue was fixed around 2.20" (but could not trace to that release in repo...)
+
+YES-BUT,EVO   https://github.com/ipeirotis/Troia-Server/issues/83 "Unexpected Internal Error using IDS" 
+easily reproducable bug triggered by Precondition, discussion may lead to bugfix in evolutionary revision
+
+YES-BUT   https://github.com/DMDirc/Plugins/issues/403 "IllegalArgumentException when deleting errors"
+bug in UI caught, raised by pre-cond validation failure, issue still open and no patch/fix provided
+
+PART,EVO   https://github.com/twitter/hbc/issues/173 "Fix BasicAuth when using PowerTrack 2.0"
+issue reported by user, suggested workaround uses Preconditions
+
+PART   https://github.com/forter/storm-data-contracts/issues/6 "Fix OptionalUnwrapper after fixing problem in hibernate-validator"
+issue reported by developer/user, provides reproducing example which uses param annotations extensively
+
+PART   https://github.com/DMDirc/DMDirc/issues/491 "PMD: java.lang.IllegalStateException: There must be a profile selected"
+looks like bugreport triggered by failed Preconditions
+
+NO   https://github.com/elastic/elasticsearch/pull/13540
+clear evidence of a project dropping Guava Precond, replacing with CRE pattern

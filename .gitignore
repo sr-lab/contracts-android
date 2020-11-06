@@ -145,3 +145,36 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+bin
+out
+doc/paper/contractstudy.pdf
+doc/paper/contractstudy.aux
+doc/paper/*.log
+doc/paper/contractstudy.bbl
+doc/paper/contractstudy.synctex.gz
+doc/paper/contractstudy.blg
+
+.idea
+mvn-data
+mvn-dependencies
+mvn-repo
+preferences.properties
+.private-data
+private
+results/
+target
+
+.settings
+
+doc/paper/ssv.aux
+doc/paper/ssv.bbl
+doc/paper/ssv.blg
+doc/paper/ssv.pdf
+doc/paper/ssv.synctex.gz
+
+# test data
+src/test/java/contractstudy/hierarchy/testdata/simple/simple-1.0-deps.json
+src/test/java/contractstudy/hierarchy/testdata/simple/simple-1.0.zip
+src/test/resources/struct/simple/simple-1.0-struct.json
+
