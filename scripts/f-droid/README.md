@@ -30,6 +30,12 @@
      - Number of watchers
      - Percentage of PRs accepted
      - Total merged pull requests
+     
+   The files contain 1145 entries (with some duplicates).
+
+ - The file `github_unique_repos.txt` contains the URLs of all the github repositories collected (this file has no duplicate entries). There is a total of 1098 unique repositories.
+
+ - The script `cloneRepos.sh` clones all the repositories listed in the file `github_unique_repos.txt`
 
 ## Credits
 [Ana Ribeiro](https://github.com/anasofiagribeiro) created the original version
