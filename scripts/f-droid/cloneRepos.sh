@@ -1,4 +1,4 @@
-NUMBER=2
+NUMBER=200
 FILE="github_unique_repos.txt"
 OUTPUT_DIR="github_repos"
 COUNT=0

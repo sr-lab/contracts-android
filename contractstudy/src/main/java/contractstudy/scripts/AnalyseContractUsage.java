@@ -29,107 +29,106 @@ import java.util.stream.Collectors;
 import static contractstudy.diffrules.Utils.NF;
 
 /**
- * Script used to analyse how contracts are used by programs.
- * This script counts the contracts elements.
+ * Script used to analyse how contracts are used by programs. This script counts
+ * the contracts elements.
+ * 
  * @author jens dietrich
  */
 public class AnalyseContractUsage implements Experiment {
 
     static Logger LOGGER = Logging.getLogger(AnalyseContractUsage.class);
 
-    public static void main (String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
 
         File INPUT_DATA_FOLDER = new File(Preferences.getOutputContractsFolder());
         File RESULTS_FOLDER = new File(Preferences.getResultsFolder());
 
         List<ContractElement> contractElements = new ArrayList<>();
-        Collection<File> jsons = FileUtils.listFiles(INPUT_DATA_FOLDER,new String[]{"json"}, true);
-        for (File json:jsons) {
+        Collection<File> jsons = FileUtils.listFiles(INPUT_DATA_FOLDER, new String[] { "json" }, true);
+        for (File json : jsons) {
             String data = FileUtils.readFileToString(json, StandardCharsets.UTF_8);
             JSONArray all = new JSONArray(data);
             all.forEach(e -> {
-                ContractElement c = ContractElement.fromJSON((JSONObject)e);
+                ContractElement c = ContractElement.fromJSON((JSONObject) e);
                 contractElements.add(c);
             });
         }
 
         // use linked hashmaps to fix order of keys
-        Map<ConstraintGroup,Integer> constraintsByGroup = new LinkedHashMap<>();
-        Map<ConstraintClassification,Integer> constraintsByClassification = new LinkedHashMap<>();
-        Map<String,Integer> constraintsByProgram = new HashMap<>();
+        Map<ConstraintGroup, Integer> constraintsByGroup = new LinkedHashMap<>();
+        Map<ConstraintClassification, Integer> constraintsByClassification = new LinkedHashMap<>();
+        Map<String, Integer> constraintsByProgram = new HashMap<>();
 
         // LV .. latest version only
-        Map<ConstraintGroup,Integer> constraintsByGroupLV = new LinkedHashMap<>();
-        Map<ConstraintClassification,Integer> constraintsByClassificationLV = new LinkedHashMap<>();
-        Map<String,Integer> constraintsByProgramLV = new HashMap<>();
-        Map<ConstraintCategory,Map<String,Integer>> constraintsByProgramLVandCategory = new HashMap<>();
+        Map<ConstraintGroup, Integer> constraintsByGroupLV = new LinkedHashMap<>();
+        Map<ConstraintClassification, Integer> constraintsByClassificationLV = new LinkedHashMap<>();
+        Map<String, Integer> constraintsByProgramLV = new HashMap<>();
+        Map<ConstraintCategory, Map<String, Integer>> constraintsByProgramLVandCategory = new HashMap<>();
 
-        Multimap<ConstraintGroup,String> programsUsingConstraintGroups = HashMultimap.create();
-        Multimap<ConstraintClassification,String> programsUsingConstraintClassifications = HashMultimap.create();
+        Multimap<ConstraintGroup, String> programsUsingConstraintGroups = HashMultimap.create();
+        Multimap<ConstraintClassification, String> programsUsingConstraintClassifications = HashMultimap.create();
 
         // set keys to fix order
-        constraintsByGroup.put(ConstraintGroup.ASSERTION,0);
+        constraintsByGroup.put(ConstraintGroup.ASSERTION, 0);
 
-        constraintsByGroup.put(ConstraintGroup.CONDITIONAL_RUNTIME_EXCEPTION,0);
-        constraintsByGroup.put(ConstraintGroup.UNCONDITIONAL_RUNTIME_EXCEPTION,0);
+        constraintsByGroup.put(ConstraintGroup.CONDITIONAL_RUNTIME_EXCEPTION, 0);
+        constraintsByGroup.put(ConstraintGroup.UNCONDITIONAL_RUNTIME_EXCEPTION, 0);
 
-        constraintsByGroup.put(ConstraintGroup.CAPI_GUAVA,0);
-        constraintsByGroup.put(ConstraintGroup.CAPI_SPRING_ASSERT,0);
-        constraintsByGroup.put(ConstraintGroup.CAPI_COMMONS_VALIDATE,0);
+        constraintsByGroup.put(ConstraintGroup.CAPI_GUAVA, 0);
+        constraintsByGroup.put(ConstraintGroup.CAPI_SPRING_ASSERT, 0);
+        constraintsByGroup.put(ConstraintGroup.CAPI_COMMONS_VALIDATE, 0);
 
-        constraintsByGroup.put(ConstraintGroup.ANNO_JSR303,0);
-        constraintsByGroup.put(ConstraintGroup.ANNO_JSR305,0);
+        constraintsByGroup.put(ConstraintGroup.ANNO_JSR303, 0);
+        constraintsByGroup.put(ConstraintGroup.ANNO_JSR305, 0);
+        constraintsByGroup.put(ConstraintGroup.ANNO_Android, 0);
 
-        constraintsByProgramLVandCategory.put(ConstraintCategory.API,new HashMap<>());
-        constraintsByProgramLVandCategory.put(ConstraintCategory.ANNOTATION,new HashMap<>());
-        constraintsByProgramLVandCategory.put(ConstraintCategory.ASSERTION,new HashMap<>());
-        constraintsByProgramLVandCategory.put(ConstraintCategory.RUNTIME_EXCEPTION,new HashMap<>());
+        constraintsByProgramLVandCategory.put(ConstraintCategory.API, new HashMap<>());
+        constraintsByProgramLVandCategory.put(ConstraintCategory.ANNOTATION, new HashMap<>());
+        constraintsByProgramLVandCategory.put(ConstraintCategory.ASSERTION, new HashMap<>());
+        constraintsByProgramLVandCategory.put(ConstraintCategory.RUNTIME_EXCEPTION, new HashMap<>());
 
         constraintsByGroupLV.putAll(constraintsByGroup);
 
-        constraintsByClassification.put(ConstraintClassification.PRECONDITION,0);
-        constraintsByClassification.put(ConstraintClassification.POSTCONDITION,0);
-        constraintsByClassification.put(ConstraintClassification.INVARIANT,0);
-        constraintsByClassification.put(ConstraintClassification.ANY,0);
+        constraintsByClassification.put(ConstraintClassification.PRECONDITION, 0);
+        constraintsByClassification.put(ConstraintClassification.POSTCONDITION, 0);
+        constraintsByClassification.put(ConstraintClassification.INVARIANT, 0);
+        constraintsByClassification.put(ConstraintClassification.ANY, 0);
 
         constraintsByClassificationLV.putAll(constraintsByClassification);
 
         // extract latest versions for cross-referencing
-        Pair<Map<String,ProgramVersion>,Map<String,ProgramVersion>> firstAndLatestVersions = FindFirstAndLastProgramVersions.find();
+        Pair<Map<String, ProgramVersion>, Map<String, ProgramVersion>> firstAndLatestVersions = FindFirstAndLastProgramVersions
+                .find();
         Collection<ProgramVersion> latestVersions = firstAndLatestVersions.getRight().values();
 
-        for (ContractElement c: contractElements) {
+        for (ContractElement c : contractElements) {
             ConstraintType type = c.getKind();
             ConstraintGroup group = type.getGroup();
-            ConstraintClassification classification= c.getClassification();
+            ConstraintClassification classification = c.getClassification();
             String program = c.getProgramVersion().getName();
 
-            constraintsByGroup.compute(group,(g,i) -> i==null?1:i+1);
-            constraintsByClassification.compute(classification,(g,i) -> i==null?1:i+1);
-            constraintsByProgram.compute(program,(g,i) -> i==null?1:i+1);
+            constraintsByGroup.compute(group, (g, i) -> i == null ? 1 : i + 1);
+            constraintsByClassification.compute(classification, (g, i) -> i == null ? 1 : i + 1);
+            constraintsByProgram.compute(program, (g, i) -> i == null ? 1 : i + 1);
 
             if (latestVersions.contains(c.getProgramVersion())) {
-                constraintsByGroupLV.compute(group,(g,i) -> i==null?1:i+1);
-                constraintsByClassificationLV.compute(classification,(g,i) -> i==null?1:i+1);
-                constraintsByProgramLV.compute(program,(g,i) -> i==null?1:i+1);
-                Map<String,Integer> data = constraintsByProgramLVandCategory.get(c.getKind().getGroup().getCategory());
-                data.compute(program,(g,i) -> i==null?1:i+1);
+                constraintsByGroupLV.compute(group, (g, i) -> i == null ? 1 : i + 1);
+                constraintsByClassificationLV.compute(classification, (g, i) -> i == null ? 1 : i + 1);
+                constraintsByProgramLV.compute(program, (g, i) -> i == null ? 1 : i + 1);
+                Map<String, Integer> data = constraintsByProgramLVandCategory.get(c.getKind().getGroup().getCategory());
+                data.compute(program, (g, i) -> i == null ? 1 : i + 1);
             }
 
-            programsUsingConstraintGroups.put(group,program);
-            programsUsingConstraintClassifications.put(classification,program);
+            programsUsingConstraintGroups.put(group, program);
+            programsUsingConstraintClassifications.put(classification, program);
         }
 
-        Collection<String> topProgramsUsingContracts = constraintsByProgram.keySet()
-                .stream()
-                .sorted((s1,s2)->constraintsByProgram.get(s2)-constraintsByProgram.get(s1))
-                .limit(10)
+        Collection<String> topProgramsUsingContracts = constraintsByProgram.keySet().stream()
+                .sorted((s1, s2) -> constraintsByProgram.get(s2) - constraintsByProgram.get(s1)).limit(10)
                 .collect(Collectors.toList());
 
-        Collection<String> topProgramsUsingContractsInLV = constraintsByProgramLV.keySet()
-                .stream()
-                .sorted((s1,s2)->constraintsByProgramLV.get(s2)-constraintsByProgramLV.get(s1))
-                .limit(10)
+        Collection<String> topProgramsUsingContractsInLV = constraintsByProgramLV.keySet().stream()
+                .sorted((s1, s2) -> constraintsByProgramLV.get(s2) - constraintsByProgramLV.get(s1)).limit(10)
                 .collect(Collectors.toList());
 
         // compute ginis
@@ -149,34 +148,33 @@ public class AnalyseContractUsage implements Experiment {
         LOGGER.info("\tGINI rt exceptions only " + gini4RTExc);
 
         LOGGER.info("Contract groups used (name,count):");
-        for (Map.Entry<ConstraintGroup,Integer> entry:constraintsByGroup.entrySet()) {
+        for (Map.Entry<ConstraintGroup, Integer> entry : constraintsByGroup.entrySet()) {
             LOGGER.info("\t" + entry.getKey() + " : " + entry.getValue());
         }
         LOGGER.info("Contract groups used [in latest versions only!] (name,count):");
-        for (Map.Entry<ConstraintGroup,Integer> entry:constraintsByGroupLV.entrySet()) {
+        for (Map.Entry<ConstraintGroup, Integer> entry : constraintsByGroupLV.entrySet()) {
             LOGGER.info("\t" + entry.getKey() + " : " + entry.getValue());
         }
         LOGGER.info("Contract classifications used (name,count):");
-        for (Map.Entry<ConstraintClassification,Integer> entry:constraintsByClassification.entrySet()) {
+        for (Map.Entry<ConstraintClassification, Integer> entry : constraintsByClassification.entrySet()) {
             LOGGER.info("\t" + entry.getKey() + " : " + entry.getValue());
         }
         LOGGER.info("Contract classifications used [in latest versions only!] (name,count):");
-        for (Map.Entry<ConstraintClassification,Integer> entry:constraintsByClassificationLV.entrySet()) {
+        for (Map.Entry<ConstraintClassification, Integer> entry : constraintsByClassificationLV.entrySet()) {
             LOGGER.info("\t" + entry.getKey() + " : " + entry.getValue());
         }
         LOGGER.info("Top usage by program (name,count):");
-        for (String program:topProgramsUsingContracts) {
+        for (String program : topProgramsUsingContracts) {
             LOGGER.info("\t" + program + " : " + constraintsByProgram.get(program));
         }
 
         LOGGER.info("Top usage by program [in latest versions only!] (name,count):");
-        for (String program:topProgramsUsingContractsInLV) {
+        for (String program : topProgramsUsingContractsInLV) {
             LOGGER.info("\t" + program + " : " + constraintsByProgramLV.get(program));
         }
 
-
         LOGGER.info("Rendering output to latex");
-        File latex = new File(RESULTS_FOLDER,"contractsbytype.tex");
+        File latex = new File(RESULTS_FOLDER, "contractsbytype.tex");
         try (PrintStream out = new PrintStream(new FileOutputStream(latex))) {
             out.println("% TABLE GENERATED BY " + AnalyseContractUsage.class.getName());
             out.println("% TIMESTAMP:   " + new Date());
@@ -185,8 +183,9 @@ public class AnalyseContractUsage implements Experiment {
             out.println("\\caption{Contract elements by type}");
             out.println("\\label{tab:contractsbytype}");
             out.println("\\begin{tabular}{|p{5cm}|p{3cm}|r|r|r|} \\hline");
-            out.println("   type & category & \\parbox{1.2cm}{contracts\\ (all ver.)}  & \\parbox{1.2cm}{contracts\\ (latest)} & pro\\-grams \\\\ \\hline");
-            for (Map.Entry<ConstraintGroup,Integer> entry:constraintsByGroup.entrySet()) {
+            out.println(
+                    "   type & category & \\parbox{1.2cm}{contracts\\ (all ver.)}  & \\parbox{1.2cm}{contracts\\ (latest)} & pro\\-grams \\\\ \\hline");
+            for (Map.Entry<ConstraintGroup, Integer> entry : constraintsByGroup.entrySet()) {
                 out.print("\t");
                 out.print(entry.getKey().getShortName() + " &  ");
                 out.print(entry.getKey().getCategory().getName() + " &  ");
@@ -199,7 +198,7 @@ public class AnalyseContractUsage implements Experiment {
             out.println("\\end{table}");
         }
 
-        latex = new File(RESULTS_FOLDER,"contractsbyclassification.tex");
+        latex = new File(RESULTS_FOLDER, "contractsbyclassification.tex");
         try (PrintStream out = new PrintStream(new FileOutputStream(latex))) {
             out.println("% TABLE GENERATED BY " + AnalyseContractUsage.class.getName());
             out.println("% TIMESTAMP:   " + new Date());
@@ -208,8 +207,9 @@ public class AnalyseContractUsage implements Experiment {
             out.println("\\caption{Contracts by classification}");
             out.println("\\label{tab:contractsbyclassification}");
             out.println("\\begin{tabular}{|p{2.1cm}|r|r|r|} \\hline");
-            out.println("   classification & \\parbox{1.2cm}{contracts\\ (all ver.)} & \\parbox{1.2cm}{contracts\\ (latest)} & programs \\\\ \\hline");
-            for (Map.Entry<ConstraintClassification,Integer> entry:constraintsByClassification.entrySet()) {
+            out.println(
+                    "   classification & \\parbox{1.2cm}{contracts\\ (all ver.)} & \\parbox{1.2cm}{contracts\\ (latest)} & programs \\\\ \\hline");
+            for (Map.Entry<ConstraintClassification, Integer> entry : constraintsByClassification.entrySet()) {
                 out.print("\t");
                 out.print(entry.getKey().getName() + " &  ");
                 out.println(NF.format(entry.getValue()) + " & ");
@@ -221,21 +221,22 @@ public class AnalyseContractUsage implements Experiment {
             out.println("\\end{table}");
         }
 
-        latex = new File(RESULTS_FOLDER,"gini.tex");
+        latex = new File(RESULTS_FOLDER, "gini.tex");
         try (PrintStream out = new PrintStream(new FileOutputStream(latex))) {
-            out.print(Math.round(gini4AllConstraints*100.0)/100.0);
+            out.print(Math.round(gini4AllConstraints * 100.0) / 100.0);
         }
 
-        exportGini(gini4AllConstraints,RESULTS_FOLDER,"gini.tex");
-        exportGini(gini4Annotations,RESULTS_FOLDER,"gini-annotations.tex");
-        exportGini(gini4Assertions,RESULTS_FOLDER,"gini-assertions.tex");
-        exportGini(gini4APIs,RESULTS_FOLDER,"gini-apis.tex");
-        exportGini(gini4RTExc,RESULTS_FOLDER,"gini-runtimeexceptions.tex");
+        exportGini(gini4AllConstraints, RESULTS_FOLDER, "gini.tex");
+        exportGini(gini4Annotations, RESULTS_FOLDER, "gini-annotations.tex");
+        exportGini(gini4Assertions, RESULTS_FOLDER, "gini-assertions.tex");
+        exportGini(gini4APIs, RESULTS_FOLDER, "gini-apis.tex");
+        exportGini(gini4RTExc, RESULTS_FOLDER, "gini-runtimeexceptions.tex");
 
-        // finally, output some details on categories found in programs, can be used to get some data
+        // finally, output some details on categories found in programs, can be used to
+        // get some data
         // to justify ginis
 
-        latex = new File(RESULTS_FOLDER,"topusers-lvonly.tex");
+        latex = new File(RESULTS_FOLDER, "topusers-lvonly.tex");
         try (PrintStream out = new PrintStream(new FileOutputStream(latex))) {
             out.println("% TABLE GENERATED BY " + CollectDataSetStats.class.getName());
             out.println("% TIMESTAMP:   " + new Date());
@@ -248,11 +249,8 @@ public class AnalyseContractUsage implements Experiment {
             for (ConstraintCategory category : ConstraintCategory.values()) {
                 Map<String, Integer> counts = constraintsByProgramLVandCategory.get(category);
                 List<Integer> counts2 = new ArrayList<>();
-                List<Map.Entry<String, Integer>> entries = counts.entrySet()
-                        .stream()
-                        .filter(e -> e.getValue() > 0)
-                        .sorted((e1, e2) -> e2.getValue() - e1.getValue())
-                        .collect(Collectors.toList());
+                List<Map.Entry<String, Integer>> entries = counts.entrySet().stream().filter(e -> e.getValue() > 0)
+                        .sorted((e1, e2) -> e2.getValue() - e1.getValue()).collect(Collectors.toList());
                 String s1 = "values:";
                 for (Map.Entry<String, Integer> e : entries) {
                     s1 = s1 + " " + e.getValue();
@@ -266,15 +264,13 @@ public class AnalyseContractUsage implements Experiment {
                 LOGGER.info("\t" + s2);
 
                 // append latex output
-                List<Map.Entry<String, Integer>> topEntries = entries
-                        .stream()
-                        .limit(5)
-                        .collect(Collectors.toList());
+                List<Map.Entry<String, Integer>> topEntries = entries.stream().limit(5).collect(Collectors.toList());
                 out.print(category.getName() + " & ");
                 String s = "";
                 for (Map.Entry<String, Integer> e : topEntries) {
                     // out.print(category.getName());
-                    if (s.length() > 0) s = s + ", ";
+                    if (s.length() > 0)
+                        s = s + ", ";
                     s = s + e.getKey() + " (" + Utils.NF.format(e.getValue()) + ")";
                 }
                 out.println(s + " \\\\ ");
@@ -287,22 +283,18 @@ public class AnalyseContractUsage implements Experiment {
 
     }
 
-    private static void exportGini (double value,File folder,String fileName) throws Exception {
-        File latex = new File(folder,fileName);
+    private static void exportGini(double value, File folder, String fileName) throws Exception {
+        File latex = new File(folder, fileName);
         try (PrintStream out = new PrintStream(new FileOutputStream(latex))) {
-            out.print(Math.round(value*100.0)/100.0);
+            out.print(Math.round(value * 100.0) / 100.0);
         }
         LOGGER.info("Gini value written to " + latex.getAbsolutePath());
     }
 
-    private static double computeGini (Map<String,Integer> constraintsByProgramLVs) {
-        Integer[] vals = constraintsByProgramLVs
-                .values()
-                .stream()
-                .sorted()
-                .toArray(Integer[]::new);
+    private static double computeGini(Map<String, Integer> constraintsByProgramLVs) {
+        Integer[] vals = constraintsByProgramLVs.values().stream().sorted().toArray(Integer[]::new);
 
-        return jct.util.Gini.compute(vals,true);
+        return jct.util.Gini.compute(vals, true);
     }
 
     @Override
@@ -317,9 +309,7 @@ public class AnalyseContractUsage implements Experiment {
 
     @Override
     public ExperimentArtefact[] requires() {
-        return new ExperimentArtefact[] {
-                ArtefactFactory.contracts()
-        };
+        return new ExperimentArtefact[] { ArtefactFactory.contracts() };
     }
 
     @Override
