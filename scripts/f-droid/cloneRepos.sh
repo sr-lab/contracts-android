@@ -1,5 +1,5 @@
-NUMBER=200
-FILE="github_unique_repos.txt"
+NUMBER=400
+FILE="versoesDownload.txt"
 OUTPUT_DIR="github_repos"
 COUNT=0
 
@@ -10,9 +10,14 @@ mkdir -p $OUTPUT_DIR  # create if it does not exist
 
 for r in $(cat $FILE | head -n $NUMBER); 
 do 
-	REPO_NAME=$(basename $r);
+	IFS=';'
+	read -a strarr <<< "$r"
+	echo "${strarr[0]}"
+	echo "${strarr[1]}"
+	REPO_NAME=$(basename ${strarr[0]});
 	SHOW_COUNT=$(printf "%04d" $COUNT);
-	OUTPUT_REPO="$OUTPUT_DIR/$SHOW_COUNT-$REPO_NAME";
+	Version=${strarr[1]};
+	OUTPUT_REPO="$OUTPUT_DIR/$REPO_NAME-$Version";
 	echo "[$SHOW_COUNT] Cloning $r..."; 
 
 
@@ -20,7 +25,7 @@ do
 	if [ -d $OUTPUT_REPO ]; then
 		echo "The directory $OUTPUT_REPO already exists!"
 	else
-		git clone $r $OUTPUT_REPO
+		git clone -b ${strarr[1]} --single-branch ${strarr[0]} $OUTPUT_REPO
 		echo "Done."; 
 	fi
 	COUNT=$((COUNT+1)); 
