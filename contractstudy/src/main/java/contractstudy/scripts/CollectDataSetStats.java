@@ -190,7 +190,8 @@ public class CollectDataSetStats  implements Experiment {
             out.println("   programs & " + NF.format(data.get(PROGRAMS)) + "  \\\\");
             out.println("   program versions & " + NF.format(data.get(VERSIONS)) + "  \\\\");
             out.println("   compilation units & " + NF.format(data.get(COMPILATION_UNITS)) + "  \\\\");
-            out.println("   unparsable compilation units & " + NF.format(data.get(COMPILATION_UNITS_PARSING_FAILED)) + "  \\\\");
+            if (data.get(COMPILATION_UNITS_PARSING_FAILED) != null)  // JFF: it was failing here
+              out.println("   unparsable compilation units & " + NF.format(data.get(COMPILATION_UNITS_PARSING_FAILED)) + "  \\\\");
             out.println("   \\hline");
             out.println("   classes & " + NF.format(data.get(CLASSES)) + "  \\\\");
             out.println("   methods (all)& " + NF.format(data.get(ALL_METHODS)) + "  \\\\");
