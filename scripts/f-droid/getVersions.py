@@ -2,7 +2,7 @@ import requests
 import time
 
 s = requests.Session()
-headers = {'Authorization': 'token GITHUB TOKEN'}
+headers = {'Authorization': 'token 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'}
 
 def get_versions(repo):
 	print( repo, end=">")
@@ -23,9 +23,9 @@ def main():
 	for line in source_file.readlines():
 		stripped_line = line.strip()
 		last, first = get_versions(stripped_line)
-		out_file.write(f"{stripped_line}/{last} \n")
+		out_file.write(f"{stripped_line};{last} \n")
 		time.sleep(1)
-		out_file.write(f"{stripped_line}/{first} \n")
+		out_file.write(f"{stripped_line};{first} \n")
 		time.sleep(1)
 
 
