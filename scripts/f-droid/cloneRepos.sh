@@ -1,5 +1,5 @@
 NUMBER=500
-FILE="versoesDownload.txt"
+FILE="versions_file.txt"
 OUTPUT_DIR="github_repos"
 COUNT=0
 
