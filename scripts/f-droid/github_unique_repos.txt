@@ -8,6 +8,7 @@ https://github.com/OpenTracksApp/OpenTracks
 https://github.com/rnauber/xskat-android
 https://github.com/Fr4gorSoftware/SecScanQR
 https://github.com/ubergeek42/weechat-android
+https://github.com/openfoodfacts/openfoodfacts-androidapp
 https://github.com/wallabag/android-app
 https://github.com/wiglenet/wigle-wifi-wardriving
 https://github.com/RailwayStations/RSAndroidApp
@@ -25,6 +26,7 @@ https://github.com/dkanada/gelli
 https://github.com/nilsbraden/ttrss-reader-fork
 https://github.com/stefan-niedermann/nextcloud-notes
 https://github.com/nerzhul/ncsms-android
+https://github.com/nextcloud/android
 https://github.com/BiglySoftware/BiglyBT-Android
 https://github.com/k9mail/k-9
 https://github.com/mosmetro-android/mosmetro-android
@@ -60,6 +62,7 @@ https://github.com/marunjar/anewjkuapp
 https://github.com/phrogg/BatteryCalibrator
 https://github.com/phrogg/GetMiTokens
 https://github.com/niccokunzmann/mundraub-android
+https://github.com/redsolution/xabber-android
 https://github.com/grzegorznittner/chanu
 https://github.com/Catrobat/Paintroid
 https://github.com/nikclayton/android-squeezer
@@ -92,6 +95,7 @@ https://github.com/IngoZenz/personaldnsfilter
 https://github.com/Reminimalism/MaterialsLiveWallpaper
 https://github.com/MCMrARM/revolution-irc
 https://github.com/SecUSo/privacy-friendly-sudoku
+https://github.com/renyuneyun/Easer
 https://github.com/h0chi/next-companion
 https://github.com/librespeed/speedtest-android
 https://github.com/TeamNewPipe/NewPipe-legacy
@@ -132,6 +136,7 @@ https://github.com/blockstream/green_android
 https://github.com/bparmentier/OpenBikeSharing
 https://github.com/TheRedSpy15/LTECleanerFOSS
 https://github.com/rignaneseleo/SlimSocial-for-Facebook
+https://github.com/mpcjanssen/simpletask-android
 https://github.com/limboemu/limbo
 https://github.com/AnySoftKeyboard/AnySoftKeyboard
 https://github.com/SoltauFintel/blockpuzzle
@@ -146,6 +151,7 @@ https://github.com/gateship-one/odyssey
 https://github.com/fr3ts0n/AndrOBD
 https://github.com/lexica/lexica
 https://github.com/39aldo39/spaRSS-DecSync
+https://github.com/OpenTracksApp/OSMDashboard
 https://github.com/M66B/NetGuard
 https://github.com/chrismiceli/daap-client
 https://github.com/EXALAB/AnLinux-Adfree
@@ -189,11 +195,13 @@ https://github.com/daneren2005/Subsonic
 https://github.com/ScreamingHawk/android-slideshow
 https://github.com/jackpal/Android-Terminal-Emulator
 https://github.com/cyclestreets/android
+https://github.com/xyzz/openmw-android
 https://github.com/agateau/pixelwheels
 https://github.com/mvmike/min-cal-widget
 https://github.com/devgianlu/Aria2Android
 https://github.com/charbgr/Anagram-Solver
 https://github.com/ivpn/android-app
+https://github.com/iNPUTmice/Conversations
 https://github.com/clemensbartz/essential-launcher
 https://github.com/vanilla-music/vanilla-music-tag-editor
 https://github.com/zamojski/TowerCollector
@@ -215,6 +223,7 @@ https://github.com/JonasBernard/FakeStandby
 https://github.com/wolpi/prim-ftpd
 https://github.com/kraigs-android/kraigsandroid
 https://github.com/kabouzeid/Phonograph
+https://github.com/microg/android_packages_apps_UnifiedNlp
 https://github.com/NathanielMotus/Cavevin
 https://github.com/osfans/trime
 https://github.com/osmdroid/osmdroid
@@ -230,8 +239,10 @@ https://github.com/miracle2k/android-autostarts
 https://github.com/JuliusHenke/Timetable-App
 https://github.com/scoute-dich/browser
 https://github.com/rootkiwi/an2linuxclient
+https://github.com/bitcoin-wallet/bitcoin-wallet
 https://github.com/vanilla-music/vanilla
 https://github.com/Aefyr/SAI
+https://github.com/erickok/transdroid
 https://github.com/ukanth/afwall
 https://github.com/SimoneTinella/Stato_COVID19_Italia_Android
 https://github.com/geometer/FBReaderJ-plugin-local-opds-scanner
@@ -255,6 +266,7 @@ https://github.com/rtyley/agit
 https://github.com/kebernet/shortyz
 https://github.com/jevonlongdell/nztides
 https://github.com/T-Rex96/Easy_xkcd
+https://github.com/gsantner/dandelion
 https://github.com/abrensch/brouter
 https://github.com/TheFakeMontyOnTheRun/knightsofalentejo
 https://github.com/pragma-/networklog
@@ -295,6 +307,7 @@ https://github.com/guardianproject/ObscuraCam
 https://github.com/guardianproject/ripple
 https://github.com/nextgis/android_gisapp
 https://github.com/scoute-dich/Weather
+https://github.com/google/talkback
 https://github.com/Exodus-Privacy/exodus-android-app
 https://github.com/Crazy-Marvin/Morse
 https://github.com/physphil/UnitConverterUltimate
@@ -313,6 +326,7 @@ https://github.com/reloZid/android-anuto
 https://github.com/yaxim-org/yaxim
 https://github.com/iSoron/uhabits
 https://github.com/TrueWatcher/tower
+https://github.com/MirakelX/mirakel-android
 https://github.com/aaronjwood/PortAuthority
 https://github.com/HashEngineeringSolutions/dash-wallet
 https://github.com/termux/termux-api
@@ -361,6 +375,7 @@ https://github.com/brarcher/budget-watch
 https://github.com/termux/termux-float
 https://github.com/andstatus/andstatus
 https://github.com/CDrummond/lms-material-app
+https://github.com/andstatus/todoagenda
 https://github.com/warenix/Web2PDF
 https://github.com/mannd/epmobile
 https://github.com/cetoolbox/cetoolbox
@@ -496,6 +511,7 @@ https://github.com/RyuzakiKK/NoteCrypt
 https://github.com/452/USBHIDTerminal
 https://github.com/JohnLines/mediclog
 https://github.com/restorer/gloomy-dungeons-2
+https://github.com/woffs/tazapp-android
 https://github.com/tube42/9p
 https://github.com/pretix/pretixdroid
 https://github.com/EvanRespaut/Equate
@@ -665,6 +681,7 @@ https://github.com/juankysoriano/Zen
 https://github.com/pR0Ps/LocationShare
 https://github.com/yassirh/digital-ocean-swimmer
 https://github.com/javiersantos/WhatsAppBetaUpdater
+https://github.com/Groestlcoin/groestlcoin-wallet
 https://github.com/sanderbaas/WeatherWidget
 https://github.com/jakobwenzel/MensaGuthaben
 https://github.com/allan-simon/verbiste-android
@@ -749,6 +766,7 @@ https://github.com/namlit/siteswap_generator
 https://github.com/ATryder/TEdit
 https://github.com/mustafa01ali/SensorsSandbox
 https://github.com/opentelecoms-org/lumicall
+https://github.com/fr3ts0n/AndrOBD-Plugin
 https://github.com/TobiasBielefeld/Simple-Search
 https://github.com/rtreffer/LocalGSMLocationProvider
 https://github.com/tstein/AndroSS
@@ -821,6 +839,7 @@ https://github.com/gsimon75/compass-keyboard
 https://github.com/fair-exchange/safeprice
 https://github.com/schnatterer/nusic
 https://github.com/posm/OpenMapKitAndroid
+https://github.com/ligi/FAST
 https://github.com/ka-ba/yucata.envoy
 https://github.com/segin/BFInterpreter
 https://github.com/Selfnet/selfnet-wificonfig
@@ -984,6 +1003,7 @@ https://github.com/emdete/tabulae
 https://github.com/adrian/upm-android
 https://github.com/dnet/adsdroid
 https://github.com/X-Ryl669/BwareArea
+https://github.com/Xlythe/android_packages_apps_Calculator
 https://github.com/WeAreFairphone/FP1-Launcher
 https://github.com/ellaism/Lunary-Ethereum-Wallet
 https://github.com/aravindsagar/ScreenShift
@@ -1090,6 +1110,7 @@ https://github.com/adrianchifor/TapUnlock
 https://github.com/ShowMeHills/ShowMeHills
 https://github.com/nephoapp/anarxiv
 https://github.com/PuffOpenSource/Puff-Android
+https://github.com/WikiJourney/wikijourney_app
 https://github.com/mofosyne/NFCMessageBoard
 https://github.com/PrivacyApps/document-viewer-fontpack
 https://github.com/gianluca-nitti/android-expr-eval

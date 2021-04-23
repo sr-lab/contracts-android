@@ -1,7 +1,8 @@
 # Collecting data from F-Droid
 
  - F-Droid provides the file [index.xml](https://f-droid.org/repo/index.xml).
-   We collected this file on the 22 October 2020. You can use the script
+   We collected this file on the 22 October 2020 (it contains information about
+   3168 projects). You can use the script
    `downloadFDroidIndex.sh` to download the most current version.
 
  - Projects are filtered using the python script `FDroidStats.py`. To run it,
@@ -33,9 +34,11 @@
      
    The files contain 1145 entries (with some duplicates).
 
- - The file `github_unique_repos.txt` contains the URLs of all the github repositories collected (this file has no duplicate entries). There is a total of 1098 unique repositories.
+ - The script `printUniqueRepos.py` is used to remove duplicates. It was used to generate the file `github_unique_repos.txt`, which contains the URLs of all the github repositories collected without duplicates. There is a total of 1119 unique repositories.
 
- - The script `cloneRepos.sh` clones all the repositories listed in the file `github_unique_repos.txt`
+ - The script `createVersionsFile.py` is used to obtain the 'first' and 'last' versions of each repository in `github_unique_repos.txt`. The script can set a limit on the number of projects to process (by default, it processes the top 200 projects). It creates the file `versions_file.txt` with the versions that will be processed.
+
+ - The script `cloneRepos.sh` clones the repositories listed in the file `versions_file.txt`
 
 ## Credits
 [Ana Ribeiro](https://github.com/anasofiagribeiro) created the original version
