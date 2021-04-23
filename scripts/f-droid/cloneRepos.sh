@@ -25,6 +25,7 @@ do
 	if [ -d $OUTPUT_REPO ]; then
 		echo "The directory $OUTPUT_REPO already exists!"
 	else
+		printf "git clone -b %s --single-branch %s %s" ${strarr[1]}, ${strarr[0]}, $OUTPUT_REPO 
 		git clone -b ${strarr[1]} --single-branch ${strarr[0]} $OUTPUT_REPO
 		echo "Done."; 
 	fi

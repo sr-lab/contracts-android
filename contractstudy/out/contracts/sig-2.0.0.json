@@ -1,0 +1,1 @@
+[{"cu":"0323-sig-gen-v1.01/src/org/billthefarmer/siggen/Display.java","condition":"\"DefaultLocale\"","method":"onDraw(Canvas)","additional_info":"-","artefact_type":"METHOD","line":61,"name":"sig","abstract_method":false,"type":"AndroidSuppressLint","version":"2.0.0"}]

@@ -1,0 +1,1 @@
+[{"cu":"0334-accordion-v1.17/src/main/java/org/billthefarmer/accordion/MainActivity.java","condition":"\"ClickableViewAccessibility\"","method":"onTouch(View,","additional_info":"-","artefact_type":"METHOD","line":434,"name":"accordion","abstract_method":false,"type":"AndroidSuppressLint","version":"3.0.0"}]

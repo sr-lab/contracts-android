@@ -1,0 +1,1 @@
+[{"cu":"0121-TinyKeePass-v0.1/app/src/main/java/org/sorz/lab/tinykeepass/DatabaseSyncingService.java","condition":"-","method":"onBind(Intent)","additional_info":"\"Not yet implemented\"","artefact_type":"METHOD","line":43,"name":"TinyKeePass","abstract_method":false,"type":"UCREUnsupportedOperationException","version":"2.0.0"}]
