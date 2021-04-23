@@ -38,7 +38,7 @@
 
  - The script `createVersionsFile.py` is used to obtain the 'first' and 'last' versions of each repository in `github_unique_repos.txt`. The script can set a limit on the number of projects to process (by default, it processes the top 200 projects). It creates the file `versions_file.txt` with the versions that will be processed.
 
- - The script `cloneRepos.sh` clones the repositories listed in the file `versions_file.txt`
+ - The script `cloneRepos.sh` clones the repositories listed in the file `versions_file.txt` (by default, two versions of the top 200 projects). It clones the repositories into the folder `github_repos`.
 
 ## Credits
 [Ana Ribeiro](https://github.com/anasofiagribeiro) created the original version

@@ -1,4 +1,4 @@
-NUMBER=500
+NUMBER=400
 FILE="versions_file.txt"
 OUTPUT_DIR="github_repos"
 COUNT=0
