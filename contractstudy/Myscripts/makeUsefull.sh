@@ -6,7 +6,10 @@ for i in *
 do
 	IFS='-'
 	read -a strarr <<< "$i"
-	echo "${strarr[1]}"
-	mkdir "/mnt/c/Users/salty/contracts-android/contractstudy/ExtractContractsFinal/${strarr[1]}"
-	mv "$i" "/mnt/c/Users/salty/contracts-android/contractstudy/ExtractContractsFinal/${strarr[1]}"
+	echo "${strarr[*]}"
+	CAMINHO=${i##*${strarr[0]}-}
+	CAMINHO=${CAMINHO%%-${strarr[-1]}*}
+	echo "$CAMINHO"
+	mkdir "/mnt/c/Users/salty/contracts-android/contractstudy/ExtractContractsFinalF/$CAMINHO"
+	mv "$i" "/mnt/c/Users/salty/contracts-android/contractstudy/ExtractContractsFinalF/$CAMINHO"
 done
