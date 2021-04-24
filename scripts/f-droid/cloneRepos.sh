@@ -1,6 +1,6 @@
 NUMBER=400
-FILE="versions_file.txt"
-OUTPUT_DIR="github_reposT"
+FILE="T.txt"
+OUTPUT_DIR="github_reposT123123"
 COUNT=0
 
 SLEEP=10  # sleep 10 seconds...
@@ -18,6 +18,7 @@ do
 	OWNER_NAME=$(basename $(dirname ${strarr[0]}));
 	SHOW_COUNT=$(printf "%04d" $COUNT);
 	Version=${strarr[1]};
+	REPO_NAME=${REPO_NAME//[-]/_}
 	OUTPUT_REPO="$OUTPUT_DIR/$SHOW_COUNT-$OWNER_NAME-$REPO_NAME-$Version";
 	echo "[$SHOW_COUNT] Cloning $r..."; 
 
