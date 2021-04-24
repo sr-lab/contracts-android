@@ -11,7 +11,7 @@ for x in list:
 	v = 1
 	for x2 in list2:
 		l = x2.split("-");
-		l[-1] = str(4-v) + ".0.0"
+		l[-1] = str(v) + ".0.0"
 		print(f"{l[-2]}-{l[-1]}")
 		try:
 			rename(rf'C:/Users/salty/contracts-android/contractstudy/ExtractContractsFinalF/{x}/{x2}',rf'C:/Users/salty/contracts-android/contractstudy/ExtractContractsFinalF/{x}/{l[-2]}-{l[-1]}.zip')
