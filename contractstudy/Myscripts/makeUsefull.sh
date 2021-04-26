@@ -10,6 +10,7 @@ do
 	CAMINHO=${i##*${strarr[0]}-}
 	CAMINHO=${CAMINHO%%-${strarr[-1]}*}
 	echo "$CAMINHO"
-	mkdir "/mnt/c/Users/salty/contracts-android/contractstudy/ExtractContractsFinalF/$CAMINHO"
-	mv "$i" "/mnt/c/Users/salty/contracts-android/contractstudy/ExtractContractsFinalF/$CAMINHO"
+	mkdir "/mnt/c/Users/salty/Desktop/plsF/contracts-android/contractstudy/ExtractContracts/$CAMINHO"
+	mv "$i" "/mnt/c/Users/salty/Desktop/plsF/contracts-android/contractstudy/ExtractContracts/$CAMINHO"
 done
+

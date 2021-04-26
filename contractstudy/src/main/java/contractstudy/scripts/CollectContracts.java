@@ -8,6 +8,7 @@ import contractstudy.Logging;
 import contractstudy.Preferences;
 import contractstudy.ProgramVersion;
 import contractstudy.extractors.AndroidAnnotationExtractor;
+import contractstudy.extractors.AndroidXAnnotationExtractor;
 import contractstudy.extractors.CommonsValidate2Extractor;
 import contractstudy.extractors.CommonsValidate3Extractor;
 import contractstudy.extractors.ConditionalRuntimeExceptionExtractor;
@@ -64,7 +65,7 @@ public class CollectContracts implements Experiment {
 			new JavaAssertExtractor(), new ConditionalRuntimeExceptionExtractor(),
 			new UnconditionalOperationNotSupportedExceptionExtractor(), new GuavaPreconditionsExtractor(),
 			new CommonsValidate2Extractor(), new CommonsValidate3Extractor(), new SpringAssertExtractor(),
-			new AndroidAnnotationExtractor() };
+			new AndroidAnnotationExtractor(), new AndroidXAnnotationExtractor() };
 
 	public static void main(String[] args) throws Exception {
 

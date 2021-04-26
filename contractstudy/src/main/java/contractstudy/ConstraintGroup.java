@@ -23,7 +23,8 @@ public enum ConstraintGroup {
     ANNO_FINDBUGS("FindBugs", "findbugs", ConstraintCategory.ANNOTATION),
     ANNO_JetBrains("JetBrains", "jetbrains", ConstraintCategory.ANNOTATION),
     ANNO_Lombok("Lombok", "lombok", ConstraintCategory.ANNOTATION),
-    ANNO_Android("Android", "android", ConstraintCategory.ANNOTATION);
+    ANNO_Android("Android", "android", ConstraintCategory.ANNOTATION),
+    ANNO_AndroidX("AndroidX", "androidx", ConstraintCategory.ANNOTATION);
 
     private String name = null;
     private String shortName = null;
