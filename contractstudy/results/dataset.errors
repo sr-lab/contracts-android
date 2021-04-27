@@ -1,6 +1,4 @@
-ExtractContractsFinal/BiglyBT/BiglyBT-2.0.0.zip, 0048-BiglyBT-Android-v1.1.0/core/plugins/com/aelitis/azureus/plugins/xmwebui/client/connect/XMClientConnection.java, Error: Empty import declarations have no name
-ExtractContractsFinal/Clover/Clover-2.0.0.zip, 0133-Clover-v1.0/Clover/src/org/floens/chan/ui/activity/BoardEditor.java, Error: Empty import declarations have no name
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/ai/types/BuilderAI.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/ai/types/BuilderAI.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
     at line 74, column 46.
 
 Was expecting one of:
@@ -29,7 +27,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/ai/types/FormationAI.java, Error: Encountered unexpected token: "mine" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/ai/types/FormationAI.java, Error: Encountered unexpected token: "mine" <IDENTIFIER>
     at line 62, column 35.
 
 Was expecting one of:
@@ -58,14 +56,14 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/ai/types/LogicAI.java, Error: Encountered unexpected token: "case" "case"
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/ai/types/LogicAI.java, Error: Encountered unexpected token: "case" "case"
     at line 69, column 13.
 
 Was expecting:
 
     ":"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/ai/types/MinerAI.java, Error: Encountered unexpected token: "miner" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/ai/types/MinerAI.java, Error: Encountered unexpected token: "miner" <IDENTIFIER>
     at line 20, column 37.
 
 Was expecting one of:
@@ -95,7 +93,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/ai/types/SuicideAI.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/ai/types/SuicideAI.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
     at line 34, column 45.
 
 Was expecting one of:
@@ -125,7 +123,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/core/ContentLoader.java, Error: Encountered unexpected token: "c" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/core/ContentLoader.java, Error: Encountered unexpected token: "c" <IDENTIFIER>
     at line 163, column 53.
 
 Was expecting one of:
@@ -154,7 +152,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/core/Logic.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/core/Logic.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
     at line 287, column 51.
 
 Was expecting one of:
@@ -184,8 +182,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/core/NetClient.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/core/NetServer.java, Error: Encountered unexpected token: "v" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/core/NetClient.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/core/NetServer.java, Error: Encountered unexpected token: "v" <IDENTIFIER>
     at line 253, column 62.
 
 Was expecting one of:
@@ -214,7 +212,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/core/World.java, Error: Encountered unexpected token: "l" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/core/World.java, Error: Encountered unexpected token: "l" <IDENTIFIER>
     at line 203, column 52.
 
 Was expecting one of:
@@ -243,7 +241,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/entities/Predict.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/entities/Predict.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
     at line 56, column 35.
 
 Was expecting one of:
@@ -272,7 +270,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/entities/bullet/BulletType.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/entities/bullet/BulletType.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
     at line 256, column 56.
 
 Was expecting one of:
@@ -301,7 +299,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/entities/bullet/MassDriverBolt.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/entities/bullet/MassDriverBolt.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
     at line 39, column 51.
 
 Was expecting one of:
@@ -331,7 +329,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/entities/bullet/SapBulletType.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/entities/bullet/SapBulletType.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
     at line 33, column 39.
 
 Was expecting one of:
@@ -360,7 +358,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/entities/comp/BuildingComp.java, Error: Encountered unexpected token: "entity" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/entities/comp/BuildingComp.java, Error: Encountered unexpected token: "entity" <IDENTIFIER>
     at line 201, column 45.
 
 Was expecting one of:
@@ -389,7 +387,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/entities/comp/BulletComp.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/entities/comp/BulletComp.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
     at line 94, column 37.
 
 Was expecting one of:
@@ -418,7 +416,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/entities/comp/MinerComp.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/entities/comp/MinerComp.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
     at line 35, column 73.
 
 Was expecting one of:
@@ -448,7 +446,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/entities/comp/PayloadComp.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/entities/comp/PayloadComp.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
     at line 94, column 44.
 
 Was expecting one of:
@@ -477,7 +475,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/entities/comp/UnitComp.java, Error: Encountered unexpected token: "builder" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/entities/comp/UnitComp.java, Error: Encountered unexpected token: "builder" <IDENTIFIER>
     at line 91, column 37.
 
 Was expecting one of:
@@ -506,7 +504,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/game/Teams.java, Error: Encountered unexpected token: "payloadc" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/game/Teams.java, Error: Encountered unexpected token: "payloadc" <IDENTIFIER>
     at line 136, column 37.
 
 Was expecting one of:
@@ -535,7 +533,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/graphics/OverlayRenderer.java, Error: Encountered unexpected token: "unit" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/graphics/OverlayRenderer.java, Error: Encountered unexpected token: "unit" <IDENTIFIER>
     at line 157, column 57.
 
 Was expecting one of:
@@ -564,7 +562,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/input/InputHandler.java, Error: Encountered unexpected token: "pay" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/input/InputHandler.java, Error: Encountered unexpected token: "pay" <IDENTIFIER>
     at line 211, column 55.
 
 Was expecting one of:
@@ -593,7 +591,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/input/MobileInput.java, Error: Encountered unexpected token: "pay" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/input/MobileInput.java, Error: Encountered unexpected token: "pay" <IDENTIFIER>
     at line 526, column 50.
 
 Was expecting one of:
@@ -622,7 +620,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/io/TypeIO.java, Error: Encountered unexpected token: "i" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/io/TypeIO.java, Error: Encountered unexpected token: "i" <IDENTIFIER>
     at line 40, column 44.
 
 Was expecting one of:
@@ -651,7 +649,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/io/legacy/LegacyIO.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/io/legacy/LegacyIO.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
     at line 73, column 65.
 
 Was expecting one of:
@@ -680,7 +678,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/logic/LExecutor.java, Error: Encountered unexpected token: "number" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/logic/LExecutor.java, Error: Encountered unexpected token: "number" <IDENTIFIER>
     at line 88, column 44.
 
 Was expecting one of:
@@ -709,14 +707,14 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/logic/LStatements.java, Error: Encountered unexpected token: "case" "case"
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/logic/LStatements.java, Error: Encountered unexpected token: "case" "case"
     at line 171, column 21.
 
 Was expecting:
 
     ":"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/maps/SectorDamage.java, Error: Encountered unexpected token: "ranged" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/maps/SectorDamage.java, Error: Encountered unexpected token: "ranged" <IDENTIFIER>
     at line 264, column 85.
 
 Was expecting one of:
@@ -745,7 +743,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/maps/generators/BaseGenerator.java, Error: Encountered unexpected token: "item" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/maps/generators/BaseGenerator.java, Error: Encountered unexpected token: "item" <IDENTIFIER>
     at line 200, column 42.
 
 Was expecting one of:
@@ -774,7 +772,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/mod/ContentParser.java, Error: Encountered unexpected token: "r" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/mod/ContentParser.java, Error: Encountered unexpected token: "r" <IDENTIFIER>
     at line 293, column 59.
 
 Was expecting one of:
@@ -803,7 +801,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/mod/Mods.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/mod/Mods.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
     at line 173, column 55.
 
 Was expecting one of:
@@ -832,7 +830,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/net/ArcNetProvider.java, Error: Encountered unexpected token: "p" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/net/ArcNetProvider.java, Error: Encountered unexpected token: "p" <IDENTIFIER>
     at line 364, column 40.
 
 Was expecting one of:
@@ -861,7 +859,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/net/Net.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/net/Net.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
     at line 240, column 42.
 
 Was expecting one of:
@@ -890,7 +888,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/net/NetworkIO.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/net/NetworkIO.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
     at line 31, column 59.
 
 Was expecting one of:
@@ -919,7 +917,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/type/ItemStack.java, Error: Encountered unexpected token: "stack" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/type/ItemStack.java, Error: Encountered unexpected token: "stack" <IDENTIFIER>
     at line 70, column 37.
 
 Was expecting one of:
@@ -949,7 +947,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/type/UnitType.java, Error: Encountered unexpected token: "r" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/type/UnitType.java, Error: Encountered unexpected token: "r" <IDENTIFIER>
     at line 187, column 47.
 
 Was expecting one of:
@@ -978,7 +976,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/ui/Fonts.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/ui/Fonts.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
     at line 151, column 47.
 
 Was expecting one of:
@@ -1007,8 +1005,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/ui/dialogs/PlanetDialog.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 735, column 87.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/ui/dialogs/PlanetDialog.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
+    at line 741, column 87.
 
 Was expecting one of:
 
@@ -1037,7 +1035,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/ui/dialogs/SettingsMenuDialog.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/ui/dialogs/SettingsMenuDialog.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
     at line 129, column 59.
 
 Was expecting one of:
@@ -1066,8 +1064,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/ui/fragments/PlacementFragment.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/world/Block.java, Error: Encountered unexpected token: "i" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/ui/fragments/PlacementFragment.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/world/Block.java, Error: Encountered unexpected token: "i" <IDENTIFIER>
     at line 638, column 46.
 
 Was expecting one of:
@@ -1096,8 +1094,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/world/blocks/Autotiler.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/world/blocks/defense/turrets/PowerTurret.java, Error: Encountered unexpected token: "switch" "switch"
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/Autotiler.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/defense/turrets/PowerTurret.java, Error: Encountered unexpected token: "switch" "switch"
     at line 39, column 20.
 
 Was expecting one of:
@@ -1132,7 +1130,7 @@ Was expecting one of:
     <LONG_LITERAL>
     <STRING_LITERAL>
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/world/blocks/defense/turrets/Turret.java, Error: Encountered unexpected token: "switch" "switch"
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/defense/turrets/Turret.java, Error: Encountered unexpected token: "switch" "switch"
     at line 174, column 20.
 
 Was expecting one of:
@@ -1167,7 +1165,7 @@ Was expecting one of:
     <LONG_LITERAL>
     <STRING_LITERAL>
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/world/blocks/distribution/Conveyor.java, Error: Encountered unexpected token: "build" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/distribution/Conveyor.java, Error: Encountered unexpected token: "build" <IDENTIFIER>
     at line 151, column 56.
 
 Was expecting one of:
@@ -1196,7 +1194,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/world/blocks/distribution/StackConveyor.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/distribution/StackConveyor.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
     at line 61, column 53.
 
 Was expecting one of:
@@ -1225,7 +1223,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/world/blocks/logic/LogicBlock.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/logic/LogicBlock.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
     at line 133, column 37.
 
 Was expecting one of:
@@ -1254,7 +1252,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/world/blocks/logic/LogicDisplay.java, Error: Encountered unexpected token: ";" ";"
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/logic/LogicDisplay.java, Error: Encountered unexpected token: ";" ";"
     at line 81, column 104.
 
 Was expecting one of:
@@ -1293,7 +1291,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/world/blocks/production/Drill.java, Error: Encountered unexpected token: "f" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/production/Drill.java, Error: Encountered unexpected token: "f" <IDENTIFIER>
     at line 140, column 80.
 
 Was expecting one of:
@@ -1323,7 +1321,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/core/src/mindustry/world/meta/Stats.java, Error: Encountered unexpected token: "f" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/core/src/mindustry/world/meta/Stats.java, Error: Encountered unexpected token: "f" <IDENTIFIER>
     at line 71, column 53.
 
 Was expecting one of:
@@ -1353,7 +1351,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-2.0.0.zip, 0025-Mindustry-v114/desktop/src/mindustry/desktop/steam/SStats.java, Error: Encountered unexpected token: "block" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0030-Anuken-Mindustry-v114.1/desktop/src/mindustry/desktop/steam/SStats.java, Error: Encountered unexpected token: "block" <IDENTIFIER>
     at line 184, column 45.
 
 Was expecting one of:
@@ -1382,7 +1380,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/ClientLauncher.java, Error: Encountered unexpected token: "l" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/ClientLauncher.java, Error: Encountered unexpected token: "l" <IDENTIFIER>
     at line 121, column 39.
 
 Was expecting one of:
@@ -1411,8 +1409,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/ai/BaseAI.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 121, column 60.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/ai/BaseAI.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
+    at line 120, column 60.
 
 Was expecting one of:
 
@@ -1440,7 +1438,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/ai/types/BuilderAI.java, Error: Encountered unexpected token: "cons" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/ai/types/BuilderAI.java, Error: Encountered unexpected token: "cons" <IDENTIFIER>
     at line 79, column 83.
 
 Was expecting one of:
@@ -1470,7 +1468,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/ai/types/DefenderAI.java, Error: Encountered unexpected token: "s" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/ai/types/DefenderAI.java, Error: Encountered unexpected token: "s" <IDENTIFIER>
     at line 15, column 53.
 
 Was expecting one of:
@@ -1500,14 +1498,14 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/ai/types/LogicAI.java, Error: Encountered unexpected token: "case" "case"
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/ai/types/LogicAI.java, Error: Encountered unexpected token: "case" "case"
     at line 70, column 13.
 
 Was expecting:
 
     ":"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/ai/types/RepairAI.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/ai/types/RepairAI.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
     at line 31, column 92.
 
 Was expecting one of:
@@ -1536,7 +1534,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/ai/types/SuicideAI.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/ai/types/SuicideAI.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
     at line 35, column 45.
 
 Was expecting one of:
@@ -1566,7 +1564,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/content/Fx.java, Error: Encountered unexpected token: "unit" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/content/Fx.java, Error: Encountered unexpected token: "unit" <IDENTIFIER>
     at line 29, column 41.
 
 Was expecting one of:
@@ -1596,7 +1594,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/core/ContentLoader.java, Error: Encountered unexpected token: "c" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/core/ContentLoader.java, Error: Encountered unexpected token: "c" <IDENTIFIER>
     at line 167, column 53.
 
 Was expecting one of:
@@ -1625,8 +1623,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/core/Control.java, Error: Encountered unexpected token: "sec" <IDENTIFIER>
-    at line 148, column 110.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/core/Control.java, Error: Encountered unexpected token: "sec" <IDENTIFIER>
+    at line 150, column 110.
 
 Was expecting one of:
 
@@ -1655,7 +1653,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/core/Logic.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/core/Logic.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
     at line 310, column 51.
 
 Was expecting one of:
@@ -1685,8 +1683,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/core/NetClient.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/core/NetServer.java, Error: Encountered unexpected token: "v" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/core/NetClient.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/core/NetServer.java, Error: Encountered unexpected token: "v" <IDENTIFIER>
     at line 265, column 62.
 
 Was expecting one of:
@@ -1715,7 +1713,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/core/World.java, Error: Encountered unexpected token: "l" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/core/World.java, Error: Encountered unexpected token: "l" <IDENTIFIER>
     at line 204, column 52.
 
 Was expecting one of:
@@ -1744,7 +1742,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/entities/Predict.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/entities/Predict.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
     at line 56, column 35.
 
 Was expecting one of:
@@ -1773,7 +1771,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/entities/Units.java, Error: Encountered unexpected token: "hb" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/entities/Units.java, Error: Encountered unexpected token: "hb" <IDENTIFIER>
     at line 97, column 117.
 
 Was expecting one of:
@@ -1803,8 +1801,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/entities/bullet/BulletType.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
-    at line 263, column 56.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/entities/bullet/BulletType.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
+    at line 268, column 56.
 
 Was expecting one of:
 
@@ -1832,7 +1830,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/entities/bullet/MassDriverBolt.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/entities/bullet/MassDriverBolt.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
     at line 39, column 51.
 
 Was expecting one of:
@@ -1862,7 +1860,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/entities/bullet/SapBulletType.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/entities/bullet/SapBulletType.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
     at line 33, column 39.
 
 Was expecting one of:
@@ -1891,7 +1889,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/entities/comp/BuilderComp.java, Error: Encountered unexpected token: "cb" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/BuilderComp.java, Error: Encountered unexpected token: "cb" <IDENTIFIER>
     at line 97, column 51.
 
 Was expecting one of:
@@ -1921,8 +1919,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/entities/comp/BuildingComp.java, Error: Encountered unexpected token: "entity" <IDENTIFIER>
-    at line 211, column 45.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/BuildingComp.java, Error: Encountered unexpected token: "entity" <IDENTIFIER>
+    at line 212, column 45.
 
 Was expecting one of:
 
@@ -1950,7 +1948,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/entities/comp/BulletComp.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/BulletComp.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
     at line 94, column 37.
 
 Was expecting one of:
@@ -1979,8 +1977,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/entities/comp/CommanderComp.java, Error: Encountered unexpected token: "ai" <IDENTIFIER>
-    at line 39, column 90.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/CommanderComp.java, Error: Encountered unexpected token: "ai" <IDENTIFIER>
+    at line 40, column 90.
 
 Was expecting one of:
 
@@ -2009,7 +2007,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/entities/comp/PayloadComp.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/PayloadComp.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
     at line 97, column 44.
 
 Was expecting one of:
@@ -2038,8 +2036,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/entities/comp/UnitComp.java, Error: Encountered unexpected token: "switch" "switch"
-    at line 121, column 16.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/UnitComp.java, Error: Encountered unexpected token: "switch" "switch"
+    at line 122, column 16.
 
 Was expecting one of:
 
@@ -2073,8 +2071,8 @@ Was expecting one of:
     <LONG_LITERAL>
     <STRING_LITERAL>
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/game/Schematics.java, Error: Encountered unexpected token: "cons" <IDENTIFIER>
-    at line 361, column 92.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/game/Schematics.java, Error: Encountered unexpected token: "cons" <IDENTIFIER>
+    at line 352, column 92.
 
 Was expecting one of:
 
@@ -2103,7 +2101,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/game/Teams.java, Error: Encountered unexpected token: "payloadc" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/game/Teams.java, Error: Encountered unexpected token: "payloadc" <IDENTIFIER>
     at line 138, column 37.
 
 Was expecting one of:
@@ -2132,7 +2130,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/graphics/OverlayRenderer.java, Error: Encountered unexpected token: "unit" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/graphics/OverlayRenderer.java, Error: Encountered unexpected token: "unit" <IDENTIFIER>
     at line 162, column 57.
 
 Was expecting one of:
@@ -2161,8 +2159,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/input/InputHandler.java, Error: Encountered unexpected token: "pay" <IDENTIFIER>
-    at line 226, column 55.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/input/InputHandler.java, Error: Encountered unexpected token: "pay" <IDENTIFIER>
+    at line 192, column 66.
 
 Was expecting one of:
 
@@ -2174,6 +2172,7 @@ Was expecting one of:
     ")"
     "*="
     "+="
+    ","
     "-="
     "->"
     "/="
@@ -2190,7 +2189,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/input/MobileInput.java, Error: Encountered unexpected token: "pay" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/input/MobileInput.java, Error: Encountered unexpected token: "pay" <IDENTIFIER>
     at line 526, column 50.
 
 Was expecting one of:
@@ -2219,7 +2218,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/input/Placement.java, Error: Encountered unexpected token: "chain" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/input/Placement.java, Error: Encountered unexpected token: "chain" <IDENTIFIER>
     at line 67, column 48.
 
 Was expecting one of:
@@ -2248,7 +2247,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/io/TypeIO.java, Error: Encountered unexpected token: "i" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/io/TypeIO.java, Error: Encountered unexpected token: "i" <IDENTIFIER>
     at line 40, column 44.
 
 Was expecting one of:
@@ -2277,7 +2276,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/io/legacy/LegacyIO.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/io/legacy/LegacyIO.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
     at line 73, column 65.
 
 Was expecting one of:
@@ -2306,7 +2305,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/logic/GlobalConstants.java, Error: Encountered unexpected token: "num" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/logic/GlobalConstants.java, Error: Encountered unexpected token: "num" <IDENTIFIER>
     at line 74, column 36.
 
 Was expecting one of:
@@ -2335,7 +2334,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/logic/LCanvas.java, Error: Encountered unexpected token: "cl" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/logic/LCanvas.java, Error: Encountered unexpected token: "cl" <IDENTIFIER>
     at line 75, column 62.
 
 Was expecting one of:
@@ -2364,7 +2363,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/logic/LExecutor.java, Error: Encountered unexpected token: "number" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/logic/LExecutor.java, Error: Encountered unexpected token: "number" <IDENTIFIER>
     at line 92, column 44.
 
 Was expecting one of:
@@ -2393,14 +2392,43 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/logic/LStatements.java, Error: Encountered unexpected token: "case" "case"
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/logic/LParser.java, Error: Encountered unexpected token: "jump" <IDENTIFIER>
+    at line 142, column 48.
+
+Was expecting one of:
+
+    "!="
+    "%="
+    "&"
+    "&&"
+    "&="
+    ")"
+    "*="
+    "+="
+    "-="
+    "->"
+    "/="
+    "::"
+    "<<="
+    "="
+    "=="
+    ">>="
+    ">>>="
+    "?"
+    "^"
+    "^="
+    "|"
+    "|="
+    "||"
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/logic/LStatements.java, Error: Encountered unexpected token: "case" "case"
     at line 172, column 21.
 
 Was expecting:
 
     ":"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/maps/SectorDamage.java, Error: Encountered unexpected token: "ranged" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/maps/SectorDamage.java, Error: Encountered unexpected token: "ranged" <IDENTIFIER>
     at line 276, column 85.
 
 Was expecting one of:
@@ -2429,7 +2457,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/maps/generators/BaseGenerator.java, Error: Encountered unexpected token: "item" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/maps/generators/BaseGenerator.java, Error: Encountered unexpected token: "item" <IDENTIFIER>
     at line 217, column 42.
 
 Was expecting one of:
@@ -2458,8 +2486,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/mod/ContentParser.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/mod/Mods.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/mod/ContentParser.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/mod/Mods.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
     at line 197, column 55.
 
 Was expecting one of:
@@ -2488,8 +2516,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/mod/Scripts.java, Error: Encountered unexpected token: "n" <IDENTIFIER>
-    at line 66, column 46.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/mod/Scripts.java, Error: Encountered unexpected token: "n" <IDENTIFIER>
+    at line 67, column 46.
 
 Was expecting one of:
 
@@ -2517,8 +2545,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/net/ArcNetProvider.java, Error: Encountered unexpected token: "p" <IDENTIFIER>
-    at line 364, column 40.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/net/ArcNetProvider.java, Error: Encountered unexpected token: "p" <IDENTIFIER>
+    at line 365, column 40.
 
 Was expecting one of:
 
@@ -2546,7 +2574,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/net/Net.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/net/Net.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
     at line 240, column 42.
 
 Was expecting one of:
@@ -2575,7 +2603,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/net/NetworkIO.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/net/NetworkIO.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
     at line 31, column 59.
 
 Was expecting one of:
@@ -2604,7 +2632,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/type/ItemStack.java, Error: Encountered unexpected token: "stack" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/type/ItemStack.java, Error: Encountered unexpected token: "stack" <IDENTIFIER>
     at line 71, column 37.
 
 Was expecting one of:
@@ -2634,7 +2662,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/type/UnitType.java, Error: Encountered unexpected token: "payload" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/type/UnitType.java, Error: Encountered unexpected token: "payload" <IDENTIFIER>
     at line 180, column 41.
 
 Was expecting one of:
@@ -2663,8 +2691,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/ui/Fonts.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
-    at line 151, column 47.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/ui/Fonts.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
+    at line 150, column 47.
 
 Was expecting one of:
 
@@ -2692,7 +2720,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/ui/dialogs/DatabaseDialog.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/ui/dialogs/DatabaseDialog.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
     at line 43, column 91.
 
 Was expecting one of:
@@ -2722,7 +2750,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/ui/dialogs/PlanetDialog.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/ui/dialogs/PlanetDialog.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
     at line 832, column 79.
 
 Was expecting one of:
@@ -2752,7 +2780,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/ui/dialogs/SettingsMenuDialog.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/ui/dialogs/SettingsMenuDialog.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
     at line 128, column 59.
 
 Was expecting one of:
@@ -2781,7 +2809,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/ui/fragments/HintsFragment.java, Error: Encountered unexpected token: "p" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/ui/fragments/HintsFragment.java, Error: Encountered unexpected token: "p" <IDENTIFIER>
     at line 160, column 86.
 
 Was expecting one of:
@@ -2811,7 +2839,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/ui/fragments/HudFragment.java, Error: Encountered unexpected token: "payload" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/ui/fragments/HudFragment.java, Error: Encountered unexpected token: "payload" <IDENTIFIER>
     at line 763, column 50.
 
 Was expecting one of:
@@ -2840,8 +2868,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/ui/fragments/PlacementFragment.java, Error: Encountered unexpected token: "c" <IDENTIFIER>
-    at line 102, column 84.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/ui/fragments/PlacementFragment.java, Error: Encountered unexpected token: "c" <IDENTIFIER>
+    at line 101, column 86.
 
 Was expecting one of:
 
@@ -2870,8 +2898,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/Block.java, Error: Encountered unexpected token: "i" <IDENTIFIER>
-    at line 489, column 47.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/Block.java, Error: Encountered unexpected token: "i" <IDENTIFIER>
+    at line 487, column 47.
 
 Was expecting one of:
 
@@ -2900,7 +2928,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/Build.java, Error: Encountered unexpected token: "build" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/Build.java, Error: Encountered unexpected token: "build" <IDENTIFIER>
     at line 162, column 64.
 
 Was expecting one of:
@@ -2930,9 +2958,9 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/Autotiler.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/ConstructBlock.java, Error: Encountered unexpected token: "co" <IDENTIFIER>
-    at line 66, column 67.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/Autotiler.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/ConstructBlock.java, Error: Encountered unexpected token: "co" <IDENTIFIER>
+    at line 68, column 67.
 
 Was expecting one of:
 
@@ -2961,7 +2989,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/campaign/LaunchPad.java, Error: Encountered unexpected token: "p" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/campaign/LaunchPad.java, Error: Encountered unexpected token: "p" <IDENTIFIER>
     at line 208, column 99.
 
 Was expecting one of:
@@ -2991,8 +3019,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/defense/Door.java, Error: Encountered unexpected token: "d" <IDENTIFIER>
-    at line 72, column 43.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/defense/Door.java, Error: Encountered unexpected token: "d" <IDENTIFIER>
+    at line 73, column 43.
 
 Was expecting one of:
 
@@ -3020,7 +3048,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/defense/turrets/ItemTurret.java, Error: Encountered unexpected token: "it" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/defense/turrets/ItemTurret.java, Error: Encountered unexpected token: "it" <IDENTIFIER>
     at line 49, column 55.
 
 Was expecting one of:
@@ -3050,8 +3078,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/defense/turrets/PowerTurret.java, Error: Encountered unexpected token: "switch" "switch"
-    at line 39, column 20.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/defense/turrets/PowerTurret.java, Error: Encountered unexpected token: "switch" "switch"
+    at line 41, column 20.
 
 Was expecting one of:
 
@@ -3085,7 +3113,7 @@ Was expecting one of:
     <LONG_LITERAL>
     <STRING_LITERAL>
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/defense/turrets/Turret.java, Error: Encountered unexpected token: "switch" "switch"
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/defense/turrets/Turret.java, Error: Encountered unexpected token: "switch" "switch"
     at line 183, column 20.
 
 Was expecting one of:
@@ -3120,7 +3148,7 @@ Was expecting one of:
     <LONG_LITERAL>
     <STRING_LITERAL>
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/distribution/Conveyor.java, Error: Encountered unexpected token: "build" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/distribution/Conveyor.java, Error: Encountered unexpected token: "build" <IDENTIFIER>
     at line 168, column 56.
 
 Was expecting one of:
@@ -3149,8 +3177,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/distribution/ItemBridge.java, Error: Encountered unexpected token: "p" <IDENTIFIER>
-    at line 59, column 84.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/distribution/ItemBridge.java, Error: Encountered unexpected token: "p" <IDENTIFIER>
+    at line 60, column 84.
 
 Was expecting one of:
 
@@ -3178,7 +3206,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/distribution/MassDriver.java, Error: Encountered unexpected token: "entity" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/distribution/MassDriver.java, Error: Encountered unexpected token: "entity" <IDENTIFIER>
     at line 310, column 57.
 
 Was expecting one of:
@@ -3208,7 +3236,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/distribution/StackConveyor.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/distribution/StackConveyor.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
     at line 60, column 53.
 
 Was expecting one of:
@@ -3237,7 +3265,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/experimental/BlockLoader.java, Error: Encountered unexpected token: "build" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/experimental/BlockLoader.java, Error: Encountered unexpected token: "build" <IDENTIFIER>
     at line 66, column 50.
 
 Was expecting one of:
@@ -3267,7 +3295,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/logic/LogicBlock.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/logic/LogicBlock.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
     at line 136, column 37.
 
 Was expecting one of:
@@ -3296,7 +3324,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/logic/LogicDisplay.java, Error: Encountered unexpected token: ";" ";"
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/logic/LogicDisplay.java, Error: Encountered unexpected token: ";" ";"
     at line 82, column 104.
 
 Was expecting one of:
@@ -3335,8 +3363,8 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/power/PowerNode.java, Error: Encountered unexpected token: "node" <IDENTIFIER>
-    at line 251, column 116.
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/power/PowerNode.java, Error: Encountered unexpected token: "obuild" <IDENTIFIER>
+    at line 202, column 47.
 
 Was expecting one of:
 
@@ -3345,6 +3373,7 @@ Was expecting one of:
     "&"
     "&&"
     "&="
+    ")"
     "*="
     "+="
     ","
@@ -3352,7 +3381,6 @@ Was expecting one of:
     "->"
     "/="
     "::"
-    ";"
     "<<="
     "="
     "=="
@@ -3365,7 +3393,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/production/Drill.java, Error: Encountered unexpected token: "f" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/production/Drill.java, Error: Encountered unexpected token: "f" <IDENTIFIER>
     at line 149, column 80.
 
 Was expecting one of:
@@ -3395,7 +3423,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/storage/CoreBlock.java, Error: Encountered unexpected token: "entity" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/storage/CoreBlock.java, Error: Encountered unexpected token: "entity" <IDENTIFIER>
     at line 60, column 80.
 
 Was expecting one of:
@@ -3425,7 +3453,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/units/Reconstructor.java, Error: Encountered unexpected token: "pay" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/units/Reconstructor.java, Error: Encountered unexpected token: "pay" <IDENTIFIER>
     at line 111, column 51.
 
 Was expecting one of:
@@ -3454,7 +3482,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/blocks/units/UnitBlock.java, Error: Encountered unexpected token: "build" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/units/UnitBlock.java, Error: Encountered unexpected token: "build" <IDENTIFIER>
     at line 30, column 62.
 
 Was expecting one of:
@@ -3484,7 +3512,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/core/src/mindustry/world/meta/Stats.java, Error: Encountered unexpected token: "f" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/core/src/mindustry/world/meta/Stats.java, Error: Encountered unexpected token: "f" <IDENTIFIER>
     at line 71, column 53.
 
 Was expecting one of:
@@ -3514,7 +3542,7 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/Mindustry/Mindustry-3.0.0.zip, 0024-Mindustry-v126.1/desktop/src/mindustry/desktop/steam/SStats.java, Error: Encountered unexpected token: "block" <IDENTIFIER>
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0031-Anuken-Mindustry-v126.2/desktop/src/mindustry/desktop/steam/SStats.java, Error: Encountered unexpected token: "block" <IDENTIFIER>
     at line 181, column 45.
 
 Was expecting one of:
@@ -3543,13 +3571,13 @@ Was expecting one of:
     "|="
     "||"
 
-ExtractContractsFinal/SecScanQR/SecScanQR-3.0.0.zip, 0014-SecScanQR-1.2.8/app/src/main/java/de/t_dankworth/secscanqr/util/DatabaseHelper.java, Error: Empty import declarations have no name
-ExtractContractsFinal/android/android--2.0.0.zip, 0054-android-oc-android-2.8.0-beta.1/automationTest/src/test/java/com/owncloud/android/test/ui/testSuites/ShareLinkFileTestSuite.java, Error: Empty import declarations have no name
-ExtractContractsFinal/calendula/calendula-2.0.0.zip, 0218-calendula-v1.0/Calendula/src/main/java/es/usc/citius/servando/calendula/scheduling/ScheduleUtils.java, Error: Empty import declarations have no name
-ExtractContractsFinal/geopaparazzi/geopaparazzi-2.0.0.zip, 0123-geopaparazzi-version_4.2.3/geopaparazzispatialitelibrary/src/com/vividsolutions/jts/noding/SegmentIntersectionDetector.java, Error: Empty import declarations have no name
-ExtractContractsFinal/kolabnotes/kolabnotes-2.0.0.zip, 0337-kolabnotes-android-2.1.2/app/src/main/java/org/kore/kolabnotes/android/adapter/TagAdapter.java, Error: Empty import declarations have no name
-ExtractContractsFinal/kolabnotes/kolabnotes-3.0.0.zip, 0336-kolabnotes-android-4.2.1/app/src/main/java/org/kore/kolabnotes/android/adapter/TagAdapter.java, Error: Empty import declarations have no name
-ExtractContractsFinal/markor/markor-3.0.0.zip, 0083-markor-v2.6.0/experiments/markor-nextcloud.txt.java, Error: Encountered unexpected token: "implementation" <IDENTIFIER>
+./ExtractContracts/BiglySoftware-BiglyBT_Android/BiglySoftware-BiglyBT_Android-1.0.0.zip, 0058-BiglySoftware-BiglyBT_Android-v1.1.0/core/plugins/com/aelitis/azureus/plugins/xmwebui/client/connect/XMClientConnection.java, Error: Empty import declarations have no name
+./ExtractContracts/Fr4gorSoftware-SecScanQR/Fr4gorSoftware-SecScanQR-2.0.0.zip, 0017-Fr4gorSoftware-SecScanQR-1.2.8/app/src/main/java/de/t_dankworth/secscanqr/util/DatabaseHelper.java, Error: Empty import declarations have no name
+./ExtractContracts/MarcusWolschon-osmeditor4android/MarcusWolschon-osmeditor4android-2.0.0.zip, 0029-MarcusWolschon-osmeditor4android-15.2.1.0/src/androidTest/java/de/blau/android/gpx/SendNMEA.java, Error: Empty import declarations have no name
+./ExtractContracts/chandevel-Clover/chandevel-Clover-1.0.0.zip, 0150-chandevel-Clover-v1.0/Clover/src/org/floens/chan/ui/activity/BoardEditor.java, Error: Empty import declarations have no name
+./ExtractContracts/citiususc-calendula/citiususc-calendula-1.0.0.zip, 0244-citiususc-calendula-v1.0/Calendula/src/main/java/es/usc/citius/servando/calendula/scheduling/ScheduleUtils.java, Error: Empty import declarations have no name
+./ExtractContracts/geopaparazzi-geopaparazzi/geopaparazzi-geopaparazzi-1.0.0.zip, 0140-geopaparazzi-geopaparazzi-version_4.2.3/geopaparazzispatialitelibrary/src/com/vividsolutions/jts/noding/SegmentIntersectionDetector.java, Error: Empty import declarations have no name
+./ExtractContracts/gsantner-markor/gsantner-markor-2.0.0.zip, 0097-gsantner-markor-v2.6.0/experiments/markor-nextcloud.txt.java, Error: Encountered unexpected token: "implementation" <IDENTIFIER>
     at line 3, column 5.
 
 Was expecting one of:
@@ -3574,4 +3602,8 @@ Was expecting one of:
     "volatile"
     <EOF>
 
-ExtractContractsFinal/osmeditor4android/osmeditor4android-3.0.0.zip, 0022-osmeditor4android-15.2.0.2/src/androidTest/java/de/blau/android/gpx/SendNMEA.java, Error: Empty import declarations have no name
+./ExtractContracts/konradrenner-kolabnotes_android/konradrenner-kolabnotes_android-1.0.0.zip, 0374-konradrenner-kolabnotes_android-2.1.2/app/src/main/java/org/kore/kolabnotes/android/adapter/TagAdapter.java, Error: Empty import declarations have no name
+./ExtractContracts/konradrenner-kolabnotes_android/konradrenner-kolabnotes_android-2.0.0.zip, 0375-konradrenner-kolabnotes_android-4.2.1/app/src/main/java/org/kore/kolabnotes/android/adapter/TagAdapter.java, Error: Empty import declarations have no name
+./ExtractContracts/nextcloud-android/nextcloud-android-1.0.0.zip, 0056-nextcloud-android-stable_3.11.1/automationTest/src/test/java/com/owncloud/android/test/ui/testSuites/ShareLinkFileTestSuite.java, Error: Empty import declarations have no name
+./ExtractContracts/nextcloud-android/nextcloud-android-2.0.0.zip, 0057-nextcloud-android-rc_3.16.0_02/automationTest/src/test/java/com/owncloud/android/test/ui/testSuites/ShareLinkFileTestSuite.java, Error: Empty import declarations have no name
+./ExtractContracts/owncloud-android/owncloud-android-1.0.0.zip, 0064-owncloud-android-oc_android_2.8.0_beta.1/automationTest/src/test/java/com/owncloud/android/test/ui/testSuites/ShareLinkFileTestSuite.java, Error: Empty import declarations have no name
