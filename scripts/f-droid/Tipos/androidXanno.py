@@ -3,7 +3,7 @@ from os import listdir
 from os.path import isfile, join
 from operator import itemgetter
 
-fil = open("AndroidXanotaçõesFinal.txt", "a")
+fil = open("AndroidXanotaçõesFinal2.txt", "a")
 dir =[f for f in listdir('C:/Users/salty/Desktop/plsF/contracts-android/contractstudy/out/contracts') if isfile(join('C:/Users/salty/Desktop/plsF/contracts-android/contractstudy/out/contracts', f))]
 file1 = open('ListaAndroidXanno.txt', 'r')
 Lines = file1.readlines()
@@ -31,7 +31,7 @@ for x in dir:
                         break
                 
                 if flag == 0:
-                    listC.append([row["type"], 1, row["version"]])
+                    listC.append([row["type"], 1, row["name"], row["version"]])
 
 
 listaAux = sorted(listC, key=itemgetter(1))

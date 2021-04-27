@@ -4,7 +4,7 @@ from os import listdir
 from os.path import isfile, join
 from operator import itemgetter
 
-fil = open("targetapiFinal.txt", "a")
+fil = open("targetapiFinalV2.txt", "a")
 dir =[f for f in listdir('C:/Users/salty/Desktop/plsF/contracts-android/contractstudy/out/contracts') if isfile(join('C:/Users/salty/Desktop/plsF/contracts-android/contractstudy/out/contracts', f))]
 
 listC = []
@@ -13,7 +13,7 @@ for x in dir:
     with open('C:/Users/salty/Desktop/plsF/contracts-android/contractstudy/out/contracts/' + x) as f:
         data = json.load(f)
         for row in data:
-            if(row["type"] == 'AndroidTargetApi'):
+            if(row["type"] == 'AndroidTargetApi' and row["version"] == '2.0.0'):
                 #list.append([row["type"], row["condition"], row["version"]])
                 flag = 0
                 for aux in range(len(listC)):
@@ -24,7 +24,7 @@ for x in dir:
                         break
                 
                 if flag == 0:
-                    listC.append([row["condition"], 1, row['name'], row["version"]])
+                    listC.append([row["condition"], 1, row["name"], row["version"]])
 
 
 listaAux = sorted(listC, key=itemgetter(1))
