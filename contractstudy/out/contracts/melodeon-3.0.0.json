@@ -1,1 +1,0 @@
-[{"cu":"0328-melodeon-v1.15/src/main/java/org/billthefarmer/melodeon/MainActivity.java","condition":"\"ClickableViewAccessibility\"","method":"onTouch(View,","additional_info":"-","artefact_type":"METHOD","line":282,"name":"melodeon","abstract_method":false,"type":"AndroidSuppressLint","version":"3.0.0"}]

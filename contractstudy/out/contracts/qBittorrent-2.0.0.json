@@ -1,1 +1,0 @@
-[{"cu":"0156-qBittorrent-Client-v4.5.1/app/src/main/java/com/lgallardo/qbittorrentclient/MyTrustManager.java","condition":"defaultTrustManager == null","method":"MyTrustManager(KeyStore)","additional_info":"\"Couldn't find X509TrustManager\"","artefact_type":"METHOD","line":84,"name":"qBittorrent","abstract_method":false,"type":"CREIllegalStateException","version":"2.0.0"}]

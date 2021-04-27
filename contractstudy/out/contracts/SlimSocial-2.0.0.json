@@ -1,1 +1,0 @@
-[{"cu":"0246-SlimSocial-for-Facebook-v2.2.0/SlimFacebook/app/src/main/java/it/rignanese/leo/slimfacebook/webview/MyWebViewClient.java","condition":"android.os.Build.VERSION_CODES.M","method":"onReceivedError(WebView,","additional_info":"-","artefact_type":"METHOD","line":50,"name":"SlimSocial","abstract_method":false,"type":"AndroidTargetApi","version":"2.0.0"}]

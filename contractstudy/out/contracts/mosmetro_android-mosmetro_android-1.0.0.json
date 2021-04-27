@@ -1,0 +1,1 @@
+[{"cu":"0062-mosmetro_android-mosmetro_android-57/src/pw/thedrhax/mosmetro/authenticator/providers/MosMetroV2.java","condition":"\"HardwareIds\"","method":"run(HashMap<String,","additional_info":"-","artefact_type":"METHOD","line":217,"name":"mosmetro_android-mosmetro_android","abstract_method":false,"type":"AndroidSuppressLint","version":"1.0.0"}]

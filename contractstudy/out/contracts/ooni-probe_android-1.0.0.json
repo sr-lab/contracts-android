@@ -1,0 +1,1 @@
+[{"cu":"0114-ooni-probe_android-v1.3.2+27/app/src/main/java/org/openobservatory/ooniprobe/utils/JSONUtils.java","condition":"!hasNext()","method":"next()","additional_info":"","artefact_type":"METHOD","line":90,"name":"ooni-probe_android","abstract_method":false,"type":"CRENoSuchElementException","version":"1.0.0"}]

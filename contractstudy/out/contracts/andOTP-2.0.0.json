@@ -1,1 +1,0 @@
-[{"cu":"0202-andOTP-v0.2.3/app/src/main/java/org/shadowice/flocke/andotp/SecretKeyWrapper.java","condition":"\"GetInstance\"","method":"SecretKeyWrapper(Context, String)","additional_info":"-","artefact_type":"CLASS","line":56,"name":"andOTP","abstract_method":false,"type":"AndroidSuppressLint","version":"2.0.0"}]

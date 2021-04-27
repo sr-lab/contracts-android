@@ -1,0 +1,1 @@
+[{"cu":"0014-rnauber-xskat_android-None/app/src/main/java/de/xskat/Util.java","condition":"input.length != 3","method":"getIndexOfLargestValue(int[])","additional_info":"\"Expected integer array of length 3 but got \" + input.length","artefact_type":"METHOD","line":13,"name":"rnauber-xskat_android","abstract_method":false,"type":"CREIllegalArgumentException","version":"1.0.0"}]
