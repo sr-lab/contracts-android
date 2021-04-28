@@ -1,6 +1,6 @@
 NUMBER=400
 FILE="versions_file.txt"
-OUTPUT_DIR="github_reposY"
+OUTPUT_DIR="github_repos"
 COUNT=0
 
 SLEEP=10  # sleep 10 seconds...
