@@ -10,6 +10,22 @@ s = requests.Session()
 headers = {'Authorization': 'token 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'}
 
 def get_versions(repo):
+	orig_repo = repo 
+	repo = repo + "releases"
+	print(repo, end=">")
+	data = s.get(f"https://api.github.com/repos/{repo}", headers=headers)
+	resultado = data.json()
+
+	if len(resultado) == 0:
+		return get_tags(orig_repo)
+
+	first_version =  resultado[0]["tag_name"]
+	last_version = resultado[len(resultado) -1]["tag_name"]
+	print(f"{last_version}, {first_version}")
+	return last_version, first_version
+
+def get_tags(repo):
+	repo = repo + "tags"
 	print( repo, end=">")
 	data = s.get(f"https://api.github.com/repos/{repo}", headers=headers)
 	resultado = data.json()
@@ -17,10 +33,12 @@ def get_versions(repo):
 	if len(resultado) == 0:
 		return "None", "None"
 
-	first_version =  resultado[0]["tag_name"]
-	last_version = resultado[len(resultado) -1]["tag_name"]
+	first_version =  resultado[0]["name"]
+	last_version = resultado[len(resultado) -1]["name"]
 	print(f"{last_version}, {first_version}")
 	return last_version, first_version
+
+
 
 def main():
 
@@ -28,7 +46,7 @@ def main():
     links = []
     for line in source_file.readlines():
         x = line.split("/")
-        links.append(f"{x[-2]}/{x[-1].strip()}/releases\n")
+        links.append(f"{x[-2]}/{x[-1].strip()}/\n")
 
     top_links = links[:NUMBER_PROJECTS]
     print(f"Processing top {NUMBER_PROJECTS} projects...")

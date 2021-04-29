@@ -1,44 +1,599 @@
 prg. name,prg. version,loc,cus,classes,all methods, all constructors, pub. + prot. methods, pub. + prot. constr, id
 nerzhul-ncsms_android	2.0.0	4632	43	44	176	23	135	20	nerzhul-ncsms_android-002.000.000.7zz
-billthefarmer-sig_gen	1.0.0	993	5	7	35	5	33	5	billthefarmer-sig_gen-001.000.000.7zz
+JonasBernard-FakeStandby	2.0.0	1485	23	35	84	5	71	5	JonasBernard-FakeStandby-002.000.000.7zz
+SecUSo-privacy_friendly_sketching	1.0.0	2902	24	36	184	16	148	11	SecUSo-privacy_friendly_sketching-001.000.000.7zz
 fr3ts0n-AndrOBD	2.0.0	23016	99	101	807	125	517	92	fr3ts0n-AndrOBD-002.000.000.7zz
-billthefarmer-tuner	2.0.0	5062	20	24	94	19	76	18	billthefarmer-tuner-002.000.000.7zz
 TeamAmaze-AmazeFileManager	2.0.0	59069	379	473	2665	296	2018	247	TeamAmaze-AmazeFileManager-002.000.000.7zz
-daneren2005-Subsonic	1.0.0	42033	224	296	3010	258	2569	242	daneren2005-Subsonic-001.000.000.7zz
-ikarus23-MifareClassicTool	2.0.0	12250	28	26	337	3	229	0	ikarus23-MifareClassicTool-002.000.000.7zz
-SecUSo-privacy_friendly_sudoku	2.0.0	11211	74	81	677	54	576	42	SecUSo-privacy_friendly_sudoku-002.000.000.7zz
+farmerbb-Notepad	2.0.0	3786	18	28	204	5	154	3	farmerbb-Notepad-002.000.000.7zz
+TripSit-tripmobile	1.0.0	2494	35	33	214	18	167	7	TripSit-tripmobile-001.000.000.7zz
 AdrienPoupa-VinylMusicPlayer	1.0.0	26510	198	299	2004	196	1638	182	AdrienPoupa-VinylMusicPlayer-001.000.000.7zz
-OpenTracksApp-OSMDashboard	1.0.0	989	8	14	62	3	54	1	OpenTracksApp-OSMDashboard-001.000.000.7zz
-ruleant-getback_gps	1.0.0	5391	27	26	204	17	180	17	ruleant-getback_gps-001.000.000.7zz
-flackbash-AudioAnchor	1.0.0	3607	19	27	212	7	97	0	flackbash-AudioAnchor-001.000.000.7zz
-mozilla_mobile-focus_android	1.0.0	13574	106	129	698	72	529	51	mozilla_mobile-focus_android-001.000.000.7zz
+OpenTracksApp-OSMDashboard	1.0.0	3455	36	38	232	26	186	19	OpenTracksApp-OSMDashboard-001.000.000.7zz
+nproth-pin	1.0.0	1802	13	16	99	7	93	6	nproth-pin-001.000.000.7zz
+flackbash-AudioAnchor	1.0.0	7602	35	46	350	25	244	21	flackbash-AudioAnchor-001.000.000.7zz
+vanilla_music-vanilla	2.0.0	29783	113	196	1266	114	970	97	vanilla_music-vanilla-002.000.000.7zz
 red_coracle-episodes	1.0.0	5167	41	60	279	23	229	18	red_coracle-episodes-001.000.000.7zz
-citiususc-calendula	2.0.0	33608	226	329	2273	224	1896	194	citiususc-calendula-002.000.000.7zz
-austinhuang0131-instagrabber	1.0.0	16335	125	140	817	124	686	117	austinhuang0131-instagrabber-001.000.000.7zz
+AEFeinstein-mtg_familiar	2.0.0	30735	107	176	978	101	770	61	AEFeinstein-mtg_familiar-002.000.000.7zz
+meshenger_app-meshenger_android	1.0.0	4195	21	25	283	8	193	4	meshenger_app-meshenger_android-001.000.000.7zz
 marunjar-anewjkuapp	1.0.0	19441	144	197	1049	150	870	134	marunjar-anewjkuapp-001.000.000.7zz
-ankidroid-Anki_Android	2.0.0	115647	597	925	6407	515	4865	452	ankidroid-Anki_Android-002.000.000.7zz
-Neamar-KISS	2.0.0	17754	138	175	943	141	667	98	Neamar-KISS-002.000.000.7zz
-billthefarmer-notes	2.0.0	5009	8	15	161	7	92	6	billthefarmer-notes-002.000.000.7zz
-MarcusWolschon-osmeditor4android	1.0.0	125950	542	620	5543	479	4370	354	MarcusWolschon-osmeditor4android-001.000.000.7zz
-Reminimalism-MaterialsLiveWallpaper	1.0.0	1571	6	9	59	7	32	6	Reminimalism-MaterialsLiveWallpaper-001.000.000.7zz
+ehcloninger-pf_public	1.0.0	839	3	5	44	0	39	0	ehcloninger-pf_public-001.000.000.7zz
+ankidroid-Anki_Android	2.0.0	106621	513	823	5907	456	4413	398	ankidroid-Anki_Android-002.000.000.7zz
+tiagoshibata-Android_GPSd_Client	2.0.0	546	6	9	39	3	23	0	tiagoshibata-Android_GPSd_Client-002.000.000.7zz
+open-jdk	8	2212804	7714	10655	90760	10541	69783	7886	open-jdk-008.000.000.7zz
+Neamar-KISS	2.0.0	12514	107	128	688	117	489	87	Neamar-KISS-002.000.000.7zz
+nwrkbiz-android_xserver	2.0.0	16474	30	40	402	28	312	25	nwrkbiz-android_xserver-002.000.000.7zz
+nextcloud-talk_android	2.0.0	23849	228	269	1287	124	895	99	nextcloud-talk_android-002.000.000.7zz
+MarcusWolschon-osmeditor4android	1.0.0	144202	663	734	5974	530	4616	381	MarcusWolschon-osmeditor4android-001.000.000.7zz
 bparmentier-OpenBikeSharing	1.0.0	1358	14	18	75	9	67	9	bparmentier-OpenBikeSharing-001.000.000.7zz
-MCMrARM-revolution_irc	1.0.0	21736	152	304	1377	276	1194	274	MCMrARM-revolution_irc-001.000.000.7zz
+Gitsaibot-AF_Weather_Widget	1.0.0	11557	35	62	405	39	294	30	Gitsaibot-AF_Weather_Widget-001.000.000.7zz
+mannd-epmobile	2.0.0	10866	95	97	699	7	456	7	mannd-epmobile-002.000.000.7zz
 connectbot-connectbot	1.0.0	25130	89	131	1162	83	960	66	connectbot-connectbot-001.000.000.7zz
 Swati4star-Images_to_PDF	2.0.0	17780	137	175	953	95	651	65	Swati4star-Images_to_PDF-002.000.000.7zz
-AnySoftKeyboard-AnySoftKeyboard	2.0.0	77156	535	719	4050	333	3351	233	AnySoftKeyboard-AnySoftKeyboard-002.000.000.7zz
+termux-termux_api	2.0.0	3832	29	45	192	5	151	5	termux-termux_api-002.000.000.7zz
 osmandapp-Osmand	2.0.0	420926	1190	2296	30500	2146	24881	1388	osmandapp-Osmand-002.000.000.7zz
-Nonononoki-Hendroid	2.0.0	49058	289	411	2981	236	1904	133	Nonononoki-Hendroid-002.000.000.7zz
-M66B-NetGuard	2.0.0	14098	40	56	596	32	436	29	M66B-NetGuard-002.000.000.7zz
-marq24-UUID0xFD6FTracer	2.0.0	3142	14	23	142	8	101	6	marq24-UUID0xFD6FTracer-002.000.000.7zz
+7LPdWcaW-GrowTracker_Android	2.0.0	15235	67	93	760	57	719	49	7LPdWcaW-GrowTracker_Android-002.000.000.7zz
+AnySoftKeyboard-AnySoftKeyboard	2.0.0	77156	535	719	4050	333	3351	233	AnySoftKeyboard-AnySoftKeyboard-002.000.000.7zz
+MrReSc-Headi	2.0.0	3536	22	30	143	9	81	8	MrReSc-Headi-002.000.000.7zz
+miracle2k-android_autostarts	2.0.0	1330	4	8	54	4	45	2	miracle2k-android_autostarts-002.000.000.7zz
+Rudloff-openvegemap_cordova	1.0.0	8765	58	78	607	61	484	56	Rudloff-openvegemap_cordova-001.000.000.7zz
+Piwigo-Piwigo_Android	2.0.0	5732	94	107	361	44	258	36	Piwigo-Piwigo_Android-002.000.000.7zz
+SmartPack-SmartFlasher	1.0.0	3273	20	38	195	14	167	14	SmartPack-SmartFlasher-001.000.000.7zz
 owncloud-android	2.0.0	34348	152	218	1679	138	1280	117	owncloud-android-002.000.000.7zz
-konradrenner-kolabnotes_android	1.0.0	13768	65	108	809	77	648	64	konradrenner-kolabnotes_android-001.000.000.7zz
+jameshnsears-QuoteUnquote	1.0.0	4864	41	41	374	28	269	22	jameshnsears-QuoteUnquote-001.000.000.7zz
 cyclestreets-android	1.0.0	17575	137	214	1363	153	1052	90	cyclestreets-android-001.000.000.7zz
-sky_map_team-stardroid	1.0.0	32104	217	304	2360	239	1988	151	sky_map_team-stardroid-001.000.000.7zz
-billthefarmer-scope	1.0.0	2716	12	15	75	11	58	10	billthefarmer-scope-001.000.000.7zz
 readrops-Readrops	2.0.0	10783	94	104	878	65	717	60	readrops-Readrops-002.000.000.7zz
-AndreAle94-moneywallet	2.0.0	66111	441	668	4165	455	3216	369	AndreAle94-moneywallet-002.000.000.7zz
+k3b-LosslessJpgCrop	1.0.0	8096	17	31	340	24	243	12	k3b-LosslessJpgCrop-001.000.000.7zz
+osmdroid-osmdroid	1.0.0	77960	599	661	4728	451	3956	407	osmdroid-osmdroid-001.000.000.7zz
+adeekshith-watomatic	1.0.0	2045	25	25	143	11	99	7	adeekshith-watomatic-001.000.000.7zz
 farmerbb-Taskbar	1.0.0	11759	90	94	485	35	369	11	farmerbb-Taskbar-001.000.000.7zz
-wiglenet-wigle_wifi_wardriving	1.0.0	39823	205	262	1957	155	1490	120	wiglenet-wigle_wifi_wardriving-001.000.000.7zz
-mkulesh-onpc	1.0.0	8639	64	76	454	119	360	42	mkulesh-onpc-001.000.000.7zz
+tengel-AndroidPlanisphere	1.0.0	2991	22	54	159	36	128	23	tengel-AndroidPlanisphere-001.000.000.7zz
+mkulesh-onpc	1.0.0	23117	124	157	1116	226	761	87	mkulesh-onpc-001.000.000.7zz
 SecUSo-privacy_friendly_qr_scanner	1.0.0	2131	22	24	93	17	88	17	SecUSo-privacy_friendly_qr_scanner-001.000.000.7zz
-Swing_team-pendulums_web_client	1.0.0	null
+communitymedia-mediaphone	1.0.0	18386	39	82	858	44	672	40	communitymedia-mediaphone-001.000.000.7zz
+xbmc-Kore	2.0.0	52968	246	621	2911	392	2523	348	xbmc-Kore-002.000.000.7zz
+h0chi-next_companion	1.0.0	620	8	8	30	1	25	0	h0chi-next_companion-001.000.000.7zz
+farmerbb-Notepad	1.0.0	3858	20	30	199	6	144	3	farmerbb-Notepad-001.000.000.7zz
+pR0Ps-LocationShare	2.0.0	259	1	1	21	0	12	0	pR0Ps-LocationShare-002.000.000.7zz
+scoute_dich-browser	1.0.0	11015	69	96	720	67	559	55	scoute_dich-browser-001.000.000.7zz
+plateaukao-browser	2.0.0	8735	55	77	474	48	388	46	plateaukao-browser-002.000.000.7zz
+lufte-lona	1.0.0	6928	41	56	525	49	436	44	lufte-lona-001.000.000.7zz
+h0chi-next_companion	2.0.0	600	8	8	31	1	25	0	h0chi-next_companion-002.000.000.7zz
+AEFeinstein-mtg_familiar	1.0.0	30311	104	179	1123	95	917	69	AEFeinstein-mtg_familiar-001.000.000.7zz
+nproth-pin	2.0.0	1802	13	16	99	7	93	6	nproth-pin-002.000.000.7zz
+dslul-openboard	1.0.0	49897	230	336	2652	282	1905	204	dslul-openboard-001.000.000.7zz
+dkanada-frost	1.0.0	1040	10	10	38	2	31	2	dkanada-frost-001.000.000.7zz
+andOTP-andOTP	1.0.0	11287	71	104	703	55	548	48	andOTP-andOTP-001.000.000.7zz
+flackbash-AudioAnchor	2.0.0	3607	19	27	212	7	97	0	flackbash-AudioAnchor-002.000.000.7zz
+segler_alex-RadioDroid	2.0.0	20319	152	223	1309	114	1040	89	segler_alex-RadioDroid-002.000.000.7zz
+AnySoftKeyboard-AnySoftKeyboard	1.0.0	30414	211	280	1757	191	1340	162	AnySoftKeyboard-AnySoftKeyboard-001.000.000.7zz
+7LPdWcaW-GrowTracker_Android	1.0.0	5172	43	53	217	26	208	21	7LPdWcaW-GrowTracker_Android-001.000.000.7zz
+Gitsaibot-AF_Weather_Widget	2.0.0	11557	35	62	405	39	294	30	Gitsaibot-AF_Weather_Widget-002.000.000.7zz
+niccokunzmann-coloring_book	1.0.0	6864	88	116	544	72	438	70	niccokunzmann-coloring_book-001.000.000.7zz
+grote-BlitzMail	2.0.0	571	7	8	25	9	22	9	grote-BlitzMail-002.000.000.7zz
+owncloud-android	1.0.0	57845	256	345	2702	202	2081	185	owncloud-android-001.000.000.7zz
+ehcloninger-pf_public	2.0.0	976	3	5	47	0	40	0	ehcloninger-pf_public-002.000.000.7zz
+julian_klode-dns66	2.0.0	1860	18	24	92	10	60	10	julian_klode-dns66-002.000.000.7zz
+SecUSo-privacy_friendly_sketching	2.0.0	2902	24	36	184	16	148	11	SecUSo-privacy_friendly_sketching-002.000.000.7zz
+BombusMod-BombusMod	1.0.0	52071	396	432	3163	350	2594	307	BombusMod-BombusMod-001.000.000.7zz
+mwarning-trigger	2.0.0	2837	21	25	161	13	102	10	mwarning-trigger-002.000.000.7zz
+Piwigo-Piwigo_Android	1.0.0	4029	74	84	261	28	187	20	Piwigo-Piwigo_Android-001.000.000.7zz
+farmerbb-Taskbar	2.0.0	22570	181	193	1119	56	856	24	farmerbb-Taskbar-002.000.000.7zz
+x0b-rcx	2.0.0	26529	117	271	1409	174	946	147	x0b-rcx-002.000.000.7zz
+kaaholst-android_squeezer	2.0.0	24787	163	278	1605	177	1158	120	kaaholst-android_squeezer-002.000.000.7zz
+osmdroid-osmdroid	2.0.0	28351	216	257	1652	190	1410	171	osmdroid-osmdroid-002.000.000.7zz
+Telegram_FOSS_Team-Telegram_FOSS	1.0.0	788552	1683	4871	34673	2799	26606	2352	Telegram_FOSS_Team-Telegram_FOSS-001.000.000.7zz
+vbier-habpanelviewer	2.0.0	6021	63	80	360	55	269	40	vbier-habpanelviewer-002.000.000.7zz
+moneytoo-Player	1.0.0	883	5	6	46	5	37	5	moneytoo-Player-001.000.000.7zz
+OxfordHCC-tracker_control_android	2.0.0	3381	28	40	164	25	140	17	OxfordHCC-tracker_control_android-002.000.000.7zz
+SecUSo-privacy_friendly_weather	1.0.0	6070	65	74	303	43	260	38	SecUSo-privacy_friendly_weather-001.000.000.7zz
+adeekshith-watomatic	2.0.0	892	14	15	61	5	41	2	adeekshith-watomatic-002.000.000.7zz
+inputmice-lttrs_android	1.0.0	10785	138	160	784	86	629	57	inputmice-lttrs_android-001.000.000.7zz
+JavaCafe01-PdfViewer	2.0.0	470	5	5	27	0	19	0	JavaCafe01-PdfViewer-002.000.000.7zz
+pR0Ps-LocationShare	1.0.0	412	2	4	31	0	19	0	pR0Ps-LocationShare-001.000.000.7zz
+plateaukao-browser	1.0.0	8863	55	66	559	32	477	30	plateaukao-browser-001.000.000.7zz
+scoute_dich-browser	2.0.0	7315	51	62	318	28	243	24	scoute_dich-browser-002.000.000.7zz
+blockstream-green_android	1.0.0	251438	579	1181	18816	1412	16257	562	blockstream-green_android-001.000.000.7zz
+xbmc-Kore	1.0.0	27712	105	342	1331	198	1196	193	xbmc-Kore-001.000.000.7zz
+zamojski-TowerCollector	1.0.0	15449	197	191	1090	73	782	65	zamojski-TowerCollector-001.000.000.7zz
+OpenTracksApp-OpenTracks	1.0.0	29228	187	237	1787	168	1361	112	OpenTracksApp-OpenTracks-001.000.000.7zz
+grote-BlitzMail	1.0.0	915	8	8	43	6	26	5	grote-BlitzMail-001.000.000.7zz
+ultrasonic-ultrasonic	1.0.0	40810	164	247	2426	212	1968	188	ultrasonic-ultrasonic-001.000.000.7zz
+julian_klode-dns66	1.0.0	6508	39	57	302	27	218	19	julian_klode-dns66-001.000.000.7zz
+Donnnno-Arcticons	2.0.0	840	15	20	52	10	45	10	Donnnno-Arcticons-002.000.000.7zz
+btcontract-lnwallet	2.0.0	78218	289	435	5280	552	4343	385	btcontract-lnwallet-002.000.000.7zz
+lufte-lona	2.0.0	6928	41	56	525	49	436	44	lufte-lona-002.000.000.7zz
+massivemadness-Brackeys_IDE	1.0.0	7061	67	78	401	52	343	50	massivemadness-Brackeys_IDE-001.000.000.7zz
+SecUSo-privacy_friendly_weather	2.0.0	11489	96	113	631	68	515	51	SecUSo-privacy_friendly_weather-002.000.000.7zz
+gotify-android	2.0.0	7685	71	107	559	60	417	43	gotify-android-002.000.000.7zz
+segler_alex-RadioDroid	1.0.0	4651	44	47	271	19	215	19	segler_alex-RadioDroid-001.000.000.7zz
+stefan_niedermann-nextcloud_deck	2.0.0	34486	370	384	2664	240	2219	196	stefan_niedermann-nextcloud_deck-002.000.000.7zz
+inputmice-lttrs_android	2.0.0	10385	134	156	750	83	600	56	inputmice-lttrs_android-002.000.000.7zz
+niccokunzmann-coloring_book	2.0.0	2553	17	37	138	24	108	22	niccokunzmann-coloring_book-002.000.000.7zz
+wellenvogel-BonjourBrowser	1.0.0	1250	9	16	66	16	49	12	wellenvogel-BonjourBrowser-001.000.000.7zz
+agateau-pixelwheels	2.0.0	6795	86	108	505	45	400	44	agateau-pixelwheels-002.000.000.7zz
+AndorsTrailRelease-andors_trail	2.0.0	27055	202	281	2077	174	1580	171	AndorsTrailRelease-andors_trail-002.000.000.7zz
+redsolution-xabber_android	1.0.0	92332	640	849	6456	529	5087	386	redsolution-xabber_android-001.000.000.7zz
+cgeo-WhereYouGo	2.0.0	14839	111	121	950	97	794	88	cgeo-WhereYouGo-002.000.000.7zz
+SubhamTyagi-android_ocr	1.0.0	1331	8	12	78	2	64	1	SubhamTyagi-android_ocr-001.000.000.7zz
+tabletradio-altlauncher	2.0.0	1607	13	17	87	7	75	7	tabletradio-altlauncher-002.000.000.7zz
+HardcodeCoder-PulseMusic	2.0.0	17914	194	226	1252	146	1002	133	HardcodeCoder-PulseMusic-002.000.000.7zz
+blockstream-green_android	2.0.0	253234	588	1190	18847	1417	16256	571	blockstream-green_android-002.000.000.7zz
+termux-termux_app	1.0.0	24895	106	134	1192	55	956	39	termux-termux_app-001.000.000.7zz
+CorruptedArk-open_chaos_chess	1.0.0	11946	28	31	437	18	328	10	CorruptedArk-open_chaos_chess-001.000.000.7zz
+MuzSumer-windvolt	1.0.0	1747	21	30	88	11	82	11	MuzSumer-windvolt-001.000.000.7zz
+Catrobat-Paintroid	1.0.0	33564	268	311	2566	146	1918	110	Catrobat-Paintroid-001.000.000.7zz
+tengel-GeologicalTimescale	2.0.0	1505	10	16	63	10	50	8	tengel-GeologicalTimescale-002.000.000.7zz
+Swati4star-Images_to_PDF	1.0.0	749	5	6	35	2	32	2	Swati4star-Images_to_PDF-001.000.000.7zz
+andreynovikov-trekarta	1.0.0	189185	546	1069	7478	803	5837	550	andreynovikov-trekarta-001.000.000.7zz
+BombusMod-BombusMod	2.0.0	49229	362	400	2934	327	2412	289	BombusMod-BombusMod-002.000.000.7zz
+moneytoo-Player	2.0.0	4103	16	20	266	20	204	19	moneytoo-Player-002.000.000.7zz
+k3b-APhotoManager	1.0.0	19888	132	165	1409	85	975	78	k3b-APhotoManager-001.000.000.7zz
+mwarning-trigger	1.0.0	7082	43	61	352	40	237	22	mwarning-trigger-001.000.000.7zz
+chr15m-PdDroidParty	1.0.0	4119	27	28	207	23	184	23	chr15m-PdDroidParty-001.000.000.7zz
+Kaljurand-K6nele	1.0.0	9886	64	100	599	47	439	31	Kaljurand-K6nele-001.000.000.7zz
+ankidroid-Anki_Android	1.0.0	116199	600	928	6428	517	4884	454	ankidroid-Anki_Android-001.000.000.7zz
+twireapp-Twire	2.0.0	20327	117	173	1485	110	1088	88	twireapp-Twire-002.000.000.7zz
+rignaneseleo-SlimSocial_for_Twitter	2.0.0	224	3	3	16	1	15	1	rignaneseleo-SlimSocial_for_Twitter-002.000.000.7zz
+CityZenApp-AndroidApp	1.0.0	9347	71	82	554	56	406	48	CityZenApp-AndroidApp-001.000.000.7zz
+barbeau-gpstest	2.0.0	10951	48	50	573	18	421	17	barbeau-gpstest-002.000.000.7zz
+rkkr-simple_keyboard	2.0.0	22881	106	152	1198	128	829	79	rkkr-simple_keyboard-002.000.000.7zz
+fossasia-open_event_organizer_android	1.0.0	38967	470	495	2847	182	2253	145	fossasia-open_event_organizer_android-001.000.000.7zz
+billthefarmer-diary	1.0.0	5534	9	17	197	8	95	5	billthefarmer-diary-001.000.000.7zz
+redsolution-xabber_android	2.0.0	52594	453	487	3445	274	2660	174	redsolution-xabber_android-002.000.000.7zz
+ooni-probe_android	2.0.0	9389	130	168	600	77	511	55	ooni-probe_android-002.000.000.7zz
+massivemadness-Brackeys_IDE	2.0.0	37391	20	20	563	20	240	20	massivemadness-Brackeys_IDE-002.000.000.7zz
+nerzhul-ncsms_android	1.0.0	4915	44	45	193	24	149	21	nerzhul-ncsms_android-001.000.000.7zz
+MrReSc-Headi	1.0.0	2992	21	29	134	9	79	8	MrReSc-Headi-001.000.000.7zz
+twireapp-Twire	1.0.0	22993	120	179	1862	110	1506	108	twireapp-Twire-001.000.000.7zz
+trishika-DroidUPnP	2.0.0	8214	75	102	595	70	550	67	trishika-DroidUPnP-002.000.000.7zz
+OpenTracksApp-OpenTracks	2.0.0	25349	155	180	1521	120	1117	72	OpenTracksApp-OpenTracks-002.000.000.7zz
+JonasBernard-FakeStandby	1.0.0	1255	19	31	71	5	61	5	JonasBernard-FakeStandby-001.000.000.7zz
+textbrowser-smoke	2.0.0	33438	44	75	856	61	708	41	textbrowser-smoke-002.000.000.7zz
+TeamAmaze-AmazeFileManager	1.0.0	40922	157	221	1945	166	1555	145	TeamAmaze-AmazeFileManager-001.000.000.7zz
+btcontract-lnwallet	1.0.0	81841	298	455	5392	567	4436	397	btcontract-lnwallet-001.000.000.7zz
+nextcloud-news_android	1.0.0	22809	165	208	1341	127	1055	111	nextcloud-news_android-001.000.000.7zz
+k3b-APhotoManager	2.0.0	49517	252	321	3200	174	2423	147	k3b-APhotoManager-002.000.000.7zz
+tabletradio-altlauncher	1.0.0	644	9	12	44	5	38	5	tabletradio-altlauncher-001.000.000.7zz
+ukanth-afwall	2.0.0	32191	128	205	1561	99	1231	76	ukanth-afwall-002.000.000.7zz
+termux-termux_api	1.0.0	7471	42	82	362	15	224	5	termux-termux_api-001.000.000.7zz
+AndorsTrailRelease-andors_trail	1.0.0	27055	202	281	2077	174	1580	171	AndorsTrailRelease-andors_trail-001.000.000.7zz
+agateau-pixelwheels	1.0.0	7958	103	128	591	53	465	51	agateau-pixelwheels-001.000.000.7zz
+osmandapp-Osmand	1.0.0	420926	1190	2296	30500	2146	24881	1388	osmandapp-Osmand-001.000.000.7zz
+HardcodeCoder-PulseMusic	1.0.0	6324	60	85	442	49	290	32	HardcodeCoder-PulseMusic-001.000.000.7zz
+fr3ts0n-AndrOBD	1.0.0	22221	99	101	793	129	652	119	fr3ts0n-AndrOBD-001.000.000.7zz
+marunjar-anewjkuapp	2.0.0	22478	156	205	1326	140	1048	112	marunjar-anewjkuapp-002.000.000.7zz
+Donnnno-Arcticons	1.0.0	488	8	8	23	1	17	1	Donnnno-Arcticons-001.000.000.7zz
+tengel-GeologicalTimescale	1.0.0	1370	8	13	59	8	46	7	tengel-GeologicalTimescale-001.000.000.7zz
+wellenvogel-BonjourBrowser	2.0.0	706	6	9	46	7	35	7	wellenvogel-BonjourBrowser-002.000.000.7zz
+andreynovikov-trekarta	2.0.0	43535	87	166	1070	67	773	62	andreynovikov-trekarta-002.000.000.7zz
+SubhamTyagi-android_ocr	2.0.0	1199	9	13	65	5	56	4	SubhamTyagi-android_ocr-002.000.000.7zz
+QuantumBadger-RedReader	1.0.0	58111	370	472	2640	332	2217	243	QuantumBadger-RedReader-001.000.000.7zz
+k3b-LosslessJpgCrop	2.0.0	8580	21	38	379	28	284	16	k3b-LosslessJpgCrop-002.000.000.7zz
+gsantner-markor	2.0.0	17937	110	155	1211	89	1035	78	gsantner-markor-002.000.000.7zz
+MarcusWolschon-osmeditor4android	2.0.0	125950	542	620	5543	479	4370	354	MarcusWolschon-osmeditor4android-002.000.000.7zz
+deltachat-deltachat_android	1.0.0	49363	370	625	3688	504	2839	403	deltachat-deltachat_android-001.000.000.7zz
+Gedsh-InviZible	1.0.0	37364	151	165	1539	109	807	63	Gedsh-InviZible-001.000.000.7zz
+Kaljurand-K6nele	2.0.0	8323	58	77	498	36	349	29	Kaljurand-K6nele-002.000.000.7zz
+Catrobat-Paintroid	2.0.0	32033	200	219	1887	155	1574	134	Catrobat-Paintroid-002.000.000.7zz
+meshenger_app-meshenger_android	2.0.0	5759	30	35	345	15	233	8	meshenger_app-meshenger_android-002.000.000.7zz
+mkulesh-onpc	2.0.0	8639	64	76	454	119	360	42	mkulesh-onpc-002.000.000.7zz
+cyclestreets-android	2.0.0	17575	137	214	1363	153	1052	90	cyclestreets-android-002.000.000.7zz
+agersant-polaris_android	1.0.0	5836	58	78	429	62	259	23	agersant-polaris_android-001.000.000.7zz
+termux-termux_app	2.0.0	12148	49	63	551	19	398	16	termux-termux_app-002.000.000.7zz
+felixwiemuth-SimpleReminder	2.0.0	236	6	6	9	1	7	1	felixwiemuth-SimpleReminder-002.000.000.7zz
+rkkr-simple_keyboard	1.0.0	22603	104	151	1206	126	835	79	rkkr-simple_keyboard-001.000.000.7zz
+billthefarmer-diary	2.0.0	4776	9	15	181	7	96	4	billthefarmer-diary-002.000.000.7zz
+fossasia-open_event_organizer_android	2.0.0	41689	497	525	3065	191	2406	154	fossasia-open_event_organizer_android-002.000.000.7zz
+syncthing-syncthing_android	2.0.0	12068	75	107	582	42	345	30	syncthing-syncthing_android-002.000.000.7zz
+textbrowser-smoke	1.0.0	33291	44	74	851	60	704	41	textbrowser-smoke-001.000.000.7zz
+ooni-probe_android	1.0.0	5324	47	64	333	22	308	22	ooni-probe_android-001.000.000.7zz
+SmartPack-SmartFlasher	2.0.0	3242	20	38	193	14	165	14	SmartPack-SmartFlasher-002.000.000.7zz
+CityZenApp-AndroidApp	2.0.0	8920	66	78	541	54	397	47	CityZenApp-AndroidApp-002.000.000.7zz
+barbeau-gpstest	1.0.0	12283	52	54	666	20	486	19	barbeau-gpstest-001.000.000.7zz
+trishika-DroidUPnP	1.0.0	7255	70	90	518	59	476	56	trishika-DroidUPnP-001.000.000.7zz
+k3b-toGoZip	1.0.0	2190	23	23	130	11	87	10	k3b-toGoZip-001.000.000.7zz
+stefan_niedermann-nextcloud_notes	2.0.0	17784	187	205	1076	150	872	112	stefan_niedermann-nextcloud_notes-002.000.000.7zz
+erickok-transdroid	1.0.0	34290	256	278	1722	221	1384	193	erickok-transdroid-001.000.000.7zz
+zorgluf-souvenirs_android	1.0.0	9726	72	88	644	80	601	77	zorgluf-souvenirs_android-001.000.000.7zz
+maxistar-TextPad	1.0.0	2752	18	22	151	12	126	9	maxistar-TextPad-001.000.000.7zz
+00_Evan-shattered_pixel_dungeon	2.0.0	127203	1027	1454	7220	503	6900	474	00_Evan-shattered_pixel_dungeon-002.000.000.7zz
+bailuk-AAT	1.0.0	35588	418	542	2884	448	2493	430	bailuk-AAT-001.000.000.7zz
+akaessens-NoFbEventScraper	2.0.0	1667	15	17	64	8	55	5	akaessens-NoFbEventScraper-002.000.000.7zz
+freenet_mobile-app	1.0.0	1890	14	15	76	10	71	10	freenet_mobile-app-001.000.000.7zz
+rignaneseleo-SlimSocial_for_Twitter	1.0.0	418	4	5	19	1	15	1	rignaneseleo-SlimSocial_for_Twitter-001.000.000.7zz
+chr15m-PdDroidParty	2.0.0	4512	29	31	229	26	203	26	chr15m-PdDroidParty-002.000.000.7zz
+austinhuang0131-barinsta	2.0.0	66496	524	664	4663	481	3585	422	austinhuang0131-barinsta-002.000.000.7zz
+MuntashirAkon-AppManager	2.0.0	94821	562	769	5163	478	3601	360	MuntashirAkon-AppManager-002.000.000.7zz
+mtotschnig-MyExpenses	1.0.0	20676	122	164	925	103	801	91	mtotschnig-MyExpenses-001.000.000.7zz
+Tunous-Dawn	1.0.0	48252	525	662	3538	271	2753	242	Tunous-Dawn-001.000.000.7zz
+OAndell-Riksdagskollen	1.0.0	5104	49	58	417	38	366	26	OAndell-Riksdagskollen-001.000.000.7zz
+mosmetro_android-mosmetro_android	1.0.0	7761	49	70	440	53	386	49	mosmetro_android-mosmetro_android-001.000.000.7zz
+jackpal-Android_Terminal_Emulator	2.0.0	7798	25	43	441	26	302	25	jackpal-Android_Terminal_Emulator-002.000.000.7zz
+opacapp-opacclient	2.0.0	16658	53	85	746	39	706	38	opacapp-opacclient-002.000.000.7zz
+commons_app-apps_android_commons	2.0.0	11834	96	133	741	78	622	74	commons_app-apps_android_commons-002.000.000.7zz
+ukanth-afwall	1.0.0	26130	102	160	1273	90	1027	62	ukanth-afwall-001.000.000.7zz
+nextcloud-news_android	2.0.0	18508	145	193	1120	127	944	117	nextcloud-news_android-002.000.000.7zz
+appml-neutrinote	2.0.0	24850	50	79	1126	30	952	25	appml-neutrinote-002.000.000.7zz
+Etar_Group-Etar_Calendar	1.0.0	43197	101	207	1650	155	1230	137	Etar_Group-Etar_Calendar-001.000.000.7zz
+Gedsh-InviZible	2.0.0	35095	143	161	1403	106	748	59	Gedsh-InviZible-002.000.000.7zz
+androidsoft_org-androidsoft_coloring	1.0.0	1785	13	31	89	20	76	18	androidsoft_org-androidsoft_coloring-001.000.000.7zz
+open_keychain-open_keychain	1.0.0	84739	535	744	4827	499	3585	344	open_keychain-open_keychain-001.000.000.7zz
+wbrawner-SimpleMarkdown	2.0.0	2047	25	28	141	9	95	9	wbrawner-SimpleMarkdown-002.000.000.7zz
+gsantner-markor	1.0.0	27118	156	238	1828	148	1569	125	gsantner-markor-001.000.000.7zz
+SmartPack-SmartPack_Kernel_Manager	2.0.0	43302	216	295	3506	108	3087	38	SmartPack-SmartPack_Kernel_Manager-002.000.000.7zz
+sunilpaulmathew-Translator	1.0.0	1501	12	18	77	7	68	7	sunilpaulmathew-Translator-001.000.000.7zz
+TeamNewPipe-NewPipe	2.0.0	54713	286	384	3080	305	2149	181	TeamNewPipe-NewPipe-002.000.000.7zz
+QuantumBadger-RedReader	2.0.0	37954	253	344	2349	234	2016	177	QuantumBadger-RedReader-002.000.000.7zz
+Docile_Alligator-Infinity_For_Reddit	1.0.0	71364	401	678	3714	417	2785	262	Docile_Alligator-Infinity_For_Reddit-001.000.000.7zz
+pretix-pretixprint_android	2.0.0	5940	46	45	300	35	257	28	pretix-pretixprint_android-002.000.000.7zz
+jackpal-Android_Terminal_Emulator	1.0.0	16723	68	101	852	66	566	54	jackpal-Android_Terminal_Emulator-001.000.000.7zz
+beemdevelopment-Aegis	2.0.0	18194	176	267	1244	201	986	159	beemdevelopment-Aegis-002.000.000.7zz
+syncthing-syncthing_android	1.0.0	11945	74	106	574	42	340	30	syncthing-syncthing_android-001.000.000.7zz
+patzly-grocy_android	1.0.0	28308	114	182	1317	90	863	78	patzly-grocy_android-001.000.000.7zz
+agersant-polaris_android	2.0.0	5730	57	77	412	57	247	18	agersant-polaris_android-002.000.000.7zz
+TheLastProject-Catima	2.0.0	10776	45	53	402	17	320	12	TheLastProject-Catima-002.000.000.7zz
+felixwiemuth-SimpleReminder	1.0.0	2787	23	37	154	19	109	15	felixwiemuth-SimpleReminder-001.000.000.7zz
+jonasoreland-runnerup	1.0.0	43164	191	272	2708	165	2004	116	jonasoreland-runnerup-001.000.000.7zz
+slartus-4pdaClient_plus	1.0.0	56137	388	563	4321	272	3807	257	slartus-4pdaClient_plus-001.000.000.7zz
+lexica-lexica	2.0.0	5324	50	70	367	39	253	23	lexica-lexica-002.000.000.7zz
+deltachat-deltachat_android	2.0.0	51654	372	606	3860	477	2818	345	deltachat-deltachat_android-002.000.000.7zz
+00_Evan-shattered_pixel_dungeon	1.0.0	48043	475	592	2785	278	2636	269	00_Evan-shattered_pixel_dungeon-001.000.000.7zz
+cgeo-WhereYouGo	1.0.0	15262	115	126	971	99	807	88	cgeo-WhereYouGo-001.000.000.7zz
+zamojski-TowerCollector	2.0.0	19101	224	216	1348	82	942	74	zamojski-TowerCollector-002.000.000.7zz
+stefan_niedermann-nextcloud_deck	1.0.0	36086	400	410	2787	275	2315	226	stefan_niedermann-nextcloud_deck-001.000.000.7zz
+mosmetro_android-mosmetro_android	2.0.0	4145	37	45	251	23	222	19	mosmetro_android-mosmetro_android-002.000.000.7zz
+projectmatris-antimalwareapp	1.0.0	2170	20	23	98	9	78	8	projectmatris-antimalwareapp-001.000.000.7zz
+gotify-android	1.0.0	586	10	10	54	1	44	0	gotify-android-001.000.000.7zz
+ultrasonic-ultrasonic	2.0.0	22182	102	146	1336	99	1023	89	ultrasonic-ultrasonic-002.000.000.7zz
+bailuk-AAT	2.0.0	57602	760	896	5134	763	4281	744	bailuk-AAT-002.000.000.7zz
+stefan_niedermann-nextcloud_notes	1.0.0	14578	140	166	756	108	616	73	stefan_niedermann-nextcloud_notes-001.000.000.7zz
+Tunous-Dawn	2.0.0	49612	523	663	3592	275	2796	244	Tunous-Dawn-002.000.000.7zz
+amirzaidi-DNGProcessor	1.0.0	3457	41	53	161	25	110	20	amirzaidi-DNGProcessor-001.000.000.7zz
+mathisdt-trackworktime	1.0.0	13283	95	98	816	63	601	52	mathisdt-trackworktime-001.000.000.7zz
+AsteroidOS-AsteroidOSSync	2.0.0	63919	285	458	3954	448	2850	234	AsteroidOS-AsteroidOSSync-002.000.000.7zz
+appml-neutrinote	1.0.0	24753	50	79	1114	30	944	25	appml-neutrinote-001.000.000.7zz
+emanuele_f-PCAPdroid	2.0.0	5218	33	39	314	23	249	19	emanuele_f-PCAPdroid-002.000.000.7zz
+austinhuang0131-barinsta	1.0.0	16335	125	140	817	124	686	117	austinhuang0131-barinsta-001.000.000.7zz
+kaaholst-android_squeezer	1.0.0	13032	104	146	1005	95	841	69	kaaholst-android_squeezer-001.000.000.7zz
+MuntashirAkon-AppManager	1.0.0	7276	34	51	385	34	310	21	MuntashirAkon-AppManager-001.000.000.7zz
+mtotschnig-MyExpenses	2.0.0	92345	571	730	5637	537	4499	395	mtotschnig-MyExpenses-002.000.000.7zz
+OAndell-Riksdagskollen	2.0.0	18503	152	193	1616	116	1328	99	OAndell-Riksdagskollen-002.000.000.7zz
+Docile_Alligator-Infinity_For_Reddit	2.0.0	49817	270	485	2698	326	2014	184	Docile_Alligator-Infinity_For_Reddit-002.000.000.7zz
+pretix-pretixprint_android	1.0.0	5940	46	45	300	35	257	28	pretix-pretixprint_android-001.000.000.7zz
+MuzSumer-windvolt	2.0.0	3290	22	35	153	10	124	10	MuzSumer-windvolt-002.000.000.7zz
+open_keychain-open_keychain	2.0.0	100873	559	821	5645	570	4258	421	open_keychain-open_keychain-002.000.000.7zz
+mathisdt-trackworktime	2.0.0	9450	62	56	576	36	447	30	mathisdt-trackworktime-002.000.000.7zz
+jonasoreland-runnerup	2.0.0	37818	186	263	2327	162	1691	115	jonasoreland-runnerup-002.000.000.7zz
+CorruptedArk-open_chaos_chess	2.0.0	10808	25	28	347	16	271	10	CorruptedArk-open_chaos_chess-002.000.000.7zz
+AsteroidOS-AsteroidOSSync	1.0.0	63919	285	458	3954	448	2850	234	AsteroidOS-AsteroidOSSync-001.000.000.7zz
+AntennaPod-AntennaPod	1.0.0	42345	234	326	2828	215	2378	180	AntennaPod-AntennaPod-001.000.000.7zz
+PeterCxy-Shelter	2.0.0	4674	25	32	290	10	205	3	PeterCxy-Shelter-002.000.000.7zz
+saiga006-message_finder	2.0.0	585	5	5	16	1	12	1	saiga006-message_finder-002.000.000.7zz
+TheLastProject-Catima	1.0.0	6328	34	38	235	14	179	9	TheLastProject-Catima-001.000.000.7zz
+lexica-lexica	1.0.0	8347	76	108	514	68	368	37	lexica-lexica-001.000.000.7zz
+RailwayStations-RSAndroidApp	1.0.0	9776	65	88	696	50	570	40	RailwayStations-RSAndroidApp-001.000.000.7zz
+theblackwidower-KanaQuiz	1.0.0	9882	60	76	453	50	330	33	theblackwidower-KanaQuiz-001.000.000.7zz
+Stypox-mastercom_workbook	1.0.0	4656	49	58	300	23	221	19	Stypox-mastercom_workbook-001.000.000.7zz
+wbrawner-SimpleMarkdown	1.0.0	3542	25	26	179	16	167	14	wbrawner-SimpleMarkdown-001.000.000.7zz
+SmartPack-SmartPack_Kernel_Manager	1.0.0	41323	196	272	3330	108	2933	37	SmartPack-SmartPack_Kernel_Manager-001.000.000.7zz
+jensstein-oandbackup	1.0.0	7537	51	77	401	40	375	33	jensstein-oandbackup-001.000.000.7zz
+abrensch-brouter	1.0.0	30109	177	191	1158	104	861	100	abrensch-brouter-001.000.000.7zz
+dslul-openboard	2.0.0	61566	322	461	3186	369	2414	255	dslul-openboard-002.000.000.7zz
+TBog-TBLauncher	1.0.0	27748	149	249	1479	181	1192	123	TBog-TBLauncher-001.000.000.7zz
+projectmatris-antimalwareapp	2.0.0	1485	17	18	75	6	61	5	projectmatris-antimalwareapp-002.000.000.7zz
+yanus171-Handy_News_Reader	2.0.0	17734	71	98	953	49	700	36	yanus171-Handy_News_Reader-002.000.000.7zz
+dkanada-frost	2.0.0	669	13	13	33	2	24	2	dkanada-frost-002.000.000.7zz
+OpenArchive-openarchive_android	2.0.0	5981	32	41	330	17	275	15	OpenArchive-openarchive_android-002.000.000.7zz
+k9mail-k_9	1.0.0	90581	507	750	5989	438	4305	258	k9mail-k_9-001.000.000.7zz
+patzly-grocy_android	2.0.0	38243	147	241	1751	114	1148	101	patzly-grocy_android-002.000.000.7zz
+gjedeer-Acastus	2.0.0	1990	10	14	115	2	88	1	gjedeer-Acastus-002.000.000.7zz
+Stypox-mastercom_workbook	2.0.0	1705	20	19	123	9	83	7	Stypox-mastercom_workbook-002.000.000.7zz
+RailwayStations-RSAndroidApp	2.0.0	6385	49	64	383	35	318	28	RailwayStations-RSAndroidApp-002.000.000.7zz
+berdosi-HeartBeat	1.0.0	592	8	8	25	4	14	0	berdosi-HeartBeat-001.000.000.7zz
+JavaCafe01-PdfViewer	1.0.0	1220	9	14	80	7	34	1	JavaCafe01-PdfViewer-001.000.000.7zz
+devgianlu-PretendYoureXyzzyAndroid	1.0.0	13143	107	193	941	146	723	65	devgianlu-PretendYoureXyzzyAndroid-001.000.000.7zz
+bitcoin_wallet-bitcoin_wallet	2.0.0	23001	110	157	1315	85	1094	68	bitcoin_wallet-bitcoin_wallet-002.000.000.7zz
+Telegram_FOSS_Team-Telegram_FOSS	2.0.0	394006	921	2838	19438	1415	15783	1249	Telegram_FOSS_Team-Telegram_FOSS-002.000.000.7zz
+ccrama-Slide	1.0.0	95277	363	584	4481	396	3969	305	ccrama-Slide-001.000.000.7zz
+AntennaPod-AntennaPod	2.0.0	68297	486	559	4086	393	3166	267	AntennaPod-AntennaPod-002.000.000.7zz
+iNPUTmice-Conversations	1.0.0	66442	352	499	4341	312	3206	198	iNPUTmice-Conversations-001.000.000.7zz
+oliexdev-openScale	1.0.0	21886	142	170	1313	93	1047	85	oliexdev-openScale-001.000.000.7zz
+NekoX_Dev-NekoX	1.0.0	807561	1729	4949	35340	2882	27180	2430	NekoX_Dev-NekoX-001.000.000.7zz
+dkanada-gelli	1.0.0	17785	137	187	1434	130	1185	122	dkanada-gelli-001.000.000.7zz
+sunilpaulmathew-De_Bloater	1.0.0	4991	20	23	226	7	140	7	sunilpaulmathew-De_Bloater-001.000.000.7zz
+amirzaidi-DNGProcessor	2.0.0	2039	22	25	94	9	59	7	amirzaidi-DNGProcessor-002.000.000.7zz
+Faltenreich-Diaguard	2.0.0	39063	351	384	1825	258	1501	228	Faltenreich-Diaguard-002.000.000.7zz
+jensstein-oandbackup	2.0.0	1845	8	10	79	5	79	5	jensstein-oandbackup-002.000.000.7zz
+vbier-habpanelviewer	1.0.0	11647	105	144	714	69	500	35	vbier-habpanelviewer-001.000.000.7zz
+connectbot-connectbot	2.0.0	25130	89	131	1162	83	960	66	connectbot-connectbot-002.000.000.7zz
+timo_a-SudoQ	1.0.0	30217	247	259	1396	125	1201	115	timo_a-SudoQ-001.000.000.7zz
+PeterCxy-Shelter	1.0.0	4674	25	32	290	10	205	3	PeterCxy-Shelter-001.000.000.7zz
+limboemu-limbo	2.0.0	24963	83	118	1302	61	931	38	limboemu-limbo-002.000.000.7zz
+nwrkbiz-android_xserver	1.0.0	14951	34	47	444	31	353	27	nwrkbiz-android_xserver-001.000.000.7zz
+langerhans-dogecoin_wallet_new	1.0.0	15107	77	106	830	47	688	41	langerhans-dogecoin_wallet_new-001.000.000.7zz
+WangDaYeeeeee-GeometricWeather	1.0.0	67280	480	948	3918	452	3133	331	WangDaYeeeeee-GeometricWeather-001.000.000.7zz
+nicolasbrailo-PianOli	2.0.0	482	3	4	30	5	19	3	nicolasbrailo-PianOli-002.000.000.7zz
+x0b-rcx	1.0.0	18162	79	146	1086	80	809	56	x0b-rcx-001.000.000.7zz
+emanuele_f-PCAPdroid	1.0.0	2109	22	26	152	8	112	4	emanuele_f-PCAPdroid-001.000.000.7zz
+nextcloud-talk_android	1.0.0	23301	223	262	1221	122	856	97	nextcloud-talk_android-001.000.000.7zz
+Anuken-Mindustry	1.0.0	73415	547	791	3774	531	3029	461	Anuken-Mindustry-001.000.000.7zz
+stealthcopter-AndroidNetworkTools	1.0.0	1105	13	15	69	3	57	3	stealthcopter-AndroidNetworkTools-001.000.000.7zz
+fossasia-pslab_android	1.0.0	34245	157	225	1763	107	1411	98	fossasia-pslab_android-001.000.000.7zz
+Neamar-KISS	1.0.0	17754	138	175	943	141	667	98	Neamar-KISS-001.000.000.7zz
+maxistar-TextPad	2.0.0	2454	17	20	136	9	114	7	maxistar-TextPad-002.000.000.7zz
+wallabag-android_app	2.0.0	22069	156	205	1474	186	1056	149	wallabag-android_app-002.000.000.7zz
+andOTP-andOTP	2.0.0	3105	21	28	198	12	165	11	andOTP-andOTP-002.000.000.7zz
+saiga006-message_finder	1.0.0	1721	10	10	70	3	53	3	saiga006-message_finder-001.000.000.7zz
+ubergeek42-weechat_android	1.0.0	18588	149	244	1207	164	827	89	ubergeek42-weechat_android-001.000.000.7zz
+OxfordHCC-tracker_control_android	1.0.0	14490	52	71	639	47	478	38	OxfordHCC-tracker_control_android-001.000.000.7zz
+UriahShaulMandel-BaldPhone	1.0.0	18373	153	223	1009	153	808	128	UriahShaulMandel-BaldPhone-001.000.000.7zz
+yourealwaysbe-forkyz	1.0.0	20024	113	158	1228	92	988	82	yourealwaysbe-forkyz-001.000.000.7zz
+brodeurlv-fastnfitness	2.0.0	14127	73	85	749	62	639	62	brodeurlv-fastnfitness-002.000.000.7zz
+theblackwidower-KanaQuiz	2.0.0	441	3	3	19	0	15	0	theblackwidower-KanaQuiz-002.000.000.7zz
+j4velin-WiFi_Automatic	1.0.0	2587	25	31	130	12	109	8	j4velin-WiFi_Automatic-001.000.000.7zz
+zorgluf-souvenirs_android	2.0.0	8414	68	83	588	74	557	71	zorgluf-souvenirs_android-002.000.000.7zz
+erickok-transdroid	2.0.0	68150	334	477	3973	384	3389	325	erickok-transdroid-002.000.000.7zz
+vanilla_music-vanilla	1.0.0	29190	97	178	1222	103	929	93	vanilla_music-vanilla-001.000.000.7zz
+SoltauFintel-blockpuzzle	1.0.0	72177	147	145	805	66	639	65	SoltauFintel-blockpuzzle-001.000.000.7zz
+woheller69-weather	2.0.0	7751	65	82	432	52	381	37	woheller69-weather-002.000.000.7zz
+yourealwaysbe-forkyz	2.0.0	19839	120	161	1204	98	971	88	yourealwaysbe-forkyz-002.000.000.7zz
+opacapp-opacclient	1.0.0	48966	183	277	2119	176	1771	171	opacapp-opacclient-001.000.000.7zz
+akaessens-NoFbEventScraper	1.0.0	476	6	6	23	2	18	1	akaessens-NoFbEventScraper-001.000.000.7zz
+TBog-TBLauncher	2.0.0	31559	164	269	1703	203	1362	145	TBog-TBLauncher-002.000.000.7zz
+freenet_mobile-app	2.0.0	1394	19	20	66	4	55	1	freenet_mobile-app-002.000.000.7zz
+berdosi-HeartBeat	2.0.0	672	8	8	30	4	18	0	berdosi-HeartBeat-002.000.000.7zz
+AdrienPoupa-VinylMusicPlayer	2.0.0	31774	232	332	2281	244	1857	225	AdrienPoupa-VinylMusicPlayer-002.000.000.7zz
+k3b-toGoZip	2.0.0	5936	47	51	380	22	269	18	k3b-toGoZip-002.000.000.7zz
+NekoX_Dev-NekoX	2.0.0	784050	1698	4845	34489	2828	26433	2382	NekoX_Dev-NekoX-002.000.000.7zz
+dkanada-gelli	2.0.0	18660	156	208	1517	141	1261	133	dkanada-gelli-002.000.000.7zz
+oliexdev-openScale	2.0.0	11784	74	113	624	54	489	52	oliexdev-openScale-002.000.000.7zz
+gjedeer-Acastus	1.0.0	2020	10	14	118	2	91	1	gjedeer-Acastus-001.000.000.7zz
+sunilpaulmathew-Translator	2.0.0	2520	14	22	170	13	135	9	sunilpaulmathew-Translator-002.000.000.7zz
+red_coracle-episodes	2.0.0	5172	46	63	277	25	224	20	red_coracle-episodes-002.000.000.7zz
+ccrama-Slide	2.0.0	18483	97	157	891	102	832	88	ccrama-Slide-002.000.000.7zz
+sunilpaulmathew-De_Bloater	2.0.0	1384	7	14	103	7	70	7	sunilpaulmathew-De_Bloater-002.000.000.7zz
+mannd-epmobile	1.0.0	5707	64	65	365	4	225	4	mannd-epmobile-001.000.000.7zz
+bparmentier-OpenBikeSharing	2.0.0	2768	23	28	143	17	128	16	bparmentier-OpenBikeSharing-002.000.000.7zz
+OpenTracksApp-OSMDashboard	2.0.0	989	8	14	62	3	54	1	OpenTracksApp-OSMDashboard-002.000.000.7zz
+falzonv-discreet_launcher	2.0.0	911	5	7	33	4	19	0	falzonv-discreet_launcher-002.000.000.7zz
+miracle2k-android_autostarts	1.0.0	8712	33	48	379	40	333	31	miracle2k-android_autostarts-001.000.000.7zz
+commons_app-apps_android_commons	1.0.0	48760	458	609	3835	301	2754	227	commons_app-apps_android_commons-001.000.000.7zz
+NathanielMotus-UmlClassEditor	1.0.0	6026	25	24	533	29	382	28	NathanielMotus-UmlClassEditor-001.000.000.7zz
+tiagoshibata-Android_GPSd_Client	1.0.0	460	4	7	31	3	19	0	tiagoshibata-Android_GPSd_Client-001.000.000.7zz
+nextcloud-android	2.0.0	90744	497	662	4580	399	3297	278	nextcloud-android-002.000.000.7zz
+k9mail-k_9	2.0.0	111632	607	870	7242	479	5181	288	k9mail-k_9-002.000.000.7zz
+iNPUTmice-Conversations	2.0.0	75938	390	570	4966	374	3524	209	iNPUTmice-Conversations-002.000.000.7zz
+WangDaYeeeeee-GeometricWeather	2.0.0	40354	253	578	2012	250	1554	176	WangDaYeeeeee-GeometricWeather-002.000.000.7zz
+jamienicol-episodes	1.0.0	35709	112	223	2403	161	2115	133	jamienicol-episodes-001.000.000.7zz
+fossasia-pslab_android	2.0.0	38018	176	206	2209	129	1753	121	fossasia-pslab_android-002.000.000.7zz
+ubergeek42-weechat_android	2.0.0	3445	34	34	223	20	200	20	ubergeek42-weechat_android-002.000.000.7zz
+slartus-4pdaClient_plus	2.0.0	45803	360	502	3454	228	2951	190	slartus-4pdaClient_plus-002.000.000.7zz
+readrops-Readrops	1.0.0	10608	114	126	984	74	871	71	readrops-Readrops-001.000.000.7zz
+nextcloud-android	1.0.0	89828	471	652	4220	366	2917	238	nextcloud-android-001.000.000.7zz
+NathanielMotus-UmlClassEditor	2.0.0	6026	25	24	533	29	382	28	NathanielMotus-UmlClassEditor-002.000.000.7zz
+UriahShaulMandel-BaldPhone	2.0.0	16173	134	203	926	149	730	124	UriahShaulMandel-BaldPhone-002.000.000.7zz
+j4velin-WiFi_Automatic	2.0.0	2988	31	37	148	13	122	8	j4velin-WiFi_Automatic-002.000.000.7zz
+jamienicol-episodes	2.0.0	5124	36	55	288	20	251	18	jamienicol-episodes-002.000.000.7zz
+beemdevelopment-Aegis	1.0.0	9452	101	133	682	118	554	97	beemdevelopment-Aegis-001.000.000.7zz
+TeamNewPipe-NewPipe	1.0.0	49440	284	382	3180	262	2351	169	TeamNewPipe-NewPipe-001.000.000.7zz
+nicolasbrailo-PianOli	1.0.0	857	6	8	50	5	21	2	nicolasbrailo-PianOli-001.000.000.7zz
+tengel-AndroidPlanisphere	2.0.0	4644	26	59	245	39	198	24	tengel-AndroidPlanisphere-002.000.000.7zz
+brodeurlv-fastnfitness	1.0.0	21176	106	119	1004	106	837	102	brodeurlv-fastnfitness-001.000.000.7zz
+Etar_Group-Etar_Calendar	2.0.0	45796	108	213	1700	157	1254	139	Etar_Group-Etar_Calendar-002.000.000.7zz
+Faltenreich-Diaguard	1.0.0	49285	466	492	2654	357	2045	266	Faltenreich-Diaguard-001.000.000.7zz
+bitcoin_wallet-bitcoin_wallet	1.0.0	21399	113	162	1361	87	1126	71	bitcoin_wallet-bitcoin_wallet-001.000.000.7zz
+wallabag-android_app	1.0.0	13297	81	113	903	117	693	109	wallabag-android_app-001.000.000.7zz
+devgianlu-PretendYoureXyzzyAndroid	2.0.0	24191	132	286	1484	239	1110	85	devgianlu-PretendYoureXyzzyAndroid-002.000.000.7zz
+jameshnsears-QuoteUnquote	2.0.0	4949	51	52	323	25	230	18	jameshnsears-QuoteUnquote-002.000.000.7zz
+communitymedia-mediaphone	2.0.0	15990	40	80	805	43	636	39	communitymedia-mediaphone-002.000.000.7zz
+limboemu-limbo	1.0.0	29401	83	134	1553	69	1141	44	limboemu-limbo-001.000.000.7zz
+timo_a-SudoQ	2.0.0	38978	308	332	1813	165	1480	147	timo_a-SudoQ-002.000.000.7zz
+falzonv-discreet_launcher	1.0.0	4170	21	33	134	14	106	8	falzonv-discreet_launcher-001.000.000.7zz
+Anuken-Mindustry	2.0.0	66811	530	755	3482	516	2791	445	Anuken-Mindustry-002.000.000.7zz
+langerhans-dogecoin_wallet_new	2.0.0	22346	159	250	1278	141	1026	124	langerhans-dogecoin_wallet_new-002.000.000.7zz
+stealthcopter-AndroidNetworkTools	2.0.0	2739	27	33	178	19	143	6	stealthcopter-AndroidNetworkTools-002.000.000.7zz
+SecUSo-privacy_friendly_qr_scanner	2.0.0	5664	60	78	314	53	278	32	SecUSo-privacy_friendly_qr_scanner-002.000.000.7zz
+SoltauFintel-blockpuzzle	2.0.0	1349	25	25	94	23	72	23	SoltauFintel-blockpuzzle-002.000.000.7zz
+OpenArchive-openarchive_android	1.0.0	12938	64	84	714	37	589	29	OpenArchive-openarchive_android-001.000.000.7zz
+yanus171-Handy_News_Reader	1.0.0	21683	70	106	1195	59	882	41	yanus171-Handy_News_Reader-001.000.000.7zz
+woheller69-weather	1.0.0	8716	69	86	479	53	420	38	woheller69-weather-001.000.000.7zz
+dkanada-frost	TOTALS	1709	23	23	71	4	55	4	
+tengel-GeologicalTimescale	TOTALS	2875	18	29	122	18	96	15	
+freenet_mobile-app	TOTALS	3284	33	35	142	14	126	11	
+commons_app-apps_android_commons	TOTALS	60594	554	742	4576	379	3376	301	
+yourealwaysbe-forkyz	TOTALS	39863	233	319	2432	190	1959	170	
+AdrienPoupa-VinylMusicPlayer	TOTALS	58284	430	631	4285	440	3495	407	
+rkkr-simple_keyboard	TOTALS	45484	210	303	2404	254	1664	158	
+k3b-toGoZip	TOTALS	8126	70	74	510	33	356	28	
+MuntashirAkon-AppManager	TOTALS	102097	596	820	5548	512	3911	381	
+TheLastProject-Catima	TOTALS	17104	79	91	637	31	499	21	
+Etar_Group-Etar_Calendar	TOTALS	88993	209	420	3350	312	2484	276	
+trishika-DroidUPnP	TOTALS	15469	145	192	1113	129	1026	123	
+mkulesh-onpc	TOTALS	31756	188	233	1570	345	1121	129	
+JavaCafe01-PdfViewer	TOTALS	1690	14	19	107	7	53	1	
+barbeau-gpstest	TOTALS	23234	100	104	1239	38	907	36	
+blockstream-green_android	TOTALS	504672	1167	2371	37663	2829	32513	1133	
+k9mail-k_9	TOTALS	202213	1114	1620	13231	917	9486	546	
+jonasoreland-runnerup	TOTALS	80982	377	535	5035	327	3695	231	
+bitcoin_wallet-bitcoin_wallet	TOTALS	44400	223	319	2676	172	2220	139	
+vanilla_music-vanilla	TOTALS	58973	210	374	2488	217	1899	190	
+bparmentier-OpenBikeSharing	TOTALS	4126	37	46	218	26	195	25	
+tiagoshibata-Android_GPSd_Client	TOTALS	1006	10	16	70	6	42	0	
+Donnnno-Arcticons	TOTALS	1328	23	28	75	11	62	11	
+mosmetro_android-mosmetro_android	TOTALS	11906	86	115	691	76	608	68	
+ooni-probe_android	TOTALS	14713	177	232	933	99	819	77	
+sunilpaulmathew-Translator	TOTALS	4021	26	40	247	20	203	16	
+QuantumBadger-RedReader	TOTALS	96065	623	816	4989	566	4233	420	
+flackbash-AudioAnchor	TOTALS	11209	54	73	562	32	341	21	
+tabletradio-altlauncher	TOTALS	2251	22	29	131	12	113	12	
+mwarning-trigger	TOTALS	9919	64	86	513	53	339	32	
+lexica-lexica	TOTALS	13671	126	178	881	107	621	60	
+Piwigo-Piwigo_Android	TOTALS	9761	168	191	622	72	445	56	
+Gitsaibot-AF_Weather_Widget	TOTALS	23114	70	124	810	78	588	60	
+stefan_niedermann-nextcloud_notes	TOTALS	32362	327	371	1832	258	1488	185	
+rignaneseleo-SlimSocial_for_Twitter	TOTALS	642	7	8	35	2	30	2	
+yanus171-Handy_News_Reader	TOTALS	39417	141	204	2148	108	1582	77	
+cyclestreets-android	TOTALS	35150	274	428	2726	306	2104	180	
+wallabag-android_app	TOTALS	35366	237	318	2377	303	1749	258	
+AEFeinstein-mtg_familiar	TOTALS	61046	211	355	2101	196	1687	130	
+CorruptedArk-open_chaos_chess	TOTALS	22754	53	59	784	34	599	20	
+Gedsh-InviZible	TOTALS	72459	294	326	2942	215	1555	122	
+sunilpaulmathew-De_Bloater	TOTALS	6375	27	37	329	14	210	14	
+ehcloninger-pf_public	TOTALS	1815	6	10	91	0	79	0	
+dkanada-gelli	TOTALS	36445	293	395	2951	271	2446	255	
+adeekshith-watomatic	TOTALS	2937	39	40	204	16	140	9	
+osmandapp-Osmand	TOTALS	841852	2380	4592	61000	4292	49762	2776	
+readrops-Readrops	TOTALS	21391	208	230	1862	139	1588	131	
+k3b-APhotoManager	TOTALS	69405	384	486	4609	259	3398	225	
+wbrawner-SimpleMarkdown	TOTALS	5589	50	54	320	25	262	23	
+farmerbb-Notepad	TOTALS	7644	38	58	403	11	298	6	
+chr15m-PdDroidParty	TOTALS	8631	56	59	436	49	387	49	
+SecUSo-privacy_friendly_weather	TOTALS	17559	161	187	934	111	775	89	
+Docile_Alligator-Infinity_For_Reddit	TOTALS	121181	671	1163	6412	743	4799	446	
+PeterCxy-Shelter	TOTALS	9348	50	64	580	20	410	6	
+open_keychain-open_keychain	TOTALS	185612	1094	1565	10472	1069	7843	765	
+SecUSo-privacy_friendly_sketching	TOTALS	5804	48	72	368	32	296	22	
+gotify-android	TOTALS	8271	81	117	613	61	461	43	
+projectmatris-antimalwareapp	TOTALS	3655	37	41	173	15	139	13	
+AnySoftKeyboard-AnySoftKeyboard	TOTALS	107570	746	999	5807	524	4691	395	
+appml-neutrinote	TOTALS	49603	100	158	2240	60	1896	50	
+felixwiemuth-SimpleReminder	TOTALS	3023	29	43	163	20	116	16	
+WangDaYeeeeee-GeometricWeather	TOTALS	107634	733	1526	5930	702	4687	507	
+ukanth-afwall	TOTALS	58321	230	365	2834	189	2258	138	
+OAndell-Riksdagskollen	TOTALS	23607	201	251	2033	154	1694	125	
+oliexdev-openScale	TOTALS	33670	216	283	1937	147	1536	137	
+ultrasonic-ultrasonic	TOTALS	62992	266	393	3762	311	2991	277	
+Telegram_FOSS_Team-Telegram_FOSS	TOTALS	1182558	2604	7709	54111	4214	42389	3601	
+bailuk-AAT	TOTALS	93190	1178	1438	8018	1211	6774	1174	
+saiga006-message_finder	TOTALS	2306	15	15	86	4	65	4	
+AndorsTrailRelease-andors_trail	TOTALS	54110	404	562	4154	348	3160	342	
+beemdevelopment-Aegis	TOTALS	27646	277	400	1926	319	1540	256	
+nextcloud-talk_android	TOTALS	47150	451	531	2508	246	1751	196	
+ankidroid-Anki_Android	TOTALS	222820	1113	1751	12335	973	9297	852	
+btcontract-lnwallet	TOTALS	160059	587	890	10672	1119	8779	782	
+7LPdWcaW-GrowTracker_Android	TOTALS	20407	110	146	977	83	927	70	
+stefan_niedermann-nextcloud_deck	TOTALS	70572	770	794	5451	515	4534	422	
+Rudloff-openvegemap_cordova	TOTALS	8765	58	78	607	61	484	56	
+niccokunzmann-coloring_book	TOTALS	9417	105	153	682	96	546	92	
+opacapp-opacclient	TOTALS	65624	236	362	2865	215	2477	209	
+pretix-pretixprint_android	TOTALS	11880	92	90	600	70	514	56	
+scoute_dich-browser	TOTALS	18330	120	158	1038	95	802	79	
+TeamNewPipe-NewPipe	TOTALS	104153	570	766	6260	567	4500	350	
+NathanielMotus-UmlClassEditor	TOTALS	12052	50	48	1066	58	764	56	
+meshenger_app-meshenger_android	TOTALS	9954	51	60	628	23	426	12	
+SecUSo-privacy_friendly_qr_scanner	TOTALS	7795	82	102	407	70	366	49	
+andreynovikov-trekarta	TOTALS	232720	633	1235	8548	870	6610	612	
+slartus-4pdaClient_plus	TOTALS	101940	748	1065	7775	500	6758	447	
+lufte-lona	TOTALS	13856	82	112	1050	98	872	88	
+dslul-openboard	TOTALS	111463	552	797	5838	651	4319	459	
+BombusMod-BombusMod	TOTALS	101300	758	832	6097	677	5006	596	
+andOTP-andOTP	TOTALS	14392	92	132	901	67	713	59	
+mannd-epmobile	TOTALS	16573	159	162	1064	11	681	11	
+SmartPack-SmartFlasher	TOTALS	6515	40	76	388	28	332	28	
+brodeurlv-fastnfitness	TOTALS	35303	179	204	1753	168	1476	164	
+syncthing-syncthing_android	TOTALS	24013	149	213	1156	84	685	60	
+jackpal-Android_Terminal_Emulator	TOTALS	24521	93	144	1293	92	868	79	
+RailwayStations-RSAndroidApp	TOTALS	16161	114	152	1079	85	888	68	
+amirzaidi-DNGProcessor	TOTALS	5496	63	78	255	34	169	27	
+vbier-habpanelviewer	TOTALS	17668	168	224	1074	124	769	75	
+j4velin-WiFi_Automatic	TOTALS	5575	56	68	278	25	231	16	
+fossasia-open_event_organizer_android	TOTALS	80656	967	1020	5912	373	4659	299	
+limboemu-limbo	TOTALS	54364	166	252	2855	130	2072	82	
+Catrobat-Paintroid	TOTALS	65597	468	530	4453	301	3492	244	
+nextcloud-news_android	TOTALS	41317	310	401	2461	254	1999	228	
+berdosi-HeartBeat	TOTALS	1264	16	16	55	8	32	0	
+plateaukao-browser	TOTALS	17598	110	143	1033	80	865	76	
+segler_alex-RadioDroid	TOTALS	24970	196	270	1580	133	1255	108	
+Faltenreich-Diaguard	TOTALS	88348	817	876	4479	615	3546	494	
+nicolasbrailo-PianOli	TOTALS	1339	9	12	80	10	40	5	
+HardcodeCoder-PulseMusic	TOTALS	24238	254	311	1694	195	1292	165	
+timo_a-SudoQ	TOTALS	69195	555	591	3209	290	2681	262	
+austinhuang0131-barinsta	TOTALS	82831	649	804	5480	605	4271	539	
+agersant-polaris_android	TOTALS	11566	115	155	841	119	506	41	
+Tunous-Dawn	TOTALS	97864	1048	1325	7130	546	5549	486	
+patzly-grocy_android	TOTALS	66551	261	423	3068	204	2011	179	
+UriahShaulMandel-BaldPhone	TOTALS	34546	287	426	1935	302	1538	252	
+CityZenApp-AndroidApp	TOTALS	18267	137	160	1095	110	803	95	
+wellenvogel-BonjourBrowser	TOTALS	1956	15	25	112	23	84	19	
+TeamAmaze-AmazeFileManager	TOTALS	99991	536	694	4610	462	3573	392	
+jensstein-oandbackup	TOTALS	9382	59	87	480	45	454	38	
+OpenTracksApp-OpenTracks	TOTALS	54577	342	417	3308	288	2478	184	
+nerzhul-ncsms_android	TOTALS	9547	87	89	369	47	284	41	
+AntennaPod-AntennaPod	TOTALS	110642	720	885	6914	608	5544	447	
+nwrkbiz-android_xserver	TOTALS	31425	64	87	846	59	665	52	
+TripSit-tripmobile	TOTALS	2494	35	33	214	18	167	7	
+00_Evan-shattered_pixel_dungeon	TOTALS	175246	1502	2046	10005	781	9536	743	
+k3b-LosslessJpgCrop	TOTALS	16676	38	69	719	52	527	28	
+MarcusWolschon-osmeditor4android	TOTALS	270152	1205	1354	11517	1009	8986	735	
+OpenArchive-openarchive_android	TOTALS	18919	96	125	1044	54	864	44	
+communitymedia-mediaphone	TOTALS	34376	79	162	1663	87	1308	79	
+Kaljurand-K6nele	TOTALS	18209	122	177	1097	83	788	60	
+OpenTracksApp-OSMDashboard	TOTALS	4444	44	52	294	29	240	20	
+jamienicol-episodes	TOTALS	40833	148	278	2691	181	2366	151	
+emanuele_f-PCAPdroid	TOTALS	7327	55	65	466	31	361	23	
+redsolution-xabber_android	TOTALS	144926	1093	1336	9901	803	7747	560	
+SubhamTyagi-android_ocr	TOTALS	2530	17	25	143	7	120	5	
+deltachat-deltachat_android	TOTALS	101017	742	1231	7548	981	5657	748	
+farmerbb-Taskbar	TOTALS	34329	271	287	1604	91	1225	35	
+mathisdt-trackworktime	TOTALS	22733	157	154	1392	99	1048	82	
+MrReSc-Headi	TOTALS	6528	43	59	277	18	160	16	
+termux-termux_app	TOTALS	37043	155	197	1743	74	1354	55	
+falzonv-discreet_launcher	TOTALS	5081	26	40	167	18	125	8	
+maxistar-TextPad	TOTALS	5206	35	42	287	21	240	16	
+osmdroid-osmdroid	TOTALS	106311	815	918	6380	641	5366	578	
+cgeo-WhereYouGo	TOTALS	30101	226	247	1921	196	1601	176	
+miracle2k-android_autostarts	TOTALS	10042	37	56	433	44	378	33	
+MuzSumer-windvolt	TOTALS	5037	43	65	241	21	206	21	
+Neamar-KISS	TOTALS	30268	245	303	1631	258	1156	185	
+termux-termux_api	TOTALS	11303	71	127	554	20	375	10	
+iNPUTmice-Conversations	TOTALS	142380	742	1069	9307	686	6730	407	
+AsteroidOS-AsteroidOSSync	TOTALS	127838	570	916	7908	896	5700	468	
+pR0Ps-LocationShare	TOTALS	671	3	5	52	0	31	0	
+jameshnsears-QuoteUnquote	TOTALS	9813	92	93	697	53	499	40	
+billthefarmer-diary	TOTALS	10310	18	32	378	15	191	9	
+ubergeek42-weechat_android	TOTALS	22033	183	278	1430	184	1027	109	
+x0b-rcx	TOTALS	44691	196	417	2495	254	1755	203	
+NekoX_Dev-NekoX	TOTALS	1591611	3427	9794	69829	5710	53613	4812	
+zorgluf-souvenirs_android	TOTALS	18140	140	171	1232	154	1158	148	
+marunjar-anewjkuapp	TOTALS	41919	300	402	2375	290	1918	246	
+devgianlu-PretendYoureXyzzyAndroid	TOTALS	37334	239	479	2425	385	1833	150	
+moneytoo-Player	TOTALS	4986	21	26	312	25	241	24	
+akaessens-NoFbEventScraper	TOTALS	2143	21	23	87	10	73	6	
+nproth-pin	TOTALS	3604	26	32	198	14	186	12	
+textbrowser-smoke	TOTALS	66729	88	149	1707	121	1412	82	
+h0chi-next_companion	TOTALS	1220	16	16	61	2	50	0	
+SoltauFintel-blockpuzzle	TOTALS	73526	172	170	899	89	711	88	
+stealthcopter-AndroidNetworkTools	TOTALS	3844	40	48	247	22	200	9	
+woheller69-weather	TOTALS	16467	134	168	911	105	801	75	
+inputmice-lttrs_android	TOTALS	21170	272	316	1534	169	1229	113	
+agateau-pixelwheels	TOTALS	14753	189	236	1096	98	865	95	
+open-jdk	TOTALS	2212804	7714	10655	90760	10541	69783	7886	
+twireapp-Twire	TOTALS	43320	237	352	3347	220	2594	196	
+massivemadness-Brackeys_IDE	TOTALS	44452	87	98	964	72	583	70	
+xbmc-Kore	TOTALS	80680	351	963	4242	590	3719	541	
+Swati4star-Images_to_PDF	TOTALS	18529	142	181	988	97	683	67	
+grote-BlitzMail	TOTALS	1486	15	16	68	15	48	14	
+Stypox-mastercom_workbook	TOTALS	6361	69	77	423	32	304	26	
+gsantner-markor	TOTALS	45055	266	393	3039	237	2604	203	
+tengel-AndroidPlanisphere	TOTALS	7635	48	113	404	75	326	47	
+mtotschnig-MyExpenses	TOTALS	113021	693	894	6562	640	5300	486	
+zamojski-TowerCollector	TOTALS	34550	421	407	2438	155	1724	139	
+gjedeer-Acastus	TOTALS	4010	20	28	233	4	179	2	
+red_coracle-episodes	TOTALS	10339	87	123	556	48	453	38	
+OxfordHCC-tracker_control_android	TOTALS	17871	80	111	803	72	618	55	
+fr3ts0n-AndrOBD	TOTALS	45237	198	202	1600	254	1169	211	
+owncloud-android	TOTALS	92193	408	563	4381	340	3361	302	
+abrensch-brouter	TOTALS	30109	177	191	1158	104	861	100	
+SmartPack-SmartPack_Kernel_Manager	TOTALS	84625	412	567	6836	216	6020	75	
+ccrama-Slide	TOTALS	113760	460	741	5372	498	4801	393	
+langerhans-dogecoin_wallet_new	TOTALS	37453	236	356	2108	188	1714	165	
+julian_klode-dns66	TOTALS	8368	57	81	394	37	278	29	
+androidsoft_org-androidsoft_coloring	TOTALS	1785	13	31	89	20	76	18	
+JonasBernard-FakeStandby	TOTALS	2740	42	66	155	10	132	10	
+erickok-transdroid	TOTALS	102440	590	755	5695	605	4773	518	
+kaaholst-android_squeezer	TOTALS	37819	267	424	2610	272	1999	189	
+theblackwidower-KanaQuiz	TOTALS	10323	63	79	472	50	345	33	
+connectbot-connectbot	TOTALS	50260	178	262	2324	166	1920	132	
+TBog-TBLauncher	TOTALS	59307	313	518	3182	384	2554	268	
+Anuken-Mindustry	TOTALS	140226	1077	1546	7256	1047	5820	906	
+nextcloud-android	TOTALS	180572	968	1314	8800	765	6214	516	
+fossasia-pslab_android	TOTALS	72263	333	431	3972	236	3164	219	

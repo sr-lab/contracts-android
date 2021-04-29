@@ -12,7 +12,8 @@ from GithubKeys import ACCESS_TOKEN
 
 #################### ---------------- GLOBAL VARIABLES ---------------- ####################
 
-index_xml_file = "index_20201022_1307.xml"
+#index_xml_file = "index_20201022_1307.xml"
+index_xml_file = "index_20210423_2322.xml"
 output_xlsx_file = "FDroidStats.xlsx"
 
 index = 2

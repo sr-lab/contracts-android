@@ -3,7 +3,8 @@ from os import rename
 from os.path import isfile, join
 import re
 
-DIR="C:/Users/salty/Desktop/plsF/contracts-android/contractstudy/ExtractContracts/" #Dir ExtractContracts na dir "contracts-android/contractstudy"
+#DIR="C:/Users/salty/Desktop/plsF/contracts-android/contractstudy/ExtractContracts/" #Dir ExtractContracts na dir "contracts-android/contractstudy"
+DIR="../../../contractstudy/ExtractContracts/"
 list = [f for f in listdir(DIR) if not isfile(join(DIR, f))]
 print(list)
 for x in list:

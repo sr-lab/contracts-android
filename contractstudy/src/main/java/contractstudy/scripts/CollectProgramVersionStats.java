@@ -136,6 +136,7 @@ public class CollectProgramVersionStats implements Experiment {
                                         dataForPV.compute(CLASSES,(k,v)->v==null?getCounter(tmp,CLASSES):v+getCounter(tmp,CLASSES));
                                     } catch (Exception t) {
                                         LOGGER.warn("Cannot parse cu " + pv + " / " + name);
+                                        t.printStackTrace(); // JFF: added this
                                     }
                                 }
 
@@ -167,6 +168,10 @@ public class CollectProgramVersionStats implements Experiment {
             	if (! programTotals.containsKey(e.getKey().getName())) {
             		programTotals.put(e.getKey().getName(), new HashMap<String,Long>());
             	}
+		// JFF: FIXME
+            	if (e.getKey().getName().equals("Rudloff-openvegemap_cordova") && e.getKey().getVersion().equals("2.0.0")) {
+            	    continue;
+                }
             	Map<String,Long> p = programTotals.get(e.getKey().getName());
                 out.print(e.getKey().getName());
                 out.print(SEP);
