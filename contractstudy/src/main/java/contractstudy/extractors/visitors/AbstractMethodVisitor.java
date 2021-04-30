@@ -1,13 +1,16 @@
 package contractstudy.extractors.visitors;
 
 import com.github.javaparser.ast.Node;
+import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.EnumDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.body.ModifierSet;
+import com.github.javaparser.ast.Modifier;
+//import com.github.javaparser.ast.body.ModifierSet;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import contractstudy.ContractElement;
 import contractstudy.ExtractionListener;
 import contractstudy.Preferences;
@@ -54,7 +57,8 @@ public abstract class AbstractMethodVisitor extends VoidVisitorAdapter<Object> {
 
 	@Override
 	public void visit(PackageDeclaration n, Object arg) {
-		packageName = n.getPackageName();
+		//packageName = n.getPackageName();
+		packageName = n.getName().getIdentifier(); // JFF
 		super.visit(n, arg);
 	}
 
@@ -62,10 +66,13 @@ public abstract class AbstractMethodVisitor extends VoidVisitorAdapter<Object> {
 	// control the methods being visited
 	@Override
 	public void visit(MethodDeclaration methodDeclr, Object arg) {
-		int modifiers = methodDeclr.getModifiers();
+		//int modifiers = methodDeclr.getModifiers();
+		NodeList<Modifier> modifiers = methodDeclr.getModifiers();
 		isDefaultMethod = methodDeclr.isDefault();
-		isAbstractMethod = ModifierSet.isAbstract(modifiers);
-		if (includePrivateMethods || isInterface || ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
+		//isAbstractMethod = ModifierSet.isAbstract(modifiers);
+		isAbstractMethod = modifiers.contains(Modifier.abstractModifier());
+		//if (includePrivateMethods || isInterface || ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
+		if (includePrivateMethods || isInterface || modifiers.contains(Modifier.publicModifier()) || modifiers.contains(Modifier.protectedModifier())) {
 			this.methodDeclaration = Utils.trimRetType(methodDeclr.getDeclarationAsString(false, false, false)); // flags: incl modifiers , incl throws
 			super.visit(methodDeclr, arg);
 		}
@@ -73,10 +80,12 @@ public abstract class AbstractMethodVisitor extends VoidVisitorAdapter<Object> {
 	
 	@Override
 	public void visit(ConstructorDeclaration constructorDeclr, Object arg) {
-        int modifiers = constructorDeclr.getModifiers();
+        //int modifiers = constructorDeclr.getModifiers();
+		NodeList<Modifier> modifiers = constructorDeclr.getModifiers();
 		isDefaultMethod = false;
 		isAbstractMethod = false;
-        if (includePrivateMethods || isInterface || ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
+        //if (includePrivateMethods || isInterface || ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
+		if (includePrivateMethods || isInterface || modifiers.contains(Modifier.publicModifier()) || modifiers.contains(Modifier.protectedModifier())) {
             this.methodDeclaration = constructorDeclr.getDeclarationAsString(false, false, false);
             super.visit(constructorDeclr, arg);
         }
@@ -110,16 +119,16 @@ public abstract class AbstractMethodVisitor extends VoidVisitorAdapter<Object> {
 		while (parent != null) {
 
 			if (parent instanceof ClassOrInterfaceDeclaration) {
-				String name = ((ClassOrInterfaceDeclaration) parent).getName();
+				String name = ((ClassOrInterfaceDeclaration) parent).getName().getIdentifier(); // JFF
 				owner = name + separator + owner;
 			}
 
             if (parent instanceof EnumDeclaration) {
-                String name = ((EnumDeclaration) parent).getName();
+                String name = ((EnumDeclaration) parent).getName().getIdentifier(); // JFF
                 owner = name + separator + owner;
             }
 
-			parent = parent.getParentNode();
+			parent = parent.getParentNode().orElse(null); // JFF: FIXME?
 		}
 
 		if (owner.endsWith(".")) {

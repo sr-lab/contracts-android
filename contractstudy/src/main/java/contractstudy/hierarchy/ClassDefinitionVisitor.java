@@ -1,10 +1,12 @@
 package contractstudy.hierarchy;
 
 import com.github.javaparser.ast.Node;
+import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.EnumDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.body.ModifierSet;
+import com.github.javaparser.ast.Modifier;
+//import com.github.javaparser.ast.body.ModifierSet;
 import contractstudy.extractors.visitors.AbstractMethodVisitor;
 
 import java.util.HashMap;
@@ -35,7 +37,7 @@ public class ClassDefinitionVisitor extends AbstractMethodVisitor implements Cla
 
         // set only for top level class - we assume it will be the first one read
         if (classSimpleName == null) {
-            classSimpleName = n.getName();
+            classSimpleName = n.getName().getIdentifier(); // JFF
         }
 
         super.visit(n, arg);
@@ -47,7 +49,7 @@ public class ClassDefinitionVisitor extends AbstractMethodVisitor implements Cla
 
         // set only for top level class - we assume it will be the first one read
         if (classSimpleName == null) {
-            classSimpleName = n.getName();
+            classSimpleName = n.getName().getIdentifier(); // JFF
         }
 
         super.visit(n, arg);
@@ -67,11 +69,13 @@ public class ClassDefinitionVisitor extends AbstractMethodVisitor implements Cla
     public void visit(MethodDeclaration methodDeclr, Object arg) {
         super.visit(methodDeclr, arg);
 
-        int modifiers = methodDeclr.getModifiers();
+        //int modifiers = methodDeclr.getModifiers();
+        NodeList<Modifier> modifiers = methodDeclr.getModifiers();
         boolean abstr = super.computeAbstractMethod();
 
         // ignore private methods and abstract methods.
-        if (!ModifierSet.isPrivate(modifiers) && !abstr) {
+        //if (!ModifierSet.isPrivate(modifiers) && !abstr) {
+        if (!modifiers.contains(Modifier.privateModifier()) && !abstr) {
             getState(methodDeclr).getMethods().add(super.methodDeclaration);
         }
     }

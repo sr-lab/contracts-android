@@ -34,14 +34,14 @@ public class MethodVisitorToCollectCommons3ValidateInvocations extends MethodVis
 	// look for patterns common in COMMON in lang2 and lang3	
 	@Override
 	public void visit(MethodCallExpr callExpr, Object arg) {
-		String name = callExpr.getName();
-		Expression expr = callExpr.getScope();
+		String name = callExpr.getName().getIdentifier(); // JFF
+		Expression expr = callExpr.getScope().orElse(null); // JFF
 		String scope = expr==null?null:expr.toString();
-		List<Expression> args = callExpr.getArgs();
+		List<Expression> args = callExpr.getArguments(); //JFF
 		ContractElement p = initConstraint();
 		p.setProgramVersion(ProgramVersion.getOrCreate(programName,this.version));
 		p.setCuName(this.cuName);
-		p.setLineNo(callExpr.getBeginLine());
+		p.setLineNo(callExpr.getBegin().get().line); // JFF
 		
 		if (args.size()>0 && checkImports(name,scope)) {
 			if (name.equals("exclusiveBetween")) {

@@ -205,21 +205,24 @@ public class MethodVisitorToCollectConditionalRuntimeExceptionThrows extends Abs
 		// look for the following pattern:
 		// if (<condition>) throw new <exception>(<args>);
 
-		if (n.getExpr() instanceof ObjectCreationExpr && (n.getParentNode() instanceof IfStmt
-				|| (n.getParentNode() instanceof BlockStmt && n.getParentNode().getParentNode() instanceof IfStmt))) {
+		//if (n.getExpr() instanceof ObjectCreationExpr && (n.getParentNode() instanceof IfStmt
+		//		|| (n.getParentNode() instanceof BlockStmt && n.getParentNode().getParentNode() instanceof IfStmt))) {
+		// JFF: FIXME?
+		if (n.getExpression() instanceof ObjectCreationExpr && (n.getParentNode().get() instanceof IfStmt
+				|| (n.getParentNode().get() instanceof BlockStmt && n.getParentNode().get().getParentNode().get() instanceof IfStmt))) {
 
-			IfStmt condNode = n.getParentNode() instanceof BlockStmt ? (IfStmt) n.getParentNode().getParentNode()
-					: (IfStmt) n.getParentNode();
+			IfStmt condNode = n.getParentNode().get() instanceof BlockStmt ? (IfStmt) n.getParentNode().get().getParentNode().get()
+					: (IfStmt) n.getParentNode().get(); // JFF: FIXME? added get()
 			String condition = extractCondition(condNode);
 
-			ObjectCreationExpr objCreationNode = (ObjectCreationExpr) n.getExpr();
-			String excTypeName = objCreationNode.getType().getName();
+			ObjectCreationExpr objCreationNode = (ObjectCreationExpr) n.getExpression();  // JFF
+			String excTypeName = objCreationNode.getType().getName().getIdentifier(); // JFF: FIXME
 			ConstraintType kind = getPreconditionTypeForExceptionName(excTypeName);
 
 			if (kind != null) {
 				StringBuffer b = new StringBuffer();
-				if (objCreationNode.getArgs() != null) {
-					for (Expression expr : objCreationNode.getArgs()) {
+				if (objCreationNode.getArguments() != null) { // JFF
+					for (Expression expr : objCreationNode.getArguments()) {
 						if (b.length() > 0)
 							b.append(',');
 						b.append(expr.toString());
@@ -234,7 +237,7 @@ public class MethodVisitorToCollectConditionalRuntimeExceptionThrows extends Abs
 				p.setMethodDeclaration(this.methodDeclaration);
 				p.setCondition(condition);
 				p.setKind(kind);
-				p.setLineNo(n.getBeginLine());
+				p.setLineNo(n.getBegin().get().line); // JFF
 				p.setAdditionalInfo(additionalInfo);
 
 				consumer.constraintFound(p);
@@ -244,12 +247,12 @@ public class MethodVisitorToCollectConditionalRuntimeExceptionThrows extends Abs
 	}
 
 	private String extractCondition(IfStmt condNode) {
-		String cond = condNode.getCondition().toStringWithoutComments();
+		String cond = condNode.getCondition().removeComment().toString();
 
 		// if the parent is another conditional, prepend this
-		if (condNode.getParentNode() != null && condNode.getParentNode() instanceof BlockStmt
-				&& condNode.getParentNode().getParentNode() instanceof IfStmt) {
-			String pcond = extractCondition(((IfStmt) condNode.getParentNode().getParentNode()));
+		if (condNode.getParentNode() != null && condNode.getParentNode().get() instanceof BlockStmt
+				&& condNode.getParentNode().get().getParentNode().get() instanceof IfStmt) { // JFF
+			String pcond = extractCondition(((IfStmt) condNode.getParentNode().get().getParentNode().get())); // JFF
 			cond = pcond + " && " + cond;
 		}
 

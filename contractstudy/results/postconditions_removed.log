@@ -30,17 +30,18 @@ POSTCONDITION_REMOVED
 version 1: AEFeinstein-mtg_familiar-1.0.0
 version 2: AEFeinstein-mtg_familiar-2.0.0
 compilation unit: 0232-AEFeinstein-mtg_familiar-v3.4.2/mobile/src/main/java/com/gelakinetic/mtgfam/fragments/dialogs/TradeDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onClick(MaterialDialog,
 constraints in AEFeinstein-mtg_familiar-1.0.0
 	JetBrainsNotNull condition: "" , add info: -
-	JavaAssert condition: "view != null" , add info: -
+	JavaAssert condition: "numberOf.getEditableText() != null" , add info: -
+	JavaAssert condition: "priceText.getText() != null" , add info: -
 constraints in AEFeinstein-mtg_familiar-2.0.0
 
 POSTCONDITION_REMOVED
 version 1: AEFeinstein-mtg_familiar-1.0.0
 version 2: AEFeinstein-mtg_familiar-2.0.0
 compilation unit: 0232-AEFeinstein-mtg_familiar-v3.4.2/mobile/src/main/java/com/gelakinetic/mtgfam/fragments/dialogs/ProfileDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onClick(MaterialDialog,
 constraints in AEFeinstein-mtg_familiar-1.0.0
 	JetBrainsNotNull condition: "" , add info: -
 constraints in AEFeinstein-mtg_familiar-2.0.0
@@ -49,7 +50,7 @@ POSTCONDITION_REMOVED
 version 1: AEFeinstein-mtg_familiar-1.0.0
 version 2: AEFeinstein-mtg_familiar-2.0.0
 compilation unit: 0232-AEFeinstein-mtg_familiar-v3.4.2/mobile/src/main/java/com/gelakinetic/mtgfam/fragments/dialogs/SearchViewDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onSelection(MaterialDialog,
 constraints in AEFeinstein-mtg_familiar-1.0.0
 	JetBrainsNotNull condition: "" , add info: -
 constraints in AEFeinstein-mtg_familiar-2.0.0
@@ -58,17 +59,18 @@ POSTCONDITION_REMOVED
 version 1: AEFeinstein-mtg_familiar-1.0.0
 version 2: AEFeinstein-mtg_familiar-2.0.0
 compilation unit: 0232-AEFeinstein-mtg_familiar-v3.4.2/mobile/src/main/java/com/gelakinetic/mtgfam/fragments/dialogs/GatheringsDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onSelection(MaterialDialog,
 constraints in AEFeinstein-mtg_familiar-1.0.0
 	JetBrainsNotNull condition: "" , add info: -
-	JavaAssert condition: "textEntryView != null" , add info: -
+	JavaAssert condition: "player != null" , add info: -
+	JavaAssert condition: "customName.getText() != null" , add info: -
 constraints in AEFeinstein-mtg_familiar-2.0.0
 
 POSTCONDITION_REMOVED
 version 1: AEFeinstein-mtg_familiar-1.0.0
 version 2: AEFeinstein-mtg_familiar-2.0.0
 compilation unit: 0232-AEFeinstein-mtg_familiar-v3.4.2/mobile/src/main/java/com/gelakinetic/mtgfam/fragments/dialogs/CardViewDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onItemLongClick(AdapterView<?>,
 constraints in AEFeinstein-mtg_familiar-1.0.0
 	JetBrainsNotNull condition: "" , add info: -
 constraints in AEFeinstein-mtg_familiar-2.0.0
@@ -77,17 +79,16 @@ POSTCONDITION_REMOVED
 version 1: AEFeinstein-mtg_familiar-1.0.0
 version 2: AEFeinstein-mtg_familiar-2.0.0
 compilation unit: 0232-AEFeinstein-mtg_familiar-v3.4.2/mobile/src/main/java/com/gelakinetic/mtgfam/fragments/dialogs/RulesDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onClick(MaterialDialog,
 constraints in AEFeinstein-mtg_familiar-1.0.0
 	JetBrainsNotNull condition: "" , add info: -
-	JavaAssert condition: "textEntryView != null" , add info: -
 constraints in AEFeinstein-mtg_familiar-2.0.0
 
 POSTCONDITION_REMOVED
 version 1: AEFeinstein-mtg_familiar-1.0.0
 version 2: AEFeinstein-mtg_familiar-2.0.0
 compilation unit: 0232-AEFeinstein-mtg_familiar-v3.4.2/mobile/src/main/java/com/gelakinetic/mtgfam/fragments/dialogs/WishlistDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onClick(MaterialDialog,
 constraints in AEFeinstein-mtg_familiar-1.0.0
 	JetBrainsNotNull condition: "" , add info: -
 constraints in AEFeinstein-mtg_familiar-2.0.0
@@ -96,7 +97,7 @@ POSTCONDITION_REMOVED
 version 1: AEFeinstein-mtg_familiar-1.0.0
 version 2: AEFeinstein-mtg_familiar-2.0.0
 compilation unit: 0232-AEFeinstein-mtg_familiar-v3.4.2/mobile/src/main/java/com/gelakinetic/mtgfam/fragments/dialogs/RoundTimerDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onClick(MaterialDialog,
 constraints in AEFeinstein-mtg_familiar-1.0.0
 	JetBrainsNotNull condition: "" , add info: -
 constraints in AEFeinstein-mtg_familiar-2.0.0
@@ -105,21 +106,22 @@ POSTCONDITION_REMOVED
 version 1: AEFeinstein-mtg_familiar-1.0.0
 version 2: AEFeinstein-mtg_familiar-2.0.0
 compilation unit: 0232-AEFeinstein-mtg_familiar-v3.4.2/mobile/src/main/java/com/gelakinetic/mtgfam/fragments/dialogs/LcPlayerDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onClick(MaterialDialog,
 constraints in AEFeinstein-mtg_familiar-1.0.0
 	JetBrainsNotNull condition: "" , add info: -
-	JavaAssert condition: "textEntryView != null" , add info: -
+	JavaAssert condition: "nameInput.getText() != null" , add info: -
+	JavaAssert condition: "view != null" , add info: -
+	JavaAssert condition: "textEntryView2 != null" , add info: -
+	JavaAssert condition: "lifeInput.getText() != null" , add info: -
 constraints in AEFeinstein-mtg_familiar-2.0.0
 
 POSTCONDITION_REMOVED
 version 1: AEFeinstein-mtg_familiar-1.0.0
 version 2: AEFeinstein-mtg_familiar-2.0.0
 compilation unit: 0232-AEFeinstein-mtg_familiar-v3.4.2/mobile/src/main/java/com/gelakinetic/mtgfam/fragments/dialogs/FamiliarActivityDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onClick(MaterialDialog,
 constraints in AEFeinstein-mtg_familiar-1.0.0
 	JetBrainsNotNull condition: "" , add info: -
-	JavaAssert condition: "getActivity().getPackageManager() != null" , add info: -
-	JavaAssert condition: "dialogLayout != null" , add info: -
 	JavaAssert condition: "dialogLayout != null" , add info: -
 constraints in AEFeinstein-mtg_familiar-2.0.0
 
@@ -127,10 +129,9 @@ POSTCONDITION_REMOVED
 version 1: AEFeinstein-mtg_familiar-1.0.0
 version 2: AEFeinstein-mtg_familiar-2.0.0
 compilation unit: 0232-AEFeinstein-mtg_familiar-v3.4.2/mobile/src/main/java/com/gelakinetic/mtgfam/fragments/dialogs/SortOrderDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onClick(MaterialDialog,
 constraints in AEFeinstein-mtg_familiar-1.0.0
 	JetBrainsNotNull condition: "" , add info: -
-	JavaAssert condition: "view != null" , add info: -
 constraints in AEFeinstein-mtg_familiar-2.0.0
 
 POSTCONDITION_REMOVED
@@ -147,17 +148,16 @@ POSTCONDITION_REMOVED
 version 1: AEFeinstein-mtg_familiar-1.0.0
 version 2: AEFeinstein-mtg_familiar-2.0.0
 compilation unit: 0232-AEFeinstein-mtg_familiar-v3.4.2/mobile/src/main/java/com/gelakinetic/mtgfam/fragments/dialogs/DecklistDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onClick(MaterialDialog,
 constraints in AEFeinstein-mtg_familiar-1.0.0
 	JetBrainsNotNull condition: "" , add info: -
-	JavaAssert condition: "textEntryView != null" , add info: -
 constraints in AEFeinstein-mtg_familiar-2.0.0
 
 POSTCONDITION_REMOVED
 version 1: AEFeinstein-mtg_familiar-1.0.0
 version 2: AEFeinstein-mtg_familiar-2.0.0
 compilation unit: 0232-AEFeinstein-mtg_familiar-v3.4.2/mobile/src/main/java/com/gelakinetic/mtgfam/fragments/dialogs/LifeCounterDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onSelection(MaterialDialog,
 constraints in AEFeinstein-mtg_familiar-1.0.0
 	JetBrainsNotNull condition: "" , add info: -
 constraints in AEFeinstein-mtg_familiar-2.0.0
@@ -338,7 +338,7 @@ POSTCONDITION_REMOVED
 version 1: AntennaPod-AntennaPod-1.0.0
 version 2: AntennaPod-AntennaPod-2.0.0
 compilation unit: 0108-AntennaPod-AntennaPod-0.9.9.1/src/de/danoeh/antennapod/service/download/DownloadService.java
-method: onCreate()
+method: rejectedExecution(Runnable,
 constraints in AntennaPod-AntennaPod-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in AntennaPod-AntennaPod-2.0.0
@@ -347,7 +347,7 @@ POSTCONDITION_REMOVED
 version 1: AntennaPod-AntennaPod-1.0.0
 version 2: AntennaPod-AntennaPod-2.0.0
 compilation unit: 0108-AntennaPod-AntennaPod-0.9.9.1/src/de/danoeh/antennapod/fragment/ItemDescriptionFragment.java
-method: onCreateView(LayoutInflater,
+method: run()
 constraints in AntennaPod-AntennaPod-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in AntennaPod-AntennaPod-2.0.0
@@ -374,7 +374,7 @@ POSTCONDITION_REMOVED
 version 1: AntennaPod-AntennaPod-1.0.0
 version 2: AntennaPod-AntennaPod-2.0.0
 compilation unit: 0108-AntennaPod-AntennaPod-0.9.9.1/src/de/danoeh/antennapod/activity/PreferenceActivity.java
-method: onCreate(Bundle)
+method: onDismiss(DialogInterface)
 constraints in AntennaPod-AntennaPod-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in AntennaPod-AntennaPod-2.0.0
@@ -492,7 +492,7 @@ POSTCONDITION_REMOVED
 version 1: AsteroidOS-AsteroidOSSync-1.0.0
 version 2: AsteroidOS-AsteroidOSSync-2.0.0
 compilation unit: 0143-AsteroidOS-AsteroidOSSync-v0.14/app/src/main/java/org/asteroidos/sync/fragments/DeviceDetailFragment.java
-method: onViewCreated(View,
+method: onCheckedChanged(CompoundButton,
 constraints in AsteroidOS-AsteroidOSSync-1.0.0
 	AndroidSuppressLint condition: ""SetTextI18n"" , add info: -
 constraints in AsteroidOS-AsteroidOSSync-2.0.0
@@ -618,7 +618,7 @@ POSTCONDITION_REMOVED
 version 1: Catrobat-Paintroid-1.0.0
 version 2: Catrobat-Paintroid-2.0.0
 compilation unit: 0003-Catrobat-Paintroid-2.7.1/Paintroid/src/main/java/org/catrobat/paintroid/dialog/RateUsDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in Catrobat-Paintroid-1.0.0
 	AndroidSuppressLint condition: ""InflateParams"" , add info: -
 	AndroidXNonNull condition: "" , add info: -
@@ -628,7 +628,7 @@ POSTCONDITION_REMOVED
 version 1: Catrobat-Paintroid-1.0.0
 version 2: Catrobat-Paintroid-2.0.0
 compilation unit: 0003-Catrobat-Paintroid-2.7.1/Paintroid/src/main/java/org/catrobat/paintroid/dialog/ScaleImageOnLoadDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in Catrobat-Paintroid-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in Catrobat-Paintroid-2.0.0
@@ -637,7 +637,7 @@ POSTCONDITION_REMOVED
 version 1: Catrobat-Paintroid-1.0.0
 version 2: Catrobat-Paintroid-2.0.0
 compilation unit: 0003-Catrobat-Paintroid-2.7.1/Paintroid/src/main/java/org/catrobat/paintroid/dialog/JpgInfoDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in Catrobat-Paintroid-1.0.0
 	AndroidSuppressLint condition: ""InflateParams"" , add info: -
 	AndroidXNonNull condition: "" , add info: -
@@ -647,7 +647,7 @@ POSTCONDITION_REMOVED
 version 1: Catrobat-Paintroid-1.0.0
 version 2: Catrobat-Paintroid-2.0.0
 compilation unit: 0003-Catrobat-Paintroid-2.7.1/Paintroid/src/main/java/org/catrobat/paintroid/dialog/PngInfoDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in Catrobat-Paintroid-1.0.0
 	AndroidSuppressLint condition: ""InflateParams"" , add info: -
 	AndroidXNonNull condition: "" , add info: -
@@ -657,7 +657,7 @@ POSTCONDITION_REMOVED
 version 1: Catrobat-Paintroid-1.0.0
 version 2: Catrobat-Paintroid-2.0.0
 compilation unit: 0003-Catrobat-Paintroid-2.7.1/Paintroid/src/main/java/org/catrobat/paintroid/dialog/OraInfoDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in Catrobat-Paintroid-1.0.0
 	AndroidSuppressLint condition: ""InflateParams"" , add info: -
 	AndroidXNonNull condition: "" , add info: -
@@ -667,7 +667,7 @@ POSTCONDITION_REMOVED
 version 1: Catrobat-Paintroid-1.0.0
 version 2: Catrobat-Paintroid-2.0.0
 compilation unit: 0003-Catrobat-Paintroid-2.7.1/Paintroid/src/main/java/org/catrobat/paintroid/dialog/SaveBeforeNewImageDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in Catrobat-Paintroid-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in Catrobat-Paintroid-2.0.0
@@ -676,7 +676,7 @@ POSTCONDITION_REMOVED
 version 1: Catrobat-Paintroid-1.0.0
 version 2: Catrobat-Paintroid-2.0.0
 compilation unit: 0003-Catrobat-Paintroid-2.7.1/Paintroid/src/main/java/org/catrobat/paintroid/dialog/SaveBeforeFinishDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in Catrobat-Paintroid-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in Catrobat-Paintroid-2.0.0
@@ -685,7 +685,7 @@ POSTCONDITION_REMOVED
 version 1: Catrobat-Paintroid-1.0.0
 version 2: Catrobat-Paintroid-2.0.0
 compilation unit: 0003-Catrobat-Paintroid-2.7.1/Paintroid/src/main/java/org/catrobat/paintroid/dialog/PermissionInfoDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in Catrobat-Paintroid-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in Catrobat-Paintroid-2.0.0
@@ -712,7 +712,7 @@ POSTCONDITION_REMOVED
 version 1: Catrobat-Paintroid-1.0.0
 version 2: Catrobat-Paintroid-2.0.0
 compilation unit: 0003-Catrobat-Paintroid-2.7.1/Paintroid/src/main/java/org/catrobat/paintroid/dialog/OverwriteDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in Catrobat-Paintroid-1.0.0
 	AndroidSuppressLint condition: ""InflateParams"" , add info: -
 	AndroidXNonNull condition: "" , add info: -
@@ -722,7 +722,7 @@ POSTCONDITION_REMOVED
 version 1: Catrobat-Paintroid-1.0.0
 version 2: Catrobat-Paintroid-2.0.0
 compilation unit: 0003-Catrobat-Paintroid-2.7.1/Paintroid/src/main/java/org/catrobat/paintroid/dialog/SaveInformationDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in Catrobat-Paintroid-1.0.0
 	AndroidSuppressLint condition: ""InflateParams"" , add info: -
 	AndroidXNonNull condition: "" , add info: -
@@ -732,7 +732,7 @@ POSTCONDITION_REMOVED
 version 1: Catrobat-Paintroid-1.0.0
 version 2: Catrobat-Paintroid-2.0.0
 compilation unit: 0003-Catrobat-Paintroid-2.7.1/Paintroid/src/main/java/org/catrobat/paintroid/dialog/SaveBeforeLoadImageDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in Catrobat-Paintroid-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in Catrobat-Paintroid-2.0.0
@@ -741,7 +741,7 @@ POSTCONDITION_REMOVED
 version 1: Catrobat-Paintroid-1.0.0
 version 2: Catrobat-Paintroid-2.0.0
 compilation unit: 0003-Catrobat-Paintroid-2.7.1/Paintroid/src/main/java/org/catrobat/paintroid/dialog/PermanentDenialPermissionInfoDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in Catrobat-Paintroid-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in Catrobat-Paintroid-2.0.0
@@ -786,7 +786,7 @@ POSTCONDITION_REMOVED
 version 1: CityZenApp-AndroidApp-1.0.0
 version 2: CityZenApp-AndroidApp-2.0.0
 compilation unit: 0389-CityZenApp-AndroidApp-v1.2.1/CityZenApp/app/src/main/java/com/cityzen/cityzen/oauth/OAuthWebViewDialogFragment.java
-method: onCreateView(LayoutInflater,
+method: onClick(View)
 constraints in CityZenApp-AndroidApp-1.0.0
 	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
 constraints in CityZenApp-AndroidApp-2.0.0
@@ -1436,7 +1436,7 @@ POSTCONDITION_REMOVED
 version 1: Faltenreich-Diaguard-1.0.0
 version 2: Faltenreich-Diaguard-2.0.0
 compilation unit: 0259-Faltenreich-Diaguard-version/3.7.1/app/src/main/java/com/faltenreich/diaguard/feature/tag/TagAutoCompleteAdapter.java
-method: getFilter()
+method: publishResults(CharSequence,
 constraints in Faltenreich-Diaguard-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in Faltenreich-Diaguard-2.0.0
@@ -2208,6 +2208,7 @@ compilation unit: 0073-Gedsh-InviZible-v1.3.0_beta/tordnscrypt/src/main/java/pan
 method: toString()
 constraints in Gedsh-InviZible-1.0.0
 	AndroidXNonNull condition: "" , add info: -
+	AndroidXKeep condition: "" , add info: -
 constraints in Gedsh-InviZible-2.0.0
 
 POSTCONDITION_REMOVED
@@ -2344,6 +2345,7 @@ compilation unit: 0073-Gedsh-InviZible-v1.3.0_beta/tordnscrypt/src/main/java/pan
 method: toString()
 constraints in Gedsh-InviZible-1.0.0
 	AndroidXNonNull condition: "" , add info: -
+	AndroidXKeep condition: "" , add info: -
 constraints in Gedsh-InviZible-2.0.0
 
 POSTCONDITION_REMOVED
@@ -2353,6 +2355,7 @@ compilation unit: 0073-Gedsh-InviZible-v1.3.0_beta/tordnscrypt/src/main/java/pan
 method: toString()
 constraints in Gedsh-InviZible-1.0.0
 	AndroidXNonNull condition: "" , add info: -
+	AndroidXKeep condition: "" , add info: -
 constraints in Gedsh-InviZible-2.0.0
 
 POSTCONDITION_REMOVED
@@ -4079,6 +4082,16 @@ POSTCONDITION_REMOVED
 version 1: MarcusWolschon-osmeditor4android-1.0.0
 version 2: MarcusWolschon-osmeditor4android-2.0.0
 compilation unit: 0231-MarcusWolschon-osmeditor4android-15.2.1.0/src/main/java/de/blau/android/util/collections/LongOsmElementMap.java
+method: Integer>
+constraints in MarcusWolschon-osmeditor4android-1.0.0
+	AndroidSuppressLint condition: ""UseSparseArrays"" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+constraints in MarcusWolschon-osmeditor4android-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: MarcusWolschon-osmeditor4android-1.0.0
+version 2: MarcusWolschon-osmeditor4android-2.0.0
+compilation unit: 0231-MarcusWolschon-osmeditor4android-15.2.1.0/src/main/java/de/blau/android/util/collections/LongOsmElementMap.java
 method: get(long)
 constraints in MarcusWolschon-osmeditor4android-1.0.0
 	AndroidXNullable condition: "" , add info: -
@@ -4107,15 +4120,6 @@ version 1: MarcusWolschon-osmeditor4android-1.0.0
 version 2: MarcusWolschon-osmeditor4android-2.0.0
 compilation unit: 0231-MarcusWolschon-osmeditor4android-15.2.1.0/src/main/java/de/blau/android/util/collections/LongOsmElementMap.java
 method: iterator()
-constraints in MarcusWolschon-osmeditor4android-1.0.0
-	AndroidXNonNull condition: "" , add info: -
-constraints in MarcusWolschon-osmeditor4android-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: MarcusWolschon-osmeditor4android-1.0.0
-version 2: MarcusWolschon-osmeditor4android-2.0.0
-compilation unit: 0231-MarcusWolschon-osmeditor4android-15.2.1.0/src/main/java/de/blau/android/util/collections/LongOsmElementMap.java
-method: Integer>
 constraints in MarcusWolschon-osmeditor4android-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in MarcusWolschon-osmeditor4android-2.0.0
@@ -4768,7 +4772,7 @@ POSTCONDITION_REMOVED
 version 1: MarcusWolschon-osmeditor4android-1.0.0
 version 2: MarcusWolschon-osmeditor4android-2.0.0
 compilation unit: 0231-MarcusWolschon-osmeditor4android-15.2.1.0/src/main/java/de/blau/android/dialogs/SearchForm.java
-method: onCreateDialog(Bundle)
+method: onNothingSelected(AdapterView<?>)
 constraints in MarcusWolschon-osmeditor4android-1.0.0
 	AndroidSuppressLint condition: ""InflateParams"" , add info: -
 	AndroidXNonNull condition: "" , add info: -
@@ -4834,7 +4838,7 @@ POSTCONDITION_REMOVED
 version 1: MarcusWolschon-osmeditor4android-1.0.0
 version 2: MarcusWolschon-osmeditor4android-2.0.0
 compilation unit: 0231-MarcusWolschon-osmeditor4android-15.2.1.0/src/main/java/de/blau/android/dialogs/LayerStyle.java
-method: onCreateDialog(Bundle)
+method: onPositiveButtonClick(int)
 constraints in MarcusWolschon-osmeditor4android-1.0.0
 	AndroidSuppressLint condition: ""InflateParams"" , add info: -
 	AndroidXNonNull condition: "" , add info: -
@@ -4844,7 +4848,7 @@ POSTCONDITION_REMOVED
 version 1: MarcusWolschon-osmeditor4android-1.0.0
 version 2: MarcusWolschon-osmeditor4android-2.0.0
 compilation unit: 0231-MarcusWolschon-osmeditor4android-15.2.1.0/src/main/java/de/blau/android/dialogs/TooMuchData.java
-method: onCreateDialog(Bundle)
+method: onPostExecute(Void)
 constraints in MarcusWolschon-osmeditor4android-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in MarcusWolschon-osmeditor4android-2.0.0
@@ -4853,7 +4857,7 @@ POSTCONDITION_REMOVED
 version 1: MarcusWolschon-osmeditor4android-1.0.0
 version 2: MarcusWolschon-osmeditor4android-2.0.0
 compilation unit: 0231-MarcusWolschon-osmeditor4android-15.2.1.0/src/main/java/de/blau/android/dialogs/ConfirmUpload.java
-method: onCreateDialog(Bundle)
+method: onPageSelected(int)
 constraints in MarcusWolschon-osmeditor4android-1.0.0
 	AndroidSuppressLint condition: ""InflateParams"" , add info: -
 	AndroidXNonNull condition: "" , add info: -
@@ -5100,7 +5104,7 @@ POSTCONDITION_REMOVED
 version 1: MarcusWolschon-osmeditor4android-1.0.0
 version 2: MarcusWolschon-osmeditor4android-2.0.0
 compilation unit: 0231-MarcusWolschon-osmeditor4android-15.2.1.0/src/main/java/de/blau/android/prefs/PresetEditorActivity.java
-method: itemEditDialog(ListEditItem)
+method: read(Uri)
 constraints in MarcusWolschon-osmeditor4android-1.0.0
 	AndroidSuppressLint condition: ""InflateParams"" , add info: -
 constraints in MarcusWolschon-osmeditor4android-2.0.0
@@ -5428,7 +5432,6 @@ compilation unit: 0231-MarcusWolschon-osmeditor4android-15.2.1.0/src/main/java/d
 method: onKey(View,
 constraints in MarcusWolschon-osmeditor4android-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
-	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in MarcusWolschon-osmeditor4android-2.0.0
 
 POSTCONDITION_REMOVED
@@ -5437,6 +5440,7 @@ version 2: MarcusWolschon-osmeditor4android-2.0.0
 compilation unit: 0231-MarcusWolschon-osmeditor4android-15.2.1.0/src/main/java/de/blau/android/Main.java
 method: onGenericMotion(View,
 constraints in MarcusWolschon-osmeditor4android-1.0.0
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in MarcusWolschon-osmeditor4android-2.0.0
 
@@ -5489,7 +5493,7 @@ POSTCONDITION_REMOVED
 version 1: MarcusWolschon-osmeditor4android-1.0.0
 version 2: MarcusWolschon-osmeditor4android-2.0.0
 compilation unit: 0231-MarcusWolschon-osmeditor4android-15.2.1.0/src/main/java/de/blau/android/tasks/TaskFragment.java
-method: onCreateDialog(Bundle)
+method: onNothingSelected(AdapterView<?>)
 constraints in MarcusWolschon-osmeditor4android-1.0.0
 	AndroidSuppressLint condition: "{ "NewApi", "InflateParams" }" , add info: -
 	AndroidXNonNull condition: "" , add info: -
@@ -5805,7 +5809,7 @@ POSTCONDITION_REMOVED
 version 1: MarcusWolschon-osmeditor4android-1.0.0
 version 2: MarcusWolschon-osmeditor4android-2.0.0
 compilation unit: 0231-MarcusWolschon-osmeditor4android-15.2.1.0/src/main/java/de/blau/android/Splash.java
-method: onResume()
+method: onPostExecute(Void)
 constraints in MarcusWolschon-osmeditor4android-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in MarcusWolschon-osmeditor4android-2.0.0
@@ -5850,7 +5854,7 @@ POSTCONDITION_REMOVED
 version 1: MuntashirAkon-AppManager-1.0.0
 version 2: MuntashirAkon-AppManager-2.0.0
 compilation unit: 0080-MuntashirAkon-AppManager-v2.2.0/app/src/main/java/io/github/muntashirakon/AppManager/fragments/IconPickerDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in MuntashirAkon-AppManager-1.0.0
 	AndroidSuppressLint condition: ""InflateParams"" , add info: -
 	AndroidXNonNull condition: "" , add info: -
@@ -6086,7 +6090,7 @@ POSTCONDITION_REMOVED
 version 1: Neamar-KISS-1.0.0
 version 2: Neamar-KISS-2.0.0
 compilation unit: 0255-Neamar-KISS-v3.16.1/app/src/main/java/fr/neamar/kiss/result/CallResult.java
-method: launchCall(Context,
+method: onDenied()
 constraints in Neamar-KISS-1.0.0
 	AndroidSuppressLint condition: ""MissingPermission"" , add info: -
 constraints in Neamar-KISS-2.0.0
@@ -6230,19 +6234,9 @@ POSTCONDITION_REMOVED
 version 1: Neamar-KISS-1.0.0
 version 2: Neamar-KISS-2.0.0
 compilation unit: 0255-Neamar-KISS-v3.16.1/app/src/main/java/fr/neamar/kiss/dataprovider/AppProvider.java
-method: onCreate()
-constraints in Neamar-KISS-1.0.0
-	JavaAssert condition: "manager != null" , add info: -
-	JavaAssert condition: "launcher != null" , add info: -
-	AndroidSuppressLint condition: ""NewApi"" , add info: -
-constraints in Neamar-KISS-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: Neamar-KISS-1.0.0
-version 2: Neamar-KISS-2.0.0
-compilation unit: 0255-Neamar-KISS-v3.16.1/app/src/main/java/fr/neamar/kiss/dataprovider/AppProvider.java
 method: onReceive(Context,
 constraints in Neamar-KISS-1.0.0
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
 	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.LOLLIPOP]" , add info: -
 constraints in Neamar-KISS-2.0.0
 
@@ -6843,7 +6837,7 @@ POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/WebviewActivity.java
-method: createView(Context)
+method: onAnimationEnd(Animator)
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidSuppressLint condition: "{ "SetJavaScriptEnabled", "AddJavascriptInterface" }" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
@@ -7185,33 +7179,6 @@ constraints in NekoX_Dev-NekoX-2.0.0
 POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
-compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/voip/VoIPPiPView.java
-method: getOutline(View,
-constraints in NekoX_Dev-NekoX-1.0.0
-	AndroidTargetApi condition: "Build.VERSION_CODES.LOLLIPOP" , add info: -
-constraints in NekoX_Dev-NekoX-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: NekoX_Dev-NekoX-1.0.0
-version 2: NekoX_Dev-NekoX-2.0.0
-compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/voip/VoIPTextureView.java
-method: getOutline(View,
-constraints in NekoX_Dev-NekoX-1.0.0
-	AndroidTargetApi condition: "Build.VERSION_CODES.LOLLIPOP" , add info: -
-constraints in NekoX_Dev-NekoX-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: NekoX_Dev-NekoX-1.0.0
-version 2: NekoX_Dev-NekoX-2.0.0
-compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/voip/VoIPFloatingLayout.java
-method: getOutline(View,
-constraints in NekoX_Dev-NekoX-1.0.0
-	AndroidTargetApi condition: "Build.VERSION_CODES.LOLLIPOP" , add info: -
-constraints in NekoX_Dev-NekoX-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: NekoX_Dev-NekoX-1.0.0
-version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/voip/VoIPToggleButton.java
 method: onDraw(Canvas)
 constraints in NekoX_Dev-NekoX-1.0.0
@@ -7268,7 +7235,7 @@ POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlert.java
-method: updateLayout(AttachAlertLayout,
+method: onAnimationCancel(Animator)
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
@@ -8065,26 +8032,10 @@ POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/AlertsCreator.java
-method: createBackgroundLocationPermissionDialog(Activity,
+method: getOutline(View,
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.LOLLIPOP]" , add info: -
-constraints in NekoX_Dev-NekoX-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: NekoX_Dev-NekoX-1.0.0
-version 2: NekoX_Dev-NekoX-2.0.0
-compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/AlertsCreator.java
-method: createDrawOverlayPermissionDialog(Activity,
-constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.LOLLIPOP]" , add info: -
-constraints in NekoX_Dev-NekoX-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: NekoX_Dev-NekoX-1.0.0
-version 2: NekoX_Dev-NekoX-2.0.0
-compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/AlertsCreator.java
-method: createDrawOverlayGroupCallPermissionDialog(Context)
-constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.LOLLIPOP]" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
 
@@ -8110,7 +8061,7 @@ POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextBoldCursor.java
-method: getTextCursorDrawable()
+method: draw(Canvas)
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidXNullable condition: "" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
@@ -8480,7 +8431,7 @@ POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/ProxyListActivity.java
-method: setProxy(SharedConfig.ProxyInfo)
+method: onClick(View)
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidSuppressLint condition: ""SetTextI18n"" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
@@ -8609,6 +8560,7 @@ compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/org/te
 method: getConnectionAndStartCall()
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.O" , add info: -
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
 
 POSTCONDITION_REMOVED
@@ -8741,7 +8693,7 @@ POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/org/telegram/messenger/NotificationBadge.java
-method: executeBadge(int)
+method: run()
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
@@ -8834,6 +8786,7 @@ compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/org/te
 method: setPresentationTime(long)
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.JELLY_BEAN_MR2" , add info: -
+	AndroidTargetApi condition: "17" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
 
 POSTCONDITION_REMOVED
@@ -8967,7 +8920,7 @@ POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/tw/nekomimi/nekogram/settings/NekoSettingsActivity.java
-method: createView(Context)
+method: startDocumentSelectActivity()
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
@@ -8988,13 +8941,14 @@ compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/tw/nek
 method: onTouchEvent(MotionEvent)
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidSuppressLint condition: ""ClickableViewAccessibility"" , add info: -
+	AndroidSuppressLint condition: ""ViewConstructor"" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
 
 POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/tw/nekomimi/nekogram/settings/NekoAccountSettingsActivity.java
-method: createView(Context)
+method: onItemClick(int)
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
@@ -9003,7 +8957,7 @@ POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/tw/nekomimi/nekogram/settings/NekoChatSettingsActivity.java
-method: createView(Context)
+method: onItemClick(int)
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
@@ -9012,7 +8966,7 @@ POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/tw/nekomimi/nekogram/settings/NekoExperimentalSettingsActivity.java
-method: createView(Context)
+method: onItemClick(int)
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
@@ -9021,7 +8975,7 @@ POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/tw/nekomimi/nekogram/settings/NekoGeneralSettingsActivity.java
-method: createView(Context)
+method: onItemClick(int)
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
@@ -9039,7 +8993,7 @@ POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/tw/nekomimi/nekogram/MessageDetailsActivity.java
-method: createView(Context)
+method: onItemClick(int)
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidSuppressLint condition: "{ "NewApi", "RtlHardcoded" }" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
@@ -9594,7 +9548,7 @@ POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/androidx/recyclerview/widget/SnapHelper.java
-method: createSnapScroller(RecyclerView.LayoutManager)
+method: calculateSpeedPerPixel(DisplayMetrics)
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidXNullable condition: "" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
@@ -10688,9 +10642,8 @@ POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
-method: getExoMediaCryptoType(DrmInitData)
+method: acquirePlaceholderSession(Looper,
 constraints in NekoX_Dev-NekoX-1.0.0
-	AndroidSuppressLint condition: ""HandlerLeak"" , add info: -
 	AndroidXNullable condition: "" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
 
@@ -10698,7 +10651,7 @@ POSTCONDITION_REMOVED
 version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
-method: acquirePlaceholderSession(Looper,
+method: getExoMediaCryptoType(DrmInitData)
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidXNullable condition: "" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
@@ -10855,6 +10808,7 @@ compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/com/go
 method: getExoMediaCryptoType()
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidXNullable condition: "" , add info: -
+	AndroidXRequiresApi condition: "18" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
 
 POSTCONDITION_REMOVED
@@ -11036,6 +10990,43 @@ version 1: NekoX_Dev-NekoX-1.0.0
 version 2: NekoX_Dev-NekoX-2.0.0
 compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/trackselection/BufferSizeAdaptationBuilder.java
 method: getSelectionData()
+constraints in NekoX_Dev-NekoX-1.0.0
+	AndroidXNullable condition: "" , add info: -
+constraints in NekoX_Dev-NekoX-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: NekoX_Dev-NekoX-1.0.0
+version 2: NekoX_Dev-NekoX-2.0.0
+compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/trackselection/DefaultTrackSelector.java
+method: getSelectionOverride(int,
+constraints in NekoX_Dev-NekoX-1.0.0
+	AndroidXNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+constraints in NekoX_Dev-NekoX-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: NekoX_Dev-NekoX-1.0.0
+version 2: NekoX_Dev-NekoX-2.0.0
+compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/trackselection/DefaultTrackSelector.java
+method: selectVideoTrack(TrackGroupArray,
+constraints in NekoX_Dev-NekoX-1.0.0
+	AndroidXNullable condition: "" , add info: -
+constraints in NekoX_Dev-NekoX-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: NekoX_Dev-NekoX-1.0.0
+version 2: NekoX_Dev-NekoX-2.0.0
+compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/trackselection/DefaultTrackSelector.java
+method: AudioTrackScore>
+constraints in NekoX_Dev-NekoX-1.0.0
+	AndroidXNullable condition: "" , add info: -
+constraints in NekoX_Dev-NekoX-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: NekoX_Dev-NekoX-1.0.0
+version 2: NekoX_Dev-NekoX-2.0.0
+compilation unit: 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/trackselection/DefaultTrackSelector.java
+method: selectOtherTrack(int,
 constraints in NekoX_Dev-NekoX-1.0.0
 	AndroidXNullable condition: "" , add info: -
 constraints in NekoX_Dev-NekoX-2.0.0
@@ -12893,7 +12884,7 @@ POSTCONDITION_REMOVED
 version 1: OxfordHCC-tracker_control_android-1.0.0
 version 2: OxfordHCC-tracker_control_android-2.0.0
 compilation unit: 0139-OxfordHCC-tracker_control_android-2021032201/app/src/main/java/eu/faircode/netguard/ActivitySettings.java
-method: onSharedPreferenceChanged(SharedPreferences,
+method: onClick(DialogInterface,
 constraints in OxfordHCC-tracker_control_android-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.M" , add info: -
 constraints in OxfordHCC-tracker_control_android-2.0.0
@@ -13074,7 +13065,7 @@ POSTCONDITION_REMOVED
 version 1: QuantumBadger-RedReader-1.0.0
 version 2: QuantumBadger-RedReader-2.0.0
 compilation unit: 0367-QuantumBadger-RedReader-v1.16/src/main/java/org/quantumbadger/redreader/activities/OAuthLoginActivity.java
-method: onCreate(Bundle)
+method: shouldInterceptRequest(WebView,
 constraints in QuantumBadger-RedReader-1.0.0
 	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
 constraints in QuantumBadger-RedReader-2.0.0
@@ -13083,7 +13074,7 @@ POSTCONDITION_REMOVED
 version 1: QuantumBadger-RedReader-1.0.0
 version 2: QuantumBadger-RedReader-2.0.0
 compilation unit: 0367-QuantumBadger-RedReader-v1.16/src/main/java/org/quantumbadger/redreader/reddit/CommentListingRequest.java
-method: createCommentListingCacheRequest()
+method: onDownloadNecessary()
 constraints in QuantumBadger-RedReader-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in QuantumBadger-RedReader-2.0.0
@@ -13158,10 +13149,10 @@ version 2: QuantumBadger-RedReader-2.0.0
 compilation unit: 0367-QuantumBadger-RedReader-v1.16/src/main/java/org/quantumbadger/redreader/reddit/prepared/html/HtmlReader.java
 method: readNext()
 constraints in QuantumBadger-RedReader-1.0.0
+	AndroidXNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
 	AndroidXNonNull condition: "" , add info: -
-	AndroidXNullable condition: "" , add info: -
-	AndroidXNullable condition: "" , add info: -
-	AndroidXNullable condition: "" , add info: -
 constraints in QuantumBadger-RedReader-2.0.0
 
 POSTCONDITION_REMOVED
@@ -13890,7 +13881,7 @@ POSTCONDITION_REMOVED
 version 1: QuantumBadger-RedReader-1.0.0
 version 2: QuantumBadger-RedReader-2.0.0
 compilation unit: 0367-QuantumBadger-RedReader-v1.16/src/main/java/org/quantumbadger/redreader/fragments/WebViewFragment.java
-method: onCreateView(LayoutInflater,
+method: onTap()
 constraints in QuantumBadger-RedReader-1.0.0
 	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
 constraints in QuantumBadger-RedReader-2.0.0
@@ -14163,7 +14154,7 @@ POSTCONDITION_REMOVED
 version 1: RailwayStations-RSAndroidApp-1.0.0
 version 2: RailwayStations-RSAndroidApp-2.0.0
 compilation unit: 0385-RailwayStations-RSAndroidApp-12.8.0/app/src/main/java/de/bahnhoefe/deutschlands/bahnhofsfotos/MainActivity.java
-method: onCreateOptionsMenu(Menu)
+method: onQueryTextChange(String)
 constraints in RailwayStations-RSAndroidApp-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
 constraints in RailwayStations-RSAndroidApp-2.0.0
@@ -14181,7 +14172,7 @@ POSTCONDITION_REMOVED
 version 1: RailwayStations-RSAndroidApp-1.0.0
 version 2: RailwayStations-RSAndroidApp-2.0.0
 compilation unit: 0385-RailwayStations-RSAndroidApp-12.8.0/app/src/main/java/de/bahnhoefe/deutschlands/bahnhofsfotos/Dialogs/MapInfoFragment.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in RailwayStations-RSAndroidApp-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in RailwayStations-RSAndroidApp-2.0.0
@@ -14226,7 +14217,7 @@ POSTCONDITION_REMOVED
 version 1: RailwayStations-RSAndroidApp-1.0.0
 version 2: RailwayStations-RSAndroidApp-2.0.0
 compilation unit: 0385-RailwayStations-RSAndroidApp-12.8.0/app/src/main/java/de/bahnhoefe/deutschlands/bahnhofsfotos/HighScoreActivity.java
-method: onCreateOptionsMenu(Menu)
+method: onQueryTextChange(String)
 constraints in RailwayStations-RSAndroidApp-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
 constraints in RailwayStations-RSAndroidApp-2.0.0
@@ -14292,8 +14283,8 @@ compilation unit: 0292-SmartPack-SmartFlasher-v5.1/app/src/main/java/com/smartpa
 method: onActivityResult(int,
 constraints in SmartPack-SmartFlasher-1.0.0
 	JavaAssert condition: "uri != null" , add info: -
-	AndroidSuppressLint condition: ""StringFormatInvalid"" , add info: -
 	AndroidSuppressLint condition: ""Recycle"" , add info: -
+	AndroidSuppressLint condition: ""StringFormatInvalid"" , add info: -
 constraints in SmartPack-SmartFlasher-2.0.0
 
 POSTCONDITION_REMOVED
@@ -14312,15 +14303,15 @@ compilation unit: 0292-SmartPack-SmartFlasher-v5.1/app/src/main/java/com/smartpa
 method: onActivityResult(int,
 constraints in SmartPack-SmartFlasher-1.0.0
 	JavaAssert condition: "uri != null" , add info: -
-	AndroidSuppressLint condition: "{ "StringFormatInvalid", "StringFormatMatches" }" , add info: -
 	AndroidSuppressLint condition: ""Recycle"" , add info: -
+	AndroidSuppressLint condition: "{ "StringFormatInvalid", "StringFormatMatches" }" , add info: -
 constraints in SmartPack-SmartFlasher-2.0.0
 
 POSTCONDITION_REMOVED
 version 1: SmartPack-SmartFlasher-1.0.0
 version 2: SmartPack-SmartFlasher-2.0.0
 compilation unit: 0292-SmartPack-SmartFlasher-v5.1/app/src/main/java/com/smartpack/smartflasher/fragments/FlasherFragment.java
-method: acquireUpdateInfo(String,
+method: onPostExecute(Void)
 constraints in SmartPack-SmartFlasher-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in SmartPack-SmartFlasher-2.0.0
@@ -14440,15 +14431,15 @@ compilation unit: 0140-SmartPack-SmartPack_Kernel_Manager-v12.7/app/src/main/jav
 method: onActivityResult(int,
 constraints in SmartPack-SmartPack_Kernel_Manager-1.0.0
 	JavaAssert condition: "uri != null" , add info: -
-	AndroidSuppressLint condition: "{ "StringFormatInvalid", "StringFormatMatches" }" , add info: -
 	AndroidSuppressLint condition: ""Recycle"" , add info: -
+	AndroidSuppressLint condition: "{ "StringFormatInvalid", "StringFormatMatches" }" , add info: -
 constraints in SmartPack-SmartPack_Kernel_Manager-2.0.0
 
 POSTCONDITION_REMOVED
 version 1: SmartPack-SmartPack_Kernel_Manager-1.0.0
 version 2: SmartPack-SmartPack_Kernel_Manager-2.0.0
 compilation unit: 0140-SmartPack-SmartPack_Kernel_Manager-v12.7/app/src/main/java/com/smartpack/kernelmanager/fragments/tools/TranslatorFragment.java
-method: run()
+method: onPostExecute(List<RecyclerViewItem>)
 constraints in SmartPack-SmartPack_Kernel_Manager-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in SmartPack-SmartPack_Kernel_Manager-2.0.0
@@ -14460,8 +14451,8 @@ compilation unit: 0140-SmartPack-SmartPack_Kernel_Manager-v12.7/app/src/main/jav
 method: onActivityResult(int,
 constraints in SmartPack-SmartPack_Kernel_Manager-1.0.0
 	JavaAssert condition: "uri != null" , add info: -
-	AndroidSuppressLint condition: ""StringFormatInvalid"" , add info: -
 	AndroidSuppressLint condition: ""Recycle"" , add info: -
+	AndroidSuppressLint condition: ""StringFormatInvalid"" , add info: -
 constraints in SmartPack-SmartPack_Kernel_Manager-2.0.0
 
 POSTCONDITION_REMOVED
@@ -14471,15 +14462,6 @@ compilation unit: 0140-SmartPack-SmartPack_Kernel_Manager-v12.7/app/src/main/jav
 method: getItem(int)
 constraints in SmartPack-SmartPack_Kernel_Manager-1.0.0
 	AndroidXNonNull condition: "" , add info: -
-constraints in SmartPack-SmartPack_Kernel_Manager-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: SmartPack-SmartPack_Kernel_Manager-1.0.0
-version 2: SmartPack-SmartPack_Kernel_Manager-2.0.0
-compilation unit: 0140-SmartPack-SmartPack_Kernel_Manager-v12.7/app/src/main/java/com/smartpack/kernelmanager/fragments/other/SettingsFragment.java
-method: onCreateAdapter(PreferenceScreen)
-constraints in SmartPack-SmartPack_Kernel_Manager-1.0.0
-	AndroidSuppressLint condition: ""RestrictedApi"" , add info: -
 constraints in SmartPack-SmartPack_Kernel_Manager-2.0.0
 
 POSTCONDITION_REMOVED
@@ -14992,8 +14974,8 @@ version 2: TBog-TBLauncher-2.0.0
 compilation unit: 0134-TBog-TBLauncher-v5.2/app/src/main/java/rocks/tbog/tblauncher/entry/EntryItem.java
 method: getPopupMenu(View,
 constraints in TBog-TBLauncher-1.0.0
-	AndroidXNonNull condition: "" , add info: -
 	AndroidXStringRes condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
 constraints in TBog-TBLauncher-2.0.0
 
 POSTCONDITION_REMOVED
@@ -15699,8 +15681,8 @@ version 2: TBog-TBLauncher-2.0.0
 compilation unit: 0134-TBog-TBLauncher-v5.2/app/src/main/java/rocks/tbog/tblauncher/utils/Utilities.java
 method: expandNotificationsPanel(Activity)
 constraints in TBog-TBLauncher-1.0.0
-	AndroidSuppressLint condition: ""ObsoleteSdkInt"" , add info: -
 	AndroidSuppressLint condition: ""WrongConstant"" , add info: -
+	AndroidSuppressLint condition: ""ObsoleteSdkInt"" , add info: -
 constraints in TBog-TBLauncher-2.0.0
 
 POSTCONDITION_REMOVED
@@ -15709,8 +15691,8 @@ version 2: TBog-TBLauncher-2.0.0
 compilation unit: 0134-TBog-TBLauncher-v5.2/app/src/main/java/rocks/tbog/tblauncher/utils/Utilities.java
 method: expandSettingsPanel(Activity)
 constraints in TBog-TBLauncher-1.0.0
-	AndroidSuppressLint condition: ""ObsoleteSdkInt"" , add info: -
 	AndroidSuppressLint condition: ""WrongConstant"" , add info: -
+	AndroidSuppressLint condition: ""ObsoleteSdkInt"" , add info: -
 constraints in TBog-TBLauncher-2.0.0
 
 POSTCONDITION_REMOVED
@@ -15800,8 +15782,8 @@ version 2: TBog-TBLauncher-2.0.0
 compilation unit: 0134-TBog-TBLauncher-v5.2/app/src/main/java/rocks/tbog/tblauncher/utils/DeviceUtils.java
 method: getDeviceSerial(Context)
 constraints in TBog-TBLauncher-1.0.0
-	AndroidSuppressLint condition: ""HardwareIds"" , add info: -
 	AndroidSuppressLint condition: ""PrivateApi"" , add info: -
+	AndroidSuppressLint condition: ""HardwareIds"" , add info: -
 constraints in TBog-TBLauncher-2.0.0
 
 POSTCONDITION_REMOVED
@@ -15987,7 +15969,6 @@ method: onReceive(Context,
 constraints in TBog-TBLauncher-1.0.0
 	JavaAssert condition: "manager != null" , add info: -
 	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.LOLLIPOP]" , add info: -
-	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.LOLLIPOP]" , add info: -
 constraints in TBog-TBLauncher-2.0.0
 
 POSTCONDITION_REMOVED
@@ -16023,7 +16004,6 @@ version 2: TBog-TBLauncher-2.0.0
 compilation unit: 0134-TBog-TBLauncher-v5.2/app/src/main/java/rocks/tbog/tblauncher/dataprovider/ShortcutsProvider.java
 method: onReceive(Context,
 constraints in TBog-TBLauncher-1.0.0
-	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.LOLLIPOP]" , add info: -
 	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.LOLLIPOP]" , add info: -
 constraints in TBog-TBLauncher-2.0.0
 
@@ -16421,6 +16401,15 @@ compilation unit: 0066-TeamNewPipe-NewPipe-v0.18.4/app/src/main/java/org/schabi/
 method: concatenateStrings(List<String>)
 constraints in TeamNewPipe-NewPipe-1.0.0
 	AndroidXNonNull condition: "" , add info: -
+constraints in TeamNewPipe-NewPipe-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: TeamNewPipe-NewPipe-1.0.0
+version 2: TeamNewPipe-NewPipe-2.0.0
+compilation unit: 0066-TeamNewPipe-NewPipe-v0.18.4/app/src/main/java/org/schabi/newpipe/util/StateSaver.java
+method: accept(File,
+constraints in TeamNewPipe-NewPipe-1.0.0
+	AndroidXNullable condition: "" , add info: -
 constraints in TeamNewPipe-NewPipe-2.0.0
 
 POSTCONDITION_REMOVED
@@ -17179,7 +17168,7 @@ POSTCONDITION_REMOVED
 version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/PaymentFormActivity.java
-method: createView(Context)
+method: afterTextChanged(Editable)
 constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 	AndroidSuppressLint condition: "{ "SetJavaScriptEnabled", "AddJavascriptInterface" }" , add info: -
 constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
@@ -17353,7 +17342,7 @@ POSTCONDITION_REMOVED
 version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/WebviewActivity.java
-method: createView(Context)
+method: onAnimationEnd(Animator)
 constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 	AndroidSuppressLint condition: "{ "SetJavaScriptEnabled", "AddJavascriptInterface" }" , add info: -
 constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
@@ -17686,33 +17675,6 @@ constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 POSTCONDITION_REMOVED
 version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
-compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/voip/VoIPPiPView.java
-method: getOutline(View,
-constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
-	AndroidTargetApi condition: "Build.VERSION_CODES.LOLLIPOP" , add info: -
-constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
-version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
-compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/voip/VoIPTextureView.java
-method: getOutline(View,
-constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
-	AndroidTargetApi condition: "Build.VERSION_CODES.LOLLIPOP" , add info: -
-constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
-version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
-compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/voip/VoIPFloatingLayout.java
-method: getOutline(View,
-constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
-	AndroidTargetApi condition: "Build.VERSION_CODES.LOLLIPOP" , add info: -
-constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
-version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/voip/VoIPToggleButton.java
 method: onDraw(Canvas)
 constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
@@ -17769,7 +17731,7 @@ POSTCONDITION_REMOVED
 version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/ChatAttachAlert.java
-method: updateLayout(AttachAlertLayout,
+method: onAnimationCancel(Animator)
 constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
@@ -18566,26 +18528,10 @@ POSTCONDITION_REMOVED
 version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/AlertsCreator.java
-method: createBackgroundLocationPermissionDialog(Activity,
+method: getOutline(View,
 constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.LOLLIPOP]" , add info: -
-constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
-version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
-compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/AlertsCreator.java
-method: createDrawOverlayPermissionDialog(Activity,
-constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.LOLLIPOP]" , add info: -
-constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
-version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
-compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/AlertsCreator.java
-method: createDrawOverlayGroupCallPermissionDialog(Context)
-constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.LOLLIPOP]" , add info: -
 constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 
@@ -18611,7 +18557,7 @@ POSTCONDITION_REMOVED
 version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/org/telegram/ui/Components/EditTextBoldCursor.java
-method: getTextCursorDrawable()
+method: draw(Canvas)
 constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 	AndroidXNullable condition: "" , add info: -
 constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
@@ -19101,6 +19047,7 @@ compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src
 method: getConnectionAndStartCall()
 constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.O" , add info: -
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 
 POSTCONDITION_REMOVED
@@ -19224,7 +19171,7 @@ POSTCONDITION_REMOVED
 version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/org/telegram/messenger/NotificationBadge.java
-method: executeBadge(int)
+method: run()
 constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
 constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
@@ -19317,6 +19264,7 @@ compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src
 method: setPresentationTime(long)
 constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.JELLY_BEAN_MR2" , add info: -
+	AndroidTargetApi condition: "17" , add info: -
 constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 
 POSTCONDITION_REMOVED
@@ -19924,7 +19872,7 @@ POSTCONDITION_REMOVED
 version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/androidx/recyclerview/widget/SnapHelper.java
-method: createSnapScroller(RecyclerView.LayoutManager)
+method: calculateSpeedPerPixel(DisplayMetrics)
 constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 	AndroidXNullable condition: "" , add info: -
 constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
@@ -21018,9 +20966,8 @@ POSTCONDITION_REMOVED
 version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
-method: getExoMediaCryptoType(DrmInitData)
+method: acquirePlaceholderSession(Looper,
 constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
-	AndroidSuppressLint condition: ""HandlerLeak"" , add info: -
 	AndroidXNullable condition: "" , add info: -
 constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 
@@ -21028,7 +20975,7 @@ POSTCONDITION_REMOVED
 version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
-method: acquirePlaceholderSession(Looper,
+method: getExoMediaCryptoType(DrmInitData)
 constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 	AndroidXNullable condition: "" , add info: -
 constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
@@ -21185,6 +21132,7 @@ compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src
 method: getExoMediaCryptoType()
 constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 	AndroidXNullable condition: "" , add info: -
+	AndroidXRequiresApi condition: "18" , add info: -
 constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 
 POSTCONDITION_REMOVED
@@ -21366,6 +21314,43 @@ version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
 compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/trackselection/BufferSizeAdaptationBuilder.java
 method: getSelectionData()
+constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
+	AndroidXNullable condition: "" , add info: -
+constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
+version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
+compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/trackselection/DefaultTrackSelector.java
+method: getSelectionOverride(int,
+constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
+	AndroidXNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
+version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
+compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/trackselection/DefaultTrackSelector.java
+method: selectVideoTrack(TrackGroupArray,
+constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
+	AndroidXNullable condition: "" , add info: -
+constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
+version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
+compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/trackselection/DefaultTrackSelector.java
+method: AudioTrackScore>
+constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
+	AndroidXNullable condition: "" , add info: -
+constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: Telegram_FOSS_Team-Telegram_FOSS-1.0.0
+version 2: Telegram_FOSS_Team-Telegram_FOSS-2.0.0
+compilation unit: 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/trackselection/DefaultTrackSelector.java
+method: selectOtherTrack(int,
 constraints in Telegram_FOSS_Team-Telegram_FOSS-1.0.0
 	AndroidXNullable condition: "" , add info: -
 constraints in Telegram_FOSS_Team-Telegram_FOSS-2.0.0
@@ -23371,7 +23356,7 @@ POSTCONDITION_REMOVED
 version 1: WangDaYeeeeee-GeometricWeather-1.0.0
 version 2: WangDaYeeeeee-GeometricWeather-2.0.0
 compilation unit: 0357-WangDaYeeeeee-GeometricWeather-3.013/app/src/main/java/wangdaye/com/geometricweather/main/adapters/LocationAdapterAnimWrapper.java
-method: getAnimator(View,
+method: onAnimationEnd(Animator)
 constraints in WangDaYeeeeee-GeometricWeather-1.0.0
 	AndroidXNullable condition: "" , add info: -
 constraints in WangDaYeeeeee-GeometricWeather-2.0.0
@@ -23470,6 +23455,42 @@ constraints in WangDaYeeeeee-GeometricWeather-2.0.0
 POSTCONDITION_REMOVED
 version 1: WangDaYeeeeee-GeometricWeather-1.0.0
 version 2: WangDaYeeeeee-GeometricWeather-2.0.0
+compilation unit: 0357-WangDaYeeeeee-GeometricWeather-3.013/app/src/main/java/wangdaye/com/geometricweather/weather/services/AccuWeatherService.java
+method: requestLocation(Context,
+constraints in WangDaYeeeeee-GeometricWeather-1.0.0
+	AndroidXNonNull condition: "" , add info: -
+constraints in WangDaYeeeeee-GeometricWeather-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: WangDaYeeeeee-GeometricWeather-1.0.0
+version 2: WangDaYeeeeee-GeometricWeather-2.0.0
+compilation unit: 0357-WangDaYeeeeee-GeometricWeather-3.013/app/src/main/java/wangdaye/com/geometricweather/weather/services/OwmWeatherService.java
+method: requestLocation(Context,
+constraints in WangDaYeeeeee-GeometricWeather-1.0.0
+	AndroidXNonNull condition: "" , add info: -
+constraints in WangDaYeeeeee-GeometricWeather-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: WangDaYeeeeee-GeometricWeather-1.0.0
+version 2: WangDaYeeeeee-GeometricWeather-2.0.0
+compilation unit: 0357-WangDaYeeeeee-GeometricWeather-3.013/app/src/main/java/wangdaye/com/geometricweather/weather/services/MfWeatherService.java
+method: requestLocation(Context,
+constraints in WangDaYeeeeee-GeometricWeather-1.0.0
+	AndroidXNonNull condition: "" , add info: -
+constraints in WangDaYeeeeee-GeometricWeather-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: WangDaYeeeeee-GeometricWeather-1.0.0
+version 2: WangDaYeeeeee-GeometricWeather-2.0.0
+compilation unit: 0357-WangDaYeeeeee-GeometricWeather-3.013/app/src/main/java/wangdaye/com/geometricweather/weather/services/CNWeatherService.java
+method: requestLocation(Context,
+constraints in WangDaYeeeeee-GeometricWeather-1.0.0
+	AndroidXNonNull condition: "" , add info: -
+constraints in WangDaYeeeeee-GeometricWeather-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: WangDaYeeeeee-GeometricWeather-1.0.0
+version 2: WangDaYeeeeee-GeometricWeather-2.0.0
 compilation unit: 0357-WangDaYeeeeee-GeometricWeather-3.013/app/src/main/java/wangdaye/com/geometricweather/weather/WeatherServiceSet.java
 method: get(WeatherSource)
 constraints in WangDaYeeeeee-GeometricWeather-1.0.0
@@ -23492,6 +23513,7 @@ compilation unit: 0357-WangDaYeeeeee-GeometricWeather-3.013/app/src/main/java/wa
 method: onClick()
 constraints in WangDaYeeeeee-GeometricWeather-1.0.0
 	AndroidSuppressLint condition: ""WrongConstant"" , add info: -
+	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.N]" , add info: -
 constraints in WangDaYeeeeee-GeometricWeather-2.0.0
 
 POSTCONDITION_REMOVED
@@ -23582,6 +23604,7 @@ version 2: WangDaYeeeeee-GeometricWeather-2.0.0
 compilation unit: 0357-WangDaYeeeeee-GeometricWeather-3.013/app/src/main/java/wangdaye/com/geometricweather/common/ui/transitions/RoundCornerTransition.java
 method: getOutline(View,
 constraints in WangDaYeeeeee-GeometricWeather-1.0.0
+	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.LOLLIPOP]" , add info: -
 	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.LOLLIPOP]" , add info: -
 constraints in WangDaYeeeeee-GeometricWeather-2.0.0
 
@@ -25226,6 +25249,7 @@ compilation unit: 0357-WangDaYeeeeee-GeometricWeather-3.013/app/src/main/java/wa
 method: onClick(View)
 constraints in WangDaYeeeeee-GeometricWeather-1.0.0
 	AndroidSuppressLint condition: ""NonConstantResourceId"" , add info: -
+	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.O]" , add info: -
 constraints in WangDaYeeeeee-GeometricWeather-2.0.0
 
 POSTCONDITION_REMOVED
@@ -26139,7 +26163,7 @@ POSTCONDITION_REMOVED
 version 1: WangDaYeeeeee-GeometricWeather-1.0.0
 version 2: WangDaYeeeeee-GeometricWeather-2.0.0
 compilation unit: 0357-WangDaYeeeeee-GeometricWeather-3.013/app/src/main/java/wangdaye/com/geometricweather/remoteviews/config/AbstractWidgetConfigActivity.java
-method: initView()
+method: afterTextChanged(Editable)
 constraints in WangDaYeeeeee-GeometricWeather-1.0.0
 	AndroidSuppressLint condition: ""UseSwitchCompatOrMaterialCode"" , add info: -
 	AndroidXCallSuper condition: "" , add info: -
@@ -26456,7 +26480,7 @@ POSTCONDITION_REMOVED
 version 1: andreynovikov-trekarta-1.0.0
 version 2: andreynovikov-trekarta-2.0.0
 compilation unit: 0349-andreynovikov-trekarta-2021.03/app/src/main/java/mobi/maptrek/MainActivity.java
-method: onCreate(Bundle)
+method: onChildViewRemoved(View,
 constraints in andreynovikov-trekarta-1.0.0
 	AndroidSuppressLint condition: "{ "ShowToast", "RestrictedApi", "UseCompatLoadingForDrawables" }" , add info: -
 constraints in andreynovikov-trekarta-2.0.0
@@ -26537,7 +26561,7 @@ POSTCONDITION_REMOVED
 version 1: andreynovikov-trekarta-1.0.0
 version 2: andreynovikov-trekarta-2.0.0
 compilation unit: 0349-andreynovikov-trekarta-2021.03/app/src/main/java/mobi/maptrek/MainActivity.java
-method: onBackStackChanged()
+method: onAnimationRepeat(Animator)
 constraints in andreynovikov-trekarta-1.0.0
 	AndroidSuppressLint condition: ""UseCompatLoadingForDrawables"" , add info: -
 constraints in andreynovikov-trekarta-2.0.0
@@ -26882,16 +26906,6 @@ compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/ja
 method: isActionButton(MenuItem)
 constraints in ankidroid-Anki_Android-1.0.0
 	AndroidXNullable condition: "" , add info: -
-	AndroidXVisibleForTesting condition: "" , add info: -
-constraints in ankidroid-Anki_Android-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: ankidroid-Anki_Android-1.0.0
-version 2: ankidroid-Anki_Android-2.0.0
-compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/java/com/ichi2/ui/ActionBarOverflow.java
-method: hasUsableMethod()
-constraints in ankidroid-Anki_Android-1.0.0
-	AndroidXVisibleForTesting condition: "[otherwise = VisibleForTesting.NONE]" , add info: -
 constraints in ankidroid-Anki_Android-2.0.0
 
 POSTCONDITION_REMOVED
@@ -26900,7 +26914,17 @@ version 2: ankidroid-Anki_Android-2.0.0
 compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/java/com/ichi2/ui/ActionBarOverflow.java
 method: Method>
 constraints in ankidroid-Anki_Android-1.0.0
+	AndroidXVisibleForTesting condition: "" , add info: -
 	AndroidXCheckResult condition: "" , add info: -
+	AndroidXVisibleForTesting condition: "[otherwise = VisibleForTesting.NONE]" , add info: -
+constraints in ankidroid-Anki_Android-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: ankidroid-Anki_Android-1.0.0
+version 2: ankidroid-Anki_Android-2.0.0
+compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/java/com/ichi2/ui/ActionBarOverflow.java
+method: hasUsableMethod()
+constraints in ankidroid-Anki_Android-1.0.0
 	AndroidXVisibleForTesting condition: "[otherwise = VisibleForTesting.NONE]" , add info: -
 constraints in ankidroid-Anki_Android-2.0.0
 
@@ -27295,7 +27319,7 @@ POSTCONDITION_REMOVED
 version 1: ankidroid-Anki_Android-1.0.0
 version 2: ankidroid-Anki_Android-2.0.0
 compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/java/com/ichi2/anki/dialogs/LocaleSelectionDialog.java
-method: getFilter()
+method: publishResults(CharSequence,
 constraints in ankidroid-Anki_Android-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in ankidroid-Anki_Android-2.0.0
@@ -27733,6 +27757,7 @@ version 2: ankidroid-Anki_Android-2.0.0
 compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/java/com/ichi2/anki/multimediacard/AudioView.java
 method: getStatus()
 constraints in ankidroid-Anki_Android-1.0.0
+	AndroidSuppressLint condition: ""ViewConstructor"" , add info: -
 	AndroidXVisibleForTesting condition: "[otherwise = VisibleForTesting.NONE]" , add info: -
 constraints in ankidroid-Anki_Android-2.0.0
 
@@ -27895,6 +27920,16 @@ POSTCONDITION_REMOVED
 version 1: ankidroid-Anki_Android-1.0.0
 version 2: ankidroid-Anki_Android-2.0.0
 compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/java/com/ichi2/anki/NoteEditor.java
+method: onLocaleSelectionCancelled()
+constraints in ankidroid-Anki_Android-1.0.0
+	AndroidTargetApi condition: "23" , add info: -
+	AndroidXRequiresApi condition: "Build.VERSION_CODES.N" , add info: -
+constraints in ankidroid-Anki_Android-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: ankidroid-Anki_Android-1.0.0
+version 2: ankidroid-Anki_Android-2.0.0
+compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/java/com/ichi2/anki/NoteEditor.java
 method: getAddNoteErrorResource()
 constraints in ankidroid-Anki_Android-1.0.0
 	AndroidXStringRes condition: "" , add info: -
@@ -27907,15 +27942,6 @@ compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/ja
 method: getCurrentFieldStrings()
 constraints in ankidroid-Anki_Android-1.0.0
 	AndroidXCheckResult condition: "" , add info: -
-constraints in ankidroid-Anki_Android-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: ankidroid-Anki_Android-1.0.0
-version 2: ankidroid-Anki_Android-2.0.0
-compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/java/com/ichi2/anki/NoteEditor.java
-method: onLocaleSelectionCancelled()
-constraints in ankidroid-Anki_Android-1.0.0
-	AndroidXRequiresApi condition: "Build.VERSION_CODES.N" , add info: -
 constraints in ankidroid-Anki_Android-2.0.0
 
 POSTCONDITION_REMOVED
@@ -28028,16 +28054,6 @@ POSTCONDITION_REMOVED
 version 1: ankidroid-Anki_Android-1.0.0
 version 2: ankidroid-Anki_Android-2.0.0
 compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/java/com/ichi2/anki/AnkiDroidApp.java
-method: getWebViewErrorMessage()
-constraints in ankidroid-Anki_Android-1.0.0
-	AndroidSuppressLint condition: ""LogNotTimber"" , add info: -
-	AndroidXNullable condition: "" , add info: -
-constraints in ankidroid-Anki_Android-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: ankidroid-Anki_Android-1.0.0
-version 2: ankidroid-Anki_Android-2.0.0
-compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/java/com/ichi2/anki/AnkiDroidApp.java
 method: simulateRestoreFromBackup()
 constraints in ankidroid-Anki_Android-1.0.0
 	AndroidXVisibleForTesting condition: "[otherwise = VisibleForTesting.NONE]" , add info: -
@@ -28046,8 +28062,17 @@ constraints in ankidroid-Anki_Android-2.0.0
 POSTCONDITION_REMOVED
 version 1: ankidroid-Anki_Android-1.0.0
 version 2: ankidroid-Anki_Android-2.0.0
+compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/java/com/ichi2/anki/AnkiDroidApp.java
+method: getWebViewErrorMessage()
+constraints in ankidroid-Anki_Android-1.0.0
+	AndroidXNullable condition: "" , add info: -
+constraints in ankidroid-Anki_Android-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: ankidroid-Anki_Android-1.0.0
+version 2: ankidroid-Anki_Android-2.0.0
 compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/java/com/ichi2/anki/Info.java
-method: onCreate(Bundle)
+method: onPageFinished(WebView,
 constraints in ankidroid-Anki_Android-1.0.0
 	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
 constraints in ankidroid-Anki_Android-2.0.0
@@ -29282,6 +29307,8 @@ compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/ja
 method: readAsUtf8WithoutBOM()
 constraints in ankidroid-Anki_Android-1.0.0
 	AndroidXNonNull condition: "" , add info: -
+	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.O]" , add info: -
+	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.O]" , add info: -
 constraints in ankidroid-Anki_Android-2.0.0
 
 POSTCONDITION_REMOVED
@@ -29290,6 +29317,17 @@ version 2: ankidroid-Anki_Android-2.0.0
 compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/java/com/ichi2/libanki/importer/python/CsvReaderIterator.java
 method: next()
 constraints in ankidroid-Anki_Android-1.0.0
+	AndroidSuppressLint condition: ""NonPublicNonStaticFieldName"" , add info: -
+	AndroidXNullable condition: "" , add info: -
+constraints in ankidroid-Anki_Android-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: ankidroid-Anki_Android-1.0.0
+version 2: ankidroid-Anki_Android-2.0.0
+compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/java/com/ichi2/libanki/importer/python/CsvReader.java
+method: next()
+constraints in ankidroid-Anki_Android-1.0.0
+	AndroidSuppressLint condition: ""NonPublicNonStaticFieldName"" , add info: -
 	AndroidXNullable condition: "" , add info: -
 constraints in ankidroid-Anki_Android-2.0.0
 
@@ -29300,15 +29338,6 @@ compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/ja
 method: iterator()
 constraints in ankidroid-Anki_Android-1.0.0
 	AndroidXNonNull condition: "" , add info: -
-constraints in ankidroid-Anki_Android-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: ankidroid-Anki_Android-1.0.0
-version 2: ankidroid-Anki_Android-2.0.0
-compilation unit: 0089-ankidroid-Anki_Android-v2.15alpha46/AnkiDroid/src/main/java/com/ichi2/libanki/importer/python/CsvReader.java
-method: next()
-constraints in ankidroid-Anki_Android-1.0.0
-	AndroidXNullable condition: "" , add info: -
 constraints in ankidroid-Anki_Android-2.0.0
 
 POSTCONDITION_REMOVED
@@ -29569,7 +29598,7 @@ POSTCONDITION_REMOVED
 version 1: appml-neutrinote-1.0.0
 version 2: appml-neutrinote-2.0.0
 compilation unit: 0038-appml-neutrinote-v3.6.9/app/src/main/java/com/appmindlab/nano/MirrorWorker.java
-method: doWork()
+method: run()
 constraints in appml-neutrinote-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in appml-neutrinote-2.0.0
@@ -29596,7 +29625,7 @@ POSTCONDITION_REMOVED
 version 1: appml-neutrinote-1.0.0
 version 2: appml-neutrinote-2.0.0
 compilation unit: 0038-appml-neutrinote-v3.6.9/app/src/main/java/com/appmindlab/nano/BackupWorker.java
-method: doWork()
+method: run()
 constraints in appml-neutrinote-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in appml-neutrinote-2.0.0
@@ -29903,7 +29932,7 @@ POSTCONDITION_REMOVED
 version 1: austinhuang0131-barinsta-1.0.0
 version 2: austinhuang0131-barinsta-2.0.0
 compilation unit: 0064-austinhuang0131-barinsta-v16.6_a9/app/src/main/java/awais/instagrabber/utils/DirectoryChooser.java
-method: onCreateDialog(Bundle)
+method: onBackPressed()
 constraints in austinhuang0131-barinsta-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in austinhuang0131-barinsta-2.0.0
@@ -30852,8 +30881,8 @@ version 2: commons_app-apps_android_commons-2.0.0
 compilation unit: 0125-commons_app-apps_android_commons-v3.0/app/src/main/java/fr/free/nrw/commons/AboutActivity.java
 method: onCreate(Bundle)
 constraints in commons_app-apps_android_commons-1.0.0
-	AndroidSuppressLint condition: ""StringFormatInvalid"" , add info: -
 	AndroidSuppressLint condition: ""StringFormatMatches"" , add info: -
+	AndroidSuppressLint condition: ""StringFormatInvalid"" , add info: -
 constraints in commons_app-apps_android_commons-2.0.0
 
 POSTCONDITION_REMOVED
@@ -31149,7 +31178,7 @@ POSTCONDITION_REMOVED
 version 1: commons_app-apps_android_commons-1.0.0
 version 2: commons_app-apps_android_commons-2.0.0
 compilation unit: 0125-commons_app-apps_android_commons-v3.0/app/src/main/java/fr/free/nrw/commons/media/MediaDetailFragment.java
-method: onDeleteButtonClicked()
+method: onTextChanged(CharSequence,
 constraints in commons_app-apps_android_commons-1.0.0
 	AndroidSuppressLint condition: ""StringFormatInvalid"" , add info: -
 constraints in commons_app-apps_android_commons-2.0.0
@@ -31167,7 +31196,7 @@ POSTCONDITION_REMOVED
 version 1: commons_app-apps_android_commons-1.0.0
 version 2: commons_app-apps_android_commons-2.0.0
 compilation unit: 0125-commons_app-apps_android_commons-v3.0/app/src/main/java/fr/free/nrw/commons/campaigns/CampaignsPresenter.java
-method: getCampaigns()
+method: onError(Throwable)
 constraints in commons_app-apps_android_commons-1.0.0
 	AndroidSuppressLint condition: ""CheckResult"" , add info: -
 constraints in commons_app-apps_android_commons-2.0.0
@@ -31221,7 +31250,7 @@ POSTCONDITION_REMOVED
 version 1: commons_app-apps_android_commons-1.0.0
 version 2: commons_app-apps_android_commons-2.0.0
 compilation unit: 0125-commons_app-apps_android_commons-v3.0/app/src/main/java/fr/free/nrw/commons/upload/UploadPresenter.java
-method: handleSubmit()
+method: onComplete()
 constraints in commons_app-apps_android_commons-1.0.0
 	AndroidSuppressLint condition: ""CheckResult"" , add info: -
 constraints in commons_app-apps_android_commons-2.0.0
@@ -35431,15 +35460,6 @@ constraints in connectbot-connectbot-2.0.0
 POSTCONDITION_REMOVED
 version 1: connectbot-connectbot-1.0.0
 version 2: connectbot-connectbot-2.0.0
-compilation unit: 0200-connectbot-connectbot-git_v1.9.7_58_g00d31597/app/src/main/java/org/connectbot/PortForwardListActivity.java
-method: onCreateContextMenu(ContextMenu,
-constraints in connectbot-connectbot-1.0.0
-	AndroidSuppressLint condition: ""DefaultLocale"" , add info: -
-constraints in connectbot-connectbot-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: connectbot-connectbot-1.0.0
-version 2: connectbot-connectbot-2.0.0
 compilation unit: 0200-connectbot-connectbot-git_v1.9.7_58_g00d31597/app/src/main/java/org/connectbot/util/EntropyView.java
 method: notifyListeners()
 constraints in connectbot-connectbot-1.0.0
@@ -35531,43 +35551,7 @@ POSTCONDITION_REMOVED
 version 1: connectbot-connectbot-1.0.0
 version 2: connectbot-connectbot-2.0.0
 compilation unit: 0200-connectbot-connectbot-git_v1.9.7_58_g00d31597/app/src/androidTest/java/org/connectbot/ConnectbotMatchers.java
-method: withHostNickname(String)
-constraints in connectbot-connectbot-1.0.0
-	AndroidXNonNull condition: "" , add info: -
-constraints in connectbot-connectbot-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: connectbot-connectbot-1.0.0
-version 2: connectbot-connectbot-2.0.0
-compilation unit: 0200-connectbot-connectbot-git_v1.9.7_58_g00d31597/app/src/androidTest/java/org/connectbot/ConnectbotMatchers.java
-method: withPubkeyNickname(String)
-constraints in connectbot-connectbot-1.0.0
-	AndroidXNonNull condition: "" , add info: -
-constraints in connectbot-connectbot-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: connectbot-connectbot-1.0.0
-version 2: connectbot-connectbot-2.0.0
-compilation unit: 0200-connectbot-connectbot-git_v1.9.7_58_g00d31597/app/src/androidTest/java/org/connectbot/ConnectbotMatchers.java
-method: withConnectedHost()
-constraints in connectbot-connectbot-1.0.0
-	AndroidXNonNull condition: "" , add info: -
-constraints in connectbot-connectbot-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: connectbot-connectbot-1.0.0
-version 2: connectbot-connectbot-2.0.0
-compilation unit: 0200-connectbot-connectbot-git_v1.9.7_58_g00d31597/app/src/androidTest/java/org/connectbot/ConnectbotMatchers.java
-method: withDisconnectedHost()
-constraints in connectbot-connectbot-1.0.0
-	AndroidXNonNull condition: "" , add info: -
-constraints in connectbot-connectbot-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: connectbot-connectbot-1.0.0
-version 2: connectbot-connectbot-2.0.0
-compilation unit: 0200-connectbot-connectbot-git_v1.9.7_58_g00d31597/app/src/androidTest/java/org/connectbot/ConnectbotMatchers.java
-method: hasHolderItem(Matcher<RecyclerView.ViewHolder>)
+method: check(View,
 constraints in connectbot-connectbot-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in connectbot-connectbot-2.0.0
@@ -35576,7 +35560,7 @@ POSTCONDITION_REMOVED
 version 1: deltachat-deltachat_android-1.0.0
 version 2: deltachat-deltachat_android-2.0.0
 compilation unit: 0084-deltachat-deltachat_android-v0.302.0/src/org/thoughtcrime/securesms/scribbles/ScribbleActivity.java
-method: onActivityResult(int,
+method: onPostExecute(Bitmap)
 constraints in deltachat-deltachat_android-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in deltachat-deltachat_android-2.0.0
@@ -35594,7 +35578,7 @@ POSTCONDITION_REMOVED
 version 1: deltachat-deltachat_android-1.0.0
 version 2: deltachat-deltachat_android-2.0.0
 compilation unit: 0084-deltachat-deltachat_android-v0.302.0/src/org/thoughtcrime/securesms/mms/AttachmentManager.java
-method: setMedia(GlideRequests,
+method: onReceivedDuration(int)
 constraints in deltachat-deltachat_android-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in deltachat-deltachat_android-2.0.0
@@ -35639,7 +35623,7 @@ POSTCONDITION_REMOVED
 version 1: deltachat-deltachat_android-1.0.0
 version 2: deltachat-deltachat_android-2.0.0
 compilation unit: 0084-deltachat-deltachat_android-v0.302.0/src/org/thoughtcrime/securesms/profiles/SystemProfileUtil.java
-method: getSystemProfileAvatar(Context,
+method: onPostExecute(byte[])
 constraints in deltachat-deltachat_android-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in deltachat-deltachat_android-2.0.0
@@ -35648,7 +35632,7 @@ POSTCONDITION_REMOVED
 version 1: deltachat-deltachat_android-1.0.0
 version 2: deltachat-deltachat_android-2.0.0
 compilation unit: 0084-deltachat-deltachat_android-v0.302.0/src/org/thoughtcrime/securesms/profiles/SystemProfileUtil.java
-method: getSystemProfileName(Context)
+method: onPostExecute(String)
 constraints in deltachat-deltachat_android-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in deltachat-deltachat_android-2.0.0
@@ -35675,7 +35659,7 @@ POSTCONDITION_REMOVED
 version 1: deltachat-deltachat_android-1.0.0
 version 2: deltachat-deltachat_android-2.0.0
 compilation unit: 0084-deltachat-deltachat_android-v0.302.0/src/org/thoughtcrime/securesms/ConversationListFragment.java
-method: onSwiped(RecyclerView.ViewHolder,
+method: reverseAction(Long)
 constraints in deltachat-deltachat_android-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in deltachat-deltachat_android-2.0.0
@@ -35684,7 +35668,7 @@ POSTCONDITION_REMOVED
 version 1: deltachat-deltachat_android-1.0.0
 version 2: deltachat-deltachat_android-2.0.0
 compilation unit: 0084-deltachat-deltachat_android-v0.302.0/src/org/thoughtcrime/securesms/preferences/NotificationsPreferenceFragment.java
-method: onPreferenceChange(Preference,
+method: doInBackground(Void...)
 constraints in deltachat-deltachat_android-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in deltachat-deltachat_android-2.0.0
@@ -35757,7 +35741,7 @@ POSTCONDITION_REMOVED
 version 1: deltachat-deltachat_android-1.0.0
 version 2: deltachat-deltachat_android-2.0.0
 compilation unit: 0084-deltachat-deltachat_android-v0.302.0/src/org/thoughtcrime/securesms/components/RecyclerViewFastScroller.java
-method: hideBubble()
+method: onAnimationCancel(Animator)
 constraints in deltachat-deltachat_android-1.0.0
 	AndroidTargetApi condition: "11" , add info: -
 constraints in deltachat-deltachat_android-2.0.0
@@ -35766,7 +35750,7 @@ POSTCONDITION_REMOVED
 version 1: deltachat-deltachat_android-1.0.0
 version 2: deltachat-deltachat_android-2.0.0
 compilation unit: 0084-deltachat-deltachat_android-v0.302.0/src/org/thoughtcrime/securesms/components/camera/CameraView.java
-method: onResume()
+method: onPostMain(Void)
 constraints in deltachat-deltachat_android-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.ICE_CREAM_SANDWICH" , add info: -
 constraints in deltachat-deltachat_android-2.0.0
@@ -35775,7 +35759,7 @@ POSTCONDITION_REMOVED
 version 1: deltachat-deltachat_android-1.0.0
 version 2: deltachat-deltachat_android-2.0.0
 compilation unit: 0084-deltachat-deltachat_android-v0.302.0/src/org/thoughtcrime/securesms/components/ZoomingImageView.java
-method: setImageUri(GlideRequests,
+method: onPostExecute(Pair<Integer,
 constraints in deltachat-deltachat_android-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in deltachat-deltachat_android-2.0.0
@@ -35784,7 +35768,7 @@ POSTCONDITION_REMOVED
 version 1: deltachat-deltachat_android-1.0.0
 version 2: deltachat-deltachat_android-2.0.0
 compilation unit: 0084-deltachat-deltachat_android-v0.302.0/src/org/thoughtcrime/securesms/notifications/AndroidAutoReplyReceiver.java
-method: onReceive(Context,
+method: doInBackground(Void...)
 constraints in deltachat-deltachat_android-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in deltachat-deltachat_android-2.0.0
@@ -35793,7 +35777,7 @@ POSTCONDITION_REMOVED
 version 1: deltachat-deltachat_android-1.0.0
 version 2: deltachat-deltachat_android-2.0.0
 compilation unit: 0084-deltachat-deltachat_android-v0.302.0/src/org/thoughtcrime/securesms/notifications/MessageNotifier.java
-method: onReceive(Context,
+method: doInBackground(Void...)
 constraints in deltachat-deltachat_android-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in deltachat-deltachat_android-2.0.0
@@ -35802,7 +35786,7 @@ POSTCONDITION_REMOVED
 version 1: deltachat-deltachat_android-1.0.0
 version 2: deltachat-deltachat_android-2.0.0
 compilation unit: 0084-deltachat-deltachat_android-v0.302.0/src/org/thoughtcrime/securesms/notifications/RemoteReplyReceiver.java
-method: onReceive(Context,
+method: doInBackground(Void...)
 constraints in deltachat-deltachat_android-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in deltachat-deltachat_android-2.0.0
@@ -35976,7 +35960,6 @@ compilation unit: 0020-devgianlu-PretendYoureXyzzyAndroid-v3.2.0/app/src/main/ja
 method: create()
 constraints in devgianlu-PretendYoureXyzzyAndroid-1.0.0
 	AndroidXNonNull condition: "" , add info: -
-	AndroidXUiThread condition: "" , add info: -
 constraints in devgianlu-PretendYoureXyzzyAndroid-2.0.0
 
 POSTCONDITION_REMOVED
@@ -37041,7 +37024,7 @@ POSTCONDITION_REMOVED
 version 1: dkanada-gelli-1.0.0
 version 2: dkanada-gelli-2.0.0
 compilation unit: 0056-dkanada-gelli-v1.0.0/app/src/main/java/com/dkanada/gramophone/ui/fragments/mainactivity/library/pager/ArtistsFragment.java
-method: createAdapter()
+method: onLoadMedia(List<?>)
 constraints in dkanada-gelli-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in dkanada-gelli-2.0.0
@@ -37104,7 +37087,7 @@ POSTCONDITION_REMOVED
 version 1: dkanada-gelli-1.0.0
 version 2: dkanada-gelli-2.0.0
 compilation unit: 0056-dkanada-gelli-v1.0.0/app/src/main/java/com/dkanada/gramophone/ui/fragments/mainactivity/library/pager/GenresFragment.java
-method: createAdapter()
+method: onLoadMedia(List<?>)
 constraints in dkanada-gelli-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in dkanada-gelli-2.0.0
@@ -37122,7 +37105,7 @@ POSTCONDITION_REMOVED
 version 1: dkanada-gelli-1.0.0
 version 2: dkanada-gelli-2.0.0
 compilation unit: 0056-dkanada-gelli-v1.0.0/app/src/main/java/com/dkanada/gramophone/ui/fragments/mainactivity/library/pager/PlaylistsFragment.java
-method: createAdapter()
+method: onLoadMedia(List<?>)
 constraints in dkanada-gelli-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in dkanada-gelli-2.0.0
@@ -37140,7 +37123,7 @@ POSTCONDITION_REMOVED
 version 1: dkanada-gelli-1.0.0
 version 2: dkanada-gelli-2.0.0
 compilation unit: 0056-dkanada-gelli-v1.0.0/app/src/main/java/com/dkanada/gramophone/ui/fragments/mainactivity/library/pager/SongsFragment.java
-method: createAdapter()
+method: onLoadMedia(List<?>)
 constraints in dkanada-gelli-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in dkanada-gelli-2.0.0
@@ -37338,7 +37321,7 @@ POSTCONDITION_REMOVED
 version 1: dkanada-gelli-1.0.0
 version 2: dkanada-gelli-2.0.0
 compilation unit: 0056-dkanada-gelli-v1.0.0/app/src/main/java/com/dkanada/gramophone/dialogs/SleepTimerDialog.java
-method: onCreateDialog(Bundle)
+method: onStopTrackingTouch(SeekArc)
 constraints in dkanada-gelli-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in dkanada-gelli-2.0.0
@@ -37365,7 +37348,7 @@ POSTCONDITION_REMOVED
 version 1: dkanada-gelli-1.0.0
 version 2: dkanada-gelli-2.0.0
 compilation unit: 0056-dkanada-gelli-v1.0.0/app/src/main/java/com/dkanada/gramophone/dialogs/AddToPlaylistDialog.java
-method: onCreateDialog(Bundle)
+method: onLoadMedia(List<?>)
 constraints in dkanada-gelli-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in dkanada-gelli-2.0.0
@@ -37385,8 +37368,8 @@ version 2: dkanada-gelli-2.0.0
 compilation unit: 0056-dkanada-gelli-v1.0.0/app/src/main/java/com/dkanada/gramophone/adapter/album/AlbumAdapter.java
 method: getSectionName(int)
 constraints in dkanada-gelli-1.0.0
-	AndroidXNonNull condition: "" , add info: -
 	AndroidXNullable condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
 constraints in dkanada-gelli-2.0.0
 
 POSTCONDITION_REMOVED
@@ -37404,8 +37387,8 @@ version 2: dkanada-gelli-2.0.0
 compilation unit: 0056-dkanada-gelli-v1.0.0/app/src/main/java/com/dkanada/gramophone/adapter/song/SongAdapter.java
 method: getSectionName(int)
 constraints in dkanada-gelli-1.0.0
-	AndroidXNonNull condition: "" , add info: -
 	AndroidXNullable condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
 constraints in dkanada-gelli-2.0.0
 
 POSTCONDITION_REMOVED
@@ -37917,15 +37900,6 @@ constraints in emanuele_f-PCAPdroid-1.0.0
 constraints in emanuele_f-PCAPdroid-2.0.0
 
 POSTCONDITION_REMOVED
-version 1: emanuele_f-PCAPdroid-1.0.0
-version 2: emanuele_f-PCAPdroid-2.0.0
-compilation unit: 0122-emanuele_f-PCAPdroid-v1.2.1/app/src/main/java/com/emanuelef/remote_capture/MainActivity.java
-method: loadInBackground()
-constraints in emanuele_f-PCAPdroid-1.0.0
-	AndroidXNullable condition: "" , add info: -
-constraints in emanuele_f-PCAPdroid-2.0.0
-
-POSTCONDITION_REMOVED
 version 1: erickok-transdroid-1.0.0
 version 2: erickok-transdroid-2.0.0
 compilation unit: 0167-erickok-transdroid-v.2.5.19/app/src/main/java/org/transdroid/daemon/DaemonException.java
@@ -37947,7 +37921,7 @@ POSTCONDITION_REMOVED
 version 1: erickok-transdroid-1.0.0
 version 2: erickok-transdroid-2.0.0
 compilation unit: 0167-erickok-transdroid-v.2.5.19/app/src/main/java/org/transdroid/core/gui/TorrentsActivity.java
-method: startAutoRefresh()
+method: doInBackground(Void...)
 constraints in erickok-transdroid-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
 constraints in erickok-transdroid-2.0.0
@@ -38082,7 +38056,7 @@ POSTCONDITION_REMOVED
 version 1: erickok-transdroid-1.0.0
 version 2: erickok-transdroid-2.0.0
 compilation unit: 0167-erickok-transdroid-v.2.5.19/app/src/main/java/org/transdroid/core/gui/search/FilePickerHelper.java
-method: startFilePicker(Activity)
+method: onClick(DialogInterface,
 constraints in erickok-transdroid-1.0.0
 	AndroidSuppressLint condition: ""ValidFragment"" , add info: -
 constraints in erickok-transdroid-2.0.0
@@ -38388,7 +38362,7 @@ POSTCONDITION_REMOVED
 version 1: farmerbb-Notepad-1.0.0
 version 2: farmerbb-Notepad-2.0.0
 compilation unit: 0019-farmerbb-Notepad-112/app/src/main/java/com/farmerbb/notepad/activity/MainActivity.java
-method: printNote(String)
+method: onPageFinished(WebView,
 constraints in farmerbb-Notepad-1.0.0
 	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
 	AndroidTargetApi condition: "Build.VERSION_CODES.KITKAT" , add info: -
@@ -38524,7 +38498,7 @@ POSTCONDITION_REMOVED
 version 1: farmerbb-Taskbar-1.0.0
 version 2: farmerbb-Taskbar-2.0.0
 compilation unit: 0260-farmerbb-Taskbar-183/app/src/main/java/com/farmerbb/taskbar/fragment/RecentAppsFragment.java
-method: onPreferenceClick(Preference)
+method: onStopTrackingTouch(SeekBar)
 constraints in farmerbb-Taskbar-1.0.0
 	AndroidSuppressLint condition: ""SetTextI18n"" , add info: -
 constraints in farmerbb-Taskbar-2.0.0
@@ -38542,7 +38516,7 @@ POSTCONDITION_REMOVED
 version 1: farmerbb-Taskbar-1.0.0
 version 2: farmerbb-Taskbar-2.0.0
 compilation unit: 0260-farmerbb-Taskbar-183/app/src/main/java/com/farmerbb/taskbar/activity/HomeActivity.java
-method: onCreate(Bundle)
+method: onSingleTapConfirmed(MotionEvent)
 constraints in farmerbb-Taskbar-1.0.0
 	AndroidSuppressLint condition: ""RestrictedApi"" , add info: -
 constraints in farmerbb-Taskbar-2.0.0
@@ -39452,7 +39426,7 @@ POSTCONDITION_REMOVED
 version 1: fossasia-pslab_android-1.0.0
 version 2: fossasia-pslab_android-2.0.0
 compilation unit: 0126-fossasia-pslab_android-v2.0.0/app/src/main/java/io/pslab/sensors/SensorMLX90614.java
-method: howToConnectDialog(String,
+method: onClick(View)
 constraints in fossasia-pslab_android-1.0.0
 	AndroidSuppressLint condition: ""ResourceType"" , add info: -
 constraints in fossasia-pslab_android-2.0.0
@@ -39470,7 +39444,7 @@ POSTCONDITION_REMOVED
 version 1: fossasia-pslab_android-1.0.0
 version 2: fossasia-pslab_android-2.0.0
 compilation unit: 0126-fossasia-pslab_android-v2.0.0/app/src/main/java/io/pslab/others/ZoomLayout.java
-method: init(Context)
+method: onTouch(View,
 constraints in fossasia-pslab_android-1.0.0
 	AndroidSuppressLint condition: ""ClickableViewAccessibility"" , add info: -
 constraints in fossasia-pslab_android-2.0.0
@@ -39533,7 +39507,7 @@ POSTCONDITION_REMOVED
 version 1: gsantner-markor-1.0.0
 version 2: gsantner-markor-2.0.0
 compilation unit: 0189-gsantner-markor-v2.6.0/app/src/main/java/net/gsantner/markor/format/general/DatetimeFormatDialog.java
-method: showDatetimeFormatDialog(Activity,
+method: afterTextChanged(Editable)
 constraints in gsantner-markor-1.0.0
 	AndroidSuppressLint condition: "{ "ClickableViewAccessibility", "SetTextI18n, InflateParams" }" , add info: -
 constraints in gsantner-markor-2.0.0
@@ -39686,7 +39660,7 @@ POSTCONDITION_REMOVED
 version 1: iNPUTmice-Conversations-1.0.0
 version 2: iNPUTmice-Conversations-2.0.0
 compilation unit: 0296-iNPUTmice-Conversations-2.6.0/src/main/java/eu/siacs/conversations/services/XmppConnectionService.java
-method: onCreate()
+method: onError(Exception)
 constraints in iNPUTmice-Conversations-1.0.0
 	AndroidSuppressLint condition: ""TrulyRandom"" , add info: -
 constraints in iNPUTmice-Conversations-2.0.0
@@ -39839,7 +39813,7 @@ POSTCONDITION_REMOVED
 version 1: j4velin-WiFi_Automatic-1.0.0
 version 2: j4velin-WiFi_Automatic-2.0.0
 compilation unit: 0168-j4velin-WiFi_Automatic-1.7.3/src/main/java/de/j4velin/wifiAutoOff/Preferences.java
-method: onCreateOptionsMenu(Menu)
+method: onMenuItemClick(MenuItem)
 constraints in j4velin-WiFi_Automatic-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in j4velin-WiFi_Automatic-2.0.0
@@ -40235,9 +40209,10 @@ POSTCONDITION_REMOVED
 version 1: jonasoreland-runnerup-1.0.0
 version 2: jonasoreland-runnerup-2.0.0
 compilation unit: 0216-jonasoreland-runnerup-v2.0.1.3/app/latest/java/org/runnerup/util/MapWrapper.java
-method: onPostExecute(Route)
+method: onGlobalLayout()
 constraints in jonasoreland-runnerup-1.0.0
 	AndroidSuppressLint condition: ""ObsoleteSdkInt"" , add info: -
+	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in jonasoreland-runnerup-2.0.0
 
 POSTCONDITION_REMOVED
@@ -40256,6 +40231,7 @@ compilation unit: 0216-jonasoreland-runnerup-v2.0.1.3/app/src/org/runnerup/util/
 method: onPostExecute(GraphProducer)
 constraints in jonasoreland-runnerup-1.0.0
 	AndroidSuppressLint condition: ""ObsoleteSdkInt"" , add info: -
+	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in jonasoreland-runnerup-2.0.0
 
 POSTCONDITION_REMOVED
@@ -40307,7 +40283,7 @@ POSTCONDITION_REMOVED
 version 1: jonasoreland-runnerup-1.0.0
 version 2: jonasoreland-runnerup-2.0.0
 compilation unit: 0216-jonasoreland-runnerup-v2.0.1.3/app/src/org/runnerup/export/oauth2client/OAuth2Activity.java
-method: onPageFinished(WebView,
+method: onPostExecute(Integer)
 constraints in jonasoreland-runnerup-1.0.0
 	AndroidSuppressLint condition: "{ "StaticFieldLeak", "WrongThread" }" , add info: -
 constraints in jonasoreland-runnerup-2.0.0
@@ -40316,8 +40292,10 @@ POSTCONDITION_REMOVED
 version 1: jonasoreland-runnerup-1.0.0
 version 2: jonasoreland-runnerup-2.0.0
 compilation unit: 0216-jonasoreland-runnerup-v2.0.1.3/app/src/org/runnerup/export/SyncManager.java
-method: testUserPass(Synchronizer,
+method: onPostExecute(Synchronizer.Status)
 constraints in jonasoreland-runnerup-1.0.0
+	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
+	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in jonasoreland-runnerup-2.0.0
 
@@ -40325,25 +40303,7 @@ POSTCONDITION_REMOVED
 version 1: jonasoreland-runnerup-1.0.0
 version 2: jonasoreland-runnerup-2.0.0
 compilation unit: 0216-jonasoreland-runnerup-v2.0.1.3/app/src/org/runnerup/export/SyncManager.java
-method: doUpload(Synchronizer)
-constraints in jonasoreland-runnerup-1.0.0
-	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
-constraints in jonasoreland-runnerup-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: jonasoreland-runnerup-1.0.0
-version 2: jonasoreland-runnerup-2.0.0
-compilation unit: 0216-jonasoreland-runnerup-v2.0.1.3/app/src/org/runnerup/export/SyncManager.java
-method: loadActivityList(List<SyncActivityItem>,
-constraints in jonasoreland-runnerup-1.0.0
-	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
-constraints in jonasoreland-runnerup-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: jonasoreland-runnerup-1.0.0
-version 2: jonasoreland-runnerup-2.0.0
-compilation unit: 0216-jonasoreland-runnerup-v2.0.1.3/app/src/org/runnerup/export/SyncManager.java
-method: loadWorkouts(HashSet<WorkoutRef>,
+method: run(String,
 constraints in jonasoreland-runnerup-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in jonasoreland-runnerup-2.0.0
@@ -40352,7 +40312,7 @@ POSTCONDITION_REMOVED
 version 1: jonasoreland-runnerup-1.0.0
 version 2: jonasoreland-runnerup-2.0.0
 compilation unit: 0216-jonasoreland-runnerup-v2.0.1.3/app/src/org/runnerup/export/RunKeeperSynchronizer.java
-method: getActivityUrl(String)
+method: doInBackground(Void...)
 constraints in jonasoreland-runnerup-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in jonasoreland-runnerup-2.0.0
@@ -40361,7 +40321,7 @@ POSTCONDITION_REMOVED
 version 1: jonasoreland-runnerup-1.0.0
 version 2: jonasoreland-runnerup-2.0.0
 compilation unit: 0216-jonasoreland-runnerup-v2.0.1.3/app/src/org/runnerup/feed/FeedImageLoader.java
-method: LoadImageAsync(String,
+method: onPostExecute(Bitmap)
 constraints in jonasoreland-runnerup-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in jonasoreland-runnerup-2.0.0
@@ -40370,9 +40330,10 @@ POSTCONDITION_REMOVED
 version 1: jonasoreland-runnerup-1.0.0
 version 2: jonasoreland-runnerup-2.0.0
 compilation unit: 0216-jonasoreland-runnerup-v2.0.1.3/app/src/org/runnerup/workout/feedback/RUTextToSpeech.java
-method: setUtteranceCompletedListener(TextToSpeech,
+method: onStart(String)
 constraints in jonasoreland-runnerup-1.0.0
 	AndroidSuppressLint condition: ""ObsoleteSdkInt"" , add info: -
+	AndroidTargetApi condition: "Build.VERSION_CODES.JELLY_BEAN_MR2" , add info: -
 constraints in jonasoreland-runnerup-2.0.0
 
 POSTCONDITION_REMOVED
@@ -40523,7 +40484,7 @@ POSTCONDITION_REMOVED
 version 1: k9mail-k_9-1.0.0
 version 2: k9mail-k_9-2.0.0
 compilation unit: 0069-k9mail-k_9-5.733/app/ui/legacy/src/main/java/com/fsck/k9/ui/messageview/CryptoInfoDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in k9mail-k_9-1.0.0
 	AndroidSuppressLint condition: ""InflateParams"" , add info: -
 constraints in k9mail-k_9-2.0.0
@@ -40532,7 +40493,7 @@ POSTCONDITION_REMOVED
 version 1: k9mail-k_9-1.0.0
 version 2: k9mail-k_9-2.0.0
 compilation unit: 0069-k9mail-k_9-5.733/app/ui/legacy/src/main/java/com/fsck/k9/ui/settings/account/OpenPgpAppSelectDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in k9mail-k_9-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 	AndroidXNonNull condition: "" , add info: -
@@ -40893,7 +40854,7 @@ POSTCONDITION_REMOVED
 version 1: k9mail-k_9-1.0.0
 version 2: k9mail-k_9-2.0.0
 compilation unit: 0069-k9mail-k_9-5.733/app/core/src/main/java/com/fsck/k9/mailstore/LocalStore.java
-method: getAttachmentDataSource(String)
+method: writeTo(OutputStream)
 constraints in k9mail-k_9-1.0.0
 	AndroidXNullable condition: "" , add info: -
 constraints in k9mail-k_9-2.0.0
@@ -40984,7 +40945,7 @@ POSTCONDITION_REMOVED
 version 1: k9mail-k_9-1.0.0
 version 2: k9mail-k_9-2.0.0
 compilation unit: 0069-k9mail-k_9-5.733/app/core/src/main/java/com/fsck/k9/controller/MessagingController.java
-method: debugClearMessagesLocally(List<MessageReference>)
+method: run()
 constraints in k9mail-k_9-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in k9mail-k_9-2.0.0
@@ -41156,7 +41117,7 @@ POSTCONDITION_REMOVED
 version 1: lufte-lona-1.0.0
 version 2: lufte-lona-2.0.0
 compilation unit: 0271-lufte-lona-v1.0.2/android-app/CordovaLib/src/org/apache/cordova/engine/SystemWebChromeClient.java
-method: onShowFileChooser(WebView,
+method: onActivityResult(int,
 constraints in lufte-lona-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.LOLLIPOP" , add info: -
 constraints in lufte-lona-2.0.0
@@ -41282,9 +41243,8 @@ POSTCONDITION_REMOVED
 version 1: massivemadness-Brackeys_IDE-1.0.0
 version 2: massivemadness-Brackeys_IDE-2.0.0
 compilation unit: 0352-massivemadness-Brackeys_IDE-2018.1.4/app/src/main/java/com/KillerBLS/modpeide/activity/MainActivity.java
-method: onNavigationItemSelected(MenuItem)
+method: shouldOverrideUrlLoading(WebView,
 constraints in massivemadness-Brackeys_IDE-1.0.0
-	JavaAssert condition: "view != null" , add info: -
 	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
 constraints in massivemadness-Brackeys_IDE-2.0.0
 
@@ -41420,7 +41380,7 @@ POSTCONDITION_REMOVED
 version 1: maxistar-TextPad-1.0.0
 version 2: maxistar-TextPad-2.0.0
 compilation unit: 0033-maxistar-TextPad-v1.15.1/app/src/main/java/com/maxistar/textpad/preferences/ColorPreference.java
-method: onPrepareDialogBuilder(AlertDialog.Builder)
+method: onTouch(View,
 constraints in maxistar-TextPad-1.0.0
 	AndroidSuppressLint condition: ""ClickableViewAccessibility"" , add info: -
 constraints in maxistar-TextPad-2.0.0
@@ -42960,7 +42920,7 @@ POSTCONDITION_REMOVED
 version 1: mosmetro_android-mosmetro_android-1.0.0
 version 2: mosmetro_android-mosmetro_android-2.0.0
 compilation unit: 0151-mosmetro_android-mosmetro_android-74/app/src/main/java/pw/thedrhax/mosmetro/services/WebViewService.java
-method: onCreate()
+method: onConsoleMessage(ConsoleMessage)
 constraints in mosmetro_android-mosmetro_android-1.0.0
 	AndroidSuppressLint condition: "{ "SetJavaScriptEnabled", "AddJavascriptInterface" }" , add info: -
 constraints in mosmetro_android-mosmetro_android-2.0.0
@@ -43043,7 +43003,7 @@ POSTCONDITION_REMOVED
 version 1: mosmetro_android-mosmetro_android-1.0.0
 version 2: mosmetro_android-mosmetro_android-2.0.0
 compilation unit: 0151-mosmetro_android-mosmetro_android-74/app/src/main/java/pw/thedrhax/mosmetro/authenticator/ProviderMetrics.java
-method: end(HashMap<String,
+method: doInBackground(Void...)
 constraints in mosmetro_android-mosmetro_android-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in mosmetro_android-mosmetro_android-2.0.0
@@ -43214,8 +43174,17 @@ constraints in mtotschnig-MyExpenses-2.0.0
 POSTCONDITION_REMOVED
 version 1: mtotschnig-MyExpenses-1.0.0
 version 2: mtotschnig-MyExpenses-2.0.0
+compilation unit: 0034-mtotschnig-MyExpenses-r113/src/org/totschnig/myexpenses/dialog/ExportDialogFragment.java
+method: onTextChanged(CharSequence,
+constraints in mtotschnig-MyExpenses-1.0.0
+	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
+constraints in mtotschnig-MyExpenses-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: mtotschnig-MyExpenses-1.0.0
+version 2: mtotschnig-MyExpenses-2.0.0
 compilation unit: 0034-mtotschnig-MyExpenses-r113/src/org/totschnig/myexpenses/activity/AccountEdit.java
-method: onCreate(Bundle)
+method: setColor(TextView,
 constraints in mtotschnig-MyExpenses-1.0.0
 	AndroidSuppressLint condition: ""InlinedApi"" , add info: -
 constraints in mtotschnig-MyExpenses-2.0.0
@@ -43224,7 +43193,7 @@ POSTCONDITION_REMOVED
 version 1: nerzhul-ncsms_android-1.0.0
 version 2: nerzhul-ncsms_android-2.0.0
 compilation unit: 0314-nerzhul-ncsms_android-1.0.0/src/main/java/fr/unix_experience/owncloud_sms/activities/LoginActivity.java
-method: showProgress(boolean)
+method: onAnimationEnd(Animator)
 constraints in nerzhul-ncsms_android-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB_MR2" , add info: -
 constraints in nerzhul-ncsms_android-2.0.0
@@ -43503,7 +43472,7 @@ POSTCONDITION_REMOVED
 version 1: nextcloud-android-1.0.0
 version 2: nextcloud-android-2.0.0
 compilation unit: 0116-nextcloud-android-stable_3.11.1/src/main/java/com/owncloud/android/ui/dialog/IndeterminateProgressDialog.java
-method: onCreateDialog(Bundle)
+method: onKey(DialogInterface,
 constraints in nextcloud-android-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in nextcloud-android-2.0.0
@@ -43632,7 +43601,7 @@ POSTCONDITION_REMOVED
 version 1: nextcloud-android-1.0.0
 version 2: nextcloud-android-2.0.0
 compilation unit: 0116-nextcloud-android-stable_3.11.1/src/main/java/com/owncloud/android/ui/activity/RichDocumentsEditorWebView.java
-method: onCreate(Bundle)
+method: onShowFileChooser(WebView,
 constraints in nextcloud-android-1.0.0
 	AndroidSuppressLint condition: ""AddJavascriptInterface"" , add info: -
 constraints in nextcloud-android-2.0.0
@@ -43905,7 +43874,7 @@ POSTCONDITION_REMOVED
 version 1: nextcloud-news_android-1.0.0
 version 2: nextcloud-news_android-2.0.0
 compilation unit: 0063-nextcloud-news_android-v.0.9.9.50/News-Android-App/src/main/java/de/luhmer/owncloudnewsreader/helper/AdBlocker.java
-method: init(Context)
+method: doInBackground(Void...)
 constraints in nextcloud-news_android-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in nextcloud-news_android-2.0.0
@@ -43932,7 +43901,7 @@ POSTCONDITION_REMOVED
 version 1: nextcloud-talk_android-1.0.0
 version 2: nextcloud-talk_android-2.0.0
 compilation unit: 0060-nextcloud-talk_android-v7.0.4/app/src/main/java/com/nextcloud/talk/jobs/LeaveConversationWorker.java
-method: doWork()
+method: onComplete()
 constraints in nextcloud-talk_android-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in nextcloud-talk_android-2.0.0
@@ -43950,7 +43919,7 @@ POSTCONDITION_REMOVED
 version 1: nextcloud-talk_android-1.0.0
 version 2: nextcloud-talk_android-2.0.0
 compilation unit: 0060-nextcloud-talk_android-v7.0.4/app/src/main/java/com/nextcloud/talk/jobs/AccountRemovalWorker.java
-method: doWork()
+method: onComplete()
 constraints in nextcloud-talk_android-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in nextcloud-talk_android-2.0.0
@@ -43959,7 +43928,7 @@ POSTCONDITION_REMOVED
 version 1: nextcloud-talk_android-1.0.0
 version 2: nextcloud-talk_android-2.0.0
 compilation unit: 0060-nextcloud-talk_android-v7.0.4/app/src/main/java/com/nextcloud/talk/jobs/SignalingSettingsWorker.java
-method: doWork()
+method: onComplete()
 constraints in nextcloud-talk_android-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in nextcloud-talk_android-2.0.0
@@ -43977,7 +43946,7 @@ POSTCONDITION_REMOVED
 version 1: nextcloud-talk_android-1.0.0
 version 2: nextcloud-talk_android-2.0.0
 compilation unit: 0060-nextcloud-talk_android-v7.0.4/app/src/main/java/com/nextcloud/talk/jobs/CapabilitiesWorker.java
-method: doWork()
+method: onComplete()
 constraints in nextcloud-talk_android-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in nextcloud-talk_android-2.0.0
@@ -43986,7 +43955,7 @@ POSTCONDITION_REMOVED
 version 1: nextcloud-talk_android-1.0.0
 version 2: nextcloud-talk_android-2.0.0
 compilation unit: 0060-nextcloud-talk_android-v7.0.4/app/src/main/java/com/nextcloud/talk/jobs/DeleteConversationWorker.java
-method: doWork()
+method: onComplete()
 constraints in nextcloud-talk_android-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in nextcloud-talk_android-2.0.0
@@ -44014,7 +43983,7 @@ POSTCONDITION_REMOVED
 version 1: nextcloud-talk_android-1.0.0
 version 2: nextcloud-talk_android-2.0.0
 compilation unit: 0060-nextcloud-talk_android-v7.0.4/app/src/main/java/com/nextcloud/talk/jobs/ShareOperationWorker.java
-method: doWork()
+method: onComplete()
 constraints in nextcloud-talk_android-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in nextcloud-talk_android-2.0.0
@@ -44050,7 +44019,7 @@ POSTCONDITION_REMOVED
 version 1: nextcloud-talk_android-1.0.0
 version 2: nextcloud-talk_android-2.0.0
 compilation unit: 0060-nextcloud-talk_android-v7.0.4/app/src/main/java/com/nextcloud/talk/controllers/RingtoneSelectionController.java
-method: onItemClick(View,
+method: run()
 constraints in nextcloud-talk_android-1.0.0
 	AndroidSuppressLint condition: ""LongLogTag"" , add info: -
 constraints in nextcloud-talk_android-2.0.0
@@ -44239,7 +44208,7 @@ POSTCONDITION_REMOVED
 version 1: opacapp-opacclient-1.0.0
 version 2: opacapp-opacclient-2.0.0
 compilation unit: 0115-opacapp-opacclient-6.3.4/opacclient/opacapp/src/main/java/de/geeksfactory/opacclient/ui/AccountSwitcherNavigationView.java
-method: setAccountsVisible(boolean)
+method: onAnimationEnd(Animator)
 constraints in opacapp-opacclient-1.0.0
 	AndroidTargetApi condition: "12" , add info: -
 constraints in opacapp-opacclient-2.0.0
@@ -44302,7 +44271,7 @@ POSTCONDITION_REMOVED
 version 1: opacapp-opacclient-1.0.0
 version 2: opacapp-opacclient-2.0.0
 compilation unit: 0115-opacapp-opacclient-6.3.4/opacclient/opacapp/src/main/java/de/geeksfactory/opacclient/frontend/MainActivity.java
-method: onCreate(Bundle)
+method: run()
 constraints in opacapp-opacclient-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in opacapp-opacclient-2.0.0
@@ -44356,7 +44325,7 @@ POSTCONDITION_REMOVED
 version 1: opacapp-opacclient-1.0.0
 version 2: opacapp-opacclient-2.0.0
 compilation unit: 0115-opacapp-opacclient-6.3.4/opacclient/opacapp/src/main/java/de/geeksfactory/opacclient/frontend/AccountItemDetailActivity.java
-method: onCreate(Bundle)
+method: onClick(View)
 constraints in opacapp-opacclient-1.0.0
 	AndroidTargetApi condition: "21" , add info: -
 constraints in opacapp-opacclient-2.0.0
@@ -44392,7 +44361,7 @@ POSTCONDITION_REMOVED
 version 1: opacapp-opacclient-1.0.0
 version 2: opacapp-opacclient-2.0.0
 compilation unit: 0115-opacapp-opacclient-6.3.4/opacclient/opacapp/src/main/java/de/geeksfactory/opacclient/frontend/InfoFragment.java
-method: onCreateView(LayoutInflater,
+method: shouldOverrideUrlLoading(WebView,
 constraints in opacapp-opacclient-1.0.0
 	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
 constraints in opacapp-opacclient-2.0.0
@@ -44490,17 +44459,8 @@ constraints in open_keychain-open_keychain-2.0.0
 POSTCONDITION_REMOVED
 version 1: open_keychain-open_keychain-1.0.0
 version 2: open_keychain-open_keychain-2.0.0
-compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/keyview/ViewKeyActivity.java
-method: onCreate(Bundle)
-constraints in open_keychain-open_keychain-1.0.0
-	AndroidSuppressLint condition: ""InflateParams"" , add info: -
-constraints in open_keychain-open_keychain-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: open_keychain-open_keychain-1.0.0
-version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/dialog/EditSubkeyExpiryDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in open_keychain-open_keychain-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
@@ -44509,9 +44469,8 @@ POSTCONDITION_REMOVED
 version 1: open_keychain-open_keychain-1.0.0
 version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/dialog/AddSubkeyDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onNothingSelected(AdapterView<?>)
 constraints in open_keychain-open_keychain-1.0.0
-	AndroidSuppressLint condition: ""InflateParams"" , add info: -
 	AndroidXNonNull condition: "" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
 
@@ -44519,7 +44478,7 @@ POSTCONDITION_REMOVED
 version 1: open_keychain-open_keychain-1.0.0
 version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/dialog/AddEditSmartPGPAuthorityDialogFragment.java
-method: onCreateDialog(Bundle)
+method: run()
 constraints in open_keychain-open_keychain-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
@@ -44528,7 +44487,7 @@ POSTCONDITION_REMOVED
 version 1: open_keychain-open_keychain-1.0.0
 version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/dialog/AddEditKeyserverDialogFragment.java
-method: onCreateDialog(Bundle)
+method: run()
 constraints in open_keychain-open_keychain-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
@@ -44537,7 +44496,7 @@ POSTCONDITION_REMOVED
 version 1: open_keychain-open_keychain-1.0.0
 version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/dialog/ProgressDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onKey(DialogInterface,
 constraints in open_keychain-open_keychain-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
@@ -44546,7 +44505,7 @@ POSTCONDITION_REMOVED
 version 1: open_keychain-open_keychain-1.0.0
 version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/dialog/ShareLogDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in open_keychain-open_keychain-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
@@ -44555,7 +44514,7 @@ POSTCONDITION_REMOVED
 version 1: open_keychain-open_keychain-1.0.0
 version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/dialog/OrbotStartDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in open_keychain-open_keychain-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
@@ -44573,7 +44532,7 @@ POSTCONDITION_REMOVED
 version 1: open_keychain-open_keychain-1.0.0
 version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/dialog/FidesmoInstallDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in open_keychain-open_keychain-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
@@ -44582,7 +44541,7 @@ POSTCONDITION_REMOVED
 version 1: open_keychain-open_keychain-1.0.0
 version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/dialog/FidesmoPgpInstallDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in open_keychain-open_keychain-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
@@ -44612,6 +44571,16 @@ compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/
 method: tintText(View,
 constraints in open_keychain-open_keychain-1.0.0
 	AndroidTargetApi condition: "VERSION_CODES.LOLLIPOP" , add info: -
+	AndroidTargetApi condition: "VERSION_CODES.ICE_CREAM_SANDWICH" , add info: -
+constraints in open_keychain-open_keychain-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: open_keychain-open_keychain-1.0.0
+version 2: open_keychain-open_keychain-2.0.0
+compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/util/Notify.java
+method: show(ViewGroup)
+constraints in open_keychain-open_keychain-1.0.0
+	AndroidXCheckResult condition: "" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
 
 POSTCONDITION_REMOVED
@@ -44620,7 +44589,6 @@ version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/util/Notify.java
 method: create(Activity,
 constraints in open_keychain-open_keychain-1.0.0
-	AndroidXCheckResult condition: "" , add info: -
 	AndroidXCheckResult condition: "" , add info: -
 	AndroidXCheckResult condition: "" , add info: -
 	AndroidXCheckResult condition: "" , add info: -
@@ -44642,9 +44610,17 @@ POSTCONDITION_REMOVED
 version 1: open_keychain-open_keychain-1.0.0
 version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/DeleteKeyDialogActivity.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in open_keychain-open_keychain-1.0.0
 	AndroidXNonNull condition: "" , add info: -
+constraints in open_keychain-open_keychain-2.0.0
+
+POSTCONDITION_REMOVED
+version 1: open_keychain-open_keychain-1.0.0
+version 2: open_keychain-open_keychain-2.0.0
+compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/DeleteKeyDialogActivity.java
+method: onNothingSelected(AdapterView<?>)
+constraints in open_keychain-open_keychain-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
 
@@ -44697,7 +44673,7 @@ POSTCONDITION_REMOVED
 version 1: open_keychain-open_keychain-1.0.0
 version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/RetryUploadDialogActivity.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in open_keychain-open_keychain-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
@@ -44706,7 +44682,7 @@ POSTCONDITION_REMOVED
 version 1: open_keychain-open_keychain-1.0.0
 version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/base/CryptoOperationFragment.java
-method: Creates
+method: createOperationInput()
 constraints in open_keychain-open_keychain-1.0.0
 	AndroidXNullable condition: "" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
@@ -44715,7 +44691,7 @@ POSTCONDITION_REMOVED
 version 1: open_keychain-open_keychain-1.0.0
 version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/ui/PassphraseDialogActivity.java
-method: onCreateDialog(Bundle)
+method: onClick(View)
 constraints in open_keychain-open_keychain-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
@@ -45029,7 +45005,7 @@ POSTCONDITION_REMOVED
 version 1: open_keychain-open_keychain-1.0.0
 version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/operations/InputDataOperation.java
-method: execute(InputDataParcel,
+method: body(BodyDescriptor,
 constraints in open_keychain-open_keychain-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
@@ -45313,7 +45289,7 @@ POSTCONDITION_REMOVED
 version 1: open_keychain-open_keychain-1.0.0
 version 2: open_keychain-open_keychain-2.0.0
 compilation unit: 0177-open_keychain-open_keychain-v5.7.4/OpenKeychain/src/main/java/org/sufficientlysecure/keychain/service/KeychainServiceTask.java
-method: startOperationInBackground(Parcelable,
+method: onPostExecute(OperationResult)
 constraints in open_keychain-open_keychain-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in open_keychain-open_keychain-2.0.0
@@ -45892,7 +45868,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/wikivoyage/article/WikivoyageArticleDialogFragment.java
-method: onCreateView(LayoutInflater,
+method: onClick(View)
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: "{ "SetJavaScriptEnabled", "AddJavascriptInterface" }" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -45901,7 +45877,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/mapcontextmenu/editors/PointEditorFragment.java
-method: onCreateView(LayoutInflater,
+method: onTouch(View,
 constraints in osmandapp-Osmand-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -45910,7 +45886,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/mapcontextmenu/builders/cards/AbstractCard.java
-method: openUrl(Context,
+method: shouldOverrideUrlLoading(WebView,
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -45928,7 +45904,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/helpers/WaypointDialogHelper.java
-method: sortAllTargets(OsmandApplication,
+method: run()
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -45937,7 +45913,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/helpers/DiscountHelper.java
-method: checkAndDisplay(MapActivity)
+method: onPostExecute(String)
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""HardwareIds"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -45964,8 +45940,12 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/helpers/ImportHelper.java
-method: handleGpxImport(Uri,
+method: onPostExecute(GPXFile)
 constraints in osmandapp-Osmand-1.0.0
+	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
+	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
+	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
+	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
 
@@ -45973,53 +45953,9 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/helpers/ImportHelper.java
-method: handleFavouritesImport(Uri,
+method: onPostExecute(String)
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
-constraints in osmandapp-Osmand-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: osmandapp-Osmand-1.0.0
-version 2: osmandapp-Osmand-2.0.0
-compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/helpers/ImportHelper.java
-method: importFavoritesImpl(GPXFile,
-constraints in osmandapp-Osmand-1.0.0
-	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
-constraints in osmandapp-Osmand-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: osmandapp-Osmand-1.0.0
-version 2: osmandapp-Osmand-2.0.0
-compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/helpers/ImportHelper.java
-method: handleKmzImport(Uri,
-constraints in osmandapp-Osmand-1.0.0
-	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
-constraints in osmandapp-Osmand-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: osmandapp-Osmand-1.0.0
-version 2: osmandapp-Osmand-2.0.0
-compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/helpers/ImportHelper.java
-method: handleKmlImport(Uri,
-constraints in osmandapp-Osmand-1.0.0
-	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
-constraints in osmandapp-Osmand-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: osmandapp-Osmand-1.0.0
-version 2: osmandapp-Osmand-2.0.0
-compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/helpers/ImportHelper.java
-method: handleObfImport(Uri,
-constraints in osmandapp-Osmand-1.0.0
-	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
-constraints in osmandapp-Osmand-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: osmandapp-Osmand-1.0.0
-version 2: osmandapp-Osmand-2.0.0
-compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/helpers/ImportHelper.java
-method: handleSqliteTileImport(Uri,
-constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
 
@@ -46027,7 +45963,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/development/SettingsDevelopmentActivity.java
-method: onCreate(Bundle)
+method: onPreferenceClick(Preference)
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""SimpleDateFormat"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46036,7 +45972,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/activities/FavoritesSearchFragment.java
-method: onCreateView(LayoutInflater,
+method: onClick(View)
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""PrivateResource, ValidFragment"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46054,7 +45990,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/settings/BaseSettingsFragment.java
-method: onCreateAdapter(PreferenceScreen)
+method: onBindViewHolder(PreferenceViewHolder,
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""RestrictedApi"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46081,7 +46017,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/AppInitializer.java
-method: getLazyRoutingConfig()
+method: onPostExecute(Builder)
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46117,7 +46053,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/dialogs/HelpArticleDialogFragment.java
-method: onCreateView(LayoutInflater,
+method: shouldOverrideUrlLoading(WebView,
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46126,7 +46062,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/search/QuickSearchDialogFragment.java
-method: onCreateView(LayoutInflater,
+method: onClick(View)
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""PrivateResource, ValidFragment"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46135,7 +46071,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/search/QuickSearchCoordinatesFragment.java
-method: onCreateView(LayoutInflater,
+method: onClick(View)
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""PrivateResource"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46244,7 +46180,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/base/ContextMenuFragment.java
-method: runLayoutListener()
+method: onGlobalLayout()
 constraints in osmandapp-Osmand-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.JELLY_BEAN" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46253,7 +46189,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/wikipedia/WikipediaDialogFragment.java
-method: onCreateView(LayoutInflater,
+method: onClick(View)
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46271,7 +46207,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/routepreparationmenu/cards/HistoryCard.java
-method: updateContent()
+method: onClick(View)
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""DefaultLocale"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46280,7 +46216,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/routepreparationmenu/cards/TracksCard.java
-method: updateContent()
+method: onClick(View)
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""DefaultLocale"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46289,7 +46225,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/routepreparationmenu/cards/MapMarkersCard.java
-method: updateContent()
+method: onClick(View)
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""DefaultLocale"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46316,7 +46252,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/download/DownloadActivity.java
-method: reloadLocalIndexes()
+method: onPostExecute(List<String>)
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46343,7 +46279,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/dashboard/DashChooseAppDirFragment.java
-method: showSelectDialog19()
+method: onClick(DialogInterface,
 constraints in osmandapp-Osmand-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.KITKAT" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46352,7 +46288,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAnd/src/net/osmand/plus/chooseplan/ChoosePlanDialogFragment.java
-method: setupOsmLiveCardButtons(boolean)
+method: onClick(View)
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""CutPasteId"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46370,7 +46306,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAndCore-sample/src/net/osmand/core/samples/android/sample1/mapcontextmenu/MapContextMenuFragment.java
-method: onCreateView(LayoutInflater,
+method: onTouch(View,
 constraints in osmandapp-Osmand-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46388,7 +46324,7 @@ POSTCONDITION_REMOVED
 version 1: osmandapp-Osmand-1.0.0
 version 2: osmandapp-Osmand-2.0.0
 compilation unit: 0010-osmandapp-Osmand-2.0.0/OsmAndCore-sample/src/net/osmand/core/samples/android/sample1/search/QuickSearchDialogFragment.java
-method: onCreateView(LayoutInflater,
+method: onClick(View)
 constraints in osmandapp-Osmand-1.0.0
 	AndroidSuppressLint condition: ""PrivateResource, ValidFragment"" , add info: -
 constraints in osmandapp-Osmand-2.0.0
@@ -46434,7 +46370,7 @@ POSTCONDITION_REMOVED
 version 1: osmdroid-osmdroid-1.0.0
 version 2: osmdroid-osmdroid-2.0.0
 compilation unit: 0281-osmdroid-osmdroid-osmdroid_parent_6.1.10/OpenStreetMapViewer/src/main/java/org/osmdroid/samplefragments/animations/MarkerAnimation.java
-method: animateMarkerToGB(MapView,
+method: run()
 constraints in osmdroid-osmdroid-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.GINGERBREAD" , add info: -
 constraints in osmdroid-osmdroid-2.0.0
@@ -46443,7 +46379,7 @@ POSTCONDITION_REMOVED
 version 1: osmdroid-osmdroid-1.0.0
 version 2: osmdroid-osmdroid-2.0.0
 compilation unit: 0281-osmdroid-osmdroid-osmdroid_parent_6.1.10/OpenStreetMapViewer/src/main/java/org/osmdroid/samplefragments/animations/MarkerAnimation.java
-method: animateMarkerToHC(MapView,
+method: onAnimationUpdate(ValueAnimator)
 constraints in osmdroid-osmdroid-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB_MR1" , add info: -
 constraints in osmdroid-osmdroid-2.0.0
@@ -46452,7 +46388,7 @@ POSTCONDITION_REMOVED
 version 1: osmdroid-osmdroid-1.0.0
 version 2: osmdroid-osmdroid-2.0.0
 compilation unit: 0281-osmdroid-osmdroid-osmdroid_parent_6.1.10/OpenStreetMapViewer/src/main/java/org/osmdroid/samplefragments/animations/MarkerAnimation.java
-method: animateMarkerToICS(MapView,
+method: evaluate(float,
 constraints in osmdroid-osmdroid-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.ICE_CREAM_SANDWICH" , add info: -
 constraints in osmdroid-osmdroid-2.0.0
@@ -46515,7 +46451,7 @@ POSTCONDITION_REMOVED
 version 1: owncloud-android-1.0.0
 version 2: owncloud-android-2.0.0
 compilation unit: 0186-owncloud-android-oc_android_2.8.0_beta.1/src/com/owncloud/android/ui/activity/FileDisplayActivity.java
-method: onActivityResult(int,
+method: onCheckAvailableSpaceFinished(boolean,
 constraints in owncloud-android-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.JELLY_BEAN" , add info: -
 constraints in owncloud-android-2.0.0
@@ -46589,7 +46525,7 @@ POSTCONDITION_REMOVED
 version 1: patzly-grocy_android-1.0.0
 version 2: patzly-grocy_android-2.0.0
 compilation unit: 0082-patzly-grocy_android-v1.0.0/app/src/main/java/xyz/zedler/patrick/grocy/FeaturesActivity.java
-method: onCreate(Bundle)
+method: onPageScrollStateChanged(int)
 constraints in patzly-grocy_android-1.0.0
 	AndroidSuppressLint condition: ""ClickableViewAccessibility"" , add info: -
 constraints in patzly-grocy_android-2.0.0
@@ -47778,7 +47714,7 @@ POSTCONDITION_REMOVED
 version 1: readrops-Readrops-1.0.0
 version 2: readrops-Readrops-2.0.0
 compilation unit: 0170-readrops-Readrops-v1.0/app/src/main/java/com/readrops/app/activities/AddFeedActivity.java
-method: onCreate(Bundle)
+method: onNothingSelected(AdapterView<?>)
 constraints in readrops-Readrops-1.0.0
 	AndroidSuppressLint condition: ""ClickableViewAccessibility"" , add info: -
 constraints in readrops-Readrops-2.0.0
@@ -47922,7 +47858,7 @@ POSTCONDITION_REMOVED
 version 1: redsolution-xabber_android-1.0.0
 version 2: redsolution-xabber_android-2.0.0
 compilation unit: 0129-redsolution-xabber_android-v2.6.6/xabber/src/main/java/com/xabber/android/ui/fragment/AccountInfoEditorFragment.java
-method: onCreateView(LayoutInflater,
+method: onClick(View)
 constraints in redsolution-xabber_android-1.0.0
 	AndroidXNullable condition: "" , add info: -
 constraints in redsolution-xabber_android-2.0.0
@@ -47931,7 +47867,7 @@ POSTCONDITION_REMOVED
 version 1: redsolution-xabber_android-1.0.0
 version 2: redsolution-xabber_android-2.0.0
 compilation unit: 0129-redsolution-xabber_android-v2.6.6/xabber/src/main/java/com/xabber/android/ui/fragment/ContactVcardViewerFragment.java
-method: onCreateView(LayoutInflater,
+method: onClick(View)
 constraints in redsolution-xabber_android-1.0.0
 	AndroidXNullable condition: "" , add info: -
 constraints in redsolution-xabber_android-2.0.0
@@ -48928,15 +48864,6 @@ constraints in stefan_niedermann-nextcloud_deck-2.0.0
 POSTCONDITION_REMOVED
 version 1: stefan_niedermann-nextcloud_deck-1.0.0
 version 2: stefan_niedermann-nextcloud_deck-2.0.0
-compilation unit: 0059-stefan_niedermann-nextcloud_deck-1.18.2/app/src/main/java/it/niedermann/nextcloud/deck/ui/MainActivity.java
-method: onResponse(Capabilities)
-constraints in stefan_niedermann-nextcloud_deck-1.0.0
-	AndroidSuppressLint condition: ""StringFormatInvalid"" , add info: -
-constraints in stefan_niedermann-nextcloud_deck-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: stefan_niedermann-nextcloud_deck-1.0.0
-version 2: stefan_niedermann-nextcloud_deck-2.0.0
 compilation unit: 0059-stefan_niedermann-nextcloud_deck-1.18.2/app/src/main/java/it/niedermann/nextcloud/deck/ui/view/ToggleAutoCompleteTextView.java
 method: setOnDismissListener(OnDismissListener)
 constraints in stefan_niedermann-nextcloud_deck-1.0.0
@@ -49001,9 +48928,8 @@ POSTCONDITION_REMOVED
 version 1: stefan_niedermann-nextcloud_deck-1.0.0
 version 2: stefan_niedermann-nextcloud_deck-2.0.0
 compilation unit: 0059-stefan_niedermann-nextcloud_deck-1.18.2/app/src/main/java/it/niedermann/nextcloud/deck/ui/filter/FilterDialogFragment.java
-method: onCreateDialog(Bundle)
+method: onPageSelected(int)
 constraints in stefan_niedermann-nextcloud_deck-1.0.0
-	JavaAssert condition: "indicator != null" , add info: -
 	AndroidXNonNull condition: "" , add info: -
 constraints in stefan_niedermann-nextcloud_deck-2.0.0
 
@@ -49101,7 +49027,7 @@ POSTCONDITION_REMOVED
 version 1: stefan_niedermann-nextcloud_deck-1.0.0
 version 2: stefan_niedermann-nextcloud_deck-2.0.0
 compilation unit: 0059-stefan_niedermann-nextcloud_deck-1.18.2/app/src/main/java/it/niedermann/nextcloud/deck/ui/ImportAccountActivity.java
-method: accountAccessGranted(SingleSignOnAccount)
+method: onError(Throwable)
 constraints in stefan_niedermann-nextcloud_deck-1.0.0
 	JavaAssert condition: "error != null" , add info: -
 	AndroidSuppressLint condition: ""ApplySharedPref"" , add info: -
@@ -49539,15 +49465,6 @@ compilation unit: 0059-stefan_niedermann-nextcloud_deck-1.18.2/app/src/main/java
 method: getDebugLog()
 constraints in stefan_niedermann-nextcloud_deck-1.0.0
 	AndroidXNonNull condition: "" , add info: -
-constraints in stefan_niedermann-nextcloud_deck-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: stefan_niedermann-nextcloud_deck-1.0.0
-version 2: stefan_niedermann-nextcloud_deck-2.0.0
-compilation unit: 0059-stefan_niedermann-nextcloud_deck-1.18.2/app/src/main/java/it/niedermann/nextcloud/deck/api/IResponseCallback.java
-method: onError(Throwable)
-constraints in stefan_niedermann-nextcloud_deck-1.0.0
-	AndroidSuppressLint condition: ""MissingSuperCall"" , add info: -
 constraints in stefan_niedermann-nextcloud_deck-2.0.0
 
 POSTCONDITION_REMOVED
@@ -50124,31 +50041,6 @@ POSTCONDITION_REMOVED
 version 1: stefan_niedermann-nextcloud_deck-1.0.0
 version 2: stefan_niedermann-nextcloud_deck-2.0.0
 compilation unit: 0059-stefan_niedermann-nextcloud_deck-1.18.2/app/src/main/java/it/niedermann/nextcloud/deck/persistence/sync/SyncManager.java
-method: onError(Throwable)
-constraints in stefan_niedermann-nextcloud_deck-1.0.0
-	AndroidSuppressLint condition: ""MissingSuperCall"" , add info: -
-	AndroidSuppressLint condition: ""MissingSuperCall"" , add info: -
-	AndroidSuppressLint condition: ""MissingSuperCall"" , add info: -
-	AndroidSuppressLint condition: ""MissingSuperCall"" , add info: -
-	AndroidSuppressLint condition: ""MissingSuperCall"" , add info: -
-	AndroidSuppressLint condition: ""MissingSuperCall"" , add info: -
-	AndroidSuppressLint condition: ""MissingSuperCall"" , add info: -
-	AndroidSuppressLint condition: ""MissingSuperCall"" , add info: -
-constraints in stefan_niedermann-nextcloud_deck-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: stefan_niedermann-nextcloud_deck-1.0.0
-version 2: stefan_niedermann-nextcloud_deck-2.0.0
-compilation unit: 0059-stefan_niedermann-nextcloud_deck-1.18.2/app/src/main/java/it/niedermann/nextcloud/deck/persistence/sync/SyncManager.java
-method: synchronizeEverything()
-constraints in stefan_niedermann-nextcloud_deck-1.0.0
-	AndroidXWorkerThread condition: "" , add info: -
-constraints in stefan_niedermann-nextcloud_deck-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: stefan_niedermann-nextcloud_deck-1.0.0
-version 2: stefan_niedermann-nextcloud_deck-2.0.0
-compilation unit: 0059-stefan_niedermann-nextcloud_deck-1.18.2/app/src/main/java/it/niedermann/nextcloud/deck/persistence/sync/SyncManager.java
 method: hasAccounts()
 constraints in stefan_niedermann-nextcloud_deck-1.0.0
 	AndroidXAnyThread condition: "" , add info: -
@@ -50197,15 +50089,6 @@ compilation unit: 0059-stefan_niedermann-nextcloud_deck-1.18.2/app/src/main/java
 method: readAccountsDirectly()
 constraints in stefan_niedermann-nextcloud_deck-1.0.0
 	AndroidXWorkerThread condition: "" , add info: -
-constraints in stefan_niedermann-nextcloud_deck-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: stefan_niedermann-nextcloud_deck-1.0.0
-version 2: stefan_niedermann-nextcloud_deck-2.0.0
-compilation unit: 0059-stefan_niedermann-nextcloud_deck-1.18.2/app/src/main/java/it/niedermann/nextcloud/deck/persistence/sync/SyncManager.java
-method: readAccountsForHostWithReadAccessToBoard(String,
-constraints in stefan_niedermann-nextcloud_deck-1.0.0
-	AndroidXMainThread condition: "" , add info: -
 constraints in stefan_niedermann-nextcloud_deck-2.0.0
 
 POSTCONDITION_REMOVED
@@ -50266,15 +50149,6 @@ POSTCONDITION_REMOVED
 version 1: stefan_niedermann-nextcloud_deck-1.0.0
 version 2: stefan_niedermann-nextcloud_deck-2.0.0
 compilation unit: 0059-stefan_niedermann-nextcloud_deck-1.18.2/app/src/main/java/it/niedermann/nextcloud/deck/persistence/sync/SyncManager.java
-method: updateComment(long,
-constraints in stefan_niedermann-nextcloud_deck-1.0.0
-	AndroidXAnyThread condition: "" , add info: -
-constraints in stefan_niedermann-nextcloud_deck-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: stefan_niedermann-nextcloud_deck-1.0.0
-version 2: stefan_niedermann-nextcloud_deck-2.0.0
-compilation unit: 0059-stefan_niedermann-nextcloud_deck-1.18.2/app/src/main/java/it/niedermann/nextcloud/deck/persistence/sync/SyncManager.java
 method: getBoardLocalIdByLocalCardIdDirectly(long)
 constraints in stefan_niedermann-nextcloud_deck-1.0.0
 	AndroidXWorkerThread condition: "" , add info: -
@@ -50287,15 +50161,6 @@ compilation unit: 0059-stefan_niedermann-nextcloud_deck-1.18.2/app/src/main/java
 method: getAccessControlByRemoteIdDirectly(long,
 constraints in stefan_niedermann-nextcloud_deck-1.0.0
 	AndroidXWorkerThread condition: "" , add info: -
-constraints in stefan_niedermann-nextcloud_deck-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: stefan_niedermann-nextcloud_deck-1.0.0
-version 2: stefan_niedermann-nextcloud_deck-2.0.0
-compilation unit: 0059-stefan_niedermann-nextcloud_deck-1.18.2/app/src/main/java/it/niedermann/nextcloud/deck/persistence/sync/SyncManager.java
-method: moveCard(long,
-constraints in stefan_niedermann-nextcloud_deck-1.0.0
-	AndroidXAnyThread condition: "" , add info: -
 constraints in stefan_niedermann-nextcloud_deck-2.0.0
 
 POSTCONDITION_REMOVED
@@ -50420,7 +50285,7 @@ POSTCONDITION_REMOVED
 version 1: stefan_niedermann-nextcloud_notes-1.0.0
 version 2: stefan_niedermann-nextcloud_notes-2.0.0
 compilation unit: 0024-stefan_niedermann-nextcloud_notes-v2.16.0/app/src/main/java/it/niedermann/owncloud/notes/android/fragment/CategoryDialogFragment.java
-method: onCreateDialog(Bundle)
+method: afterTextChanged(Editable)
 constraints in stefan_niedermann-nextcloud_notes-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in stefan_niedermann-nextcloud_notes-2.0.0
@@ -50717,9 +50582,9 @@ compilation unit: 0024-stefan_niedermann-nextcloud_notes-v2.16.0/app/src/main/ja
 method: create()
 constraints in stefan_niedermann-nextcloud_notes-1.0.0
 	AndroidXNonNull condition: "" , add info: -
+	AndroidXColorInt condition: "" , add info: -
+	AndroidXColorInt condition: "" , add info: -
 	AndroidXNonNull condition: "" , add info: -
-	AndroidXColorInt condition: "" , add info: -
-	AndroidXColorInt condition: "" , add info: -
 constraints in stefan_niedermann-nextcloud_notes-2.0.0
 
 POSTCONDITION_REMOVED
@@ -50744,7 +50609,7 @@ POSTCONDITION_REMOVED
 version 1: sunilpaulmathew-De_Bloater-1.0.0
 version 2: sunilpaulmathew-De_Bloater-2.0.0
 compilation unit: 0095-sunilpaulmathew-De_Bloater-v0.16/app/src/main/java/com/sunilpaulmathew/debloater/fragments/InactivePackagesFragment.java
-method: onActivityResult(int,
+method: onPostExecute(Void)
 constraints in sunilpaulmathew-De_Bloater-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in sunilpaulmathew-De_Bloater-2.0.0
@@ -50807,7 +50672,7 @@ POSTCONDITION_REMOVED
 version 1: syncthing-syncthing_android-1.0.0
 version 2: syncthing-syncthing_android-2.0.0
 compilation unit: 0154-syncthing-syncthing_android-1.7.0/app/src/main/java/com/nutomic/syncthingandroid/activities/FirstStartActivity.java
-method: onCreate(Bundle)
+method: onClick(View)
 constraints in syncthing-syncthing_android-1.0.0
 	AndroidSuppressLint condition: ""ClickableViewAccessibility"" , add info: -
 constraints in syncthing-syncthing_android-2.0.0
@@ -50897,7 +50762,7 @@ POSTCONDITION_REMOVED
 version 1: termux-termux_api-1.0.0
 version 2: termux-termux_api-2.0.0
 compilation unit: 0211-termux-termux_api-v0.48/app/src/main/java/com/termux/api/DialogActivity.java
-method: onCreateDialog(Bundle)
+method: cancel()
 constraints in termux-termux_api-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in termux-termux_api-2.0.0
@@ -50917,7 +50782,6 @@ version 2: termux-termux_api-2.0.0
 compilation unit: 0211-termux-termux_api-v0.48/app/src/main/java/com/termux/api/FingerprintAPI.java
 method: validateFingerprintSensor(Context,
 constraints in termux-termux_api-1.0.0
-	AndroidTargetApi condition: "Build.VERSION_CODES.M" , add info: -
 	AndroidTargetApi condition: "Build.VERSION_CODES.M" , add info: -
 constraints in termux-termux_api-2.0.0
 
@@ -51310,7 +51174,7 @@ POSTCONDITION_REMOVED
 version 1: ubergeek42-weechat_android-1.0.0
 version 2: ubergeek42-weechat_android-2.0.0
 compilation unit: 0163-ubergeek42-weechat_android-v1.5.1/app/src/main/java/androidx/preference/PasswordedFilePickerPreference.java
-method: onPrepareDialogBuilder(AlertDialog.Builder)
+method: afterTextChanged(Editable)
 constraints in ubergeek42-weechat_android-1.0.0
 	AndroidSuppressLint condition: ""RestrictedApi"" , add info: -
 constraints in ubergeek42-weechat_android-2.0.0
@@ -51698,15 +51562,6 @@ POSTCONDITION_REMOVED
 version 1: ubergeek42-weechat_android-1.0.0
 version 2: ubergeek42-weechat_android-2.0.0
 compilation unit: 0163-ubergeek42-weechat_android-v1.5.1/app/src/main/java/com/ubergeek42/WeechatAndroid/relay/BufferList.java
-method: addOneOffMessageHandler(RelayMessageHandler)
-constraints in ubergeek42-weechat_android-1.0.0
-	AndroidXAnyThread condition: "" , add info: -
-constraints in ubergeek42-weechat_android-2.0.0
-
-POSTCONDITION_REMOVED
-version 1: ubergeek42-weechat_android-1.0.0
-version 2: ubergeek42-weechat_android-2.0.0
-compilation unit: 0163-ubergeek42-weechat_android-v1.5.1/app/src/main/java/com/ubergeek42/WeechatAndroid/relay/BufferList.java
 method: removeMessageHandler(String,
 constraints in ubergeek42-weechat_android-1.0.0
 	AndroidXAnyThread condition: "" , add info: -
@@ -52010,7 +51865,7 @@ POSTCONDITION_REMOVED
 version 1: ubergeek42-weechat_android-1.0.0
 version 2: ubergeek42-weechat_android-2.0.0
 compilation unit: 0163-ubergeek42-weechat_android-v1.5.1/app/src/main/java/com/ubergeek42/WeechatAndroid/media/HostUtils.java
-method: iterator()
+method: next()
 constraints in ubergeek42-weechat_android-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in ubergeek42-weechat_android-2.0.0
@@ -53071,7 +52926,7 @@ POSTCONDITION_REMOVED
 version 1: ultrasonic-ultrasonic-1.0.0
 version 2: ultrasonic-ultrasonic-2.0.0
 compilation unit: 0132-ultrasonic-ultrasonic-2.2.0/ultrasonic/src/main/java/org/moire/ultrasonic/service/DownloadServiceImpl.java
-method: onCreate()
+method: onError(MediaPlayer,
 constraints in ultrasonic-ultrasonic-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in ultrasonic-ultrasonic-2.0.0
@@ -53080,7 +52935,7 @@ POSTCONDITION_REMOVED
 version 1: ultrasonic-ultrasonic-1.0.0
 version 2: ultrasonic-ultrasonic-2.0.0
 compilation unit: 0132-ultrasonic-ultrasonic-2.2.0/ultrasonic/src/main/java/org/moire/ultrasonic/service/DownloadServiceImpl.java
-method: setUpRemoteControlClient()
+method: onPlaybackPositionUpdate(long)
 constraints in ultrasonic-ultrasonic-1.0.0
 	AndroidSuppressLint condition: ""NewApi"" , add info: -
 constraints in ultrasonic-ultrasonic-2.0.0
@@ -53152,7 +53007,7 @@ POSTCONDITION_REMOVED
 version 1: wallabag-android_app-1.0.0
 version 2: wallabag-android_app-2.0.0
 compilation unit: 0252-wallabag-android_app-1.12.1/app/src/main/java/fr/gaulupeau/apps/Poche/tts/TtsFragment.java
-method: onCreateView(LayoutInflater,
+method: onServiceDisconnected(ComponentName)
 constraints in wallabag-android_app-1.0.0
 	AndroidTargetApi condition: "Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1" , add info: -
 constraints in wallabag-android_app-2.0.0
@@ -53170,7 +53025,7 @@ POSTCONDITION_REMOVED
 version 1: woheller69-weather-1.0.0
 version 2: woheller69-weather-2.0.0
 compilation unit: 0179-woheller69-weather-V3.2/app/src/main/java/org/woheller69/weather/ui/util/AutoSuggestAdapter.java
-method: getFilter()
+method: publishResults(CharSequence,
 constraints in woheller69-weather-1.0.0
 	AndroidXNonNull condition: "" , add info: -
 constraints in woheller69-weather-2.0.0
@@ -53179,7 +53034,7 @@ POSTCONDITION_REMOVED
 version 1: woheller69-weather-1.0.0
 version 2: woheller69-weather-2.0.0
 compilation unit: 0179-woheller69-weather-V3.2/app/src/main/java/org/woheller69/weather/activities/RainViewerActivity.java
-method: onCreate(Bundle)
+method: onClick(View)
 constraints in woheller69-weather-1.0.0
 	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
 constraints in woheller69-weather-2.0.0
@@ -53197,7 +53052,7 @@ POSTCONDITION_REMOVED
 version 1: woheller69-weather-1.0.0
 version 2: woheller69-weather-2.0.0
 compilation unit: 0179-woheller69-weather-V3.2/app/src/main/java/org/woheller69/weather/dialogs/AddLocationDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in woheller69-weather-1.0.0
 	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
 constraints in woheller69-weather-2.0.0
@@ -53206,7 +53061,7 @@ POSTCONDITION_REMOVED
 version 1: woheller69-weather-1.0.0
 version 2: woheller69-weather-2.0.0
 compilation unit: 0179-woheller69-weather-V3.2/app/src/main/java/org/woheller69/weather/dialogs/AddLocationDialogPhotonAPI.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in woheller69-weather-1.0.0
 	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
 	AndroidXNonNull condition: "" , add info: -
@@ -53216,7 +53071,7 @@ POSTCONDITION_REMOVED
 version 1: woheller69-weather-1.0.0
 version 2: woheller69-weather-2.0.0
 compilation unit: 0179-woheller69-weather-V3.2/app/src/main/java/org/woheller69/weather/dialogs/EditLocationDialog.java
-method: onCreateDialog(Bundle)
+method: onClick(DialogInterface,
 constraints in woheller69-weather-1.0.0
 	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
 constraints in woheller69-weather-2.0.0
@@ -53324,7 +53179,7 @@ POSTCONDITION_REMOVED
 version 1: xbmc-Kore-1.0.0
 version 2: xbmc-Kore-2.0.0
 compilation unit: 0100-xbmc-Kore-v0.9.2/app/src/main/java/com/syncedsynapse/kore2/utils/UIUtils.java
-method: switchToRemoteWithAnimation(Context,
+method: onAnimationRepeat(Animator)
 constraints in xbmc-Kore-1.0.0
 	AndroidTargetApi condition: "21" , add info: -
 constraints in xbmc-Kore-2.0.0
@@ -53451,7 +53306,7 @@ POSTCONDITION_REMOVED
 version 1: yanus171-Handy_News_Reader-1.0.0
 version 2: yanus171-Handy_News_Reader-2.0.0
 compilation unit: 0345-yanus171-Handy_News_Reader-v0.15.15/FlymFork/src/main/java/ru/yanus171/feedexfork/fragment/EntryFragment.java
-method: setData(Uri)
+method: onPostExecute(Void)
 constraints in yanus171-Handy_News_Reader-1.0.0
 	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 constraints in yanus171-Handy_News_Reader-2.0.0
@@ -53570,7 +53425,6 @@ version 2: zorgluf-souvenirs_android-2.0.0
 compilation unit: 0103-zorgluf-souvenirs_android-v2.1.0/app/src/main/java/fr/nuage/souvenirs/view/DeleteShareDialogFragment.java
 method: onCreateDialog(Bundle)
 constraints in zorgluf-souvenirs_android-1.0.0
-	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
 	AndroidXNonNull condition: "" , add info: -
 constraints in zorgluf-souvenirs_android-2.0.0
 

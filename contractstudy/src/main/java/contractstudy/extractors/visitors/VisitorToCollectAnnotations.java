@@ -36,13 +36,16 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
 
     @Override
     public void visit(NormalAnnotationExpr n, Object arg) {
-        String name = n.getName().getName();
+        //String name = n.getName().getName();
+        String name = n.getName().getIdentifier(); // JFF: FIXME?
         ConstraintType constraintType = map.get(name);
         if (constraintType != null && importState == StaticImportState.CLASS) {
             String condition = n.getPairs().toString();
             ConstraintedArtefact artefact = getConstraintArtefact(n);
+            //ContractElement p = create(ProgramVersion.getOrCreate(programName, version), cuName, constraintType,
+            //        condition, n.getBeginLine(), artefact);
             ContractElement p = create(ProgramVersion.getOrCreate(programName, version), cuName, constraintType,
-                    condition, n.getBeginLine(), artefact);
+                    condition, n.getBegin().get().line, artefact);
             consumer.constraintFound(p);
         }
         super.visit(n, arg);
@@ -50,7 +53,8 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
 
     @Override
     public void visit(SingleMemberAnnotationExpr n, Object arg) {
-        String name = n.getName().getName();
+        //String name = n.getName().getName();
+        String name = n.getName().getIdentifier(); // JFF: FIXME?
         ConstraintType constraintType = map.get(name);
         if (constraintType == null) {
             // rule useful if nested annotations like JdkConstants.AdjustableOrientation are
@@ -59,10 +63,13 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
             constraintType = map.get(name.replace('.', '_'));
         }
         if (constraintType != null && importState == StaticImportState.CLASS) {
-            String condition = n.getMemberValue().toStringWithoutComments();
+            //String condition = n.getMemberValue().toStringWithoutComments();
+            String condition = n.getMemberValue().removeComment().toString(); // JFF: FIXME?
             ConstraintedArtefact artefact = getConstraintArtefact(n);
+            //ContractElement p = create(ProgramVersion.getOrCreate(programName, version), cuName, constraintType,
+            //        condition, n.getBeginLine(), artefact);
             ContractElement p = create(ProgramVersion.getOrCreate(programName, version), cuName, constraintType,
-                    condition, n.getBeginLine(), artefact);
+                    condition, n.getBegin().get().line, artefact);
             consumer.constraintFound(p);
         }
         super.visit(n, arg);
@@ -71,12 +78,15 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
     @Override
     public void visit(MarkerAnnotationExpr n, Object arg) {
 
-        String name = n.getName().getName();
+        //String name = n.getName().getName();
+        String name = n.getName().getIdentifier(); // JFF: FIXME?
         ConstraintType constraintType = map.get(name);
         if (constraintType != null && importState == StaticImportState.CLASS) {
             ConstraintedArtefact artefact = getConstraintArtefact(n);
+            //ContractElement p = create(ProgramVersion.getOrCreate(programName, version), cuName, constraintType, "",
+            //        n.getBeginLine(), artefact);
             ContractElement p = create(ProgramVersion.getOrCreate(programName, version), cuName, constraintType, "",
-                    n.getBeginLine(), artefact);
+                    n.getBegin().get().line, artefact);
             consumer.constraintFound(p);
         }
         super.visit(n, arg);
@@ -103,7 +113,8 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
     }
 
     private ConstraintedArtefact getConstraintArtefact(AnnotationExpr annotationNode) {
-        Node node = annotationNode.getParentNode();
+        //Node node = annotationNode.getParentNode();
+        Node node = annotationNode.getParentNode().orElse(null); //JFF: FIXME?
         if (node instanceof MethodDeclaration) {
             return ConstraintedArtefact.METHOD;
         } else if (node instanceof Parameter) {

@@ -1,3627 +1,595 @@
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ai/types/BuilderAI.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 74, column 46.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ai/types/FormationAI.java, Error: Encountered unexpected token: "mine" <IDENTIFIER>
-    at line 62, column 35.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ai/types/LogicAI.java, Error: Encountered unexpected token: "case" "case"
-    at line 69, column 13.
-
-Was expecting:
-
-    ":"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ai/types/MinerAI.java, Error: Encountered unexpected token: "miner" <IDENTIFIER>
-    at line 20, column 37.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ai/types/SuicideAI.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 34, column 45.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/core/ContentLoader.java, Error: Encountered unexpected token: "c" <IDENTIFIER>
-    at line 163, column 53.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/core/Logic.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
-    at line 287, column 51.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/core/NetClient.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/core/NetServer.java, Error: Encountered unexpected token: "v" <IDENTIFIER>
-    at line 253, column 62.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/core/World.java, Error: Encountered unexpected token: "l" <IDENTIFIER>
-    at line 203, column 52.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/Predict.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
-    at line 56, column 35.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/bullet/BulletType.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
-    at line 256, column 56.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/bullet/MassDriverBolt.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
-    at line 39, column 51.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/bullet/SapBulletType.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
-    at line 33, column 39.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/comp/BuildingComp.java, Error: Encountered unexpected token: "entity" <IDENTIFIER>
-    at line 201, column 45.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/comp/BulletComp.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
-    at line 94, column 37.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/comp/MinerComp.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 35, column 73.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/comp/PayloadComp.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 94, column 44.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/comp/UnitComp.java, Error: Encountered unexpected token: "builder" <IDENTIFIER>
-    at line 91, column 37.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/game/Teams.java, Error: Encountered unexpected token: "payloadc" <IDENTIFIER>
-    at line 136, column 37.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/graphics/OverlayRenderer.java, Error: Encountered unexpected token: "unit" <IDENTIFIER>
-    at line 157, column 57.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/input/InputHandler.java, Error: Encountered unexpected token: "pay" <IDENTIFIER>
-    at line 211, column 55.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/input/MobileInput.java, Error: Encountered unexpected token: "pay" <IDENTIFIER>
-    at line 526, column 50.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/io/TypeIO.java, Error: Encountered unexpected token: "i" <IDENTIFIER>
-    at line 40, column 44.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/io/legacy/LegacyIO.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
-    at line 73, column 65.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/logic/LExecutor.java, Error: Encountered unexpected token: "number" <IDENTIFIER>
-    at line 88, column 44.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/logic/LStatements.java, Error: Encountered unexpected token: "case" "case"
-    at line 171, column 21.
-
-Was expecting:
-
-    ":"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/maps/SectorDamage.java, Error: Encountered unexpected token: "ranged" <IDENTIFIER>
-    at line 264, column 85.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/maps/generators/BaseGenerator.java, Error: Encountered unexpected token: "item" <IDENTIFIER>
-    at line 200, column 42.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/mod/ContentParser.java, Error: Encountered unexpected token: "r" <IDENTIFIER>
-    at line 293, column 59.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/mod/Mods.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
-    at line 173, column 55.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/net/ArcNetProvider.java, Error: Encountered unexpected token: "p" <IDENTIFIER>
-    at line 364, column 40.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/net/Net.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 240, column 42.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/net/NetworkIO.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
-    at line 31, column 59.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/type/ItemStack.java, Error: Encountered unexpected token: "stack" <IDENTIFIER>
-    at line 70, column 37.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/type/UnitType.java, Error: Encountered unexpected token: "r" <IDENTIFIER>
-    at line 187, column 47.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ui/Fonts.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
-    at line 151, column 47.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ui/dialogs/PlanetDialog.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 741, column 87.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    ";"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ui/dialogs/SettingsMenuDialog.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
-    at line 129, column 59.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ui/fragments/PlacementFragment.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/Block.java, Error: Encountered unexpected token: "i" <IDENTIFIER>
-    at line 638, column 46.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/Autotiler.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/defense/turrets/PowerTurret.java, Error: Encountered unexpected token: "switch" "switch"
-    at line 39, column 20.
-
-Was expecting one of:
-
-    "!"
-    "("
-    "+"
-    "++"
-    "-"
-    "--"
-    ";"
-    "boolean"
-    "byte"
-    "char"
-    "double"
-    "false"
-    "float"
-    "int"
-    "long"
-    "new"
-    "null"
-    "short"
-    "super"
-    "this"
-    "true"
-    "void"
-    "~"
-    <CHARACTER_LITERAL>
-    <FLOATING_POINT_LITERAL>
-    <IDENTIFIER>
-    <INTEGER_LITERAL>
-    <LONG_LITERAL>
-    <STRING_LITERAL>
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/defense/turrets/Turret.java, Error: Encountered unexpected token: "switch" "switch"
-    at line 174, column 20.
-
-Was expecting one of:
-
-    "!"
-    "("
-    "+"
-    "++"
-    "-"
-    "--"
-    ";"
-    "boolean"
-    "byte"
-    "char"
-    "double"
-    "false"
-    "float"
-    "int"
-    "long"
-    "new"
-    "null"
-    "short"
-    "super"
-    "this"
-    "true"
-    "void"
-    "~"
-    <CHARACTER_LITERAL>
-    <FLOATING_POINT_LITERAL>
-    <IDENTIFIER>
-    <INTEGER_LITERAL>
-    <LONG_LITERAL>
-    <STRING_LITERAL>
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/distribution/Conveyor.java, Error: Encountered unexpected token: "build" <IDENTIFIER>
-    at line 151, column 56.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/distribution/StackConveyor.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 61, column 53.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/logic/LogicBlock.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
-    at line 133, column 37.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/logic/LogicDisplay.java, Error: Encountered unexpected token: ";" ";"
-    at line 81, column 104.
-
-Was expecting one of:
-
-    "!="
-    "%"
-    "%="
-    "&"
-    "&&"
-    "&="
-    "*"
-    "*="
-    "+"
-    "+="
-    "-"
-    "-="
-    "->"
-    "/"
-    "/="
-    ":"
-    "::"
-    "<"
-    "<<="
-    "<="
-    "="
-    "=="
-    ">"
-    ">="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "instanceof"
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/production/Drill.java, Error: Encountered unexpected token: "f" <IDENTIFIER>
-    at line 140, column 80.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/meta/Stats.java, Error: Encountered unexpected token: "f" <IDENTIFIER>
-    at line 71, column 53.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/desktop/src/mindustry/desktop/steam/SStats.java, Error: Encountered unexpected token: "block" <IDENTIFIER>
-    at line 184, column 45.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ClientLauncher.java, Error: Encountered unexpected token: "l" <IDENTIFIER>
-    at line 121, column 39.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ai/BaseAI.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 120, column 60.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ai/types/BuilderAI.java, Error: Encountered unexpected token: "cons" <IDENTIFIER>
-    at line 79, column 83.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ai/types/DefenderAI.java, Error: Encountered unexpected token: "s" <IDENTIFIER>
-    at line 15, column 53.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ai/types/LogicAI.java, Error: Encountered unexpected token: "case" "case"
-    at line 70, column 13.
-
-Was expecting:
-
-    ":"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ai/types/RepairAI.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 31, column 92.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ai/types/SuicideAI.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 35, column 45.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/content/Fx.java, Error: Encountered unexpected token: "unit" <IDENTIFIER>
-    at line 29, column 41.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/core/ContentLoader.java, Error: Encountered unexpected token: "c" <IDENTIFIER>
-    at line 167, column 53.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/core/Control.java, Error: Encountered unexpected token: "sec" <IDENTIFIER>
-    at line 150, column 110.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/core/Logic.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
-    at line 310, column 51.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/core/NetClient.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/core/NetServer.java, Error: Encountered unexpected token: "v" <IDENTIFIER>
-    at line 265, column 62.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/core/World.java, Error: Encountered unexpected token: "l" <IDENTIFIER>
-    at line 204, column 52.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/Predict.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
-    at line 56, column 35.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/Units.java, Error: Encountered unexpected token: "hb" <IDENTIFIER>
-    at line 97, column 117.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/bullet/BulletType.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
-    at line 268, column 56.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/bullet/MassDriverBolt.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
-    at line 39, column 51.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/bullet/SapBulletType.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
-    at line 33, column 39.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/BuilderComp.java, Error: Encountered unexpected token: "cb" <IDENTIFIER>
-    at line 97, column 51.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/BuildingComp.java, Error: Encountered unexpected token: "entity" <IDENTIFIER>
-    at line 212, column 45.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/BulletComp.java, Error: Encountered unexpected token: "h" <IDENTIFIER>
-    at line 94, column 37.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/CommanderComp.java, Error: Encountered unexpected token: "ai" <IDENTIFIER>
-    at line 40, column 90.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/PayloadComp.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 97, column 44.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/UnitComp.java, Error: Encountered unexpected token: "switch" "switch"
-    at line 122, column 16.
-
-Was expecting one of:
-
-    "!"
-    "("
-    "+"
-    "++"
-    "-"
-    "--"
-    ";"
-    "boolean"
-    "byte"
-    "char"
-    "double"
-    "false"
-    "float"
-    "int"
-    "long"
-    "new"
-    "null"
-    "short"
-    "super"
-    "this"
-    "true"
-    "void"
-    "~"
-    <CHARACTER_LITERAL>
-    <FLOATING_POINT_LITERAL>
-    <IDENTIFIER>
-    <INTEGER_LITERAL>
-    <LONG_LITERAL>
-    <STRING_LITERAL>
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/game/Schematics.java, Error: Encountered unexpected token: "cons" <IDENTIFIER>
-    at line 352, column 92.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    ";"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/game/Teams.java, Error: Encountered unexpected token: "payloadc" <IDENTIFIER>
-    at line 138, column 37.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/graphics/OverlayRenderer.java, Error: Encountered unexpected token: "unit" <IDENTIFIER>
-    at line 162, column 57.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/input/InputHandler.java, Error: Encountered unexpected token: "pay" <IDENTIFIER>
-    at line 192, column 66.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/input/MobileInput.java, Error: Encountered unexpected token: "pay" <IDENTIFIER>
-    at line 526, column 50.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/input/Placement.java, Error: Encountered unexpected token: "chain" <IDENTIFIER>
-    at line 67, column 48.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/io/TypeIO.java, Error: Encountered unexpected token: "i" <IDENTIFIER>
-    at line 40, column 44.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/io/legacy/LegacyIO.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
-    at line 73, column 65.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/logic/GlobalConstants.java, Error: Encountered unexpected token: "num" <IDENTIFIER>
-    at line 74, column 36.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/logic/LCanvas.java, Error: Encountered unexpected token: "cl" <IDENTIFIER>
-    at line 75, column 62.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/logic/LExecutor.java, Error: Encountered unexpected token: "number" <IDENTIFIER>
-    at line 92, column 44.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/logic/LParser.java, Error: Encountered unexpected token: "jump" <IDENTIFIER>
-    at line 142, column 48.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/logic/LStatements.java, Error: Encountered unexpected token: "case" "case"
-    at line 172, column 21.
-
-Was expecting:
-
-    ":"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/maps/SectorDamage.java, Error: Encountered unexpected token: "ranged" <IDENTIFIER>
-    at line 276, column 85.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/maps/generators/BaseGenerator.java, Error: Encountered unexpected token: "item" <IDENTIFIER>
-    at line 217, column 42.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/mod/ContentParser.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/mod/Mods.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
-    at line 197, column 55.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/mod/Scripts.java, Error: Encountered unexpected token: "n" <IDENTIFIER>
-    at line 67, column 46.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/net/ArcNetProvider.java, Error: Encountered unexpected token: "p" <IDENTIFIER>
-    at line 365, column 40.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/net/Net.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 240, column 42.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/net/NetworkIO.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
-    at line 31, column 59.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/type/ItemStack.java, Error: Encountered unexpected token: "stack" <IDENTIFIER>
-    at line 71, column 37.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/type/UnitType.java, Error: Encountered unexpected token: "payload" <IDENTIFIER>
-    at line 180, column 41.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ui/Fonts.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
-    at line 150, column 47.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ui/dialogs/DatabaseDialog.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
-    at line 43, column 91.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ui/dialogs/PlanetDialog.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 832, column 79.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    ";"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ui/dialogs/SettingsMenuDialog.java, Error: Encountered unexpected token: "u" <IDENTIFIER>
-    at line 128, column 59.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ui/fragments/HintsFragment.java, Error: Encountered unexpected token: "p" <IDENTIFIER>
-    at line 160, column 86.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ui/fragments/HudFragment.java, Error: Encountered unexpected token: "payload" <IDENTIFIER>
-    at line 763, column 50.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ui/fragments/PlacementFragment.java, Error: Encountered unexpected token: "c" <IDENTIFIER>
-    at line 101, column 86.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    ";"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/Block.java, Error: Encountered unexpected token: "i" <IDENTIFIER>
-    at line 487, column 47.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    ";"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/Build.java, Error: Encountered unexpected token: "build" <IDENTIFIER>
-    at line 162, column 64.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/Autotiler.java, Error: Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/ConstructBlock.java, Error: Encountered unexpected token: "co" <IDENTIFIER>
-    at line 68, column 67.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    ";"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/campaign/LaunchPad.java, Error: Encountered unexpected token: "p" <IDENTIFIER>
-    at line 208, column 99.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    ";"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/defense/Door.java, Error: Encountered unexpected token: "d" <IDENTIFIER>
-    at line 73, column 43.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/defense/turrets/ItemTurret.java, Error: Encountered unexpected token: "it" <IDENTIFIER>
-    at line 49, column 55.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/defense/turrets/PowerTurret.java, Error: Encountered unexpected token: "switch" "switch"
-    at line 41, column 20.
-
-Was expecting one of:
-
-    "!"
-    "("
-    "+"
-    "++"
-    "-"
-    "--"
-    ";"
-    "boolean"
-    "byte"
-    "char"
-    "double"
-    "false"
-    "float"
-    "int"
-    "long"
-    "new"
-    "null"
-    "short"
-    "super"
-    "this"
-    "true"
-    "void"
-    "~"
-    <CHARACTER_LITERAL>
-    <FLOATING_POINT_LITERAL>
-    <IDENTIFIER>
-    <INTEGER_LITERAL>
-    <LONG_LITERAL>
-    <STRING_LITERAL>
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/defense/turrets/Turret.java, Error: Encountered unexpected token: "switch" "switch"
-    at line 183, column 20.
-
-Was expecting one of:
-
-    "!"
-    "("
-    "+"
-    "++"
-    "-"
-    "--"
-    ";"
-    "boolean"
-    "byte"
-    "char"
-    "double"
-    "false"
-    "float"
-    "int"
-    "long"
-    "new"
-    "null"
-    "short"
-    "super"
-    "this"
-    "true"
-    "void"
-    "~"
-    <CHARACTER_LITERAL>
-    <FLOATING_POINT_LITERAL>
-    <IDENTIFIER>
-    <INTEGER_LITERAL>
-    <LONG_LITERAL>
-    <STRING_LITERAL>
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/distribution/Conveyor.java, Error: Encountered unexpected token: "build" <IDENTIFIER>
-    at line 168, column 56.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/distribution/ItemBridge.java, Error: Encountered unexpected token: "p" <IDENTIFIER>
-    at line 60, column 84.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/distribution/MassDriver.java, Error: Encountered unexpected token: "entity" <IDENTIFIER>
-    at line 310, column 57.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/distribution/StackConveyor.java, Error: Encountered unexpected token: "b" <IDENTIFIER>
-    at line 60, column 53.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/experimental/BlockLoader.java, Error: Encountered unexpected token: "build" <IDENTIFIER>
-    at line 66, column 50.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/logic/LogicBlock.java, Error: Encountered unexpected token: "data" <IDENTIFIER>
-    at line 136, column 37.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/logic/LogicDisplay.java, Error: Encountered unexpected token: ";" ";"
-    at line 82, column 104.
-
-Was expecting one of:
-
-    "!="
-    "%"
-    "%="
-    "&"
-    "&&"
-    "&="
-    "*"
-    "*="
-    "+"
-    "+="
-    "-"
-    "-="
-    "->"
-    "/"
-    "/="
-    ":"
-    "::"
-    "<"
-    "<<="
-    "<="
-    "="
-    "=="
-    ">"
-    ">="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "instanceof"
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/power/PowerNode.java, Error: Encountered unexpected token: "obuild" <IDENTIFIER>
-    at line 202, column 47.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/production/Drill.java, Error: Encountered unexpected token: "f" <IDENTIFIER>
-    at line 149, column 80.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/storage/CoreBlock.java, Error: Encountered unexpected token: "entity" <IDENTIFIER>
-    at line 60, column 80.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/units/Reconstructor.java, Error: Encountered unexpected token: "pay" <IDENTIFIER>
-    at line 111, column 51.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    ";"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/units/UnitBlock.java, Error: Encountered unexpected token: "build" <IDENTIFIER>
-    at line 30, column 62.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/meta/Stats.java, Error: Encountered unexpected token: "f" <IDENTIFIER>
-    at line 71, column 53.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    ","
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/desktop/src/mindustry/desktop/steam/SStats.java, Error: Encountered unexpected token: "block" <IDENTIFIER>
-    at line 181, column 45.
-
-Was expecting one of:
-
-    "!="
-    "%="
-    "&"
-    "&&"
-    "&="
-    ")"
-    "*="
-    "+="
-    "-="
-    "->"
-    "/="
-    "::"
-    "<<="
-    "="
-    "=="
-    ">>="
-    ">>>="
-    "?"
-    "^"
-    "^="
-    "|"
-    "|="
-    "||"
-
-./ExtractContracts/MarcusWolschon-osmeditor4android/MarcusWolschon-osmeditor4android-1.0.0.zip, 0231-MarcusWolschon-osmeditor4android-15.2.1.0/src/androidTest/java/de/blau/android/gpx/SendNMEA.java, Error: Empty import declarations have no name
-./ExtractContracts/NekoX_Dev-NekoX/NekoX_Dev-NekoX-1.0.0.zip, 0047-NekoX_Dev-NekoX-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/trackselection/DefaultTrackSelector.java, Error: Encountered unexpected token: "this" "this"
-    at line 759, column 88.
-
-Was expecting one of:
-
-    "..."
-    <IDENTIFIER>
-
-./ExtractContracts/NekoX_Dev-NekoX/NekoX_Dev-NekoX-2.0.0.zip, 0046-NekoX_Dev-NekoX-v7.4.2_rc11/TMessagesProj/src/main/java/com/google/android/exoplayer2/trackselection/DefaultTrackSelector.java, Error: Encountered unexpected token: "this" "this"
-    at line 759, column 88.
-
-Was expecting one of:
-
-    "..."
-    <IDENTIFIER>
-
-./ExtractContracts/Telegram_FOSS_Team-Telegram_FOSS/Telegram_FOSS_Team-Telegram_FOSS-1.0.0.zip, 0037-Telegram_FOSS_Team-Telegram_FOSS-v7.7.2/TMessagesProj/src/main/java/com/google/android/exoplayer2/trackselection/DefaultTrackSelector.java, Error: Encountered unexpected token: "this" "this"
-    at line 759, column 88.
-
-Was expecting one of:
-
-    "..."
-    <IDENTIFIER>
-
-./ExtractContracts/gsantner-markor/gsantner-markor-1.0.0.zip, 0189-gsantner-markor-v2.6.0/experiments/markor-nextcloud.txt.java, Error: Encountered unexpected token: "implementation" <IDENTIFIER>
-    at line 3, column 5.
-
-Was expecting one of:
-
-    ";"
-    "@"
-    "\u001a"
-    "abstract"
-    "class"
-    "enum"
-    "final"
-    "import"
-    "interface"
-    "native"
-    "private"
-    "protected"
-    "public"
-    "static"
-    "strictfp"
-    "synchronized"
-    "transient"
-    "volatile"
-    <EOF>
-
-./ExtractContracts/nextcloud-android/nextcloud-android-1.0.0.zip, 0116-nextcloud-android-stable_3.11.1/automationTest/src/test/java/com/owncloud/android/test/ui/testSuites/ShareLinkFileTestSuite.java, Error: Empty import declarations have no name
-./ExtractContracts/nextcloud-android/nextcloud-android-2.0.0.zip, 0117-nextcloud-android-rc_3.16.0_02/automationTest/src/test/java/com/owncloud/android/test/ui/testSuites/ShareLinkFileTestSuite.java, Error: Empty import declarations have no name
-./ExtractContracts/osmdroid-osmdroid/osmdroid-osmdroid-2.0.0.zip, 0280-osmdroid-osmdroid-osmdroid_parent_5.2/osmdroid-android/src/main/java/org/osmdroid/tileprovider/cachemanager/CacheManager.java, Error: Empty import declarations have no name
-./ExtractContracts/owncloud-android/owncloud-android-1.0.0.zip, 0186-owncloud-android-oc_android_2.8.0_beta.1/automationTest/src/test/java/com/owncloud/android/test/ui/testSuites/ShareLinkFileTestSuite.java, Error: Empty import declarations have no name
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ai/types/BuilderAI.java, Error: (line 74,col 24) Use of patterns with instanceof is not supported.
+(line 78,col 28) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ai/types/FormationAI.java, Error: (line 62,col 12) Use of patterns with instanceof is not supported.
+(line 62,col 43) Use of patterns with instanceof is not supported.
+(line 80,col 12) Use of patterns with instanceof is not supported.
+(line 80,col 46) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ai/types/LogicAI.java, Error: (line 95,col 20) Use of patterns with instanceof is not supported.
+(line 136,col 16) Switch expressions are not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ai/types/MinerAI.java, Error: (line 20,col 14) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ai/types/SuicideAI.java, Error: (line 34,col 18) Use of patterns with instanceof is not supported.
+(line 41,col 18) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/core/ContentLoader.java, Error: (line 163,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/core/Logic.java, Error: (line 287,col 14) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/core/NetClient.java, Error: (line 581,col 24) Use of patterns with instanceof is not supported.
+(line 608,col 13) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/core/NetServer.java, Error: (line 253,col 20) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/core/World.java, Error: (line 203,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/Predict.java, Error: (line 56,col 12) Use of patterns with instanceof is not supported.
+(line 60,col 12) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/bullet/BulletType.java, Error: (line 256,col 27) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/bullet/MassDriverBolt.java, Error: (line 39,col 14) Use of patterns with instanceof is not supported.
+(line 84,col 14) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/bullet/SapBulletType.java, Error: (line 33,col 12) Use of patterns with instanceof is not supported.
+(line 66,col 16) Use of patterns with instanceof is not supported.
+(line 71,col 12) Use of patterns with instanceof is not supported.
+(line 74,col 18) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/comp/BuildingComp.java, Error: (line 201,col 12) Use of patterns with instanceof is not supported.
+(line 1278,col 16) Switch expressions are not supported.
+(line 1297,col 32) Use of patterns with instanceof is not supported.
+(line 1305,col 16) Switch expressions are not supported.
+(line 1309,col 33) Use of patterns with instanceof is not supported.
+(line 1309,col 89) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/comp/BulletComp.java, Error: (line 94,col 12) Use of patterns with instanceof is not supported.
+(line 99,col 12) Use of patterns with instanceof is not supported.
+(line 113,col 85) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/comp/MinerComp.java, Error: (line 35,col 38) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/comp/PayloadComp.java, Error: (line 94,col 12) Use of patterns with instanceof is not supported.
+(line 96,col 18) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/entities/comp/UnitComp.java, Error: (line 91,col 12) Use of patterns with instanceof is not supported.
+(line 113,col 16) Switch expressions are not supported.
+(line 132,col 34) Use of patterns with instanceof is not supported.
+(line 139,col 16) Switch expressions are not supported.
+(line 141,col 26) Use of patterns with instanceof is not supported.
+(line 143,col 33) Use of patterns with instanceof is not supported.
+(line 145,col 17) Use of patterns with instanceof is not supported.
+(line 146,col 17) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/game/Teams.java, Error: (line 136,col 12) Use of patterns with instanceof is not supported.
+(line 138,col 20) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/graphics/OverlayRenderer.java, Error: (line 157,col 12) Use of patterns with instanceof is not supported.
+(line 157,col 65) Use of patterns with instanceof is not supported.
+(line 157,col 108) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/input/InputHandler.java, Error: (line 211,col 30) Use of patterns with instanceof is not supported.
+(line 220,col 28) Use of patterns with instanceof is not supported.
+(line 260,col 12) Use of patterns with instanceof is not supported.
+(line 328,col 12) Use of patterns with instanceof is not supported.
+(line 328,col 48) Use of patterns with instanceof is not supported.
+(line 366,col 49) Use of patterns with instanceof is not supported.
+(line 433,col 24) Use of patterns with instanceof is not supported.
+(line 448,col 14) Use of patterns with instanceof is not supported.
+(line 999,col 12) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/input/MobileInput.java, Error: (line 526,col 16) Use of patterns with instanceof is not supported.
+(line 867,col 37) Use of patterns with instanceof is not supported.
+(line 875,col 26) Use of patterns with instanceof is not supported.
+(line 878,col 26) Use of patterns with instanceof is not supported.
+(line 925,col 61) Use of patterns with instanceof is not supported.
+(line 925,col 105) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/io/TypeIO.java, Error: (line 40,col 18) Use of patterns with instanceof is not supported.
+(line 43,col 18) Use of patterns with instanceof is not supported.
+(line 46,col 18) Use of patterns with instanceof is not supported.
+(line 49,col 18) Use of patterns with instanceof is not supported.
+(line 52,col 18) Use of patterns with instanceof is not supported.
+(line 56,col 18) Use of patterns with instanceof is not supported.
+(line 62,col 18) Use of patterns with instanceof is not supported.
+(line 66,col 18) Use of patterns with instanceof is not supported.
+(line 72,col 18) Use of patterns with instanceof is not supported.
+(line 76,col 18) Use of patterns with instanceof is not supported.
+(line 79,col 18) Use of patterns with instanceof is not supported.
+(line 82,col 18) Use of patterns with instanceof is not supported.
+(line 85,col 18) Use of patterns with instanceof is not supported.
+(line 88,col 18) Use of patterns with instanceof is not supported.
+(line 92,col 18) Use of patterns with instanceof is not supported.
+(line 188,col 20) Use of patterns with instanceof is not supported.
+(line 293,col 12) Use of patterns with instanceof is not supported.
+(line 296,col 18) Use of patterns with instanceof is not supported.
+(line 299,col 18) Use of patterns with instanceof is not supported.
+(line 320,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/io/legacy/LegacyIO.java, Error: (line 73,col 32) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/logic/LExecutor.java, Error: (line 88,col 16) Use of patterns with instanceof is not supported.
+(line 102,col 37) Use of patterns with instanceof is not supported.
+(line 193,col 16) Use of patterns with instanceof is not supported.
+(line 207,col 22) Use of patterns with instanceof is not supported.
+(line 242,col 16) Use of patterns with instanceof is not supported.
+(line 253,col 32) Use of patterns with instanceof is not supported.
+(line 318,col 16) Use of patterns with instanceof is not supported.
+(line 324,col 24) Use of patterns with instanceof is not supported.
+(line 328,col 24) Use of patterns with instanceof is not supported.
+(line 345,col 16) Use of patterns with instanceof is not supported.
+(line 350,col 21) Only one label allowed in a switch-case.
+(line 360,col 32) Use of patterns with instanceof is not supported.
+(line 363,col 32) Use of patterns with instanceof is not supported.
+(line 382,col 41) Use of patterns with instanceof is not supported.
+(line 393,col 28) Use of patterns with instanceof is not supported.
+(line 400,col 28) Use of patterns with instanceof is not supported.
+(line 408,col 28) Use of patterns with instanceof is not supported.
+(line 435,col 28) Use of patterns with instanceof is not supported.
+(line 435,col 64) Use of patterns with instanceof is not supported.
+(line 447,col 46) Use of patterns with instanceof is not supported.
+(line 489,col 87) Use of patterns with instanceof is not supported.
+(line 525,col 16) Use of patterns with instanceof is not supported.
+(line 571,col 16) Use of patterns with instanceof is not supported.
+(line 595,col 16) Use of patterns with instanceof is not supported.
+(line 623,col 16) Use of patterns with instanceof is not supported.
+(line 676,col 16) Use of patterns with instanceof is not supported.
+(line 834,col 24) Use of patterns with instanceof is not supported.
+(line 860,col 16) Use of patterns with instanceof is not supported.
+(line 890,col 21) Use of patterns with instanceof is not supported.
+(line 891,col 21) Use of patterns with instanceof is not supported.
+(line 893,col 21) Use of patterns with instanceof is not supported.
+(line 894,col 21) Use of patterns with instanceof is not supported.
+(line 923,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/logic/LStatements.java, Error: (line 189,col 21) Only one label allowed in a switch-case.
+(line 196,col 21) Only one label allowed in a switch-case.
+(line 369,col 172) Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
+(line 796,col 209) Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
+(line 912,col 17) Only one label allowed in a switch-case.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/maps/SectorDamage.java, Error: (line 264,col 61) Use of patterns with instanceof is not supported.
+(line 265,col 24) Use of patterns with instanceof is not supported.
+(line 265,col 59) Use of patterns with instanceof is not supported.
+(line 269,col 24) Use of patterns with instanceof is not supported.
+(line 273,col 24) Use of patterns with instanceof is not supported.
+(line 294,col 20) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/maps/generators/BaseGenerator.java, Error: (line 200,col 12) Use of patterns with instanceof is not supported.
+(line 223,col 12) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/mod/ContentParser.java, Error: (line 293,col 24) Use of patterns with instanceof is not supported.
+(line 297,col 30) Use of patterns with instanceof is not supported.
+(line 637,col 12) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/mod/Mods.java, Error: (line 173,col 24) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/net/ArcNetProvider.java, Error: (line 364,col 16) Use of patterns with instanceof is not supported.
+(line 372,col 22) Use of patterns with instanceof is not supported.
+(line 375,col 22) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/net/Net.java, Error: (line 240,col 12) Use of patterns with instanceof is not supported.
+(line 243,col 18) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/net/NetworkIO.java, Error: (line 31,col 28) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/type/ItemStack.java, Error: (line 70,col 14) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/type/UnitType.java, Error: (line 187,col 16) Use of patterns with instanceof is not supported.
+(line 226,col 64) Use of patterns with instanceof is not supported.
+(line 363,col 48) Use of patterns with instanceof is not supported.
+(line 365,col 65) Use of patterns with instanceof is not supported.
+(line 368,col 75) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ui/Fonts.java, Error: (line 151,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ui/dialogs/PlanetDialog.java, Error: (line 741,col 43) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/ui/dialogs/SettingsMenuDialog.java, Error: (line 129,col 28) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/Block.java, Error: (line 638,col 20) Use of patterns with instanceof is not supported.
+(line 642,col 26) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/defense/turrets/PowerTurret.java, Error: (line 39,col 20) Switch expressions are not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/defense/turrets/Turret.java, Error: (line 174,col 20) Switch expressions are not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/distribution/Conveyor.java, Error: (line 151,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/distribution/StackConveyor.java, Error: (line 61,col 12) Use of patterns with instanceof is not supported.
+(line 69,col 23) Use of patterns with instanceof is not supported.
+(line 70,col 23) Use of patterns with instanceof is not supported.
+(line 205,col 24) Use of patterns with instanceof is not supported.
+(line 225,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/logic/LogicBlock.java, Error: (line 133,col 12) Use of patterns with instanceof is not supported.
+(line 443,col 35) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/blocks/production/Drill.java, Error: (line 140,col 61) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/core/src/mindustry/world/meta/Stats.java, Error: (line 71,col 30) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-1.0.0.zip, 0090-Anuken-Mindustry-v114.1/desktop/src/mindustry/desktop/steam/SStats.java, Error: (line 184,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ClientLauncher.java, Error: (line 121,col 12) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ai/BaseAI.java, Error: (line 120,col 24) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ai/types/BuilderAI.java, Error: (line 79,col 40) Use of patterns with instanceof is not supported.
+(line 104,col 28) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ai/types/DefenderAI.java, Error: (line 15,col 29) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ai/types/LogicAI.java, Error: (line 161,col 16) Switch expressions are not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ai/types/RepairAI.java, Error: (line 31,col 65) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ai/types/SuicideAI.java, Error: (line 35,col 18) Use of patterns with instanceof is not supported.
+(line 42,col 18) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/content/Fx.java, Error: (line 29,col 14) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/core/ContentLoader.java, Error: (line 167,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/core/Control.java, Error: (line 150,col 82) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/core/Logic.java, Error: (line 310,col 14) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/core/NetClient.java, Error: (line 620,col 24) Use of patterns with instanceof is not supported.
+(line 647,col 13) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/core/NetServer.java, Error: (line 265,col 20) Use of patterns with instanceof is not supported.
+(line 467,col 28) Switch expressions are not supported.
+(line 468,col 21) Only one label allowed in a switch-case.
+(line 469,col 21) Only one label allowed in a switch-case.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/core/World.java, Error: (line 204,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/Predict.java, Error: (line 56,col 12) Use of patterns with instanceof is not supported.
+(line 60,col 12) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/Units.java, Error: (line 97,col 93) Use of patterns with instanceof is not supported.
+(line 97,col 150) Use of patterns with instanceof is not supported.
+(line 97,col 201) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/bullet/BulletType.java, Error: (line 268,col 27) Use of patterns with instanceof is not supported.
+(line 360,col 28) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/bullet/MassDriverBolt.java, Error: (line 39,col 14) Use of patterns with instanceof is not supported.
+(line 84,col 14) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/bullet/SapBulletType.java, Error: (line 33,col 12) Use of patterns with instanceof is not supported.
+(line 66,col 16) Use of patterns with instanceof is not supported.
+(line 71,col 12) Use of patterns with instanceof is not supported.
+(line 74,col 18) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/BuilderComp.java, Error: (line 97,col 14) Use of patterns with instanceof is not supported.
+(line 123,col 45) Use of patterns with instanceof is not supported.
+(line 222,col 28) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/BuildingComp.java, Error: (line 212,col 12) Use of patterns with instanceof is not supported.
+(line 956,col 18) Use of patterns with instanceof is not supported.
+(line 1307,col 16) Switch expressions are not supported.
+(line 1316,col 27) Use of patterns with instanceof is not supported.
+(line 1329,col 32) Use of patterns with instanceof is not supported.
+(line 1338,col 16) Switch expressions are not supported.
+(line 1342,col 33) Use of patterns with instanceof is not supported.
+(line 1342,col 89) Use of patterns with instanceof is not supported.
+(line 1349,col 12) Use of patterns with instanceof is not supported.
+(line 1350,col 12) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/BulletComp.java, Error: (line 94,col 12) Use of patterns with instanceof is not supported.
+(line 99,col 12) Use of patterns with instanceof is not supported.
+(line 113,col 85) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/CommanderComp.java, Error: (line 40,col 52) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/PayloadComp.java, Error: (line 97,col 12) Use of patterns with instanceof is not supported.
+(line 99,col 18) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/entities/comp/UnitComp.java, Error: (line 122,col 16) Switch expressions are not supported.
+(line 149,col 34) Use of patterns with instanceof is not supported.
+(line 157,col 16) Switch expressions are not supported.
+(line 159,col 26) Use of patterns with instanceof is not supported.
+(line 161,col 52) Use of patterns with instanceof is not supported.
+(line 161,col 105) Use of patterns with instanceof is not supported.
+(line 162,col 33) Use of patterns with instanceof is not supported.
+(line 164,col 17) Use of patterns with instanceof is not supported.
+(line 165,col 17) Use of patterns with instanceof is not supported.
+(line 467,col 12) Use of patterns with instanceof is not supported.
+(line 468,col 12) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/game/Schematics.java, Error: (line 352,col 59) Use of patterns with instanceof is not supported.
+(line 381,col 57) Use of patterns with instanceof is not supported.
+(line 385,col 37) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/game/Teams.java, Error: (line 138,col 12) Use of patterns with instanceof is not supported.
+(line 140,col 20) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/graphics/OverlayRenderer.java, Error: (line 162,col 12) Use of patterns with instanceof is not supported.
+(line 162,col 65) Use of patterns with instanceof is not supported.
+(line 162,col 108) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/input/InputHandler.java, Error: (line 192,col 32) Use of patterns with instanceof is not supported.
+(line 204,col 32) Use of patterns with instanceof is not supported.
+(line 224,col 30) Use of patterns with instanceof is not supported.
+(line 233,col 29) Use of patterns with instanceof is not supported.
+(line 273,col 12) Use of patterns with instanceof is not supported.
+(line 344,col 12) Use of patterns with instanceof is not supported.
+(line 344,col 48) Use of patterns with instanceof is not supported.
+(line 382,col 49) Use of patterns with instanceof is not supported.
+(line 449,col 24) Use of patterns with instanceof is not supported.
+(line 464,col 14) Use of patterns with instanceof is not supported.
+(line 533,col 32) Use of patterns with instanceof is not supported.
+(line 1037,col 12) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/input/MobileInput.java, Error: (line 526,col 16) Use of patterns with instanceof is not supported.
+(line 880,col 37) Use of patterns with instanceof is not supported.
+(line 888,col 26) Use of patterns with instanceof is not supported.
+(line 891,col 26) Use of patterns with instanceof is not supported.
+(line 938,col 61) Use of patterns with instanceof is not supported.
+(line 938,col 105) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/input/Placement.java, Error: (line 67,col 15) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/io/TypeIO.java, Error: (line 40,col 18) Use of patterns with instanceof is not supported.
+(line 43,col 18) Use of patterns with instanceof is not supported.
+(line 46,col 18) Use of patterns with instanceof is not supported.
+(line 49,col 18) Use of patterns with instanceof is not supported.
+(line 52,col 18) Use of patterns with instanceof is not supported.
+(line 56,col 18) Use of patterns with instanceof is not supported.
+(line 62,col 18) Use of patterns with instanceof is not supported.
+(line 66,col 18) Use of patterns with instanceof is not supported.
+(line 72,col 18) Use of patterns with instanceof is not supported.
+(line 76,col 18) Use of patterns with instanceof is not supported.
+(line 79,col 18) Use of patterns with instanceof is not supported.
+(line 82,col 18) Use of patterns with instanceof is not supported.
+(line 85,col 18) Use of patterns with instanceof is not supported.
+(line 88,col 18) Use of patterns with instanceof is not supported.
+(line 92,col 18) Use of patterns with instanceof is not supported.
+(line 95,col 18) Use of patterns with instanceof is not supported.
+(line 200,col 20) Use of patterns with instanceof is not supported.
+(line 305,col 12) Use of patterns with instanceof is not supported.
+(line 308,col 18) Use of patterns with instanceof is not supported.
+(line 311,col 18) Use of patterns with instanceof is not supported.
+(line 329,col 16) Use of patterns with instanceof is not supported.
+(line 336,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/io/legacy/LegacyIO.java, Error: (line 73,col 32) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/logic/GlobalConstants.java, Error: (line 74,col 12) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/logic/LCanvas.java, Error: (line 75,col 32) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/logic/LExecutor.java, Error: (line 92,col 16) Use of patterns with instanceof is not supported.
+(line 115,col 36) Use of patterns with instanceof is not supported.
+(line 213,col 16) Use of patterns with instanceof is not supported.
+(line 227,col 22) Use of patterns with instanceof is not supported.
+(line 262,col 16) Use of patterns with instanceof is not supported.
+(line 273,col 32) Use of patterns with instanceof is not supported.
+(line 340,col 16) Use of patterns with instanceof is not supported.
+(line 341,col 20) Use of patterns with instanceof is not supported.
+(line 364,col 16) Use of patterns with instanceof is not supported.
+(line 369,col 21) Only one label allowed in a switch-case.
+(line 397,col 41) Use of patterns with instanceof is not supported.
+(line 415,col 28) Use of patterns with instanceof is not supported.
+(line 423,col 28) Use of patterns with instanceof is not supported.
+(line 450,col 77) Use of patterns with instanceof is not supported.
+(line 463,col 46) Use of patterns with instanceof is not supported.
+(line 463,col 78) Use of patterns with instanceof is not supported.
+(line 507,col 29) Use of patterns with instanceof is not supported.
+(line 542,col 16) Use of patterns with instanceof is not supported.
+(line 588,col 16) Use of patterns with instanceof is not supported.
+(line 612,col 16) Use of patterns with instanceof is not supported.
+(line 645,col 16) Use of patterns with instanceof is not supported.
+(line 646,col 20) Use of patterns with instanceof is not supported.
+(line 648,col 26) Use of patterns with instanceof is not supported.
+(line 698,col 16) Use of patterns with instanceof is not supported.
+(line 859,col 24) Use of patterns with instanceof is not supported.
+(line 888,col 16) Use of patterns with instanceof is not supported.
+(line 918,col 21) Use of patterns with instanceof is not supported.
+(line 920,col 21) Use of patterns with instanceof is not supported.
+(line 922,col 21) Use of patterns with instanceof is not supported.
+(line 923,col 21) Use of patterns with instanceof is not supported.
+(line 951,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/logic/LParser.java, Error: (line 142,col 20) Use of patterns with instanceof is not supported.
+(line 168,col 17) Only one label allowed in a switch-case.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/logic/LStatements.java, Error: (line 190,col 21) Only one label allowed in a switch-case.
+(line 197,col 21) Only one label allowed in a switch-case.
+(line 370,col 172) Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
+(line 848,col 209) Failed to parse lambda expression! Please create an issue at https://github.com/javaparser/javaparser/issues
+(line 968,col 17) Only one label allowed in a switch-case.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/maps/SectorDamage.java, Error: (line 276,col 61) Use of patterns with instanceof is not supported.
+(line 277,col 24) Use of patterns with instanceof is not supported.
+(line 277,col 59) Use of patterns with instanceof is not supported.
+(line 281,col 24) Use of patterns with instanceof is not supported.
+(line 285,col 24) Use of patterns with instanceof is not supported.
+(line 306,col 20) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/maps/generators/BaseGenerator.java, Error: (line 217,col 12) Use of patterns with instanceof is not supported.
+(line 240,col 12) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/mod/ContentParser.java, Error: (line 280,col 24) Use of patterns with instanceof is not supported.
+(line 284,col 30) Use of patterns with instanceof is not supported.
+(line 334,col 16) Switch expressions are not supported.
+(line 647,col 12) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/mod/Mods.java, Error: (line 197,col 24) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/mod/Scripts.java, Error: (line 67,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/net/ArcNetProvider.java, Error: (line 365,col 16) Use of patterns with instanceof is not supported.
+(line 373,col 22) Use of patterns with instanceof is not supported.
+(line 376,col 22) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/net/Net.java, Error: (line 240,col 12) Use of patterns with instanceof is not supported.
+(line 243,col 18) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/net/NetworkIO.java, Error: (line 31,col 28) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/type/ItemStack.java, Error: (line 71,col 14) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/type/UnitType.java, Error: (line 180,col 16) Use of patterns with instanceof is not supported.
+(line 208,col 16) Use of patterns with instanceof is not supported.
+(line 252,col 64) Use of patterns with instanceof is not supported.
+(line 398,col 48) Use of patterns with instanceof is not supported.
+(line 400,col 65) Use of patterns with instanceof is not supported.
+(line 403,col 75) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ui/Fonts.java, Error: (line 150,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ui/dialogs/DatabaseDialog.java, Error: (line 43,col 60) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ui/dialogs/PlanetDialog.java, Error: (line 832,col 35) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ui/dialogs/SettingsMenuDialog.java, Error: (line 128,col 28) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ui/fragments/HintsFragment.java, Error: (line 160,col 52) Use of patterns with instanceof is not supported.
+(line 160,col 121) Use of patterns with instanceof is not supported.
+(line 161,col 50) Use of patterns with instanceof is not supported.
+(line 161,col 115) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ui/fragments/HudFragment.java, Error: (line 763,col 16) Use of patterns with instanceof is not supported.
+(line 772,col 34) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/ui/fragments/PlacementFragment.java, Error: (line 101,col 54) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/Block.java, Error: (line 487,col 23) Use of patterns with instanceof is not supported.
+(line 487,col 61) Use of patterns with instanceof is not supported.
+(line 716,col 16) Use of patterns with instanceof is not supported.
+(line 720,col 22) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/Build.java, Error: (line 162,col 26) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/ConstructBlock.java, Error: (line 68,col 30) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/campaign/LaunchPad.java, Error: (line 208,col 36) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/defense/Door.java, Error: (line 73,col 20) Use of patterns with instanceof is not supported.
+(line 116,col 24) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/defense/turrets/ItemTurret.java, Error: (line 49,col 23) Use of patterns with instanceof is not supported.
+(line 57,col 24) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/defense/turrets/PowerTurret.java, Error: (line 41,col 20) Switch expressions are not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/defense/turrets/Turret.java, Error: (line 183,col 20) Switch expressions are not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/distribution/Conveyor.java, Error: (line 168,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/distribution/ItemBridge.java, Error: (line 60,col 55) Use of patterns with instanceof is not supported.
+(line 252,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/distribution/MassDriver.java, Error: (line 310,col 18) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/distribution/StackConveyor.java, Error: (line 60,col 12) Use of patterns with instanceof is not supported.
+(line 68,col 23) Use of patterns with instanceof is not supported.
+(line 69,col 23) Use of patterns with instanceof is not supported.
+(line 95,col 12) Use of patterns with instanceof is not supported.
+(line 192,col 26) Use of patterns with instanceof is not supported.
+(line 235,col 24) Use of patterns with instanceof is not supported.
+(line 255,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/experimental/BlockLoader.java, Error: (line 66,col 18) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/logic/LogicBlock.java, Error: (line 136,col 12) Use of patterns with instanceof is not supported.
+(line 256,col 20) Use of patterns with instanceof is not supported.
+(line 485,col 35) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/power/PowerNode.java, Error: (line 202,col 15) Use of patterns with instanceof is not supported.
+(line 249,col 83) Use of patterns with instanceof is not supported.
+(line 296,col 12) Use of patterns with instanceof is not supported.
+(line 324,col 60) Use of patterns with instanceof is not supported.
+(line 325,col 33) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/production/Drill.java, Error: (line 149,col 61) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/storage/CoreBlock.java, Error: (line 60,col 48) Use of patterns with instanceof is not supported.
+(line 318,col 20) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/units/Reconstructor.java, Error: (line 111,col 20) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/blocks/units/UnitBlock.java, Error: (line 30,col 30) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/core/src/mindustry/world/meta/Stats.java, Error: (line 71,col 30) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/Anuken-Mindustry/Anuken-Mindustry-2.0.0.zip, 0091-Anuken-Mindustry-v126.2/desktop/src/mindustry/desktop/steam/SStats.java, Error: (line 181,col 16) Use of patterns with instanceof is not supported.
+
+./ExtractContracts/gsantner-markor/gsantner-markor-1.0.0.zip, 0189-gsantner-markor-v2.6.0/experiments/markor-nextcloud.txt.java, Error: Lexical error at line 3, column 22.  Encountered: "o" (111), after : "\'c"
+Problem stacktrace : 
+  com.github.javaparser.GeneratedJavaParserTokenManager.getNextToken(GeneratedJavaParserTokenManager.java:3007)
+  com.github.javaparser.GeneratedJavaParser.getNextToken(GeneratedJavaParser.java:12707)
+  com.github.javaparser.GeneratedJavaParserBase.recover(GeneratedJavaParserBase.java:194)
+  com.github.javaparser.GeneratedJavaParser.CompilationUnit(GeneratedJavaParser.java:197)
+  com.github.javaparser.JavaParser.parse(JavaParser.java:123)
+  com.github.javaparser.JavaParser.parse(JavaParser.java:156)
+  com.github.javaparser.JavaParser.parse(JavaParser.java:168)
+  com.github.javaparser.StaticJavaParser.parse(StaticJavaParser.java:109)
+  contractstudy.scripts.CollectDataSetStats$1.run(CollectDataSetStats.java:152)
+  java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  java.util.concurrent.FutureTask.run(FutureTask.java:266)
+  java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+  java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+  java.lang.Thread.run(Thread.java:748)
+
+./ExtractContracts/termux-termux_app/termux-termux_app-1.0.0.zip, 0185-termux-termux_app-v0.112/terminal-emulator/src/test/java/com/termux/terminal/OperatingSystemControlTest.java, Error: Lexical error at line 27, column 28.  Encountered: "u" (117), after : "\"Goodbye, \\u"
+Problem stacktrace : 
+  com.github.javaparser.GeneratedJavaParserTokenManager.getNextToken(GeneratedJavaParserTokenManager.java:3007)
+  com.github.javaparser.GeneratedJavaParser.jj_ntk_f(GeneratedJavaParser.java:12730)
+  com.github.javaparser.GeneratedJavaParser.Arguments(GeneratedJavaParser.java:4651)
+  com.github.javaparser.GeneratedJavaParser.PrimaryPrefix(GeneratedJavaParser.java:4407)
+  com.github.javaparser.GeneratedJavaParser.PrimaryExpression(GeneratedJavaParser.java:4112)
+  com.github.javaparser.GeneratedJavaParser.StatementExpression(GeneratedJavaParser.java:5484)
+  com.github.javaparser.GeneratedJavaParser.Statement(GeneratedJavaParser.java:5061)
+  com.github.javaparser.GeneratedJavaParser.BlockStatement(GeneratedJavaParser.java:5305)
+  com.github.javaparser.GeneratedJavaParser.Statements(GeneratedJavaParser.java:2236)
+  com.github.javaparser.GeneratedJavaParser.Block(GeneratedJavaParser.java:5192)
+  com.github.javaparser.GeneratedJavaParser.MethodDeclaration(GeneratedJavaParser.java:1640)
+  com.github.javaparser.GeneratedJavaParser.ClassOrInterfaceBodyDeclaration(GeneratedJavaParser.java:1243)
+  com.github.javaparser.GeneratedJavaParser.ClassOrInterfaceBody(GeneratedJavaParser.java:1101)
+  com.github.javaparser.GeneratedJavaParser.ClassOrInterfaceDeclaration(GeneratedJavaParser.java:488)
+  com.github.javaparser.GeneratedJavaParser.CompilationUnit(GeneratedJavaParser.java:145)
+  com.github.javaparser.JavaParser.parse(JavaParser.java:123)
+  com.github.javaparser.JavaParser.parse(JavaParser.java:156)
+  com.github.javaparser.JavaParser.parse(JavaParser.java:168)
+  com.github.javaparser.StaticJavaParser.parse(StaticJavaParser.java:109)
+  contractstudy.scripts.CollectDataSetStats$1.run(CollectDataSetStats.java:152)
+  java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  java.util.concurrent.FutureTask.run(FutureTask.java:266)
+  java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+  java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+  java.lang.Thread.run(Thread.java:748)
+
+./ExtractContracts/termux-termux_app/termux-termux_app-2.0.0.zip, 0184-termux-termux_app-v0.73/terminal-emulator/src/test/java/com/termux/terminal/OperatingSystemControlTest.java, Error: Lexical error at line 27, column 28.  Encountered: "u" (117), after : "\"Goodbye, \\u"
+Problem stacktrace : 
+  com.github.javaparser.GeneratedJavaParserTokenManager.getNextToken(GeneratedJavaParserTokenManager.java:3007)
+  com.github.javaparser.GeneratedJavaParser.jj_ntk_f(GeneratedJavaParser.java:12730)
+  com.github.javaparser.GeneratedJavaParser.Arguments(GeneratedJavaParser.java:4651)
+  com.github.javaparser.GeneratedJavaParser.PrimaryPrefix(GeneratedJavaParser.java:4407)
+  com.github.javaparser.GeneratedJavaParser.PrimaryExpression(GeneratedJavaParser.java:4112)
+  com.github.javaparser.GeneratedJavaParser.StatementExpression(GeneratedJavaParser.java:5484)
+  com.github.javaparser.GeneratedJavaParser.Statement(GeneratedJavaParser.java:5061)
+  com.github.javaparser.GeneratedJavaParser.BlockStatement(GeneratedJavaParser.java:5305)
+  com.github.javaparser.GeneratedJavaParser.Statements(GeneratedJavaParser.java:2236)
+  com.github.javaparser.GeneratedJavaParser.Block(GeneratedJavaParser.java:5192)
+  com.github.javaparser.GeneratedJavaParser.MethodDeclaration(GeneratedJavaParser.java:1640)
+  com.github.javaparser.GeneratedJavaParser.ClassOrInterfaceBodyDeclaration(GeneratedJavaParser.java:1243)
+  com.github.javaparser.GeneratedJavaParser.ClassOrInterfaceBody(GeneratedJavaParser.java:1101)
+  com.github.javaparser.GeneratedJavaParser.ClassOrInterfaceDeclaration(GeneratedJavaParser.java:488)
+  com.github.javaparser.GeneratedJavaParser.CompilationUnit(GeneratedJavaParser.java:145)
+  com.github.javaparser.JavaParser.parse(JavaParser.java:123)
+  com.github.javaparser.JavaParser.parse(JavaParser.java:156)
+  com.github.javaparser.JavaParser.parse(JavaParser.java:168)
+  com.github.javaparser.StaticJavaParser.parse(StaticJavaParser.java:109)
+  contractstudy.scripts.CollectDataSetStats$1.run(CollectDataSetStats.java:152)
+  java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  java.util.concurrent.FutureTask.run(FutureTask.java:266)
+  java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+  java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+  java.lang.Thread.run(Thread.java:748)
+

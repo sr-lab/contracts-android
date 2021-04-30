@@ -1,11 +1,13 @@
 package contractstudy.scripts;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.body.ModifierSet;
+import com.github.javaparser.ast.Modifier;
+//import com.github.javaparser.ast.body.ModifierSet;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.google.common.base.Preconditions;
 import contractstudy.Logging;
@@ -61,8 +63,10 @@ public class CollectProgramVersionStats implements Experiment {
         // control the methods being visited
         @Override
         public void visit(MethodDeclaration methodDeclr, Object arg) {
-            int modifiers = methodDeclr.getModifiers();
-            if (ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
+            //int modifiers = methodDeclr.getModifiers();
+            NodeList<Modifier> modifiers = methodDeclr.getModifiers();
+            //if (ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
+            if (modifiers.contains(Modifier.publicModifier()) || modifiers.contains(Modifier.protectedModifier())) {
                 data.compute(PUBLIC_METHODS,(k,v)->v==null?1:v+1);
             }
             data.compute(ALL_METHODS,(k,v)->v==null?1:v+1);
@@ -71,8 +75,10 @@ public class CollectProgramVersionStats implements Experiment {
 
         @Override
         public void visit(ConstructorDeclaration constructorDeclr, Object arg) {
-            int modifiers = constructorDeclr.getModifiers();
-            if (ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
+            //int modifiers = constructorDeclr.getModifiers();
+            NodeList<Modifier> modifiers = constructorDeclr.getModifiers();
+            //if (ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
+            if (modifiers.contains(Modifier.publicModifier()) || modifiers.contains(Modifier.protectedModifier())) {
                 data.compute(PUBLIC_CONSTRUCTORS,(k,v)->v==null?1:v+1);
             }
             data.compute(ALL_CONSTRUCTORS,(k,v)->v==null?1:v+1);
@@ -122,9 +128,9 @@ public class CollectProgramVersionStats implements Experiment {
                             if (name.endsWith(".java")) {
                                 try (InputStream in = zip.getInputStream(e)) {
                                     try {
-                                        CompilationUnit cu = JavaParser.parse(in);
+                                        CompilationUnit cu = StaticJavaParser.parse(in);
                                         dataForPV.compute(COMPILATION_UNITS,(k,v)->v==null?1:v+1);
-                                        int size = cu.getEnd().line - cu.getBegin().line;
+                                        int size = cu.getEnd().get().line - cu.getBegin().get().line;
                                         dataForPV.compute(LOC,(k,v)->v==null?size:v+size);
                                         Map<String,Integer> tmp = new HashMap<>();
                                         data.put(pv,tmp);

@@ -1,10 +1,13 @@
 package contractstudy.scripts;
 
 import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.body.ModifierSet;
+import com.github.javaparser.ast.Modifier;
+//import com.github.javaparser.ast.body.ModifierSet;
 import com.github.javaparser.ast.expr.SuperExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import contractstudy.Logging;
@@ -95,8 +98,10 @@ public class CollectInvocationViaSuper implements Experiment {
         // control the methods being visited
         @Override
         public void visit(MethodDeclaration methodDeclr, Object arg) {
-            int modifiers = methodDeclr.getModifiers();
-            if (includePrivateMethods || ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
+            //int modifiers = methodDeclr.getModifiers();
+            NodeList<Modifier> modifiers = methodDeclr.getModifiers();
+            //if (includePrivateMethods || ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
+            if (includePrivateMethods || modifiers.contains(Modifier.publicModifier()) || modifiers.contains(Modifier.protectedModifier())) {
                 this.methodDeclaration = Utils.trimRetType(methodDeclr.getDeclarationAsString(false, false, false)); // flags: incl modifiers , incl throws
                 this.isMethod = true;
                 super.visit(methodDeclr, arg);
@@ -105,8 +110,10 @@ public class CollectInvocationViaSuper implements Experiment {
 
         @Override
         public void visit(ConstructorDeclaration constructorDeclr, Object arg) {
-            int modifiers = constructorDeclr.getModifiers();
-            if (includePrivateMethods || ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
+            //int modifiers = constructorDeclr.getModifiers();
+            NodeList<Modifier> modifiers = constructorDeclr.getModifiers();
+            //if (includePrivateMethods || ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
+            if (includePrivateMethods || modifiers.contains(Modifier.publicModifier()) || modifiers.contains(Modifier.protectedModifier())) {
                 this.methodDeclaration = constructorDeclr.getDeclarationAsString(false, false, false);
                 this.isMethod = false;
                 super.visit(constructorDeclr, arg);
@@ -138,6 +145,9 @@ public class CollectInvocationViaSuper implements Experiment {
         ExecutorService executor = Executors.newFixedThreadPool(THREAD_COUNT);
         long startTime = System.currentTimeMillis();
 
+        // JFF
+        JavaParser parser = new JavaParser();
+
         for (File f:zips) {
             ProgramVersion pv = ProgramVersion.getOrCreateFromFile(f);
             Runnable task = new Runnable() {
@@ -153,7 +163,7 @@ public class CollectInvocationViaSuper implements Experiment {
                             if (name.endsWith(".java")) {
                                 try (InputStream in = zip.getInputStream(e)) {
                                     try {
-                                        CompilationUnit cu = JavaParser.parse(in);
+                                        CompilationUnit cu = StaticJavaParser.parse(in);
                                         new MethodVisitor(superCallSites, pv, name).visit(cu, null);
                                     } catch (Exception t) {
                                         // consumer.extractionExceptionEncountered("Cannot parse " + programName + "-" + version + "/" + cuName,t);

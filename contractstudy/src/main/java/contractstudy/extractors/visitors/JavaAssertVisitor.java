@@ -19,11 +19,12 @@ public class JavaAssertVisitor extends AbstractMethodVisitor {
     @Override
     public void visit(AssertStmt n, Object arg) {
 
-        String condition = n.getCheck().toStringWithoutComments();
-        Expression message = n.getMessage();
+        //String condition = n.getCheck().toStringWithoutComments();
+        String condition = n.getCheck().removeComment().toString(); // JFF: FIXME?
+        Expression message = n.getMessage().orElse(null);
         String info = null;
         if (message != null) {
-            info = message.toStringWithoutComments();
+            info = message.removeComment().toString(); // JFF: FIXME? .toStringWithoutComments();
         }
 
         ContractElement p = initConstraint();
@@ -32,7 +33,8 @@ public class JavaAssertVisitor extends AbstractMethodVisitor {
         p.setCuName(cuName);
         p.setCondition(condition);
         p.setKind(ConstraintType.JavaAssert);
-        p.setLineNo(n.getBeginLine());
+        //p.setLineNo(n.getBeginLine());
+        p.setLineNo(n.getBegin().get().line); // JFF: FIXME?
         p.setAdditionalInfo(info);
 
         consumer.constraintFound(p);
