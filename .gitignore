@@ -179,3 +179,5 @@ src/test/java/contractstudy/hierarchy/testdata/simple/simple-1.0-deps.json
 src/test/java/contractstudy/hierarchy/testdata/simple/simple-1.0.zip
 src/test/resources/struct/simple/simple-1.0-struct.json
 
+# VS Code stuff
+.DS_Store
