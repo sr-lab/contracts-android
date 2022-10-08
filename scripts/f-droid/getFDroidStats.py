@@ -23,6 +23,8 @@ F_DROID_STATS_FILE = os.getenv('F-DROID-STATS-FILE')
 F_DROID_STATS_OFFSET = os.getenv('F-DROID-STATS-REQUEST-OFFSET', False)
 F_DROID_STATS_LIMIT = os.getenv('F-DROID-STATS-REQUEST-LIMIT', False)
 REPOS_REGISTRY_FILE = os.getenv('REPOS-REGISTRY-FILE')
+JAVA_LANGUAGE_ACCEPT = os.getenv('JAVA-PROJECTS-ANALYSIS', 'True')
+KOTLIN_LANGUAGE_ACCEPT = os.getenv('KOTLIN-PROJECTS-ANALYSIS', 'True')
 
 GITHUB_PREFIX = ['https://github.com/',
 				'http://github.com/',
@@ -96,15 +98,31 @@ def isRepoLanguageValid(repo):
 	global invalidLanguageErrorCount
     
 	if(repo.language == "Java"):
-		javaProjectsCount += 1
-		return True
+		return isJavaProjectDesired()
 	elif(repo.language == "Kotlin"):
-		kotlinProjectsCount += + 1
-		return True
+		return isKotlinProjectDesired()
 	else:
 		print("ERROR1: Neither Java nor Kotlin project.")
 		invalidLanguageErrorCount += 1
 		return False
+
+def isJavaProjectDesired():
+    global javaProjectsCount
+    if (JAVA_LANGUAGE_ACCEPT.upper() == 'TRUE'):
+        javaProjectsCount += 1
+        return True
+    else:
+        print("Warning: Project ignored since it is written in Java.")
+        return False
+
+def isKotlinProjectDesired():
+    global kotlinProjectsCount
+    if (KOTLIN_LANGUAGE_ACCEPT.upper() == 'TRUE'):
+        kotlinProjectsCount += 1
+        return True
+    else:
+        print("Warning: Project ignore since it is written in Kotlin.")
+        return False
 
 def isRepoArchived(repo):
 	global archivedErrorCount
