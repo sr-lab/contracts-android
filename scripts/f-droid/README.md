@@ -40,15 +40,18 @@ This command will:
 
 ### Pagination (WIP)
 
-Since the execution of scripts that analyse and/or clone Github projects may take a while, you can paginate the number of projects to analyse/clone each time by specifying an offset and limit variables in `.env` file such as
+Since the execution of scripts that analyse and/or clone Github projects may take a while, you can paginate the number of projects to analyse/clone each time by specifying an offset and limit variables in `config.env` file such as
 ```
 F-DROID-STATS-REQUEST-OFFSET={insert-number}
 F-DROID-STATS-REQUEST-LIMIT={insert-number}
 ```
 
+If those variables are not present in the `config.env` file, the script will analyse/fetch all projects.
+
 ### Output File Paths
 
 Many scripts create output files. In general, the location and names for those files are specified in the [filePaths.env](./filePaths.env) file.
+
 
 
 ## Available Scripts                                       
