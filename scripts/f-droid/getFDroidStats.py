@@ -13,6 +13,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 load_dotenv("filePaths.env")
+load_dotenv("config.env")
 
 #################### ---------------- GLOBAL VARIABLES ---------------- ####################
 
