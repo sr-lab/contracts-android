@@ -9,7 +9,7 @@ load_dotenv("filePaths.env")
 
 URL = "https://f-droid.org/repo/index.xml"
 F_DROID_INDEX_FILE = os.getenv('F-DROID-INDEX-FILE')
-REPOS_UNFILTERED_REGISTRY_FILE = os.getenv('REPOS-UNFILTERED-REGISTRY-FILE')
+REPOS_REGISTRY = os.getenv('REPOS-REGISTRY')
 
 #################### ---------------- AUXILIARY METHODS ---------------- ####################
 
@@ -28,13 +28,13 @@ def getFDroidIndexSourceTag():
 	return sourceTag
 
 def saveRepoURLsToRegistry():
-    registryFile = open(REPOS_UNFILTERED_REGISTRY_FILE, 'a')
+    registryFile = open(REPOS_REGISTRY, 'a')
     for url in getFDroidIndexSourceTag():
         if(url.firstChild != None):
             repoURL = url.firstChild.data
             registryFile.write(repoURL + "\n")
     registryFile.close()
-    print("F-Droid repos' urls were saved to " + REPOS_UNFILTERED_REGISTRY_FILE)
+    print("F-Droid repos' urls were saved to " + REPOS_REGISTRY)
 
 #################### ---------------- MAIN ---------------- ####################
 

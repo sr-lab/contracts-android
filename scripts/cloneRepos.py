@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv("filePaths.env")
 
-REPOS_REGISTRY = os.getenv('REPOS-REGISTRY-FILE')
+REPOS_REGISTRY = os.getenv('REPOS-REGISTRY')
 OUTPUT_FOLDER = os.getenv('CLONED-REPOS-FOLDER')
 
 SLEEP_SECONDS = 10
