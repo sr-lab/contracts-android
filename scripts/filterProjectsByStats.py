@@ -18,18 +18,12 @@ load_dotenv("config.env")
 #################### ---------------- GLOBAL VARIABLES ---------------- ####################
 
 GITHUB_ACCESS_TOKEN = os.getenv('GITHUB-ACCESS-TOKEN')
-REPOS_REGISTRY_INPUT_FILE = os.getenv('REPOS-UNFILTERED-REGISTRY-FILE')
+REPOS_REGISTRY_FILE = os.getenv('REPOS-REGISTRY-FILE')
 F_DROID_STATS_FILE = os.getenv('F-DROID-STATS-FILE')
 F_DROID_STATS_OFFSET = os.getenv('F-DROID-STATS-REQUEST-OFFSET', False)
 F_DROID_STATS_LIMIT = os.getenv('F-DROID-STATS-REQUEST-LIMIT', False)
-REPOS_REGISTRY_OUTPUT_FILE = os.getenv('REPOS-REGISTRY-FILE')
 JAVA_LANGUAGE_ACCEPT = os.getenv('JAVA-PROJECTS-ANALYSIS', 'True')
 KOTLIN_LANGUAGE_ACCEPT = os.getenv('KOTLIN-PROJECTS-ANALYSIS', 'True')
-
-GITHUB_PREFIX = ['https://github.com/',
-				'http://github.com/',
-				'https://www.github.com/',
-				'http://www.github.com/']
 
 currentPaginationIndex = 0
 validProjectCount = 0
@@ -39,6 +33,11 @@ invalidLanguageErrorCount = 0
 archivedErrorCount = 0
 inactiveErrorCount = 0
 notFoundErrorCount = 0
+
+GITHUB_PREFIX = ['https://github.com/',
+				'http://github.com/',
+				'https://www.github.com/',
+				'http://www.github.com/']
 
 repoStats = []
 repoURLs = []
@@ -59,14 +58,18 @@ def checkRequestOffsetReached():
  
 def getRepoName(urlName):
 	print(urlName)
-	splittedString = urlName.split(url_prefix)
+	prefix = GITHUB_PREFIX[0]
+	for githubPrefix in GITHUB_PREFIX:
+		if (urlName.startswith(githubPrefix)):
+			prefix = githubPrefix
+	splittedString = urlName.split(prefix)
 	if(len(splittedString) < 1):
 		return ""
-	return splittedString[1]
+	return splittedString[1].replace("\n", "")
 
-def validateRepo(repo_name):
-
-	repo = git.get_repo(repo_name)
+def validateRepo(url):
+	repoName = getRepoName(url)
+	repo = git.get_repo(repoName)
 
 	if (isRepoLanguageValid(repo) == False):
 		return
@@ -85,7 +88,7 @@ def validateRepo(repo_name):
  
 	ratioMergedPerClosedPulls = computeRatioMergedPerClosedPulls(closedPulls, totalClosedPulls, mergedPulls)
 
-	addValidatedRepoToArrays(repo, mergedPulls, totalClosedPulls, ratioMergedPerClosedPulls)
+	addValidatedRepoToArrays(url, repo, mergedPulls, totalClosedPulls, ratioMergedPerClosedPulls)
 
 
 def isRepoLanguageValid(repo):
@@ -122,7 +125,6 @@ def isKotlinProjectDesired():
 
 def isRepoArchived(repo):
 	global archivedErrorCount
-    
 	if(repo.archived):
 		archivedErrorCount += 1
 		print("ERROR2: READ ONLY")
@@ -130,8 +132,7 @@ def isRepoArchived(repo):
 	return False
 
 def isRepoActive(repo):
-	global inactiveErrorCount
-    
+	global inactiveErrorCount  
     # check repo has commit in the last two years
 	if(repo.pushed_at.year < 2018):
 		inactiveErrorCount += 1
@@ -145,7 +146,7 @@ def computeRatioMergedPerClosedPulls(closedPulls, totalClosedPulls, mergedPulls)
 		else:
 			return len(mergedPulls) / totalClosedPulls
 
-def addValidatedRepoToArrays(repo, mergedPulls, totalClosedPulls, percentage):
+def addValidatedRepoToArrays(urlName, repo, mergedPulls, totalClosedPulls, percentage):
 	global validProjectCount
 	global repoStats
 	validProjectCount  += 1
@@ -170,7 +171,7 @@ def saveStatsToOutputFile():
      df.to_csv(F_DROID_STATS_FILE)
      
 def saveRepoURLToRegistry():
-    registryFile = open(REPOS_REGISTRY_FILE, 'a')
+    registryFile = open(REPOS_REGISTRY_FILE, 'W')
     registryFile.write("\n".join(repoURLs))
     registryFile.close()
 
@@ -202,40 +203,31 @@ logNumberOfItemsToFetch()
 
 git = Github(GITHUB_ACCESS_TOKEN)
 
-for repoURL in open(REPOS_REGISTRY_INPUT_FILE, "r"):
+for repoURL in open(REPOS_REGISTRY_FILE, "r"):
     
 	if (checkRequestOffsetReached() == False):
 		currentPaginationIndex += 1
 		continue
-    
-	for githubPrefix in GITHUB_PREFIX:
-		
-		if(repoURL.startswith(githubPrefix)):
-				
-			repo_name = getRepoName(urlName)
-
-			if (repo_name == ""):
-				continue
-
-			try:
-				validateRepo(repo_name)
-	
-			except RateLimitExceededException:
-				print(' Waiting for an hour... ')
-				time.sleep(1800)
-				time.sleep(1800)
-				try:
-					validateRepo(repo_name)
-					if (checkIfProjectsNumberReachedLimit()):
-						break
-					continue
-				except:
-					continue
-
-			except UnknownObjectException:
-				print("ERROR4: REPOSITORY DOES NOT EXIST")
-				notFoundErrorCount += 1
-				continue
+    			
+	try:
+		validateRepo(repoURL)
+	except RateLimitExceededException:
+		print(' Waiting for an hour... ')
+		time.sleep(1800)
+		time.sleep(1800)
+		try:
+			validateRepo(repoURL)
+			if (checkIfProjectsNumberReachedLimit()):
+				break
+			continue
+		except:
+			if (checkIfProjectsNumberReachedLimit()):
+				break
+			continue
+	except UnknownObjectException:
+		print("ERROR4: REPOSITORY DOES NOT EXIST")
+		notFoundErrorCount += 1
+		continue
 	
 	if (checkIfProjectsNumberReachedLimit()):
 		break

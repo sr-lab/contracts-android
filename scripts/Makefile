@@ -1,13 +1,13 @@
 setup: requirements.txt
 	pip install -r requirements.txt
 
-all-fdroid: get-fdroid-index get-fdroid-stats clone-repos
+all-fdroid: get-fdroid-index clean-repo-registry filter-projects clone-repos
 
 get-fdroid-index:
 	python3 getFDroidIndex.py
 
-get-fdroid-stats: output/fdroid-index.xml
-	python3 getFDroidStats.py
+filter-projects: output/repos-registry.txt
+	python3 filterProjectsByStats.py
 
 clone-repos: output/repos-registry.txt
 	python3 cloneRepos.py
@@ -15,7 +15,7 @@ clone-repos: output/repos-registry.txt
 clean-repo-registry: remove-duplicates remove-non-github-urls
 
 remove-duplicates: output/repos-uncleaned-registry.txt
-	python3 removeDuplicateURL.py
+	python3 removeDuplicatedURL.py
 
 remove-non-github-urls: output/repos-registry.txt
 	python3 removeNonGithubURL.py
