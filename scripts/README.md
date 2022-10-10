@@ -38,6 +38,15 @@ This command will:
 2. Filter F-Droid projects according to some defined requirements and characteristics.
 3. Clone each validated project.
 
+### Java and Kotlin projects support
+
+In the `config.env` file you can specify your interest in analyzing/cloning Java and/or Kotlin projects.
+```
+JAVA-PROJECTS-ANALYSIS = <boolean>
+KOTLIN-PROJECTS-ANALYSIS = <boolean>
+```
+If those variables are not present in the `config.env` file, scripts are going to consider both languages as accepted.
+
 ### Pagination (WIP)
 
 Since the execution of scripts that analyse and/or clone Github projects may take a while, you can paginate the number of projects to analyse/clone each time by specifying an offset and limit variables in `config.env` file such as
