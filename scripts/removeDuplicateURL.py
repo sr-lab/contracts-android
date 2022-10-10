@@ -1,10 +1,9 @@
 import os
-import time
 from dotenv import load_dotenv
 
 load_dotenv("filePaths.env")
 
-REPOS_UNFILTERED_REGISTRY_FILE = os.getenv('REPOS-UNFILTERED-REGISTRY-FILE')
+REPOS_UNFILTERED_REGISTRY_FILE = os.getenv('REPOS-UNCLEANED-REGISTRY-FILE')
 REPOS_REGISTRY_FILE = os.getenv('REPOS-REGISTRY-FILE')
 
 lines_seen = set() 

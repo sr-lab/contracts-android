@@ -12,8 +12,13 @@ get-fdroid-stats: output/fdroid-index.xml
 clone-repos: output/repos-registry.txt
 	python3 cloneRepos.py
 
-remove-duplicates:
-	python3 removeDuplicateURLs.py
+clean-repo-registry: remove-duplicates remove-non-github-urls
+
+remove-duplicates: output/repos-uncleaned-registry.txt
+	python3 removeDuplicateURL.py
+
+remove-non-github-urls: output/repos-registry.txt
+	python3 removeNonGithubURL.py
 
 force-clean:
 	rm -rf output

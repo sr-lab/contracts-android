@@ -18,11 +18,11 @@ load_dotenv("config.env")
 #################### ---------------- GLOBAL VARIABLES ---------------- ####################
 
 GITHUB_ACCESS_TOKEN = os.getenv('GITHUB-ACCESS-TOKEN')
-F_DROID_INDEX_FILE = os.getenv('F-DROID-INDEX-FILE')
+REPOS_REGISTRY_INPUT_FILE = os.getenv('REPOS-UNFILTERED-REGISTRY-FILE')
 F_DROID_STATS_FILE = os.getenv('F-DROID-STATS-FILE')
 F_DROID_STATS_OFFSET = os.getenv('F-DROID-STATS-REQUEST-OFFSET', False)
 F_DROID_STATS_LIMIT = os.getenv('F-DROID-STATS-REQUEST-LIMIT', False)
-REPOS_REGISTRY_FILE = os.getenv('REPOS-REGISTRY-FILE')
+REPOS_REGISTRY_OUTPUT_FILE = os.getenv('REPOS-REGISTRY-FILE')
 JAVA_LANGUAGE_ACCEPT = os.getenv('JAVA-PROJECTS-ANALYSIS', 'True')
 KOTLIN_LANGUAGE_ACCEPT = os.getenv('KOTLIN-PROJECTS-ANALYSIS', 'True')
 
@@ -46,15 +46,11 @@ repoURLs = []
 
 #################### ---------------- AUXILIARY METHODS ---------------- ####################
  
-def getFDroidIndexSourceTag():
-	indexFile = minidom.parse(F_DROID_INDEX_FILE)
-	sourceTag = indexFile.getElementsByTagName('source')
-	print("Total items in Index: " + str(sourceTag.length))
+def logNumberOfItemsToFetch():
 	if (F_DROID_STATS_LIMIT == False):
 		print("Fetching ALL items...")
 	else:
 		print("Fetching " + str(F_DROID_STATS_LIMIT) + " items...")
-	return sourceTag
  
 def checkRequestOffsetReached():
     if (F_DROID_STATS_OFFSET == False):
@@ -202,51 +198,47 @@ def printResultLogs():
 
 #################### ---------------- MAIN ---------------- ####################
 
-sourceTag = getFDroidIndexSourceTag()
+logNumberOfItemsToFetch()
 
 git = Github(GITHUB_ACCESS_TOKEN)
 
-for url in sourceTag:
+for repoURL in open(REPOS_REGISTRY_INPUT_FILE, "r"):
     
 	if (checkRequestOffsetReached() == False):
 		currentPaginationIndex += 1
 		continue
     
-	if(url.firstChild != None):
-     
-		urlName = url.firstChild.data
-	
-		for url_prefix in GITHUB_PREFIX:
-            
-			if(urlName.startswith(url_prefix)):
-       				
-				repo_name = getRepoName(urlName)
-    
-				if (repo_name == ""):
-					continue
+	for githubPrefix in GITHUB_PREFIX:
+		
+		if(repoURL.startswith(githubPrefix)):
+				
+			repo_name = getRepoName(urlName)
 
+			if (repo_name == ""):
+				continue
+
+			try:
+				validateRepo(repo_name)
+	
+			except RateLimitExceededException:
+				print(' Waiting for an hour... ')
+				time.sleep(1800)
+				time.sleep(1800)
 				try:
 					validateRepo(repo_name)
-     
-				except RateLimitExceededException:
-					print(' Waiting for an hour... ')
-					time.sleep(1800)
-					time.sleep(1800)
-					try:
-						validateRepo(repo_name)
-						if (checkIfProjectsNumberReachedLimit()):
-							break
-						continue
-					except:
-						continue
-  
-				except UnknownObjectException:
-					print("ERROR4: REPOSITORY DOES NOT EXIST")
-					notFoundErrorCount += 1
+					if (checkIfProjectsNumberReachedLimit()):
+						break
 					continue
-		
-		if (checkIfProjectsNumberReachedLimit()):
-			break
+				except:
+					continue
+
+			except UnknownObjectException:
+				print("ERROR4: REPOSITORY DOES NOT EXIST")
+				notFoundErrorCount += 1
+				continue
+	
+	if (checkIfProjectsNumberReachedLimit()):
+		break
 
 printResultLogs()
 

@@ -9,7 +9,7 @@ load_dotenv("filePaths.env")
 
 URL = "https://f-droid.org/repo/index.xml"
 F_DROID_INDEX_FILE = os.getenv('F-DROID-INDEX-FILE')
-REPOS_UNFILTERED_REGISTRY_FILE = os.getenv('REPOS-UNFILTERED-REGISTRY-FILE')
+REPOS_UNFILTERED_REGISTRY_FILE = os.getenv('REPOS-UNCLEANED-REGISTRY-FILE')
 
 #################### ---------------- AUXILIARY METHODS ---------------- ####################
 
