@@ -12,12 +12,12 @@ filter-projects: output/repos-registry.txt
 clone-repos: output/repos-registry.txt
 	python3 cloneRepos.py
 
-clean-repo-registry: remove-duplicates remove-non-github-urls
+clean-repo-registry: remove-non-github-urls remove-duplicates 
 
-remove-duplicates: output/repos-uncleaned-registry.txt
+remove-duplicates: 
 	python3 removeDuplicatedURL.py
 
-remove-non-github-urls: output/repos-registry.txt
+remove-non-github-urls: 
 	python3 removeNonGithubURL.py
 
 force-clean:

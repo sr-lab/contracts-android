@@ -18,8 +18,8 @@ load_dotenv("config.env")
 #################### ---------------- GLOBAL VARIABLES ---------------- ####################
 
 GITHUB_ACCESS_TOKEN = os.getenv('GITHUB-ACCESS-TOKEN')
-REPOS_REGISTRY_FILE = os.getenv('REPOS-REGISTRY-FILE')
-F_DROID_STATS_FILE = os.getenv('F-DROID-STATS-FILE')
+REPOS_REGISTRY = os.getenv('REPOS-REGISTRY')
+REPOS_STATS_FILE = os.getenv('REPOS-STATS-FILE')
 F_DROID_STATS_OFFSET = os.getenv('F-DROID-STATS-REQUEST-OFFSET', False)
 F_DROID_STATS_LIMIT = os.getenv('F-DROID-STATS-REQUEST-LIMIT', False)
 JAVA_LANGUAGE_ACCEPT = os.getenv('JAVA-PROJECTS-ANALYSIS', 'True')
@@ -168,12 +168,13 @@ def addValidatedRepoToArrays(urlName, repo, mergedPulls, totalClosedPulls, perce
 def saveStatsToOutputFile():
      global repoStats
      df = pd.DataFrame(repoStats)
-     df.to_csv(F_DROID_STATS_FILE)
+     df.to_csv(REPOS_STATS_FILE)
      
 def saveRepoURLToRegistry():
-    registryFile = open(REPOS_REGISTRY_FILE, 'W')
+    registryFile = open(REPOS_REGISTRY, 'W')
     registryFile.write("\n".join(repoURLs))
     registryFile.close()
+    print("Validated repositories' Github urls were saved to: " + REPOS_REGISTRY)
 
 def checkIfProjectsNumberReachedLimit():
 	global validProjectCount
@@ -203,7 +204,7 @@ logNumberOfItemsToFetch()
 
 git = Github(GITHUB_ACCESS_TOKEN)
 
-for repoURL in open(REPOS_REGISTRY_FILE, "r"):
+for repoURL in open(REPOS_REGISTRY, "r"):
     
 	if (checkRequestOffsetReached() == False):
 		currentPaginationIndex += 1
