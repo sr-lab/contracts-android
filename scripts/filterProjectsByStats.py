@@ -20,8 +20,8 @@ load_dotenv("config.env")
 GITHUB_ACCESS_TOKEN = os.getenv('GITHUB-ACCESS-TOKEN')
 REPOS_REGISTRY = os.getenv('REPOS-REGISTRY')
 REPOS_STATS_FILE = os.getenv('REPOS-STATS-FILE')
-F_DROID_STATS_OFFSET = os.getenv('F-DROID-STATS-REQUEST-OFFSET', False)
-F_DROID_STATS_LIMIT = os.getenv('F-DROID-STATS-REQUEST-LIMIT', False)
+PAGINATION_OFFSET = os.getenv('PAGINATION-OFFSET', False)
+PAGINATION_LIMIT = os.getenv('PAGINATION-LIMIT', False)
 JAVA_LANGUAGE_ACCEPT = os.getenv('JAVA-PROJECTS-ANALYSIS', 'True')
 KOTLIN_LANGUAGE_ACCEPT = os.getenv('KOTLIN-PROJECTS-ANALYSIS', 'True')
 
@@ -46,15 +46,15 @@ repoURLs = []
 #################### ---------------- AUXILIARY METHODS ---------------- ####################
  
 def logNumberOfItemsToFetch():
-	if (F_DROID_STATS_LIMIT == False):
+	if (PAGINATION_LIMIT == False):
 		print("Fetching ALL items...")
 	else:
-		print("Fetching " + str(F_DROID_STATS_LIMIT) + " items...")
+		print("Fetching " + str(PAGINATION_LIMIT) + " items...")
  
 def checkRequestOffsetReached():
-    if (F_DROID_STATS_OFFSET == False):
+    if (PAGINATION_OFFSET == False):
         return True
-    return (str(F_DROID_STATS_OFFSET) <= str(currentPaginationIndex))
+    return (str(PAGINATION_OFFSET) <= str(currentPaginationIndex))
  
 def getRepoName(urlName):
 	print(urlName)
@@ -179,9 +179,9 @@ def saveRepoURLToRegistry():
 
 def checkIfProjectsNumberReachedLimit():
 	global validProjectCount
-	if (F_DROID_STATS_LIMIT == False):
+	if (PAGINATION_LIMIT == False):
 		return False
-	return (str(validProjectCount) == str(F_DROID_STATS_LIMIT))
+	return (str(validProjectCount) == str(PAGINATION_LIMIT))
 
 def printResultLogs():
 	print("Java Project Count:")
