@@ -171,7 +171,7 @@ def saveStatsToOutputFile():
      df.to_csv(REPOS_STATS_FILE)
      
 def saveRepoURLToRegistry():
-    registryFile = open(REPOS_REGISTRY, 'W')
+    registryFile = open(REPOS_REGISTRY, 'w')
     registryFile.write("\n".join(repoURLs))
     registryFile.close()
     print("Validated repositories' Github urls were saved to: " + REPOS_REGISTRY)
