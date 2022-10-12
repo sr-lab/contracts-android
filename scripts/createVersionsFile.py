@@ -11,8 +11,8 @@ load_dotenv("config.env")
 GITHUB_ACCESS_TOKEN = os.getenv('GITHUB-ACCESS-TOKEN')
 INPUT_FILE = os.getenv('REPOS-REGISTRY')
 OUTPUT_FILE = os.getenv('REPOS-VERSIONS-FILE')
-PAGINATION_OFFSET = os.getenv('PAGINATION-OFFSET', False)
-PAGINATION_LIMIT = os.getenv('PAGINATION-LIMIT', False)
+PAGINATION_OFFSET = os.getenv('VERSIONS-FILE-OFFSET', False)
+PAGINATION_LIMIT = os.getenv('VERSIONS-FILE-LIMIT', False)
 
 s = requests.Session()
 headers = {'Authorization': 'token ' + str(GITHUB_ACCESS_TOKEN)}
