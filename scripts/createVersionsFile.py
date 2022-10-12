@@ -6,11 +6,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 load_dotenv("filePaths.env")
+load_dotenv("config.env")
 
 GITHUB_ACCESS_TOKEN = os.getenv('GITHUB-ACCESS-TOKEN')
 INPUT_FILE = os.getenv('REPOS-REGISTRY')
 OUTPUT_FILE = os.getenv('REPOS-VERSIONS-FILE')
-NUMBER_PROJECTS=200
+PAGINATION_OFFSET = os.getenv('PAGINATION-OFFSET', False)
+PAGINATION_LIMIT = os.getenv('PAGINATION-LIMIT', False)
 
 s = requests.Session()
 headers = {'Authorization': 'token ' + str(GITHUB_ACCESS_TOKEN)}
@@ -24,9 +26,10 @@ def readURLsFromInputFile():
     sourceFile.close()
     return links
 
-def limitNumberOfProjects(links):
-    print(f"Processing top {NUMBER_PROJECTS} projects...")
-    return links[:NUMBER_PROJECTS]
+def checkRequestOffsetReached(currentPaginationIndex):
+    if (PAGINATION_OFFSET == False):
+        return True
+    return (str(PAGINATION_OFFSET) <= str(currentPaginationIndex))
 
 def getVersions(repo):
     originRepo = repo 
@@ -64,17 +67,31 @@ def saveRepoVersionURLToOutput(outputFile, strippedLine, versions):
     outputFile.write(f"{strippedLine};{versions[1]} \n")
     time.sleep(1)
     outputFile.write(f"{strippedLine};{versions[0]} \n")
-    time.sleep(1)  
+    time.sleep(1) 
+    
+def checkIfProjectsNumberReachedLimit(currentPaginationIndex):
+    print("\ncurrentPagination: ")
+    print(currentPaginationIndex)
+    print(PAGINATION_LIMIT)
+    if (PAGINATION_LIMIT == False):
+        return False
+    return (str(currentPaginationIndex) == str(PAGINATION_LIMIT)) 
 
 def main():
+    currentPaginationIndex = 0
     links = readURLsFromInputFile()
-    topLinks = limitNumberOfProjects(links)
     outputFile = open(OUTPUT_FILE, 'w+')
-    for line in topLinks:
+    for line in links:
+        if (checkRequestOffsetReached(currentPaginationIndex) == False):
+            currentPaginationIndex += 1
+            continue
         strippedLine = line.strip()
         versions = getVersions(strippedLine)
         strippedLine = createRepoVersionURLString(strippedLine)
         saveRepoVersionURLToOutput(outputFile, strippedLine, versions)
+        if (checkIfProjectsNumberReachedLimit(currentPaginationIndex)):
+            break
+        currentPaginationIndex += 1
     print(f"File {OUTPUT_FILE} created.")
     outputFile.close()
 
