@@ -12,7 +12,7 @@ GITHUB_PREFIX = ['https://github.com/',
 
 GITHUB_STANDARD_BASE_URL = GITHUB_PREFIX[0]
 
-validatedLines = set() 
+validatedLines = []
 
 #################### ---------------- AUXILIARY METHODS ---------------- ####################
 
@@ -22,7 +22,7 @@ def checkIfURLIsGithub():
         for githubPrefix in GITHUB_PREFIX:
             if(line.startswith(githubPrefix)):
                 standarizedURL = standardizeGithubBaseURL(line, githubPrefix)
-                validatedLines.add(standarizedURL)     
+                validatedLines.append(standarizedURL)     
 
 def standardizeGithubBaseURL(originalURL, originalPrefix):
     return originalURL.replace(originalPrefix, GITHUB_STANDARD_BASE_URL)

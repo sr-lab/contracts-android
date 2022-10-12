@@ -171,10 +171,11 @@ def saveStatsToOutputFile():
      df.to_csv(REPOS_STATS_FILE)
      
 def saveRepoURLToRegistry():
-    registryFile = open(REPOS_REGISTRY, 'W')
-    registryFile.write("\n".join(repoURLs))
-    registryFile.close()
-    print("Validated repositories' Github urls were saved to: " + REPOS_REGISTRY)
+	registryFile = open(REPOS_REGISTRY, 'w')
+	for url in repoURLs:
+		registryFile.write(url)
+	registryFile.close()
+	print("Validated repositories' Github urls were saved to: " + REPOS_REGISTRY)
 
 def checkIfProjectsNumberReachedLimit():
 	global validProjectCount

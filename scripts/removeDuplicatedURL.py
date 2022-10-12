@@ -5,7 +5,7 @@ load_dotenv("filePaths.env")
 
 REPOS_REGISTRY = os.getenv('REPOS-REGISTRY')
 
-lines_seen = set() 
+lines_seen = []
 
 #################### ---------------- AUXILIARY METHODS ---------------- ####################
 
@@ -13,7 +13,7 @@ def collectNotDuplicatedLines():
     global lines_seen
     for line in open(REPOS_REGISTRY, "r"):
         if line not in lines_seen: 
-            lines_seen.add(line)
+            lines_seen.append(line)
 
 def saveNotDuplicatedToOutputFile():
     outfile = open(REPOS_REGISTRY, "w")
