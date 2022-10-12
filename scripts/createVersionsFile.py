@@ -70,9 +70,6 @@ def saveRepoVersionURLToOutput(outputFile, strippedLine, versions):
     time.sleep(1) 
     
 def checkIfProjectsNumberReachedLimit(currentPaginationIndex):
-    print("\ncurrentPagination: ")
-    print(currentPaginationIndex)
-    print(PAGINATION_LIMIT)
     if (PAGINATION_LIMIT == False):
         return False
     return (str(currentPaginationIndex) == str(PAGINATION_LIMIT)) 
@@ -92,7 +89,7 @@ def main():
         if (checkIfProjectsNumberReachedLimit(currentPaginationIndex)):
             break
         currentPaginationIndex += 1
-    print(f"File {OUTPUT_FILE} created.")
+    print(f"Projects' versions were saved in file: " + OUTPUT_FILE)
     outputFile.close()
 
 if __name__ == "__main__":
