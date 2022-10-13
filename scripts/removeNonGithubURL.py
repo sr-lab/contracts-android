@@ -32,7 +32,7 @@ def saveValidatedURLsToOutputFile():
     for url in validatedLines:
         outfile.write(url)
     outfile.close() 
-    print("Only Github URLs were saved to: " + GITHUB_STANDARD_BASE_URL)
+    print("Only Github URLs were saved to: " + REPOS_REGISTRY)
 
 
 #################### ---------------- MAIN ---------------- ####################
