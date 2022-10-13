@@ -25,6 +25,9 @@ get-versions: output/repos-registry.txt
 get-links-to-versions: output/repos-registry.txt
 	python3 createLinksToVersionsFile.py
 
+get-final-links-to-versions: output/link-to-versions.txt
+	python3 setFinalLinksToVersions.py
+
 clone-repos: output/repos-registry.txt
 	python3 cloneRepos.py
 
