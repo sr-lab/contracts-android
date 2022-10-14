@@ -12,7 +12,7 @@ COUNTER=0
 #DIR_ORGINAL="../../../scripts/f-droid/original"
 #DIR="/mnt/c/Users/salty/Desktop/ProjetoFinal/contracts-android/contractstudy/ExtractContracts/"
 
-REPOS_INPUT_FOLDER = os.getenv('CLONED-REPOS-FOLDER').join("/original")
+REPOS_INPUT_FOLDER = os.getenv('CLONED-REPOS-FOLDER')
 REPOS_OUTPUT_FOLDER = "dataset"
 
 
