@@ -1,6 +1,6 @@
 package contractstudy.extractors;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import contractstudy.ContractElement;
 import contractstudy.ExtractionListener;
@@ -19,7 +19,7 @@ public class GuavaPreconditionsExtractor implements Extractor<ContractElement>{
 	@Override
 	public void analyse(InputStream in,String programName,String version,String cuName,ExtractionListener<ContractElement> consumer) throws Exception {
     	try {
-	    	CompilationUnit  cu = JavaParser.parse(in);
+	    	CompilationUnit  cu = StaticJavaParser.parse(in);
 	    	StaticImportCollector staticCollector = new StaticImportCollector("com.google.common.base","com.google.common.base.Preconditions");
 	    	staticCollector.visit(cu,null);
 	    	

@@ -1,6 +1,6 @@
 package contractstudy.extractors;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import contractstudy.ContractElement;
 import contractstudy.ExtractionListener;
@@ -18,7 +18,7 @@ public class ConditionalRuntimeExceptionExtractor implements Extractor<ContractE
 	@Override
 	public void analyse(InputStream in,String programName,String version,String cuName,ExtractionListener<ContractElement> consumer) throws Exception {
     	try {
-	    	CompilationUnit  cu = JavaParser.parse(in);
+	    	CompilationUnit  cu = StaticJavaParser.parse(in);
 	    	new MethodVisitorToCollectConditionalRuntimeExceptionThrows(consumer,programName,version,cuName).visit(cu, null);
     	}
     	catch (Exception t) {

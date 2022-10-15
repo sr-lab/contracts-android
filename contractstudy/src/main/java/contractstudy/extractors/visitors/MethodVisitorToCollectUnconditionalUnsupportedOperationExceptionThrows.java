@@ -30,26 +30,26 @@ public class MethodVisitorToCollectUnconditionalUnsupportedOperationExceptionThr
 	@Override
 	public void visit(ThrowStmt n, Object arg) {
 
-        ObjectCreationExpr objCreationNode = (ObjectCreationExpr) n.getExpr();
+        ObjectCreationExpr objCreationNode = (ObjectCreationExpr) n.getExpression(); // JFF
         StringBuffer b = new StringBuffer();
-        if (objCreationNode.getArgs()!=null) {
-            for (Expression expr:objCreationNode.getArgs()) {
+        if (objCreationNode.getArguments()!=null) { // JFF
+            for (Expression expr:objCreationNode.getArguments()) { // JFF
                 if (b.length()>0) b.append(',');
                 b.append(expr.toString());
             }
         }
         String additionalInfo = b.toString();
 
-        String excTypeName = objCreationNode.getType().getName();
+        String excTypeName = objCreationNode.getType().getName().getIdentifier(); // JFF
 
 		
-		if (excTypeName.endsWith(UnsupportedOperationException.class.getSimpleName()) && n.getExpr() instanceof ObjectCreationExpr && (n.getParentNode() instanceof IfStmt || (n.getParentNode() instanceof BlockStmt && n.getParentNode().getParentNode() instanceof MethodDeclaration))) {
+		if (excTypeName.endsWith(UnsupportedOperationException.class.getSimpleName()) && n.getExpression() instanceof ObjectCreationExpr && (n.getParentNode().get() instanceof IfStmt || (n.getParentNode().get() instanceof BlockStmt && n.getParentNode().get().getParentNode().get() instanceof MethodDeclaration))) { // JFF
             ContractElement p = initConstraint();
             p.setProgramVersion(ProgramVersion.getOrCreate(programName,this.version));
             p.setCuName(this.cuName);
             p.setCondition(null);
             p.setKind(ConstraintType.UCREUnsupportedOperationException);
-            p.setLineNo(n.getBeginLine());
+            p.setLineNo(n.getBegin().get().line); // JFF
             p.setAdditionalInfo(additionalInfo);
             consumer.constraintFound(p);
 		}

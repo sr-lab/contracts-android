@@ -32,7 +32,7 @@ public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implemen
 
     @Override
     public void visit(PackageDeclaration n, Object arg) {
-        String packageName = n.getPackageName();
+        String packageName = n.getName().getIdentifier(); // JFF
         packages.add(packageName + ".*");  // implicit imports within the same package
         packages.add("java.lang.*");        // implicit Java import
 
@@ -44,7 +44,8 @@ public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implemen
     public void visit(ImportDeclaration n, Object arg) {
 
         if (!n.isStatic()) {
-            String pcg = n.getName().toStringWithoutComments();
+            //String pcg = n.getName().toStringWithoutComments();
+            String pcg = n.getName().getIdentifier(); // JFF: FIXME: without comments?
             if (n.isAsterisk()) {
                 pcg += ".*";
             }
@@ -58,8 +59,8 @@ public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implemen
     public void visit(ClassOrInterfaceDeclaration n, Object arg) {
         super.visit(n, arg);
 
-        List<ClassOrInterfaceType> superClasses = n.getExtends();
-        List<ClassOrInterfaceType> superInterfaces = n.getImplements();
+        List<ClassOrInterfaceType> superClasses = n.getExtendedTypes();
+        List<ClassOrInterfaceType> superInterfaces = n.getImplementedTypes();
 
         findClasses(n, superClasses);
         findClasses(n, superInterfaces);
@@ -73,7 +74,7 @@ public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implemen
 
     private void findClasses(ClassOrInterfaceDeclaration n, List<ClassOrInterfaceType> types) {
         for (ClassOrInterfaceType type : types) {
-            String typeName = type.getName();
+            String typeName = type.getNameWithScope(); // type.getName().getIdentifier(); // JFF
             ClassAndVersion classAndOrigin = classFinder.findClass(typeName, packages.toArray(new String[0]));
             if (classAndOrigin != null) {
                 getState(n).getParents().add(classAndOrigin);

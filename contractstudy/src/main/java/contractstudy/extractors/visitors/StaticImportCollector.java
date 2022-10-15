@@ -46,14 +46,17 @@ public class StaticImportCollector extends VoidVisitorAdapter<Object> {
 	public void visit(ImportDeclaration imp, Object arg) {
 		String imported = imp.getName().toString();
 
-		boolean hasWildcard = imp.toStringWithoutComments().contains(".*");
+		//boolean hasWildcard = imp.toStringWithoutComments().contains(".*");
+		boolean hasWildcard = imp.removeComment().toString().contains(".*"); // JFF: FIXME?
 		if (imp.isStatic()) {
 			if (hasWildcard && imported.equals(targetQClassName)) {
 				this.staticImportState = StaticImportState.ALL_STATIC;
 			}
 			else {
-				String clName = imp.getName().getChildrenNodes().get(0).toString();
-				String mName = imp.getName().getName();
+				//String clName = imp.getName().getChildrenNodes().get(0).toString();
+				String clName = imp.getName().getChildNodes().get(0).toString(); // JFF: FIXME?
+				//String mName = imp.getName().getName();
+				String mName = imp.getName().getIdentifier(); // JFF: FIXME?
 				if (clName.equals(targetQClassName)) {
 					this.staticImportState = StaticImportState.SOME_STATIC;
 					this.staticallyImportedMethodNames.add(mName);
@@ -62,7 +65,8 @@ public class StaticImportCollector extends VoidVisitorAdapter<Object> {
 		}
 		else {
 			if (staticImportState==StaticImportState.NONE) {
-				String importName = imp.getName().toStringWithoutComments();
+				//String importName = imp.getName().toStringWithoutComments();
+				String importName = imp.getName().removeComment().toString();
 				String pcgOnly = importName;
 
 				// import name contains the class name after the last dot,

@@ -47,7 +47,7 @@ public class ComputeInheritanceHierarchy implements Experiment {
     public static void main(String[] args) throws Exception {
 
         // do not forget to add this folder!
-        File jdkDir = new File(Preferences.getDataFolder(), "open-jdk");
+        File jdkDir = new File(Preferences.getDataFolder(), "../jdk-data/open-jdk");
         File jdk = new File(jdkDir, "open-jdk-8.zip");
 
         // TODO remove copy/paste code

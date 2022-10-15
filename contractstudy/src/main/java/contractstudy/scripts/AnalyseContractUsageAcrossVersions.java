@@ -106,6 +106,7 @@ public class AnalyseContractUsageAcrossVersions implements Experiment{
                 int constraintCountInFirstVersion = tmp==null?0:tmp;
 
                 ProgramVersion lastVersion = firstAndLatestVersions.getRight().get(program);
+                if (metrics.get(lastVersion) == null) continue; // JFF: FIXME
                 int methodCountInLastVersion = metrics.get(lastVersion).get(ALL_METHODS);
                 methodCountInLastVersion = methodCountInLastVersion + metrics.get(lastVersion).get(ALL_CONSTRUCTORS);
                 tmp = constraintsInLastVersions.get(lastVersion);
