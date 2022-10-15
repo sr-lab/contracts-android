@@ -1,7 +1,7 @@
 setup: requirements.txt
 	pip install -r requirements.txt
 
-get-fdroid-dataset: get-fdroid-index clean-repo-registry filter-projects get-all-versions-files clone-repos prepare-dataset
+get-fdroid-dataset: get-fdroid-index clean-repo-registry filter-projects get-all-versions-files get-dataset
 
 get-fdroid-index:
 	python3 getFDroidIndex.py
@@ -27,6 +27,8 @@ get-links-to-versions: output/repos-registry.txt
 
 get-final-links-to-versions: output/link-to-versions.txt
 	python3 setFinalLinksToVersions.py
+
+get-dataset: clone-repos prepare-dataset
 
 clone-repos: output/repos-registry.txt
 	python3 cloneRepos.py
