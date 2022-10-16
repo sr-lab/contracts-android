@@ -10,19 +10,23 @@ import contractstudy.extractors.visitors.MethodVisitorToCollectUnconditionalUnsu
 import java.io.InputStream;
 
 /**
- * Extractor to find simple patterns "if (<condition>) throw new <SomeException>" in source code. 
+ * Extractor to find simple patterns "if (<condition>) throw new <SomeException>" in source code.
+ *
  * @author jens dietrich
  */
-public class UnconditionalOperationNotSupportedExceptionExtractor implements Extractor<ContractElement>{
-	
-	@Override
-	public void analyse(InputStream in,String programName,String version,String cuName,ExtractionListener<ContractElement> consumer) throws Exception {
-    	try {
-	    	CompilationUnit  cu = StaticJavaParser.parse(in);
-	    	new MethodVisitorToCollectUnconditionalUnsupportedOperationExceptionThrows(consumer,programName,version,cuName).visit(cu, null);
-    	}
-    	catch (Exception t) {
-    		consumer.extractionExceptionEncountered("Cannot parse " + programName + "-" + version + "/" + cuName,t);
-    	}
-	}
+public class UnconditionalOperationNotSupportedExceptionExtractor implements
+  Extractor<ContractElement> {
+
+  @Override
+  public void analyse(InputStream in, String programName, String version, String cuName,
+    ExtractionListener<ContractElement> consumer) throws Exception {
+    try {
+      CompilationUnit cu = StaticJavaParser.parse(in);
+      new MethodVisitorToCollectUnconditionalUnsupportedOperationExceptionThrows(consumer,
+        programName, version, cuName).visit(cu, null);
+    } catch (Exception t) {
+      consumer.extractionExceptionEncountered(
+        "Cannot parse " + programName + "-" + version + "/" + cuName, t);
+    }
+  }
 }

@@ -7,16 +7,18 @@ package contractstudy.scripts.engine;
  */
 public interface ExperimentArtefact {
 
-    /**
-     * Return true if an artefact already exists
-     * @return true if axists
-     */
-    boolean exists();
+  /**
+   * Return true if an artefact already exists
+   *
+   * @return true if axists
+   */
+  boolean exists();
 
-    /**
-     * String name of the result to track down errors
-     * @return
-     */
-    String getName();
+  /**
+   * String name of the result to track down errors
+   *
+   * @return
+   */
+  String getName();
 
 }

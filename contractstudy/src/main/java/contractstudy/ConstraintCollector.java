@@ -7,24 +7,26 @@ import java.util.List;
 
 /**
  * Collect constraints.
+ *
  * @author jens dietrich
  */
 public class ConstraintCollector implements ExtractionListener<ContractElement> {
-	static Logger LOGGER = Logging.getLogger(ConstraintCollector.class);
-	private List<ContractElement> contractElements = new ArrayList<>();
 
-	@Override
-	public void constraintFound(ContractElement contractElement) {
-		this.contractElements.add(contractElement);
-	}
+  static Logger LOGGER = Logging.getLogger(ConstraintCollector.class);
+  private final List<ContractElement> contractElements = new ArrayList<>();
 
-	public List<ContractElement> getContractElements() {
-		return contractElements;
-	}
+  @Override
+  public void constraintFound(ContractElement contractElement) {
+    this.contractElements.add(contractElement);
+  }
 
-	@Override
-	public void extractionExceptionEncountered(String message, Throwable x) {
-		LOGGER.debug(message, x);
-        // x.printStackTrace();
-	}
+  public List<ContractElement> getContractElements() {
+    return contractElements;
+  }
+
+  @Override
+  public void extractionExceptionEncountered(String message, Throwable x) {
+    LOGGER.debug(message, x);
+    // x.printStackTrace();
+  }
 }

@@ -17,36 +17,37 @@ import java.net.URL;
 
 public class Downloader {
 
-    public File download(URL url, File dstFile) throws IOException {
+  public File download(URL url, File dstFile) throws IOException {
 
-        CloseableHttpClient httpclient = HttpClients.custom()
-                .setRedirectStrategy(new LaxRedirectStrategy()) // adds HTTP REDIRECT support to GET and POST methods
-                .build();
-        try {
-            HttpGet get = new HttpGet(url.toURI()); // we're using GET but it could be via POST as well
-            return httpclient.execute(get, new FileDownloadResponseHandler(dstFile));
-        } catch (URISyntaxException e) {
-            throw new IOException(e);
-        } finally {
-            IOUtils.closeQuietly(httpclient);
-        }
+    CloseableHttpClient httpclient = HttpClients.custom()
+      .setRedirectStrategy(
+        new LaxRedirectStrategy()) // adds HTTP REDIRECT support to GET and POST methods
+      .build();
+    try {
+      HttpGet get = new HttpGet(url.toURI()); // we're using GET but it could be via POST as well
+      return httpclient.execute(get, new FileDownloadResponseHandler(dstFile));
+    } catch (URISyntaxException e) {
+      throw new IOException(e);
+    } finally {
+      IOUtils.closeQuietly(httpclient);
+    }
+  }
+
+  static class FileDownloadResponseHandler implements ResponseHandler<File> {
+
+    private final File target;
+
+    public FileDownloadResponseHandler(File target) {
+      this.target = target;
     }
 
-    static class FileDownloadResponseHandler implements ResponseHandler<File> {
-
-        private final File target;
-
-        public FileDownloadResponseHandler(File target) {
-            this.target = target;
-        }
-
-        @Override
-        public File handleResponse(HttpResponse response) throws IOException {
-            InputStream source = response.getEntity().getContent();
-            FileUtils.copyInputStreamToFile(source, this.target);
-            return this.target;
-        }
-
+    @Override
+    public File handleResponse(HttpResponse response) throws IOException {
+      InputStream source = response.getEntity().getContent();
+      FileUtils.copyInputStreamToFile(source, this.target);
+      return this.target;
     }
+
+  }
 
 }

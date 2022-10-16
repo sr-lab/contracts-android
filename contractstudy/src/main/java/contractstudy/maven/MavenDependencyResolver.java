@@ -27,60 +27,60 @@ import java.util.List;
  */
 public class MavenDependencyResolver {
 
-    private RepositorySystem repoSystem = newRepositorySystem();
-    private RepositorySystemSession session = newSession(repoSystem);
+  private final RepositorySystem repoSystem = newRepositorySystem();
+  private final RepositorySystemSession session = newSession(repoSystem);
 
-    public List<Artifact> resolveDependencies(
-            final Artifact artifact,
-            final List<Repository> extraRepos) throws Exception {
+  private static RepositorySystem newRepositorySystem() {
 
-        Dependency dependency = new Dependency(artifact, "compile");
-        RemoteRepository central = new RemoteRepository.Builder(
-                "central", "default", "http://repo1.maven.org/maven2/" )
-                .build();
+    DefaultServiceLocator locator = MavenRepositorySystemUtils.newServiceLocator();
 
-        CollectRequest collectRequest = new CollectRequest();
-        collectRequest.setRoot(dependency);
-        collectRequest.addRepository(central);
+    locator.addService(RepositoryConnectorFactory.class, BasicRepositoryConnectorFactory.class);
+    locator.addService(TransporterFactory.class, FileTransporterFactory.class);
+    locator.addService(TransporterFactory.class, HttpTransporterFactory.class);
 
-        for (Repository repo : extraRepos) {
-            RemoteRepository extraRepo = new RemoteRepository.Builder(
-                    repo.getId(), repo.getName(), repo.getUrl()).build();
+    return locator.getService(RepositorySystem.class);
+  }
 
-            collectRequest.addRepository(extraRepo);
-        }
+  private static RepositorySystemSession newSession(RepositorySystem system) {
+    DefaultRepositorySystemSession session = MavenRepositorySystemUtils.newSession();
 
-        DependencyNode node = repoSystem.collectDependencies(session, collectRequest).getRoot();
+    LocalRepository localRepo = new LocalRepository(MavenResolveTransitiveClosure.MVN_REPO);
+    session.setLocalRepositoryManager(system.newLocalRepositoryManager(session, localRepo));
 
-        DependencyRequest dependencyRequest = new DependencyRequest();
-        dependencyRequest.setRoot(node);
+    return session;
+  }
 
-        // this also downloads all JAR files.
+  public List<Artifact> resolveDependencies(
+    final Artifact artifact,
+    final List<Repository> extraRepos) throws Exception {
+
+    Dependency dependency = new Dependency(artifact, "compile");
+    RemoteRepository central = new RemoteRepository.Builder(
+      "central", "default", "http://repo1.maven.org/maven2/")
+      .build();
+
+    CollectRequest collectRequest = new CollectRequest();
+    collectRequest.setRoot(dependency);
+    collectRequest.addRepository(central);
+
+    for (Repository repo : extraRepos) {
+      RemoteRepository extraRepo = new RemoteRepository.Builder(
+        repo.getId(), repo.getName(), repo.getUrl()).build();
+
+      collectRequest.addRepository(extraRepo);
+    }
+
+    DependencyNode node = repoSystem.collectDependencies(session, collectRequest).getRoot();
+
+    DependencyRequest dependencyRequest = new DependencyRequest();
+    dependencyRequest.setRoot(node);
+
+    // this also downloads all JAR files.
 //        repoSystem.resolveDependencies(session, dependencyRequest);
 
-        PreorderNodeListGenerator nlg = new PreorderNodeListGenerator();
-        node.accept(nlg);
+    PreorderNodeListGenerator nlg = new PreorderNodeListGenerator();
+    node.accept(nlg);
 
-        return nlg.getArtifacts(true);
-    }
-
-    private static RepositorySystem newRepositorySystem() {
-
-        DefaultServiceLocator locator = MavenRepositorySystemUtils.newServiceLocator();
-
-        locator.addService(RepositoryConnectorFactory.class, BasicRepositoryConnectorFactory.class);
-        locator.addService(TransporterFactory.class, FileTransporterFactory.class);
-        locator.addService(TransporterFactory.class, HttpTransporterFactory.class);
-
-        return locator.getService(RepositorySystem.class);
-    }
-
-    private static RepositorySystemSession newSession(RepositorySystem system) {
-        DefaultRepositorySystemSession session = MavenRepositorySystemUtils.newSession();
-
-        LocalRepository localRepo = new LocalRepository(MavenResolveTransitiveClosure.MVN_REPO);
-        session.setLocalRepositoryManager(system.newLocalRepositoryManager(session, localRepo));
-
-        return session;
-    }
+    return nlg.getArtifacts(true);
+  }
 }
