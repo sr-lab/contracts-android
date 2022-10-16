@@ -34,10 +34,10 @@ if [ ! -f results/contraints_across_versions.csv ]; then
 	java $MEM -cp "$CP:target/classes" contractstudy.scripts.AnalyseContractUsageAcrossVersions
 fi
 
+if [ ! -f out/supercallsites.csv ]; then
+	java $MEM -cp "$CP:target/classes" contractstudy.scripts.CollectInvocationViaSuper
+fi
+
 if [ ! -f results/hierarchy.tex ]; then
 	java $MEM -cp "$CP:target/classes" contractstudy.scripts.AnalyseHierarchyContracts
 fi
-
-
-
-

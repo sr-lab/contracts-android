@@ -1,6 +1,6 @@
 package contractstudy.extractors;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import contractstudy.*;
 import contractstudy.extractors.visitors.StaticImportCollector;
@@ -47,7 +47,7 @@ public class AbstractAnnotationExtractor implements Extractor<ContractElement>  
             final ExtractionListener<ContractElement> consumer) throws Exception {
 
         try {
-            CompilationUnit cu = JavaParser.parse(in);
+            CompilationUnit cu = StaticJavaParser.parse(in);
             StaticImportCollector importsCollector = new StaticImportCollector(annotationPackageName, "");
             importsCollector.visit(cu, null);
             StaticImportState importState = importsCollector.getStaticImportState();

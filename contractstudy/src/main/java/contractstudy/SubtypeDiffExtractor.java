@@ -124,6 +124,7 @@ public class SubtypeDiffExtractor implements DiffExtractor {
                 List<ContractElement> constraints2 = constraintIndex.get(key);
 
                 if (notProcessed(constraints2, processedIndexes)) {
+                    // JFF: nunca entra aqui
                     for (ClassAndVersion parent : parents) {
                         Set<String> methods = methodsMap.get(parent);
 

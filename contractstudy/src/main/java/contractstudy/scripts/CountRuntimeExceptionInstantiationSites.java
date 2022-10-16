@@ -1,6 +1,6 @@
 package contractstudy.scripts;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.expr.ObjectCreationExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
@@ -56,7 +56,7 @@ public class CountRuntimeExceptionInstantiationSites implements Experiment{
         @Override
         public void visit(ObjectCreationExpr objCreationExpression, Object arg) {
             super.visit(objCreationExpression, arg);
-            String excTypeName = objCreationExpression.getType().getName();
+            String excTypeName = objCreationExpression.getType().getName().getIdentifier(); // JFF
             if (excTypeName.endsWith(IllegalArgumentException.class.getSimpleName()) ||
                 excTypeName.endsWith(IllegalStateException.class.getSimpleName()) ||
                 excTypeName.endsWith(NullPointerException.class.getSimpleName()) ||
@@ -102,7 +102,7 @@ public class CountRuntimeExceptionInstantiationSites implements Experiment{
                             if (name.endsWith(".java")) {
                                 try (InputStream in = zip.getInputStream(e)) {
                                     try {
-                                        CompilationUnit cu = JavaParser.parse(in);
+                                        CompilationUnit cu = StaticJavaParser.parse(in);
                                         RTExceptionCounterVisitor visitor = new RTExceptionCounterVisitor(pv, name);
                                         visitor.visit(cu, null);
                                         counter.addAndGet(visitor.getExceptionCounter());

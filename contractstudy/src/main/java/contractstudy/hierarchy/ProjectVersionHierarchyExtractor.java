@@ -1,6 +1,6 @@
 package contractstudy.hierarchy;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import contractstudy.ProgramVersion;
 import org.apache.commons.io.FileUtils;
@@ -88,7 +88,7 @@ public class ProjectVersionHierarchyExtractor {
             Collection<File> files = FileUtils.listFiles(file, new String[]{"java"}, true);
             for (File f : files) {
                 try (InputStream in = new FileInputStream(f)) {
-                    CompilationUnit cu = JavaParser.parse(in);
+                    CompilationUnit cu = StaticJavaParser.parse(in);
                     ClassCoordinates classCoordinates = classExtractor.readClass(cu, f.getName());
                     creator.add(programVersion, classCoordinates, cu, file.getName());
                     notifier.notify(classCoordinates);
@@ -102,7 +102,7 @@ public class ProjectVersionHierarchyExtractor {
                     String name = e.getName();
                     if (name.endsWith(".java")) {
                         try (InputStream in = zip.getInputStream(e)) {
-                            CompilationUnit cu = JavaParser.parse(in);
+                            CompilationUnit cu = StaticJavaParser.parse(in);
                             ClassCoordinates classCoordinates = classExtractor.readClass(cu, name);
                             // coordinates are null for invalid classes (e.g. a .java class which does not contain java source-code)
                             if (classCoordinates.getClassSimpleName() != null) {

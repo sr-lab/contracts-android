@@ -1,6 +1,6 @@
 package contractstudy.scripts;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.google.common.base.Preconditions;
 import contractstudy.Logging;
@@ -64,7 +64,7 @@ public class CheckForProgramVersionsWithoutSourceCode {
                                 programsWithSourceCode.add(pv.getName());
                                 try (InputStream in = zip.getInputStream(e)) {
                                     try {
-                                        CompilationUnit cu = JavaParser.parse(in);
+                                        CompilationUnit cu = StaticJavaParser.parse(in);
                                         parsableSourceCodeFound = true;
                                     } catch (Exception t) {
                                         LOGGER.warn("Cannot parse cu " + pv + " / " + name);
