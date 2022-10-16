@@ -6,19 +6,23 @@ import java.util.Set;
 /**
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
-public class ASTState  {
+public class ASTState {
 
-    /** Methods. */
-    private Set<String> methods = new HashSet<>();
+  /**
+   * Methods.
+   */
+  private final Set<String> methods = new HashSet<>();
 
-    /** Result with parents. */
-    private Set<ClassAndVersion> parents = new HashSet<>();
+  /**
+   * Result with parents.
+   */
+  private final Set<ClassAndVersion> parents = new HashSet<>();
 
-    public Set<String> getMethods() {
-        return methods;
-    }
+  public Set<String> getMethods() {
+    return methods;
+  }
 
-    public Set<ClassAndVersion> getParents() {
-        return parents;
-    }
+  public Set<ClassAndVersion> getParents() {
+    return parents;
+  }
 }

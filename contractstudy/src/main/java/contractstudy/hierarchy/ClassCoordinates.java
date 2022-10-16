@@ -7,24 +7,24 @@ import java.util.Set;
  */
 public interface ClassCoordinates {
 
-    String getPackageName();
+  String getPackageName();
 
-    String getClassSimpleName();
+  String getClassSimpleName();
 
-    String getClassName();
+  String getClassName();
 
-    String getCuName();
+  String getCuName();
 
-    /**
-     *
-     * @return inner classes
-     */
-    Set<ClassCoordinates> getInnerClasses();
+  /**
+   * @return inner classes
+   */
+  Set<ClassCoordinates> getInnerClasses();
 
-    /**
-     * Return methods for this class, excluding inner classes.
-     * @return methods.
-     */
-    Set<String> getMethods();
+  /**
+   * Return methods for this class, excluding inner classes.
+   *
+   * @return methods.
+   */
+  Set<String> getMethods();
 
 }

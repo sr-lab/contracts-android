@@ -1,8 +1,11 @@
 package contractstudy.extractors;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import contractstudy.*;
+import contractstudy.ConstraintType;
+import contractstudy.ContractElement;
+import contractstudy.ExtractionListener;
+import contractstudy.Extractor;
 import contractstudy.extractors.visitors.StaticImportCollector;
 import contractstudy.extractors.visitors.StaticImportState;
 import contractstudy.extractors.visitors.VisitorToCollectAnnotations;
@@ -13,50 +16,53 @@ import java.util.Map;
 
 /**
  * Abstract annotation extractor based on Kamil's JSR303 extractor.
+ *
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
-public class AbstractAnnotationExtractor implements Extractor<ContractElement>  {
+public class AbstractAnnotationExtractor implements Extractor<ContractElement> {
 
-    private Map<String, ConstraintType> constraintsByName = new HashMap<>();
+  private final Map<String, ConstraintType> constraintsByName = new HashMap<>();
 
-    // the prefix for the respective constraint types as defined in ConstraintType
-    private String constraintTypePrefix = null;
+  // the prefix for the respective constraint types as defined in ConstraintType
+  private String constraintTypePrefix = null;
 
-    // package where the annotations are defined
-    private String annotationPackageName = null;
+  // package where the annotations are defined
+  private String annotationPackageName = null;
 
 
-    public AbstractAnnotationExtractor(String constraintTypePrefix, String annotationPackageName) {
-        this.constraintTypePrefix = constraintTypePrefix;
-        this.annotationPackageName = annotationPackageName;
+  public AbstractAnnotationExtractor(String constraintTypePrefix, String annotationPackageName) {
+    this.constraintTypePrefix = constraintTypePrefix;
+    this.annotationPackageName = annotationPackageName;
 
-        for (ConstraintType p : ConstraintType.values()) {
-            String name = p.name();
-            if (name.startsWith(constraintTypePrefix)) {
-                constraintsByName.put(name.substring(constraintTypePrefix.length(), name.length()), p);
-            }
-        }
+    for (ConstraintType p : ConstraintType.values()) {
+      String name = p.name();
+      if (name.startsWith(constraintTypePrefix)) {
+        constraintsByName.put(name.substring(constraintTypePrefix.length()), p);
+      }
     }
+  }
 
-    @Override
-    public void analyse(
-            final InputStream in,
-            final String programName,
-            final String version,
-            final String cuName,
-            final ExtractionListener<ContractElement> consumer) throws Exception {
+  @Override
+  public void analyse(
+    final InputStream in,
+    final String programName,
+    final String version,
+    final String cuName,
+    final ExtractionListener<ContractElement> consumer) throws Exception {
 
-        try {
-            CompilationUnit cu = JavaParser.parse(in);
-            StaticImportCollector importsCollector = new StaticImportCollector(annotationPackageName, "");
-            importsCollector.visit(cu, null);
-            StaticImportState importState = importsCollector.getStaticImportState();
-            VisitorToCollectAnnotations visitor = new VisitorToCollectAnnotations(consumer,programName,version,cuName,importState, constraintsByName);
-            visitor.visit(cu, null);
-        } catch (Error | Exception e) {
-        	consumer.extractionExceptionEncountered("Cannot parse " + programName + "-" + version + "/" + cuName,e);
-        }
+    try {
+      CompilationUnit cu = StaticJavaParser.parse(in);
+      StaticImportCollector importsCollector = new StaticImportCollector(annotationPackageName, "");
+      importsCollector.visit(cu, null);
+      StaticImportState importState = importsCollector.getStaticImportState();
+      VisitorToCollectAnnotations visitor = new VisitorToCollectAnnotations(consumer, programName,
+        version, cuName, importState, constraintsByName);
+      visitor.visit(cu, null);
+    } catch (Error | Exception e) {
+      consumer.extractionExceptionEncountered(
+        "Cannot parse " + programName + "-" + version + "/" + cuName, e);
     }
+  }
 
 
 }

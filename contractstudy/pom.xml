@@ -22,6 +22,15 @@
         <url>https://kjezek@bitbucket.org/jensdietrich/contractstudy</url>
         <tag>HEAD</tag>
     </scm>
+	
+<repositories>
+        <repository>
+            <id>android-studio</id>
+            <name>lixo</name>
+            <url>https://maven.google.com</url>
+            <!-- <url>file://C:\Program Files\Android\Android Studio\gradle\m2repository</url> -->
+        </repository>
+    </repositories>
 
     <dependencies>
         <!--Maven aether -->
@@ -100,11 +109,18 @@
         </dependency>
 
         <!--Java parser -->
+	<!--
         <dependency>
             <groupId>com.github.javaparser</groupId>
             <artifactId>javaparser-core</artifactId>
-            <version>2.5.1</version>
+            <version>3.20.0</version>
         </dependency>
+	-->
+	<dependency>
+	    <groupId>com.github.javaparser</groupId>
+	    <artifactId>javaparser-symbol-solver-core</artifactId>
+	    <version>3.20.2</version>
+	</dependency>
 
         <!--Logging-->
         <dependency>
@@ -173,6 +189,49 @@
             <artifactId>annotations</artifactId>
             <version>15.0</version>
         </dependency>
+	<!-- https://mvnrepository.com/artifact/com.google.android/android -->
+	<dependency>
+   	    <groupId>com.google.android</groupId>
+   	    <artifactId>android</artifactId>
+            <version>4.1.1.4</version>
+            <scope>provided</scope>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api -->
+	<dependency>
+    	    <groupId>javax.ws.rs</groupId>
+    	    <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.1</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/com.google.android/android -->
+	<dependency>
+    	    <groupId>com.google.android</groupId>
+    	    <artifactId>android</artifactId>
+    	    <version>2.3.1</version>
+    	    <scope>provided</scope>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/com.google.android/android -->
+	<dependency>
+    		<groupId>com.google.android</groupId>
+    		<artifactId>android</artifactId>
+    		<version>4.1.1.4</version>
+    		<scope>provided</scope>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/net.morimekta.utils/android-util -->
+	<dependency>
+    		<groupId>net.morimekta.utils</groupId>
+    		<artifactId>android-util</artifactId>
+    		<version>2.6.0</version>
+	</dependency>
+	<dependency>
+      <groupId>com.android.tools</groupId>
+      <artifactId>annotations</artifactId>
+      <version>27.3.0-alpha04</version>
+      <scope>runtime</scope>
+    </dependency>
+    
+     	
+
+
 
         <!--<dependency>-->
         <!--<groupId>org.apache.commons</groupId>-->

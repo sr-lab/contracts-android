@@ -1,8 +1,8 @@
 package contractstudy.maven;
 
-import contractstudy.scripts.CollectContracts;
 import contractstudy.Logging;
 import contractstudy.Preferences;
+import contractstudy.scripts.CollectContracts;
 import org.apache.log4j.Logger;
 
 import java.io.File;
@@ -17,59 +17,56 @@ import static contractstudy.maven.CorpusUtils.listProjects;
 import static contractstudy.maven.CorpusUtils.parseDeps;
 
 /**
- * Download data for transitive closure.
- * The dependencies must be resolved before.
+ * Download data for transitive closure. The dependencies must be resolved before.
  *
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
 public class MavenDownloadTransitiveClosure {
 
-    private static Logger LOGGER = Logging.getLogger(CollectContracts.class);
+  public static final String MVN_DEPS_DIR = "mvn-dependencies";
+  private static final Logger LOGGER = Logging.getLogger(CollectContracts.class);
+  private static final MavenDownloader downloader = new MavenDownloader(new File(MVN_DEPS_DIR));
 
-    public static final String MVN_DEPS_DIR = "mvn-dependencies";
+  public static void main(String[] args) throws IOException, InterruptedException {
 
-    private static MavenDownloader downloader = new MavenDownloader(new File(MVN_DEPS_DIR));
+    long startTime = System.currentTimeMillis();
+    ExecutorService executor = Executors.newFixedThreadPool(Preferences.getThreadCount());
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    int[] failed = new int[]{0};
+    int[] downloaded = new int[]{0};
 
-        long startTime = System.currentTimeMillis();
-        ExecutorService executor = Executors.newFixedThreadPool(Preferences.getThreadCount());
+    for (File project : listProjects(CorpusUtils.MVN_DATA)) {
+      for (File version : listJsons(project)) {
+        List<MavenProjectVersion> deps = parseDeps(version);
 
-        int[] failed = new int[] {0};
-        int[] downloaded = new int[] {0};
-
-        for (File project : listProjects(CorpusUtils.MVN_DATA)) {
-            for (File version : listJsons(project)) {
-                List<MavenProjectVersion> deps =  parseDeps(version);
-
-                for (MavenProjectVersion dep : deps) {
-                    Runnable task = new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                downloader.downloadVersion(dep);
-                                downloaded[0] += 1;
-                            } catch (Exception e) {
-                                failed[0] += 1;
-                                LOGGER.warn("Cannot download " + dep + ": " + e.getMessage());
-                            }
-                        }
-                    };
-                    executor.submit(task);
-                }
+        for (MavenProjectVersion dep : deps) {
+          Runnable task = new Runnable() {
+            @Override
+            public void run() {
+              try {
+                downloader.downloadVersion(dep);
+                downloaded[0] += 1;
+              } catch (Exception e) {
+                failed[0] += 1;
+                LOGGER.warn("Cannot download " + dep + ": " + e.getMessage());
+              }
             }
+          };
+          executor.submit(task);
         }
-
-        executor.shutdown();
-        executor.awaitTermination(10, TimeUnit.DAYS);
-        long endTime = System.currentTimeMillis();
-
-        LOGGER.info("Done!");
-        LOGGER.info("\ttime: " + (endTime-startTime) + " ms");
-        LOGGER.info("\tdownloaded dependencies: " + downloaded[0]);
-        LOGGER.info("\tfailed dependencies: " + failed[0]);
-        LOGGER.info("\tthreads used: " + Preferences.getThreadCount());
-
+      }
     }
+
+    executor.shutdown();
+    executor.awaitTermination(10, TimeUnit.DAYS);
+    long endTime = System.currentTimeMillis();
+
+    LOGGER.info("Done!");
+    LOGGER.info("\ttime: " + (endTime - startTime) + " ms");
+    LOGGER.info("\tdownloaded dependencies: " + downloaded[0]);
+    LOGGER.info("\tfailed dependencies: " + failed[0]);
+    LOGGER.info("\tthreads used: " + Preferences.getThreadCount());
+
+  }
 
 }

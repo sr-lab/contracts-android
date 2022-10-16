@@ -1,8 +1,8 @@
 package contractstudy.maven;
 
-import contractstudy.scripts.CollectContracts;
 import contractstudy.Logging;
 import contractstudy.Preferences;
+import contractstudy.scripts.CollectContracts;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.apache.maven.model.Model;
@@ -25,130 +25,134 @@ import static contractstudy.maven.CorpusUtils.listProjects;
 
 /**
  * This class downloads all dependencies for the maven projects stored in the "mvn-data" directory
- *
+ * <p>
  * From: http://wiki.eclipse.org/Aether/Resolving_Dependencies
  *
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
 public class MavenResolveTransitiveClosure {
 
-    private static Logger LOGGER = Logging.getLogger(CollectContracts.class);
+  private static final Logger LOGGER = Logging.getLogger(CollectContracts.class);
+  /**
+   * Maven deps resolver.
+   */
+  private static final MavenDependencyResolver resolver = new MavenDependencyResolver();
+  public static String MVN_REPO = "mvn-repo";
 
-    public static String MVN_REPO = "mvn-repo";
+  public static void main(String[] args) throws Exception {
 
-    /** Maven deps resolver. */
-    private static MavenDependencyResolver resolver = new MavenDependencyResolver();
+    long startTime = System.currentTimeMillis();
+    ExecutorService executor = Executors.newFixedThreadPool(Preferences.getThreadCount());
 
-    public static void main(String[] args) throws Exception {
+    File[] projects = listProjects(CorpusUtils.MVN_DATA);
 
-        long startTime = System.currentTimeMillis();
-        ExecutorService executor = Executors.newFixedThreadPool(Preferences.getThreadCount());
+    for (File project : projects) {
+      File[] poms = listPoms(project);
 
-        File[] projects = listProjects(CorpusUtils.MVN_DATA);
+      for (File pom : poms) {
 
-        for (File project : projects) {
-            File[] poms = listPoms(project);
-
-            for (File pom : poms) {
-
-                Runnable task = new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            MavenProjectVersion projectVersion = resolveDependencies(pom);
-                            String nameOnly = pom.getName().substring(0, pom.getName().lastIndexOf('.'));
-                            File jsonFile = new File(project, nameOnly + "-deps.json");
-                            IOUtils.write(projectVersion.toJson(), new FileOutputStream(jsonFile), "utf-8");
-                        } catch (Exception e) {
-                            LOGGER.warn("Problem to resolve dependencies for: " + pom.getName() + " " + e.getMessage());
-                        }
-                    }
-                };
-
-                executor.submit(task);
+        Runnable task = new Runnable() {
+          @Override
+          public void run() {
+            try {
+              MavenProjectVersion projectVersion = resolveDependencies(pom);
+              String nameOnly = pom.getName().substring(0, pom.getName().lastIndexOf('.'));
+              File jsonFile = new File(project, nameOnly + "-deps.json");
+              IOUtils.write(projectVersion.toJson(), new FileOutputStream(jsonFile), "utf-8");
+            } catch (Exception e) {
+              LOGGER.warn(
+                "Problem to resolve dependencies for: " + pom.getName() + " " + e.getMessage());
             }
-        }
+          }
+        };
 
-        executor.shutdown();
-        executor.awaitTermination(10, TimeUnit.DAYS);
-        long endTime = System.currentTimeMillis();
-
-        LOGGER.info("Done!");
-        LOGGER.info("\ttime: " + (endTime-startTime) + " ms");
-        LOGGER.info("\tthreads used: " + Preferences.getThreadCount());
-
+        executor.submit(task);
+      }
     }
 
-    /**
-     * Download dependencies for the POM file.
-     * @param pom the pom file
-     * @return maven project with dependencies. Not only POM dependencies, but the whole transitive closure!
-     * @throws Exception error
-     */
-    private static MavenProjectVersion resolveDependencies(File pom) throws Exception {
-        Model model = parsePom(pom);
-        Artifact pomArtefact = toArtifact(model);
+    executor.shutdown();
+    executor.awaitTermination(10, TimeUnit.DAYS);
+    long endTime = System.currentTimeMillis();
 
-        List<Artifact> artifacts = resolver.resolveDependencies(pomArtefact, model.getRepositories());
+    LOGGER.info("Done!");
+    LOGGER.info("\ttime: " + (endTime - startTime) + " ms");
+    LOGGER.info("\tthreads used: " + Preferences.getThreadCount());
 
-        MavenProjectVersion project = new MavenProjectVersion(
-                pomArtefact.getGroupId(),
-                pomArtefact.getArtifactId(),
-                pomArtefact.getVersion(),
-                true);
+  }
 
-        project.setDependencies(artifacts);
+  /**
+   * Download dependencies for the POM file.
+   *
+   * @param pom the pom file
+   * @return maven project with dependencies. Not only POM dependencies, but the whole transitive
+   * closure!
+   * @throws Exception error
+   */
+  private static MavenProjectVersion resolveDependencies(File pom) throws Exception {
+    Model model = parsePom(pom);
+    Artifact pomArtefact = toArtifact(model);
 
-        return project;
+    List<Artifact> artifacts = resolver.resolveDependencies(pomArtefact, model.getRepositories());
+
+    MavenProjectVersion project = new MavenProjectVersion(
+      pomArtefact.getGroupId(),
+      pomArtefact.getArtifactId(),
+      pomArtefact.getVersion(),
+      true);
+
+    project.setDependencies(artifacts);
+
+    return project;
+  }
+
+  private static Artifact toArtifact(Model model) {
+    String groupId = model.getGroupId();
+    String version = model.getVersion();
+
+    // if not group set, inherit from parent
+    if (groupId == null && model.getParent() != null) {
+      groupId = model.getParent().getGroupId();
     }
 
-    private static Artifact toArtifact(Model model) {
-        String groupId = model.getGroupId();
-        String version = model.getVersion();
-
-        // if not group set, inherit from parent
-        if (groupId == null && model.getParent() != null) {
-            groupId = model.getParent().getGroupId();
-        }
-
-        if (version == null && model.getParent() != null) {
-            version = model.getParent().getVersion();
-        }
-
-
-        return new DefaultArtifact(groupId + ":"
-                + model.getArtifactId() + ":"
-                + version);
-
+    if (version == null && model.getParent() != null) {
+      version = model.getParent().getVersion();
     }
 
-    /**
-     * Parse pom file
-     * @param pomFile pom file
-     * @return artifact
-     * @throws IOException error
-     * @throws XmlPullParserException error
-     */
-    public static Model parsePom(final File pomFile) throws IOException, XmlPullParserException {
-        MavenXpp3Reader reader = new MavenXpp3Reader();
+    return new DefaultArtifact(groupId + ":"
+      + model.getArtifactId() + ":"
+      + version);
 
-        try (FileReader r = new FileReader(pomFile)) {
-            return reader.read(r);
-        }
+  }
+
+  /**
+   * Parse pom file
+   *
+   * @param pomFile pom file
+   * @return artifact
+   * @throws IOException            error
+   * @throws XmlPullParserException error
+   */
+  public static Model parsePom(final File pomFile) throws IOException, XmlPullParserException {
+    MavenXpp3Reader reader = new MavenXpp3Reader();
+
+    try (FileReader r = new FileReader(pomFile)) {
+      return reader.read(r);
     }
+  }
 
-    /**
-     * List POM files of a project.
-     * @param project project
-     * @return pom files
-     */
-    public static File[] listPoms(final File project) {
+  /**
+   * List POM files of a project.
+   *
+   * @param project project
+   * @return pom files
+   */
+  public static File[] listPoms(final File project) {
 
-        return project.listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File pathname) {
-                return pathname.getName().endsWith(".pom");
-            }
-        });
-    }
+    return project.listFiles(new FileFilter() {
+      @Override
+      public boolean accept(File pathname) {
+        return pathname.getName().endsWith(".pom");
+      }
+    });
+  }
 }

@@ -2,8 +2,8 @@ package contractstudy.extractors.visitors;
 
 import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.stmt.AssertStmt;
-import contractstudy.ContractElement;
 import contractstudy.ConstraintType;
+import contractstudy.ContractElement;
 import contractstudy.ExtractionListener;
 import contractstudy.ProgramVersion;
 
@@ -12,31 +12,34 @@ import contractstudy.ProgramVersion;
  */
 public class JavaAssertVisitor extends AbstractMethodVisitor {
 
-    public JavaAssertVisitor(String programName, String version, String cuName, ExtractionListener<ContractElement> consumer) {
-        super(consumer, programName, version, cuName);
+  public JavaAssertVisitor(String programName, String version, String cuName,
+    ExtractionListener<ContractElement> consumer) {
+    super(consumer, programName, version, cuName);
+  }
+
+  @Override
+  public void visit(AssertStmt n, Object arg) {
+
+    //String condition = n.getCheck().toStringWithoutComments();
+    String condition = n.getCheck().removeComment().toString(); // JFF: FIXME?
+    Expression message = n.getMessage().orElse(null);
+    String info = null;
+    if (message != null) {
+      info = message.removeComment().toString(); // JFF: FIXME? .toStringWithoutComments();
     }
 
-    @Override
-    public void visit(AssertStmt n, Object arg) {
+    ContractElement p = initConstraint();
 
-        String condition = n.getCheck().toStringWithoutComments();
-        Expression message = n.getMessage();
-        String info = null;
-        if (message != null) {
-            info = message.toStringWithoutComments();
-        }
+    p.setProgramVersion(ProgramVersion.getOrCreate(programName, version));
+    p.setCuName(cuName);
+    p.setCondition(condition);
+    p.setKind(ConstraintType.JavaAssert);
+    //p.setLineNo(n.getBeginLine());
+    p.setLineNo(n.getBegin().get().line); // JFF: FIXME?
+    p.setAdditionalInfo(info);
 
-        ContractElement p = initConstraint();
+    consumer.constraintFound(p);
 
-        p.setProgramVersion(ProgramVersion.getOrCreate(programName, version));
-        p.setCuName(cuName);
-        p.setCondition(condition);
-        p.setKind(ConstraintType.JavaAssert);
-        p.setLineNo(n.getBeginLine());
-        p.setAdditionalInfo(info);
-
-        consumer.constraintFound(p);
-
-        super.visit(n, arg);
-    }
+    super.visit(n, arg);
+  }
 }
