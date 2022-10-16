@@ -16,13 +16,13 @@ public interface ClassCoordinates {
     String getCuName();
 
     /**
-     *
      * @return inner classes
      */
     Set<ClassCoordinates> getInnerClasses();
 
     /**
      * Return methods for this class, excluding inner classes.
+     *
      * @return methods.
      */
     Set<String> getMethods();

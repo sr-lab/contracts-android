@@ -20,7 +20,7 @@ import java.util.zip.ZipOutputStream;
 
 /**
  * This script removes duplicated entries in ZIP files.
- *
+ * <p>
  * The algorithm is simple, it copies entries from old ZIP to a new one, skipping already processed names.
  *
  * @author Kamil Jezek

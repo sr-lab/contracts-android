@@ -8,6 +8,7 @@ import contractstudy.Preferences;
 import contractstudy.ProgramVersion;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+
 import java.io.File;
 import java.io.InputStream;
 import java.util.*;
@@ -23,20 +24,21 @@ import java.util.zip.ZipFile;
  * Script used to check the input data for program versions and programs that do not have source code,
  * or only files that cannot be parsed.
  * Findings are reported on the console. See also list in doc/notes
+ *
  * @author jens dietrich
  */
 public class CheckForProgramVersionsWithoutSourceCode {
 
     private static Logger LOGGER = Logging.getLogger(CheckForProgramVersionsWithoutSourceCode.class);
 
-    public static void main (String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
 
 
         File DATA_FOLDER = new File(Preferences.getDataFolder());
-        Preconditions.checkArgument(DATA_FOLDER.exists(),"Cannot find data in " + DATA_FOLDER.getAbsolutePath());
+        Preconditions.checkArgument(DATA_FOLDER.exists(), "Cannot find data in " + DATA_FOLDER.getAbsolutePath());
         int THREAD_COUNT = Preferences.getThreadCount();
 
-        Collection<File> zips = FileUtils.listFiles(DATA_FOLDER,new String[]{"zip"}, true);
+        Collection<File> zips = FileUtils.listFiles(DATA_FOLDER, new String[]{"zip"}, true);
         ExecutorService executor = Executors.newFixedThreadPool(THREAD_COUNT);
         AtomicInteger counter = new AtomicInteger(0);
 
@@ -44,7 +46,7 @@ public class CheckForProgramVersionsWithoutSourceCode {
         Set<ProgramVersion> programVersionsWithoutParsableSourceCode = Collections.synchronizedSet(new HashSet<>());
         Set<String> programsWithSourceCode = Collections.synchronizedSet(new HashSet<>());
 
-        for (File f:zips) {
+        for (File f : zips) {
             ProgramVersion pv = ProgramVersion.getOrCreateFromFile(f);
             Runnable task = new Runnable() {
                 @Override
@@ -69,14 +71,14 @@ public class CheckForProgramVersionsWithoutSourceCode {
                                     } catch (Exception t) {
                                         LOGGER.warn("Cannot parse cu " + pv + " / " + name);
                                     }
+                                } catch (Exception x) {
                                 }
-                                catch (Exception x) {}
                             }
                         }
                         if (!sourceCodeFound) programVersionsWithoutSourceCode.add(pv);
-                        if (sourceCodeFound && !parsableSourceCodeFound) programVersionsWithoutParsableSourceCode.add(pv);
-                    }
-                    catch (Exception e) {
+                        if (sourceCodeFound && !parsableSourceCodeFound)
+                            programVersionsWithoutParsableSourceCode.add(pv);
+                    } catch (Exception e) {
                         // log errors and continue with next files
                         LOGGER.warn("Cannot parse file: " + f, e);
                         e.printStackTrace();
@@ -90,7 +92,7 @@ public class CheckForProgramVersionsWithoutSourceCode {
 
         Set<String> programsWithoutSources = new HashSet<>();
         // traverse files again to cross-ref programs with programs with sources
-        for (File f:zips) {
+        for (File f : zips) {
             String contextName = f.getName().substring(0, f.getName().lastIndexOf('.'));
             ProgramVersion pv = ProgramVersion.getOrCreateFromFile(f);
             ProgramVersion v = ProgramVersion.getOrCreateFromFile(f);
@@ -103,26 +105,26 @@ public class CheckForProgramVersionsWithoutSourceCode {
         }
 
         LOGGER.warn("Program versions without sourcecode - " + programVersionsWithoutSourceCode.size() + " found, details :");
-        for (ProgramVersion pv:programVersionsWithoutSourceCode) {
+        for (ProgramVersion pv : programVersionsWithoutSourceCode) {
             pv.getFile().delete();
-            LOGGER.warn("\t"+pv);
+            LOGGER.warn("\t" + pv);
         }
 
         LOGGER.warn("Program versions without parsable sourcecode - " + programVersionsWithoutParsableSourceCode.size() + " found, details :");
-        for (ProgramVersion pv:programVersionsWithoutParsableSourceCode) {
-            LOGGER.warn("\t"+pv);
+        for (ProgramVersion pv : programVersionsWithoutParsableSourceCode) {
+            LOGGER.warn("\t" + pv);
         }
 
         LOGGER.warn("Programs without sourcecode - " + programsWithoutSources.size() + " found, details :");
-        for (String p:programsWithoutSources) {
-            LOGGER.warn("\t"+p);
+        for (String p : programsWithoutSources) {
+            LOGGER.warn("\t" + p);
         }
 
         LOGGER.info("Done");
     }
 
-    private static int getCounter(Map<String,Integer> values,String key) {
+    private static int getCounter(Map<String, Integer> values, String key) {
         Integer v = values.get(key);
-        return v==null?0:v;
+        return v == null ? 0 : v;
     }
 }

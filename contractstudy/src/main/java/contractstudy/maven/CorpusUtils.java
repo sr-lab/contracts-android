@@ -18,11 +18,14 @@ import java.util.List;
  */
 public class CorpusUtils {
 
-    /** directory with Mvn data. */
+    /**
+     * directory with Mvn data.
+     */
     public static final File MVN_DATA = new File(Preferences.getDataFolder());
 
     /**
      * Parse dependencies from json
+     *
      * @param json json
      * @return deps.
      */
@@ -94,7 +97,6 @@ public class CorpusUtils {
 
 
     /**
-     *
      * @return list all directories
      */
     public static File[] listProjects(File root) {
@@ -108,7 +110,6 @@ public class CorpusUtils {
     }
 
     /**
-     *
      * @return list all directories
      */
     public static File[] listJsons(File project) {
@@ -120,7 +121,6 @@ public class CorpusUtils {
             }
         });
     }
-
 
 
 }

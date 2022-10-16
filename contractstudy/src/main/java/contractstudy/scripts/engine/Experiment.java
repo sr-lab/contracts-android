@@ -14,12 +14,14 @@ public interface Experiment {
 
     /**
      * list of artefacts used by the experiment
+     *
      * @return array, may be empty if no input data are requiret.
      */
     ExperimentArtefact[] requires();
 
     /**
      * Artefact provided by an experiment.
+     *
      * @return one artefact
      */
     ExperimentArtefact provides();

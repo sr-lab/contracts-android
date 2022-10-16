@@ -7,6 +7,7 @@ import java.util.List;
  * Note that the constraints have this contextual data (program version, compilation unit , ..)
  * as well, however, we cannot always infer this as we want to be able to investigate
  * cases where one constraint set is empty !
+ *
  * @author jens dietrich
  */
 public class DiffRecord {

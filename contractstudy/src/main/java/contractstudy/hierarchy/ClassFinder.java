@@ -9,7 +9,7 @@ public interface ClassFinder {
      * Find a class.
      *
      * @param simpleClassName simple class name
-     * @param packages package filter, in essence packages imported in a class
+     * @param packages        package filter, in essence packages imported in a class
      * @return a file containing the class.
      */
     ClassAndVersion findClass(String simpleClassName, String[] packages);

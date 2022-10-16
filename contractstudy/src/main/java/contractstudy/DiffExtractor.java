@@ -1,8 +1,10 @@
 package contractstudy;
 
 import java.util.List;
+
 /**
  * Abstract interface to extract diff data.
+ *
  * @author jens dietrich
  */
 public interface DiffExtractor {
@@ -17,9 +19,10 @@ public interface DiffExtractor {
      * for overriding, the order should be <super,sub>.
      * The intention is that experiments will check whether the second constraint set
      * is compatible w.r.t. the first one , and this is not symmetric !
-     *
+     * <p>
      * Note that there are no parameters, scripts will access the data sets (constraints extracted
      * via @see CollectConstraint) using settings in @see Preferences.
+     *
      * @return
      */
     List<DiffRecord> extract() throws Exception;

@@ -1,8 +1,8 @@
 package contractstudy.maven;
 
-import contractstudy.scripts.CollectContracts;
 import contractstudy.Logging;
 import contractstudy.Preferences;
+import contractstudy.scripts.CollectContracts;
 import org.apache.log4j.Logger;
 
 import java.io.File;
@@ -12,9 +12,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import static contractstudy.maven.CorpusUtils.listJsons;
-import static contractstudy.maven.CorpusUtils.listProjects;
-import static contractstudy.maven.CorpusUtils.parseDeps;
+import static contractstudy.maven.CorpusUtils.*;
 
 /**
  * Download data for transitive closure.
@@ -24,10 +22,8 @@ import static contractstudy.maven.CorpusUtils.parseDeps;
  */
 public class MavenDownloadTransitiveClosure {
 
-    private static Logger LOGGER = Logging.getLogger(CollectContracts.class);
-
     public static final String MVN_DEPS_DIR = "mvn-dependencies";
-
+    private static Logger LOGGER = Logging.getLogger(CollectContracts.class);
     private static MavenDownloader downloader = new MavenDownloader(new File(MVN_DEPS_DIR));
 
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -35,12 +31,12 @@ public class MavenDownloadTransitiveClosure {
         long startTime = System.currentTimeMillis();
         ExecutorService executor = Executors.newFixedThreadPool(Preferences.getThreadCount());
 
-        int[] failed = new int[] {0};
-        int[] downloaded = new int[] {0};
+        int[] failed = new int[]{0};
+        int[] downloaded = new int[]{0};
 
         for (File project : listProjects(CorpusUtils.MVN_DATA)) {
             for (File version : listJsons(project)) {
-                List<MavenProjectVersion> deps =  parseDeps(version);
+                List<MavenProjectVersion> deps = parseDeps(version);
 
                 for (MavenProjectVersion dep : deps) {
                     Runnable task = new Runnable() {
@@ -65,7 +61,7 @@ public class MavenDownloadTransitiveClosure {
         long endTime = System.currentTimeMillis();
 
         LOGGER.info("Done!");
-        LOGGER.info("\ttime: " + (endTime-startTime) + " ms");
+        LOGGER.info("\ttime: " + (endTime - startTime) + " ms");
         LOGGER.info("\tdownloaded dependencies: " + downloaded[0]);
         LOGGER.info("\tfailed dependencies: " + failed[0]);
         LOGGER.info("\tthreads used: " + Preferences.getThreadCount());

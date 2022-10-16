@@ -18,20 +18,21 @@ import java.util.zip.ZipFile;
  * We look for zips with multiple versions of the same file inside,
  * there is a known case where this is caused by inconsistent meta data.
  * Findings are reported on the console.
+ *
  * @author jens dietrich
  */
 public class CheckForInconsistentZips {
 
-    public static void main (String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
 
 
         File DATA_FOLDER = new File(Preferences.getDataFolder());
-        Preconditions.checkArgument(DATA_FOLDER.exists(),"Cannot find data in " + DATA_FOLDER.getAbsolutePath());
+        Preconditions.checkArgument(DATA_FOLDER.exists(), "Cannot find data in " + DATA_FOLDER.getAbsolutePath());
 
-        Collection<File> zips = FileUtils.listFiles(DATA_FOLDER,new String[]{"zip"}, true);
+        Collection<File> zips = FileUtils.listFiles(DATA_FOLDER, new String[]{"zip"}, true);
         int counter = 0;
 
-        for (File f:zips) {
+        for (File f : zips) {
 
             try {
                 // System.out.println("Analysing " + (++counter) + "/" + zips.size() + " - " + f.getName());
@@ -45,13 +46,12 @@ public class CheckForInconsistentZips {
                         if (!entryNames.add(name)) {
                             System.out.println("File file duplicate entry found: " + f.getName());
                             System.out.println("\t\tduplicate entry: " + name);
-                            counter = counter+1;
+                            counter = counter + 1;
                             break;
                         }
                     }
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

@@ -21,24 +21,26 @@ import static contractstudy.maven.CorpusUtils.MVN_DATA;
 /**
  * This script downloads Maven projects. It downloads the projects ordered by
  * popularity based on the web page: https://mvnrepository.com/popular
- *
+ * <p>
  * Concrete artefacts are then downloaded from the Maven central repository.
  *
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
 public class MavenDownloadProjectsByPopularity {
 
-    private static Logger LOGGER = Logging.getLogger(CollectContracts.class);
-
-    /** Number of projects to download from maven. */
+    /**
+     * Number of projects to download from maven.
+     */
     private static final int NUMBER_OF_PROJECTS = 1000;
-
-    /** Maximal number of pages allowed by mvnrepository.com */
+    /**
+     * Maximal number of pages allowed by mvnrepository.com
+     */
     private static final int MAX_PAGES = 20;
-
-    /** Web page containing projects by popularity. */
+    /**
+     * Web page containing projects by popularity.
+     */
     private static final String MVN_POPULARITY_PAGE = "https://mvnrepository.com/popular";
-
+    private static Logger LOGGER = Logging.getLogger(CollectContracts.class);
     private static MavenDownloader mavenDownloader = new MavenDownloader(MVN_DATA);
 
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -46,8 +48,8 @@ public class MavenDownloadProjectsByPopularity {
         long startTime = System.currentTimeMillis();
         ExecutorService executor = Executors.newFixedThreadPool(Preferences.getThreadCount());
 
-        int[] versions = new int[] {0};
-        List<MavenProjectVersion>  projects = findByPopularity();
+        int[] versions = new int[]{0};
+        List<MavenProjectVersion> projects = findByPopularity();
         for (MavenProjectVersion project : projects) {
             Runnable task = new Runnable() {
                 @Override
@@ -68,7 +70,7 @@ public class MavenDownloadProjectsByPopularity {
         long endTime = System.currentTimeMillis();
 
         LOGGER.info("Done!");
-        LOGGER.info("\ttime: " + (endTime-startTime) + " ms");
+        LOGGER.info("\ttime: " + (endTime - startTime) + " ms");
         LOGGER.info("\tprojects: " + projects.size());
         LOGGER.info("\tversions: " + versions[0]);
         LOGGER.info("\tthreads used: " + Preferences.getThreadCount());
@@ -77,6 +79,7 @@ public class MavenDownloadProjectsByPopularity {
 
     /**
      * Find project sorted by popularity.
+     *
      * @return projects.
      * @throws IOException IO error
      */
@@ -84,7 +87,7 @@ public class MavenDownloadProjectsByPopularity {
         int page = 1;
         boolean go = true;
 
-        List<MavenProjectVersion>  projects = new LinkedList<>();
+        List<MavenProjectVersion> projects = new LinkedList<>();
         while (go) {
             parsePopularPage(page++, projects);
 
@@ -98,7 +101,8 @@ public class MavenDownloadProjectsByPopularity {
 
     /**
      * Parse page with popular maven projects
-     * @param page number of page
+     *
+     * @param page     number of page
      * @param projects store projects into this array
      */
     private static void parsePopularPage(

@@ -2,6 +2,7 @@ package contractstudy;
 
 /**
  * Datastructure to represent the result of running diff.
+ *
  * @author jens dietrich
  */
 public enum DiffResult {

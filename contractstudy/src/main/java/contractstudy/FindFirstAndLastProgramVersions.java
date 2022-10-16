@@ -11,13 +11,14 @@ import java.util.*;
 
 /**
  * Utility to find the first version of each program in the data set.
+ *
  * @author jens dietrich
  */
 public class FindFirstAndLastProgramVersions {
 
     static Logger LOGGER = Logging.getLogger(FindFirstAndLastProgramVersions.class);
 
-    public static Pair<Map<String,ProgramVersion>,Map<String,ProgramVersion>> find() throws Exception {
+    public static Pair<Map<String, ProgramVersion>, Map<String, ProgramVersion>> find() throws Exception {
 
         File DATA_FOLDER = new File(Preferences.getDataFolder());
         // use tree sets, ProgramVersion is comparable
@@ -42,11 +43,11 @@ public class FindFirstAndLastProgramVersions {
             }
         }
 
-        Set<String> __diff = Sets.difference(programVersionsByProgram.keySet(),__programs);
+        Set<String> __diff = Sets.difference(programVersionsByProgram.keySet(), __programs);
         LOGGER.warn(__diff);
 
-        Map<String,ProgramVersion> firstVersions = new TreeMap<>();
-        Map<String,ProgramVersion> lastVersions = new TreeMap<>();
+        Map<String, ProgramVersion> firstVersions = new TreeMap<>();
+        Map<String, ProgramVersion> lastVersions = new TreeMap<>();
 
         programVersionsByProgram
                 .keySet()
@@ -54,7 +55,7 @@ public class FindFirstAndLastProgramVersions {
                 .map(n -> programVersionsByProgram.get(n))
                 .filter(list -> !list.isEmpty())
                 .map(list -> list.first())
-                .forEach(pv -> firstVersions.put(pv.getName(),pv));
+                .forEach(pv -> firstVersions.put(pv.getName(), pv));
 
         programVersionsByProgram
                 .keySet()
@@ -62,26 +63,26 @@ public class FindFirstAndLastProgramVersions {
                 .map(n -> programVersionsByProgram.get(n))
                 .filter(list -> !list.isEmpty())
                 .map(list -> list.last())
-                .forEach(pv -> lastVersions.put(pv.getName(),pv));
+                .forEach(pv -> lastVersions.put(pv.getName(), pv));
 
-        Pair<Map<String,ProgramVersion>,Map<String,ProgramVersion>> result = new ImmutablePair(firstVersions,lastVersions);
+        Pair<Map<String, ProgramVersion>, Map<String, ProgramVersion>> result = new ImmutablePair(firstVersions, lastVersions);
 
         int EXAMPLES_TO_PRINT = 10;
         LOGGER.info("Extracted first and last versions");
         LOGGER.info("\tFirst versions extracted: " + result.getLeft().size());
-        Iterator<Map.Entry<String,ProgramVersion>> iter = result.getLeft().entrySet().iterator();
-        for (int i=0;i<EXAMPLES_TO_PRINT;i++) {
+        Iterator<Map.Entry<String, ProgramVersion>> iter = result.getLeft().entrySet().iterator();
+        for (int i = 0; i < EXAMPLES_TO_PRINT; i++) {
             if (iter.hasNext()) {
-                Map.Entry<String,ProgramVersion> next = iter.next();
+                Map.Entry<String, ProgramVersion> next = iter.next();
                 LOGGER.info("\t" + next.getKey() + " = " + next.getValue());
             }
         }
         if (iter.hasNext()) LOGGER.info("\t..");
         LOGGER.info("\tLast versions extracted: " + result.getRight().size());
         iter = result.getRight().entrySet().iterator();
-        for (int i=0;i<EXAMPLES_TO_PRINT;i++) {
+        for (int i = 0; i < EXAMPLES_TO_PRINT; i++) {
             if (iter.hasNext()) {
-                Map.Entry<String,ProgramVersion> next = iter.next();
+                Map.Entry<String, ProgramVersion> next = iter.next();
                 LOGGER.info("\t" + next.getKey() + " = " + next.getValue());
             }
         }
@@ -91,7 +92,7 @@ public class FindFirstAndLastProgramVersions {
     }
 
     // main for testing
-    public static void main (String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
         find();
     }
 
@@ -100,8 +101,7 @@ public class FindFirstAndLastProgramVersions {
         // use blacklist API to exclude versions with version numbers that don't fit into versioning scheme
         try {
             return !contractstudy.diffrules.Utils.cannotSort(pv);
-        }
-        catch (Exception x) {
+        } catch (Exception x) {
             // TODO: this should not be necessary
             return false;
         }

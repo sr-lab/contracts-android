@@ -30,13 +30,33 @@ public class MavenDependencyResolver {
     private RepositorySystem repoSystem = newRepositorySystem();
     private RepositorySystemSession session = newSession(repoSystem);
 
+    private static RepositorySystem newRepositorySystem() {
+
+        DefaultServiceLocator locator = MavenRepositorySystemUtils.newServiceLocator();
+
+        locator.addService(RepositoryConnectorFactory.class, BasicRepositoryConnectorFactory.class);
+        locator.addService(TransporterFactory.class, FileTransporterFactory.class);
+        locator.addService(TransporterFactory.class, HttpTransporterFactory.class);
+
+        return locator.getService(RepositorySystem.class);
+    }
+
+    private static RepositorySystemSession newSession(RepositorySystem system) {
+        DefaultRepositorySystemSession session = MavenRepositorySystemUtils.newSession();
+
+        LocalRepository localRepo = new LocalRepository(MavenResolveTransitiveClosure.MVN_REPO);
+        session.setLocalRepositoryManager(system.newLocalRepositoryManager(session, localRepo));
+
+        return session;
+    }
+
     public List<Artifact> resolveDependencies(
             final Artifact artifact,
             final List<Repository> extraRepos) throws Exception {
 
         Dependency dependency = new Dependency(artifact, "compile");
         RemoteRepository central = new RemoteRepository.Builder(
-                "central", "default", "http://repo1.maven.org/maven2/" )
+                "central", "default", "http://repo1.maven.org/maven2/")
                 .build();
 
         CollectRequest collectRequest = new CollectRequest();
@@ -62,25 +82,5 @@ public class MavenDependencyResolver {
         node.accept(nlg);
 
         return nlg.getArtifacts(true);
-    }
-
-    private static RepositorySystem newRepositorySystem() {
-
-        DefaultServiceLocator locator = MavenRepositorySystemUtils.newServiceLocator();
-
-        locator.addService(RepositoryConnectorFactory.class, BasicRepositoryConnectorFactory.class);
-        locator.addService(TransporterFactory.class, FileTransporterFactory.class);
-        locator.addService(TransporterFactory.class, HttpTransporterFactory.class);
-
-        return locator.getService(RepositorySystem.class);
-    }
-
-    private static RepositorySystemSession newSession(RepositorySystem system) {
-        DefaultRepositorySystemSession session = MavenRepositorySystemUtils.newSession();
-
-        LocalRepository localRepo = new LocalRepository(MavenResolveTransitiveClosure.MVN_REPO);
-        session.setLocalRepositoryManager(system.newLocalRepositoryManager(session, localRepo));
-
-        return session;
     }
 }

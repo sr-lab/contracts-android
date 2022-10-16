@@ -20,8 +20,7 @@ public class FileScanArtefact implements ExperimentArtefact {
     }
 
     /**
-     *
-     * @param root root folder with artefact results
+     * @param root  root folder with artefact results
      * @param files additional files in the root to check for, may be empty
      */
     public FileScanArtefact(final File root, final Collection<File> files) {

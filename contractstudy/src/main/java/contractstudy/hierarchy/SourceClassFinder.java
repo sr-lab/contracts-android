@@ -15,8 +15,11 @@ import java.util.Collection;
  */
 public class SourceClassFinder implements ClassFinder {
 
+    /**
+     * CU cache  key - class name, program version,  value CU
+     */
+    Table<String, ProgramVersion, String> cuNames;
     private Logger LOGGER = Logging.getLogger(CollectContracts.class);
-
     /**
      * key - simple class name, value - package
      */
@@ -25,11 +28,6 @@ public class SourceClassFinder implements ClassFinder {
      * key - class origin, value - full class name
      */
     private Multimap<String, ProgramVersion> classOrigin = HashMultimap.create();
-
-    /**
-     * CU cache  key - class name, program version,  value CU
-     */
-    Table<String, ProgramVersion, String> cuNames;
 
     public SourceClassFinder(
             final Multimap<String, String> classPcgs,

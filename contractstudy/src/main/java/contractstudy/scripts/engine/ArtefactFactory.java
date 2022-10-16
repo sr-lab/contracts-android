@@ -17,8 +17,8 @@ import static org.apache.commons.io.FileUtils.listFiles;
 public class ArtefactFactory {
 
     public static final File INPUT_DIR = new File(Preferences.getDataFolder());
-    public static final Collection<File> INPUT_ZIP_FILES = listFiles(INPUT_DIR, new String[] {"zip"}, true);
-    public static final Collection<File> INPUT_DEPS_FILES = listFiles(INPUT_DIR, new String[] {"json"}, true);
+    public static final Collection<File> INPUT_ZIP_FILES = listFiles(INPUT_DIR, new String[]{"zip"}, true);
+    public static final Collection<File> INPUT_DEPS_FILES = listFiles(INPUT_DIR, new String[]{"json"}, true);
 
     public static final File OUTPUT_DIR = new File(Preferences.getOutputFolder());
     public static final File OUTPUT_DIR_CONTRACTS = new File(Preferences.getOutputContractsFolder());
@@ -40,16 +40,15 @@ public class ArtefactFactory {
 
     static {
         if (OUTPUT_DIR_CONTRACTS.exists()) {
-            CONTRACT_FILES .addAll(FileUtils.listFiles(OUTPUT_DIR_CONTRACTS, new String[] {"json"}, true));
+            CONTRACT_FILES.addAll(FileUtils.listFiles(OUTPUT_DIR_CONTRACTS, new String[]{"json"}, true));
         }
 
         if (OUTPUT_DIR_STRUCT.exists()) {
-            STRUCT_FILES.addAll(FileUtils.listFiles(OUTPUT_DIR_STRUCT, new String[] {"json"}, true));
+            STRUCT_FILES.addAll(FileUtils.listFiles(OUTPUT_DIR_STRUCT, new String[]{"json"}, true));
         }
     }
 
     /**
-     *
      * @return contracts in Json format.
      */
     public static ExperimentArtefact contracts() {
@@ -57,7 +56,6 @@ public class ArtefactFactory {
     }
 
     /**
-     *
      * @return class structures (methods, super types) in Json format
      */
     public static ExperimentArtefact classStructure() {
@@ -66,7 +64,6 @@ public class ArtefactFactory {
 
 
     /**
-     *
      * @return CSV table with information of super calls.
      */
     public static ExperimentArtefact superCalls() {
@@ -74,7 +71,6 @@ public class ArtefactFactory {
     }
 
     /**
-     *
      * @return input ZIP files with source code
      */
     public static ExperimentArtefact inputSrcZipFiles() {
@@ -83,7 +79,6 @@ public class ArtefactFactory {
 
 
     /**
-     *
      * @return input Json files with artefact dependencies
      */
     public static ExperimentArtefact inputDepFiles() {
@@ -91,7 +86,6 @@ public class ArtefactFactory {
     }
 
     /**
-     *
      * @return TeX table with constrain evolution
      */
     public static ExperimentArtefact contractsEvolutionTable() {
@@ -99,7 +93,6 @@ public class ArtefactFactory {
     }
 
     /**
-     *
      * @return Tex table with contracts diff in hierarchy
      */
     public static ExperimentArtefact contractsHierarchyTable() {
@@ -107,7 +100,6 @@ public class ArtefactFactory {
     }
 
     /**
-     *
      * @return TeX table with dataset statistics
      */
     public static ExperimentArtefact datasetStatistics() {
@@ -115,7 +107,6 @@ public class ArtefactFactory {
     }
 
     /**
-     *
      * @return CSV table with program version statistics.
      */
     public static ExperimentArtefact programVersionStatistics() {
@@ -123,7 +114,6 @@ public class ArtefactFactory {
     }
 
     /**
-     *
      * @return CSV table with program contracts usage among versions
      */
     public static ExperimentArtefact contractsUsageAcrossVersions() {
@@ -131,7 +121,6 @@ public class ArtefactFactory {
     }
 
     /**
-     *
      * @return CSV table with program contracts usage among versions
      */
     public static ExperimentArtefact contractsUsageAcrossVersionsTopContractUsers() {
@@ -139,7 +128,6 @@ public class ArtefactFactory {
     }
 
     /**
-     *
      * @return several tables about contracts usage
      */
     public static ExperimentArtefact contractsUsage() {
@@ -147,5 +135,4 @@ public class ArtefactFactory {
     }
 
 
-    
 }

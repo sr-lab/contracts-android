@@ -35,6 +35,17 @@ public class ClassAndVersion {
         return new ClassAndVersion(v, className, cuName);
     }
 
+    public static ClassAndVersion fromJson(String json) throws IOException {
+        JSONObject o = new JSONObject(json);
+
+        return create(
+                o.getString("programName"),
+                o.getString("programVersion"),
+                o.getString("className"),
+                o.getString("cuName")
+        );
+    }
+
     public String getClassName() {
         return className;
     }
@@ -47,7 +58,6 @@ public class ClassAndVersion {
         return cuName;
     }
 
-
     public String toJson() {
         JSONObject o = new JSONObject();
         o.put("className", className);
@@ -57,18 +67,6 @@ public class ClassAndVersion {
 
         return o.toString();
     }
-
-    public static ClassAndVersion fromJson(String json) throws IOException {
-        JSONObject o = new JSONObject(json);
-
-        return create(
-                o.getString("programName"),
-                o.getString("programVersion"),
-                o.getString("className"),
-                o.getString("cuName")
-        );
-    }
-
 
     @Override
     public boolean equals(Object o) {

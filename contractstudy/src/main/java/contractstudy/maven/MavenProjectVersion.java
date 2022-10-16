@@ -17,7 +17,9 @@ public class MavenProjectVersion {
     private String version;
     private boolean sourcesAvailable;
 
-    /** Resolved dependencies - i.e. transitive closure, not only POM listed dependencies. */
+    /**
+     * Resolved dependencies - i.e. transitive closure, not only POM listed dependencies.
+     */
     private List<Artifact> dependencies = new ArrayList<>();
 
     public MavenProjectVersion(
@@ -83,7 +85,7 @@ public class MavenProjectVersion {
 
         JSONArray a = new JSONArray();
         for (Artifact d : dependencies) {
-            JSONObject o  = new JSONObject();
+            JSONObject o = new JSONObject();
             o.put("groupId", d.getGroupId());
             o.put("artifactId", d.getArtifactId());
             o.put("version", d.getVersion());

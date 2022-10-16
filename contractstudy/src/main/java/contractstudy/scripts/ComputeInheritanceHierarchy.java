@@ -3,11 +3,7 @@ package contractstudy.scripts;
 import contractstudy.Logging;
 import contractstudy.Preferences;
 import contractstudy.ProgramVersion;
-import contractstudy.hierarchy.ClassAndVersion;
-import contractstudy.hierarchy.ClassCoordinates;
-import contractstudy.hierarchy.ClassParents;
-import contractstudy.hierarchy.InheritanceResolved;
-import contractstudy.hierarchy.ProjectVersionHierarchyExtractor;
+import contractstudy.hierarchy.*;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;
@@ -19,35 +15,26 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import static contractstudy.maven.CorpusUtils.listJsons;
-import static contractstudy.maven.CorpusUtils.listProjects;
-import static contractstudy.maven.CorpusUtils.parseVersion;
+import static contractstudy.maven.CorpusUtils.*;
 
 /**
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
 public class ComputeInheritanceHierarchy implements Experiment {
 
-    private static ProjectVersionHierarchyExtractor extractor = new ProjectVersionHierarchyExtractor();
-
-    private static Logger LOGGER = Logging.getLogger(ComputeInheritanceHierarchy.class);
-
     private static final File ROOT = new File(Preferences.getOutputStructureFolder());
+    private static ProjectVersionHierarchyExtractor extractor = new ProjectVersionHierarchyExtractor();
+    private static Logger LOGGER = Logging.getLogger(ComputeInheritanceHierarchy.class);
 
     public static void main(String[] args) throws Exception {
 
         // do not forget to add this folder!
-        File jdkDir = new File(Preferences.getDataFolder(), "../jdk-data/open-jdk");
+        /*File jdkDir = new File(Preferences.getDataFolder(), "../jdk-data/open-jdk");
         File jdk = new File(jdkDir, "open-jdk-8.zip");
 
         // TODO remove copy/paste code
@@ -69,7 +56,7 @@ public class ComputeInheritanceHierarchy implements Experiment {
             });
             File file = new File(new File(ROOT, jdkDir.getName()), "open-jdk-8-struct.json");
             save(file, classesMap);
-        }
+        }*/
 
         long startTime = System.currentTimeMillis();
         ExecutorService executor = Executors.newFixedThreadPool(Preferences.getThreadCount());
@@ -180,12 +167,12 @@ public class ComputeInheritanceHierarchy implements Experiment {
 
             return;
         }
-        ComputeInheritanceHierarchy.main(new String[] {});
+        ComputeInheritanceHierarchy.main(new String[]{});
     }
 
     @Override
     public ExperimentArtefact[] requires() {
-        return new ExperimentArtefact[] {
+        return new ExperimentArtefact[]{
                 ArtefactFactory.inputSrcZipFiles(),
                 ArtefactFactory.inputDepFiles()
         };

@@ -2,8 +2,8 @@ package contractstudy.extractors.visitors;
 
 import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.stmt.AssertStmt;
-import contractstudy.ContractElement;
 import contractstudy.ConstraintType;
+import contractstudy.ContractElement;
 import contractstudy.ExtractionListener;
 import contractstudy.ProgramVersion;
 

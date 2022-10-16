@@ -1,13 +1,14 @@
 package contractstudy;
 
 import java.util.function.Function;
+
 import static contractstudy.ConstraintClassifiers.*;
 
 /**
  * Represents types of constraints found in Java classes. constraint type >
  * contstraint group > constraint category example: ConstraintTypeJSR303Null >
  * ConstraintGroup.ANNO_JSR30 > ConstraintCategory.ANNOTATION
- * 
+ *
  * @author jens dietrich
  */
 public enum ConstraintType {
@@ -269,12 +270,12 @@ public enum ConstraintType {
     FindBugsPossiblyNull(ConstraintGroup.ANNO_FINDBUGS, _STANDARD_ANNOTATION, TVL.NO),
     FindBugsUnknownNullness(ConstraintGroup.ANNO_FINDBUGS, _STANDARD_ANNOTATION, TVL.NO),
     FindBugsCreatesObligation(ConstraintGroup.ANNO_FINDBUGS, _STANDARD_ANNOTATION, TVL.NO), // TODO Jens: needs further
-                                                                                            // discussion, please review
+    // discussion, please review
     FindBugsDischargesObligation(ConstraintGroup.ANNO_FINDBUGS, _STANDARD_ANNOTATION, TVL.NO), // TODO Jens: needs
-                                                                                               // further discussion,
-                                                                                               // please review
+    // further discussion,
+    // please review
     FindBugsCleanupObligation(ConstraintGroup.ANNO_FINDBUGS, _STANDARD_ANNOTATION, TVL.NO), // TODO Jens: needs further
-                                                                                            // discussion, please review
+    // discussion, please review
 
     // Android annotations
     AndroidSuppressLint(ConstraintGroup.ANNO_Android, _STANDARD_ANNOTATION, TVL.NO),
@@ -355,11 +356,11 @@ public enum ConstraintType {
     JSR305Tainted(ConstraintGroup.ANNO_JSR305, _STANDARD_ANNOTATION, TVL.NO),
     JSR305Untainted(ConstraintGroup.ANNO_JSR305, _STANDARD_ANNOTATION, TVL.NO),
     JSR305WillClose(ConstraintGroup.ANNO_JSR305, _STANDARD_ANNOTATION, TVL.NO), // TODO Jens: needs further discussion,
-                                                                                // please review
+    // please review
     JSR305WillCloseWhenClosed(ConstraintGroup.ANNO_JSR305, _STANDARD_ANNOTATION, TVL.NO), // TODO Jens: needs further
-                                                                                          // discussion, please review
+    // discussion, please review
     JSR305WillNotClose(ConstraintGroup.ANNO_JSR305, _STANDARD_ANNOTATION, TVL.NO), // TODO Jens: needs further
-                                                                                   // discussion, please review
+    // discussion, please review
 
     // JSR305 Concurrent
     JSR305CONCURRENTGuardedBy(ConstraintGroup.ANNO_JSR305, _STANDARD_ANNOTATION, TVL.NO),
@@ -376,7 +377,7 @@ public enum ConstraintType {
     JetBrainsTestOnly(ConstraintGroup.ANNO_JetBrains, _PRECONDITION, TVL.NO),
     IntellijFlow(ConstraintGroup.ANNO_JetBrains, _PRECONDITION, TVL.NO),
     IntellijIdentifier(ConstraintGroup.ANNO_JetBrains, _STANDARD_ANNOTATION, TVL.NO), // TODO Jens: needs further
-                                                                                      // discussion, please review
+    // discussion, please review
     IntellijJdkConstants_AdjustableOrientation(ConstraintGroup.ANNO_JetBrains, _STANDARD_ANNOTATION, TVL.NO),
     IntellijJdkConstants_BoxLayoutAxis(ConstraintGroup.ANNO_JetBrains, _STANDARD_ANNOTATION, TVL.NO),
     IntellijJdkConstants_CalendarMonth(ConstraintGroup.ANNO_JetBrains, _STANDARD_ANNOTATION, TVL.NO),
@@ -416,7 +417,7 @@ public enum ConstraintType {
     }
 
     ConstraintType(ConstraintGroup group, Function<ConstraintedArtefact, ConstraintClassification> classifier,
-            TVL isQuantifying) {
+                   TVL isQuantifying) {
         this.group = group;
         this.classifier = classifier;
         this.isQuantifying = isQuantifying;

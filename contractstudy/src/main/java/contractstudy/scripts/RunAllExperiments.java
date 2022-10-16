@@ -14,8 +14,6 @@ import org.apache.log4j.Logger;
  */
 public class RunAllExperiments {
 
-    private static Logger LOGGER = Logging.getLogger(ComputeInheritanceHierarchy.class);
-
     private static final Experiment[] EXPERIMENTS = new Experiment[]{
             new CollectContracts(),
             new ComputeInheritanceHierarchy(),
@@ -27,9 +25,11 @@ public class RunAllExperiments {
             new AnalyseContractUsageAcrossVersions(),
             new AnalyseHierarchyContracts(),
     };
+    private static Logger LOGGER = Logging.getLogger(ComputeInheritanceHierarchy.class);
 
     /**
      * Invoke all experiment
+     *
      * @param args empty
      * @throws Exception error
      */

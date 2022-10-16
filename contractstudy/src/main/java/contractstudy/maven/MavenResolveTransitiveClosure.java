@@ -1,8 +1,8 @@
 package contractstudy.maven;
 
-import contractstudy.scripts.CollectContracts;
 import contractstudy.Logging;
 import contractstudy.Preferences;
+import contractstudy.scripts.CollectContracts;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.apache.maven.model.Model;
@@ -11,11 +11,7 @@ import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
 import org.eclipse.aether.artifact.Artifact;
 import org.eclipse.aether.artifact.DefaultArtifact;
 
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -25,18 +21,18 @@ import static contractstudy.maven.CorpusUtils.listProjects;
 
 /**
  * This class downloads all dependencies for the maven projects stored in the "mvn-data" directory
- *
+ * <p>
  * From: http://wiki.eclipse.org/Aether/Resolving_Dependencies
  *
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
 public class MavenResolveTransitiveClosure {
 
-    private static Logger LOGGER = Logging.getLogger(CollectContracts.class);
-
     public static String MVN_REPO = "mvn-repo";
-
-    /** Maven deps resolver. */
+    private static Logger LOGGER = Logging.getLogger(CollectContracts.class);
+    /**
+     * Maven deps resolver.
+     */
     private static MavenDependencyResolver resolver = new MavenDependencyResolver();
 
     public static void main(String[] args) throws Exception {
@@ -74,13 +70,14 @@ public class MavenResolveTransitiveClosure {
         long endTime = System.currentTimeMillis();
 
         LOGGER.info("Done!");
-        LOGGER.info("\ttime: " + (endTime-startTime) + " ms");
+        LOGGER.info("\ttime: " + (endTime - startTime) + " ms");
         LOGGER.info("\tthreads used: " + Preferences.getThreadCount());
 
     }
 
     /**
      * Download dependencies for the POM file.
+     *
      * @param pom the pom file
      * @return maven project with dependencies. Not only POM dependencies, but the whole transitive closure!
      * @throws Exception error
@@ -124,9 +121,10 @@ public class MavenResolveTransitiveClosure {
 
     /**
      * Parse pom file
+     *
      * @param pomFile pom file
      * @return artifact
-     * @throws IOException error
+     * @throws IOException            error
      * @throws XmlPullParserException error
      */
     public static Model parsePom(final File pomFile) throws IOException, XmlPullParserException {
@@ -139,6 +137,7 @@ public class MavenResolveTransitiveClosure {
 
     /**
      * List POM files of a project.
+     *
      * @param project project
      * @return pom files
      */

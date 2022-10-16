@@ -1,12 +1,11 @@
 package contractstudy.hierarchy;
 
+import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.EnumDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.Modifier;
-//import com.github.javaparser.ast.body.ModifierSet;
 import contractstudy.extractors.visitors.AbstractMethodVisitor;
 
 import java.util.HashMap;
@@ -21,14 +20,15 @@ public class ClassDefinitionVisitor extends AbstractMethodVisitor implements Cla
 
     private String classSimpleName = null;
 
-    /** Key is a class name. Value all inner classes. */
+    /**
+     * Key is a class name. Value all inner classes.
+     */
     private Map<String, ASTState> innerClassesState = new HashMap<>();
 
 
     public ClassDefinitionVisitor(String cuName) {
         super(null, null, null, cuName);
     }
-
 
 
     @Override

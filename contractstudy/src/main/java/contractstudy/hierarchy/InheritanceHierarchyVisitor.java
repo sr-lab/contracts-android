@@ -16,10 +16,14 @@ import java.util.Set;
 public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implements ClassParents, ClassCoordinates {
 
 
-    /** Class finder. */
+    /**
+     * Class finder.
+     */
     private ClassFinder classFinder;
 
-    /** Packages import. */
+    /**
+     * Packages import.
+     */
     private List<String> packages = new ArrayList<>();
 
     public InheritanceHierarchyVisitor(

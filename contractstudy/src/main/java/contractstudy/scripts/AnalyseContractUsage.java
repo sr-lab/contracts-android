@@ -3,7 +3,6 @@ package contractstudy.scripts;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import contractstudy.*;
-import contractstudy.ContractElement;
 import contractstudy.diffrules.Utils;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
@@ -13,17 +12,12 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static contractstudy.diffrules.Utils.NF;
@@ -31,7 +25,7 @@ import static contractstudy.diffrules.Utils.NF;
 /**
  * Script used to analyse how contracts are used by programs. This script counts
  * the contracts elements.
- * 
+ *
  * @author jens dietrich
  */
 public class AnalyseContractUsage implements Experiment {
@@ -44,7 +38,7 @@ public class AnalyseContractUsage implements Experiment {
         File RESULTS_FOLDER = new File(Preferences.getResultsFolder());
 
         List<ContractElement> contractElements = new ArrayList<>();
-        Collection<File> jsons = FileUtils.listFiles(INPUT_DATA_FOLDER, new String[] { "json" }, true);
+        Collection<File> jsons = FileUtils.listFiles(INPUT_DATA_FOLDER, new String[]{"json"}, true);
         for (File json : jsons) {
             String data = FileUtils.readFileToString(json, StandardCharsets.UTF_8);
             JSONArray all = new JSONArray(data);
@@ -220,10 +214,10 @@ public class AnalyseContractUsage implements Experiment {
 
                 double increase_rate = 0;
                 boolean show_increase_rate = true;
-                if (last_version > first_version && first_version!=0) {
+                if (last_version > first_version && first_version != 0) {
                     increase_rate = (double) last_version / first_version;
-                } else if (first_version > last_version && last_version!=0) {
-                    increase_rate =  - ((double) first_version / last_version);
+                } else if (first_version > last_version && last_version != 0) {
+                    increase_rate = -((double) first_version / last_version);
                 }
                 if (first_version == 0 || last_version == 0) {
                     show_increase_rate = false;
@@ -231,9 +225,9 @@ public class AnalyseContractUsage implements Experiment {
 
                 if (total_contracts >= last_version) {
                     out.print(NF.format(first_version) + " &  ");
-                    if(show_increase_rate) {
+                    if (show_increase_rate) {
                         if (increase_rate != 0) {
-                            out.print(NF.format(constraintsByGroupLV.get(entry.getKey())) + " ( " + String.format("%.2f",increase_rate) + "x )" + " &  ");
+                            out.print(NF.format(constraintsByGroupLV.get(entry.getKey())) + " ( " + String.format("%.2f", increase_rate) + "x )" + " &  ");
                         } else {
                             out.print(NF.format(constraintsByGroupLV.get(entry.getKey())) + " ( \\approx )" + " &  ");
                         }
@@ -324,8 +318,8 @@ public class AnalyseContractUsage implements Experiment {
                     // out.print(category.getName());
                     if (s.length() > 0)
                         // replace _ with - so that it doesn't cause LaTeX errors
-                        s = s.replace('_','-');
-                        s = s + ", ";
+                        s = s.replace('_', '-');
+                    s = s + ", ";
                     s = s + e.getKey() + " (" + Utils.NF.format(e.getValue()) + ")";
                 }
                 out.println(s + " \\\\ ");
@@ -359,12 +353,12 @@ public class AnalyseContractUsage implements Experiment {
 
             return;
         }
-        AnalyseContractUsage.main(new String[] {});
+        AnalyseContractUsage.main(new String[]{});
     }
 
     @Override
     public ExperimentArtefact[] requires() {
-        return new ExperimentArtefact[] { ArtefactFactory.contracts() };
+        return new ExperimentArtefact[]{ArtefactFactory.contracts()};
     }
 
     @Override

@@ -8,6 +8,7 @@ package contractstudy;
  * JSR303 or JSR305, because this can be used to infer whether an annotation represents
  * a precondition (if method parameter is annotated), a postcondition (if method - and therefore
  * the method return type is annotated) or an invariant (otherwise, if the field is annotated).
+ *
  * @author jens dietrich
  */
 public enum ConstraintedArtefact {

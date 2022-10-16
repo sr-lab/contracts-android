@@ -2,7 +2,10 @@ package contractstudy.extractors;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import contractstudy.*;
+import contractstudy.ConstraintType;
+import contractstudy.ContractElement;
+import contractstudy.ExtractionListener;
+import contractstudy.Extractor;
 import contractstudy.extractors.visitors.StaticImportCollector;
 import contractstudy.extractors.visitors.StaticImportState;
 import contractstudy.extractors.visitors.VisitorToCollectAnnotations;
@@ -13,9 +16,10 @@ import java.util.Map;
 
 /**
  * Abstract annotation extractor based on Kamil's JSR303 extractor.
+ *
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
-public class AbstractAnnotationExtractor implements Extractor<ContractElement>  {
+public class AbstractAnnotationExtractor implements Extractor<ContractElement> {
 
     private Map<String, ConstraintType> constraintsByName = new HashMap<>();
 
@@ -51,10 +55,10 @@ public class AbstractAnnotationExtractor implements Extractor<ContractElement>  
             StaticImportCollector importsCollector = new StaticImportCollector(annotationPackageName, "");
             importsCollector.visit(cu, null);
             StaticImportState importState = importsCollector.getStaticImportState();
-            VisitorToCollectAnnotations visitor = new VisitorToCollectAnnotations(consumer,programName,version,cuName,importState, constraintsByName);
+            VisitorToCollectAnnotations visitor = new VisitorToCollectAnnotations(consumer, programName, version, cuName, importState, constraintsByName);
             visitor.visit(cu, null);
         } catch (Error | Exception e) {
-        	consumer.extractionExceptionEncountered("Cannot parse " + programName + "-" + version + "/" + cuName,e);
+            consumer.extractionExceptionEncountered("Cannot parse " + programName + "-" + version + "/" + cuName, e);
         }
     }
 

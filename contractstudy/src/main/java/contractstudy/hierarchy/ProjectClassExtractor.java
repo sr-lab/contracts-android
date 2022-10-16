@@ -14,7 +14,7 @@ public class ProjectClassExtractor {
      *
      * @param cu          class
      * @param classFinder parent classes finder.
-     * @param cuName CU name
+     * @param cuName      CU name
      * @throws Exception error
      */
     public ClassParents readInheritance(
@@ -31,7 +31,7 @@ public class ProjectClassExtractor {
     /**
      * Read single class.
      *
-     * @param cu file.
+     * @param cu     file.
      * @param cuName CU name
      * @return package and class
      * @throws Exception error

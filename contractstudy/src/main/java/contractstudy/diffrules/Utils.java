@@ -17,14 +17,13 @@ import java.util.stream.Collectors;
 
 /**
  * Useful reusable utils.
+ *
  * @author jens dietrich
  */
 public class Utils {
 
-    private static Logger LOGGER = Logging.getLogger(Utils.class);
-
     public static NumberFormat NF = NumberFormat.getIntegerInstance(Locale.US);
-
+    private static Logger LOGGER = Logging.getLogger(Utils.class);
 
     public static List<ContractElement> filter(List<ContractElement> contractElements, Predicate<ContractElement> condition) {
         return contractElements.stream().filter(condition).collect(Collectors.toList());
@@ -35,16 +34,19 @@ public class Utils {
      * ignore program version to facilitate evolution studies
      * ignore cu to facilitate hierarchy (LSP) studies
      * ignore additional info (optional) as it is considered irrelvant)
+     *
      * @param o1
      * @param o2
      * @return
      */
     public static boolean unchanged(ContractElement o1, ContractElement o2, boolean ignoreAdditionalInfoField) {
-        return  o1.getConstraintedArtefact()==o2.getConstraintedArtefact()
+        return o1.getConstraintedArtefact() == o2.getConstraintedArtefact()
                 && o1.getKind() == o2.getKind()
                 && o1.getCondition().equals(o2.getCondition())
                 && (ignoreAdditionalInfoField || o1.getAdditionalInfo().equals(o2.getAdditionalInfo()));
-    };
+    }
+
+    ;
 
 
     /**
@@ -60,7 +62,8 @@ public class Utils {
 
         // remove all white chars.
         String cond1 = o1.getCondition().replaceAll("\\s", "");
-        String cond2 = o2.getCondition().replaceAll("\\s", "");;
+        String cond2 = o2.getCondition().replaceAll("\\s", "");
+        ;
 
         // separate logical formula to components.
         String[] con1parts = cond1.split("\\|\\||&&");  //   || or &&
@@ -93,6 +96,7 @@ public class Utils {
                 && o1.getConstraintedArtefact() == o2.getConstraintedArtefact()
                 && o1.getKind() == o2.getKind();
     }
+
     /**
      * Return true if condition in second constrains has been only extended.
      * The extension is checked by added logical condition.
@@ -103,7 +107,7 @@ public class Utils {
      */
     public static boolean constraintStrengthened(ContractElement o1, ContractElement o2) {
 
-        return conditionExtended(o1, o2, "&&") ;
+        return conditionExtended(o1, o2, "&&");
     }
 
     /**
@@ -121,6 +125,7 @@ public class Utils {
 
     /**
      * Check getter refactor. It means a constraint is changed from "foo" to "getFoo()"
+     *
      * @param o1
      * @param o2
      * @return
@@ -144,7 +149,7 @@ public class Utils {
             cond2 = WordUtils.uncapitalize(cond2).replaceAll("\\s", "");
             cond1 = WordUtils.uncapitalize(cond1).replaceAll("\\s", "");
 
-            r =  cond1.equals(cond2);
+            r = cond1.equals(cond2);
 
         }
 
@@ -165,17 +170,17 @@ public class Utils {
     }
 
 
-    public static  Map<String, List<ProgramVersion>> getSortedProgramVersions () throws Exception {
+    public static Map<String, List<ProgramVersion>> getSortedProgramVersions() throws Exception {
 
         File versions = new File("data/version-order.txt");
-        List<String> sortedVersions = FileUtils.readLines(versions,StandardCharsets.UTF_8);
-        final Map<String,Integer> sorted = new HashMap<>();
+        List<String> sortedVersions = FileUtils.readLines(versions, StandardCharsets.UTF_8);
+        final Map<String, Integer> sorted = new HashMap<>();
         int c = 0;
-        for (String v:sortedVersions) {
-            if (!v.startsWith("#") && v.trim().length()>0) { // ecl comments
-                sorted.put(v,c);
+        for (String v : sortedVersions) {
+            if (!v.startsWith("#") && v.trim().length() > 0) { // ecl comments
+                sorted.put(v, c);
             }
-            c = c+1;
+            c = c + 1;
         }
 
         File DATA_FOLDER = new File(Preferences.getDataFolder());
@@ -187,26 +192,26 @@ public class Utils {
             ProgramVersion pv = ProgramVersion.getOrCreateFromFile(f);
             String programName = pv.getName();
             //if (!cannotSort(pv)) {
-                programVersionsByProgram.compute(programName, (n, list) -> {
-                    if (list == null) {
-                        list = new ArrayList<>();
-                    }
-                    list.add(pv);
-                    return list;
-                });
+            programVersionsByProgram.compute(programName, (n, list) -> {
+                if (list == null) {
+                    list = new ArrayList<>();
+                }
+                list.add(pv);
+                return list;
+            });
             //}
         }
 
         // sort lists
-        for (List<ProgramVersion> list: programVersionsByProgram.values()) {
+        for (List<ProgramVersion> list : programVersionsByProgram.values()) {
             Collections.sort(list, new Comparator<ProgramVersion>() {
                 @Override
                 public int compare(ProgramVersion o1, ProgramVersion o2) {
                     Integer i1 = sorted.get(o1.getName());
-                    assert i1!=null;
+                    assert i1 != null;
                     Integer i2 = sorted.get(o2.getName());
-                    assert i2!=null;
-                    return sorted.get(i1.intValue()-i2.intValue());
+                    assert i2 != null;
+                    return sorted.get(i1.intValue() - i2.intValue());
                 }
             });
         }

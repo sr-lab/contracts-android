@@ -19,16 +19,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static contractstudy.maven.CorpusUtils.listJsons;
 import static contractstudy.maven.CorpusUtils.listProjects;
@@ -40,13 +31,10 @@ public class SubtypeDiffExtractor implements DiffExtractor {
 
     // TODO abstract or util class not to repeat code
 
-    private static Logger LOGGER = Logging.getLogger(SubtypeDiffExtractor.class);
-
     /**
      * We do not use class name, as it is not stored in the Constraint. Only CU is stored.
      */
     private static final String EMPTY_CLASS_NAME = "";
-
     /**
      * Removed because cannot be sorted.
      */
@@ -59,12 +47,128 @@ public class SubtypeDiffExtractor implements DiffExtractor {
      * Removed because it calls super.
      */
     private static final String REMOVED_SUPER = "super";
-
     /**
      * Removed because it uses annotations.
      */
     private static final String REMOVED_ANNOTATIONS = "annotations";
+    private static Logger LOGGER = Logging.getLogger(SubtypeDiffExtractor.class);
 
+    private static String getIndexKey(ProgramVersion pv, String cu, String methodDecl) {
+        return pv.getName() + "-" + pv.getVersion() + '#' + cu + '/' + (methodDecl == null ? "" : methodDecl);
+    }
+
+    /**
+     * This creates index for the same constraints, which differ only in applied versions.
+     * In other words, it captures if the same constraints is added again and again to different versions
+     *
+     * @return
+     */
+    private static String getIndexSameConstrDifferentVersion(final ContractElement pc) {
+        ProgramVersion pv = pc.getProgramVersion();
+        String cu = pc.getCuName();
+        String methodDecl = pc.getMethodDeclaration();
+
+        return pv.getName() + '#' + cu + '/' + (methodDecl == null ? "" : methodDecl) + " c:" + pc.getCondition() + "," + pc.getKind();
+    }
+
+    /**
+     * This method goes through the input data files and fill-ins the input map
+     * with information about what inherits what and which methods are available by a class.
+     *
+     * @param inheritanceMap key - sub class, value - parent class
+     * @param methods        key a class, value methods including inherited ones.
+     * @throws IOException error to load files
+     */
+    public static void readInheritanceCSV(
+            final HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap,
+            final Map<ClassAndVersion, Set<String>> methods) throws IOException {
+
+
+        for (File project : listProjects(new File(Preferences.getOutputStructureFolder()))) {
+            for (File json : listJsons(project)) {
+
+                String projectName = project.getName();
+                // json is named  <xxx>-struct,json
+                String versionName = json.getName().substring(projectName.length() + 1, json.getName().lastIndexOf("-"));
+
+                JSONArray arr = new JSONArray(IOUtils.toString(new FileInputStream(json), Charset.forName("UTF-8")));
+                for (Object anArr : arr) {
+                    JSONObject o = (JSONObject) anArr;
+                    ClassAndVersion subTypeTmp = ClassAndVersion.create(projectName, versionName, EMPTY_CLASS_NAME, o.getString("cuName"));
+
+                    // collect methods
+                    JSONArray mm = o.getJSONArray("methods");
+                    Iterator<Object> itM = mm.iterator();
+                    Set<String> meth = new HashSet<>();
+                    while (itM.hasNext()) {
+                        meth.add(itM.next().toString());
+                    }
+                    methods.put(subTypeTmp, meth);
+
+                    // collect parents
+                    JSONArray pp = o.getJSONArray("parents");
+                    for (Object aPp : pp) {
+                        JSONObject ppO = (JSONObject) aPp;
+                        ClassAndVersion superType = ClassAndVersion.fromJson(ppO.toString());
+                        ClassAndVersion superTypeTmp = new ClassAndVersion(superType.getProgramVersion(), EMPTY_CLASS_NAME, superType.getCuName());
+                        inheritanceMap.put(subTypeTmp, superTypeTmp);
+                    }
+
+                }
+            }
+        }
+
+        propagateInheritedMethods(inheritanceMap, methods);
+    }
+
+    /**
+     * Extend the input map so that each key is enriched with methods inherited from super classes.
+     *
+     * @param inheritanceMap key - sub class, value - parent class
+     * @param methods        key a class, value methods including inherited ones.
+     */
+    private static void propagateInheritedMethods(
+            final HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap,
+            final Map<ClassAndVersion, Set<String>> methods) {
+
+        for (ClassAndVersion key : methods.keySet()) {
+            Set<String> currentMethods = methods.get(key);
+            Set<ClassAndVersion> finished = new HashSet<>();
+            propagateInheritedMethods(inheritanceMap, methods, key, currentMethods, finished);
+        }
+    }
+
+    /**
+     * Extend the input map so that each key is enriched with methods inherited from super classes.
+     *
+     * @param inheritanceMap key - sub class, value - parent class
+     * @param methods        key a class, value methods including inherited ones.
+     */
+    private static void propagateInheritedMethods(
+            final HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap,
+            final Map<ClassAndVersion, Set<String>> methods,
+            final ClassAndVersion currentType,
+            final Set<String> currentMethods,
+            final Set<ClassAndVersion> finished) {
+
+        // give all parents
+        for (ClassAndVersion parent : inheritanceMap.get(currentType)) {
+
+            // TODO - in some cases parent and current type are the same - do not know why right now
+            // spotted e.g. for
+            if (finished.contains(currentType)) {
+                LOGGER.debug("The same type already processed, skipping" + currentType);
+                continue;
+            }
+            finished.add(currentType);
+
+            Set<String> parentMethods = methods.get(parent);
+            // recurse up to parents.
+            propagateInheritedMethods(inheritanceMap, methods, parent, parentMethods, finished);
+            // extend the map with parents
+            currentMethods.addAll(parentMethods);
+        }
+    }
 
     @Override
     public List<DiffRecord> extract() throws Exception {
@@ -185,31 +289,12 @@ public class SubtypeDiffExtractor implements DiffExtractor {
         return canProcess;
     }
 
-
-    private static String getIndexKey(ProgramVersion pv, String cu, String methodDecl) {
-        return pv.getName() + "-" + pv.getVersion() + '#' + cu + '/' + (methodDecl == null ? "" : methodDecl);
-    }
-
-    /**
-     * This creates index for the same constraints, which differ only in applied versions.
-     * In other words, it captures if the same constraints is added again and again to different versions
-     *
-     * @return
-     */
-    private static String getIndexSameConstrDifferentVersion(final ContractElement pc) {
-        ProgramVersion pv = pc.getProgramVersion();
-        String cu = pc.getCuName();
-        String methodDecl = pc.getMethodDeclaration();
-
-        return pv.getName() + '#' + cu + '/' + (methodDecl == null ? "" : methodDecl) + " c:" + pc.getCondition() + "," + pc.getKind();
-    }
-
     /**
      * Filter constraints
      *
-     * @param contractElement     a constraint
-     * @param removed        store removed here.
-     * @param superCallSites super callsites.
+     * @param contractElement a constraint
+     * @param removed         store removed here.
+     * @param superCallSites  super callsites.
      * @return true if the given constraint should be excluded
      */
     private boolean shouldExclude(
@@ -234,105 +319,6 @@ public class SubtypeDiffExtractor implements DiffExtractor {
         }
 
         return r;
-    }
-
-    /**
-     * This method goes through the input data files and fill-ins the input map
-     * with information about what inherits what and which methods are available by a class.
-     *
-     * @param inheritanceMap key - sub class, value - parent class
-     * @param methods        key a class, value methods including inherited ones.
-     * @throws IOException error to load files
-     */
-    public static void readInheritanceCSV(
-            final HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap,
-            final Map<ClassAndVersion, Set<String>> methods) throws IOException {
-
-
-        for (File project : listProjects(new File(Preferences.getOutputStructureFolder()))) {
-            for (File json : listJsons(project)) {
-
-                String projectName = project.getName();
-                // json is named  <xxx>-struct,json
-                String versionName = json.getName().substring(projectName.length() + 1, json.getName().lastIndexOf("-"));
-
-                JSONArray arr = new JSONArray(IOUtils.toString(new FileInputStream(json), Charset.forName("UTF-8")));
-                for (Object anArr : arr) {
-                    JSONObject o = (JSONObject) anArr;
-                    ClassAndVersion subTypeTmp = ClassAndVersion.create(projectName, versionName, EMPTY_CLASS_NAME, o.getString("cuName"));
-
-                    // collect methods
-                    JSONArray mm = o.getJSONArray("methods");
-                    Iterator<Object> itM = mm.iterator();
-                    Set<String> meth = new HashSet<>();
-                    while (itM.hasNext()) {
-                        meth.add(itM.next().toString());
-                    }
-                    methods.put(subTypeTmp, meth);
-
-                    // collect parents
-                    JSONArray pp = o.getJSONArray("parents");
-                    for (Object aPp : pp) {
-                        JSONObject ppO = (JSONObject) aPp;
-                        ClassAndVersion superType = ClassAndVersion.fromJson(ppO.toString());
-                        ClassAndVersion superTypeTmp = new ClassAndVersion(superType.getProgramVersion(), EMPTY_CLASS_NAME, superType.getCuName());
-                        inheritanceMap.put(subTypeTmp, superTypeTmp);
-                    }
-
-                }
-            }
-        }
-
-        propagateInheritedMethods(inheritanceMap, methods);
-    }
-
-    /**
-     * Extend the input map so that each key is enriched with methods inherited from super classes.
-     *
-     * @param inheritanceMap key - sub class, value - parent class
-     * @param methods        key a class, value methods including inherited ones.
-     */
-    private static void propagateInheritedMethods(
-            final HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap,
-            final Map<ClassAndVersion, Set<String>> methods) {
-
-        for (ClassAndVersion key : methods.keySet()) {
-            Set<String> currentMethods = methods.get(key);
-            Set<ClassAndVersion> finished = new HashSet<>();
-            propagateInheritedMethods(inheritanceMap, methods, key, currentMethods, finished);
-        }
-    }
-
-    /**
-     * Extend the input map so that each key is enriched with methods inherited from super classes.
-     *
-     * @param inheritanceMap key - sub class, value - parent class
-     * @param methods        key a class, value methods including inherited ones.
-     */
-    private static void propagateInheritedMethods(
-            final HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap,
-            final Map<ClassAndVersion, Set<String>> methods,
-            final ClassAndVersion currentType,
-            final Set<String> currentMethods,
-            final Set<ClassAndVersion> finished) {
-
-        // give all parents
-        for (ClassAndVersion parent : inheritanceMap.get(currentType)) {
-
-            // TODO - in some cases parent and current type are the same - do not know why right now
-            // spotted e.g. for
-            if (finished.contains(currentType)) {
-                LOGGER.debug("The same type already processed, skipping" + currentType);
-                continue;
-            }
-            finished.add(currentType);
-
-            Set<String> parentMethods = methods.get(parent);
-            // recurse up to parents.
-            propagateInheritedMethods(inheritanceMap, methods, parent, parentMethods, finished);
-            // extend the map with parents
-            currentMethods.addAll(parentMethods);
-        }
     }
 
     /**

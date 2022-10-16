@@ -14,16 +14,24 @@ import contractstudy.ProgramVersion;
  */
 public class ClassFinderCreator {
 
-    /** key - simple class name, value - package */
+    /**
+     * key - simple class name, value - package
+     */
     private Multimap<String, String> classPcgs = HashMultimap.create();
 
-    /** value - full class name, key - class origin */
+    /**
+     * value - full class name, key - class origin
+     */
     private Multimap<String, ProgramVersion> classOrigin = HashMultimap.create();
 
-    /** Key -class name, origin,  valu - CU*/
+    /**
+     * Key -class name, origin,  valu - CU
+     */
     private Table<ClassCoordinates, ProgramVersion, CompilationUnit> cus = HashBasedTable.create();
 
-    /** Key -class name, origin,  valu - CU name*/
+    /**
+     * Key -class name, origin,  valu - CU name
+     */
     private Table<String, ProgramVersion, String> cuNames = HashBasedTable.create();
 
 
