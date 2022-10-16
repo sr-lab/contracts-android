@@ -21,8 +21,6 @@ def checkPathIsValidFile(path):
 def zipDirectory(outputPath, inputPath):
     shutil.make_archive(outputPath, 'zip', inputPath)
     
-
-
 def organizeRepoZipsFolders():
     AppsList = [f for f in os.listdir(REPOS_OUTPUT_FOLDER) if isfile(join(REPOS_OUTPUT_FOLDER, f))] 
     for app in AppsList:
@@ -68,7 +66,6 @@ def updateZipNameWithStandarizedVersionNumber():
                 return
             countVersion += 1  
 
-
 def makeSplittedNameWithNewVersion(directoryName, countVersion):
     wordList = directoryName.split("-")
     wordList[-1] = str(countVersion) + ".0.0"
@@ -76,12 +73,12 @@ def makeSplittedNameWithNewVersion(directoryName, countVersion):
 
 
 
-# MAIN
+if __name__ == "__main__":
 
-for f in os.listdir(REPOS_INPUT_FOLDER):
-    if (checkPathIsValidFile(f) == True):
-        zipDirectory(REPOS_OUTPUT_FOLDER+"/"+f, REPOS_INPUT_FOLDER+"/"+f)
-
-organizeRepoZipsFolders()
-updateZipNameWithStandarizedVersionNumber()
-print("SUCCESS: Cloned repos were organized and zipped to folder " + REPOS_OUTPUT_FOLDER)
+    for f in os.listdir(REPOS_INPUT_FOLDER):
+        if (checkPathIsValidFile(f) == True):
+            zipDirectory(REPOS_OUTPUT_FOLDER+"/"+f, REPOS_INPUT_FOLDER+"/"+f)
+            
+    organizeRepoZipsFolders()
+    updateZipNameWithStandarizedVersionNumber()
+    print("SUCCESS: Cloned repos were organized and zipped to folder " + REPOS_OUTPUT_FOLDER)

@@ -4,17 +4,13 @@ from dotenv import load_dotenv
 load_dotenv("filePaths.env")
 
 REPOS_REGISTRY = os.getenv('REPOS-REGISTRY')
-
 GITHUB_PREFIX = ['https://github.com/',
 				'http://github.com/',
 				'https://www.github.com/',
 				'http://www.github.com/']
-
 GITHUB_STANDARD_BASE_URL = GITHUB_PREFIX[0]
 
 validatedLines = []
-
-#################### ---------------- AUXILIARY METHODS ---------------- ####################
 
 def checkIfURLIsGithub():
     global validatedLines
@@ -35,7 +31,6 @@ def saveValidatedURLsToOutputFile():
     print("Only Github URLs were saved to: " + REPOS_REGISTRY)
 
 
-#################### ---------------- MAIN ---------------- ####################
-        
-checkIfURLIsGithub()
-saveValidatedURLsToOutputFile()
+if __name__ == "__main__":        
+    checkIfURLIsGithub()
+    saveValidatedURLsToOutputFile()

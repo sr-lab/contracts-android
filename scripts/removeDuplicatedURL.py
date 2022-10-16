@@ -7,8 +7,6 @@ REPOS_REGISTRY = os.getenv('REPOS-REGISTRY')
 
 lines_seen = []
 
-#################### ---------------- AUXILIARY METHODS ---------------- ####################
-
 def collectNotDuplicatedLines():
     global lines_seen
     for line in open(REPOS_REGISTRY, "r"):
@@ -22,8 +20,7 @@ def saveNotDuplicatedToOutputFile():
     outfile.close() 
     print("Duplicates were removed and new repos' URL registry was saved to: " + REPOS_REGISTRY)
 
-#################### ---------------- MAIN ---------------- ####################
-
-collectNotDuplicatedLines()
-saveNotDuplicatedToOutputFile()
+if __name__ == "__main__": 
+    collectNotDuplicatedLines()
+    saveNotDuplicatedToOutputFile()
 
