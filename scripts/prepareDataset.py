@@ -22,7 +22,7 @@ def zipDirectory(outputPath, inputPath):
     shutil.make_archive(outputPath, 'zip', inputPath)
     
 def organizeProjectsZipsFolders():
-    AppsList = [f for f in os.listdir(OUTPUT_FOLDER) if isfile(join(REPOS_OUTPUT_FOLDER, f))] 
+    AppsList = [f for f in os.listdir(OUTPUT_FOLDER) if isfile(join(OUTPUT_FOLDER, f))] 
     for app in AppsList:
         if (checkPathIsValidFile(app) == False):
             continue

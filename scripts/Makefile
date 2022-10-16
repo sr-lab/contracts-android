@@ -1,12 +1,12 @@
 setup: requirements.txt
 	pip install -r requirements.txt
 
-get-fdroid-dataset: get-fdroid-index clean-repo-registry filter-projects get-all-versions-files get-dataset
+get-fdroid-dataset: get-fdroid-index clean-projects-list filter-projects get-all-versions-files get-dataset
 
 get-fdroid-index:
 	python3 getFDroidIndex.py
 
-clean-repo-registry: remove-non-github-urls remove-duplicates 
+clean-projects-list: remove-non-github-urls remove-duplicates 
 
 remove-duplicates: 
 	python3 removeDuplicatedURL.py
@@ -28,16 +28,14 @@ get-links-to-versions: output/projects-list.txt
 get-final-links-to-versions: output/link-to-versions.txt
 	python3 setFinalLinksToVersions.py
 
-get-dataset: clone-repos prepare-dataset
+get-dataset: clone-projects prepare-dataset
 
-clone-repos: output/projects-list.txt
-	python3 cloneRepos.py
+clone-projects: output/projects-list.txt
+	python3 cloneProjects.py
 
-prepare-dataset: projects
+prepare-dataset: output/projects
 	python3 prepareDataset.py
 
-force-clean-all:
+force-clean-output:
 	rm -rf output
-	rm -rf repos
-	rm -rf dataset
 
