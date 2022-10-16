@@ -4,8 +4,8 @@ from dotenv import load_dotenv
 
 load_dotenv("filePaths.env")
 
-INPUT_FILE = os.getenv('REPOS-VERSIONS-FILE')
-OUTPUT_FOLDER = os.getenv('CLONED-REPOS-FOLDER')
+INPUT_FILE = os.getenv('PROJECTS-VERSIONS-FILE')
+OUTPUT_FOLDER = os.getenv('CLONED-PROJECTS-FOLDER')
 PAGINATION_OFFSET = os.getenv('VERSIONS-FILE-OFFSET', False)
 PAGINATION_LIMIT = os.getenv('VERSIONS-FILE-LIMIT', False)
 

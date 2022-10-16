@@ -15,15 +15,18 @@ load_dotenv()
 load_dotenv("filePaths.env")
 load_dotenv("config.env")
 
-#################### ---------------- GLOBAL VARIABLES ---------------- ####################
-
 GITHUB_ACCESS_TOKEN = os.getenv('GITHUB-ACCESS-TOKEN')
-REPOS_REGISTRY = os.getenv('REPOS-REGISTRY')
-REPOS_STATS_FILE = os.getenv('REPOS-STATS-FILE')
+INPUT_FILE = os.getenv('PROJECTS-LIST-FILE')
+PROJECTS_STATS_FILE = os.getenv('PROJECTS-STATS-FILE')
 PAGINATION_OFFSET = os.getenv('FILTER-PAGINATION-OFFSET', False)
 PAGINATION_LIMIT = os.getenv('FILTER-PAGINATION-LIMIT', False)
 JAVA_LANGUAGE_ACCEPT = os.getenv('JAVA-PROJECTS-ANALYSIS', 'True')
 KOTLIN_LANGUAGE_ACCEPT = os.getenv('KOTLIN-PROJECTS-ANALYSIS', 'True')
+
+GITHUB_PREFIX = ['https://github.com/',
+				'http://github.com/',
+				'https://www.github.com/',
+				'http://www.github.com/']
 
 currentPaginationIndex = 0
 validProjectCount = 0
@@ -33,23 +36,14 @@ invalidLanguageErrorCount = 0
 archivedErrorCount = 0
 inactiveErrorCount = 0
 notFoundErrorCount = 0
-
-GITHUB_PREFIX = ['https://github.com/',
-				'http://github.com/',
-				'https://www.github.com/',
-				'http://www.github.com/']
-
 repoStats = []
 repoURLs = []
 
-
-#################### ---------------- AUXILIARY METHODS ---------------- ####################
- 
 def logNumberOfItemsToFetch():
 	if (PAGINATION_LIMIT == False):
 		print("Fetching ALL items...")
 	else:
-		print("Fetching " + str(PAGINATION_LIMIT) + " items...")
+		print("INFO: Fetching " + str(PAGINATION_LIMIT) + " items...")
  
 def checkRequestOffsetReached():
     if (PAGINATION_OFFSET == False):
@@ -81,13 +75,9 @@ def validateRepo(url):
 		return
 
 	closedPulls = repo.get_pulls(state='closed')
- 
 	totalClosedPulls = closedPulls.totalCount
-
 	mergedPulls = list(filter(lambda x: x.merged, closedPulls))
- 
 	ratioMergedPerClosedPulls = computeRatioMergedPerClosedPulls(closedPulls, totalClosedPulls, mergedPulls)
-
 	addValidatedRepoToArrays(url, repo, mergedPulls, totalClosedPulls, ratioMergedPerClosedPulls)
 
 
@@ -101,7 +91,7 @@ def isRepoLanguageValid(repo):
 	elif(repo.language == "Kotlin"):
 		return isKotlinProjectDesired()
 	else:
-		print("ERROR1: Neither Java nor Kotlin project.")
+		print("WARNING: Project ignored since it is neither Java nor Kotlin project.")
 		invalidLanguageErrorCount += 1
 		return False
 
@@ -111,7 +101,7 @@ def isJavaProjectDesired():
         javaProjectsCount += 1
         return True
     else:
-        print("Warning: Project ignored since it is written in Java.")
+        print("WARNING: Project ignored since it is written in Java.")
         return False
 
 def isKotlinProjectDesired():
@@ -120,23 +110,22 @@ def isKotlinProjectDesired():
         kotlinProjectsCount += 1
         return True
     else:
-        print("Warning: Project ignore since it is written in Kotlin.")
+        print("WARNING: Project ignored since it is written in Kotlin.")
         return False
 
 def isRepoArchived(repo):
 	global archivedErrorCount
 	if(repo.archived):
 		archivedErrorCount += 1
-		print("ERROR2: READ ONLY")
+		print("WARNING: Project ignored since it is read only.")
 		return True
 	return False
 
 def isRepoActive(repo):
 	global inactiveErrorCount  
-    # check repo has commit in the last two years
-	if(repo.pushed_at.year < 2018):
+	if(repo.pushed_at.year < 2018): # commit in last two years.
 		inactiveErrorCount += 1
-		print("ERROR3: TOO OLD")
+		print("WARNING: Project ignored since it is too old.")
 		return
 
 def computeRatioMergedPerClosedPulls(closedPulls, totalClosedPulls, mergedPulls):
@@ -168,14 +157,14 @@ def addValidatedRepoToArrays(urlName, repo, mergedPulls, totalClosedPulls, perce
 def saveStatsToOutputFile():
      global repoStats
      df = pd.DataFrame(repoStats)
-     df.to_csv(REPOS_STATS_FILE)
+     df.to_csv(PROJECTS_STATS_FILE )
      
 def saveRepoURLToRegistry():
-	registryFile = open(REPOS_REGISTRY, 'w')
+	registryFile = open(INPUT_FILE, 'w')
 	for url in repoURLs:
 		registryFile.write(url)
 	registryFile.close()
-	print("Validated repositories' Github urls were saved to: " + REPOS_REGISTRY)
+	print("SUCCESS: Filtered Github projects' urls were saved to " + INPUT_FILE)
 
 def checkIfProjectsNumberReachedLimit():
 	global validProjectCount
@@ -198,44 +187,40 @@ def printResultLogs():
 	print(notFoundErrorCount)
  
  
-
-#################### ---------------- MAIN ---------------- ####################
-
-logNumberOfItemsToFetch()
-
-git = Github(GITHUB_ACCESS_TOKEN)
-
-for repoURL in open(REPOS_REGISTRY, "r"):
+if __name__ == "__main__":
     
-	if (checkRequestOffsetReached() == False):
-		currentPaginationIndex += 1
-		continue
-    			
-	try:
-		validateRepo(repoURL)
-	except RateLimitExceededException:
-		print(' Waiting for an hour... ')
-		time.sleep(1800)
-		time.sleep(1800)
+	logNumberOfItemsToFetch()
+	git = Github(GITHUB_ACCESS_TOKEN)
+
+	for repoURL in open(INPUT_FILE, "r"):
+		
+		if (checkRequestOffsetReached() == False):
+			currentPaginationIndex += 1
+			continue
+					
 		try:
 			validateRepo(repoURL)
-			if (checkIfProjectsNumberReachedLimit()):
-				break
+		except RateLimitExceededException:
+			print('INFO: Waiting for an hour... ')
+			time.sleep(1800)
+			time.sleep(1800)
+			try:
+				validateRepo(repoURL)
+				if (checkIfProjectsNumberReachedLimit()):
+					break
+				continue
+			except:
+				if (checkIfProjectsNumberReachedLimit()):
+					break
+				continue
+		except UnknownObjectException:
+			print("ERROR: Project ignored since it does not exist.")
+			notFoundErrorCount += 1
 			continue
-		except:
-			if (checkIfProjectsNumberReachedLimit()):
-				break
-			continue
-	except UnknownObjectException:
-		print("ERROR4: REPOSITORY DOES NOT EXIST")
-		notFoundErrorCount += 1
-		continue
-	
-	if (checkIfProjectsNumberReachedLimit()):
-		break
+		
+		if (checkIfProjectsNumberReachedLimit()):
+			break
 
-printResultLogs()
-
-saveRepoURLToRegistry()
-
-saveStatsToOutputFile()
+	printResultLogs()
+	saveRepoURLToRegistry()
+	saveStatsToOutputFile()
