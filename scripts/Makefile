@@ -36,6 +36,6 @@ clone-projects: output/projects-list.txt
 prepare-dataset: output/projects
 	python3 prepareDataset.py
 
-force-clean-output:
+clean-output:
 	rm -rf output
 
