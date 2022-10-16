@@ -4,8 +4,8 @@ from dotenv import load_dotenv
 
 load_dotenv("filePaths.env")
 
-INPUT_FILE = os.getenv('REPOS-LINK-TO-VERSIONS-FILE')
-OUTPUT_FILE = os.getenv('REPOS-LINK-TO-VERSIONS-FINAL-FILE')
+INPUT_FILE = os.getenv('PROJECTS-LINK-TO-VERSIONS-FILE')
+OUTPUT_FILE = os.getenv('PROJECTS-LINK-TO-VERSIONS-FINAL-FILE')
 
 inputFile = open(INPUT_FILE, "r")
 outputFile = open(OUTPUT_FILE, "w")

@@ -9,8 +9,8 @@ from dotenv import load_dotenv
 
 load_dotenv("filePaths.env")
 
-REPOS_INPUT_FOLDER = os.getenv('CLONED-REPOS-FOLDER')
-REPOS_OUTPUT_FOLDER = os.getenv('DATASET-REPOS-FOLDER')
+INPUT_FOLDER = os.getenv('CLONED-PROJECTS-FOLDER')
+OUTPUT_FOLDER = os.getenv('DATASET-PROJECTS-FOLDER')
 
 def checkPathIsValidFile(path):
     if (len(path.split("-")) == 1):
@@ -21,8 +21,8 @@ def checkPathIsValidFile(path):
 def zipDirectory(outputPath, inputPath):
     shutil.make_archive(outputPath, 'zip', inputPath)
     
-def organizeRepoZipsFolders():
-    AppsList = [f for f in os.listdir(REPOS_OUTPUT_FOLDER) if isfile(join(REPOS_OUTPUT_FOLDER, f))] 
+def organizeProjectsZipsFolders():
+    AppsList = [f for f in os.listdir(OUTPUT_FOLDER) if isfile(join(REPOS_OUTPUT_FOLDER, f))] 
     for app in AppsList:
         if (checkPathIsValidFile(app) == False):
             continue
@@ -38,22 +38,22 @@ def getApplicationName(directoryName):
 
 def createParentDirectoryForRepo(path):
     try:
-        mkdir( rf'{REPOS_OUTPUT_FOLDER}/{path}')
+        mkdir( rf'{OUTPUT_FOLDER}/{path}')
     except: 
         return 
 
 def moveRepoVersionToRepoParentDirectory(app, path):
     try:
-        if os.path.isfile(rf'{REPOS_OUTPUT_FOLDER}/{app}'):
-            rename(rf'{REPOS_OUTPUT_FOLDER}/{app}',rf'{REPOS_OUTPUT_FOLDER}/{path}/{app}')
+        if os.path.isfile(rf'{OUTPUT_FOLDER}/{app}'):
+            rename(rf'{OUTPUT_FOLDER}/{app}',rf'{OUTPUT_FOLDER}/{path}/{app}')
     except:
         return
 
 def updateZipNameWithStandarizedVersionNumber():
-    dirList = [f for f in listdir(REPOS_OUTPUT_FOLDER) if not isfile(join(REPOS_OUTPUT_FOLDER, f))]  
+    dirList = [f for f in listdir(OUTPUT_FOLDER) if not isfile(join(OUTPUT_FOLDER, f))]  
     print(dirList)
     for dir in dirList:
-        appDir = listdir(REPOS_OUTPUT_FOLDER + "/" + dir)
+        appDir = listdir(OUTPUT_FOLDER + "/" + dir)
         appDir.sort()
         countVersion = 1
         for app in appDir:
@@ -61,7 +61,7 @@ def updateZipNameWithStandarizedVersionNumber():
                 continue
             splittedName = makeSplittedNameWithNewVersion(app, countVersion)
             try:
-                rename(rf'{REPOS_OUTPUT_FOLDER}/{dir}/{app}',rf'{REPOS_OUTPUT_FOLDER}/{dir}/{dir}-{splittedName[-1]}.zip')
+                rename(rf'{OUTPUT_FOLDER}/{dir}/{app}',rf'{OUTPUT_FOLDER}/{dir}/{dir}-{splittedName[-1]}.zip')
             except: 
                 return
             countVersion += 1  
@@ -71,14 +71,16 @@ def makeSplittedNameWithNewVersion(directoryName, countVersion):
     wordList[-1] = str(countVersion) + ".0.0"
     return wordList
 
+def main():
+    for f in os.listdir(INPUT_FOLDER):
+        if (checkPathIsValidFile(f) == True):
+            zipDirectory(OUTPUT_FOLDER+"/"+f, INPUT_FOLDER+"/"+f)
+          
+    organizeProjectsZipsFolders()
+    updateZipNameWithStandarizedVersionNumber()
+    print("SUCCESS: Cloned projects were organized and zipped to folder " + OUTPUT_FOLDER)
 
 
 if __name__ == "__main__":
-
-    for f in os.listdir(REPOS_INPUT_FOLDER):
-        if (checkPathIsValidFile(f) == True):
-            zipDirectory(REPOS_OUTPUT_FOLDER+"/"+f, REPOS_INPUT_FOLDER+"/"+f)
-            
-    organizeRepoZipsFolders()
-    updateZipNameWithStandarizedVersionNumber()
-    print("SUCCESS: Cloned repos were organized and zipped to folder " + REPOS_OUTPUT_FOLDER)
+    main()
+    

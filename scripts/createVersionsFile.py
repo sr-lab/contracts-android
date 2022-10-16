@@ -9,8 +9,8 @@ load_dotenv("filePaths.env")
 load_dotenv("config.env")
 
 GITHUB_ACCESS_TOKEN = os.getenv('GITHUB-ACCESS-TOKEN')
-INPUT_FILE = os.getenv('REPOS-REGISTRY')
-OUTPUT_FILE = os.getenv('REPOS-VERSIONS-FILE')
+INPUT_FILE = os.getenv('PROJECTS-LIST-FILE')
+OUTPUT_FILE = os.getenv('PROJECTS-VERSIONS-FILE')
 PAGINATION_OFFSET = os.getenv('VERSIONS-FILE-OFFSET', False)
 PAGINATION_LIMIT = os.getenv('VERSIONS-FILE-LIMIT', False)
 

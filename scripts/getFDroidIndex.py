@@ -7,7 +7,7 @@ load_dotenv("filePaths.env")
 
 URL = "https://f-droid.org/repo/index.xml"
 F_DROID_INDEX_FILE = os.getenv('F-DROID-INDEX-FILE')
-REPOS_REGISTRY = os.getenv('REPOS-REGISTRY')
+OUTPUT_FILE = os.getenv('PROJECTS-LIST-FILE')
 
 def downloadFDroidIndex():
     response = requests.get(URL, stream = True)
@@ -23,18 +23,18 @@ def getFDroidIndexSourceTag():
 	print("INFO: Total items in Index: " + str(sourceTag.length))
 	return sourceTag
 
-def saveRepoURLsToRegistry():
-    registryFile = open(REPOS_REGISTRY, 'a')
+def saveProjectsURLsToRegistry():
+    registryFile = open(OUTPUT_FILE, 'a')
     for url in getFDroidIndexSourceTag():
         if(url.firstChild != None):
             repoURL = url.firstChild.data
             registryFile.write(repoURL + "\n")
     registryFile.close()
-    print("SUCCESS: F-Droid repos' urls were saved to " + REPOS_REGISTRY)
+    print("SUCCESS: F-Droid repos' urls were saved to " + OUTPUT_FILE)
 
 if __name__ == "__main__":
     os.makedirs(os.path.dirname(F_DROID_INDEX_FILE), exist_ok=True)
     downloadFDroidIndex()
-    saveRepoURLsToRegistry()
+    saveProjectsURLsToRegistry()
 
 

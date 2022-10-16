@@ -14,15 +14,15 @@ remove-duplicates:
 remove-non-github-urls: 
 	python3 removeNonGithubURL.py
 
-filter-projects: output/repos-registry.txt
+filter-projects: output/projects-list.txt
 	python3 filterProjectsByStats.py
 
 get-all-versions-files: get-versions get-links-to-versions
 
-get-versions: output/repos-registry.txt
+get-versions: output/projects-list.txt
 	python3 createVersionsFile.py
 
-get-links-to-versions: output/repos-registry.txt
+get-links-to-versions: output/projects-list.txt
 	python3 createLinksToVersionsFile.py
 
 get-final-links-to-versions: output/link-to-versions.txt
@@ -30,10 +30,10 @@ get-final-links-to-versions: output/link-to-versions.txt
 
 get-dataset: clone-repos prepare-dataset
 
-clone-repos: output/repos-registry.txt
+clone-repos: output/projects-list.txt
 	python3 cloneRepos.py
 
-prepare-dataset: repos
+prepare-dataset: projects
 	python3 prepareDataset.py
 
 force-clean-all:
