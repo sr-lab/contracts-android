@@ -17,6 +17,8 @@ PAGINATION_LIMIT = os.getenv('VERSIONS-FILE-LIMIT', False)
 s = requests.Session()
 headers = {'Authorization': 'token ' + str(GITHUB_ACCESS_TOKEN)}
 
+URLsToSave = []
+
 def readURLsFromInputFile():
     sourceFile = open(INPUT_FILE)
     links = []
@@ -34,26 +36,22 @@ def checkRequestOffsetReached(currentPaginationIndex):
 def getVersions(repo):
     originRepo = repo 
     repo = repo + "releases"
-    print(repo, end=">")
     versions = s.get(f"https://api.github.com/repos/{repo}", headers=headers)
     result = versions.json()
     try:
         projectFirstVersion = result[0]["tag_name"]
         projectLastVersion = result[len(result) -1]["tag_name"]
-        print(f"{projectLastVersion}, {projectFirstVersion}")
         return [projectLastVersion, projectFirstVersion]
     except:
         return getTags(originRepo)
 
 def getTags(repo):
     repo = repo + "tags"
-    print( repo, end=">")
     tags = s.get(f"https://api.github.com/repos/{repo}", headers=headers)
     result = tags.json()
     try:
         projectFirstVersion =  result[0]["name"]
         projectLastVersion = result[len(result) -1]["name"]
-        print(f"{projectLastVersion}, {projectFirstVersion}")
         return [projectLastVersion, projectFirstVersion]
     except:
         return ["None", "None"]
@@ -62,22 +60,47 @@ def createRepoVersionURLString(strippedLine):
     patt = re.compile('(\s*)/releases(\s*)')
     link = patt.sub('\\1\\2', strippedLine)
     return f"https://github.com/{link}"
+ 
+def addVersionURL(baseURL, version):
+    global URLsToSave
+    versionURL = createURLWithVersion(baseURL, version)
+    URLsToSave.append(versionURL)
+ 
+def createURLWithVersion(baseURL, version):
+    return f"{baseURL};{version}"
+  
+def saveVersionURLsToOutputIfValid():
+    global URLsToSave
+    outputFile = open(OUTPUT_FILE, 'w+')
+    for URL in URLsToSave:
+        if (validateURLVersionFormat(URL)):
+            if (validateURLIsNotDuplicated(URL)):
+                outputFile.write(URL + "\n")
+                time.sleep(1)
+    outputFile.close()
+  
+def validateURLVersionFormat(url):
+    regexValidURL = ";v?((\d+\.)?(\d+\.)*(\*|\d+)?|None)$"
+    match = re.search(regexValidURL, url)
+    if (match):
+        return True
+    else:
+        print("WARNING: URL was ignored since it has not valid version: " + url)
+        return False
 
-def saveRepoVersionURLToOutput(outputFile, strippedLine, versions):
-    outputFile.write(f"{strippedLine};{versions[1]} \n")
-    time.sleep(1)
-    outputFile.write(f"{strippedLine};{versions[0]} \n")
-    time.sleep(1) 
-    
+def validateURLIsNotDuplicated(url):
+    global URLsToSave
+    return (url in URLsToSave)
+
 def checkIfProjectsNumberReachedLimit(currentPaginationIndex):
     if (PAGINATION_LIMIT == False):
         return False
     return (str(currentPaginationIndex) == str(PAGINATION_LIMIT)) 
 
 def main():
+    print("INFO: Fetching first and last versions of each project...")
     currentPaginationIndex = 0
     links = readURLsFromInputFile()
-    outputFile = open(OUTPUT_FILE, 'w+')
     for line in links:
         if (checkRequestOffsetReached(currentPaginationIndex) == False):
             currentPaginationIndex += 1
@@ -85,12 +108,14 @@ def main():
         strippedLine = line.strip()
         versions = getVersions(strippedLine)
         strippedLine = createRepoVersionURLString(strippedLine)
-        saveRepoVersionURLToOutput(outputFile, strippedLine, versions)
+        addVersionURL(strippedLine, versions[1])
+        addVersionURL(strippedLine, versions[0])
         if (checkIfProjectsNumberReachedLimit(currentPaginationIndex)):
-            break
+            break  
         currentPaginationIndex += 1
+    
+    saveVersionURLsToOutputIfValid()
     print(f"Projects' versions were saved in file: " + OUTPUT_FILE)
-    outputFile.close()
 
 if __name__ == "__main__":
     main()

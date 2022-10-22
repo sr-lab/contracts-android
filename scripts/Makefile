@@ -17,7 +17,7 @@ remove-non-github-urls:
 filter-projects: output/projects-list.txt
 	python3 filterProjectsByStats.py
 
-get-all-versions-files: get-versions get-links-to-versions
+get-all-versions-files: get-versions
 
 get-versions: output/projects-list.txt
 	python3 createVersionsFile.py
@@ -39,3 +39,8 @@ prepare-dataset: output/projects
 clean-output:
 	rm -rf output
 
+clean-intermediate-output:
+	rm -rf output/fdroid-index.xml
+	rm -rf output/projects-list.txt
+	rm -rf output/projects-stats.csv
+	rm -rf output/repos/*
