@@ -22,20 +22,22 @@ with open(INPUT_FILE) as file:
         repoSplitBySlash = line.split("/")
         ownerName = repoSplitBySlash[3]
         repoName = repoSplitBySlash[4]
-        version = ((repoSplitBySlash[5])[1:])[:-1]
+        version = ((repoSplitBySlash[5])[1:])
+        version = version.replace("\n", "")
+        version = version.replace(" ", "")
         outputRepoName = OUTPUT_FOLDER + "/" + str(reposCount) + "-" + ownerName + "-" + repoName + "-" + version
         repoURL = ((line.split(";"))[0])[:-1]
         
         print("[" + str(reposCount) + "] Cloning " + outputRepoName)
-                
+                               
         if os.path.exists(outputRepoName[:-1]) == True:
             print("INFO: The directory alread exists. No actions performed.")
         elif (version == "None"):
             os.system("git clone " + repoURL + " " + outputRepoName)
-            print("SUCCESS: Done.")
+            print("SUCCESS: Clone was executed without version.")
         else:
             os.system("git clone -b " + version + " --single-branch " + repoURL + " " + outputRepoName)
-            print("SUCCESS: Done.")
+            print("SUCCESS: Clone was executed with version.")
         
         reposCount += 1
         
