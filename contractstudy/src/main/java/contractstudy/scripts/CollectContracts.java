@@ -56,15 +56,24 @@ public class CollectContracts implements Experiment {
   static Logger LOGGER = Logging.getLogger(CollectContracts.class);
 
   @SuppressWarnings("rawtypes")
-  static Extractor[] EXTRACTORS = {new JSR303Extractor(), new JSR305Extractor(),
+  static Extractor[] EXTRACTORS = {
+    new JSR303Extractor(),
+    new JSR305Extractor(),
     new JSR305ConcurrentExtractor(),
-    new FindBugsAnnotationExtractor(), new JetBrainsExtractor(), new IntellijExtractor(),
+    new FindBugsAnnotationExtractor(),
+    new JetBrainsExtractor(),
+    new IntellijExtractor(),
     // new LombokExtractor(), at designtime (pre-compilation) lombok annotations are
     // translated into CRE s !
-    new JavaAssertExtractor(), new ConditionalRuntimeExceptionExtractor(),
-    new UnconditionalOperationNotSupportedExceptionExtractor(), new GuavaPreconditionsExtractor(),
-    new CommonsValidate2Extractor(), new CommonsValidate3Extractor(), new SpringAssertExtractor(),
-    new AndroidAnnotationExtractor(), new AndroidXAnnotationExtractor()};
+    new JavaAssertExtractor(),
+    new ConditionalRuntimeExceptionExtractor(),
+    new UnconditionalOperationNotSupportedExceptionExtractor(),
+    new GuavaPreconditionsExtractor(),
+    new CommonsValidate2Extractor(),
+    new CommonsValidate3Extractor(),
+    new SpringAssertExtractor(),
+    new AndroidAnnotationExtractor(),
+    new AndroidXAnnotationExtractor()};
 
   public static void main(String[] args) throws Exception {
 
@@ -140,9 +149,12 @@ public class CollectContracts implements Experiment {
   }
 
   @SuppressWarnings("unchecked")
-  private static void findContractElements(ZipFile zip,
+  private static void findContractElements(
+    ZipFile zip,
     ExtractionListener<ContractElement> consumer,
-    String programName, String version, AtomicInteger parsedCUCounter) throws Exception {
+    String programName,
+    String version,
+    AtomicInteger parsedCUCounter) throws Exception {
     // LOGGER.info("Analysing " + zip.getName());
     Enumeration<? extends ZipEntry> en = zip.entries();
     while (en.hasMoreElements()) {
