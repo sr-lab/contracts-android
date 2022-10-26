@@ -44,6 +44,31 @@ public class ComputeInheritanceHierarchy implements Experiment {
 
   public static void main(String[] args) throws Exception {
 
+    // do not forget to add this folder!
+    File jdkDir = new File(Preferences.getDataFolder(), "../jdk-data/open-jdk");
+    File jdk = new File(jdkDir, "open-jdk-8.zip");
+
+    // TODO remove copy/paste code
+    if (args.length > 0 && args[0].equals("--skip-jdk")) {
+      LOGGER.warn(jdk + " skipped");  // TODO for testing pusposes
+    } else {
+      Map<ClassCoordinates, ClassParents> classesMap = new HashMap<>();
+      extractor.addGlobal(ProgramVersion.getOrCreateFromFile(jdk), new InheritanceResolved() {
+        @Override
+        public void notify(ClassParents parents) {
+          classesMap.put(parents, parents);
+        }
+
+        @Override
+        public void notify(ClassCoordinates classCoordinates) {
+          classesMap.put(classCoordinates, null);
+
+        }
+      });
+      File file = new File(new File(ROOT, jdkDir.getName()), "open-jdk-8-struct.json");
+      save(file, classesMap);
+    }
+
     long startTime = System.currentTimeMillis();
     ExecutorService executor = Executors.newFixedThreadPool(Preferences.getThreadCount());
 
