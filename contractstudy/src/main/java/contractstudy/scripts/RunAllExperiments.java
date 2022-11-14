@@ -35,7 +35,6 @@ public class RunAllExperiments {
    * @throws Exception error
    */
   public static void main(String[] args) throws Exception {
-
     for (Experiment experiment : EXPERIMENTS) {
 
       // check all prerequisites exist
