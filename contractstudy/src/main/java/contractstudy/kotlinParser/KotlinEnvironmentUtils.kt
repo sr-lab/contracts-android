@@ -9,7 +9,8 @@ import org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreEnvironment
 import org.jetbrains.kotlin.com.intellij.mock.MockProject
 import org.jetbrains.kotlin.com.intellij.openapi.Disposable
 import org.jetbrains.kotlin.com.intellij.openapi.util.Disposer
-import org.jetbrains.kotlin.config.*
+import org.jetbrains.kotlin.config.CommonConfigurationKeys
+import org.jetbrains.kotlin.config.CompilerConfiguration
 import java.io.PrintStream
 
 /**
@@ -17,21 +18,21 @@ import java.io.PrintStream
  * This environment also allows to modify the resulting AST files.
  */
 fun createKotlinCoreEnvironment(
-    configuration: CompilerConfiguration = CompilerConfiguration(),
-    disposable: Disposable = Disposer.newDisposable(),
-    printStream: PrintStream,
+        configuration: CompilerConfiguration = CompilerConfiguration(),
+        disposable: Disposable = Disposer.newDisposable(),
+        printStream: PrintStream,
 ): KotlinCoreEnvironment {
     setIdeaIoUseFallback()
     configuration.put(
-        CLIConfigurationKeys.MESSAGE_COLLECTOR_KEY,
-        PrintingMessageCollector(printStream, MessageRenderer.PLAIN_FULL_PATHS, false)
+            CLIConfigurationKeys.MESSAGE_COLLECTOR_KEY,
+            PrintingMessageCollector(printStream, MessageRenderer.PLAIN_FULL_PATHS, false)
     )
     configuration.put(CommonConfigurationKeys.MODULE_NAME, "contractstudy")
 
     val environment = KotlinCoreEnvironment.createForProduction(
-        disposable,
-        configuration,
-        EnvironmentConfigFiles.JVM_CONFIG_FILES
+            disposable,
+            configuration,
+            EnvironmentConfigFiles.JVM_CONFIG_FILES
     )
 
     val projectCandidate = environment.project
