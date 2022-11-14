@@ -7,43 +7,14 @@ import org.jetbrains.kotlin.com.intellij.pom.PomModelAspect
 import org.jetbrains.kotlin.com.intellij.pom.PomTransaction
 import org.jetbrains.kotlin.com.intellij.pom.impl.PomTransactionBase
 import org.jetbrains.kotlin.com.intellij.pom.tree.TreeAspect
-import org.jetbrains.kotlin.com.intellij.psi.impl.source.tree.TreeCopyHandler
 import sun.reflect.ReflectionFactory
 
-/**
- * Adapted from https://github.com/pinterest/ktlint/blob/master/ktlint-core/src/main/kotlin/com/pinterest/ktlint/core/internal/KotlinPsiFileFactory.kt
- * Licenced under the MIT licence - https://github.com/pinterest/ktlint/blob/master/LICENSE
- */
 class PomModel(project: Project) : UserDataHolderBase(), PomModel {
-
-    init {
-        val extension = "org.jetbrains.kotlin.com.intellij.treeCopyHandler"
-        val extensionClass = TreeCopyHandler::class.java.name
-        /*@Suppress("DEPRECATION")
-        for (extensionArea in listOf(project.extensionArea, getRootArea())) {
-            // Addresses https://github.com/detekt/detekt/issues/4609
-            synchronized(extensionArea) {
-                if (!extensionArea.hasExtensionPoint(extension)) {
-                    ConTesterBreakpoint.defineBreakpoint("DetektPomModel.registerExtensionPoint") {
-                        extensionArea == getRootArea()
-                    }
-                    extensionArea.registerExtensionPoint(
-                        extension,
-                        extensionClass,
-                        ExtensionPoint.Kind.INTERFACE
-                    )
-                }
-            }
-        }*/
-    }
-
     override fun runTransaction(transaction: PomTransaction) {
         val transactionCandidate = transaction as? PomTransactionBase
-
         val pomTransaction = requireNotNull(transactionCandidate) {
             "${PomTransactionBase::class.simpleName} type expected, actual is ${transaction.javaClass.simpleName}"
         }
-
         pomTransaction.run()
     }
 

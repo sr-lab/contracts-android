@@ -37,19 +37,6 @@ public class RunAllExperiments {
    * @throws Exception error
    */
   public static void main(String[] args) throws Exception {
-
-    String content = "class Person(val name: String) {\n" +
-      "    val children: MutableList<Person> = mutableListOf()\n" +
-      "    constructor(name: String, parent: Person) : this(name) {\n" +
-      "        parent.children.add(this)\n" +
-      "    }\n" +
-      "}";
-
-    KtFile file = new KtCompiler().createKtFile(content);
-
-    System.out.println("Nice");
-
-
     for (Experiment experiment : EXPERIMENTS) {
 
       // check all prerequisites exist
