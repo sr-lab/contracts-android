@@ -5,7 +5,7 @@ import org.jetbrains.kotlin.com.intellij.openapi.util.text.StringUtilRt
 import org.jetbrains.kotlin.psi.KtFile
 import org.jetbrains.kotlin.psi.KtPsiFactory
 
-open class KtCompiler(
+open class KotlinParser(
     private val environment: KotlinCoreEnvironment = createKotlinCoreEnvironment(printStream = System.err)
 ) {
 

@@ -1,11 +1,9 @@
 package contractstudy.scripts;
 
 import contractstudy.Logging;
-import contractstudy.kotlinParser.KtCompiler;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;
 import org.apache.log4j.Logger;
-import org.jetbrains.kotlin.psi.KtFile;
 
 /**
  * This is the main script that invokes all experiments.
