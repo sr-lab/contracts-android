@@ -1,9 +1,11 @@
 package contractstudy.scripts;
 
 import contractstudy.Logging;
+import contractstudy.kotlinParser.KtCompiler;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;
 import org.apache.log4j.Logger;
+import org.jetbrains.kotlin.psi.KtFile;
 
 /**
  * This is the main script that invokes all experiments.
@@ -35,6 +37,18 @@ public class RunAllExperiments {
    * @throws Exception error
    */
   public static void main(String[] args) throws Exception {
+
+    String content = "class Person(val name: String) {\n" +
+      "    val children: MutableList<Person> = mutableListOf()\n" +
+      "    constructor(name: String, parent: Person) : this(name) {\n" +
+      "        parent.children.add(this)\n" +
+      "    }\n" +
+      "}";
+
+    KtFile file = new KtCompiler().createKtFile(content);
+
+    System.out.println("Nice");
+
 
     for (Experiment experiment : EXPERIMENTS) {
 
