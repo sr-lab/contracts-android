@@ -1,6 +1,7 @@
 scripts/f-droid/GithubKeys.py
 scripts/f-droid/github_repos
 local-env/
+scripts/output/
 
 
 
