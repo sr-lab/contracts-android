@@ -5,7 +5,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Table;
 import contractstudy.Logging;
 import contractstudy.ProgramVersion;
-import contractstudy.scripts.CollectContracts;
+import contractstudy.collectContracts.CollectContracts;
 import org.apache.log4j.Logger;
 
 import java.util.Collection;

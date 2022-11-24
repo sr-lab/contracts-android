@@ -1,0 +1,31 @@
+package contractstudy.collectContracts.extractors;
+
+import com.github.javaparser.StaticJavaParser;
+import com.github.javaparser.ast.CompilationUnit;
+import contractstudy.ContractElement;
+import contractstudy.ExtractionListener;
+import contractstudy.Extractor;
+import contractstudy.collectContracts.extractors.visitors.java.MethodVisitorToCollectConditionalRuntimeExceptionThrows;
+
+import java.io.InputStream;
+
+/**
+ * Extractor to find simple patterns "if (<condition>) throw new <SomeException>" in source code.
+ *
+ * @author jens dietrich
+ */
+public class ConditionalRuntimeExceptionExtractor implements Extractor<ContractElement> {
+
+  @Override
+  public void analyse(InputStream in, String programName, String version, String cuName,
+    ExtractionListener<ContractElement> consumer) throws Exception {
+    try {
+      CompilationUnit cu = StaticJavaParser.parse(in);
+      new MethodVisitorToCollectConditionalRuntimeExceptionThrows(consumer, programName, version,
+        cuName).visit(cu, null);
+    } catch (Exception t) {
+      consumer.extractionExceptionEncountered(
+        "Cannot parse " + programName + "-" + version + "/" + cuName, t);
+    }
+  }
+}

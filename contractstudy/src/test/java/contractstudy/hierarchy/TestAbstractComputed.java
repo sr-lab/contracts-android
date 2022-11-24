@@ -1,21 +1,14 @@
 package contractstudy.hierarchy;
 
-import contractstudy.ContractElement;
-import contractstudy.ConstraintCollector;
-import contractstudy.ConstraintType;
-import contractstudy.scripts.CollectContracts;
-import org.junit.Test;
-
-import java.io.File;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static test.contractstudy.TestJsr303Annotations.firstByKind;
+
 
 /**
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
+/*
 public class TestAbstractComputed {
 
     public static final File APP_DATA_FOLDER = new File("src/test/java/contractstudy/hierarchy/testdata/abstr/");
@@ -49,5 +42,5 @@ public class TestAbstractComputed {
         assertEquals("interMethod()", max.getMethodDeclaration());
         assertTrue(max.isMethodAbstract());
     }
-
 }
+*/

@@ -22,4 +22,5 @@ public interface Extractor<T extends ContractElement> {
    */
   void analyse(InputStream in, String programName, String version, String cuName,
     ExtractionListener<T> consumer) throws Exception;
+
 }

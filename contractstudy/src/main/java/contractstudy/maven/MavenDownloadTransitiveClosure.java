@@ -2,7 +2,7 @@ package contractstudy.maven;
 
 import contractstudy.Logging;
 import contractstudy.Preferences;
-import contractstudy.scripts.CollectContracts;
+import contractstudy.collectContracts.CollectContracts;
 import org.apache.log4j.Logger;
 
 import java.io.File;

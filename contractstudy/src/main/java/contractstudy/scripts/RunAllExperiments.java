@@ -1,6 +1,7 @@
 package contractstudy.scripts;
 
 import contractstudy.Logging;
+import contractstudy.collectContracts.CollectContracts;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;
 import org.apache.log4j.Logger;

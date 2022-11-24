@@ -1,5 +1,7 @@
 package contractstudy;
 
+import contractstudy.constants.ConstraintedArtefact;
+
 import java.util.function.Function;
 
 /**

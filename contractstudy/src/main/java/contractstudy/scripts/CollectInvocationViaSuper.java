@@ -12,7 +12,7 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import contractstudy.Logging;
 import contractstudy.Preferences;
 import contractstudy.ProgramVersion;
-import contractstudy.extractors.visitors.Utils;
+import contractstudy.collectContracts.extractors.visitors.java.Utils;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;

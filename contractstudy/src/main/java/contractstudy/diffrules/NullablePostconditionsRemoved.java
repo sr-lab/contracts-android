@@ -1,10 +1,10 @@
 package contractstudy.diffrules;
 
 import contractstudy.ConstraintClassification;
-import contractstudy.ConstraintType;
 import contractstudy.ContractElement;
 import contractstudy.DiffResult;
 import contractstudy.DiffRule;
+import contractstudy.constants.ConstraintType;
 
 import java.util.List;
 

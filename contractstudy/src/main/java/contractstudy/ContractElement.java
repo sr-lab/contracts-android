@@ -1,6 +1,8 @@
 package contractstudy;
 
 import com.google.common.base.Preconditions;
+import contractstudy.constants.ConstraintType;
+import contractstudy.constants.ConstraintedArtefact;
 import org.json.JSONObject;
 
 /**
