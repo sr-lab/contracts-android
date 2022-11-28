@@ -1,12 +1,12 @@
 package contractstudy.scripts;
 
-import contractstudy.ContractElement;
-import contractstudy.DiffRecord;
-import contractstudy.DiffResult;
-import contractstudy.Differ;
-import contractstudy.Logging;
-import contractstudy.Preferences;
 import contractstudy.SubtypeDiffExtractor;
+import contractstudy.config.Logging;
+import contractstudy.config.Preferences;
+import contractstudy.constants.constraint.ContractElement;
+import contractstudy.diff.DiffRecord;
+import contractstudy.diff.DiffResult;
+import contractstudy.diff.Differ;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;
@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static contractstudy.diffrules.Utils.NF;
+import static contractstudy.diff.diffrules.Utils.NF;
 
 /**
  * Script to analyse how contracts evolve from one to the next version of an artefact.

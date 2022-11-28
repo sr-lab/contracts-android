@@ -5,7 +5,9 @@ package contractstudy.hierarchy.testdata.simple.another;
  */
 public class SimpleParentClass extends SimpleParentParentInProject {
 
-    private void privateM() {}
+  private void privateM() {
+  }
 
-    public void publicM() {}
+  public void publicM() {
+  }
 }

@@ -1,5 +1,6 @@
-package contractstudy.kotlinParser
+package contractstudy.kotlinParser.parser
 
+import contractstudy.kotlinParser.PomModel
 import org.jetbrains.kotlin.cli.common.CLIConfigurationKeys
 import org.jetbrains.kotlin.cli.common.environment.setIdeaIoUseFallback
 import org.jetbrains.kotlin.cli.common.messages.MessageRenderer
@@ -18,21 +19,21 @@ import java.io.PrintStream
  * This environment also allows to modify the resulting AST files.
  */
 fun createKotlinCoreEnvironment(
-        configuration: CompilerConfiguration = CompilerConfiguration(),
-        disposable: Disposable = Disposer.newDisposable(),
-        printStream: PrintStream,
+    configuration: CompilerConfiguration = CompilerConfiguration(),
+    disposable: Disposable = Disposer.newDisposable(),
+    printStream: PrintStream,
 ): KotlinCoreEnvironment {
     setIdeaIoUseFallback()
     configuration.put(
-            CLIConfigurationKeys.MESSAGE_COLLECTOR_KEY,
-            PrintingMessageCollector(printStream, MessageRenderer.PLAIN_FULL_PATHS, false)
+        CLIConfigurationKeys.MESSAGE_COLLECTOR_KEY,
+        PrintingMessageCollector(printStream, MessageRenderer.PLAIN_FULL_PATHS, false)
     )
     configuration.put(CommonConfigurationKeys.MODULE_NAME, "contractstudy")
 
     val environment = KotlinCoreEnvironment.createForProduction(
-            disposable,
-            configuration,
-            EnvironmentConfigFiles.JVM_CONFIG_FILES
+        disposable,
+        configuration,
+        EnvironmentConfigFiles.JVM_CONFIG_FILES
     )
 
     val projectCandidate = environment.project

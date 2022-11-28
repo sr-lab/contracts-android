@@ -2,16 +2,16 @@ package contractstudy.scripts;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import contractstudy.ConstraintCategory;
-import contractstudy.ConstraintClassification;
-import contractstudy.ConstraintGroup;
-import contractstudy.ConstraintType;
-import contractstudy.ContractElement;
 import contractstudy.FindFirstAndLastProgramVersions;
-import contractstudy.Logging;
-import contractstudy.Preferences;
 import contractstudy.ProgramVersion;
-import contractstudy.diffrules.Utils;
+import contractstudy.config.Logging;
+import contractstudy.config.Preferences;
+import contractstudy.constants.constraint.ConstraintCategory;
+import contractstudy.constants.constraint.ConstraintClassification;
+import contractstudy.constants.constraint.ConstraintGroup;
+import contractstudy.constants.constraint.ConstraintType;
+import contractstudy.constants.constraint.ContractElement;
+import contractstudy.diff.diffrules.Utils;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;
@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static contractstudy.diffrules.Utils.NF;
+import static contractstudy.diff.diffrules.Utils.NF;
 
 /**
  * Script used to analyse how contracts are used by programs. This script counts the contracts

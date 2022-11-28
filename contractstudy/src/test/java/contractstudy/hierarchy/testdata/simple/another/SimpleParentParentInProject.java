@@ -7,5 +7,6 @@ import contractstudy.hierarchy.testdata.depsa.SimpleParentParentClassA;
  */
 public class SimpleParentParentInProject extends SimpleParentParentClassA {
 
-    public void parentParentInProjectMethod() {}
+  public void parentParentInProjectMethod() {
+  }
 }

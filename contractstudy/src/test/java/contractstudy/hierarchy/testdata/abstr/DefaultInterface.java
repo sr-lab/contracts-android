@@ -9,11 +9,11 @@ import javax.validation.constraints.Min;
 public interface DefaultInterface {
 
 
-    @Max(30)
-    void interMethod();
+  @Max(30)
+  void interMethod();
 
-    @Min(20)
-    default void defMethod() {
+  @Min(20)
+  default void defMethod() {
 
-    }
+  }
 }

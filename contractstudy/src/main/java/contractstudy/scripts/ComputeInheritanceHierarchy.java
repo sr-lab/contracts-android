@@ -1,8 +1,8 @@
 package contractstudy.scripts;
 
-import contractstudy.Logging;
-import contractstudy.Preferences;
 import contractstudy.ProgramVersion;
+import contractstudy.config.Logging;
+import contractstudy.config.Preferences;
 import contractstudy.hierarchy.ClassAndVersion;
 import contractstudy.hierarchy.ClassCoordinates;
 import contractstudy.hierarchy.ClassParents;

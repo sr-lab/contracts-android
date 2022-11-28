@@ -9,9 +9,9 @@ import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.google.common.base.Preconditions;
-import contractstudy.Logging;
-import contractstudy.Preferences;
 import contractstudy.ProgramVersion;
+import contractstudy.config.Logging;
+import contractstudy.config.Preferences;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;
@@ -41,7 +41,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import static contractstudy.diffrules.Utils.NF;
+import static contractstudy.diff.diffrules.Utils.NF;
 
 
 /**

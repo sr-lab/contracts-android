@@ -1,0 +1,34 @@
+package contractstudy.constants.constraint;
+
+import contractstudy.ExtractionListener;
+import contractstudy.config.Logging;
+import org.apache.log4j.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Collect constraints.
+ *
+ * @author jens dietrich
+ */
+public class ConstraintCollector implements ExtractionListener<ContractElement> {
+
+  static Logger LOGGER = Logging.getLogger(ConstraintCollector.class);
+  private final List<ContractElement> contractElements = new ArrayList<>();
+
+  @Override
+  public void constraintFound(ContractElement contractElement) {
+    this.contractElements.add(contractElement);
+  }
+
+  public List<ContractElement> getContractElements() {
+    return contractElements;
+  }
+
+  @Override
+  public void extractionExceptionEncountered(String message, Throwable x) {
+    LOGGER.debug(message, x);
+    // x.printStackTrace();
+  }
+}

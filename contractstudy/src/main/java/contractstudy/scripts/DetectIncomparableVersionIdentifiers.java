@@ -3,8 +3,8 @@
  */
 package contractstudy.scripts;
 
-import contractstudy.Preferences;
 import contractstudy.ProgramVersion;
+import contractstudy.config.Preferences;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;

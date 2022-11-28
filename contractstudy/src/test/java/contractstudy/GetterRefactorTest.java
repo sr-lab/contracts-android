@@ -1,6 +1,7 @@
 package contractstudy;
 
-import contractstudy.diffrules.Utils;
+import contractstudy.constants.constraint.ContractElement;
+import contractstudy.diff.diffrules.Utils;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
@@ -10,39 +11,38 @@ import static org.junit.Assert.assertTrue;
  */
 public class GetterRefactorTest {
 
-    @Test
-    public void testToGetter() {
-        String c1 = "foo";
-        String c2 = "getFoo()";
+  private static boolean conditionSame(String c1, String c2) {
+    return Utils.getterRefactor(wrap(c1), wrap(c2));
+  }
 
-        assertTrue(conditionSame(c1, c2));
-    }
+  private static ContractElement wrap(String condition) {
+    ContractElement c = new ContractElement();
+    c.setCondition(condition);
 
-    @Test
-    public void testToIs() {
-        String c1 = "foo";
-        String c2 = "isFoo()";
+    return c;
+  }
 
-        assertTrue(conditionSame(c1, c2));
-    }
+  @Test
+  public void testToGetter() {
+    String c1 = "foo";
+    String c2 = "getFoo()";
 
-    @Test
-    public void testCombined() {
-        String c1 = "foo = 10 && boo == ahoj";
-        String c2 = "getFoo() = 10 && getBoo() == ahoj";
+    assertTrue(conditionSame(c1, c2));
+  }
 
-        assertTrue(conditionSame(c1, c2));
-    }
+  @Test
+  public void testToIs() {
+    String c1 = "foo";
+    String c2 = "isFoo()";
 
+    assertTrue(conditionSame(c1, c2));
+  }
 
-    private static boolean conditionSame(String c1, String c2) {
-        return Utils.getterRefactor(wrap(c1), wrap(c2));
-    }
+  @Test
+  public void testCombined() {
+    String c1 = "foo = 10 && boo == ahoj";
+    String c2 = "getFoo() = 10 && getBoo() == ahoj";
 
-    private static ContractElement wrap(String condition) {
-        ContractElement c = new ContractElement();
-        c.setCondition(condition);
-
-        return c;
-    }
+    assertTrue(conditionSame(c1, c2));
+  }
 }

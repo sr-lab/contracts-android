@@ -21,7 +21,7 @@ class PomModel(project: Project) : UserDataHolderBase(), PomModel {
     override fun <T : PomModelAspect?> getModelAspect(aspect: Class<T>): T? {
         if (aspect == TreeAspect::class.java) {
             val constructor = ReflectionFactory.getReflectionFactory()
-                    .newConstructorForSerialization(aspect, Any::class.java.getDeclaredConstructor())
+                .newConstructorForSerialization(aspect, Any::class.java.getDeclaredConstructor())
             @Suppress("UNCHECKED_CAST")
             return constructor.newInstance() as T
         }

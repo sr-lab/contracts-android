@@ -8,11 +8,11 @@ import javax.validation.constraints.Min;
  */
 public abstract class AbstractClassMethods {
 
-    @Max(30)
-    public abstract void abstrMethod();
+  @Max(30)
+  public abstract void abstrMethod();
 
-    @Min(40)
-    public void method() {
+  @Min(40)
+  public void method() {
 
-    }
+  }
 }
