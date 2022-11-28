@@ -1,9 +1,9 @@
 package contractstudy.old;
 
-import contractstudy.ConstraintCollector;
-import contractstudy.constants.ConstraintType;
-import contractstudy.ContractElement;
 import contractstudy.collectContracts.CollectContracts;
+import contractstudy.constants.constraint.ConstraintCollector;
+import contractstudy.constants.constraint.ConstraintType;
+import contractstudy.constants.constraint.ContractElement;
 import org.junit.Test;
 
 import java.io.File;
@@ -14,24 +14,26 @@ import static org.junit.Assert.assertSame;
 
 /**
  * Tests for findbugs annotations.
+ *
  * @author jens dietrich
  */
 public class TestFindBugsAnnotations {
 
-    private static final File TEST_DATA_FOLDER = new File("src/test/java/test/contractstudy/testdata/findbugs/");
+  private static final File TEST_DATA_FOLDER = new File(
+    "src/test/java/test/contractstudy/testdata/findbugs/");
 
-    @Test
-    public void testAnnotationsDetected() throws Exception {
+  @Test
+  public void testAnnotationsDetected() throws Exception {
 
-        ConstraintCollector collector = new ConstraintCollector();
-        CollectContracts.analyse(new File(TEST_DATA_FOLDER, "FindBugsTest.java"), collector);
+    ConstraintCollector collector = new ConstraintCollector();
+    CollectContracts.analyse(new File(TEST_DATA_FOLDER, "FindBugsTest.java"), collector);
 
-        List<ContractElement> contractElements = collector.getContractElements();
-        assertEquals(1, contractElements.size());
+    List<ContractElement> contractElements = collector.getContractElements();
+    assertEquals(1, contractElements.size());
 
-        ContractElement contractElement = contractElements.get(0);
-        assertSame(ConstraintType.FindBugsNonNull, contractElement.getKind());
-        assertEquals(10, contractElement.getLineNo());
-    }
+    ContractElement contractElement = contractElements.get(0);
+    assertSame(ConstraintType.FindBugsNonNull, contractElement.getKind());
+    assertEquals(10, contractElement.getLineNo());
+  }
 
 }

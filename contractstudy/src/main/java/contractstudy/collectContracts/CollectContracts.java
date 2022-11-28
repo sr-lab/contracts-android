@@ -1,27 +1,27 @@
 package contractstudy.collectContracts;
 
-import contractstudy.ConstraintCollector;
-import contractstudy.ContractElement;
 import contractstudy.ExtractionListener;
 import contractstudy.Extractor;
-import contractstudy.Logging;
-import contractstudy.Preferences;
 import contractstudy.ProgramVersion;
-import contractstudy.collectContracts.extractors.CommonsValidate2Extractor;
-import contractstudy.collectContracts.extractors.CommonsValidate3Extractor;
-import contractstudy.collectContracts.extractors.ConditionalRuntimeExceptionExtractor;
-import contractstudy.collectContracts.extractors.FindBugsAnnotationExtractor;
-import contractstudy.collectContracts.extractors.GuavaPreconditionsExtractor;
-import contractstudy.collectContracts.extractors.SpringAssertExtractor;
-import contractstudy.collectContracts.extractors.UnconditionalOperationNotSupportedExceptionExtractor;
-import contractstudy.collectContracts.extractors.annotations.AndroidAnnotationExtractor;
-import contractstudy.collectContracts.extractors.annotations.AndroidXAnnotationExtractor;
-import contractstudy.collectContracts.extractors.annotations.IntellijExtractor;
-import contractstudy.collectContracts.extractors.annotations.JSR303Extractor;
-import contractstudy.collectContracts.extractors.annotations.JSR305ConcurrentExtractor;
-import contractstudy.collectContracts.extractors.annotations.JSR305Extractor;
-import contractstudy.collectContracts.extractors.annotations.JetBrainsExtractor;
+import contractstudy.collectContracts.extractors.annotation.AndroidAnnotationExtractor;
+import contractstudy.collectContracts.extractors.annotation.AndroidXAnnotationExtractor;
+import contractstudy.collectContracts.extractors.annotation.FindBugsAnnotationExtractor;
+import contractstudy.collectContracts.extractors.annotation.IntellijExtractor;
+import contractstudy.collectContracts.extractors.annotation.JSR303Extractor;
+import contractstudy.collectContracts.extractors.annotation.JSR305ConcurrentExtractor;
+import contractstudy.collectContracts.extractors.annotation.JSR305Extractor;
+import contractstudy.collectContracts.extractors.annotation.JetBrainsExtractor;
+import contractstudy.collectContracts.extractors.api.CommonsValidate.CommonsValidate2.CommonsValidate2Extractor;
+import contractstudy.collectContracts.extractors.api.CommonsValidate.CommonsValidate3.CommonsValidate3Extractor;
+import contractstudy.collectContracts.extractors.api.Guava.GuavaPreconditionsExtractor;
+import contractstudy.collectContracts.extractors.api.SpringAssert.SpringAssertExtractor;
 import contractstudy.collectContracts.extractors.asserts.JavaAssert.JavaAssertExtractor;
+import contractstudy.collectContracts.extractors.cre.JavaCREExtractor.JavaCREExtractor;
+import contractstudy.collectContracts.extractors.cre.UnconditionalOperationNotSupported.UnconditionalOperationNotSupportedExceptionExtractor;
+import contractstudy.config.Logging;
+import contractstudy.config.Preferences;
+import contractstudy.constants.constraint.ConstraintCollector;
+import contractstudy.constants.constraint.ContractElement;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;
@@ -66,7 +66,7 @@ public class CollectContracts implements Experiment {
     // new LombokExtractor(), at designtime (pre-compilation) lombok annotations are
     // translated into CRE s !
     new JavaAssertExtractor(),
-    new ConditionalRuntimeExceptionExtractor(),
+    new JavaCREExtractor(),
     new UnconditionalOperationNotSupportedExceptionExtractor(),
     new GuavaPreconditionsExtractor(),
     new CommonsValidate2Extractor(),

@@ -1,22 +1,22 @@
 package contractstudy.collectContracts.extractors.common.AbstractMethodVisitor;
 
-import contractstudy.ContractElement;
 import contractstudy.ExtractionListener;
-import contractstudy.Preferences;
+import contractstudy.config.Preferences;
+import contractstudy.constants.constraint.ContractElement;
 import org.jetbrains.kotlin.psi.KtTreeVisitorVoid;
 
 public abstract class AbstractMethodVisitorKotlin extends KtTreeVisitorVoid {
 
   private final boolean includePrivateMethods = Preferences.includePrivateMethods();
+  private final boolean isAbstractMethod = false;
+  private final boolean isInterface = false;
+  private final boolean isDefaultMethod = false;
   protected ExtractionListener<ContractElement> consumer = null;
   protected String programName = null;
   protected String version = null;
   protected String cuName = null;
   protected String methodDeclaration = null;
   private String packageName;
-  private final boolean isAbstractMethod = false;
-  private final boolean isInterface = false;
-  private final boolean isDefaultMethod = false;
 
   public AbstractMethodVisitorKotlin(
     ExtractionListener<ContractElement> consumer,

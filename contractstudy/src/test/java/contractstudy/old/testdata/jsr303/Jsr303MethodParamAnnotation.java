@@ -8,8 +8,8 @@ import javax.validation.constraints.Min;
  */
 public class Jsr303MethodParamAnnotation {
 
-    @Min(20)
-    public int method(@Max(10) Integer a) {
-        return 10;
-    }
+  @Min(20)
+  public int method(@Max(10) Integer a) {
+    return 10;
+  }
 }

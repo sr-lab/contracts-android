@@ -1,5 +1,6 @@
 package contractstudy;
 
+import contractstudy.config.Logging;
 import org.apache.log4j.Logger;
 
 import java.io.File;

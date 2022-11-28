@@ -1,7 +1,7 @@
 package contractstudy.maven;
 
-import contractstudy.Preferences;
 import contractstudy.ProgramVersion;
+import contractstudy.config.Preferences;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 

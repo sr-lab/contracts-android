@@ -1,7 +1,7 @@
 package contractstudy.scripts;
 
 import com.google.common.base.Preconditions;
-import contractstudy.Preferences;
+import contractstudy.config.Preferences;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;

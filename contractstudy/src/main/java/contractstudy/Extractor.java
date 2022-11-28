@@ -1,5 +1,7 @@
 package contractstudy;
 
+import contractstudy.constants.constraint.ContractElement;
+
 import java.io.InputStream;
 
 /**

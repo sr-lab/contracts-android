@@ -7,5 +7,5 @@ import contractstudy.hierarchy.testdata.depsa.SimpleParentParentInterfaceA;
  */
 public interface SimpleParentInterface extends SimpleParentParentInterfaceA {
 
-    void method();
+  void method();
 }

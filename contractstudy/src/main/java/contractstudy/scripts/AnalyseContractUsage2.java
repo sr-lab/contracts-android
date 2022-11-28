@@ -2,12 +2,12 @@ package contractstudy.scripts;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
-import contractstudy.ConstraintGroup;
-import contractstudy.ContractElement;
-import contractstudy.Logging;
-import contractstudy.Preferences;
 import contractstudy.ProgramVersion;
-import contractstudy.constants.ConstraintType;
+import contractstudy.config.Logging;
+import contractstudy.config.Preferences;
+import contractstudy.constants.constraint.ConstraintGroup;
+import contractstudy.constants.constraint.ConstraintType;
+import contractstudy.constants.constraint.ContractElement;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;

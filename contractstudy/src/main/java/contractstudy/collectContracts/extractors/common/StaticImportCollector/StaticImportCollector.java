@@ -2,7 +2,7 @@ package contractstudy.collectContracts.extractors.common.StaticImportCollector;
 
 import com.github.javaparser.ast.ImportDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import contractstudy.collectContracts.extractors.visitors.java.StaticImportState;
+import contractstudy.collectContracts.extractors.common.StaticImportCollector.constants.StaticImportState;
 import lombok.Getter;
 import lombok.Setter;
 

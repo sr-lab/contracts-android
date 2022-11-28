@@ -1,18 +1,21 @@
 package test.contractstudy.extractor.abstractAnnotationExtractor.java.testData;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class AnnotationsWildCard {
 
   @NotNull
-  private String manufacturer;
+  private final String manufacturer;
 
   @NotNull
   @Size(min = 2, max = 14)
-  private String licensePlate;
+  private final String licensePlate;
 
   @Min(2)
-  private int seatCount;
+  private final int seatCount;
 
   public AnnotationsWildCard(String manufacturer, String licencePlate, int seatCount) {
     this.manufacturer = manufacturer;

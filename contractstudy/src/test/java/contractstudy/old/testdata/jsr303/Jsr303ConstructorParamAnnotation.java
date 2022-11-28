@@ -8,7 +8,7 @@ import javax.validation.constraints.Min;
  */
 public class Jsr303ConstructorParamAnnotation {
 
-    @Min(20)
-    public Jsr303ConstructorParamAnnotation(@Max(10) Integer a) {
-    }
+  @Min(20)
+  public Jsr303ConstructorParamAnnotation(@Max(10) Integer a) {
+  }
 }

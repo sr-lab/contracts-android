@@ -1,12 +1,12 @@
 package contractstudy.collectContracts.extractors.asserts.KotlinAssert;
 
-import contractstudy.ContractElement;
 import contractstudy.ExtractionListener;
 import contractstudy.Extractor;
+import contractstudy.constants.constraint.ContractElement;
 import contractstudy.kotlinParser.KotlinParser;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
-import org.jetbrains.kotlin.psi.KtFile;
+import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 import java.io.InputStream;
 
@@ -44,22 +44,12 @@ public class KotlinAssertExtractor implements Extractor<ContractElement> {
     final ExtractionListener<ContractElement> consumer) throws Exception {
 
     String src = new InputStreamToStringConversion(in).getResult();
-    KtFile ktFile = new KotlinParser().createKtFile(cuName, src);
+    PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
 
     KotlinAssertVisitor kotlinAssertVisitor = new KotlinAssertVisitor(programName, version, cuName,
       consumer);
 
-    ktFile.accept(kotlinAssertVisitor);
-
-    //new KotlinAssertVisitor(programName, version, cuName, consumer).visitKtFile(ktFile);
-
-    //KotlinAssertVisitor kotlinAssertVisitor = new KotlinAssertVisitor(programName, version, cuName, consumer);
-    //ktFile.accept(kotlinAssertVisitor);
-
-    System.out.println("nice");
-
-    //CompilationUnit cu = StaticJavaParser.parse(in);
-    //new JavaAssertVisitor(programName, version, cuName, consumer).visit(cu, null);
+    psiFile.accept(kotlinAssertVisitor);
 
   }
 

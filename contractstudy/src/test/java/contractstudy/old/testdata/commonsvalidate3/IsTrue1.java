@@ -1,10 +1,12 @@
 package contractstudy.old.testdata.commonsvalidate3;
 
 // import class
+
 import org.apache.commons.lang3.Validate;
 
 public class IsTrue1 {
-	public static void foo(int i) {
-		Validate.isTrue(i<0,"Parameter must be >=0");
-	}
+
+  public static void foo(int i) {
+    Validate.isTrue(i < 0, "Parameter must be >=0");
+  }
 }

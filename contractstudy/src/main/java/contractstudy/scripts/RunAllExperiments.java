@@ -1,7 +1,7 @@
 package contractstudy.scripts;
 
-import contractstudy.Logging;
 import contractstudy.collectContracts.CollectContracts;
+import contractstudy.config.Logging;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;
 import org.apache.log4j.Logger;
@@ -18,11 +18,11 @@ public class RunAllExperiments {
 
   private static final Experiment[] EXPERIMENTS = new Experiment[]{
     new CollectContracts(),
-    new ComputeInheritanceHierarchy(),
-    new AnalyseContractEvolution(),
     new AnalyseContractUsage(),
     new CollectDataSetStats(),
     new CollectInvocationViaSuper(),
+    new ComputeInheritanceHierarchy(),
+    new AnalyseContractEvolution(),
     new CollectProgramVersionStats(),
     new AnalyseContractUsageAcrossVersions(),
     new AnalyseHierarchyContracts(),

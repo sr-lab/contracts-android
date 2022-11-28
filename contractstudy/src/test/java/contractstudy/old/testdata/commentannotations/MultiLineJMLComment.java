@@ -1,6 +1,8 @@
 package contractstudy.old.testdata.commentannotations;
 
-/** Return the sum of the argument array. */
+/**
+ * Return the sum of the argument array.
+ */
 /*@   old \bigint sum =
   @		(\sum int j; 0 <= j && j < a.length; (\bigint)a[j]);
   @   requires Long.MIN_VALUE <= sum && sum <= Long.MAX_VALUE;
@@ -9,4 +11,5 @@ package contractstudy.old.testdata.commentannotations;
   @*/
 
 public class MultiLineJMLComment {
+
 }

@@ -1,6 +1,6 @@
 package contractstudy.collectContracts.extractors.common.StaticImportCollector;
 
-import contractstudy.collectContracts.extractors.visitors.java.StaticImportState;
+import contractstudy.collectContracts.extractors.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.utils.StringUtils;
 import lombok.Getter;
 import lombok.Setter;
@@ -87,9 +87,9 @@ public class StaticImportCollectorKotlin extends KtTreeVisitorVoid {
     }
   }
 
+  // TODO: Fixme
   private Boolean isImportStatic(String importStatement) {
-    // TODO: Validate if there are even static imports in Kotlin.
-    return importStatement.startsWith("import static");
+    return false;
   }
 
   private String getImportBasePath(String importPath, String importLeaf) {

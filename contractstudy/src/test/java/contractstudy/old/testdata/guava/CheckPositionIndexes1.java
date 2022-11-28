@@ -5,7 +5,8 @@ package contractstudy.old.testdata.guava;
 import static com.google.common.base.Preconditions.checkPositionIndexes;
 
 public class CheckPositionIndexes1 {
-	public void foo(int i) {
-		checkPositionIndexes(i,5,8);
-	}
+
+  public void foo(int i) {
+    checkPositionIndexes(i, 5, 8);
+  }
 }

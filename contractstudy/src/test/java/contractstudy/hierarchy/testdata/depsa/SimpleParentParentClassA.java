@@ -7,5 +7,6 @@ import contractstudy.hierarchy.testdata.depsb.SimpleParentParentB;
  */
 public class SimpleParentParentClassA extends SimpleParentParentB {
 
-    public void parentParentMethod() {}
+  public void parentParentMethod() {
+  }
 }

@@ -1,7 +1,7 @@
 package contractstudy.scripts;
 
-import contractstudy.Logging;
 import contractstudy.ProgramVersion;
+import contractstudy.config.Logging;
 import contractstudy.scripts.engine.ArtefactFactory;
 import org.apache.log4j.Logger;
 

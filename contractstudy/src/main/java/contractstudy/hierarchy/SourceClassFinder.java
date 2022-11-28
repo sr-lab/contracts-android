@@ -3,9 +3,9 @@ package contractstudy.hierarchy;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Table;
-import contractstudy.Logging;
 import contractstudy.ProgramVersion;
 import contractstudy.collectContracts.CollectContracts;
+import contractstudy.config.Logging;
 import org.apache.log4j.Logger;
 
 import java.util.Collection;

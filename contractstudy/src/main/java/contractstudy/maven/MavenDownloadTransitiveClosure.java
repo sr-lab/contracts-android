@@ -1,8 +1,8 @@
 package contractstudy.maven;
 
-import contractstudy.Logging;
-import contractstudy.Preferences;
 import contractstudy.collectContracts.CollectContracts;
+import contractstudy.config.Logging;
+import contractstudy.config.Preferences;
 import org.apache.log4j.Logger;
 
 import java.io.File;

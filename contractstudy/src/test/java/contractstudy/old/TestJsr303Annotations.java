@@ -1,12 +1,12 @@
 package contractstudy.old;
 
-import contractstudy.ConstraintCollector;
-import contractstudy.constants.ConstraintType;
-import contractstudy.constants.ConstraintedArtefact;
-import contractstudy.ContractElement;
+import contractstudy.collectContracts.CollectContracts;
+import contractstudy.constants.constraint.ConstraintCollector;
+import contractstudy.constants.constraint.ConstraintType;
+import contractstudy.constants.constraint.ConstraintedArtefact;
+import contractstudy.constants.constraint.ContractElement;
 import contractstudy.old.testdata.jsr303.Jsr303ConstructorParamAnnotation;
 import contractstudy.old.testdata.jsr303.Jsr303MethodParamAnnotation;
-import contractstudy.collectContracts.CollectContracts;
 import org.junit.Test;
 
 import java.io.File;
@@ -20,136 +20,143 @@ import static org.junit.Assert.assertNotNull;
  */
 public class TestJsr303Annotations {
 
-    private static final File TEST_DATA_FOLDER = new File("src/test/java/test/contractstudy/testdata/jsr303/");
+  private static final File TEST_DATA_FOLDER = new File(
+    "src/test/java/test/contractstudy/testdata/jsr303/");
 
-    @Test
-    public void testAnnotationsDetected() throws Exception {
+  /**
+   * Get first precondition with matching its kind.
+   *
+   * @param kind          name
+   * @param preconditions preconditions to search in
+   * @return precondition or null
+   */
+  public static ContractElement firstByKind(
+    final List<ContractElement> preconditions,
+    final ConstraintType kind) {
 
-        ConstraintCollector collector = new ConstraintCollector();
-        CollectContracts.analyse(new File(TEST_DATA_FOLDER, "Jsr303TestData.java"), collector);
+    ContractElement p = null;
 
-        ContractElement min = firstByKind(collector.getContractElements(), ConstraintType.JSR303Min);
-
-        assertNotNull("Precondition 'Min' does not exist", min);
-        assertEquals("[value = 30]", min.getCondition());
-
-        ContractElement max = firstByKind(collector.getContractElements(), ConstraintType.JSR303Max);
-        assertNotNull("Precondition 'Max' does not exist", max);
-        assertEquals("100", max.getCondition());
+    for (ContractElement precondition : preconditions) {
+      // not precise finding, but ok for tests
+      if (precondition.getKind().equals(kind)) {
+        p = precondition;
+        break;
+      }
     }
 
+    return p;
+  }
 
+  @Test
+  public void testAnnotationsDetected() throws Exception {
 
-    @Test
-    public void testJsr303WildImportTestData() throws Exception {
+    ConstraintCollector collector = new ConstraintCollector();
+    CollectContracts.analyse(new File(TEST_DATA_FOLDER, "Jsr303TestData.java"), collector);
 
-        ConstraintCollector collector = new ConstraintCollector();
-        CollectContracts.analyse(new File(TEST_DATA_FOLDER, "Jsr303WildImportTestData.java"), collector);
+    ContractElement min = firstByKind(collector.getContractElements(), ConstraintType.JSR303Min);
 
-        ContractElement min = firstByKind(collector.getContractElements(), ConstraintType.JSR303Min);
+    assertNotNull("Precondition 'Min' does not exist", min);
+    assertEquals("[value = 30]", min.getCondition());
 
-        assertNotNull("Precondition 'Min' does not exist", min);
-        assertEquals("[value = 30]", min.getCondition());
+    ContractElement max = firstByKind(collector.getContractElements(), ConstraintType.JSR303Max);
+    assertNotNull("Precondition 'Max' does not exist", max);
+    assertEquals("100", max.getCondition());
+  }
 
-        ContractElement max = firstByKind(collector.getContractElements(), ConstraintType.JSR303Max);
-        assertNotNull("Precondition 'Max' does not exist", max);
-        assertEquals("100", max.getCondition());
-    }
+  @Test
+  public void testJsr303WildImportTestData() throws Exception {
 
-    @Test
-    public void testNonJsr() throws Exception {
+    ConstraintCollector collector = new ConstraintCollector();
+    CollectContracts.analyse(new File(TEST_DATA_FOLDER, "Jsr303WildImportTestData.java"),
+      collector);
 
-        ConstraintCollector collector = new ConstraintCollector();
-        CollectContracts.analyse(new File(TEST_DATA_FOLDER, "NonJsr303TestData.java"), collector);
+    ContractElement min = firstByKind(collector.getContractElements(), ConstraintType.JSR303Min);
 
-        assertEquals("No annotations should be found. ", 0, collector.getContractElements().size());
+    assertNotNull("Precondition 'Min' does not exist", min);
+    assertEquals("[value = 30]", min.getCondition());
 
-    }
+    ContractElement max = firstByKind(collector.getContractElements(), ConstraintType.JSR303Max);
+    assertNotNull("Precondition 'Max' does not exist", max);
+    assertEquals("100", max.getCondition());
+  }
 
+  @Test
+  public void testNonJsr() throws Exception {
 
-    @Test
-    public void testJsr303MethodParameterAnnotation() throws Exception {
+    ConstraintCollector collector = new ConstraintCollector();
+    CollectContracts.analyse(new File(TEST_DATA_FOLDER, "NonJsr303TestData.java"), collector);
 
-        ConstraintCollector collector = new ConstraintCollector();
-        CollectContracts.analyse(new File(TEST_DATA_FOLDER, Jsr303MethodParamAnnotation.class.getSimpleName() + ".java"), collector);
+    assertEquals("No annotations should be found. ", 0, collector.getContractElements().size());
 
-        ContractElement min = firstByKind(collector.getContractElements(), ConstraintType.JSR303Min);
+  }
 
-        assertNotNull("Precondition 'Min' does not exist", min);
-        assertEquals("20", min.getCondition());
+  @Test
+  public void testJsr303MethodParameterAnnotation() throws Exception {
 
-        ContractElement max = firstByKind(collector.getContractElements(), ConstraintType.JSR303Max);
-        assertNotNull("Precondition 'Max' does not exist", max);
-        assertEquals("10", max.getCondition());
+    ConstraintCollector collector = new ConstraintCollector();
+    CollectContracts.analyse(
+      new File(TEST_DATA_FOLDER, Jsr303MethodParamAnnotation.class.getSimpleName() + ".java"),
+      collector);
 
-        assertEquals("method(Integer)", max.getMethodDeclaration());
-        assertEquals("method(Integer)", min.getMethodDeclaration());
-    }
+    ContractElement min = firstByKind(collector.getContractElements(), ConstraintType.JSR303Min);
 
-    @Test
-    public void testJsr303ConstructorParameterAnnotation() throws Exception {
+    assertNotNull("Precondition 'Min' does not exist", min);
+    assertEquals("20", min.getCondition());
 
-        ConstraintCollector collector = new ConstraintCollector();
-        CollectContracts.analyse(new File(TEST_DATA_FOLDER, Jsr303ConstructorParamAnnotation.class.getSimpleName() + ".java"), collector);
+    ContractElement max = firstByKind(collector.getContractElements(), ConstraintType.JSR303Max);
+    assertNotNull("Precondition 'Max' does not exist", max);
+    assertEquals("10", max.getCondition());
 
-        ContractElement min = firstByKind(collector.getContractElements(), ConstraintType.JSR303Min);
+    assertEquals("method(Integer)", max.getMethodDeclaration());
+    assertEquals("method(Integer)", min.getMethodDeclaration());
+  }
 
-        assertNotNull("Precondition 'Min' does not exist", min);
-        assertEquals("20", min.getCondition());
+  @Test
+  public void testJsr303ConstructorParameterAnnotation() throws Exception {
 
-        ContractElement max = firstByKind(collector.getContractElements(), ConstraintType.JSR303Max);
-        assertNotNull("Precondition 'Max' does not exist", max);
-        assertEquals("10", max.getCondition());
+    ConstraintCollector collector = new ConstraintCollector();
+    CollectContracts.analyse(
+      new File(TEST_DATA_FOLDER, Jsr303ConstructorParamAnnotation.class.getSimpleName() + ".java"),
+      collector);
 
-        assertEquals("Jsr303ConstructorParamAnnotation(Integer)", max.getMethodDeclaration());
-        assertEquals("Jsr303ConstructorParamAnnotation(Integer)", min.getMethodDeclaration());
-    }
+    ContractElement min = firstByKind(collector.getContractElements(), ConstraintType.JSR303Min);
 
-    /**
-     * Get first precondition with matching its kind.
-     * @param kind  name
-     * @param preconditions preconditions to search in
-     * @return precondition or null
-     */
-    public static ContractElement firstByKind(
-            final List<ContractElement> preconditions,
-            final ConstraintType kind) {
+    assertNotNull("Precondition 'Min' does not exist", min);
+    assertEquals("20", min.getCondition());
 
-        ContractElement p = null;
+    ContractElement max = firstByKind(collector.getContractElements(), ConstraintType.JSR303Max);
+    assertNotNull("Precondition 'Max' does not exist", max);
+    assertEquals("10", max.getCondition());
 
-        for (ContractElement precondition : preconditions) {
-            // not precise finding, but ok for tests
-            if (precondition.getKind().equals(kind)) {
-                p = precondition;
-                break;
-            }
-        }
+    assertEquals("Jsr303ConstructorParamAnnotation(Integer)", max.getMethodDeclaration());
+    assertEquals("Jsr303ConstructorParamAnnotation(Integer)", min.getMethodDeclaration());
+  }
 
-        return p;
-    }
+  @Test
+  public void testJsr303TargetInvariant() throws Exception {
+    ConstraintCollector collector = new ConstraintCollector();
+    CollectContracts.analyse(new File(TEST_DATA_FOLDER, "TargetArtefacts.java"), collector);
+    ContractElement contractElement = firstByKind(collector.getContractElements(),
+      ConstraintType.JSR303Size);
+    assertEquals(ConstraintedArtefact.CLASS, contractElement.getConstraintedArtefact());
+  }
 
-    @Test
-    public void testJsr303TargetInvariant() throws Exception {
-        ConstraintCollector collector = new ConstraintCollector();
-        CollectContracts.analyse(new File(TEST_DATA_FOLDER, "TargetArtefacts.java"), collector);
-        ContractElement contractElement = firstByKind(collector.getContractElements(), ConstraintType.JSR303Size);
-        assertEquals(ConstraintedArtefact.CLASS, contractElement.getConstraintedArtefact());
-    }
+  @Test
+  public void testJsr303TargetPrecondition() throws Exception {
+    ConstraintCollector collector = new ConstraintCollector();
+    CollectContracts.analyse(new File(TEST_DATA_FOLDER, "TargetArtefacts.java"), collector);
+    ContractElement contractElement = firstByKind(collector.getContractElements(),
+      ConstraintType.JSR303Min);
+    assertEquals(ConstraintedArtefact.METHOD_PARAMETER, contractElement.getConstraintedArtefact());
+  }
 
-    @Test
-    public void testJsr303TargetPrecondition() throws Exception {
-        ConstraintCollector collector = new ConstraintCollector();
-        CollectContracts.analyse(new File(TEST_DATA_FOLDER, "TargetArtefacts.java"), collector);
-        ContractElement contractElement = firstByKind(collector.getContractElements(), ConstraintType.JSR303Min);
-        assertEquals(ConstraintedArtefact.METHOD_PARAMETER, contractElement.getConstraintedArtefact());
-    }
-
-    @Test
-    public void testJsr303TargetPostcondition() throws Exception {
-        ConstraintCollector collector = new ConstraintCollector();
-        CollectContracts.analyse(new File(TEST_DATA_FOLDER, "TargetArtefacts.java"), collector);
-        ContractElement contractElement = firstByKind(collector.getContractElements(), ConstraintType.JSR303Max);
-        assertEquals(ConstraintedArtefact.METHOD, contractElement.getConstraintedArtefact());
-    }
+  @Test
+  public void testJsr303TargetPostcondition() throws Exception {
+    ConstraintCollector collector = new ConstraintCollector();
+    CollectContracts.analyse(new File(TEST_DATA_FOLDER, "TargetArtefacts.java"), collector);
+    ContractElement contractElement = firstByKind(collector.getContractElements(),
+      ConstraintType.JSR303Max);
+    assertEquals(ConstraintedArtefact.METHOD, contractElement.getConstraintedArtefact());
+  }
 
 }

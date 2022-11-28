@@ -7,7 +7,7 @@ import java.nio.file.Files;
 
 public class Utils {
 
-  public static String  getBasePathTestFolder() {
+  public static String getBasePathTestFolder() {
     return "src/test/java/test/contractstudy/";
   }
 

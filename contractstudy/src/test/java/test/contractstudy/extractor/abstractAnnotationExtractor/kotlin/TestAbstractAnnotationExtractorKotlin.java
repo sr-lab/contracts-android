@@ -1,9 +1,9 @@
 package test.contractstudy.extractor.abstractAnnotationExtractor.kotlin;
 
-import contractstudy.ConstraintCollector;
-import contractstudy.constants.ConstraintType;
-import contractstudy.ContractElement;
-import contractstudy.collectContracts.extractors.annotations.JSR303Extractor;
+import contractstudy.collectContracts.extractors.annotation.JSR303Extractor;
+import contractstudy.constants.constraint.ConstraintCollector;
+import contractstudy.constants.constraint.ConstraintType;
+import contractstudy.constants.constraint.ContractElement;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -21,7 +21,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class TestAbstractAnnotationExtractorKotlin {
 
-  private static final File TEST_DATA_FOLDER = new File(Utils.getBasePathTestFolder() + "extractor/abstractAnnotationExtractor/kotlin/testData");
+  private static final File TEST_DATA_FOLDER = new File(
+    Utils.getBasePathTestFolder() + "extractor/abstractAnnotationExtractor/kotlin/testData");
 
   private static Stream<Arguments> generatorJSR305Extractor() {
     return Stream.of(
@@ -31,9 +32,18 @@ public class TestAbstractAnnotationExtractorKotlin {
       Arguments.of(ConstraintType.JSR303Size, "AnnotationsMultiple.kt", 1));
   }
 
+  private static Stream<Arguments> generatorJSR305ExtractorWithWildCardImport() {
+    return Stream.of(
+      Arguments.of(ConstraintType.JSR303Min, "AnnotationsWildCard.kt", 1),
+      Arguments.of(ConstraintType.JSR303Max, "AnnotationsWildCard.kt", 1),
+      Arguments.of(ConstraintType.JSR303NotNull, "AnnotationsWildCard.kt", 2),
+      Arguments.of(ConstraintType.JSR303Size, "AnnotationsWildCard.kt", 1));
+  }
+
   @ParameterizedTest
   @MethodSource("generatorJSR305Extractor")
-  public void testJSR305Extractor_whenAnnotationExists_expectListOfAnnotations(ConstraintType constraintType, String fileName, int count) throws Exception {
+  public void testJSR305Extractor_whenAnnotationExists_expectListOfAnnotations(
+    ConstraintType constraintType, String fileName, int count) throws Exception {
 
     //given
     File file = new File(TEST_DATA_FOLDER, fileName);
@@ -41,7 +51,8 @@ public class TestAbstractAnnotationExtractorKotlin {
     JSR303Extractor jSR303Extractor = new JSR303Extractor();
 
     //when
-    jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(), collector);
+    jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
+      collector);
 
     //assert
     List<ContractElement> contractsFound = collector
@@ -54,17 +65,10 @@ public class TestAbstractAnnotationExtractorKotlin {
     assertEquals(count, contractsFound.size());
   }
 
-  private static Stream<Arguments> generatorJSR305ExtractorWithWildCardImport() {
-    return Stream.of(
-      Arguments.of(ConstraintType.JSR303Min, "AnnotationsWildCard.kt", 1),
-      Arguments.of(ConstraintType.JSR303Max, "AnnotationsWildCard.kt", 1),
-      Arguments.of(ConstraintType.JSR303NotNull, "AnnotationsWildCard.kt", 2),
-      Arguments.of(ConstraintType.JSR303Size, "AnnotationsWildCard.kt", 1));
-  }
-
   @ParameterizedTest
   @MethodSource("generatorJSR305ExtractorWithWildCardImport")
-  public void testJSR305Extractor_whenAnnotationExistsWithWildCardImport_expectListOfAnnotations(ConstraintType constraintType, String fileName, int count) throws Exception {
+  public void testJSR305Extractor_whenAnnotationExistsWithWildCardImport_expectListOfAnnotations(
+    ConstraintType constraintType, String fileName, int count) throws Exception {
 
     //given
     File file = new File(TEST_DATA_FOLDER, fileName);
@@ -72,7 +76,8 @@ public class TestAbstractAnnotationExtractorKotlin {
     JSR303Extractor jSR303Extractor = new JSR303Extractor();
 
     //when
-    jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(), collector);
+    jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
+      collector);
 
     //assert
     List<ContractElement> contractsFound = collector
@@ -95,7 +100,8 @@ public class TestAbstractAnnotationExtractorKotlin {
     JSR303Extractor jSR303Extractor = new JSR303Extractor();
 
     //when
-    jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(), collector);
+    jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
+      collector);
 
     //assert
     List<ContractElement> contractsFound = collector
@@ -107,5 +113,5 @@ public class TestAbstractAnnotationExtractorKotlin {
     assertNotNull(contractsFound);
     assertEquals(0, contractsFound.size());
   }
-  
+
 }

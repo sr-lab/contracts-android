@@ -5,9 +5,11 @@ package contractstudy.old.testdata.commonsvalidate3;
 // we add a method with the same name and descriptor so that this compiles
 
 public class IsTrue5 {
-	public static void foo(int i) {
-		isTrue(i<0,"Parameter must be >=0");
-	}
 
-	private static void isTrue(boolean b, String string) {}
+  public static void foo(int i) {
+    isTrue(i < 0, "Parameter must be >=0");
+  }
+
+  private static void isTrue(boolean b, String string) {
+  }
 }

@@ -1,8 +1,8 @@
 package contractstudy.old;
 
-import contractstudy.ConstraintCollector;
-import contractstudy.ContractElement;
 import contractstudy.collectContracts.CollectContracts;
+import contractstudy.constants.constraint.ConstraintCollector;
+import contractstudy.constants.constraint.ContractElement;
 import org.junit.Test;
 
 import java.io.File;
@@ -16,53 +16,55 @@ import static org.junit.Assert.assertNotNull;
  */
 public class TestJavaAssert {
 
-    private static final File TEST_DATA_FOLDER = new File("src/test/java/test/contractstudy/testdata/javaassert/");
+  private static final File TEST_DATA_FOLDER = new File(
+    "src/test/java/test/contractstudy/testdata/javaassert/");
 
-    @Test
-    public void testAssertWithMessage() throws Exception {
-        ConstraintCollector collector = new ConstraintCollector();
-        CollectContracts.analyse(new File(TEST_DATA_FOLDER, "JavaAsserts.java"),collector);
+  /**
+   * Get first precondition with matching name.
+   *
+   * @param methodName    method name
+   * @param preconditions preconditions to search in
+   * @return precondition or null
+   */
+  public static ContractElement firstByMethodName(
+    final List<ContractElement> preconditions,
+    final String methodName) {
 
-        ContractElement p = firstByMethodName(collector.getContractElements(), "assertMessage");
+    ContractElement p = null;
 
-        assertNotNull("assert precondition does not exist", p);
-        assertEquals("a != 0", p.getCondition());
-        assertEquals("\"should not be zero\"", p.getAdditionalInfo());
+    for (ContractElement precondition : preconditions) {
+      // not precise finding, but ok for tests
+      if (precondition.getMethodDeclaration().contains(methodName)) {
+        p = precondition;
+        break;
+      }
     }
 
-    @Test
-    public void testAssertNoMessage() throws Exception {
-        ConstraintCollector collector = new ConstraintCollector();
-        CollectContracts.analyse(new File(TEST_DATA_FOLDER, "JavaAsserts.java"), collector);
+    return p;
+  }
 
-        ContractElement p = firstByMethodName(collector.getContractElements(), "assertNoMessage");
+  @Test
+  public void testAssertWithMessage() throws Exception {
+    ConstraintCollector collector = new ConstraintCollector();
+    CollectContracts.analyse(new File(TEST_DATA_FOLDER, "JavaAsserts.java"), collector);
 
-        assertNotNull("assert precondition does not exist", p);
-        assertEquals("a == 0", p.getCondition());
-        assertEquals("-",p.getAdditionalInfo());
-    }
+    ContractElement p = firstByMethodName(collector.getContractElements(), "assertMessage");
 
-    /**
-     * Get first precondition with matching name.
-     * @param methodName method name
-     * @param preconditions preconditions to search in
-     * @return precondition or null
-     */
-    public static ContractElement firstByMethodName(
-            final List<ContractElement> preconditions,
-            final String methodName) {
+    assertNotNull("assert precondition does not exist", p);
+    assertEquals("a != 0", p.getCondition());
+    assertEquals("\"should not be zero\"", p.getAdditionalInfo());
+  }
 
-        ContractElement p = null;
+  @Test
+  public void testAssertNoMessage() throws Exception {
+    ConstraintCollector collector = new ConstraintCollector();
+    CollectContracts.analyse(new File(TEST_DATA_FOLDER, "JavaAsserts.java"), collector);
 
-        for (ContractElement precondition : preconditions) {
-            // not precise finding, but ok for tests
-            if (precondition.getMethodDeclaration().contains(methodName)) {
-                p = precondition;
-                break;
-            }
-        }
+    ContractElement p = firstByMethodName(collector.getContractElements(), "assertNoMessage");
 
-        return p;
-    }
+    assertNotNull("assert precondition does not exist", p);
+    assertEquals("a == 0", p.getCondition());
+    assertEquals("-", p.getAdditionalInfo());
+  }
 
 }

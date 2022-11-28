@@ -1,10 +1,17 @@
 package contractstudy.collectContracts.extractors.asserts.KotlinAssert;
 
-import contractstudy.ContractElement;
 import contractstudy.ExtractionListener;
+import contractstudy.ProgramVersion;
 import contractstudy.collectContracts.extractors.common.AbstractMethodVisitor.AbstractMethodVisitorKotlin;
+import contractstudy.constants.constraint.ConstraintType;
+import contractstudy.constants.constraint.ContractElement;
+import contractstudy.kotlinParser.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.kotlin.psi.KtSimpleNameExpression;
+import org.jetbrains.kotlin.psi.KtCallExpression;
+import org.jetbrains.kotlin.psi.KtValueArgument;
+
+import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
@@ -16,54 +23,35 @@ public class KotlinAssertVisitor extends AbstractMethodVisitorKotlin {
     super(consumer, programName, version, cuName);
   }
 
-  /*@Override
-  public void visitClass(@NotNull KtClass klass) {
-    System.out.println(klass.getName());
-
-    super.visitClass(klass, null);
-  }*/
-
-  /*@Override
-  public void visitNamedFunction(@NotNull KtNamedFunction function) {
-    System.out.println(function.getName());
-
-    //super.visitNamedFunction(function, null);
-  }*/
-
   @Override
-  public void visitSimpleNameExpression(@NotNull KtSimpleNameExpression expression) {
-
-    System.out.println(expression.getReferencedName());
-
-    System.out.println("Nice");
-
-    //super.visitSimpleNameExpression(expression, null);
-  }
-
-
-
-  /*public void visit(AssertStmt n, Object arg) {
-
-    //String condition = n.getCheck().toStringWithoutComments();
-    String condition = n.getCheck().removeComment().toString(); // JFF: FIXME?
-    Expression message = n.getMessage().orElse(null);
-    String info = null;
-    if (message != null) {
-      info = message.removeComment().toString(); // JFF: FIXME? .toStringWithoutComments();
+  public void visitCallExpression(@NotNull KtCallExpression expression) {
+    if (!isExpressionAKotlinAssert(expression)) {
+      return;
     }
+
+    List<KtValueArgument> arguments = expression.getValueArguments();
 
     ContractElement p = initConstraint();
 
     p.setProgramVersion(ProgramVersion.getOrCreate(programName, version));
     p.setCuName(cuName);
-    p.setCondition(condition);
-    p.setKind(ConstraintType.JavaAssert);
-    //p.setLineNo(n.getBeginLine());
-    p.setLineNo(n.getBegin().get().line); // JFF: FIXME?
-    p.setAdditionalInfo(info);
+    p.setCondition("condition"); // TODO: GET condition.
+    p.setKind(ConstraintType.KotlinAssert);
+    p.setLineNo(KotlinParserUtils.getElementBeginLine(expression));
+    p.setAdditionalInfo("info"); // TODO: Get assert message.
 
     consumer.constraintFound(p);
+  }
 
-    super.visit(n, arg);
-  }*/
+  private boolean isExpressionAKotlinAssert(KtCallExpression expression) {
+    // TODO: It is not distinguishing between Kotlin assert or method named assert.
+
+    try {
+      String name = Objects.requireNonNull(expression.getCalleeExpression()).getText();
+      return Objects.equals(name, "assert");
+    } catch (NullPointerException nullPointerException) {
+      return false;
+    }
+  }
+
 }

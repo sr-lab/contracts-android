@@ -1,7 +1,7 @@
 package contractstudy.scripts;
 
-import contractstudy.Logging;
-import contractstudy.Preferences;
+import contractstudy.config.Logging;
+import contractstudy.config.Preferences;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 

@@ -8,43 +8,45 @@ import contractstudy.hierarchy.testdata.innerclassdeps.TestInterfaceOuter;
  */
 public class ClassWithInner implements TestInterfaceOuter {
 
-    // some elements
-    Integer field;
+  // some elements
+  Integer field;
 
-    public void method() {}
+  public void method() {
+  }
 
-    public class InnerNoInherit {
+  public void lastMethod() {
 
-        // comment
-        Integer fieldInner;
+  }
 
-        public void methodInner() {}
-    }
+  public static class InnerStaticNoInherit {
 
-    public static class  InnerStaticNoInherit {
-
-        interface InnerInnerInterf {
-
-        }
+    interface InnerInnerInterf {
 
     }
 
-    public class InnerInherit implements TestInterfaceInner {
+  }
 
-        // commetn
-        Number fieldInner2;
+  public static class InnerStaticInherit implements TestInterfaceInner {
 
-        void m() {}
+  }
 
+  public class InnerNoInherit {
+
+    // comment
+    Integer fieldInner;
+
+    public void methodInner() {
+    }
+  }
+
+  public class InnerInherit implements TestInterfaceInner {
+
+    // commetn
+    Number fieldInner2;
+
+    void m() {
     }
 
-    public static class InnerStaticInherit implements TestInterfaceInner {
-    }
-
-
-
-    public void lastMethod() {
-
-    }
+  }
 
 }

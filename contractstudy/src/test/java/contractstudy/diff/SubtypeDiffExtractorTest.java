@@ -1,6 +1,5 @@
 package contractstudy.diff;
 
-import contractstudy.DiffExtractor;
 import contractstudy.SubtypeDiffExtractor;
 import org.junit.Test;
 
@@ -9,14 +8,14 @@ import org.junit.Test;
  */
 public class SubtypeDiffExtractorTest {
 
-//    private DiffExtractor diff = new EvolutionDiffExtractor();
-    private DiffExtractor diff = new SubtypeDiffExtractor();
+  //    private DiffExtractor diff = new EvolutionDiffExtractor();
+  private final DiffExtractor diff = new SubtypeDiffExtractor();
 
 
-    @Test
-    public void testDiff() throws Exception {
+  @Test
+  public void testDiff() throws Exception {
 //        List<DiffRecord>  res = diff.extract();
 //
 //        assertNotNull(res);
-    }
+  }
 }

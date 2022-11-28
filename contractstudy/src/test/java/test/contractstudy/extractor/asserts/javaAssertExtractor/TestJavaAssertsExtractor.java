@@ -1,9 +1,9 @@
 package test.contractstudy.extractor.asserts.javaAssertExtractor;
 
-import contractstudy.ConstraintCollector;
-import contractstudy.constants.ConstraintType;
-import contractstudy.ContractElement;
 import contractstudy.collectContracts.extractors.asserts.JavaAssert.JavaAssertExtractor;
+import contractstudy.constants.constraint.ConstraintCollector;
+import contractstudy.constants.constraint.ConstraintType;
+import contractstudy.constants.constraint.ContractElement;
 import org.junit.jupiter.api.Test;
 import test.contractstudy.utils.Utils;
 
@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class TestJavaAssertsExtractor {
 
-  private static final File TEST_DATA_FOLDER = new File(Utils.getBasePathTestFolder() + "extractor/asserts/javaAssertExtractor/testData");
+  private static final File TEST_DATA_FOLDER = new File(
+    Utils.getBasePathTestFolder() + "extractor/asserts/javaAssertExtractor/testData");
 
   @Test
   public void testJavaAssertsExtractor_whenJavaAssertsExist_expectListOfAsserts() throws Exception {
@@ -28,7 +28,8 @@ public class TestJavaAssertsExtractor {
     JavaAssertExtractor javaAssertExtractor = new JavaAssertExtractor();
 
     //when
-    javaAssertExtractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(), collector);
+    javaAssertExtractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
+      collector);
 
     //assert
     List<ContractElement> contractsFound = collector
@@ -38,11 +39,12 @@ public class TestJavaAssertsExtractor {
       .collect(Collectors.toList());
 
     assertNotNull(contractsFound);
-    assertNotEquals(0, contractsFound.size());
+    assertEquals(3, contractsFound.size());
   }
 
   @Test
-  public void testJavaAssertsExtractor_whenJavaAssertsNotExist_expectListOfAsserts() throws Exception {
+  public void testJavaAssertsExtractor_whenJavaAssertsNotExist_expectListOfAsserts()
+    throws Exception {
 
     //given
     File file = new File(TEST_DATA_FOLDER, "JavaAssertsNone.java");
@@ -50,7 +52,8 @@ public class TestJavaAssertsExtractor {
     JavaAssertExtractor javaAssertExtractor = new JavaAssertExtractor();
 
     //when
-    javaAssertExtractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(), collector);
+    javaAssertExtractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
+      collector);
 
     //assert
     List<ContractElement> contractsFound = collector

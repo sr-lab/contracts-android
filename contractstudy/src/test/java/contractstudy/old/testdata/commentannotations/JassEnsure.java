@@ -1,5 +1,8 @@
 package contractstudy.old.testdata.commentannotations;
 
-/** ensure !isEmpty() && contains(o); **/
+/**
+ * ensure !isEmpty() && contains(o);
+ **/
 public class JassEnsure {
+
 }

@@ -5,12 +5,12 @@ package contractstudy.old.testdata.javaassert;
  */
 public class JavaAsserts {
 
-    public static void assertMessage(int a) {
-        assert a != 0 : "should not be zero";
-    }
+  public static void assertMessage(int a) {
+    assert a != 0 : "should not be zero";
+  }
 
-    public static void assertNoMessage(int a) {
-        assert a == 0;
-    }
+  public static void assertNoMessage(int a) {
+    assert a == 0;
+  }
 
 }

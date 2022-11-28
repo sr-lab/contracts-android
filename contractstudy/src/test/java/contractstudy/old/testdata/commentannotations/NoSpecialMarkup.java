@@ -5,4 +5,5 @@ package contractstudy.old.testdata.commentannotations;
  */
 // it also has singlge line comments
 public class NoSpecialMarkup {
+
 }

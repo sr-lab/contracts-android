@@ -5,8 +5,10 @@ package contractstudy.old.testdata.guava;
 import static com.google.common.base.Preconditions.checkState;
 
 public class CheckState2 {
-	int field = 42;
-	public void foo(int i) {
-		checkState(this.field==42);
-	}
+
+  int field = 42;
+
+  public void foo(int i) {
+    checkState(this.field == 42);
+  }
 }

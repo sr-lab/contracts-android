@@ -7,8 +7,8 @@ import net.sf.oval.constraint.NotNull;
  */
 public class NonJsr303TestData {
 
-    // This is not JSR annotation (different package)
-    @NotNull
-    String notJSR;
+  // This is not JSR annotation (different package)
+  @NotNull
+  String notJSR;
 
 }

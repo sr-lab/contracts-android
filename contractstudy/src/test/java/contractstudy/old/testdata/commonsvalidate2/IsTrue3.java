@@ -5,7 +5,8 @@ package contractstudy.old.testdata.commonsvalidate2;
 import static org.apache.commons.lang.Validate.isTrue;
 
 public class IsTrue3 {
-	public static void foo(int i) {
-		isTrue(i<0,"Parameter must be >=0");
-	}
+
+  public static void foo(int i) {
+    isTrue(i < 0, "Parameter must be >=0");
+  }
 }

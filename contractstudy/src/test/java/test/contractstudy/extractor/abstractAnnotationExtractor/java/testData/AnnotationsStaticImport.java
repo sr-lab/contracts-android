@@ -1,19 +1,24 @@
 package test.contractstudy.extractor.abstractAnnotationExtractor.java.testData;
 
-import javax.validation.constraints.*;
-import static java.lang.Math.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import static java.lang.Math.PI;
+import static java.lang.Math.cos;
 
 public class AnnotationsStaticImport {
 
   @NotNull
-  private String manufacturer;
+  private final String manufacturer;
 
   @NotNull
   @Size(min = 2, max = 14)
-  private String licensePlate;
+  private final String licensePlate;
 
   @Min(2)
-  private int seatCount;
+  private final int seatCount;
 
   public AnnotationsStaticImport(String manufacturer, String licencePlate, int seatCount) {
     this.manufacturer = manufacturer;

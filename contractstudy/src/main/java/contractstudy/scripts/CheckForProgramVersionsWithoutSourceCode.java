@@ -3,9 +3,9 @@ package contractstudy.scripts;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.google.common.base.Preconditions;
-import contractstudy.Logging;
-import contractstudy.Preferences;
 import contractstudy.ProgramVersion;
+import contractstudy.config.Logging;
+import contractstudy.config.Preferences;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 

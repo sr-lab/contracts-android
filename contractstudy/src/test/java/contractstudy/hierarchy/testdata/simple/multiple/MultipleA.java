@@ -5,6 +5,7 @@ package contractstudy.hierarchy.testdata.simple.multiple;
  */
 public interface MultipleA {
 
-    void method1();
-    void method2();
+  void method1();
+
+  void method2();
 }

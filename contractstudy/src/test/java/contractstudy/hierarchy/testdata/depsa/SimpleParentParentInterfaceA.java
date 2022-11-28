@@ -5,5 +5,5 @@ package contractstudy.hierarchy.testdata.depsa;
  */
 public interface SimpleParentParentInterfaceA {
 
-    void methodParentParent();
+  void methodParentParent();
 }

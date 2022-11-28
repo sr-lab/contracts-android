@@ -4,9 +4,11 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * Test data for findbugs annotations.
+ *
  * @author Jens Dietrich
  */
 public class Test {
-    @NotNull
-    String field;
+
+  @NotNull
+  String field;
 }

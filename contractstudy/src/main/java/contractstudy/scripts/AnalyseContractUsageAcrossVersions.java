@@ -1,11 +1,11 @@
 package contractstudy.scripts;
 
 import com.google.common.base.Preconditions;
-import contractstudy.ContractElement;
 import contractstudy.FindFirstAndLastProgramVersions;
-import contractstudy.Logging;
-import contractstudy.Preferences;
 import contractstudy.ProgramVersion;
+import contractstudy.config.Logging;
+import contractstudy.config.Preferences;
+import contractstudy.constants.constraint.ContractElement;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;

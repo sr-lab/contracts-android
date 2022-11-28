@@ -8,10 +8,10 @@ import javax.validation.constraints.Min;
  */
 public class Jsr303WildImportTestData {
 
-    @Max(100)
-    Integer max;
+  @Max(100)
+  Integer max;
 
-    @Min(value = 30)
-    Integer min;
+  @Min(value = 30)
+  Integer min;
 
 }

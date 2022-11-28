@@ -1,6 +1,6 @@
 package contractstudy.scripts.engine;
 
-import contractstudy.Preferences;
+import contractstudy.config.Preferences;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;

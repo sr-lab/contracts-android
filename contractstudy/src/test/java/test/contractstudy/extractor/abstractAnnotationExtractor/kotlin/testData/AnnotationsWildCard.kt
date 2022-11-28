@@ -1,6 +1,6 @@
 package test.contractstudy.extractor.abstractAnnotationExtractor.kotlin.testData
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.*
 
 class AnnotationsWildCard(
     @field:NotNull private val manufacturer: String, @field:Size(
