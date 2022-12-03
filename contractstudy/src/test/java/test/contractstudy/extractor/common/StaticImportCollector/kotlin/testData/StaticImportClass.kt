@@ -1,7 +1,5 @@
 package test.contractstudy.extractor.common.StaticImportCollector.kotlin.testData
 
-import java.util.HashMap;
-
 class StaticImportClass {
     fun test(flag: Boolean): Boolean {
         return !flag

@@ -1,7 +1,7 @@
 package test.contractstudy.extractor.common.StaticImportCollector.java.testData;
 
 import static java.lang.Math.PI;
-import static java.lang.System.*;
+import static java.lang.System.out;
 
 public class StaticImportAllStatic {
 

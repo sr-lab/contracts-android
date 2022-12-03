@@ -1,13 +1,9 @@
 package test.contractstudy.extractor.common.StaticImportCollector.kotlin;
 
-import com.github.javaparser.StaticJavaParser;
-import com.github.javaparser.ast.CompilationUnit;
-import contractstudy.collectContracts.extractors.common.StaticImportCollector.StaticImportCollector;
 import contractstudy.collectContracts.extractors.common.StaticImportCollector.StaticImportCollectorKotlin;
 import contractstudy.collectContracts.extractors.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.kotlinParser.KotlinParser;
 import contractstudy.utils.InputStreamToStringConversion;
-import jdk.jshell.execution.Util;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -27,15 +23,19 @@ public class TestStaticImportCollectorKotlin {
   private static Stream<Arguments> generateParameters() {
     return Stream.of(
       Arguments.of(StaticImportState.NONE, "StaticImportNone.kt", "none", "none"),
-      Arguments.of(StaticImportState.CLASS, "StaticImportClass.kt", "java.util", "java.util.HashMap"),
-      Arguments.of(StaticImportState.ALL_STATIC, "StaticImportAllStatic.kt", "java.lang.Math", "java.lang.Math.PI"),
-      Arguments.of(StaticImportState.ALL_STATIC, "StaticImportAllStatic.kt", "java.lang.System", "java.lang.System"));
+      Arguments.of(StaticImportState.CLASS, "StaticImportClass.kt", "java.util",
+        "java.util.HashMap"),
+      Arguments.of(StaticImportState.ALL_STATIC, "StaticImportAllStatic.kt", "java.lang.Math",
+        "java.lang.Math.PI"),
+      Arguments.of(StaticImportState.ALL_STATIC, "StaticImportAllStatic.kt", "java.lang.System",
+        "java.lang.System"));
   }
 
   @ParameterizedTest
   @MethodSource("generateParameters")
   public void testStaticImportCollectorKotlin_withDifferentFiles_expectDifferentStates(
-    StaticImportState staticImportState, String fileName, String annotationPackageName, String targetQClassName) throws Exception {
+    StaticImportState staticImportState, String fileName, String annotationPackageName,
+    String targetQClassName) throws Exception {
     //given
     File file = new File(TEST_DATA_FOLDER, fileName);
     String src = new InputStreamToStringConversion(Utils.getInputStream(file)).getResult();
@@ -46,7 +46,6 @@ public class TestStaticImportCollectorKotlin {
       annotationPackageName, targetQClassName);
     psiFile.accept(importsCollector);
     StaticImportState result = importsCollector.getStaticImportState();
-
 
     //assert
     assertEquals(staticImportState, result);

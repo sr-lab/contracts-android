@@ -3,7 +3,6 @@ package test.contractstudy.extractor.common.StaticImportCollector.java.testData;
 import java.util.List;
 
 import static java.lang.System.out;
-import java.lang.System;
 
 public class StaticImportSomeStatic {
 
@@ -20,7 +19,7 @@ public class StaticImportSomeStatic {
   }
 
   public void print(List<String> list) {
-    for (String item: list) {
+    for (String item : list) {
       out.println(item);
     }
   }
