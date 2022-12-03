@@ -1,6 +1,6 @@
 package test.contractstudy.extractor.api.SpringAssertExtractor.java;
 
-import contractstudy.collectContracts.extractors.api.SpringAssert.SpringAssertExtractor;
+import contractstudy.collectContracts.api.SpringAssert.SpringAssertExtractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;

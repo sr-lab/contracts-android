@@ -1,7 +1,7 @@
 package test.contractstudy.extractor.common.StaticImportCollector.kotlin;
 
-import contractstudy.collectContracts.extractors.common.StaticImportCollector.StaticImportCollectorKotlin;
-import contractstudy.collectContracts.extractors.common.StaticImportCollector.constants.StaticImportState;
+import contractstudy.collectContracts.common.StaticImportCollector.StaticImportCollectorKotlin;
+import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.kotlinParser.KotlinParser;
 import contractstudy.utils.InputStreamToStringConversion;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;

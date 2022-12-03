@@ -2,8 +2,8 @@ package test.contractstudy.extractor.common.StaticImportCollector.java;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import contractstudy.collectContracts.extractors.common.StaticImportCollector.StaticImportCollector;
-import contractstudy.collectContracts.extractors.common.StaticImportCollector.constants.StaticImportState;
+import contractstudy.collectContracts.common.StaticImportCollector.StaticImportCollector;
+import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
