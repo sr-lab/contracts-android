@@ -34,13 +34,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import static contractstudy.scripts.CollectDataSetStats.ALL_CONSTRUCTORS;
-import static contractstudy.scripts.CollectDataSetStats.ALL_METHODS;
-import static contractstudy.scripts.CollectDataSetStats.CLASSES;
-import static contractstudy.scripts.CollectDataSetStats.COMPILATION_UNITS;
-import static contractstudy.scripts.CollectDataSetStats.LOC;
-import static contractstudy.scripts.CollectDataSetStats.PUBLIC_CONSTRUCTORS;
-import static contractstudy.scripts.CollectDataSetStats.PUBLIC_METHODS;
+import static contractstudy.constants.SetStatsDataKeys.ALL_CONSTRUCTORS;
+import static contractstudy.constants.SetStatsDataKeys.ALL_METHODS;
+import static contractstudy.constants.SetStatsDataKeys.CLASSES;
+import static contractstudy.constants.SetStatsDataKeys.COMPILATION_UNITS;
+import static contractstudy.constants.SetStatsDataKeys.LOC;
+import static contractstudy.constants.SetStatsDataKeys.PUBLIC_CONSTRUCTORS;
+import static contractstudy.constants.SetStatsDataKeys.PUBLIC_METHODS;
 
 /**
  * Script used to collect some stats on program versions in the dataset. Output is written to a csv
@@ -89,26 +89,27 @@ public class CollectProgramVersionStats implements Experiment {
                 try (InputStream in = zip.getInputStream(e)) {
                   try {
                     CompilationUnit cu = StaticJavaParser.parse(in);
-                    dataForPV.compute(COMPILATION_UNITS, (k, v) -> v == null ? 1 : v + 1);
+                    dataForPV.compute(COMPILATION_UNITS.getKey(), (k, v) -> v == null ? 1 : v + 1);
                     int size = cu.getEnd().get().line - cu.getBegin().get().line;
-                    dataForPV.compute(LOC, (k, v) -> v == null ? size : v + size);
+                    dataForPV.compute(LOC.getKey(), (k, v) -> v == null ? size : v + size);
                     Map<String, Integer> tmp = new HashMap<>();
                     data.put(pv, tmp);
                     new DataCollectionVisitor(tmp).visit(cu, null);
-                    dataForPV.compute(PUBLIC_METHODS,
-                      (k, v) -> v == null ? getCounter(tmp, PUBLIC_METHODS)
-                        : v + getCounter(tmp, PUBLIC_METHODS));
-                    dataForPV.compute(PUBLIC_CONSTRUCTORS,
-                      (k, v) -> v == null ? getCounter(tmp, PUBLIC_CONSTRUCTORS)
-                        : v + getCounter(tmp, PUBLIC_CONSTRUCTORS));
-                    dataForPV.compute(ALL_METHODS,
-                      (k, v) -> v == null ? getCounter(tmp, ALL_METHODS)
-                        : v + getCounter(tmp, ALL_METHODS));
-                    dataForPV.compute(ALL_CONSTRUCTORS,
-                      (k, v) -> v == null ? getCounter(tmp, ALL_CONSTRUCTORS)
-                        : v + getCounter(tmp, ALL_CONSTRUCTORS));
-                    dataForPV.compute(CLASSES, (k, v) -> v == null ? getCounter(tmp, CLASSES)
-                      : v + getCounter(tmp, CLASSES));
+                    dataForPV.compute(PUBLIC_METHODS.getKey(),
+                      (k, v) -> v == null ? getCounter(tmp, PUBLIC_METHODS.getKey())
+                        : v + getCounter(tmp, PUBLIC_METHODS.getKey()));
+                    dataForPV.compute(PUBLIC_CONSTRUCTORS.getKey(),
+                      (k, v) -> v == null ? getCounter(tmp, PUBLIC_CONSTRUCTORS.getKey())
+                        : v + getCounter(tmp, PUBLIC_CONSTRUCTORS.getKey()));
+                    dataForPV.compute(ALL_METHODS.getKey(),
+                      (k, v) -> v == null ? getCounter(tmp, ALL_METHODS.getKey())
+                        : v + getCounter(tmp, ALL_METHODS.getKey()));
+                    dataForPV.compute(ALL_CONSTRUCTORS.getKey(),
+                      (k, v) -> v == null ? getCounter(tmp, ALL_CONSTRUCTORS.getKey())
+                        : v + getCounter(tmp, ALL_CONSTRUCTORS.getKey()));
+                    dataForPV.compute(CLASSES.getKey(),
+                      (k, v) -> v == null ? getCounter(tmp, CLASSES.getKey())
+                        : v + getCounter(tmp, CLASSES.getKey()));
                   } catch (Exception t) {
                     LOGGER.warn("Cannot parse cu " + pv + " / " + name);
                     t.printStackTrace(); // JFF: added this
@@ -153,35 +154,40 @@ public class CollectProgramVersionStats implements Experiment {
         out.print(SEP);
         out.print(e.getKey().getVersion());
         out.print(SEP);
-        out.print(e.getValue().get(LOC));
-        p.compute(LOC,
-          (k, v) -> v == null ? (long) e.getValue().get(LOC) : v + e.getValue().get(LOC));
+        out.print(e.getValue().get(LOC.getKey()));
+        p.compute(LOC.getKey(),
+          (k, v) -> v == null ? (long) e.getValue().get(LOC.getKey())
+            : v + e.getValue().get(LOC.getKey()));
         out.print(SEP);
-        out.print(e.getValue().get(COMPILATION_UNITS));
-        p.compute(COMPILATION_UNITS,
-          (k, v) -> v == null ? (long) e.getValue().get(COMPILATION_UNITS)
-            : v + e.getValue().get(COMPILATION_UNITS));
+        out.print(e.getValue().get(COMPILATION_UNITS.getKey()));
+        p.compute(COMPILATION_UNITS.getKey(),
+          (k, v) -> v == null ? (long) e.getValue().get(COMPILATION_UNITS.getKey())
+            : v + e.getValue().get(COMPILATION_UNITS.getKey()));
         out.print(SEP);
-        out.print(e.getValue().get(CLASSES));
-        p.compute(CLASSES,
-          (k, v) -> v == null ? (long) e.getValue().get(CLASSES) : v + e.getValue().get(CLASSES));
+        out.print(e.getValue().get(CLASSES.getKey()));
+        p.compute(CLASSES.getKey(),
+          (k, v) -> v == null ? (long) e.getValue().get(CLASSES.getKey())
+            : v + e.getValue().get(CLASSES.getKey()));
         out.print(SEP);
-        out.print(e.getValue().get(ALL_METHODS));
-        p.compute(ALL_METHODS, (k, v) -> v == null ? (long) e.getValue().get(ALL_METHODS)
-          : v + e.getValue().get(ALL_METHODS));
+        out.print(e.getValue().get(ALL_METHODS.getKey()));
+        p.compute(ALL_METHODS.getKey(),
+          (k, v) -> v == null ? (long) e.getValue().get(ALL_METHODS.getKey())
+            : v + e.getValue().get(ALL_METHODS.getKey()));
         out.print(SEP);
-        out.print(e.getValue().get(ALL_CONSTRUCTORS));
-        p.compute(ALL_CONSTRUCTORS, (k, v) -> v == null ? (long) e.getValue().get(ALL_CONSTRUCTORS)
-          : v + e.getValue().get(ALL_CONSTRUCTORS));
+        out.print(e.getValue().get(ALL_CONSTRUCTORS.getKey()));
+        p.compute(ALL_CONSTRUCTORS.getKey(),
+          (k, v) -> v == null ? (long) e.getValue().get(ALL_CONSTRUCTORS.getKey())
+            : v + e.getValue().get(ALL_CONSTRUCTORS.getKey()));
         out.print(SEP);
-        out.print(e.getValue().get(PUBLIC_METHODS));
-        p.compute(PUBLIC_METHODS, (k, v) -> v == null ? (long) e.getValue().get(PUBLIC_METHODS)
-          : v + e.getValue().get(PUBLIC_METHODS));
+        out.print(e.getValue().get(PUBLIC_METHODS.getKey()));
+        p.compute(PUBLIC_METHODS.getKey(),
+          (k, v) -> v == null ? (long) e.getValue().get(PUBLIC_METHODS.getKey())
+            : v + e.getValue().get(PUBLIC_METHODS.getKey()));
         out.print(SEP);
-        out.print(e.getValue().get(PUBLIC_CONSTRUCTORS));
-        p.compute(PUBLIC_CONSTRUCTORS,
-          (k, v) -> v == null ? (long) e.getValue().get(PUBLIC_CONSTRUCTORS)
-            : v + e.getValue().get(PUBLIC_CONSTRUCTORS));
+        out.print(e.getValue().get(PUBLIC_CONSTRUCTORS.getKey()));
+        p.compute(PUBLIC_CONSTRUCTORS.getKey(),
+          (k, v) -> v == null ? (long) e.getValue().get(PUBLIC_CONSTRUCTORS.getKey())
+            : v + e.getValue().get(PUBLIC_CONSTRUCTORS.getKey()));
         // entry key, for sorting
         out.print(SEP);
         out.print(e.getKey().getName() + "-" + e.getKey().getSanitizedVersion());
@@ -192,19 +198,19 @@ public class CollectProgramVersionStats implements Experiment {
         out.print(SEP);
         out.print("TOTALS");
         out.print(SEP);
-        out.print(e.getValue().get(LOC));
+        out.print(e.getValue().get(LOC.getKey()));
         out.print(SEP);
-        out.print(e.getValue().get(COMPILATION_UNITS));
+        out.print(e.getValue().get(COMPILATION_UNITS.getKey()));
         out.print(SEP);
-        out.print(e.getValue().get(CLASSES));
+        out.print(e.getValue().get(CLASSES.getKey()));
         out.print(SEP);
-        out.print(e.getValue().get(ALL_METHODS));
+        out.print(e.getValue().get(ALL_METHODS.getKey()));
         out.print(SEP);
-        out.print(e.getValue().get(ALL_CONSTRUCTORS));
+        out.print(e.getValue().get(ALL_CONSTRUCTORS.getKey()));
         out.print(SEP);
-        out.print(e.getValue().get(PUBLIC_METHODS));
+        out.print(e.getValue().get(PUBLIC_METHODS.getKey()));
         out.print(SEP);
-        out.print(e.getValue().get(PUBLIC_CONSTRUCTORS));
+        out.print(e.getValue().get(PUBLIC_CONSTRUCTORS.getKey()));
         out.print(SEP);
         out.println();
       }
@@ -259,9 +265,9 @@ public class CollectProgramVersionStats implements Experiment {
       //if (ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
       if (modifiers.contains(Modifier.publicModifier()) || modifiers.contains(
         Modifier.protectedModifier())) {
-        data.compute(PUBLIC_METHODS, (k, v) -> v == null ? 1 : v + 1);
+        data.compute(PUBLIC_METHODS.getKey(), (k, v) -> v == null ? 1 : v + 1);
       }
-      data.compute(ALL_METHODS, (k, v) -> v == null ? 1 : v + 1);
+      data.compute(ALL_METHODS.getKey(), (k, v) -> v == null ? 1 : v + 1);
       super.visit(methodDeclr, arg);
     }
 
@@ -272,16 +278,16 @@ public class CollectProgramVersionStats implements Experiment {
       //if (ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
       if (modifiers.contains(Modifier.publicModifier()) || modifiers.contains(
         Modifier.protectedModifier())) {
-        data.compute(PUBLIC_CONSTRUCTORS, (k, v) -> v == null ? 1 : v + 1);
+        data.compute(PUBLIC_CONSTRUCTORS.getKey(), (k, v) -> v == null ? 1 : v + 1);
       }
-      data.compute(ALL_CONSTRUCTORS, (k, v) -> v == null ? 1 : v + 1);
+      data.compute(ALL_CONSTRUCTORS.getKey(), (k, v) -> v == null ? 1 : v + 1);
       super.visit(constructorDeclr, arg);
     }
 
     @Override
     public void visit(ClassOrInterfaceDeclaration n, Object arg) {
       super.visit(n, arg);
-      data.compute(CLASSES, (k, v) -> v == null ? 1 : v + 1);
+      data.compute(CLASSES.getKey(), (k, v) -> v == null ? 1 : v + 1);
     }
   }
 }
