@@ -1,6 +1,5 @@
 package contractstudy.scripts;
 
-import contractstudy.collectContracts.CollectContracts;
 import contractstudy.config.Logging;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;
@@ -20,12 +19,12 @@ public class RunAllExperiments {
     new CollectContracts(),
     new AnalyseContractUsage(),
     new CollectDataSetStats(),
-    new CollectInvocationViaSuper(),
-    new ComputeInheritanceHierarchy(),
-    new AnalyseContractEvolution(),
-    new CollectProgramVersionStats(),
-    new AnalyseContractUsageAcrossVersions(),
-    new AnalyseHierarchyContracts(),
+    //new CollectInvocationViaSuper(),
+    //new ComputeInheritanceHierarchy(),
+    //new AnalyseContractEvolution(),
+    //new CollectProgramVersionStats(),
+    //new AnalyseContractUsageAcrossVersions(),
+    //new AnalyseHierarchyContracts(),
   };
   private static final Logger LOGGER = Logging.getLogger(ComputeInheritanceHierarchy.class);
 

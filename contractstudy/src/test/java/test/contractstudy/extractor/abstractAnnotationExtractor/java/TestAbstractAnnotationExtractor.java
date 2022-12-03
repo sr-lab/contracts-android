@@ -1,6 +1,6 @@
 package test.contractstudy.extractor.abstractAnnotationExtractor.java;
 
-import contractstudy.collectContracts.extractors.annotation.JSR303Extractor;
+import contractstudy.collectContracts.annotation.JSR303Extractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;

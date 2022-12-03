@@ -1,6 +1,6 @@
 package test.contractstudy.extractor.cre.UnconditionalOperationNotSupported.kotlin;
 
-import contractstudy.collectContracts.extractors.cre.UnconditionalOperationNotSupported.UnconditionalOperationNotSupportedExceptionExtractor;
+import contractstudy.collectContracts.cre.UnconditionalOperationNotSupported.UnconditionalOperationNotSupportedExceptionExtractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;

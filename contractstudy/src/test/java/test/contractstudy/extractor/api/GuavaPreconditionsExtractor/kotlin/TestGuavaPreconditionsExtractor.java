@@ -1,6 +1,6 @@
 package test.contractstudy.extractor.api.GuavaPreconditionsExtractor.kotlin;
 
-import contractstudy.collectContracts.extractors.api.Guava.GuavaPreconditionsExtractor;
+import contractstudy.collectContracts.api.Guava.GuavaPreconditionsExtractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;

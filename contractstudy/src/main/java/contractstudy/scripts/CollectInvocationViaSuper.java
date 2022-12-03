@@ -10,7 +10,7 @@ import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.SuperExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import contractstudy.ProgramVersion;
-import contractstudy.collectContracts.extractors.common.Utils;
+import contractstudy.collectContracts.common.Utils;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.scripts.engine.ArtefactFactory;

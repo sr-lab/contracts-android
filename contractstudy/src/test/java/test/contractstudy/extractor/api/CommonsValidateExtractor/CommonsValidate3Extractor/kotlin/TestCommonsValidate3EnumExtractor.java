@@ -1,6 +1,6 @@
 package test.contractstudy.extractor.api.CommonsValidateExtractor.CommonsValidate3Extractor.kotlin;
 
-import contractstudy.collectContracts.extractors.api.CommonsValidate.CommonsValidate3.CommonsValidate3Extractor;
+import contractstudy.collectContracts.api.CommonsValidate.CommonsValidate3.CommonsValidate3Extractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;

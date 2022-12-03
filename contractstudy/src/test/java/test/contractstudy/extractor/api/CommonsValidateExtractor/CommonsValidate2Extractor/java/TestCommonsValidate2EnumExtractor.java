@@ -1,6 +1,6 @@
 package test.contractstudy.extractor.api.CommonsValidateExtractor.CommonsValidate2Extractor.java;
 
-import contractstudy.collectContracts.extractors.api.CommonsValidate.CommonsValidate2.CommonsValidate2Extractor;
+import contractstudy.collectContracts.api.CommonsValidate.CommonsValidate2.CommonsValidate2Extractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;

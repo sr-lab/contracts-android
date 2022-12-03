@@ -1,7 +1,7 @@
 package test.contractstudy.extractor.asserts.kotlinAssertExtractor;
 
-import contractstudy.collectContracts.extractors.asserts.JavaAssert.JavaAssertExtractor;
-import contractstudy.collectContracts.extractors.asserts.KotlinAssert.KotlinAssertExtractor;
+import contractstudy.collectContracts.asserts.JavaAssert.JavaAssertExtractor;
+import contractstudy.collectContracts.asserts.KotlinAssert.KotlinAssertExtractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
