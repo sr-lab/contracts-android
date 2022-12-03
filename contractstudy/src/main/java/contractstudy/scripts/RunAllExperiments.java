@@ -26,17 +26,11 @@ public class RunAllExperiments {
     //new AnalyseContractUsageAcrossVersions(),
     //new AnalyseHierarchyContracts(),
   };
+
   private static final Logger LOGGER = Logging.getLogger(ComputeInheritanceHierarchy.class);
 
-  /**
-   * Invoke all experiment
-   *
-   * @param args empty
-   * @throws Exception error
-   */
   public static void main(String[] args) throws Exception {
     for (Experiment experiment : EXPERIMENTS) {
-
       // check all prerequisites exist
       for (ExperimentArtefact artefact : experiment.requires()) {
         if (!artefact.exists()) {
@@ -53,7 +47,7 @@ public class RunAllExperiments {
         LOGGER.info("Invoking: " + experiment.provides().getName());
         experiment.invoke();
       }
-
     }
   }
+
 }
