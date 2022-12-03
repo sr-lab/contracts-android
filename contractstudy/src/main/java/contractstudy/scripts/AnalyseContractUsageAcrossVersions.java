@@ -27,13 +27,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static contractstudy.scripts.CollectDataSetStats.ALL_CONSTRUCTORS;
-import static contractstudy.scripts.CollectDataSetStats.ALL_METHODS;
-import static contractstudy.scripts.CollectDataSetStats.CLASSES;
-import static contractstudy.scripts.CollectDataSetStats.COMPILATION_UNITS;
-import static contractstudy.scripts.CollectDataSetStats.LOC;
-import static contractstudy.scripts.CollectDataSetStats.PUBLIC_CONSTRUCTORS;
-import static contractstudy.scripts.CollectDataSetStats.PUBLIC_METHODS;
+import static contractstudy.constants.SetStatsDataKeys.ALL_CONSTRUCTORS;
+import static contractstudy.constants.SetStatsDataKeys.ALL_METHODS;
+import static contractstudy.constants.SetStatsDataKeys.CLASSES;
+import static contractstudy.constants.SetStatsDataKeys.COMPILATION_UNITS;
+import static contractstudy.constants.SetStatsDataKeys.LOC;
+import static contractstudy.constants.SetStatsDataKeys.PUBLIC_CONSTRUCTORS;
+import static contractstudy.constants.SetStatsDataKeys.PUBLIC_METHODS;
 
 /**
  * Script used to analyse how contractual constraints are used by different versions of the same
@@ -62,13 +62,13 @@ public class AnalyseContractUsageAcrossVersions implements Experiment {
         Map<String, Integer> map = new HashMap<>();
         ProgramVersion pv = ProgramVersion.getOrCreate(tokens[0], tokens[1]);
         // loc,cus,classes,all methods, all constructors, pub. + prot. methods, pub. + prot. constr"
-        map.put(LOC, Integer.parseInt(tokens[2]));
-        map.put(COMPILATION_UNITS, Integer.parseInt(tokens[3]));
-        map.put(CLASSES, Integer.parseInt(tokens[4]));
-        map.put(ALL_METHODS, Integer.parseInt(tokens[5]));
-        map.put(ALL_CONSTRUCTORS, Integer.parseInt(tokens[6]));
-        map.put(PUBLIC_METHODS, Integer.parseInt(tokens[7]));
-        map.put(PUBLIC_CONSTRUCTORS, Integer.parseInt(tokens[8]));
+        map.put(LOC.getKey(), Integer.parseInt(tokens[2]));
+        map.put(COMPILATION_UNITS.getKey(), Integer.parseInt(tokens[3]));
+        map.put(CLASSES.getKey(), Integer.parseInt(tokens[4]));
+        map.put(ALL_METHODS.getKey(), Integer.parseInt(tokens[5]));
+        map.put(ALL_CONSTRUCTORS.getKey(), Integer.parseInt(tokens[6]));
+        map.put(PUBLIC_METHODS.getKey(), Integer.parseInt(tokens[7]));
+        map.put(PUBLIC_CONSTRUCTORS.getKey(), Integer.parseInt(tokens[8]));
         data.put(pv, map);
       }
     }
@@ -146,9 +146,9 @@ public class AnalyseContractUsageAcrossVersions implements Experiment {
           + SEP + "methods2" + SEP + "constraints2");
       for (String program : firstAndLatestVersions.getLeft().keySet()) {
         ProgramVersion firstVersion = firstAndLatestVersions.getLeft().get(program);
-        int methodCountInFirstVersion = metrics.get(firstVersion).get(ALL_METHODS);
+        int methodCountInFirstVersion = metrics.get(firstVersion).get(ALL_METHODS.getKey());
         methodCountInFirstVersion =
-          methodCountInFirstVersion + metrics.get(firstVersion).get(ALL_CONSTRUCTORS);
+          methodCountInFirstVersion + metrics.get(firstVersion).get(ALL_CONSTRUCTORS.getKey());
         Integer tmp = constraintsInFirstVersions.get(firstVersion);
         int constraintCountInFirstVersion = tmp == null ? 0 : tmp;
 
@@ -156,9 +156,9 @@ public class AnalyseContractUsageAcrossVersions implements Experiment {
         if (metrics.get(lastVersion) == null) {
           continue; // JFF: FIXME
         }
-        int methodCountInLastVersion = metrics.get(lastVersion).get(ALL_METHODS);
+        int methodCountInLastVersion = metrics.get(lastVersion).get(ALL_METHODS.getKey());
         methodCountInLastVersion =
-          methodCountInLastVersion + metrics.get(lastVersion).get(ALL_CONSTRUCTORS);
+          methodCountInLastVersion + metrics.get(lastVersion).get(ALL_CONSTRUCTORS.getKey());
         tmp = constraintsInLastVersions.get(lastVersion);
         int constraintCountInLastVersion = tmp == null ? 0 : tmp;
 
