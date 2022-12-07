@@ -2,9 +2,7 @@ package test.contractstudy.collectContracts.api.CommonsValidateExtractor.Commons
 
 import org.apache.commons.lang.Validate
 
-interface Common {
-    
-}
+interface Common
 
 class MultipleCommonsValidate2(name: String) {
 

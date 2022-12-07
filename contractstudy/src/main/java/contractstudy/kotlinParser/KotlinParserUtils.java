@@ -27,7 +27,7 @@ public class KotlinParserUtils {
     int startLine = getElementBeginLine(psiFile);
     Document document = getDocument(psiFile);
     int textLength = psiFile.getTextLength();
-    return document.getLineNumber(textLength) + 1 + startLine;
+    return document.getLineNumber(textLength) + startLine;
   }
 
   public static int getElementBeginLine(PsiFile psiFile) {
@@ -48,8 +48,8 @@ public class KotlinParserUtils {
 
   public static VisibilityModifier getVisibilityModifier(KtModifierList ktModifierList) {
     String visibilityKeyword = "public";
-    if (ktModifierList != null && ktModifierList.getName() != null) {
-      visibilityKeyword = ktModifierList.getName();
+    if (ktModifierList != null && ktModifierList.getText() != null) {
+      visibilityKeyword = ktModifierList.getText();
     }
     return VisibilityModifier.getVisibilityModifierFromKeyword(visibilityKeyword);
   }

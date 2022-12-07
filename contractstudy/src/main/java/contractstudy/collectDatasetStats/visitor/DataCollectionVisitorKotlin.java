@@ -43,7 +43,7 @@ public class DataCollectionVisitorKotlin extends KtTreeVisitorVoid {
   private void countPublicOrProtectedMethodDeclarations(KtNamedFunction element) {
     KtModifierList ktModifierList = element.getModifierList();
     VisibilityModifier visibility = KotlinParserUtils.getVisibilityModifier(ktModifierList);
-    // TODO: Should we include internal?
+    //TODO: Should we include internal?
     if (visibility == VisibilityModifier.PUBLIC || visibility == VisibilityModifier.PROTECTED) {
       data.compute(PUBLIC_METHODS.getKey(), (k, v) -> v == null ? 1 : v + 1);
     }
@@ -53,7 +53,7 @@ public class DataCollectionVisitorKotlin extends KtTreeVisitorVoid {
   private void countPublicOrProtectedConstructorDeclarations(KtConstructor element) {
     KtModifierList ktModifierList = element.getModifierList();
     VisibilityModifier visibility = KotlinParserUtils.getVisibilityModifier(ktModifierList);
-    // TODO: Should we include internal?
+    //TODO: Should we include internal?
     if (visibility == VisibilityModifier.PUBLIC || visibility == VisibilityModifier.PROTECTED) {
       data.compute(PUBLIC_CONSTRUCTORS.getKey(), (k, v) -> v == null ? 1 : v + 1);
     }

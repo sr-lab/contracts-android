@@ -26,9 +26,7 @@ public class DataCollectionVisitor extends VoidVisitorAdapter<Object> {
 
   @Override
   public void visit(MethodDeclaration methodDeclr, Object arg) {
-    NodeList<Modifier> modifiers = methodDeclr.getModifiers();
-    if (modifiers.contains(Modifier.publicModifier()) || modifiers.contains(
-      Modifier.protectedModifier())) {
+    if (checkIfPublicOrPrivate(methodDeclr.getModifiers())) {
       data.compute(PUBLIC_METHODS.getKey(), (k, v) -> v == null ? 1 : v + 1);
     }
     data.compute(ALL_METHODS.getKey(), (k, v) -> v == null ? 1 : v + 1);
@@ -37,13 +35,17 @@ public class DataCollectionVisitor extends VoidVisitorAdapter<Object> {
 
   @Override
   public void visit(ConstructorDeclaration constructorDeclr, Object arg) {
-    NodeList<Modifier> modifiers = constructorDeclr.getModifiers();
-    if (modifiers.contains(Modifier.publicModifier()) || modifiers.contains(
-      Modifier.protectedModifier())) {
+    if (checkIfPublicOrPrivate(constructorDeclr.getModifiers())) {
       data.compute(PUBLIC_CONSTRUCTORS.getKey(), (k, v) -> v == null ? 1 : v + 1);
     }
     data.compute(ALL_CONSTRUCTORS.getKey(), (k, v) -> v == null ? 1 : v + 1);
     super.visit(constructorDeclr, arg);
+  }
+
+  //TODO: Can we always consider none to be public?
+  public boolean checkIfPublicOrPrivate(NodeList<Modifier> modifiers) {
+    return modifiers.contains(Modifier.publicModifier()) || modifiers.contains(
+      Modifier.protectedModifier()) || modifiers.isEmpty();
   }
 
   @Override

@@ -8,6 +8,7 @@ import contractstudy.config.Preferences;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;
+import contractstudy.utils.LanguageUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
@@ -93,27 +94,9 @@ public class CollectDatasetStats implements Experiment {
           try {
             LOGGER.info(
               "Analysing " + counter.incrementAndGet() + "/" + zips.size() + " - " + f.getName());
-
             ZipFile zip = new ZipFile(f);
-            Enumeration<? extends ZipEntry> en = zip.entries();
             DataCollectionExtractor dataCollectionExtractor = new DataCollectionExtractor();
-
-            while (en.hasMoreElements()) {
-              ZipEntry e = en.nextElement();
-              String name = e.getName();
-              if (name.endsWith(".java")) {
-                try (InputStream in = zip.getInputStream(e)) {
-                  try {
-                    dataCollectionExtractor.analyse(e.getName(), in, data);
-                  } catch (Exception t) {
-                    data.compute(COMPILATION_UNITS_PARSING_FAILED.getKey(),
-                      (k, v) -> v == null ? 1 : v + 1);
-                    errorCuNames.add(zip.getName() + ", " + name + ", Error: " + t.getMessage());
-                  }
-                }
-              }
-
-            }
+            collectStats(zip, dataCollectionExtractor, data, errorCuNames);
           } catch (Exception e) {
             LOGGER.warn("Cannot parse file: " + f, e);
           }
@@ -128,11 +111,29 @@ public class CollectDatasetStats implements Experiment {
     LOGGER.info("Analysis finished, printing stats");
 
     outputStatsToConsole(RESULTS_FOLDER, data);
-
     outputStatsToLatex(RESULTS_FOLDER, data);
-
     outputErrorsToFile(RESULTS_FOLDER, errorCuNames);
+  }
 
+  private static void collectStats(ZipFile zip, DataCollectionExtractor dataCollectionExtractor,
+    Map<String, Integer> data, List<String> errorCuNames) throws IOException {
+    Enumeration<? extends ZipEntry> en = zip.entries();
+    while (en.hasMoreElements()) {
+      ZipEntry e = en.nextElement();
+      String name = e.getName();
+      LanguageUtils.Language language = LanguageUtils.getLanguageFromNameExtension(name);
+      if (language == LanguageUtils.Language.JAVA || language == LanguageUtils.Language.KOTLIN) {
+        try (InputStream in = zip.getInputStream(e)) {
+          try {
+            dataCollectionExtractor.analyse(e.getName(), in, data);
+          } catch (Exception t) {
+            data.compute(COMPILATION_UNITS_PARSING_FAILED.getKey(),
+              (k, v) -> v == null ? 1 : v + 1);
+            errorCuNames.add(zip.getName() + ", " + name + ", Error: " + t.getMessage());
+          }
+        }
+      }
+    }
   }
 
   private static void outputStatsToConsole(File RESULTS_FOLDER, Map<String, Integer> data) {

@@ -20,7 +20,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class TestGuavaPreconditionsExtractor {
 
   private static final File TEST_DATA_FOLDER = new File(
-    Utils.getBasePathTestFolder() + "collectContracts/api/GuavaPreconditionsExtractor/java/testData");
+    Utils.getBasePathTestFolder()
+      + "collectContracts/api/GuavaPreconditionsExtractor/java/testData");
 
   private static Stream<Arguments> generateMultipleGuavaPreconditions() {
     return Stream.of(

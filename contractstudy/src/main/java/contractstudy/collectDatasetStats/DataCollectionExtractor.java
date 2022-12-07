@@ -12,6 +12,7 @@ import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 import java.io.InputStream;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import static contractstudy.constants.SetStatsDataKeys.COMPILATION_UNITS;
 import static contractstudy.constants.SetStatsDataKeys.LOC;
@@ -35,10 +36,10 @@ public class DataCollectionExtractor {
 
   private void analyseJava(
     final InputStream in,
-    final Map<String, Integer> data) throws Exception {
+    final Map<String, Integer> data) throws NoSuchElementException {
     CompilationUnit cu = StaticJavaParser.parse(in);
     data.compute(COMPILATION_UNITS.getKey(), (k, v) -> v == null ? 1 : v + 1);
-    int size = cu.getEnd().get().line - cu.getBegin().get().line;
+    int size = cu.getEnd().get().line - cu.getBegin().get().line + 1;
     data.compute(LOC.getKey(), (k, v) -> v == null ? size : v + size);
     new DataCollectionVisitor(data).visit(cu, null);
   }
