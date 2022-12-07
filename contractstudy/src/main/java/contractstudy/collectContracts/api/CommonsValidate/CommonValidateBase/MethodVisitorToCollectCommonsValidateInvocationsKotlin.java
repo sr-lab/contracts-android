@@ -30,6 +30,7 @@ public abstract class MethodVisitorToCollectCommonsValidateInvocationsKotlin ext
     super(consumer, programName, version, cuName, importState, staticallyImportedMethodNames);
   }
 
+
   // look for patterns supported by both lang2 and lang3
   @Override
   public void visitCallExpression(@NotNull KtCallExpression expression) {

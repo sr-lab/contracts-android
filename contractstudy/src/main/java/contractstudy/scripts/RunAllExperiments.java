@@ -18,7 +18,7 @@ public class RunAllExperiments {
   private static final Experiment[] EXPERIMENTS = new Experiment[]{
     new CollectContracts(),
     new AnalyseContractUsage(),
-    new CollectDataSetStats(),
+    new CollectDatasetStats(),
     //new CollectInvocationViaSuper(),
     //new ComputeInheritanceHierarchy(),
     //new AnalyseContractEvolution(),
