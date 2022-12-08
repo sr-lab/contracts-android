@@ -67,7 +67,7 @@ make clean-output
 
 To run the complete flow of filtering and cloning projects from the F-Droid index, run the command:
 ```
-make get-fdroid-index
+make get-fdroid-dataset
 ```
 
 ![f-droid dataset pipeline](docs/f-droid-pipeline.png)
