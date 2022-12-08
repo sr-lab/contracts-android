@@ -67,8 +67,16 @@ make clean-output
 
 To run the complete flow of filtering and cloning projects from the F-Droid index, run the command:
 ```
-make get-fdroid-index
+make get-fdroid-dataset
 ```
 
-![f-droid dataset pipeline](docs/f-droid-pipeline.png)
+| **Script**               | **Description**                                                     | **Input**                     | **Output**                                    |
+|--------------------------|---------------------------------------------------------------------|-------------------------------|-----------------------------------------------|
+| getFDroidIndex.py        | Downloads F-Droid index file and save each project's URL.           |                               | 0-fdroid-index.xml; 0-f-droid-projects.txt    |
+| removeNonGithubURL.py    | Removes non Github URLs.                                            | 0-f-droid-projects.txt        | 1-github-projects.txt                         |
+| removeDuplicatedURL.py   | Removes duplicated URLs.                                            | 1-github-projects.txt         | 2-non-duplicated-projects.txt                 |
+| filterProjectsByStats.py | Fetches info and stats for each project and filters them.           | 2-non-duplicated-projects.txt | 3-projects-stats.csv; 3-filtered-projects.txt |
+| createVersionsFiles.py   | Augments list with URLs for first and last version of each project. | 3-filtered-projects.txt       | 4-projects-versions.txt                       |
+| cloneProjects.py         | Clones all listed repositories.                                     | 4-projects-versions.txt       | 5-projects/*                                  |
+| prepareDataset.py        | Zips each cloned repositories and creates final folder structure.   | 5-projects/*                  | 6-dataset/*                                   |
 

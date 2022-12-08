@@ -7,7 +7,7 @@ load_dotenv("filePaths.env")
 
 URL = "https://f-droid.org/repo/index.xml"
 F_DROID_INDEX_FILE = os.getenv('F-DROID-INDEX-FILE')
-OUTPUT_FILE = os.getenv('PROJECTS-LIST-FILE')
+OUTPUT_FILE = os.getenv('F-DROID-PROJECTS-LIST-FILE')
 
 def downloadFDroidIndex():
     response = requests.get(URL, stream = True)

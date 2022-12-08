@@ -16,7 +16,8 @@ load_dotenv("filePaths.env")
 load_dotenv("config.env")
 
 GITHUB_ACCESS_TOKEN = os.getenv('GITHUB-ACCESS-TOKEN')
-INPUT_FILE = os.getenv('PROJECTS-LIST-FILE')
+INPUT_FILE = os.getenv('NON-DUPLICATED-PROJECTS-LIST-FILE')
+OUTPUT_FILE = os.getenv('FILTERED-PROJECTS-LIST-FILE')
 PROJECTS_STATS_FILE = os.getenv('PROJECTS-STATS-FILE')
 PAGINATION_OFFSET = os.getenv('FILTER-PAGINATION-OFFSET', False)
 PAGINATION_LIMIT = os.getenv('FILTER-PAGINATION-LIMIT', False)
@@ -160,11 +161,11 @@ def saveStatsToOutputFile():
      df.to_csv(PROJECTS_STATS_FILE )
      
 def saveRepoURLToRegistry():
-	registryFile = open(INPUT_FILE, 'w')
+	registryFile = open(OUTPUT_FILE, 'w')
 	for url in repoURLs:
 		registryFile.write(url)
 	registryFile.close()
-	print("SUCCESS: Filtered Github projects' urls were saved to " + INPUT_FILE)
+	print("SUCCESS: Filtered Github projects' urls were saved to " + OUTPUT_FILE)
 
 def checkIfProjectsNumberReachedLimit():
 	global validProjectCount
@@ -191,9 +192,13 @@ if __name__ == "__main__":
     
 	logNumberOfItemsToFetch()
 	git = Github(GITHUB_ACCESS_TOKEN)
+	i = 0
 
 	for repoURL in open(INPUT_FILE, "r"):
-		
+		print("=====================")		
+		print("[" + str(i) + "]")
+		i += 1
+  
 		if (checkRequestOffsetReached() == False):
 			currentPaginationIndex += 1
 			continue

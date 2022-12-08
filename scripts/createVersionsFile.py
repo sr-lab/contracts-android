@@ -9,7 +9,7 @@ load_dotenv("filePaths.env")
 load_dotenv("config.env")
 
 GITHUB_ACCESS_TOKEN = os.getenv('GITHUB-ACCESS-TOKEN')
-INPUT_FILE = os.getenv('PROJECTS-LIST-FILE')
+INPUT_FILE = os.getenv('FILTERED-PROJECTS-LIST-FILE')
 OUTPUT_FILE = os.getenv('PROJECTS-VERSIONS-FILE')
 PAGINATION_OFFSET = os.getenv('VERSIONS-FILE-OFFSET', False)
 PAGINATION_LIMIT = os.getenv('VERSIONS-FILE-LIMIT', False)
@@ -80,13 +80,13 @@ def saveVersionURLsToOutputIfValid():
     outputFile.close()
   
 def validateURLVersionFormat(url):
-    regexValidURL = ";v?((\d+\.)?(\d+\.)*(\*|\d+)?|None)$"
-    match = re.search(regexValidURL, url)
-    if (match):
-        return True
-    else:
+    regexTextAtBeginning = ";(.*(((\d+).?(\d+.)*(\*|\d+)?))|None)$"
+    regexTextAtEnd = ";(v?(((\d+).?(\d+.)*(\*|\d+)?).*)|None)$"
+    matchAtBeginning = re.search(regexTextAtBeginning, url)
+    matchAtEnd = re.search(regexTextAtEnd, url)
+    if (matchAtBeginning == False and matchAtEnd == False):
         print("WARNING: URL was ignored since it has not valid version: " + url)
-        return False
+    return (matchAtBeginning or matchAtEnd)
 
 def validateURLIsNotDuplicated(url):
     global URLsToSave
