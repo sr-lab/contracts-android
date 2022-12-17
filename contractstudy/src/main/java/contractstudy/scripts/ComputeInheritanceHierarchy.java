@@ -5,6 +5,7 @@ import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.hierarchy.ClassAndVersion;
 import contractstudy.hierarchy.ClassCoordinates;
+import contractstudy.hierarchy.ClassCoordinatesKeysEnum;
 import contractstudy.hierarchy.ClassParents;
 import contractstudy.hierarchy.InheritanceResolved;
 import contractstudy.hierarchy.ProjectVersionHierarchyExtractor;
@@ -19,6 +20,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -44,30 +46,7 @@ public class ComputeInheritanceHierarchy implements Experiment {
 
   public static void main(String[] args) throws Exception {
 
-    // do not forget to add this folder!
-    File jdkDir = new File(Preferences.getDataFolder(), "../jdk-data/open-jdk");
-    File jdk = new File(jdkDir, "open-jdk-8.zip");
-
-    // TODO remove copy/paste code
-    if (args.length > 0 && args[0].equals("--skip-jdk")) {
-      LOGGER.warn(jdk + " skipped");  // TODO for testing pusposes
-    } else {
-      Map<ClassCoordinates, ClassParents> classesMap = new HashMap<>();
-      extractor.addGlobal(ProgramVersion.getOrCreateFromFile(jdk), new InheritanceResolved() {
-        @Override
-        public void notify(ClassParents parents) {
-          classesMap.put(parents, parents);
-        }
-
-        @Override
-        public void notify(ClassCoordinates classCoordinates) {
-          classesMap.put(classCoordinates, null);
-
-        }
-      });
-      File file = new File(new File(ROOT, jdkDir.getName()), "open-jdk-8-struct.json");
-      save(file, classesMap);
-    }
+    testSaveOpenJDK(args);
 
     long startTime = System.currentTimeMillis();
     ExecutorService executor = Executors.newFixedThreadPool(Preferences.getThreadCount());
@@ -83,11 +62,10 @@ public class ComputeInheritanceHierarchy implements Experiment {
           public void run() {
             try {
               ProgramVersion version = parseVersion(project, json);
+              Map<ClassCoordinates, ClassParents> classesMap = new HashMap<>();
 
               // TODO skip all dependencies for now
               List<ProgramVersion> deps = new ArrayList<>(); // parseDepsProgramVersion(project, json);
-
-              Map<ClassCoordinates, ClassParents> classesMap = new HashMap<>();
 
               extractor.analyse(version, deps, new InheritanceResolved() {
                 @Override
@@ -105,11 +83,9 @@ public class ComputeInheritanceHierarchy implements Experiment {
               });
 
               File file = new File(new File(ROOT, project.getName()), fileName(json));
-              save(file, classesMap);
+              saveResultsToFile(file, classesMap);
             } catch (Exception e) {
-              // swallowed exception for artefact evaluation not to confuse reviewer
               LOGGER.info("Skipping incompatible source-code version for " + json);
-//            LOGGER.warn("Error to process closure for " + json + ", " + e.getMessage());
             }
           }
         };
@@ -127,7 +103,31 @@ public class ComputeInheritanceHierarchy implements Experiment {
 
   }
 
-  private static void save(
+  private static void testSaveOpenJDK(String[] args) throws Exception {
+    // do not forget to add this folder!
+    File jdkDir = new File(Preferences.getDataFolder(), "../jdk-data/open-jdk");
+    File jdk = new File(jdkDir, "open-jdk-8.zip");
+
+    if (args.length > 0 && args[0].equals("--skip-jdk")) {
+      LOGGER.warn(jdk + " skipped");
+    } else {
+      Map<ClassCoordinates, ClassParents> classesMap = new HashMap<>();
+      extractor.addGlobal(ProgramVersion.getOrCreateFromFile(jdk), new InheritanceResolved() {
+        @Override
+        public void notify(ClassParents parents) {
+          classesMap.put(parents, parents);
+        }
+        @Override
+        public void notify(ClassCoordinates classCoordinates) {
+          classesMap.put(classCoordinates, null);
+        }
+      });
+      File file = new File(new File(ROOT, jdkDir.getName()), "open-jdk-8-struct.json");
+      saveResultsToFile(file, classesMap);
+    }
+  }
+
+  private static void saveResultsToFile(
     final File file,
     final Map<ClassCoordinates, ClassParents> parents) throws IOException {
 
@@ -135,38 +135,36 @@ public class ComputeInheritanceHierarchy implements Experiment {
     JSONArray a = new JSONArray();
 
     for (ClassCoordinates c : parents.keySet()) {
-
       Set<ClassCoordinates> withInnerSet = new HashSet<>();
       withInnerSet.add(c);
       withInnerSet.addAll(c.getInnerClasses());
-
       ClassParents classParents = parents.get(c);
-
       for (ClassCoordinates cc : withInnerSet) {
-        JSONObject classCoord = new JSONObject();
-        classCoord.put("className", cc.getClassName());
-        classCoord.put("cuName", cc.getCuName());
-        classCoord.put("methods", cc.getMethods());
-
-        JSONArray aa = new JSONArray();
-        if (classParents != null) {
-          for (ClassAndVersion parent : classParents.getParents(cc.getClassName())) {
-            aa.put(new JSONObject(parent.toJson()));
-          }
-        }
-        classCoord.put("parents", aa);
-        a.put(classCoord);
-
+        a.put(getClassCoordinate(classParents, cc));
       }
     }
+    IOUtils.write(a.toString(), Files.newOutputStream(file.toPath()), "utf-8");
+  }
 
-    IOUtils.write(a.toString(), new FileOutputStream(file), "utf-8");
+  private static JSONObject getClassCoordinate(ClassParents classParents, ClassCoordinates cc) {
+    JSONObject classCoordinates = new JSONObject();
+    classCoordinates.put(ClassCoordinatesKeysEnum.CLASS_NAME.getKeyword(), cc.getClassName());
+    classCoordinates.put(ClassCoordinatesKeysEnum.CU_NAME.getKeyword(), cc.getCuName());
+    classCoordinates.put(ClassCoordinatesKeysEnum.METHODS.getKeyword(), cc.getMethods());
+    JSONArray aa = new JSONArray();
+    if (classParents != null) {
+      for (ClassAndVersion parent : classParents.getParents(cc.getClassName())) {
+        aa.put(new JSONObject(parent.toJson()));
+      }
+    }
+    classCoordinates.put(ClassCoordinatesKeysEnum.PARENTS.getKeyword(), aa);
+    return classCoordinates;
   }
 
 
   private static String fileName(File version) {
     String jsonName = version.getName();
-    // the original name is   <xxx>-deps.json
+    // the original name is <xxx>-deps.json
     String name = jsonName.substring(0, jsonName.lastIndexOf("-"));
     return name + "-struct.json";
   }
@@ -175,7 +173,6 @@ public class ComputeInheritanceHierarchy implements Experiment {
   public void invoke() throws Exception {
     if (provides().exists()) {
       LOGGER.info("Skipping already performed experiment: " + provides().getName());
-
       return;
     }
     ComputeInheritanceHierarchy.main(new String[]{});
