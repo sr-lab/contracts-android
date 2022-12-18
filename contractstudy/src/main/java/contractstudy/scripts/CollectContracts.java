@@ -153,7 +153,6 @@ public class CollectContracts implements Experiment {
     String programName,
     String version,
     AtomicInteger parsedCUCounter) throws Exception {
-    // LOGGER.info("Analysing " + zip.getName());
     Enumeration<? extends ZipEntry> en = zip.entries();
     while (en.hasMoreElements()) {
       ZipEntry e = en.nextElement();

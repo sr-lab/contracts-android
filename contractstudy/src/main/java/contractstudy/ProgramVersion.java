@@ -132,6 +132,8 @@ public class ProgramVersion implements Comparable<ProgramVersion> {
     return name + "-" + version;
   }
 
+  // TODO: Check if version format maintains the same.
+
   /**
    * Version patterns: current -> successor
    * <p>

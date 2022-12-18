@@ -11,8 +11,8 @@ import contractstudy.constants.constraint.ContractElement;
 import contractstudy.diff.DiffExtractor;
 import contractstudy.diff.DiffRecord;
 import contractstudy.diff.diffrules.Utils;
-import contractstudy.hierarchy.ClassAndVersion;
-import contractstudy.scripts.CollectInvocationViaSuper;
+import contractstudy.evolution.ClassAndVersion;
+import contractstudy.hierarchy.model.SuperCallSite;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.LineIterator;
@@ -21,9 +21,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -108,7 +108,7 @@ public class SubtypeDiffExtractor implements DiffExtractor {
           .substring(projectName.length() + 1, json.getName().lastIndexOf("-"));
 
         JSONArray arr = new JSONArray(
-          IOUtils.toString(new FileInputStream(json), StandardCharsets.UTF_8));
+          IOUtils.toString(Files.newInputStream(json.toPath()), StandardCharsets.UTF_8));
         for (Object anArr : arr) {
           JSONObject o = (JSONObject) anArr;
           ClassAndVersion subTypeTmp = ClassAndVersion.create(projectName, versionName,
@@ -195,7 +195,7 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap = HashMultimap.create();
     Map<ClassAndVersion, Set<String>> methodsMap = new HashMap<>();
     readInheritanceCSV(inheritanceMap, methodsMap);
-    Set<CollectInvocationViaSuper.SuperCallSite> superCallSites = collectMethodsWithSuper();
+    Set<SuperCallSite> superCallSites = collectMethodsWithSuper();
     Set<String> superCallSitesDescs = new HashSet<>();
     superCallSites.forEach(
       i -> superCallSitesDescs.add(i.getCu() + "/" + i.getMethodDecl()));  // convert to strings
@@ -352,19 +352,16 @@ public class SubtypeDiffExtractor implements DiffExtractor {
    * @return callsites.
    * @throws IOException error
    */
-  private Set<CollectInvocationViaSuper.SuperCallSite> collectMethodsWithSuper()
+  private Set<SuperCallSite> collectMethodsWithSuper()
     throws IOException {
-
-    Set<CollectInvocationViaSuper.SuperCallSite> callSites = new HashSet<>();
-
+    Set<SuperCallSite> callSites = new HashSet<>();
     File file = new File(Preferences.getOutputFolder(), "supercallsites.csv");
-    LineIterator it = IOUtils.lineIterator(new FileInputStream(file), "utf-8");
-    it.next(); // skip header
+    LineIterator it = IOUtils.lineIterator(Files.newInputStream(file.toPath()), "utf-8");
+    it.next();
     while (it.hasNext()) {
       String line = it.next();
-      callSites.add(CollectInvocationViaSuper.SuperCallSite.fromCSV(line));
+      callSites.add(SuperCallSite.fromCSV(line));
     }
-
     return callSites;
   }
 
