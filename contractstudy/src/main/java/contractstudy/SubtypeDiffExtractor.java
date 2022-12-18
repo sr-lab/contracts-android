@@ -43,7 +43,7 @@ import static contractstudy.maven.CorpusUtils.listProjects;
  */
 public class SubtypeDiffExtractor implements DiffExtractor {
 
-  // TODO abstract or util class not to repeat code
+  //TODO: abstract or util class not to repeat code
 
   /**
    * We do not use class name, as it is not stored in the Constraint. Only CU is stored.
