@@ -14,15 +14,18 @@ import lombok.Setter;
 
 import java.util.List;
 
+/**
+ * Stores in a list instances of "super.foo()" or "super()".
+ */
 @Setter
 public class MethodVisitorToCollectOverride extends VoidVisitorAdapter<Object> {
 
   private final boolean includePrivateMethods = Preferences.includePrivateMethods();
-  private String cuName = null;
-  private String methodDeclaration = null;
-  private boolean isMethod = true; // false = constructor
-  private ProgramVersion programVersion = null;
-  private List<SuperCallSite> superCallSites = null;
+  private String cuName;
+  private String methodDeclaration;
+  private boolean isMethod = true; // false, if constructor
+  private ProgramVersion programVersion;
+  private List<SuperCallSite> superCallSites;
 
   public MethodVisitorToCollectOverride(
     String cuName,
@@ -33,16 +36,13 @@ public class MethodVisitorToCollectOverride extends VoidVisitorAdapter<Object> {
     this.superCallSites = superCallSites;
   }
 
-  // control the methods being visited
   @Override
   public void visit(MethodDeclaration methodDeclr, Object arg) {
-    //int modifiers = methodDeclr.getModifiers();
     NodeList<Modifier> modifiers = methodDeclr.getModifiers();
-    //if (includePrivateMethods || ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
     if (includePrivateMethods || modifiers.contains(Modifier.publicModifier())
       || modifiers.contains(Modifier.protectedModifier())) {
       this.methodDeclaration = Utils.trimRetType(methodDeclr.getDeclarationAsString(false, false,
-        false)); // flags: incl modifiers , incl throws
+        false)); // TODO: FIXME. It can return a test3(int, where expected is test3().
       this.isMethod = true;
       super.visit(methodDeclr, arg);
     }
@@ -50,9 +50,7 @@ public class MethodVisitorToCollectOverride extends VoidVisitorAdapter<Object> {
 
   @Override
   public void visit(ConstructorDeclaration constructorDeclr, Object arg) {
-    //int modifiers = constructorDeclr.getModifiers();
     NodeList<Modifier> modifiers = constructorDeclr.getModifiers();
-    //if (includePrivateMethods || ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
     if (includePrivateMethods || modifiers.contains(Modifier.publicModifier())
       || modifiers.contains(Modifier.protectedModifier())) {
       this.methodDeclaration = constructorDeclr.getDeclarationAsString(false, false, false);
@@ -61,7 +59,7 @@ public class MethodVisitorToCollectOverride extends VoidVisitorAdapter<Object> {
     }
   }
 
-  // this captures both methods (super.foo()) and constructors (super())
+  // FIXME: It is not capturing constructors (super()).
   @Override
   public void visit(SuperExpr n, Object arg) {
     SuperCallSite callSite = new SuperCallSite(programVersion, cuName, methodDeclaration,

@@ -91,7 +91,7 @@ public class CollectInvocationViaSuper implements Experiment {
           try {
             extractor.analyse(in, superCallSites, pv, name);
           } catch (Exception t) {
-            // TODO: Print error.
+            LOGGER.warn("It was not possible to analyse " + name + "in version" + pv.getVersion());
           }
         }
       }
@@ -103,9 +103,9 @@ public class CollectInvocationViaSuper implements Experiment {
     File outputFile = getOutputFile();
     LOGGER.info("Analysis done, exporting results to  " + outputFile.getAbsolutePath());
     LOGGER.info("\tSuper call sites found:  " + superCallSites.size());
-    char SEP = '\t';
+    char SEP = ',';
     try (PrintWriter out = new PrintWriter(new FileWriter(outputFile))) {
-      out.println("prg. name,prg. version,cu,kind");
+      out.println("program,version,cu,declaration,kind");
       for (SuperCallSite scs : superCallSites) {
         out.print(scs.programVersion.getName());
         out.print(SEP);

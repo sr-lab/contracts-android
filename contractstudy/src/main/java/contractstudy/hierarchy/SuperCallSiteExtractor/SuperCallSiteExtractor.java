@@ -5,9 +5,14 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import contractstudy.ProgramVersion;
 import contractstudy.hierarchy.SuperCallSiteExtractor.visitor.MethodVisitorToCollectOverride;
+import contractstudy.hierarchy.SuperCallSiteExtractor.visitor.MethodVisitorToCollectOverrideKotlin;
 import contractstudy.hierarchy.model.SuperCallSite;
+import contractstudy.kotlinParser.KotlinParser;
+import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
+import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
@@ -47,8 +52,11 @@ public class SuperCallSiteExtractor extends VoidVisitorAdapter<Object> {
     InputStream in,
     List<SuperCallSite> superCallSites,
     ProgramVersion programVersion,
-    String cuName) {
-    //TODO: For Kotlin.
+    String cuName) throws IOException {
+    String src = new InputStreamToStringConversion(in).getResult();
+    PsiFile psiFile = new KotlinParser().createKtFile("", src);
+    MethodVisitorToCollectOverrideKotlin visitor = new MethodVisitorToCollectOverrideKotlin(cuName, programVersion, superCallSites);
+    psiFile.accept(visitor);
   }
 
 
