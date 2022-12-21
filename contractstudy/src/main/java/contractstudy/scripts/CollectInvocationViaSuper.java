@@ -1,26 +1,20 @@
 package contractstudy.scripts;
 
-import com.github.javaparser.JavaParser;
-import com.github.javaparser.StaticJavaParser;
-import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.ast.Modifier;
-import com.github.javaparser.ast.NodeList;
-import com.github.javaparser.ast.body.ConstructorDeclaration;
-import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.expr.SuperExpr;
-import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import contractstudy.ProgramVersion;
-import contractstudy.collectContracts.common.Utils;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
+import contractstudy.hierarchy.SuperCallSiteExtractor.SuperCallSiteExtractor;
+import contractstudy.hierarchy.model.SuperCallSite;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;
+import contractstudy.utils.LanguageUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -47,11 +41,7 @@ public class CollectInvocationViaSuper implements Experiment {
 
   public static void main(String[] args) throws Exception {
     File DATA_FOLDER = new File(Preferences.getDataFolder());
-    File OUTPUT_FOLDER = new File(Preferences.getOutputFolder());
     int THREAD_COUNT = Preferences.getThreadCount();
-    FileUtils.forceMkdir(OUTPUT_FOLDER);
-    File output = new File(Preferences.getOutputFolder(), "supercallsites.csv");
-
     Collection<File> zips = FileUtils.listFiles(DATA_FOLDER, new String[]{"zip"}, true);
     AtomicInteger counter = new AtomicInteger(0);
     List<SuperCallSite> superCallSites = Collections.synchronizedList(new ArrayList<>());
@@ -59,50 +49,63 @@ public class CollectInvocationViaSuper implements Experiment {
     ExecutorService executor = Executors.newFixedThreadPool(THREAD_COUNT);
     long startTime = System.currentTimeMillis();
 
-    // JFF
-    JavaParser parser = new JavaParser();
-
     for (File f : zips) {
       ProgramVersion pv = ProgramVersion.getOrCreateFromFile(f);
       Runnable task = new Runnable() {
         @Override
         public void run() {
           try {
-            LOGGER.info(
-              "Analysing " + counter.incrementAndGet() + "/" + zips.size() + " - " + f.getName());
-            ZipFile zip = new ZipFile(f);
-            Enumeration<? extends ZipEntry> en = zip.entries();
-            while (en.hasMoreElements()) {
-              ZipEntry e = en.nextElement();
-              String name = e.getName();
-              if (name.endsWith(".java")) {
-                try (InputStream in = zip.getInputStream(e)) {
-                  try {
-                    CompilationUnit cu = StaticJavaParser.parse(in);
-                    new MethodVisitor(superCallSites, pv, name).visit(cu, null);
-                  } catch (Exception t) {
-                    // consumer.extractionExceptionEncountered("Cannot parse " + programName + "-" + version + "/" + cuName,t);
-                  }
-                }
-
-              }
-            }
+            findSuperCallSites(counter, zips, f, superCallSites, pv);
           } catch (Exception e) {
-            // log errors and continue with next files
             LOGGER.warn("Cannot parse file: " + f, e);
           }
         }
       };
       executor.submit(task);
     }
+
     executor.shutdown();
     executor.awaitTermination(1, TimeUnit.DAYS);
-    LOGGER.info("Analysis done, exporting results to  " + output.getAbsolutePath());
-    LOGGER.info("\tSuper call sites found:  " + superCallSites.size());
 
-    char SEP = '\t';
-    try (PrintWriter out = new PrintWriter(new FileWriter(output))) {
-      out.println("prg. name,prg. version,cu,kind");
+    outputResultsToCSV(superCallSites);
+
+    long endTime = System.currentTimeMillis();
+    LOGGER.info("Done");
+    LOGGER.info("\ttime: " + (endTime - startTime) + " ms");
+  }
+
+  private static void findSuperCallSites(AtomicInteger counter, Collection<File> zips, File f,
+    List<SuperCallSite> superCallSites, ProgramVersion pv)
+    throws IOException {
+    LOGGER.info(
+      "Analysing " + counter.incrementAndGet() + "/" + zips.size() + " - " + f.getName());
+    SuperCallSiteExtractor extractor = new SuperCallSiteExtractor();
+    ZipFile zip = new ZipFile(f);
+    Enumeration<? extends ZipEntry> en = zip.entries();
+    while (en.hasMoreElements()) {
+      ZipEntry e = en.nextElement();
+      String name = e.getName();
+      LanguageUtils.Language language = LanguageUtils.getLanguageFromNameExtension(name);
+      if (language == LanguageUtils.Language.JAVA || language == LanguageUtils.Language.KOTLIN) {
+        try (InputStream in = zip.getInputStream(e)) {
+          try {
+            extractor.analyse(in, superCallSites, pv, name);
+          } catch (Exception t) {
+            LOGGER.warn("It was not possible to analyse " + name + "in version" + pv.getVersion());
+          }
+        }
+      }
+    }
+  }
+
+  private static void outputResultsToCSV(List<SuperCallSite> superCallSites)
+    throws IOException {
+    File outputFile = getOutputFile();
+    LOGGER.info("Analysis done, exporting results to  " + outputFile.getAbsolutePath());
+    LOGGER.info("\tSuper call sites found:  " + superCallSites.size());
+    char SEP = ',';
+    try (PrintWriter out = new PrintWriter(new FileWriter(outputFile))) {
+      out.println("program,version,cu,declaration,kind");
       for (SuperCallSite scs : superCallSites) {
         out.print(scs.programVersion.getName());
         out.print(SEP);
@@ -116,17 +119,18 @@ public class CollectInvocationViaSuper implements Experiment {
         out.println();
       }
     }
-    long endTime = System.currentTimeMillis();
-    LOGGER.info("Done");
-    LOGGER.info("\ttime: " + (endTime - startTime) + " ms");
+  }
 
+  private static File getOutputFile() throws IOException {
+    File OUTPUT_FOLDER = new File(Preferences.getOutputFolder());
+    FileUtils.forceMkdir(OUTPUT_FOLDER);
+    return new File(Preferences.getOutputFolder(), "supercallsites.csv");
   }
 
   @Override
   public void invoke() throws Exception {
     if (provides().exists()) {
       LOGGER.info("Skipping already performed experiment: " + provides().getName());
-
       return;
     }
     CollectInvocationViaSuper.main(new String[]{});
@@ -144,95 +148,4 @@ public class CollectInvocationViaSuper implements Experiment {
     return ArtefactFactory.superCalls();
   }
 
-  public static class SuperCallSite {
-
-    ProgramVersion programVersion = null;
-    String cu = null;
-    String methodDecl = null;
-    boolean isMethod = true; // constructor if false
-
-    public SuperCallSite(ProgramVersion programVersion, String cu, String methodDecl,
-      boolean isMethod) {
-      this.programVersion = programVersion;
-      this.cu = cu;
-      this.methodDecl = methodDecl;
-      this.isMethod = isMethod;
-    }
-
-    public static SuperCallSite fromCSV(String line) {
-      String[] items = line.split("\t");
-      ProgramVersion v = ProgramVersion.getOrCreate(items[0], items[1]);
-      String cu = items[2];
-      boolean isMethod = items[4].equals("method");
-      String methodDec = items[3];
-
-      return new SuperCallSite(v, cu, methodDec, isMethod);
-    }
-
-    public String getMethodDecl() {
-      return methodDecl;
-    }
-
-    public String getCu() {
-      return cu;
-    }
-  }
-
-  static class MethodVisitor extends VoidVisitorAdapter<Object> {
-
-    private final boolean includePrivateMethods = Preferences.includePrivateMethods();
-    private List<SuperCallSite> superCallSites = null;
-    private ProgramVersion programVersion = null;
-    private String cuName = null;
-    private String methodDeclaration = null;
-    private boolean isMethod = true; // false = constructor
-
-    public MethodVisitor(
-      List<SuperCallSite> superCallSites,
-      ProgramVersion programVersion,
-      String cuName
-    ) {
-      super();
-      this.superCallSites = superCallSites;
-      this.programVersion = programVersion;
-      this.cuName = cuName;
-    }
-
-    // control the methods being visited
-    @Override
-    public void visit(MethodDeclaration methodDeclr, Object arg) {
-      //int modifiers = methodDeclr.getModifiers();
-      NodeList<Modifier> modifiers = methodDeclr.getModifiers();
-      //if (includePrivateMethods || ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
-      if (includePrivateMethods || modifiers.contains(Modifier.publicModifier())
-        || modifiers.contains(Modifier.protectedModifier())) {
-        this.methodDeclaration = Utils.trimRetType(methodDeclr.getDeclarationAsString(false, false,
-          false)); // flags: incl modifiers , incl throws
-        this.isMethod = true;
-        super.visit(methodDeclr, arg);
-      }
-    }
-
-    @Override
-    public void visit(ConstructorDeclaration constructorDeclr, Object arg) {
-      //int modifiers = constructorDeclr.getModifiers();
-      NodeList<Modifier> modifiers = constructorDeclr.getModifiers();
-      //if (includePrivateMethods || ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
-      if (includePrivateMethods || modifiers.contains(Modifier.publicModifier())
-        || modifiers.contains(Modifier.protectedModifier())) {
-        this.methodDeclaration = constructorDeclr.getDeclarationAsString(false, false, false);
-        this.isMethod = false;
-        super.visit(constructorDeclr, arg);
-      }
-    }
-
-    // this captures both methods (super.foo()) and constructors (super())
-    @Override
-    public void visit(SuperExpr n, Object arg) {
-      SuperCallSite callsite = new SuperCallSite(programVersion, cuName, methodDeclaration,
-        isMethod);
-      superCallSites.add(callsite);
-      super.visit(n, arg);
-    }
-  }
 }

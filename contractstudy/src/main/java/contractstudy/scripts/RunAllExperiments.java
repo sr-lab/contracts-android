@@ -19,7 +19,7 @@ public class RunAllExperiments {
     new CollectContracts(),
     new AnalyseContractUsage(),
     new CollectDatasetStats(),
-    //new CollectInvocationViaSuper(),
+    new CollectInvocationViaSuper(),
     //new ComputeInheritanceHierarchy(),
     //new AnalyseContractEvolution(),
     //new CollectProgramVersionStats(),
