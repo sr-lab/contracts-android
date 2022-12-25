@@ -18,7 +18,7 @@ import java.util.List;
  * Stores in a list instances of "super.foo()" or "super()".
  */
 @Setter
-public class MethodVisitorToCollectOverride extends VoidVisitorAdapter<Object> {
+public class MethodVisitorToCollectSuperCall extends VoidVisitorAdapter<Object> {
 
   private final boolean includePrivateMethods = Preferences.includePrivateMethods();
   private String cuName;
@@ -27,7 +27,7 @@ public class MethodVisitorToCollectOverride extends VoidVisitorAdapter<Object> {
   private ProgramVersion programVersion;
   private List<SuperCallSite> superCallSites;
 
-  public MethodVisitorToCollectOverride(
+  public MethodVisitorToCollectSuperCall(
     String cuName,
     ProgramVersion programVersion,
     List<SuperCallSite> superCallSites) {

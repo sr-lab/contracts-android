@@ -1,6 +1,7 @@
 package contractstudy.collectContracts.common.StaticImportCollector;
 
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
+import contractstudy.utils.kotlinParser.KotlinParserUtils;
 import contractstudy.utils.StringUtils;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,20 +36,12 @@ public class StaticImportCollectorKotlin extends KtTreeVisitorVoid {
     String importedPath = importDirective.getImportPath().getPathStr();
     String importStatement = StringUtils.removeComments(importDirective.getText());
 
-    boolean hasWildCard = doesImportStatementContainsWildCard(importDirective);
+    boolean hasWildCard = KotlinParserUtils.doesImportDirectiveContainsWildCard(importDirective);
 
     if (isImportStatic(importStatement)) {
       setImportStateFromStatic(importDirective, hasWildCard, importedPath);
     } else {
       setImportStateFromNonStatic(hasWildCard, importedPath);
-    }
-  }
-
-  private boolean doesImportStatementContainsWildCard(KtImportDirective importDirective) {
-    try {
-      return Objects.requireNonNull(importDirective.getImportPath()).getPathStr().contains(".*");
-    } catch (NullPointerException exception) {
-      return false;
     }
   }
 

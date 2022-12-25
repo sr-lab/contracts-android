@@ -1,4 +1,4 @@
-package contractstudy.kotlinParser
+package contractstudy.utils.kotlinParser
 
 import org.jetbrains.kotlin.com.intellij.openapi.project.Project
 import org.jetbrains.kotlin.com.intellij.openapi.util.UserDataHolderBase

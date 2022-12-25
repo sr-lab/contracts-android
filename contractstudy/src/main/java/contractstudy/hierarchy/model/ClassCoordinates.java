@@ -1,4 +1,4 @@
-package contractstudy.evolution;
+package contractstudy.hierarchy.model;
 
 import java.util.Set;
 

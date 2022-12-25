@@ -9,7 +9,7 @@ import contractstudy.collectContracts.api.CommonsValidate.CommonsValidate2.visit
 import contractstudy.collectContracts.common.StaticImportCollector.StaticImportCollector;
 import contractstudy.collectContracts.common.StaticImportCollector.StaticImportCollectorKotlin;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.kotlinParser.KotlinParser;
+import contractstudy.utils.kotlinParser.KotlinParser;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;

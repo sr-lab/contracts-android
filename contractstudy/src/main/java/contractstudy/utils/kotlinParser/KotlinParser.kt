@@ -1,4 +1,4 @@
-package contractstudy.kotlinParser
+package contractstudy.utils.kotlinParser
 
 import contractstudy.kotlinParser.parser.createKotlinCoreEnvironment
 import org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreEnvironment

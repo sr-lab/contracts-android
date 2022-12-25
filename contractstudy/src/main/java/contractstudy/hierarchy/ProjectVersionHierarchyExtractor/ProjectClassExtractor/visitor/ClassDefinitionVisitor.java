@@ -1,4 +1,4 @@
-package contractstudy.evolution;
+package contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectClassExtractor.visitor;
 
 import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.Node;
@@ -7,6 +7,8 @@ import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.EnumDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import contractstudy.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitor;
+import contractstudy.hierarchy.model.ASTState;
+import contractstudy.hierarchy.model.ClassCoordinates;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -33,24 +35,18 @@ public class ClassDefinitionVisitor extends AbstractMethodVisitor implements Cla
   @Override
   public void visit(final EnumDeclaration n, final Object arg) {
     init(n);
-
-    // set only for top level class - we assume it will be the first one read
     if (classSimpleName == null) {
-      classSimpleName = n.getName().getIdentifier(); // JFF
+      classSimpleName = n.getName().getIdentifier();
     }
-
     super.visit(n, arg);
   }
 
   @Override
   public void visit(ClassOrInterfaceDeclaration n, Object arg) {
     init(n);
-
-    // set only for top level class - we assume it will be the first one read
     if (classSimpleName == null) {
-      classSimpleName = n.getName().getIdentifier(); // JFF
+      classSimpleName = n.getName().getIdentifier();
     }
-
     super.visit(n, arg);
   }
 
@@ -67,14 +63,9 @@ public class ClassDefinitionVisitor extends AbstractMethodVisitor implements Cla
   @Override
   public void visit(MethodDeclaration methodDeclr, Object arg) {
     super.visit(methodDeclr, arg);
-
-    //int modifiers = methodDeclr.getModifiers();
     NodeList<Modifier> modifiers = methodDeclr.getModifiers();
-    boolean abstr = super.computeAbstractMethod();
-
-    // ignore private methods and abstract methods.
-    //if (!ModifierSet.isPrivate(modifiers) && !abstr) {
-    if (!modifiers.contains(Modifier.privateModifier()) && !abstr) {
+    boolean isAbstract = super.computeAbstractMethod();
+    if (!modifiers.contains(Modifier.privateModifier()) && !isAbstract) {
       getState(methodDeclr).getMethods().add(super.methodDeclaration);
     }
   }
@@ -110,7 +101,6 @@ public class ClassDefinitionVisitor extends AbstractMethodVisitor implements Cla
 
   @Override
   public Set<String> getMethods() {
-    // top level classes
     return innerClassesState.get(getClassName()).getMethods();
   }
 
@@ -161,7 +151,7 @@ public class ClassDefinitionVisitor extends AbstractMethodVisitor implements Cla
 
       @Override
       public Set<ClassCoordinates> getInnerClasses() {
-        return null;  // todo, structure is flat for now
+        return null;  // TODO: structure is flat for now
       }
 
       @Override

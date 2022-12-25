@@ -1,4 +1,4 @@
-package contractstudy.evolution;
+package contractstudy.model;
 
 import contractstudy.ProgramVersion;
 import org.json.JSONObject;
