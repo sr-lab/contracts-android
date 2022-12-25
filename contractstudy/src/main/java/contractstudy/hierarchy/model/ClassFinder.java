@@ -1,4 +1,6 @@
-package contractstudy.evolution;
+package contractstudy.hierarchy.model;
+
+import contractstudy.model.ClassAndVersion;
 
 /**
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]

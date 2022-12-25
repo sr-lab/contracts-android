@@ -5,7 +5,7 @@ import contractstudy.ProgramVersion;
 import contractstudy.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitorKotlin;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.kotlinParser.KotlinParserUtils;
+import contractstudy.utils.kotlinParser.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.psi.KtBlockExpression;
 import org.jetbrains.kotlin.psi.KtIfExpression;

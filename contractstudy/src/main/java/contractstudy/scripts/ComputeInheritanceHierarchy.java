@@ -3,12 +3,12 @@ package contractstudy.scripts;
 import contractstudy.ProgramVersion;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
-import contractstudy.evolution.ClassAndVersion;
-import contractstudy.evolution.ClassCoordinates;
-import contractstudy.evolution.ClassCoordinatesKeysEnum;
-import contractstudy.evolution.ClassParents;
-import contractstudy.evolution.InheritanceResolved;
-import contractstudy.evolution.ProjectVersionHierarchyExtractor;
+import contractstudy.constants.ClassCoordinatesKeysEnum;
+import contractstudy.model.ClassAndVersion;
+import contractstudy.hierarchy.model.InheritanceResolved;
+import contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectVersionHierarchyExtractor;
+import contractstudy.hierarchy.model.ClassCoordinates;
+import contractstudy.hierarchy.model.ClassParents;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;
@@ -45,7 +45,7 @@ public class ComputeInheritanceHierarchy implements Experiment {
 
   public static void main(String[] args) throws Exception {
 
-    testSaveOpenJDK(args);
+    //testSaveOpenJDK(args);
 
     long startTime = System.currentTimeMillis();
     ExecutorService executor = Executors.newFixedThreadPool(Preferences.getThreadCount());
@@ -164,7 +164,6 @@ public class ComputeInheritanceHierarchy implements Experiment {
 
   private static String fileName(File version) {
     String jsonName = version.getName();
-    // the original name is <xxx>-deps.json
     String name = jsonName.substring(0, jsonName.lastIndexOf("-"));
     return name + "-struct.json";
   }

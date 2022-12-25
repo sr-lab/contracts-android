@@ -7,7 +7,7 @@ import contractstudy.Extractor;
 import contractstudy.collectContracts.cre.UnconditionalOperationNotSupported.visitor.MethodVisitorToCollectUnconditionalUnsupportedOperationExceptionThrows;
 import contractstudy.collectContracts.cre.UnconditionalOperationNotSupported.visitor.MethodVisitorToCollectUnconditionalUnsupportedOperationExceptionThrowsKotlin;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.kotlinParser.KotlinParser;
+import contractstudy.utils.kotlinParser.KotlinParser;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;

@@ -11,7 +11,7 @@ import contractstudy.constants.constraint.ContractElement;
 import contractstudy.diff.DiffExtractor;
 import contractstudy.diff.DiffRecord;
 import contractstudy.diff.diffrules.Utils;
-import contractstudy.evolution.ClassAndVersion;
+import contractstudy.model.ClassAndVersion;
 import contractstudy.hierarchy.model.SuperCallSite;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;

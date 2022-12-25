@@ -11,7 +11,7 @@ import contractstudy.collectContracts.common.StaticImportCollector.StaticImportC
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.kotlinParser.KotlinParser;
+import contractstudy.utils.kotlinParser.KotlinParser;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;

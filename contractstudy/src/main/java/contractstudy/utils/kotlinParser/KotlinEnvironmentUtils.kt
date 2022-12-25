@@ -1,6 +1,6 @@
 package contractstudy.kotlinParser.parser
 
-import contractstudy.kotlinParser.PomModel
+import contractstudy.utils.kotlinParser.PomModel
 import org.jetbrains.kotlin.cli.common.CLIConfigurationKeys
 import org.jetbrains.kotlin.cli.common.environment.setIdeaIoUseFallback
 import org.jetbrains.kotlin.cli.common.messages.MessageRenderer

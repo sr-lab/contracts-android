@@ -1,8 +1,16 @@
-package contractstudy.evolution;
+package contractstudy.hierarchy.ProjectVersionHierarchyExtractor;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import contractstudy.ProgramVersion;
+import contractstudy.model.ClassAndVersion;
+import contractstudy.hierarchy.model.ClassFinder;
+import contractstudy.hierarchy.model.ClassFinderCreator;
+import contractstudy.hierarchy.model.InheritanceResolved;
+import contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectClassExtractor.ProjectClassExtractor;
+import contractstudy.hierarchy.model.ClassCoordinates;
+import contractstudy.hierarchy.model.ClassParents;
+import contractstudy.utils.LanguageUtils;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -22,17 +30,13 @@ import java.util.zip.ZipFile;
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
 public class ProjectVersionHierarchyExtractor {
-
   private final ProjectClassExtractor classExtractor = new ProjectClassExtractor();
-
   private final ClassFinderCreator globalCreator = new ClassFinderCreator();
 
   public ProjectVersionHierarchyExtractor addGlobal(
     ProgramVersion projectVersion,
     final InheritanceResolved notifier) throws Exception {
-
     analyse(projectVersion, new ArrayList<>(), globalCreator, notifier);
-
     return this;
   }
 
@@ -48,7 +52,6 @@ public class ProjectVersionHierarchyExtractor {
     final ProgramVersion projectVersion,
     final List<ProgramVersion> dependencies,
     final InheritanceResolved notifier) throws Exception {
-
     ClassFinderCreator creator = new ClassFinderCreator(globalCreator);
     analyse(projectVersion, dependencies, creator, notifier);
   }
@@ -74,6 +77,7 @@ public class ProjectVersionHierarchyExtractor {
     for (ProgramVersion programVersion : dependencies) {
       resolveInheritance(programVersion, parents, creator, notifier, parents);
     }
+
   }
 
   private void readClasses(
@@ -131,6 +135,17 @@ public class ProjectVersionHierarchyExtractor {
 
       // filter only classes we are interested in
       if (classNameFilter == null || classNameFilter.contains(className)) {
+
+        /*switch (LanguageUtils.getLanguageFromNameExtension(units.get(classCoordinates))) {
+          case JAVA:
+            analyseJava(in, data);
+            break;
+          case KOTLIN:
+            analyseKotlin(in, data);
+            break;
+          default:
+        }*/
+
         CompilationUnit cu = units.get(classCoordinates);
         ClassParents parents = classExtractor.readInheritance(cu, classCoordinates.getCuName(),
           classFinder);

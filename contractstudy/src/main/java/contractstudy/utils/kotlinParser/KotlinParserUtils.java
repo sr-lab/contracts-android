@@ -1,11 +1,14 @@
-package contractstudy.kotlinParser;
+package contractstudy.utils.kotlinParser;
 
 import contractstudy.constants.VisibilityModifier;
 import org.jetbrains.kotlin.com.intellij.openapi.editor.Document;
 import org.jetbrains.kotlin.com.intellij.psi.FileViewProvider;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 import org.jetbrains.kotlin.psi.KtElement;
+import org.jetbrains.kotlin.psi.KtImportDirective;
 import org.jetbrains.kotlin.psi.KtModifierList;
+
+import java.util.Objects;
 
 public class KotlinParserUtils {
 
@@ -52,5 +55,13 @@ public class KotlinParserUtils {
       visibilityKeyword = ktModifierList.getText();
     }
     return VisibilityModifier.getVisibilityModifierFromKeyword(visibilityKeyword);
+  }
+
+  public static boolean doesImportDirectiveContainsWildCard(KtImportDirective importDirective) {
+    try {
+      return Objects.requireNonNull(importDirective.getImportPath()).getPathStr().contains(".*");
+    } catch (NullPointerException exception) {
+      return false;
+    }
   }
 }

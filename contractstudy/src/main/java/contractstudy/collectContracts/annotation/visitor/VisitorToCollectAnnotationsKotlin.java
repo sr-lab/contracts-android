@@ -7,7 +7,7 @@ import contractstudy.collectContracts.common.StaticImportCollector.constants.Sta
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ConstraintedArtefact;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.kotlinParser.KotlinParserUtils;
+import contractstudy.utils.kotlinParser.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.com.intellij.psi.PsiElement;
 import org.jetbrains.kotlin.psi.KtAnnotationEntry;

@@ -1,10 +1,14 @@
-package contractstudy.evolution;
+package contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectClassExtractor.visitor;
 
 import com.github.javaparser.ast.ImportDeclaration;
 import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.expr.SuperExpr;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
+import contractstudy.model.ClassAndVersion;
+import contractstudy.hierarchy.model.ClassFinder;
+import contractstudy.hierarchy.model.ClassCoordinates;
+import contractstudy.hierarchy.model.ClassParents;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,38 +20,32 @@ import java.util.Set;
 public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implements ClassParents,
   ClassCoordinates {
 
-
-  /**
-   * Class finder.
-   */
   private final ClassFinder classFinder;
-
-  /**
-   * Packages import.
-   */
   private final List<String> packages = new ArrayList<>();
 
   public InheritanceHierarchyVisitor(
     final String cuName,
     final ClassFinder classFinder) {
-
     super(cuName);
     this.classFinder = classFinder;
   }
 
   @Override
   public void visit(PackageDeclaration n, Object arg) {
-    String packageName = n.getName().getIdentifier(); // JFF
-    packages.add(packageName + ".*");  // implicit imports within the same package
-    packages.add("java.lang.*");        // implicit Java import
-
+    String packageName = n.getName().getIdentifier();
+    addImplicitImports(packageName);
     super.visit(n, arg);
+  }
+
+  private void addImplicitImports(String packageName) {
+    packages.add(packageName + ".*");
+    packages.add("kotlin.*");
+    packages.add("java.lang.*");
   }
 
 
   @Override
   public void visit(ImportDeclaration n, Object arg) {
-
     if (!n.isStatic()) {
       //String pcg = n.getName().toStringWithoutComments();
       String pcg = n.getName().getIdentifier(); // JFF: FIXME: without comments?
@@ -56,20 +54,16 @@ public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implemen
       }
       packages.add(pcg);
     }
-
     super.visit(n, arg);
   }
 
   @Override
   public void visit(ClassOrInterfaceDeclaration n, Object arg) {
     super.visit(n, arg);
-
     List<ClassOrInterfaceType> superClasses = n.getExtendedTypes();
     List<ClassOrInterfaceType> superInterfaces = n.getImplementedTypes();
-
     findClasses(n, superClasses);
     findClasses(n, superInterfaces);
-
   }
 
   @Override

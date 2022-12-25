@@ -1,4 +1,4 @@
-package contractstudy.evolution;
+package contractstudy.constants;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

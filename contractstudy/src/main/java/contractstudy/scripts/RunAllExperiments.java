@@ -16,11 +16,11 @@ import org.apache.log4j.Logger;
 public class RunAllExperiments {
 
   private static final Experiment[] EXPERIMENTS = new Experiment[]{
-    new CollectContracts(),
-    new AnalyseContractUsage(),
-    new CollectDatasetStats(),
+    //new CollectContracts(),
+    //new AnalyseContractUsage(),
+    //new CollectDatasetStats(),
     new CollectInvocationViaSuper(),
-    //new ComputeInheritanceHierarchy(),
+    new ComputeInheritanceHierarchy(),
     //new AnalyseContractEvolution(),
     //new CollectProgramVersionStats(),
     //new AnalyseContractUsageAcrossVersions(),

@@ -6,7 +6,7 @@ import contractstudy.collectContracts.api.CommonsValidate.CommonValidateBase.Met
 import contractstudy.collectContracts.api.CommonsValidate.constants.CommonsValidate2Enum;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.kotlinParser.KotlinParserUtils;
+import contractstudy.utils.kotlinParser.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.psi.KtCallExpression;
 import org.jetbrains.kotlin.psi.KtValueArgument;

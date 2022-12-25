@@ -1,4 +1,4 @@
-package contractstudy.evolution;
+package contractstudy.hierarchy.model;
 
 import com.github.javaparser.ast.CompilationUnit;
 import com.google.common.collect.HashBasedTable;

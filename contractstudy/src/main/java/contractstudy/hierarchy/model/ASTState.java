@@ -1,11 +1,12 @@
-package contractstudy.evolution;
+package contractstudy.hierarchy.model;
+
+import contractstudy.model.ClassAndVersion;
+import lombok.Getter;
 
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * @author Kamil Jezek [kamil.jezek@verifalabs.com]
- */
+@Getter
 public class ASTState {
 
   /**
@@ -18,11 +19,4 @@ public class ASTState {
    */
   private final Set<ClassAndVersion> parents = new HashSet<>();
 
-  public Set<String> getMethods() {
-    return methods;
-  }
-
-  public Set<ClassAndVersion> getParents() {
-    return parents;
-  }
 }

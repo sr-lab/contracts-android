@@ -4,10 +4,10 @@ import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import contractstudy.ProgramVersion;
-import contractstudy.hierarchy.SuperCallSiteExtractor.visitor.MethodVisitorToCollectOverride;
-import contractstudy.hierarchy.SuperCallSiteExtractor.visitor.MethodVisitorToCollectOverrideKotlin;
+import contractstudy.hierarchy.SuperCallSiteExtractor.visitor.MethodVisitorToCollectSuperCall;
+import contractstudy.hierarchy.SuperCallSiteExtractor.visitor.MethodVisitorToCollectSuperCallKotlin;
 import contractstudy.hierarchy.model.SuperCallSite;
-import contractstudy.kotlinParser.KotlinParser;
+import contractstudy.utils.kotlinParser.KotlinParser;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
@@ -45,7 +45,7 @@ public class SuperCallSiteExtractor extends VoidVisitorAdapter<Object> {
     ProgramVersion programVersion,
     String cuName) {
     CompilationUnit cu = StaticJavaParser.parse(in);
-    new MethodVisitorToCollectOverride(cuName, programVersion, superCallSites).visit(cu, null);
+    new MethodVisitorToCollectSuperCall(cuName, programVersion, superCallSites).visit(cu, null);
   }
 
   public void analyseKotlin(
@@ -55,7 +55,8 @@ public class SuperCallSiteExtractor extends VoidVisitorAdapter<Object> {
     String cuName) throws IOException {
     String src = new InputStreamToStringConversion(in).getResult();
     PsiFile psiFile = new KotlinParser().createKtFile("", src);
-    MethodVisitorToCollectOverrideKotlin visitor = new MethodVisitorToCollectOverrideKotlin(cuName, programVersion, superCallSites);
+    MethodVisitorToCollectSuperCallKotlin visitor = new MethodVisitorToCollectSuperCallKotlin(
+      cuName, programVersion, superCallSites);
     psiFile.accept(visitor);
   }
 

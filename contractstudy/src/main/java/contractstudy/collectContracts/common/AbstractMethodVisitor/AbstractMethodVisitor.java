@@ -121,17 +121,14 @@ public abstract class AbstractMethodVisitor extends VoidVisitorAdapter<Object> {
     String owner = "";
 
     while (parent != null) {
-
       if (parent instanceof ClassOrInterfaceDeclaration) {
-        String name = ((ClassOrInterfaceDeclaration) parent).getName().getIdentifier(); // JFF
+        String name = ((ClassOrInterfaceDeclaration) parent).getName().getIdentifier();
         owner = name + separator + owner;
       }
-
       if (parent instanceof EnumDeclaration) {
-        String name = ((EnumDeclaration) parent).getName().getIdentifier(); // JFF
+        String name = ((EnumDeclaration) parent).getName().getIdentifier();
         owner = name + separator + owner;
       }
-
       parent = parent.getParentNode().orElse(null); // JFF: FIXME?
     }
 

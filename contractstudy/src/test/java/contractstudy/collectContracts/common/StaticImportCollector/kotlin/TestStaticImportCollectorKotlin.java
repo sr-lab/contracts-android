@@ -2,7 +2,7 @@ package contractstudy.collectContracts.common.StaticImportCollector.kotlin;
 
 import contractstudy.collectContracts.common.StaticImportCollector.StaticImportCollectorKotlin;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
-import contractstudy.kotlinParser.KotlinParser;
+import contractstudy.utils.kotlinParser.KotlinParser;
 import contractstudy.utils.InputStreamToStringConversion;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 import org.junit.jupiter.params.ParameterizedTest;
