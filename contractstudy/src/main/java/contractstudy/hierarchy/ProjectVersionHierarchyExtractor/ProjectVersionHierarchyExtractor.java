@@ -15,6 +15,7 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Enumeration;
@@ -36,47 +37,32 @@ public class ProjectVersionHierarchyExtractor {
   public ProjectVersionHierarchyExtractor addGlobal(
     ProgramVersion projectVersion,
     final InheritanceResolved notifier) throws Exception {
-    analyse(projectVersion, new ArrayList<>(), globalCreator, notifier);
+    analyse(projectVersion, globalCreator, notifier);
     return this;
   }
 
   /**
    * Analyse hierarchy
-   *
-   * @param projectVersion project to analyse
-   * @param dependencies   all dependencies
-   * @param notifier       notifier about resolved inheritance.
-   * @throws Exception error
    */
   public void analyse(
     final ProgramVersion projectVersion,
-    final List<ProgramVersion> dependencies,
     final InheritanceResolved notifier) throws Exception {
     ClassFinderCreator creator = new ClassFinderCreator(globalCreator);
-    analyse(projectVersion, dependencies, creator, notifier);
+    analyse(projectVersion, creator, notifier);
   }
 
   private void analyse(
     final ProgramVersion projectVersion,
-    final List<ProgramVersion> dependencies,
     final ClassFinderCreator creator,
     final InheritanceResolved notifier) throws Exception {
 
     // fill-in classes map
     readClasses(projectVersion, creator, notifier);
-    for (ProgramVersion programVersion : dependencies) {
-      readClasses(programVersion, creator, notifier);
-    }
 
     Set<String> parents = new HashSet<>();
 
     // resolve project file
     resolveInheritance(projectVersion, null, creator, notifier, parents);
-
-    // recurse for upper inheritance in dependencies
-    for (ProgramVersion programVersion : dependencies) {
-      resolveInheritance(programVersion, parents, creator, notifier, parents);
-    }
 
   }
 
@@ -90,7 +76,7 @@ public class ProjectVersionHierarchyExtractor {
     if (file.isDirectory()) {
       Collection<File> files = FileUtils.listFiles(file, new String[]{"java"}, true);
       for (File f : files) {
-        try (InputStream in = new FileInputStream(f)) {
+        try (InputStream in = Files.newInputStream(f.toPath())) {
           CompilationUnit cu = StaticJavaParser.parse(in);
           ClassCoordinates classCoordinates = classExtractor.readClass(cu, f.getName());
           creator.add(programVersion, classCoordinates, cu, file.getName());

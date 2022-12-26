@@ -35,6 +35,7 @@ import static contractstudy.utils.CorpusUtils.listProjects;
 import static contractstudy.utils.CorpusUtils.parseVersion;
 
 /**
+ * Currently, we skip project's dependencies.
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
 public class ComputeInheritanceHierarchy implements Experiment {
@@ -63,10 +64,9 @@ public class ComputeInheritanceHierarchy implements Experiment {
               ProgramVersion version = parseVersion(project, json);
               Map<ClassCoordinates, ClassParents> classesMap = new HashMap<>();
 
-              // TODO skip all dependencies for now
-              List<ProgramVersion> deps = new ArrayList<>(); // parseDepsProgramVersion(project, json);
+              // Skip all dependencies for now. parseDepsProgramVersion(project, json);
 
-              extractor.analyse(version, deps, new InheritanceResolved() {
+              extractor.analyse(version, new InheritanceResolved() {
                 @Override
                 public void notify(ClassParents parents) {
                   // it may replace already stored class, but it does not matter
@@ -181,7 +181,7 @@ public class ComputeInheritanceHierarchy implements Experiment {
   public ExperimentArtefact[] requires() {
     return new ExperimentArtefact[]{
       ArtefactFactory.inputSrcZipFiles(),
-      ArtefactFactory.inputDepFiles()
+      //ArtefactFactory.inputDepFiles()
     };
   }
 
