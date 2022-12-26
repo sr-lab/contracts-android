@@ -142,7 +142,7 @@ def addValidatedRepoToArrays(urlName, repo, mergedPulls, totalClosedPulls, perce
 	validProjectCount  += 1
 	repoStats.append({
 			"APPLICATION NAME": str(repo.full_name),
-			"GITHUB LINK": str(urlName),
+			"GITHUB LINK": urlName.replace("\n", ""),
 			"LANGUAGE": str(repo.language),
 			"WATCHERS": repo.subscribers_count,
 			"STARS": repo.stargazers_count,
