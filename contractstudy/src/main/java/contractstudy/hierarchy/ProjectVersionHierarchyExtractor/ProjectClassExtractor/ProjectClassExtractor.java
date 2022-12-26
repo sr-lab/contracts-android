@@ -1,10 +1,10 @@
 package contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectClassExtractor;
 
 import com.github.javaparser.ast.CompilationUnit;
-import contractstudy.hierarchy.model.ClassFinder;
 import contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectClassExtractor.visitor.ClassDefinitionVisitor;
 import contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectClassExtractor.visitor.InheritanceHierarchyVisitor;
 import contractstudy.hierarchy.model.ClassCoordinates;
+import contractstudy.hierarchy.model.ClassFinder;
 import contractstudy.hierarchy.model.ClassParents;
 
 /**

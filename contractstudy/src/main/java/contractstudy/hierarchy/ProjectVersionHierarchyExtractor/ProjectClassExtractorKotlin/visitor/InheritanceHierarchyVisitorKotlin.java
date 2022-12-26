@@ -1,12 +1,10 @@
 package contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectClassExtractorKotlin.visitor;
 
-import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
-import com.github.javaparser.ast.type.ClassOrInterfaceType;
-import contractstudy.utils.kotlinParser.KotlinParserUtils;
-import contractstudy.model.ClassAndVersion;
-import contractstudy.hierarchy.model.ClassFinder;
 import contractstudy.hierarchy.model.ClassCoordinates;
+import contractstudy.hierarchy.model.ClassFinder;
 import contractstudy.hierarchy.model.ClassParents;
+import contractstudy.model.ClassAndVersion;
+import contractstudy.utils.kotlinParser.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.psi.KtClassOrObject;
 import org.jetbrains.kotlin.psi.KtImportDirective;
@@ -62,7 +60,7 @@ public class InheritanceHierarchyVisitorKotlin extends ClassDefinitionVisitorKot
   }
 
   private void findClasses(KtClassOrObject n, List<KtSuperTypeListEntry> types) {
-    for (KtSuperTypeListEntry entry: types) {
+    for (KtSuperTypeListEntry entry : types) {
       String typeName = entry.getTypeReference().getText();
       ClassAndVersion classAndOrigin = classFinder.findClass(typeName,
         packages.toArray(new String[0]));

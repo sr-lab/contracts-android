@@ -7,9 +7,9 @@ import contractstudy.Extractor;
 import contractstudy.collectContracts.cre.JavaCREExtractor.visitor.MethodVisitorToCollectJavaCREThrows;
 import contractstudy.collectContracts.cre.JavaCREExtractor.visitor.MethodVisitorToCollectJavaCREThrowsKotlin;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.utils.kotlinParser.KotlinParser;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
+import contractstudy.utils.kotlinParser.KotlinParser;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 import java.io.IOException;

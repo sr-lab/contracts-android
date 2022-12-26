@@ -19,12 +19,12 @@ import org.jetbrains.kotlin.psi.KtTreeVisitorVoid;
 public abstract class AbstractMethodVisitorKotlin extends KtTreeVisitorVoid {
 
   private final boolean includePrivateMethods = Preferences.includePrivateMethods();
+  private final boolean isAbstractMethod = false;
   protected ExtractionListener<ContractElement> consumer = null;
   protected String programName = null;
   protected String version = null;
   protected String cuName = null;
   protected String methodDeclaration = null;
-  private final boolean isAbstractMethod = false;
   private boolean isInterface = false;
   private boolean isDefaultMethod = false;
   private String packageName;
