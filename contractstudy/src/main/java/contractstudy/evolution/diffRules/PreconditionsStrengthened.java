@@ -1,9 +1,9 @@
-package contractstudy.diff.diffrules;
+package contractstudy.evolution.diffRules;
 
 import contractstudy.constants.constraint.ConstraintClassification;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.diff.DiffResult;
-import contractstudy.diff.DiffRule;
+import contractstudy.evolution.model.DiffResult;
+import contractstudy.evolution.model.DiffRule;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package contractstudy.diff;
+package contractstudy.evolution;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.HashMultimap;
@@ -8,7 +8,9 @@ import contractstudy.ProgramVersion;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.diff.diffrules.Utils;
+import contractstudy.evolution.diffRules.Utils;
+import contractstudy.evolution.model.DiffExtractor;
+import contractstudy.evolution.model.DiffRecord;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
@@ -16,11 +18,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.FileFilter;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -46,42 +47,24 @@ public class EvolutionDiffExtractor implements DiffExtractor {
   private static final File RESULT_FOLDER = new File(Preferences.getResultsFolder());
   static Logger LOGGER = Logging.getLogger(EvolutionDiffExtractor.class);
 
-  private static String getIndexKey(ProgramVersion pv, String cu, String methodDecl) {
-    return pv.getName() + "-" + pv.getVersion() + '#' + cu + '/' + (methodDecl == null ? ""
-      : methodDecl);
+  private static String getIndexKey(ProgramVersion pv, String cu, String methodDeclaration) {
+    return pv.getName() + "-" + pv.getVersion() + '#' + cu + '/' + (methodDeclaration == null ? ""
+      : methodDeclaration);
   }
 
   public static File[] listProjects(File root) {
-    return root.listFiles(new FileFilter() {
-      @Override
-      public boolean accept(File pathname) {
-        return pathname.isDirectory();
-      }
-    });
+    return root.listFiles(File::isDirectory);
   }
 
   @Override
   public List<DiffRecord> extract() throws Exception {
 
-    Set<ContractElement> removed = new HashSet<>();
     List<DiffRecord> results = new ArrayList<>();
     List<ContractElement> contractElements = new ArrayList<>();
-    Collection<File> jsons = FileUtils.listFiles(INPUT_CONTRACTS_FOLDER, new String[]{"json"},
-      true);
-    for (File json : jsons) {
-      String data = FileUtils.readFileToString(json, StandardCharsets.UTF_8);
-      JSONArray all = new JSONArray(data);
-      all.forEach(e -> {
-        ContractElement c = ContractElement.fromJSON((JSONObject) e);
-        if (Utils.cannotSort(c.getProgramVersion())) {
-          removed.add(c);
-        } else {
-          contractElements.add(c);
-        }
-      });
-    }
+    Set<ContractElement> removed = new HashSet<>();
 
-    // sort !!
+    completeListOfContractsAndRemoved(contractElements, removed);
+
     Collections.sort(contractElements, new Comparator<ContractElement>() {
       @Override
       public int compare(ContractElement pc1, ContractElement pc2) {
@@ -104,7 +87,7 @@ public class EvolutionDiffExtractor implements DiffExtractor {
         pv = pv2;
       } else {
         if (!pv.getVersion().equals(pv2.getVersion())) {
-          // cross reference
+          // cross-reference
           pv.setNextVersion(pv2);
           pv2.setPreviousVersion(pv); // double link !
           LOGGER.info("Upgrade " + " detected: " + pv + " -> " + pv2);
@@ -113,23 +96,21 @@ public class EvolutionDiffExtractor implements DiffExtractor {
       }
     }
 
-    // index constraints by method or class
-    ListMultimap<String, ContractElement> constraintIndex = ArrayListMultimap.create();
-    for (ContractElement pc : contractElements) {
-      constraintIndex.put(
-        getIndexKey(pc.getProgramVersion(), pc.getCuName(), pc.getMethodDeclaration()), pc);
-    }
+    ListMultimap<String, ContractElement> constraintIndex = getIndexConstraintsByMethodOrClass(
+      contractElements);
 
-    Map<ProgramVersion, Multimap<String, String>> methodsByPVandCU = getMethodsByPVandCU();
+    Map<ProgramVersion, Multimap<String, String>> methodsByPVAndCU = getMethodsByProgramVersionAndCompilationUnit();
 
     // build diff records
     Set<String> done = new HashSet<>();
     for (ContractElement pc : contractElements) {
       String key = getIndexKey(pc.getProgramVersion(), pc.getCuName(), pc.getMethodDeclaration());
       if (done.add(key)) {
+
         // control this in order to investigate each artefact only once
         pv = pc.getProgramVersion();
         ProgramVersion succPV = pv.getNextVersion();
+
         if (succPV != null) {
           String succKey = getIndexKey(succPV, pc.getCuName(), pc.getMethodDeclaration());
           List<ContractElement> constraints1 = constraintIndex.get(key);
@@ -151,7 +132,7 @@ public class EvolutionDiffExtractor implements DiffExtractor {
         // would double-count, see issue #16 for a discussion
         ProgramVersion prevPV = pv.getPreviousVersion();
         if (prevPV != null) {
-          Multimap<String, String> methodsByCU = methodsByPVandCU.get(prevPV);
+          Multimap<String, String> methodsByCU = methodsByPVAndCU.get(prevPV);
 
           // methodsByCU will be null in case the respective sources cannot be parsed
           // this is an issue if for instance enum is used as an identifier in the program
@@ -196,7 +177,38 @@ public class EvolutionDiffExtractor implements DiffExtractor {
     return results;
   }
 
-  private Map<ProgramVersion, Multimap<String, String>> getMethodsByPVandCU() throws IOException {
+  private void completeListOfContractsAndRemoved(List<ContractElement> contractElements,
+    Set<ContractElement> removed)
+    throws IOException {
+    Collection<File> collectedContractsJSONFiles = FileUtils.listFiles(INPUT_CONTRACTS_FOLDER,
+      new String[]{"json"},
+      true);
+    for (File json : collectedContractsJSONFiles) {
+      String data = FileUtils.readFileToString(json, StandardCharsets.UTF_8);
+      JSONArray all = new JSONArray(data);
+      all.forEach(e -> {
+        ContractElement c = ContractElement.fromJSON((JSONObject) e);
+        if (Utils.cannotSort(c.getProgramVersion())) {
+          removed.add(c);
+        } else {
+          contractElements.add(c);
+        }
+      });
+    }
+  }
+
+  private ListMultimap<String, ContractElement> getIndexConstraintsByMethodOrClass(
+    List<ContractElement> contractElements) {
+    ListMultimap<String, ContractElement> constraintIndex = ArrayListMultimap.create();
+    for (ContractElement pc : contractElements) {
+      constraintIndex.put(
+        getIndexKey(pc.getProgramVersion(), pc.getCuName(), pc.getMethodDeclaration()), pc);
+    }
+    return constraintIndex;
+  }
+
+  private Map<ProgramVersion, Multimap<String, String>> getMethodsByProgramVersionAndCompilationUnit()
+    throws IOException {
 
     Map<ProgramVersion, Multimap<String, String>> methodsByPVandCU = new HashMap<>();
 
@@ -212,7 +224,7 @@ public class EvolutionDiffExtractor implements DiffExtractor {
           (k, v) -> v == null ? HashMultimap.create() : v);
 
         JSONArray arr = new JSONArray(
-          IOUtils.toString(new FileInputStream(json), StandardCharsets.UTF_8));
+          IOUtils.toString(Files.newInputStream(json.toPath()), StandardCharsets.UTF_8));
         for (Object anArr : arr) {
           JSONObject o = (JSONObject) anArr;
           String cuName = o.getString("cuName");

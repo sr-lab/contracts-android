@@ -1,4 +1,4 @@
-package contractstudy.diff;
+package contractstudy.evolution.model;
 
 import java.util.List;
 

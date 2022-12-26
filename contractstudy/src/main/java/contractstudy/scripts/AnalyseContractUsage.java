@@ -11,7 +11,7 @@ import contractstudy.constants.constraint.ConstraintClassification;
 import contractstudy.constants.constraint.ConstraintGroup;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.diff.diffrules.Utils;
+import contractstudy.evolution.diffRules.Utils;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;
@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static contractstudy.diff.diffrules.Utils.NF;
+import static contractstudy.evolution.diffRules.Utils.NF;
 
 /**
  * Script used to analyse how contracts are used by programs. This script counts the contracts
