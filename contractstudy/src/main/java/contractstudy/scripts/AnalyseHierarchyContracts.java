@@ -1,11 +1,11 @@
 package contractstudy.scripts;
 
-import contractstudy.evolution.SubtypeDiffExtractor;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.evolution.model.DiffRecord;
+import contractstudy.evolution.SubtypeDiffExtractor;
 import contractstudy.evolution.constants.DiffResult;
+import contractstudy.evolution.model.DiffRecord;
 import contractstudy.evolution.model.Differ;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;

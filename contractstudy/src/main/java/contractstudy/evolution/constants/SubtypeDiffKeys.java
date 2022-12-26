@@ -1,6 +1,5 @@
 package contractstudy.evolution.constants;
 
-import contractstudy.constants.VisibilityModifier;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

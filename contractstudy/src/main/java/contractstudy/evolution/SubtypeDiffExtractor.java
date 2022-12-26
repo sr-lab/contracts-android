@@ -216,7 +216,8 @@ public class SubtypeDiffExtractor implements DiffExtractor {
       }
     });
 
-    ListMultimap<String, ContractElement> constraintIndex = getConstraintsIndexByMethodOrClass(contractElements);
+    ListMultimap<String, ContractElement> constraintIndex = getConstraintsIndexByMethodOrClass(
+      contractElements);
 
     Set<String> processedIndexes = new HashSet<>();
     // build diff records
@@ -225,7 +226,8 @@ public class SubtypeDiffExtractor implements DiffExtractor {
       String key = getIndexKey(pc.getProgramVersion(), pc.getCuName(), pc.getMethodDeclaration());
       if (done.add(key)) {
 
-        ClassAndVersion subClass = new ClassAndVersion(pc.getProgramVersion(), EMPTY_CLASS_NAME,
+        ClassAndVersion subClass = new ClassAndVersion(pc.getProgramVersion(),
+          SubtypeDiffKeys.EMPTY_CLASS_NAME.getKey(),
           pc.getCuName());
         Set<ClassAndVersion> parents = inheritanceMap.get(subClass);
         List<ContractElement> constraints2 = constraintIndex.get(key);
@@ -266,7 +268,8 @@ public class SubtypeDiffExtractor implements DiffExtractor {
 
   }
 
-  private ListMultimap<String, ContractElement> getConstraintsIndexByMethodOrClass(List<ContractElement> contractElements) {
+  private ListMultimap<String, ContractElement> getConstraintsIndexByMethodOrClass(
+    List<ContractElement> contractElements) {
     ListMultimap<String, ContractElement> constraintIndex = ArrayListMultimap.create();
     for (ContractElement pc : contractElements) {
       constraintIndex.put(
@@ -329,7 +332,8 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     return (double) value / total * 100;
   }
 
-  private void outputResultsToConsole(int total, List<ContractElement> contractElements, int[] numberRemoved, Multimap<String, ContractElement> removed) {
+  private void outputResultsToConsole(int total, List<ContractElement> contractElements,
+    int[] numberRemoved, Multimap<String, ContractElement> removed) {
     LOGGER.info("Number of total constraints: " + total);
     LOGGER.info("Number of used constraints: " + contractElements.size());
     LOGGER.info("Number of removed constrains: " + numberRemoved[0]);
