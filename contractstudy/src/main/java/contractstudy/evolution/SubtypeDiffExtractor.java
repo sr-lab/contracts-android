@@ -1,13 +1,15 @@
-package contractstudy;
+package contractstudy.evolution;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimap;
+import contractstudy.ProgramVersion;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ConstraintCategory;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.evolution.constants.SubtypeDiffKeys;
 import contractstudy.evolution.diffRules.Utils;
 import contractstudy.evolution.model.DiffExtractor;
 import contractstudy.evolution.model.DiffRecord;
@@ -43,28 +45,6 @@ import static contractstudy.utils.CorpusUtils.listProjects;
  */
 public class SubtypeDiffExtractor implements DiffExtractor {
 
-  //TODO: abstract or util class not to repeat code
-
-  /**
-   * We do not use class name, as it is not stored in the Constraint. Only CU is stored.
-   */
-  private static final String EMPTY_CLASS_NAME = "";
-  /**
-   * Removed because cannot be sorted.
-   */
-  private static final String REMOVED_SORT = "sort";
-  /**
-   * Removed because it is abstract method.
-   */
-  private static final String REMOVED_ABSTRACT = "abstract";
-  /**
-   * Removed because it calls super.
-   */
-  private static final String REMOVED_SUPER = "super";
-  /**
-   * Removed because it uses annotations.
-   */
-  private static final String REMOVED_ANNOTATIONS = "annotations";
   private static final Logger LOGGER = Logging.getLogger(SubtypeDiffExtractor.class);
 
   private static String getIndexKey(ProgramVersion pv, String cu, String methodDecl) {
@@ -82,7 +62,6 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     ProgramVersion pv = pc.getProgramVersion();
     String cu = pc.getCuName();
     String methodDecl = pc.getMethodDeclaration();
-
     return pv.getName() + '#' + cu + '/' + (methodDecl == null ? "" : methodDecl) + " c:"
       + pc.getCondition() + "," + pc.getKind();
   }
@@ -109,36 +88,43 @@ public class SubtypeDiffExtractor implements DiffExtractor {
 
         JSONArray arr = new JSONArray(
           IOUtils.toString(Files.newInputStream(json.toPath()), StandardCharsets.UTF_8));
+
         for (Object anArr : arr) {
           JSONObject o = (JSONObject) anArr;
           ClassAndVersion subTypeTmp = ClassAndVersion.create(projectName, versionName,
-            EMPTY_CLASS_NAME, o.getString("cuName"));
-
-          // collect methods
-          JSONArray mm = o.getJSONArray("methods");
-          Iterator<Object> itM = mm.iterator();
-          Set<String> meth = new HashSet<>();
-          while (itM.hasNext()) {
-            meth.add(itM.next().toString());
-          }
-          methods.put(subTypeTmp, meth);
-
-          // collect parents
-          JSONArray pp = o.getJSONArray("parents");
-          for (Object aPp : pp) {
-            JSONObject ppO = (JSONObject) aPp;
-            ClassAndVersion superType = ClassAndVersion.fromJson(ppO.toString());
-            ClassAndVersion superTypeTmp = new ClassAndVersion(superType.getProgramVersion(),
-              EMPTY_CLASS_NAME, superType.getCuName());
-            inheritanceMap.put(subTypeTmp, superTypeTmp);
-          }
-
+            SubtypeDiffKeys.EMPTY_CLASS_NAME.getKey(), o.getString("cuName"));
+          collectMethods(o, subTypeTmp, methods);
+          collectParents(o, subTypeTmp, inheritanceMap);
         }
       }
     }
 
     propagateInheritedMethods(inheritanceMap, methods);
   }
+
+  private static void collectMethods(JSONObject o, ClassAndVersion subTypeTmp,
+    Map<ClassAndVersion, Set<String>> methods) throws IOException {
+    JSONArray mm = o.getJSONArray("methods");
+    Iterator<Object> itM = mm.iterator();
+    Set<String> meth = new HashSet<>();
+    while (itM.hasNext()) {
+      meth.add(itM.next().toString());
+    }
+    methods.put(subTypeTmp, meth);
+  }
+
+  private static void collectParents(JSONObject o, ClassAndVersion subTypeTmp,
+    HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap) throws IOException {
+    JSONArray pp = o.getJSONArray("parents");
+    for (Object aPp : pp) {
+      JSONObject ppO = (JSONObject) aPp;
+      ClassAndVersion superType = ClassAndVersion.fromJson(ppO.toString());
+      ClassAndVersion superTypeTmp = new ClassAndVersion(superType.getProgramVersion(),
+        SubtypeDiffKeys.EMPTY_CLASS_NAME.getKey(), superType.getCuName());
+      inheritanceMap.put(subTypeTmp, superTypeTmp);
+    }
+  }
+
 
   /**
    * Extend the input map so that each key is enriched with methods inherited from super classes.
@@ -149,7 +135,6 @@ public class SubtypeDiffExtractor implements DiffExtractor {
   private static void propagateInheritedMethods(
     final HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap,
     final Map<ClassAndVersion, Set<String>> methods) {
-
     for (ClassAndVersion key : methods.keySet()) {
       Set<String> currentMethods = methods.get(key);
       Set<ClassAndVersion> finished = new HashSet<>();
@@ -208,12 +193,13 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     int[] numberRemoved = new int[]{0};
     Collection<File> jsons = FileUtils.listFiles(new File(Preferences.getOutputContractsFolder()),
       new String[]{"json"}, false);
+
     for (File json : jsons) {
       String data = FileUtils.readFileToString(json, StandardCharsets.UTF_8);
       JSONArray all = new JSONArray(data);
       all.forEach(e -> {
         ContractElement c = ContractElement.fromJSON((JSONObject) e);
-        if (!shouldExclude(c, removed, superCallSitesDescs)) {
+        if (!toBeExcludedDueToFilter(c, removed, superCallSitesDescs)) {
           contractElements.add(c);
         } else {
           numberRemoved[0]++;
@@ -230,12 +216,8 @@ public class SubtypeDiffExtractor implements DiffExtractor {
       }
     });
 
-    // index constraints by method or class
-    ListMultimap<String, ContractElement> constraintIndex = ArrayListMultimap.create();
-    for (ContractElement pc : contractElements) {
-      constraintIndex.put(
-        getIndexKey(pc.getProgramVersion(), pc.getCuName(), pc.getMethodDeclaration()), pc);
-    }
+    ListMultimap<String, ContractElement> constraintIndex = getConstraintsIndexByMethodOrClass(
+      contractElements);
 
     Set<String> processedIndexes = new HashSet<>();
     // build diff records
@@ -244,12 +226,13 @@ public class SubtypeDiffExtractor implements DiffExtractor {
       String key = getIndexKey(pc.getProgramVersion(), pc.getCuName(), pc.getMethodDeclaration());
       if (done.add(key)) {
 
-        ClassAndVersion subClass = new ClassAndVersion(pc.getProgramVersion(), EMPTY_CLASS_NAME,
+        ClassAndVersion subClass = new ClassAndVersion(pc.getProgramVersion(),
+          SubtypeDiffKeys.EMPTY_CLASS_NAME.getKey(),
           pc.getCuName());
         Set<ClassAndVersion> parents = inheritanceMap.get(subClass);
         List<ContractElement> constraints2 = constraintIndex.get(key);
 
-        if (notProcessed(constraints2, processedIndexes)) {
+        if (wasInputConstraintsNotProcessedYet(constraints2, processedIndexes)) {
           // JFF: nunca entra aqui
           for (ClassAndVersion parent : parents) {
             Set<String> methods = methodsMap.get(parent);
@@ -275,52 +258,38 @@ public class SubtypeDiffExtractor implements DiffExtractor {
           }
         }
       }
-
     }
 
-    LOGGER.info("Number of total constraints: " + total);
-    LOGGER.info("Number of used constraints: " + contractElements.size());
-    LOGGER.info("Number of removed constrains: " + numberRemoved[0]);
-
-    LOGGER.info("\tDetail: ");
-    for (String key : removed.keySet()) {
-      int value = removed.get(key).size();
-      LOGGER.info("\t\t" + key + ": " + value + " (" + percent(total, value) + "%)");
-    }
-
+    outputResultsToConsole(total, contractElements, numberRemoved, removed);
     return results;
   }
 
-  /**
-   * Return true if the input constraints have not been processed yet. Index set is also updated.
-   *
-   * @param contractElements constraints to check
-   * @param processedIndexes index of already processed, will be updated in this method
-   * @return
-   */
-  private boolean notProcessed(List<ContractElement> contractElements,
+  private void countContractElementsAndRemovedOnes() {
+
+  }
+
+  private ListMultimap<String, ContractElement> getConstraintsIndexByMethodOrClass(
+    List<ContractElement> contractElements) {
+    ListMultimap<String, ContractElement> constraintIndex = ArrayListMultimap.create();
+    for (ContractElement pc : contractElements) {
+      constraintIndex.put(
+        getIndexKey(pc.getProgramVersion(), pc.getCuName(), pc.getMethodDeclaration()), pc);
+    }
+    return constraintIndex;
+  }
+
+  private boolean wasInputConstraintsNotProcessedYet(List<ContractElement> contractElements,
     Set<String> processedIndexes) {
     boolean canProcess = false;
-
     for (ContractElement c : contractElements) {
       String index = getIndexSameConstrDifferentVersion(c);
-      // check the index is not present
       canProcess |= !processedIndexes.contains(index);
       processedIndexes.add(index);
     }
-
     return canProcess;
   }
 
-  /**
-   * Filter constraints
-   *
-   * @param contractElement a constraint
-   * @param removed         store removed here.
-   * @param superCallSites  super callsites.
-   * @return true if the given constraint should be excluded
-   */
-  private boolean shouldExclude(
+  private boolean toBeExcludedDueToFilter(
     final ContractElement contractElement,
     final Multimap<String, ContractElement> removed,
     final Set<String> superCallSites) {
@@ -328,30 +297,24 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     boolean r = false;
 
     if (Utils.cannotSort(contractElement.getProgramVersion())) {
-      removed.put(REMOVED_SORT, contractElement);
+      removed.put(SubtypeDiffKeys.REMOVED_SORT.getKey(), contractElement);
       r = true;
     } else if (contractElement.isMethodAbstract()) {
-      removed.put(REMOVED_ABSTRACT, contractElement);
+      removed.put(SubtypeDiffKeys.REMOVED_ABSTRACT.getKey(), contractElement);
       r = true;
     } else if (superCallSites.contains(
       contractElement.getCuName() + "/" + contractElement.getMethodDeclaration())) {
-      removed.put(REMOVED_SUPER, contractElement);
+      removed.put(SubtypeDiffKeys.REMOVED_SUPER.getKey(), contractElement);
       r = true;
     } else if (contractElement.getKind().getGroup().getCategory()
       == ConstraintCategory.ANNOTATION) {
-      removed.put(REMOVED_ANNOTATIONS, contractElement);
+      removed.put(SubtypeDiffKeys.REMOVED_ANNOTATIONS.getKey(), contractElement);
       r = true; // Do not remove, only report  // TODO ask jens if should be removed.  It changes numbers widely
     }
 
     return r;
   }
 
-  /**
-   * Read all super callsites.
-   *
-   * @return callsites.
-   * @throws IOException error
-   */
   private Set<SuperCallSite> collectMethodsWithSuper()
     throws IOException {
     Set<SuperCallSite> callSites = new HashSet<>();
@@ -369,5 +332,16 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     return (double) value / total * 100;
   }
 
+  private void outputResultsToConsole(int total, List<ContractElement> contractElements,
+    int[] numberRemoved, Multimap<String, ContractElement> removed) {
+    LOGGER.info("Number of total constraints: " + total);
+    LOGGER.info("Number of used constraints: " + contractElements.size());
+    LOGGER.info("Number of removed constrains: " + numberRemoved[0]);
+    LOGGER.info("\tDetail: ");
+    for (String key : removed.keySet()) {
+      int value = removed.get(key).size();
+      LOGGER.info("\t\t" + key + ": " + value + " (" + percent(total, value) + "%)");
+    }
+  }
 
 }

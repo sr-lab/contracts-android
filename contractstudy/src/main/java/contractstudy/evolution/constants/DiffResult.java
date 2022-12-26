@@ -1,4 +1,4 @@
-package contractstudy.evolution.model;
+package contractstudy.evolution.constants;
 
 /**
  * Datastructure to represent the result of running diff.

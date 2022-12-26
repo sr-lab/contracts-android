@@ -1,11 +1,11 @@
 package contractstudy.scripts;
 
-import contractstudy.SubtypeDiffExtractor;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.evolution.SubtypeDiffExtractor;
+import contractstudy.evolution.constants.DiffResult;
 import contractstudy.evolution.model.DiffRecord;
-import contractstudy.evolution.model.DiffResult;
 import contractstudy.evolution.model.Differ;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
@@ -69,7 +69,6 @@ public class AnalyseHierarchyContracts implements Experiment {
     List<DiffRecord> evolutionData = new SubtypeDiffExtractor().extract();
     Differ differ = new Differ();
     Map<DiffResult, Integer> stats = initEmpty();
-
     for (DiffRecord record : evolutionData) {
       DiffResult result = differ.compare(record.getConstraints1(), record.getConstraints2());
       stats.compute(result, (k, v) -> (v == null) ? 1 : v + 1);

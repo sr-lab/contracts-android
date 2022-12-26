@@ -1,7 +1,7 @@
 package contractstudy.evolution.diffRules;
 
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.evolution.model.DiffResult;
+import contractstudy.evolution.constants.DiffResult;
 import contractstudy.evolution.model.DiffRule;
 
 import java.util.ArrayList;

@@ -20,9 +20,6 @@ public interface DiffExtractor {
    * <p>
    * Note that there are no parameters, scripts will access the data sets (constraints extracted
    * via
-   *
-   * @return
-   * @see CollectConstraint) using settings in @see Preferences.
    */
   List<DiffRecord> extract() throws Exception;
 }

@@ -1,6 +1,7 @@
 package contractstudy.evolution.model;
 
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.evolution.constants.DiffResult;
 
 import java.util.List;
 
