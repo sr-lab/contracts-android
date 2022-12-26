@@ -45,9 +45,7 @@ public class ComputeInheritanceHierarchy implements Experiment {
   private static final Logger LOGGER = Logging.getLogger(ComputeInheritanceHierarchy.class);
 
   public static void main(String[] args) throws Exception {
-
-    //testSaveOpenJDK(args);
-
+    
     long startTime = System.currentTimeMillis();
     ExecutorService executor = Executors.newFixedThreadPool(Preferences.getThreadCount());
 
@@ -69,14 +67,11 @@ public class ComputeInheritanceHierarchy implements Experiment {
               extractor.analyse(version, new InheritanceResolved() {
                 @Override
                 public void notify(ClassParents parents) {
-                  // it may replace already stored class, but it does not matter
-                  // as it will be still the same class due to internal caching
                   classesMap.put(parents, parents);
                 }
 
                 @Override
                 public void notify(ClassCoordinates classCoordinates) {
-                  // only class encountered
                   classesMap.put(classCoordinates, null);
                 }
               });
@@ -100,31 +95,6 @@ public class ComputeInheritanceHierarchy implements Experiment {
     LOGGER.info("\ttime: " + (endTime - startTime) + " ms");
     LOGGER.info("\tthreads used: " + Preferences.getThreadCount());
 
-  }
-
-  private static void testSaveOpenJDK(String[] args) throws Exception {
-    // do not forget to add this folder!
-    File jdkDir = new File(Preferences.getDataFolder(), "../jdk-data/open-jdk");
-    File jdk = new File(jdkDir, "open-jdk-8.zip");
-
-    if (args.length > 0 && args[0].equals("--skip-jdk")) {
-      LOGGER.warn(jdk + " skipped");
-    } else {
-      Map<ClassCoordinates, ClassParents> classesMap = new HashMap<>();
-      extractor.addGlobal(ProgramVersion.getOrCreateFromFile(jdk), new InheritanceResolved() {
-        @Override
-        public void notify(ClassParents parents) {
-          classesMap.put(parents, parents);
-        }
-
-        @Override
-        public void notify(ClassCoordinates classCoordinates) {
-          classesMap.put(classCoordinates, null);
-        }
-      });
-      File file = new File(new File(ROOT, jdkDir.getName()), "open-jdk-8-struct.json");
-      saveResultsToFile(file, classesMap);
-    }
   }
 
   private static void saveResultsToFile(
