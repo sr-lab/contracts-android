@@ -7,9 +7,9 @@ import contractstudy.ProgramVersion;
 import contractstudy.hierarchy.SuperCallSiteExtractor.visitor.MethodVisitorToCollectSuperCall;
 import contractstudy.hierarchy.SuperCallSiteExtractor.visitor.MethodVisitorToCollectSuperCallKotlin;
 import contractstudy.hierarchy.model.SuperCallSite;
-import contractstudy.utils.kotlinParser.KotlinParser;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
+import contractstudy.utils.kotlinParser.KotlinParser;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 import java.io.IOException;

@@ -20,7 +20,7 @@ import static contractstudy.constants.SetStatsDataKeys.PUBLIC_METHODS;
 
 public class DataCollectionVisitorKotlin extends KtTreeVisitorVoid {
 
-  private Map<String, Integer> data = null;
+  private final Map<String, Integer> data;
 
   public DataCollectionVisitorKotlin(Map<String, Integer> data) {
     super();
@@ -36,15 +36,13 @@ public class DataCollectionVisitorKotlin extends KtTreeVisitorVoid {
     } else if (element instanceof KtClassOrObject) {
       countClassOrInterfaceOrObjectDeclaration((KtClassOrObject) element);
     }
-
     super.visitElement(element);
   }
 
   private void countPublicOrProtectedMethodDeclarations(KtNamedFunction element) {
     KtModifierList ktModifierList = element.getModifierList();
     VisibilityModifier visibility = KotlinParserUtils.getVisibilityModifier(ktModifierList);
-    //TODO: Should we include internal?
-    if (visibility == VisibilityModifier.PUBLIC || visibility == VisibilityModifier.PROTECTED) {
+    if (isVisibilityAccepted(visibility)) {
       data.compute(PUBLIC_METHODS.getKey(), (k, v) -> v == null ? 1 : v + 1);
     }
     data.compute(ALL_METHODS.getKey(), (k, v) -> v == null ? 1 : v + 1);
@@ -53,11 +51,15 @@ public class DataCollectionVisitorKotlin extends KtTreeVisitorVoid {
   private void countPublicOrProtectedConstructorDeclarations(KtConstructor element) {
     KtModifierList ktModifierList = element.getModifierList();
     VisibilityModifier visibility = KotlinParserUtils.getVisibilityModifier(ktModifierList);
-    //TODO: Should we include internal?
-    if (visibility == VisibilityModifier.PUBLIC || visibility == VisibilityModifier.PROTECTED) {
+    if (isVisibilityAccepted(visibility)) {
       data.compute(PUBLIC_CONSTRUCTORS.getKey(), (k, v) -> v == null ? 1 : v + 1);
     }
     data.compute(ALL_CONSTRUCTORS.getKey(), (k, v) -> v == null ? 1 : v + 1);
+  }
+
+  //TODO: Should we include internal?
+  private boolean isVisibilityAccepted(VisibilityModifier visibility) {
+    return visibility == VisibilityModifier.PUBLIC || visibility == VisibilityModifier.PROTECTED;
   }
 
 

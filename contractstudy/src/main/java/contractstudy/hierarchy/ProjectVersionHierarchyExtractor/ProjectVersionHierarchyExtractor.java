@@ -3,14 +3,13 @@ package contractstudy.hierarchy.ProjectVersionHierarchyExtractor;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import contractstudy.ProgramVersion;
-import contractstudy.model.ClassAndVersion;
-import contractstudy.hierarchy.model.ClassFinder;
-import contractstudy.hierarchy.model.ClassFinderCreator;
-import contractstudy.hierarchy.model.InheritanceResolved;
 import contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectClassExtractor.ProjectClassExtractor;
 import contractstudy.hierarchy.model.ClassCoordinates;
+import contractstudy.hierarchy.model.ClassFinder;
+import contractstudy.hierarchy.model.ClassFinderCreator;
 import contractstudy.hierarchy.model.ClassParents;
-import contractstudy.utils.LanguageUtils;
+import contractstudy.hierarchy.model.InheritanceResolved;
+import contractstudy.model.ClassAndVersion;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -30,6 +29,7 @@ import java.util.zip.ZipFile;
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
 public class ProjectVersionHierarchyExtractor {
+
   private final ProjectClassExtractor classExtractor = new ProjectClassExtractor();
   private final ClassFinderCreator globalCreator = new ClassFinderCreator();
 

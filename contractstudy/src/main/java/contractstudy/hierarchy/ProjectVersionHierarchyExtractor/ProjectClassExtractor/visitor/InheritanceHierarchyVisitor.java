@@ -5,10 +5,10 @@ import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.expr.SuperExpr;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
-import contractstudy.model.ClassAndVersion;
-import contractstudy.hierarchy.model.ClassFinder;
 import contractstudy.hierarchy.model.ClassCoordinates;
+import contractstudy.hierarchy.model.ClassFinder;
 import contractstudy.hierarchy.model.ClassParents;
+import contractstudy.model.ClassAndVersion;
 
 import java.util.ArrayList;
 import java.util.List;

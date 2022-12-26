@@ -1,30 +1,28 @@
 package contractstudy.scripts;
 
-import com.github.javaparser.StaticJavaParser;
-import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.ast.Modifier;
-import com.github.javaparser.ast.NodeList;
-import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
-import com.github.javaparser.ast.body.ConstructorDeclaration;
-import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.google.common.base.Preconditions;
 import contractstudy.ProgramVersion;
+import contractstudy.collectDatasetStats.DataCollectionAcrossVersionsExtractor;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
 import contractstudy.scripts.engine.ExperimentArtefact;
+import contractstudy.utils.LanguageUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
@@ -38,6 +36,7 @@ import static contractstudy.constants.SetStatsDataKeys.ALL_CONSTRUCTORS;
 import static contractstudy.constants.SetStatsDataKeys.ALL_METHODS;
 import static contractstudy.constants.SetStatsDataKeys.CLASSES;
 import static contractstudy.constants.SetStatsDataKeys.COMPILATION_UNITS;
+import static contractstudy.constants.SetStatsDataKeys.COMPILATION_UNITS_PARSING_FAILED;
 import static contractstudy.constants.SetStatsDataKeys.LOC;
 import static contractstudy.constants.SetStatsDataKeys.PUBLIC_CONSTRUCTORS;
 import static contractstudy.constants.SetStatsDataKeys.PUBLIC_METHODS;
@@ -60,94 +59,91 @@ public class CollectProgramVersionStats implements Experiment {
       "Cannot find data in " + DATA_FOLDER.getAbsolutePath());
 
     int THREAD_COUNT = Preferences.getThreadCount();
-    File RESULTS_FOLDER = new File(Preferences.getResultsFolder());
-
     long startTime = System.currentTimeMillis();
-
     Map<ProgramVersion, Map<String, Integer>> data = new ConcurrentHashMap<>();
+    List<String> errorCuNames = Collections.synchronizedList(new ArrayList<>());
     Collection<File> zips = FileUtils.listFiles(DATA_FOLDER, new String[]{"zip"}, true);
     ExecutorService executor = Executors.newFixedThreadPool(THREAD_COUNT);
     AtomicInteger counter = new AtomicInteger(0);
+    DataCollectionAcrossVersionsExtractor extractor = new DataCollectionAcrossVersionsExtractor();
 
     for (File f : zips) {
 
-      ProgramVersion pv = ProgramVersion.getOrCreateFromFile(f);
       Runnable task = new Runnable() {
         @Override
         public void run() {
           try {
             LOGGER.info(
               "Analysing " + counter.incrementAndGet() + "/" + zips.size() + " - " + f.getName());
-            ZipFile zip = new ZipFile(f);
-            Enumeration<? extends ZipEntry> en = zip.entries();
-            Map<String, Integer> dataForPV = new HashMap<>();
-
-            while (en.hasMoreElements()) {
-              ZipEntry e = en.nextElement();
-              String name = e.getName();
-              if (name.endsWith(".java")) {
-                try (InputStream in = zip.getInputStream(e)) {
-                  try {
-                    CompilationUnit cu = StaticJavaParser.parse(in);
-                    dataForPV.compute(COMPILATION_UNITS.getKey(), (k, v) -> v == null ? 1 : v + 1);
-                    int size = cu.getEnd().get().line - cu.getBegin().get().line;
-                    dataForPV.compute(LOC.getKey(), (k, v) -> v == null ? size : v + size);
-                    Map<String, Integer> tmp = new HashMap<>();
-                    data.put(pv, tmp);
-                    new DataCollectionVisitor(tmp).visit(cu, null);
-                    dataForPV.compute(PUBLIC_METHODS.getKey(),
-                      (k, v) -> v == null ? getCounter(tmp, PUBLIC_METHODS.getKey())
-                        : v + getCounter(tmp, PUBLIC_METHODS.getKey()));
-                    dataForPV.compute(PUBLIC_CONSTRUCTORS.getKey(),
-                      (k, v) -> v == null ? getCounter(tmp, PUBLIC_CONSTRUCTORS.getKey())
-                        : v + getCounter(tmp, PUBLIC_CONSTRUCTORS.getKey()));
-                    dataForPV.compute(ALL_METHODS.getKey(),
-                      (k, v) -> v == null ? getCounter(tmp, ALL_METHODS.getKey())
-                        : v + getCounter(tmp, ALL_METHODS.getKey()));
-                    dataForPV.compute(ALL_CONSTRUCTORS.getKey(),
-                      (k, v) -> v == null ? getCounter(tmp, ALL_CONSTRUCTORS.getKey())
-                        : v + getCounter(tmp, ALL_CONSTRUCTORS.getKey()));
-                    dataForPV.compute(CLASSES.getKey(),
-                      (k, v) -> v == null ? getCounter(tmp, CLASSES.getKey())
-                        : v + getCounter(tmp, CLASSES.getKey()));
-                  } catch (Exception t) {
-                    LOGGER.warn("Cannot parse cu " + pv + " / " + name);
-                    t.printStackTrace(); // JFF: added this
-                  }
-                }
-
-              }
-            }
-            data.put(pv, dataForPV);
+            collectStats(f, extractor, data, errorCuNames);
           } catch (Exception e) {
-            // log errors and continue with next files
             LOGGER.warn("Cannot parse file: " + f, e);
-            e.printStackTrace();
           }
         }
       };
       executor.submit(task);
     }
+
     executor.shutdown();
     executor.awaitTermination(1, TimeUnit.DAYS);
 
-    char SEP = '\t';
-    File csv = new File(RESULTS_FOLDER, "programversion_stats.csv");
+    outputResultsToCSVFile(data);
 
-    Map<String, Map<String, Long>> programTotals = new HashMap<String, Map<String, Long>>();
-    long val;
+    long endTime = System.currentTimeMillis();
+    LOGGER.info("Done");
+    LOGGER.info("\ttime: " + (endTime - startTime) + " ms");
+
+  }
+
+  private static void collectStats(
+    File folder, DataCollectionAcrossVersionsExtractor extractor,
+    Map<ProgramVersion, Map<String, Integer>> data,
+    List<String> errorCuNames
+  ) throws IOException {
+    ZipFile zip = new ZipFile(folder);
+    Enumeration<? extends ZipEntry> en = zip.entries();
+    Map<String, Integer> dataForProgramVersion = new HashMap<>();
+    ProgramVersion pv = ProgramVersion.getOrCreateFromFile(folder);
+    while (en.hasMoreElements()) {
+      ZipEntry e = en.nextElement();
+      String name = e.getName();
+      LanguageUtils.Language language = LanguageUtils.getLanguageFromNameExtension(name);
+      if (language == LanguageUtils.Language.JAVA || language == LanguageUtils.Language.KOTLIN) {
+        try (InputStream in = zip.getInputStream(e)) {
+          try {
+            extractor.analyse(e.getName(), in, dataForProgramVersion);
+            data.put(pv, dataForProgramVersion);
+          } catch (Exception t) {
+            dataForProgramVersion.compute(COMPILATION_UNITS_PARSING_FAILED.getKey(),
+              (k, v) -> v == null ? 1 : v + 1);
+            errorCuNames.add(zip.getName() + ", " + name + ", Error: " + t.getMessage());
+          }
+        }
+      }
+    }
+
+  }
+
+  private static int getCounter(Map<String, Integer> values, String key) {
+    Integer v = values.get(key);
+    return v == null ? 0 : v;
+  }
+
+  private static void outputResultsToCSVFile(Map<ProgramVersion, Map<String, Integer>> data)
+    throws IOException {
+    File RESULTS_FOLDER = new File(Preferences.getResultsFolder());
+    File csv = new File(RESULTS_FOLDER, "programversion_stats.csv");
+    char SEP = '\t';
+    Map<String, Map<String, Long>> programTotals = new HashMap<>();
 
     try (PrintWriter out = new PrintWriter(new FileWriter(csv))) {
+
       out.println(
         "prg. name,prg. version,loc,cus,classes,all methods, all constructors, pub. + prot. methods, pub. + prot. constr, id");
+
       for (Map.Entry<ProgramVersion, Map<String, Integer>> e : data.entrySet()) {
         if (!programTotals.containsKey(e.getKey().getName())) {
-          programTotals.put(e.getKey().getName(), new HashMap<String, Long>());
-        }
-        // JFF: FIXME
-        if (e.getKey().getName().equals("Rudloff-openvegemap_cordova") && e.getKey().getVersion()
-          .equals("2.0.0")) {
-          continue;
+          programTotals.put(e.getKey().getName(), new HashMap<>());
         }
         Map<String, Long> p = programTotals.get(e.getKey().getName());
         out.print(e.getKey().getName());
@@ -188,11 +184,11 @@ public class CollectProgramVersionStats implements Experiment {
         p.compute(PUBLIC_CONSTRUCTORS.getKey(),
           (k, v) -> v == null ? (long) e.getValue().get(PUBLIC_CONSTRUCTORS.getKey())
             : v + e.getValue().get(PUBLIC_CONSTRUCTORS.getKey()));
-        // entry key, for sorting
         out.print(SEP);
         out.print(e.getKey().getName() + "-" + e.getKey().getSanitizedVersion());
         out.println();
       }
+
       for (Map.Entry<String, Map<String, Long>> e : programTotals.entrySet()) {
         out.print(e.getKey());
         out.print(SEP);
@@ -215,22 +211,12 @@ public class CollectProgramVersionStats implements Experiment {
         out.println();
       }
     }
-    long endTime = System.currentTimeMillis();
-    LOGGER.info("Done");
-    LOGGER.info("\ttime: " + (endTime - startTime) + " ms");
-
-  }
-
-  private static int getCounter(Map<String, Integer> values, String key) {
-    Integer v = values.get(key);
-    return v == null ? 0 : v;
   }
 
   @Override
   public void invoke() throws Exception {
     if (provides().exists()) {
       LOGGER.info("Skipping already performed experiment: " + provides().getName());
-
       return;
     }
     CollectProgramVersionStats.main(new String[]{});
@@ -248,46 +234,5 @@ public class CollectProgramVersionStats implements Experiment {
     return ArtefactFactory.programVersionStatistics();
   }
 
-  static class DataCollectionVisitor extends VoidVisitorAdapter<Object> {
 
-    private Map<String, Integer> data = null;
-
-    public DataCollectionVisitor(Map<String, Integer> data) {
-      super();
-      this.data = data;
-    }
-
-    // control the methods being visited
-    @Override
-    public void visit(MethodDeclaration methodDeclr, Object arg) {
-      //int modifiers = methodDeclr.getModifiers();
-      NodeList<Modifier> modifiers = methodDeclr.getModifiers();
-      //if (ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
-      if (modifiers.contains(Modifier.publicModifier()) || modifiers.contains(
-        Modifier.protectedModifier())) {
-        data.compute(PUBLIC_METHODS.getKey(), (k, v) -> v == null ? 1 : v + 1);
-      }
-      data.compute(ALL_METHODS.getKey(), (k, v) -> v == null ? 1 : v + 1);
-      super.visit(methodDeclr, arg);
-    }
-
-    @Override
-    public void visit(ConstructorDeclaration constructorDeclr, Object arg) {
-      //int modifiers = constructorDeclr.getModifiers();
-      NodeList<Modifier> modifiers = constructorDeclr.getModifiers();
-      //if (ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
-      if (modifiers.contains(Modifier.publicModifier()) || modifiers.contains(
-        Modifier.protectedModifier())) {
-        data.compute(PUBLIC_CONSTRUCTORS.getKey(), (k, v) -> v == null ? 1 : v + 1);
-      }
-      data.compute(ALL_CONSTRUCTORS.getKey(), (k, v) -> v == null ? 1 : v + 1);
-      super.visit(constructorDeclr, arg);
-    }
-
-    @Override
-    public void visit(ClassOrInterfaceDeclaration n, Object arg) {
-      super.visit(n, arg);
-      data.compute(CLASSES.getKey(), (k, v) -> v == null ? 1 : v + 1);
-    }
-  }
 }

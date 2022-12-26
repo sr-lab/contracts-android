@@ -17,7 +17,7 @@ import java.util.NoSuchElementException;
 import static contractstudy.constants.SetStatsDataKeys.COMPILATION_UNITS;
 import static contractstudy.constants.SetStatsDataKeys.LOC;
 
-public class DataCollectionExtractor {
+public class DataCollectionAcrossVersionsExtractor {
 
   public void analyse(
     final String cuName,

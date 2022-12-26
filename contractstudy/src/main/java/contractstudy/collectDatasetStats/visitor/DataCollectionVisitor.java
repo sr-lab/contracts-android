@@ -17,7 +17,7 @@ import static contractstudy.constants.SetStatsDataKeys.PUBLIC_METHODS;
 
 public class DataCollectionVisitor extends VoidVisitorAdapter<Object> {
 
-  private Map<String, Integer> data = null;
+  private final Map<String, Integer> data;
 
   public DataCollectionVisitor(Map<String, Integer> data) {
     super();
