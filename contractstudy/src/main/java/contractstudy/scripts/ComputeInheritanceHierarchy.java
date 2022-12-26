@@ -30,9 +30,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import static contractstudy.maven.CorpusUtils.listJsons;
-import static contractstudy.maven.CorpusUtils.listProjects;
-import static contractstudy.maven.CorpusUtils.parseVersion;
+import static contractstudy.utils.CorpusUtils.listJsons;
+import static contractstudy.utils.CorpusUtils.listProjects;
+import static contractstudy.utils.CorpusUtils.parseVersion;
 
 /**
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]

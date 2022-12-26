@@ -35,8 +35,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static contractstudy.maven.CorpusUtils.listJsons;
-import static contractstudy.maven.CorpusUtils.listProjects;
+import static contractstudy.utils.CorpusUtils.listJsons;
+import static contractstudy.utils.CorpusUtils.listProjects;
 
 /**
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]

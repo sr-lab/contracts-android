@@ -1,4 +1,4 @@
-package contractstudy.maven;
+package contractstudy.utils;
 
 import contractstudy.ProgramVersion;
 import contractstudy.config.Preferences;
