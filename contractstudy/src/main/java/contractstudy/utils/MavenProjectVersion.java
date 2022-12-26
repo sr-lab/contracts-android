@@ -1,4 +1,4 @@
-package contractstudy.maven;
+package contractstudy.utils;
 
 import org.eclipse.aether.artifact.Artifact;
 import org.json.JSONArray;

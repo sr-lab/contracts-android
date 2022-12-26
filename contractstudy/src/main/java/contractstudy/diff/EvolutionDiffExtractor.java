@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static contractstudy.maven.CorpusUtils.listJsons;
+import static contractstudy.utils.CorpusUtils.listJsons;
 
 /**
  * A diff extractor for evolution data.
