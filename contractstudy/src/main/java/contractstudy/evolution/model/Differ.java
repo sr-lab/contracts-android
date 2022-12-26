@@ -1,6 +1,7 @@
 package contractstudy.evolution.model;
 
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.evolution.constants.DiffResult;
 import contractstudy.evolution.diffRules.IgnoreOrderAndMessage;
 import contractstudy.evolution.diffRules.NullablePostconditionsRemoved;
 import contractstudy.evolution.diffRules.PostconditionsStrengthened;
@@ -36,9 +37,6 @@ public class Differ {
    * Compare two lists of constraints. We uses lists as the order potenially matters. Note that the
    * method is not symmetric: the artefact associates with  constraints1 should be compatible
    * (substitutable by) the artefact associated with constraints2 !
-   *
-   * @param constraints1
-   * @param constraints2
    */
   public DiffResult compare(List<ContractElement> constraints1,
     List<ContractElement> constraints2) {

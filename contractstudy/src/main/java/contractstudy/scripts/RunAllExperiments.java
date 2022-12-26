@@ -23,8 +23,8 @@ public class RunAllExperiments {
     new ComputeInheritanceHierarchy(),
     new AnalyseContractEvolution(),
     new CollectProgramVersionStats(),
-    //new AnalyseContractUsageAcrossVersions(),
-    //new AnalyseHierarchyContracts(),
+    new AnalyseContractUsageAcrossVersions(),
+    new AnalyseHierarchyContracts(),
   };
 
   private static final Logger LOGGER = Logging.getLogger(ComputeInheritanceHierarchy.class);

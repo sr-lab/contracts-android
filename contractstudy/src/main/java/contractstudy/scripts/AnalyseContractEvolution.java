@@ -5,7 +5,7 @@ import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.evolution.EvolutionDiffExtractor;
 import contractstudy.evolution.model.DiffRecord;
-import contractstudy.evolution.model.DiffResult;
+import contractstudy.evolution.constants.DiffResult;
 import contractstudy.evolution.model.Differ;
 import contractstudy.scripts.engine.ArtefactFactory;
 import contractstudy.scripts.engine.Experiment;
