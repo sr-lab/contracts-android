@@ -1,7 +1,7 @@
-scripts/f-droid/GithubKeys.py
-scripts/f-droid/github_repos
+datasetScripts/f-droid/GithubKeys.py
+datasetScripts/f-droid/github_repos
 local-env/
-scripts/output/
+datasetScripts/output/
 
 
 
