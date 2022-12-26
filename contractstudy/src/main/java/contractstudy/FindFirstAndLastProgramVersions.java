@@ -3,7 +3,7 @@ package contractstudy;
 import com.google.common.collect.Sets;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
-import contractstudy.diff.diffrules.Utils;
+import contractstudy.evolution.diffRules.Utils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;

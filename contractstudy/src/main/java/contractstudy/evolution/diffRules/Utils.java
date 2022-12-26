@@ -1,4 +1,4 @@
-package contractstudy.diff.diffrules;
+package contractstudy.evolution.diffRules;
 
 import contractstudy.ProgramVersion;
 import contractstudy.config.Logging;

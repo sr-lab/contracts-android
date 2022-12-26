@@ -1,4 +1,4 @@
-package contractstudy.diff;
+package contractstudy.evolution.model;
 
 import contractstudy.ProgramVersion;
 import contractstudy.constants.constraint.ContractElement;

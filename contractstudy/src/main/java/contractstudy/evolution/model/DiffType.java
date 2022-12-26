@@ -1,4 +1,4 @@
-package contractstudy.diff;
+package contractstudy.evolution.model;
 
 /**
  * Types of changes reported by diff tools.

@@ -46,7 +46,7 @@ import static contractstudy.constants.SetStatsDataKeys.PROGRAMS;
 import static contractstudy.constants.SetStatsDataKeys.PUBLIC_CONSTRUCTORS;
 import static contractstudy.constants.SetStatsDataKeys.PUBLIC_METHODS;
 import static contractstudy.constants.SetStatsDataKeys.VERSIONS;
-import static contractstudy.diff.diffrules.Utils.NF;
+import static contractstudy.evolution.diffRules.Utils.NF;
 
 
 /**
