@@ -2,12 +2,12 @@ package contractstudy.collectContracts.api.CommonsValidate.CommonValidateBase;
 
 import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.MethodCallExpr;
-import contractstudy.model.ExtractionListener;
-import contractstudy.model.ProgramVersion;
 import contractstudy.collectContracts.api.CommonsValidate.constants.CommonsValidateCommonEnum;
 import contractstudy.collectContracts.common.MethodVisitorToCollectInvocations.MethodVisitorToCollectInvocations;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.ProgramVersion;
 
 import java.util.Collection;
 import java.util.List;

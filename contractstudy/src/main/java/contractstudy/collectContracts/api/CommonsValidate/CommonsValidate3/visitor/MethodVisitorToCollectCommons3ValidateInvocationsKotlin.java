@@ -1,11 +1,11 @@
 package contractstudy.collectContracts.api.CommonsValidate.CommonsValidate3.visitor;
 
-import contractstudy.model.ExtractionListener;
-import contractstudy.model.ProgramVersion;
 import contractstudy.collectContracts.api.CommonsValidate.CommonValidateBase.MethodVisitorToCollectCommonsValidateInvocationsKotlin;
 import contractstudy.collectContracts.api.CommonsValidate.constants.CommonsValidate3Enum;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.ProgramVersion;
 import contractstudy.utils.kotlinParser.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.psi.KtCallExpression;

@@ -2,7 +2,6 @@ package contractstudy.hierarchy.ProjectVersionHierarchyExtractor;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import contractstudy.model.ProgramVersion;
 import contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectClassExtractor.ProjectClassExtractor;
 import contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectClassExtractorKotlin.ProjectClassExtractorKotlin;
 import contractstudy.hierarchy.model.ClassCoordinates;
@@ -11,6 +10,7 @@ import contractstudy.hierarchy.model.ClassFinderCreator;
 import contractstudy.hierarchy.model.ClassParents;
 import contractstudy.hierarchy.model.InheritanceResolved;
 import contractstudy.model.ClassAndVersion;
+import contractstudy.model.ProgramVersion;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import contractstudy.utils.kotlinParser.KotlinParser;

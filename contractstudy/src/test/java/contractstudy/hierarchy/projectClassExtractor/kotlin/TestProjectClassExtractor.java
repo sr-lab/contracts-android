@@ -1,14 +1,14 @@
 package contractstudy.hierarchy.projectClassExtractor.kotlin;
 
 
-import contractstudy.hierarchy.model.ClassCoordinates;
 import contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectClassExtractorKotlin.ProjectClassExtractorKotlin;
+import contractstudy.hierarchy.model.ClassCoordinates;
 import contractstudy.hierarchy.model.ClassFinder;
 import contractstudy.hierarchy.model.ClassFinderCreator;
 import contractstudy.hierarchy.model.ClassParents;
-import contractstudy.utils.kotlinParser.KotlinParser;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.Utils;
+import contractstudy.utils.kotlinParser.KotlinParser;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -18,7 +18,6 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class TestProjectClassExtractor {
@@ -32,9 +31,15 @@ public class TestProjectClassExtractor {
       Arguments.of("SubClass1.kt", 2, 1));
   }
 
+  private static Stream<Arguments> generateFilesReadInheritance() {
+    return Stream.of(
+      Arguments.of("SubClass1.kt", 2, 1));
+  }
+
   @ParameterizedTest
   @MethodSource("generateFilesReadClass")
-  public void testReadClass(String fileName, int expectedMethods, int expectedConstructors) throws Exception {
+  public void testReadClass(String fileName, int expectedMethods, int expectedConstructors)
+    throws Exception {
     File file = new File(TEST_DATA_FOLDER, fileName);
     InputStream in = Utils.getInputStream(file);
     String src = new InputStreamToStringConversion(in).getResult();
@@ -46,14 +51,10 @@ public class TestProjectClassExtractor {
     assertNotNull(result);
   }
 
-  private static Stream<Arguments> generateFilesReadInheritance() {
-    return Stream.of(
-      Arguments.of("SubClass1.kt", 2, 1));
-  }
-
   @ParameterizedTest
   @MethodSource("generateFilesReadInheritance")
-  public void testReadInheritance(String fileName, int expectedMethods, int expectedConstructors) throws Exception {
+  public void testReadInheritance(String fileName, int expectedMethods, int expectedConstructors)
+    throws Exception {
     File file = new File(TEST_DATA_FOLDER, fileName);
     InputStream in = Utils.getInputStream(file);
     String src = new InputStreamToStringConversion(in).getResult();

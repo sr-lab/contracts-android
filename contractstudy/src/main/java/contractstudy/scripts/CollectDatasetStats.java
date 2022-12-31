@@ -1,10 +1,10 @@
 package contractstudy.scripts;
 
 import com.google.common.base.Preconditions;
-import contractstudy.model.ProgramVersion;
 import contractstudy.collectDatasetStats.DataCollectionExtractor;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
+import contractstudy.model.ProgramVersion;
 import contractstudy.scripts.model.ArtefactFactory;
 import contractstudy.scripts.model.Experiment;
 import contractstudy.scripts.model.ExperimentArtefact;

@@ -1,6 +1,5 @@
 package contractstudy.scripts;
 
-import contractstudy.model.ProgramVersion;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.constants.ClassCoordinatesKeysEnum;
@@ -9,6 +8,7 @@ import contractstudy.hierarchy.model.ClassCoordinates;
 import contractstudy.hierarchy.model.ClassParents;
 import contractstudy.hierarchy.model.InheritanceResolved;
 import contractstudy.model.ClassAndVersion;
+import contractstudy.model.ProgramVersion;
 import contractstudy.scripts.model.ArtefactFactory;
 import contractstudy.scripts.model.Experiment;
 import contractstudy.scripts.model.ExperimentArtefact;

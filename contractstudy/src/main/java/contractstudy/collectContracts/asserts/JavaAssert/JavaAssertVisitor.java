@@ -2,11 +2,11 @@ package contractstudy.collectContracts.asserts.JavaAssert;
 
 import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.stmt.AssertStmt;
-import contractstudy.model.ExtractionListener;
-import contractstudy.model.ProgramVersion;
 import contractstudy.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitor;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.ProgramVersion;
 
 /**
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]

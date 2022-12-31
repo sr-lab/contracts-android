@@ -2,9 +2,9 @@ package contractstudy.collectContracts.asserts.JavaAssert;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
-import contractstudy.constants.constraint.ContractElement;
 import contractstudy.utils.LanguageUtils;
 
 import java.io.InputStream;

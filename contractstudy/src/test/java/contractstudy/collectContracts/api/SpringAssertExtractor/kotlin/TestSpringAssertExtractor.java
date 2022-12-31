@@ -4,10 +4,10 @@ import contractstudy.collectContracts.api.SpringAssert.SpringAssertExtractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.utils.Utils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import contractstudy.utils.Utils;
 
 import java.io.File;
 import java.util.List;

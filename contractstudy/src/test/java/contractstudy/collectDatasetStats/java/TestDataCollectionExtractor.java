@@ -2,10 +2,10 @@ package contractstudy.collectDatasetStats.java;
 
 import contractstudy.collectDatasetStats.DataCollectionExtractor;
 import contractstudy.constants.SetStatsDataKeys;
+import contractstudy.utils.Utils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import contractstudy.utils.Utils;
 
 import java.io.File;
 import java.util.HashMap;

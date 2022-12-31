@@ -1,7 +1,7 @@
 package contractstudy.utils;
 
-import contractstudy.model.ProgramVersion;
 import contractstudy.config.Preferences;
+import contractstudy.model.ProgramVersion;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 

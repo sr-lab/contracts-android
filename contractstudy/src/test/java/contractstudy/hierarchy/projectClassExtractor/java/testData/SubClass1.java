@@ -5,10 +5,15 @@ import java.util.Objects;
 
 enum SubEnum1 {
   NICE, COOL;
-  String text() {return "True";};
+
+  String text() {
+    return "True";
+  }
+
 }
 
 abstract class SubAbstractClass1 {
+
   public String test() {
     return "test";
   }

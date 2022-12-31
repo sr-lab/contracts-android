@@ -4,13 +4,13 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimap;
-import contractstudy.model.ProgramVersion;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.evolution.model.diffRules.Utils;
 import contractstudy.evolution.model.DiffExtractor;
 import contractstudy.evolution.model.DiffRecord;
+import contractstudy.evolution.model.diffRules.Utils;
+import contractstudy.model.ProgramVersion;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
@@ -54,6 +54,17 @@ public class EvolutionDiffExtractor implements DiffExtractor {
 
   public static File[] listProjects(File root) {
     return root.listFiles(File::isDirectory);
+  }
+
+  private static String getProjectNameFromStructFolder(File projectZipFolder) {
+    return projectZipFolder.getName()
+      .substring(0, projectZipFolder.getName().lastIndexOf("-"));
+  }
+
+  private static String getProjectVersionFromStructFolder(File projectZipFolder) {
+    return projectZipFolder.getName()
+      .substring(projectZipFolder.getName().lastIndexOf("-") + 1,
+        projectZipFolder.getName().lastIndexOf(".zip"));
   }
 
   @Override
@@ -236,16 +247,6 @@ public class EvolutionDiffExtractor implements DiffExtractor {
       }
     }
     return methodsByPVandCU;
-  }
-
-  private static String getProjectNameFromStructFolder(File projectZipFolder) {
-    return projectZipFolder.getName()
-      .substring(0, projectZipFolder.getName().lastIndexOf("-"));
-  }
-
-  private static String getProjectVersionFromStructFolder(File projectZipFolder) {
-    return projectZipFolder.getName()
-      .substring(projectZipFolder.getName().lastIndexOf("-") + 1, projectZipFolder.getName().lastIndexOf(".zip"));
   }
 
 }

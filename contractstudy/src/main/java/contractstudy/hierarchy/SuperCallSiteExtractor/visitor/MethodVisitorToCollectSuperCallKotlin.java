@@ -1,9 +1,9 @@
 package contractstudy.hierarchy.SuperCallSiteExtractor.visitor;
 
-import contractstudy.model.ProgramVersion;
 import contractstudy.config.Preferences;
 import contractstudy.constants.VisibilityModifier;
 import contractstudy.hierarchy.model.SuperCallSite;
+import contractstudy.model.ProgramVersion;
 import contractstudy.utils.kotlinParser.KotlinParserUtils;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;

@@ -1,9 +1,9 @@
 package contractstudy.collectContracts.common.MethodVisitorToCollectInvocations;
 
-import contractstudy.model.ExtractionListener;
 import contractstudy.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitorKotlin;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.model.ExtractionListener;
 
 import java.util.Collection;
 

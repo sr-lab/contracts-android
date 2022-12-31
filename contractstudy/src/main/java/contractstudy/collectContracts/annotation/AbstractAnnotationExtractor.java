@@ -2,8 +2,6 @@ package contractstudy.collectContracts.annotation;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import contractstudy.model.ExtractionListener;
-import contractstudy.model.Extractor;
 import contractstudy.collectContracts.annotation.visitor.VisitorToCollectAnnotations;
 import contractstudy.collectContracts.annotation.visitor.VisitorToCollectAnnotationsKotlin;
 import contractstudy.collectContracts.common.StaticImportCollector.StaticImportCollector;
@@ -11,6 +9,8 @@ import contractstudy.collectContracts.common.StaticImportCollector.StaticImportC
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.Extractor;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import contractstudy.utils.kotlinParser.KotlinParser;

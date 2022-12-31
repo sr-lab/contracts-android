@@ -4,17 +4,17 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimap;
-import contractstudy.model.ProgramVersion;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ConstraintCategory;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.evolution.constants.SubtypeDiffKeys;
-import contractstudy.evolution.model.diffRules.Utils;
 import contractstudy.evolution.model.DiffExtractor;
 import contractstudy.evolution.model.DiffRecord;
+import contractstudy.evolution.model.diffRules.Utils;
 import contractstudy.hierarchy.model.SuperCallSite;
 import contractstudy.model.ClassAndVersion;
+import contractstudy.model.ProgramVersion;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.LineIterator;
@@ -80,7 +80,8 @@ public class SubtypeDiffExtractor implements DiffExtractor {
   ) throws IOException {
     for (File project : listProjects(new File(Preferences.getOutputStructureFolder()))) {
       for (File projectStructFiles : listJsons(project)) {
-        loopThroughProjectFilesToCollectMethodsAndParents(inheritanceMap, methods, project, projectStructFiles);
+        loopThroughProjectFilesToCollectMethodsAndParents(inheritanceMap, methods, project,
+          projectStructFiles);
       }
     }
     propagateInheritedMethods(inheritanceMap, methods);
@@ -118,7 +119,8 @@ public class SubtypeDiffExtractor implements DiffExtractor {
 
   private static String getProjectVersionFromStructFolder(File projectZipFolder) {
     return projectZipFolder.getName()
-      .substring(projectZipFolder.getName().lastIndexOf("-") + 1, projectZipFolder.getName().lastIndexOf(".zip"));
+      .substring(projectZipFolder.getName().lastIndexOf("-") + 1,
+        projectZipFolder.getName().lastIndexOf(".zip"));
   }
 
   private static void collectMethods(JSONObject o, ClassAndVersion subTypeTmp,
