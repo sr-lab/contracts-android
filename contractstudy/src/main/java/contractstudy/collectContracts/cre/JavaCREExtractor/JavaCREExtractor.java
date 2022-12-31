@@ -2,8 +2,8 @@ package contractstudy.collectContracts.cre.JavaCREExtractor;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import contractstudy.ExtractionListener;
-import contractstudy.Extractor;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.Extractor;
 import contractstudy.collectContracts.cre.JavaCREExtractor.visitor.MethodVisitorToCollectJavaCREThrows;
 import contractstudy.collectContracts.cre.JavaCREExtractor.visitor.MethodVisitorToCollectJavaCREThrowsKotlin;
 import contractstudy.constants.constraint.ContractElement;

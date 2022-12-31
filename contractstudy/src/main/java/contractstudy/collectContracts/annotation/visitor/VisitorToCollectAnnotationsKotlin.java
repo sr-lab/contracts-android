@@ -1,7 +1,7 @@
 package contractstudy.collectContracts.annotation.visitor;
 
-import contractstudy.ExtractionListener;
-import contractstudy.ProgramVersion;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.ProgramVersion;
 import contractstudy.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitorKotlin;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.constants.constraint.ConstraintType;

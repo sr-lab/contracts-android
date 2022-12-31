@@ -1,7 +1,7 @@
 package contractstudy.collectContracts.asserts.KotlinAssert;
 
-import contractstudy.ExtractionListener;
-import contractstudy.Extractor;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.Extractor;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;

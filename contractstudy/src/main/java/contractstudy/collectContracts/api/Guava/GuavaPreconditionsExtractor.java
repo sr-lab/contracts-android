@@ -2,8 +2,8 @@ package contractstudy.collectContracts.api.Guava;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import contractstudy.ExtractionListener;
-import contractstudy.Extractor;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.Extractor;
 import contractstudy.collectContracts.api.Guava.visitor.MethodVisitorToCollectGuavaPreconditionsInvocations;
 import contractstudy.collectContracts.api.Guava.visitor.MethodVisitorToCollectGuavaPreconditionsInvocationsKotlin;
 import contractstudy.collectContracts.common.StaticImportCollector.StaticImportCollector;

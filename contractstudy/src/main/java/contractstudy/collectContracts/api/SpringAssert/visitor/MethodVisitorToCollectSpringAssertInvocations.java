@@ -2,8 +2,8 @@ package contractstudy.collectContracts.api.SpringAssert.visitor;
 
 import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.MethodCallExpr;
-import contractstudy.ExtractionListener;
-import contractstudy.ProgramVersion;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.ProgramVersion;
 import contractstudy.collectContracts.api.SpringAssert.constants.SpringAssertEnum;
 import contractstudy.collectContracts.common.MethodVisitorToCollectInvocations.MethodVisitorToCollectInvocations;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;

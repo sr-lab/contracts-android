@@ -7,9 +7,9 @@ import contractstudy.evolution.EvolutionDiffExtractor;
 import contractstudy.evolution.constants.DiffResult;
 import contractstudy.evolution.model.DiffRecord;
 import contractstudy.evolution.model.Differ;
-import contractstudy.scripts.engine.ArtefactFactory;
-import contractstudy.scripts.engine.Experiment;
-import contractstudy.scripts.engine.ExperimentArtefact;
+import contractstudy.scripts.model.ArtefactFactory;
+import contractstudy.scripts.model.Experiment;
+import contractstudy.scripts.model.ExperimentArtefact;
 import org.apache.log4j.Logger;
 
 import java.io.File;
@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static contractstudy.evolution.diffRules.Utils.NF;
+import static contractstudy.evolution.model.diffRules.Utils.NF;
 
 /**
  * Script to analyse how contracts evolve from one to the next version of an artefact.

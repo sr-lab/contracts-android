@@ -2,8 +2,8 @@ package contractstudy.collectContracts.api.CommonsValidate.CommonsValidate3;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import contractstudy.ExtractionListener;
-import contractstudy.Extractor;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.Extractor;
 import contractstudy.collectContracts.api.CommonsValidate.CommonsValidate3.visitor.MethodVisitorToCollectCommons3ValidateInvocations;
 import contractstudy.collectContracts.api.CommonsValidate.CommonsValidate3.visitor.MethodVisitorToCollectCommons3ValidateInvocationsKotlin;
 import contractstudy.collectContracts.common.StaticImportCollector.StaticImportCollector;

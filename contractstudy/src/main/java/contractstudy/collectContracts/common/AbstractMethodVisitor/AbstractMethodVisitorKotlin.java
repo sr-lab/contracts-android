@@ -1,6 +1,6 @@
 package contractstudy.collectContracts.common.AbstractMethodVisitor;
 
-import contractstudy.ExtractionListener;
+import contractstudy.model.ExtractionListener;
 import contractstudy.config.Preferences;
 import contractstudy.constants.VisibilityModifier;
 import contractstudy.constants.constraint.ContractElement;

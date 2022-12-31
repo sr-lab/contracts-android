@@ -1,14 +1,14 @@
 package contractstudy.scripts;
 
 import com.google.common.base.Preconditions;
-import contractstudy.FindFirstAndLastProgramVersions;
-import contractstudy.ProgramVersion;
+import contractstudy.model.FindFirstAndLastProgramVersions;
+import contractstudy.model.ProgramVersion;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.scripts.engine.ArtefactFactory;
-import contractstudy.scripts.engine.Experiment;
-import contractstudy.scripts.engine.ExperimentArtefact;
+import contractstudy.scripts.model.ArtefactFactory;
+import contractstudy.scripts.model.Experiment;
+import contractstudy.scripts.model.ExperimentArtefact;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.log4j.Logger;
@@ -27,7 +27,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 import static contractstudy.constants.SetStatsDataKeys.ALL_CONSTRUCTORS;
 import static contractstudy.constants.SetStatsDataKeys.ALL_METHODS;

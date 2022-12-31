@@ -24,7 +24,7 @@
         <tag>HEAD</tag>
     </scm>
 	
-<repositories>
+    <repositories>
         <repository>
             <id>android-studio</id>
             <name>lixo</name>
@@ -198,45 +198,45 @@
             <artifactId>annotations</artifactId>
             <version>15.0</version>
         </dependency>
-	<!-- https://mvnrepository.com/artifact/com.google.android/android -->
-	<dependency>
-   	    <groupId>com.google.android</groupId>
-   	    <artifactId>android</artifactId>
+        <!-- https://mvnrepository.com/artifact/com.google.android/android -->
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+                <version>4.1.1.4</version>
+                <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api -->
+        <dependency>
+              <groupId>javax.ws.rs</groupId>
+              <artifactId>javax.ws.rs-api</artifactId>
+                <version>2.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.android/android -->
+        <dependency>
+              <groupId>com.google.android</groupId>
+              <artifactId>android</artifactId>
+              <version>2.3.1</version>
+              <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.android/android -->
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
             <version>4.1.1.4</version>
             <scope>provided</scope>
-	</dependency>
-	<!-- https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api -->
-	<dependency>
-    	    <groupId>javax.ws.rs</groupId>
-    	    <artifactId>javax.ws.rs-api</artifactId>
-            <version>2.1</version>
-	</dependency>
-	<!-- https://mvnrepository.com/artifact/com.google.android/android -->
-	<dependency>
-    	    <groupId>com.google.android</groupId>
-    	    <artifactId>android</artifactId>
-    	    <version>2.3.1</version>
-    	    <scope>provided</scope>
-	</dependency>
-	<!-- https://mvnrepository.com/artifact/com.google.android/android -->
-	<dependency>
-    		<groupId>com.google.android</groupId>
-    		<artifactId>android</artifactId>
-    		<version>4.1.1.4</version>
-    		<scope>provided</scope>
-	</dependency>
-	<!-- https://mvnrepository.com/artifact/net.morimekta.utils/android-util -->
-	<dependency>
-    		<groupId>net.morimekta.utils</groupId>
-    		<artifactId>android-util</artifactId>
-    		<version>2.6.0</version>
-	</dependency>
-	<dependency>
-      <groupId>com.android.tools</groupId>
-      <artifactId>annotations</artifactId>
-      <version>27.3.0-alpha04</version>
-      <scope>runtime</scope>
-    </dependency>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/net.morimekta.utils/android-util -->
+        <dependency>
+            <groupId>net.morimekta.utils</groupId>
+            <artifactId>android-util</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+        <dependency>
+          <groupId>com.android.tools</groupId>
+          <artifactId>annotations</artifactId>
+          <version>27.3.0-alpha04</version>
+          <scope>runtime</scope>
+        </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib-jdk8</artifactId>
@@ -248,22 +248,6 @@
             <version>${kotlin.version}</version>
             <scope>test</scope>
         </dependency>
-
-
-        <!--<dependency>-->
-        <!--<groupId>org.apache.commons</groupId>-->
-        <!--<artifactId>commons-lang3</artifactId>-->
-        <!--<version>3.4</version>-->
-        <!--<scope>test</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>com.google.guava</groupId>-->
-        <!--<artifactId>guava</artifactId>-->
-        <!--<version>19.0</version>-->
-        <!--<scope>test</scope>-->
-        <!--</dependency>-->
-
-
     </dependencies>
 
     <build>

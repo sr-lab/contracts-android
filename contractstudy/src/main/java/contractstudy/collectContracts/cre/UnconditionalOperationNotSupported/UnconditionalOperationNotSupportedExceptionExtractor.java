@@ -2,8 +2,8 @@ package contractstudy.collectContracts.cre.UnconditionalOperationNotSupported;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import contractstudy.ExtractionListener;
-import contractstudy.Extractor;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.Extractor;
 import contractstudy.collectContracts.cre.UnconditionalOperationNotSupported.visitor.MethodVisitorToCollectUnconditionalUnsupportedOperationExceptionThrows;
 import contractstudy.collectContracts.cre.UnconditionalOperationNotSupported.visitor.MethodVisitorToCollectUnconditionalUnsupportedOperationExceptionThrowsKotlin;
 import contractstudy.constants.constraint.ContractElement;

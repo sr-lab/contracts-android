@@ -1,6 +1,6 @@
 package contractstudy.scripts;
 
-import contractstudy.ProgramVersion;
+import contractstudy.model.ProgramVersion;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.constants.ClassCoordinatesKeysEnum;
@@ -9,9 +9,9 @@ import contractstudy.hierarchy.model.ClassCoordinates;
 import contractstudy.hierarchy.model.ClassParents;
 import contractstudy.hierarchy.model.InheritanceResolved;
 import contractstudy.model.ClassAndVersion;
-import contractstudy.scripts.engine.ArtefactFactory;
-import contractstudy.scripts.engine.Experiment;
-import contractstudy.scripts.engine.ExperimentArtefact;
+import contractstudy.scripts.model.ArtefactFactory;
+import contractstudy.scripts.model.Experiment;
+import contractstudy.scripts.model.ExperimentArtefact;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;

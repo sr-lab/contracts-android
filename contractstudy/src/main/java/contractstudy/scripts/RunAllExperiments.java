@@ -1,8 +1,8 @@
 package contractstudy.scripts;
 
 import contractstudy.config.Logging;
-import contractstudy.scripts.engine.Experiment;
-import contractstudy.scripts.engine.ExperimentArtefact;
+import contractstudy.scripts.model.Experiment;
+import contractstudy.scripts.model.ExperimentArtefact;
 import org.apache.log4j.Logger;
 
 /**
@@ -31,22 +31,27 @@ public class RunAllExperiments {
 
   public static void main(String[] args) throws Exception {
     for (Experiment experiment : EXPERIMENTS) {
-      // check all prerequisites exist
-      for (ExperimentArtefact artefact : experiment.requires()) {
-        if (!artefact.exists()) {
-          throw new IllegalStateException(
-            "No artefact " + artefact.getName() + " found to proceed with " + experiment.provides()
-              .getName());
-        }
-      }
+      allPrerequisitesExistOrElseThrow(experiment);
+      runExperimentIfNotAlreadyExecuted(experiment);
+    }
+  }
 
-      // skip what has been already computed
-      if (experiment.provides().exists()) {
-        LOGGER.info("Skipping already performed experiment: " + experiment.provides().getName());
-      } else {
-        LOGGER.info("Invoking: " + experiment.provides().getName());
-        experiment.invoke();
+  private static void allPrerequisitesExistOrElseThrow(Experiment experiment) {
+    for (ExperimentArtefact artefact : experiment.requires()) {
+      if (!artefact.exists()) {
+        throw new IllegalStateException(
+          "No artefact " + artefact.getName() + " found to proceed with " + experiment.provides()
+            .getName());
       }
+    }
+  }
+
+  private static void runExperimentIfNotAlreadyExecuted(Experiment experiment) throws Exception {
+    if (experiment.provides().exists()) {
+      LOGGER.info("Skipping already performed experiment: " + experiment.provides().getName());
+    } else {
+      LOGGER.info("Invoking: " + experiment.provides().getName());
+      experiment.invoke();
     }
   }
 

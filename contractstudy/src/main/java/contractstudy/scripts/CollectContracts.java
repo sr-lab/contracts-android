@@ -1,8 +1,8 @@
 package contractstudy.scripts;
 
-import contractstudy.ExtractionListener;
-import contractstudy.Extractor;
-import contractstudy.ProgramVersion;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.Extractor;
+import contractstudy.model.ProgramVersion;
 import contractstudy.collectContracts.annotation.AndroidAnnotationExtractor;
 import contractstudy.collectContracts.annotation.AndroidXAnnotationExtractor;
 import contractstudy.collectContracts.annotation.FindBugsAnnotationExtractor;
@@ -22,9 +22,9 @@ import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.scripts.engine.ArtefactFactory;
-import contractstudy.scripts.engine.Experiment;
-import contractstudy.scripts.engine.ExperimentArtefact;
+import contractstudy.scripts.model.ArtefactFactory;
+import contractstudy.scripts.model.Experiment;
+import contractstudy.scripts.model.ExperimentArtefact;
 import contractstudy.utils.LanguageUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;

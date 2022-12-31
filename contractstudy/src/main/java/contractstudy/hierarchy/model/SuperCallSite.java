@@ -1,6 +1,6 @@
 package contractstudy.hierarchy.model;
 
-import contractstudy.ProgramVersion;
+import contractstudy.model.ProgramVersion;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

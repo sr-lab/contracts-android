@@ -1,6 +1,6 @@
 package contractstudy.hierarchy.SuperCallSiteExtractor.kotlin;
 
-import contractstudy.ProgramVersion;
+import contractstudy.model.ProgramVersion;
 import contractstudy.hierarchy.SuperCallSiteExtractor.SuperCallSiteExtractor;
 import contractstudy.hierarchy.model.SuperCallSite;
 import contractstudy.utils.Utils;

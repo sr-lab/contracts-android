@@ -1,16 +1,12 @@
 package contractstudy.hierarchy.SuperCallSiteExtractor.visitor;
 
-import contractstudy.ProgramVersion;
+import contractstudy.model.ProgramVersion;
 import contractstudy.config.Preferences;
 import contractstudy.constants.VisibilityModifier;
 import contractstudy.hierarchy.model.SuperCallSite;
 import contractstudy.utils.kotlinParser.KotlinParserUtils;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.kotlin.com.intellij.psi.PsiElement;
-import org.jetbrains.kotlin.psi.KtConstructor;
-import org.jetbrains.kotlin.psi.KtConstructorCalleeExpression;
-import org.jetbrains.kotlin.psi.KtConstructorDelegationCall;
 import org.jetbrains.kotlin.psi.KtModifierList;
 import org.jetbrains.kotlin.psi.KtNamedFunction;
 import org.jetbrains.kotlin.psi.KtSuperExpression;

@@ -2,7 +2,7 @@ package contractstudy.hierarchy.ProjectVersionHierarchyExtractor;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import contractstudy.ProgramVersion;
+import contractstudy.model.ProgramVersion;
 import contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectClassExtractor.ProjectClassExtractor;
 import contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectClassExtractorKotlin.ProjectClassExtractorKotlin;
 import contractstudy.hierarchy.model.ClassCoordinates;

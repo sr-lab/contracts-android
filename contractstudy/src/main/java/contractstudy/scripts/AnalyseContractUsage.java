@@ -2,8 +2,8 @@ package contractstudy.scripts;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import contractstudy.FindFirstAndLastProgramVersions;
-import contractstudy.ProgramVersion;
+import contractstudy.model.FindFirstAndLastProgramVersions;
+import contractstudy.model.ProgramVersion;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ConstraintCategory;
@@ -11,10 +11,10 @@ import contractstudy.constants.constraint.ConstraintClassification;
 import contractstudy.constants.constraint.ConstraintGroup;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.evolution.diffRules.Utils;
-import contractstudy.scripts.engine.ArtefactFactory;
-import contractstudy.scripts.engine.Experiment;
-import contractstudy.scripts.engine.ExperimentArtefact;
+import contractstudy.evolution.model.diffRules.Utils;
+import contractstudy.scripts.model.ArtefactFactory;
+import contractstudy.scripts.model.Experiment;
+import contractstudy.scripts.model.ExperimentArtefact;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.log4j.Logger;
@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static contractstudy.evolution.diffRules.Utils.NF;
+import static contractstudy.evolution.model.diffRules.Utils.NF;
 
 /**
  * Script used to analyse how contracts are used by programs. This script counts the contracts
