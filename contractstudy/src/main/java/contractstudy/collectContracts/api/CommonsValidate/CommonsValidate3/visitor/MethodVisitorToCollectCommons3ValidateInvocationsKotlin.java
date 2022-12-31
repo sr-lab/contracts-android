@@ -1,7 +1,7 @@
 package contractstudy.collectContracts.api.CommonsValidate.CommonsValidate3.visitor;
 
-import contractstudy.ExtractionListener;
-import contractstudy.ProgramVersion;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.ProgramVersion;
 import contractstudy.collectContracts.api.CommonsValidate.CommonValidateBase.MethodVisitorToCollectCommonsValidateInvocationsKotlin;
 import contractstudy.collectContracts.api.CommonsValidate.constants.CommonsValidate3Enum;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;

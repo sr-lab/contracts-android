@@ -2,13 +2,13 @@ package contractstudy.evolution.model;
 
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.evolution.constants.DiffResult;
-import contractstudy.evolution.diffRules.IgnoreOrderAndMessage;
-import contractstudy.evolution.diffRules.NullablePostconditionsRemoved;
-import contractstudy.evolution.diffRules.PostconditionsStrengthened;
-import contractstudy.evolution.diffRules.PostconditionsWeakened;
-import contractstudy.evolution.diffRules.PreconditionsStrengthened;
-import contractstudy.evolution.diffRules.PreconditionsWeakened;
-import contractstudy.evolution.diffRules.SameConstraints;
+import contractstudy.evolution.model.diffRules.IgnoreOrderAndMessage;
+import contractstudy.evolution.model.diffRules.NullablePostconditionsRemoved;
+import contractstudy.evolution.model.diffRules.PostconditionsStrengthened;
+import contractstudy.evolution.model.diffRules.PostconditionsWeakened;
+import contractstudy.evolution.model.diffRules.PreconditionsStrengthened;
+import contractstudy.evolution.model.diffRules.PreconditionsWeakened;
+import contractstudy.evolution.model.diffRules.SameConstraints;
 
 import java.util.List;
 

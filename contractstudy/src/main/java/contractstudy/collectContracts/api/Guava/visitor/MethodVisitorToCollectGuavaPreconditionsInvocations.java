@@ -2,8 +2,8 @@ package contractstudy.collectContracts.api.Guava.visitor;
 
 import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.MethodCallExpr;
-import contractstudy.ExtractionListener;
-import contractstudy.ProgramVersion;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.ProgramVersion;
 import contractstudy.collectContracts.api.Guava.constants.GuavaEnum;
 import contractstudy.collectContracts.common.MethodVisitorToCollectInvocations.MethodVisitorToCollectInvocations;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;

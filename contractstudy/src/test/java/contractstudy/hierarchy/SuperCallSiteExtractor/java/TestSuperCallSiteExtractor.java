@@ -1,8 +1,6 @@
 package contractstudy.hierarchy.SuperCallSiteExtractor.java;
 
-import contractstudy.ProgramVersion;
-import contractstudy.collectDatasetStats.DataCollectionExtractor;
-import contractstudy.constants.SetStatsDataKeys;
+import contractstudy.model.ProgramVersion;
 import contractstudy.hierarchy.SuperCallSiteExtractor.SuperCallSiteExtractor;
 import contractstudy.hierarchy.model.SuperCallSite;
 import contractstudy.utils.Utils;
@@ -13,9 +11,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

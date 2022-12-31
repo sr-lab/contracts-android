@@ -5,7 +5,7 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Table;
-import contractstudy.ProgramVersion;
+import contractstudy.model.ProgramVersion;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 /**

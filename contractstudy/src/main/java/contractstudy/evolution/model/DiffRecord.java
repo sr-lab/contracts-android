@@ -1,6 +1,6 @@
 package contractstudy.evolution.model;
 
-import contractstudy.ProgramVersion;
+import contractstudy.model.ProgramVersion;
 import contractstudy.constants.constraint.ContractElement;
 
 import java.util.List;

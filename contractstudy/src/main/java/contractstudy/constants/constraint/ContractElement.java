@@ -1,7 +1,7 @@
 package contractstudy.constants.constraint;
 
 import com.google.common.base.Preconditions;
-import contractstudy.ProgramVersion;
+import contractstudy.model.ProgramVersion;
 import org.json.JSONObject;
 
 /**

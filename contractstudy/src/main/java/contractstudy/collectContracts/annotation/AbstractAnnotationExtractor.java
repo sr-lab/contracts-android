@@ -2,8 +2,8 @@ package contractstudy.collectContracts.annotation;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import contractstudy.ExtractionListener;
-import contractstudy.Extractor;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.Extractor;
 import contractstudy.collectContracts.annotation.visitor.VisitorToCollectAnnotations;
 import contractstudy.collectContracts.annotation.visitor.VisitorToCollectAnnotationsKotlin;
 import contractstudy.collectContracts.common.StaticImportCollector.StaticImportCollector;

@@ -1,6 +1,5 @@
 package contractstudy.model;
 
-import contractstudy.ProgramVersion;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.json.JSONObject;

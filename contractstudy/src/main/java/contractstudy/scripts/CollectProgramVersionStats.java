@@ -1,13 +1,13 @@
 package contractstudy.scripts;
 
 import com.google.common.base.Preconditions;
-import contractstudy.ProgramVersion;
+import contractstudy.model.ProgramVersion;
 import contractstudy.collectDatasetStats.DataCollectionAcrossVersionsExtractor;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
-import contractstudy.scripts.engine.ArtefactFactory;
-import contractstudy.scripts.engine.Experiment;
-import contractstudy.scripts.engine.ExperimentArtefact;
+import contractstudy.scripts.model.ArtefactFactory;
+import contractstudy.scripts.model.Experiment;
+import contractstudy.scripts.model.ExperimentArtefact;
 import contractstudy.utils.LanguageUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;

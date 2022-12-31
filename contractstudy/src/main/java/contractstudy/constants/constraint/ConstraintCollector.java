@@ -1,6 +1,6 @@
 package contractstudy.constants.constraint;
 
-import contractstudy.ExtractionListener;
+import contractstudy.model.ExtractionListener;
 import contractstudy.config.Logging;
 import org.apache.log4j.Logger;
 

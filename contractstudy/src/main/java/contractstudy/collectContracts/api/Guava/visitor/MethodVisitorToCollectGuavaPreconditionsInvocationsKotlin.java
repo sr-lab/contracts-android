@@ -1,7 +1,7 @@
 package contractstudy.collectContracts.api.Guava.visitor;
 
-import contractstudy.ExtractionListener;
-import contractstudy.ProgramVersion;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.ProgramVersion;
 import contractstudy.collectContracts.api.Guava.constants.GuavaEnum;
 import contractstudy.collectContracts.common.MethodVisitorToCollectInvocations.MethodVisitorToCollectInvocationsKotlin;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;

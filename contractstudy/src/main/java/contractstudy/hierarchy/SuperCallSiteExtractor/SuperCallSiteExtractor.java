@@ -3,7 +3,7 @@ package contractstudy.hierarchy.SuperCallSiteExtractor;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import contractstudy.ProgramVersion;
+import contractstudy.model.ProgramVersion;
 import contractstudy.hierarchy.SuperCallSiteExtractor.visitor.MethodVisitorToCollectSuperCall;
 import contractstudy.hierarchy.SuperCallSiteExtractor.visitor.MethodVisitorToCollectSuperCallKotlin;
 import contractstudy.hierarchy.model.SuperCallSite;

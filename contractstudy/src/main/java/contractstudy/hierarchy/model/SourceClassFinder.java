@@ -3,7 +3,7 @@ package contractstudy.hierarchy.model;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Table;
-import contractstudy.ProgramVersion;
+import contractstudy.model.ProgramVersion;
 import contractstudy.config.Logging;
 import contractstudy.model.ClassAndVersion;
 import contractstudy.scripts.CollectContracts;
