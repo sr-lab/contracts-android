@@ -57,11 +57,9 @@ public class DataCollectionVisitorKotlin extends KtTreeVisitorVoid {
     data.compute(ALL_CONSTRUCTORS.getKey(), (k, v) -> v == null ? 1 : v + 1);
   }
 
-  //TODO: Should we include internal?
   private boolean isVisibilityAccepted(VisibilityModifier visibility) {
-    return visibility == VisibilityModifier.PUBLIC || visibility == VisibilityModifier.PROTECTED;
+    return visibility != VisibilityModifier.PRIVATE;
   }
-
 
   private void countClassOrInterfaceOrObjectDeclaration(KtClassOrObject element) {
     data.compute(CLASSES.getKey(), (k, v) -> v == null ? 1 : v + 1);

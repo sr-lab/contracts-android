@@ -42,7 +42,6 @@ public class DataCollectionVisitor extends VoidVisitorAdapter<Object> {
     super.visit(constructorDeclr, arg);
   }
 
-  //TODO: Can we always consider none to be public?
   public boolean checkIfPublicOrPrivate(NodeList<Modifier> modifiers) {
     return modifiers.contains(Modifier.publicModifier()) || modifiers.contains(
       Modifier.protectedModifier()) || modifiers.isEmpty();
