@@ -1,26 +1,26 @@
 package contractstudy.hierarchy.projectClassExtractor.kotlin.testData
 
-import java.util.Arrays;
+import java.util.*
 
 enum class Cool {
     Nice, Cool, Super
 }
 
-class SubClass1: ParentClass, ParentInterface {
+class SubClass1 : ParentClass, ParentInterface {
 
-    constructor(text: String): super(text);
+    constructor(text: String) : super(text)
 
     override fun test(): String {
-        super.test();
-        return "test";
+        super.test()
+        return "test"
     }
 
-    override fun test2(param1: String) : String {
-        return param1;
+    override fun test2(param1: String): String {
+        return param1
     }
 
     fun test3(param1: Int, param2: Int): Int {
-        val sum = super.testSum(param1, param2);
+        val sum = super.testSum(param1, param2)
         return param1 + sum
     }
 
@@ -31,6 +31,6 @@ class SubClass1: ParentClass, ParentInterface {
     }
 
     override fun printName(): String {
-        return "Text";
+        return "Text"
     }
 }

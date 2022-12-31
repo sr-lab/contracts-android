@@ -1,8 +1,8 @@
 package contractstudy.collectContracts.asserts.KotlinAssert;
 
+import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
-import contractstudy.constants.constraint.ContractElement;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import contractstudy.utils.kotlinParser.KotlinParser;

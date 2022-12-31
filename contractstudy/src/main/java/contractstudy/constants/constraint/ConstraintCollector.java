@@ -1,7 +1,7 @@
 package contractstudy.constants.constraint;
 
-import contractstudy.model.ExtractionListener;
 import contractstudy.config.Logging;
+import contractstudy.model.ExtractionListener;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;

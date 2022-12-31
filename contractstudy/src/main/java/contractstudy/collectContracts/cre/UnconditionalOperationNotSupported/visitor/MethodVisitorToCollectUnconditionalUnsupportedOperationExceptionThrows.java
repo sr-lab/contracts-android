@@ -5,11 +5,11 @@ import com.github.javaparser.ast.expr.ObjectCreationExpr;
 import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.IfStmt;
 import com.github.javaparser.ast.stmt.ThrowStmt;
-import contractstudy.model.ExtractionListener;
-import contractstudy.model.ProgramVersion;
 import contractstudy.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitor;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.ProgramVersion;
 
 /**
  * Visitor for method nodes in the AST, used to extract unconditional throws of

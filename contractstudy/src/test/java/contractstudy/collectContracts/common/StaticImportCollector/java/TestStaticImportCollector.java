@@ -4,10 +4,10 @@ import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import contractstudy.collectContracts.common.StaticImportCollector.StaticImportCollector;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
+import contractstudy.utils.Utils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import contractstudy.utils.Utils;
 
 import java.io.File;
 import java.util.stream.Stream;

@@ -7,13 +7,13 @@ import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.expr.MarkerAnnotationExpr;
 import com.github.javaparser.ast.expr.NormalAnnotationExpr;
 import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
-import contractstudy.model.ExtractionListener;
-import contractstudy.model.ProgramVersion;
 import contractstudy.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitor;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ConstraintedArtefact;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.ProgramVersion;
 
 import java.util.HashMap;
 import java.util.Map;

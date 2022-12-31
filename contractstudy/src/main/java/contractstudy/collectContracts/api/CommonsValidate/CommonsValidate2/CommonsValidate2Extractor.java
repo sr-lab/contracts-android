@@ -2,13 +2,13 @@ package contractstudy.collectContracts.api.CommonsValidate.CommonsValidate2;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import contractstudy.model.ExtractionListener;
-import contractstudy.model.Extractor;
 import contractstudy.collectContracts.api.CommonsValidate.CommonsValidate2.visitor.MethodVisitorToCollectCommons2ValidateInvocations;
 import contractstudy.collectContracts.api.CommonsValidate.CommonsValidate2.visitor.MethodVisitorToCollectCommons2ValidateInvocationsKotlin;
 import contractstudy.collectContracts.common.StaticImportCollector.StaticImportCollector;
 import contractstudy.collectContracts.common.StaticImportCollector.StaticImportCollectorKotlin;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.model.ExtractionListener;
+import contractstudy.model.Extractor;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import contractstudy.utils.kotlinParser.KotlinParser;

@@ -1,9 +1,9 @@
 package contractstudy.collectContracts.common.AbstractMethodVisitor;
 
-import contractstudy.model.ExtractionListener;
 import contractstudy.config.Preferences;
 import contractstudy.constants.VisibilityModifier;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.model.ExtractionListener;
 import contractstudy.utils.kotlinParser.KotlinParserUtils;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;

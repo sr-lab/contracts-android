@@ -1,10 +1,10 @@
 package contractstudy.scripts;
 
 import com.google.common.base.Preconditions;
-import contractstudy.model.ProgramVersion;
 import contractstudy.collectDatasetStats.DataCollectionAcrossVersionsExtractor;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
+import contractstudy.model.ProgramVersion;
 import contractstudy.scripts.model.ArtefactFactory;
 import contractstudy.scripts.model.Experiment;
 import contractstudy.scripts.model.ExperimentArtefact;
@@ -158,9 +158,11 @@ public class CollectProgramVersionStats implements Experiment {
         p.compute(LOC.getKey(), (k, v) -> v == null ? (long) locCount : v + locCount);
         out.print(SEP);
 
-        int compilationUnitsCount = Optional.ofNullable(e.getValue().get(COMPILATION_UNITS.getKey())).orElse(0);
+        int compilationUnitsCount = Optional.ofNullable(
+          e.getValue().get(COMPILATION_UNITS.getKey())).orElse(0);
         out.print(compilationUnitsCount);
-        p.compute(COMPILATION_UNITS.getKey(), (k, v) -> v == null ? (long) compilationUnitsCount : v + compilationUnitsCount);
+        p.compute(COMPILATION_UNITS.getKey(),
+          (k, v) -> v == null ? (long) compilationUnitsCount : v + compilationUnitsCount);
         out.print(SEP);
 
         int classesCount = Optional.ofNullable(e.getValue().get(CLASSES.getKey())).orElse(0);
@@ -170,22 +172,29 @@ public class CollectProgramVersionStats implements Experiment {
 
         int allMethodsCount = Optional.ofNullable(e.getValue().get(ALL_METHODS.getKey())).orElse(0);
         out.print(allMethodsCount);
-        p.compute(ALL_METHODS.getKey(), (k, v) -> v == null ? (long) allMethodsCount : v + allMethodsCount);
+        p.compute(ALL_METHODS.getKey(),
+          (k, v) -> v == null ? (long) allMethodsCount : v + allMethodsCount);
         out.print(SEP);
 
-        int allConstructorsMethods = Optional.ofNullable(e.getValue().get(ALL_CONSTRUCTORS.getKey())).orElse(0);
+        int allConstructorsMethods = Optional.ofNullable(
+          e.getValue().get(ALL_CONSTRUCTORS.getKey())).orElse(0);
         out.print(allConstructorsMethods);
-        p.compute(ALL_CONSTRUCTORS.getKey(), (k, v) -> v == null ? (long) allConstructorsMethods : v + allConstructorsMethods);
+        p.compute(ALL_CONSTRUCTORS.getKey(),
+          (k, v) -> v == null ? (long) allConstructorsMethods : v + allConstructorsMethods);
         out.print(SEP);
 
-        int publicMethodsCount = Optional.ofNullable(e.getValue().get(PUBLIC_METHODS.getKey())).orElse(0);
+        int publicMethodsCount = Optional.ofNullable(e.getValue().get(PUBLIC_METHODS.getKey()))
+          .orElse(0);
         out.print(publicMethodsCount);
-        p.compute(PUBLIC_METHODS.getKey(), (k, v) -> v == null ? (long) publicMethodsCount : v + publicMethodsCount);
+        p.compute(PUBLIC_METHODS.getKey(),
+          (k, v) -> v == null ? (long) publicMethodsCount : v + publicMethodsCount);
         out.print(SEP);
 
-        int publicConstructorsCount = Optional.ofNullable(e.getValue().get(PUBLIC_CONSTRUCTORS.getKey())).orElse(0);
+        int publicConstructorsCount = Optional.ofNullable(
+          e.getValue().get(PUBLIC_CONSTRUCTORS.getKey())).orElse(0);
         out.print(publicConstructorsCount);
-        p.compute(PUBLIC_CONSTRUCTORS.getKey(), (k, v) -> v == null ? (long) publicConstructorsCount : v + publicConstructorsCount);
+        p.compute(PUBLIC_CONSTRUCTORS.getKey(),
+          (k, v) -> v == null ? (long) publicConstructorsCount : v + publicConstructorsCount);
         out.print(SEP);
 
         out.print(e.getKey().getName() + "-" + e.getKey().getVersion());

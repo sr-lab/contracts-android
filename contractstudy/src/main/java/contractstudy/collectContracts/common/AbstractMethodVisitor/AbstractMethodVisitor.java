@@ -9,10 +9,10 @@ import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.EnumDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import contractstudy.model.ExtractionListener;
 import contractstudy.collectContracts.common.Utils;
 import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.model.ExtractionListener;
 
 /**
  * Abstract superclass for visitors for method nodes in the AST, used to collect invocations of API

@@ -1,9 +1,9 @@
 package contractstudy.evolution.model.diffRules;
 
-import contractstudy.model.ProgramVersion;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.model.ProgramVersion;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.text.WordUtils;
 import org.apache.log4j.Logger;

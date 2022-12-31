@@ -4,8 +4,8 @@ import contractstudy.collectContracts.asserts.JavaAssert.JavaAssertExtractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
-import org.junit.jupiter.api.Test;
 import contractstudy.utils.Utils;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.List;

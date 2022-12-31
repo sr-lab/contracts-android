@@ -2,8 +2,6 @@ package contractstudy.scripts;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import contractstudy.model.FindFirstAndLastProgramVersions;
-import contractstudy.model.ProgramVersion;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ConstraintCategory;
@@ -12,6 +10,8 @@ import contractstudy.constants.constraint.ConstraintGroup;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.evolution.model.diffRules.Utils;
+import contractstudy.model.FindFirstAndLastProgramVersions;
+import contractstudy.model.ProgramVersion;
 import contractstudy.scripts.model.ArtefactFactory;
 import contractstudy.scripts.model.Experiment;
 import contractstudy.scripts.model.ExperimentArtefact;

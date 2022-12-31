@@ -2,10 +2,10 @@ package contractstudy.hierarchy.projectClassExtractor.java;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectClassExtractor.ProjectClassExtractor;
+import contractstudy.hierarchy.model.ClassCoordinates;
 import contractstudy.hierarchy.model.ClassFinder;
 import contractstudy.hierarchy.model.ClassFinderCreator;
-import contractstudy.hierarchy.model.ClassCoordinates;
-import contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectClassExtractor.ProjectClassExtractor;
 import contractstudy.hierarchy.model.ClassParents;
 import contractstudy.utils.Utils;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,7 +16,6 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class TestProjectClassExtractor {
@@ -30,9 +29,15 @@ public class TestProjectClassExtractor {
       Arguments.of("SubClass1.java"));
   }
 
+  private static Stream<Arguments> generateFilesInheritance() {
+    return Stream.of(
+      Arguments.of("SubClass1.java"));
+  }
+
   @ParameterizedTest
   @MethodSource("generateFilesReadClass")
-  public void testReadClass(String fileName, String[] innerClassState, int[] innerClassMethodsCount, int[] innerClassParentsCount) throws Exception {
+  public void testReadClass(String fileName, String[] innerClassState, int[] innerClassMethodsCount,
+    int[] innerClassParentsCount) throws Exception {
     File file = new File(TEST_DATA_FOLDER, fileName);
     InputStream in = Utils.getInputStream(file);
     CompilationUnit cu = StaticJavaParser.parse(in);
@@ -41,12 +46,6 @@ public class TestProjectClassExtractor {
     ClassCoordinates result = extractor.readClass(cu, "name");
 
     assertNotNull(result);
-  }
-
-
-  private static Stream<Arguments> generateFilesInheritance() {
-    return Stream.of(
-      Arguments.of("SubClass1.java"));
   }
 
   @ParameterizedTest

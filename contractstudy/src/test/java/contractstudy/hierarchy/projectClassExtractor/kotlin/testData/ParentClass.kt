@@ -5,14 +5,14 @@ open class ParentClass {
     constructor(text: String)
 
     open fun test(): String {
-        return "test";
+        return "test"
     }
 
-    open fun test2(param1: String) : String {
-        return param1;
+    open fun test2(param1: String): String {
+        return param1
     }
 
     fun testSum(param1: Int, param2: Int): Int {
-        return param1 + param2;
+        return param1 + param2
     }
 }

@@ -2,13 +2,13 @@ package contractstudy.collectContracts.common.StaticImportCollector.kotlin;
 
 import contractstudy.collectContracts.common.StaticImportCollector.StaticImportCollectorKotlin;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
-import contractstudy.utils.kotlinParser.KotlinParser;
 import contractstudy.utils.InputStreamToStringConversion;
+import contractstudy.utils.Utils;
+import contractstudy.utils.kotlinParser.KotlinParser;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import contractstudy.utils.Utils;
 
 import java.io.File;
 import java.util.stream.Stream;
