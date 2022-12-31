@@ -49,7 +49,9 @@ public class ClassDefinitionVisitorKotlin extends AbstractMethodVisitorKotlin im
     boolean isAbstract = super.computeAbstractMethod();
     //TODO: Should we include internal?
     if (visibility != VisibilityModifier.PRIVATE && !isAbstract) {
-      getState(function).getMethods().add(super.methodDeclaration);
+      if (getState(function) != null) {
+        getState(function).getMethods().add(super.methodDeclaration); //TODO: Why is state sometimes null?
+      }
     }
   }
 

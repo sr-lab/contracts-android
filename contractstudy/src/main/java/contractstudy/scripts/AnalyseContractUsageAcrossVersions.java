@@ -27,6 +27,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import static contractstudy.constants.SetStatsDataKeys.ALL_CONSTRUCTORS;
 import static contractstudy.constants.SetStatsDataKeys.ALL_METHODS;
@@ -78,7 +79,7 @@ public class AnalyseContractUsageAcrossVersions implements Experiment {
       reader.readLine();
       String line;
       while ((line = reader.readLine()) != null) {
-        String[] tokens = line.split("\t");
+        String[] tokens = line.split(",");
         assert tokens.length == 9;
         Map<String, Integer> map = new HashMap<>();
         ProgramVersion pv = ProgramVersion.getOrCreate(tokens[0], tokens[1]);
@@ -130,7 +131,7 @@ public class AnalyseContractUsageAcrossVersions implements Experiment {
     Map<ProgramVersion, Integer> constraintsInLastVersions) throws IOException {
     LOGGER.info("Finished contract usage across versions analysis");
 
-    char SEP = '\t';
+    char SEP = ',';
     File csv = ArtefactFactory.RESULTS_CONTRACTS_ACROSS_VERSIONS;
 
     try (PrintStream out = new PrintStream(Files.newOutputStream(csv.toPath()))) {

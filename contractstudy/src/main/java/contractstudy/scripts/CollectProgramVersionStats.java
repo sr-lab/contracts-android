@@ -24,6 +24,7 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -65,7 +66,6 @@ public class CollectProgramVersionStats implements Experiment {
     Collection<File> zips = FileUtils.listFiles(DATA_FOLDER, new String[]{"zip"}, true);
     ExecutorService executor = Executors.newFixedThreadPool(THREAD_COUNT);
     AtomicInteger counter = new AtomicInteger(0);
-    DataCollectionAcrossVersionsExtractor extractor = new DataCollectionAcrossVersionsExtractor();
 
     for (File f : zips) {
 
@@ -75,7 +75,7 @@ public class CollectProgramVersionStats implements Experiment {
           try {
             LOGGER.info(
               "Analysing " + counter.incrementAndGet() + "/" + zips.size() + " - " + f.getName());
-            collectStats(f, extractor, data, errorCuNames);
+            collectStats(f, data, errorCuNames);
           } catch (Exception e) {
             LOGGER.warn("Cannot parse file: " + f, e);
           }
@@ -96,10 +96,11 @@ public class CollectProgramVersionStats implements Experiment {
   }
 
   private static void collectStats(
-    File folder, DataCollectionAcrossVersionsExtractor extractor,
+    File folder,
     Map<ProgramVersion, Map<String, Integer>> data,
     List<String> errorCuNames
   ) throws IOException {
+    DataCollectionAcrossVersionsExtractor extractor = new DataCollectionAcrossVersionsExtractor();
     ZipFile zip = new ZipFile(folder);
     Enumeration<? extends ZipEntry> en = zip.entries();
     Map<String, Integer> dataForProgramVersion = new HashMap<>();
@@ -133,7 +134,7 @@ public class CollectProgramVersionStats implements Experiment {
     throws IOException {
     File RESULTS_FOLDER = new File(Preferences.getResultsFolder());
     File csv = new File(RESULTS_FOLDER, "programversion_stats.csv");
-    char SEP = '\t';
+    char SEP = ',';
     Map<String, Map<String, Long>> programTotals = new HashMap<>();
 
     try (PrintWriter out = new PrintWriter(new FileWriter(csv))) {
@@ -145,50 +146,53 @@ public class CollectProgramVersionStats implements Experiment {
         if (!programTotals.containsKey(e.getKey().getName())) {
           programTotals.put(e.getKey().getName(), new HashMap<>());
         }
+
         Map<String, Long> p = programTotals.get(e.getKey().getName());
         out.print(e.getKey().getName());
         out.print(SEP);
         out.print(e.getKey().getVersion());
         out.print(SEP);
-        out.print(e.getValue().get(LOC.getKey()));
-        p.compute(LOC.getKey(),
-          (k, v) -> v == null ? (long) e.getValue().get(LOC.getKey())
-            : v + e.getValue().get(LOC.getKey()));
+
+        int locCount = Optional.ofNullable(e.getValue().get(LOC.getKey())).orElse(0);
+        out.print(locCount);
+        p.compute(LOC.getKey(), (k, v) -> v == null ? (long) locCount : v + locCount);
         out.print(SEP);
-        out.print(e.getValue().get(COMPILATION_UNITS.getKey()));
-        p.compute(COMPILATION_UNITS.getKey(),
-          (k, v) -> v == null ? (long) e.getValue().get(COMPILATION_UNITS.getKey())
-            : v + e.getValue().get(COMPILATION_UNITS.getKey()));
+
+        int compilationUnitsCount = Optional.ofNullable(e.getValue().get(COMPILATION_UNITS.getKey())).orElse(0);
+        out.print(compilationUnitsCount);
+        p.compute(COMPILATION_UNITS.getKey(), (k, v) -> v == null ? (long) compilationUnitsCount : v + compilationUnitsCount);
         out.print(SEP);
-        out.print(e.getValue().get(CLASSES.getKey()));
-        p.compute(CLASSES.getKey(),
-          (k, v) -> v == null ? (long) e.getValue().get(CLASSES.getKey())
-            : v + e.getValue().get(CLASSES.getKey()));
+
+        int classesCount = Optional.ofNullable(e.getValue().get(CLASSES.getKey())).orElse(0);
+        out.print(classesCount);
+        p.compute(CLASSES.getKey(), (k, v) -> v == null ? (long) classesCount : v + classesCount);
         out.print(SEP);
-        out.print(e.getValue().get(ALL_METHODS.getKey()));
-        p.compute(ALL_METHODS.getKey(),
-          (k, v) -> v == null ? (long) e.getValue().get(ALL_METHODS.getKey())
-            : v + e.getValue().get(ALL_METHODS.getKey()));
+
+        int allMethodsCount = Optional.ofNullable(e.getValue().get(ALL_METHODS.getKey())).orElse(0);
+        out.print(allMethodsCount);
+        p.compute(ALL_METHODS.getKey(), (k, v) -> v == null ? (long) allMethodsCount : v + allMethodsCount);
         out.print(SEP);
-        out.print(e.getValue().get(ALL_CONSTRUCTORS.getKey()));
-        p.compute(ALL_CONSTRUCTORS.getKey(),
-          (k, v) -> v == null ? (long) e.getValue().get(ALL_CONSTRUCTORS.getKey())
-            : v + e.getValue().get(ALL_CONSTRUCTORS.getKey()));
+
+        int allConstructorsMethods = Optional.ofNullable(e.getValue().get(ALL_CONSTRUCTORS.getKey())).orElse(0);
+        out.print(allConstructorsMethods);
+        p.compute(ALL_CONSTRUCTORS.getKey(), (k, v) -> v == null ? (long) allConstructorsMethods : v + allConstructorsMethods);
         out.print(SEP);
-        out.print(e.getValue().get(PUBLIC_METHODS.getKey()));
-        p.compute(PUBLIC_METHODS.getKey(),
-          (k, v) -> v == null ? (long) e.getValue().get(PUBLIC_METHODS.getKey())
-            : v + e.getValue().get(PUBLIC_METHODS.getKey()));
+
+        int publicMethodsCount = Optional.ofNullable(e.getValue().get(PUBLIC_METHODS.getKey())).orElse(0);
+        out.print(publicMethodsCount);
+        p.compute(PUBLIC_METHODS.getKey(), (k, v) -> v == null ? (long) publicMethodsCount : v + publicMethodsCount);
         out.print(SEP);
-        out.print(e.getValue().get(PUBLIC_CONSTRUCTORS.getKey()));
-        p.compute(PUBLIC_CONSTRUCTORS.getKey(),
-          (k, v) -> v == null ? (long) e.getValue().get(PUBLIC_CONSTRUCTORS.getKey())
-            : v + e.getValue().get(PUBLIC_CONSTRUCTORS.getKey()));
+
+        int publicConstructorsCount = Optional.ofNullable(e.getValue().get(PUBLIC_CONSTRUCTORS.getKey())).orElse(0);
+        out.print(publicConstructorsCount);
+        p.compute(PUBLIC_CONSTRUCTORS.getKey(), (k, v) -> v == null ? (long) publicConstructorsCount : v + publicConstructorsCount);
         out.print(SEP);
-        out.print(e.getKey().getName() + "-" + e.getKey().getSanitizedVersion());
+
+        out.print(e.getKey().getName() + "-" + e.getKey().getVersion());
         out.println();
       }
 
+      //TODO: Wouldn't it be better to output total to a separate file?
       for (Map.Entry<String, Map<String, Long>> e : programTotals.entrySet()) {
         out.print(e.getKey());
         out.print(SEP);

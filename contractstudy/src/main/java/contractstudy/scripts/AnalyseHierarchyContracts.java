@@ -35,20 +35,20 @@ import static contractstudy.evolution.diffRules.Utils.NF;
 public class AnalyseHierarchyContracts implements Experiment {
 
   private static final Logger LOGGER = Logging.getLogger(AnalyseHierarchyContracts.class);
+  private static final File RESULTS_FOLDER = new File(Preferences.getResultsFolder());
 
   public static void main(String[] args) throws Exception {
-    File RESULTS_FOLDER = new File(Preferences.getResultsFolder());
     FileUtils.forceMkdir(RESULTS_FOLDER);
-    Map<DiffResult, File> DETAIL_LOGS = readLogsFromFiles(RESULTS_FOLDER);
+    Map<DiffResult, File> DETAIL_LOGS = readLogsFromFiles();
     resetLogsByDeletingFiles(DETAIL_LOGS);
     Map<DiffResult, Integer> stats = compareEvolutionAndLogResults(DETAIL_LOGS);
-    outputStatsToConsole(RESULTS_FOLDER, stats);
-    outputStatsToLatex(RESULTS_FOLDER, stats);
+    outputStatsToConsole(stats);
+    outputStatsToLatex(stats);
   }
 
-  private static Map<DiffResult, File> readLogsFromFiles(File RESULTS_FOLDER) {
+  private static Map<DiffResult, File> readLogsFromFiles() {
     return new HashMap<>() {
-      {
+      { //TODO: Why are values always zero? And those files are not being created anywhere.
         put(DiffResult.POSTCONDITION_REMOVED,
           new File(RESULTS_FOLDER, "postconditions_removed.log"));
         put(DiffResult.PRECONDITION_ADDED, new File(RESULTS_FOLDER, "preconditions_added.log"));
@@ -85,7 +85,6 @@ public class AnalyseHierarchyContracts implements Experiment {
     for (DiffResult res : DiffResult.values()) {
       stats.put(res, 0);
     }
-
     return stats;
   }
 
@@ -119,7 +118,7 @@ public class AnalyseHierarchyContracts implements Experiment {
     }
   }
 
-  private static void outputStatsToConsole(File RESULTS_FOLDER, Map<DiffResult, Integer> stats) {
+  private static void outputStatsToConsole(Map<DiffResult, Integer> stats) {
     LOGGER.info("Analysis finished, printing stats");
     LOGGER.info("Details written to " + RESULTS_FOLDER.getAbsolutePath());
     for (Map.Entry<DiffResult, Integer> entry : stats.entrySet()) {
@@ -127,7 +126,7 @@ public class AnalyseHierarchyContracts implements Experiment {
     }
   }
 
-  private static void outputStatsToLatex(File RESULTS_FOLDER, Map<DiffResult, Integer> stats)
+  private static void outputStatsToLatex(Map<DiffResult, Integer> stats)
     throws IOException {
     LOGGER.info("Rendering output to latex");
     File latex = new File(RESULTS_FOLDER, "hierarchy.tex");

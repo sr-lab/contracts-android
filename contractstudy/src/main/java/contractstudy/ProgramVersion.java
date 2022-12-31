@@ -16,6 +16,8 @@ import java.util.regex.Pattern;
  */
 public class ProgramVersion implements Comparable<ProgramVersion> {
 
+  // TODO: Use lombok for constructors and for getters/setters.
+
   private static final Map<String, ProgramVersion> registry = new HashMap<>();
   static Logger LOGGER = Logging.getLogger(ProgramVersion.class);
   private String name = null;
@@ -38,9 +40,6 @@ public class ProgramVersion implements Comparable<ProgramVersion> {
   /**
    * Creates the programname-version pair from the path to the given (artefact) file, assuming that
    * the file is placed in a folder named <programname>.
-   *
-   * @param f
-   * @return
    */
   public static ProgramVersion getOrCreateFromFile(File f) {
     String contextName = f.getName().substring(0, f.getName().lastIndexOf('.'));

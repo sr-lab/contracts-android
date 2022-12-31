@@ -9,6 +9,8 @@ import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.com.intellij.psi.PsiElement;
 import org.jetbrains.kotlin.psi.KtConstructor;
+import org.jetbrains.kotlin.psi.KtConstructorCalleeExpression;
+import org.jetbrains.kotlin.psi.KtConstructorDelegationCall;
 import org.jetbrains.kotlin.psi.KtModifierList;
 import org.jetbrains.kotlin.psi.KtNamedFunction;
 import org.jetbrains.kotlin.psi.KtSuperExpression;
@@ -39,40 +41,27 @@ public class MethodVisitorToCollectSuperCallKotlin extends KtTreeVisitorVoid {
   }
 
   @Override
-  public void visitElement(@NotNull PsiElement element) {
-    if (element instanceof KtNamedFunction) {
-      collectMethodDeclaration((KtNamedFunction) element);
-    } else if (element instanceof KtConstructor) {
-      collectConstructorDeclaration((KtConstructor) element);
-    }
-    super.visitElement(element);
-  }
-
-  private void collectMethodDeclaration(KtNamedFunction element) {
-    KtModifierList ktModifierList = element.getModifierList();
+  public void visitNamedFunction(@NotNull KtNamedFunction function) {
+    KtModifierList ktModifierList = function.getModifierList();
     VisibilityModifier visibility = KotlinParserUtils.getVisibilityModifier(ktModifierList);
     //TODO: Should we include internal?
     if (visibility == VisibilityModifier.PUBLIC || visibility == VisibilityModifier.PROTECTED) {
-      this.methodDeclaration = element.getName() + "()";
+      this.methodDeclaration = function.getName() + "()";
       this.isMethod = true;
     }
+    super.visitNamedFunction(function);
   }
 
-  private void collectConstructorDeclaration(KtConstructor element) {
-    KtModifierList ktModifierList = element.getModifierList();
-    VisibilityModifier visibility = KotlinParserUtils.getVisibilityModifier(ktModifierList);
-    //TODO: Should we include internal?
-    if (visibility == VisibilityModifier.PUBLIC || visibility == VisibilityModifier.PROTECTED) {
-      this.methodDeclaration = element.getText(); //TODO: FIXME. Extract only name of method following by empty "()".
-      this.isMethod = false;
-    }
-  }
+  //TODO: We are not catching constructors.
 
   // FIXME: It is not capturing constructors (super()).
   @Override
   public void visitSuperExpression(@NotNull KtSuperExpression expression) {
-    SuperCallSite callSite = new SuperCallSite(programVersion, cuName, methodDeclaration,
-      isMethod);
-    superCallSites.add(callSite);
+    // TODO: Why are there instances where methodDeclaration is null?
+    if (methodDeclaration != null) {
+      SuperCallSite callSite = new SuperCallSite(programVersion, cuName, methodDeclaration,
+        isMethod);
+      superCallSites.add(callSite);
+    }
   }
 }
