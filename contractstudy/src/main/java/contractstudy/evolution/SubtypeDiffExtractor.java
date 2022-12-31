@@ -76,30 +76,49 @@ public class SubtypeDiffExtractor implements DiffExtractor {
    */
   public static void readInheritanceCSV(
     final HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap,
-    final Map<ClassAndVersion, Set<String>> methods) throws IOException {
-
+    final Map<ClassAndVersion, Set<String>> methods
+  ) throws IOException {
     for (File project : listProjects(new File(Preferences.getOutputStructureFolder()))) {
-      for (File json : listJsons(project)) {
-
-        String projectName = project.getName();
-        // json is named  <xxx>-struct,json
-        String versionName = json.getName()
-          .substring(projectName.length() + 1, json.getName().lastIndexOf("-"));
-
-        JSONArray arr = new JSONArray(
-          IOUtils.toString(Files.newInputStream(json.toPath()), StandardCharsets.UTF_8));
-
-        for (Object anArr : arr) {
-          JSONObject o = (JSONObject) anArr;
-          ClassAndVersion subTypeTmp = ClassAndVersion.create(projectName, versionName,
-            SubtypeDiffKeys.EMPTY_CLASS_NAME.getKey(), o.getString("cuName"));
-          collectMethods(o, subTypeTmp, methods);
-          collectParents(o, subTypeTmp, inheritanceMap);
-        }
+      for (File projectStructFiles : listJsons(project)) {
+        loopThroughProjectFilesToCollectMethodsAndParents(inheritanceMap, methods, project, projectStructFiles);
       }
     }
-
     propagateInheritedMethods(inheritanceMap, methods);
+  }
+
+  private static void loopThroughProjectFilesToCollectMethodsAndParents(
+    final HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap,
+    final Map<ClassAndVersion, Set<String>> methods,
+    File projectZipFolder,
+    File projectStructFiles
+  ) throws IOException {
+    JSONArray arr = new JSONArray(
+      IOUtils.toString(Files.newInputStream(projectStructFiles.toPath()), StandardCharsets.UTF_8));
+
+    String projectName = getProjectNameFromStructFolder(projectZipFolder);
+    String versionName = getProjectVersionFromStructFolder(projectZipFolder);
+
+    for (Object anArr : arr) {
+      JSONObject o = (JSONObject) anArr;
+      ClassAndVersion subTypeTmp = ClassAndVersion.create(
+        projectName,
+        versionName,
+        SubtypeDiffKeys.EMPTY_CLASS_NAME.getKey(),
+        o.getString("cuName")
+      );
+      collectMethods(o, subTypeTmp, methods);
+      collectParents(o, subTypeTmp, inheritanceMap);
+    }
+  }
+
+  private static String getProjectNameFromStructFolder(File projectZipFolder) {
+    return projectZipFolder.getName()
+      .substring(0, projectZipFolder.getName().lastIndexOf("-"));
+  }
+
+  private static String getProjectVersionFromStructFolder(File projectZipFolder) {
+    return projectZipFolder.getName()
+      .substring(projectZipFolder.getName().lastIndexOf("-") + 1, projectZipFolder.getName().lastIndexOf(".zip"));
   }
 
   private static void collectMethods(JSONObject o, ClassAndVersion subTypeTmp,
@@ -119,9 +138,13 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     for (Object aPp : pp) {
       JSONObject ppO = (JSONObject) aPp;
       ClassAndVersion superType = ClassAndVersion.fromJson(ppO.toString());
-      ClassAndVersion superTypeTmp = new ClassAndVersion(superType.getProgramVersion(),
-        SubtypeDiffKeys.EMPTY_CLASS_NAME.getKey(), superType.getCuName());
-      inheritanceMap.put(subTypeTmp, superTypeTmp);
+      ClassAndVersion superTypeTmp = new ClassAndVersion(
+        SubtypeDiffKeys.EMPTY_CLASS_NAME.getKey(),
+        superType.getCuName(),
+        superType.getProgramVersion()
+      );
+      inheritanceMap.put(subTypeTmp, superTypeTmp
+      );
     }
   }
 
@@ -144,9 +167,6 @@ public class SubtypeDiffExtractor implements DiffExtractor {
 
   /**
    * Extend the input map so that each key is enriched with methods inherited from super classes.
-   *
-   * @param inheritanceMap key - sub class, value - parent class
-   * @param methods        key a class, value methods including inherited ones.
    */
   private static void propagateInheritedMethods(
     final HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap,
@@ -159,18 +179,20 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     for (ClassAndVersion parent : inheritanceMap.get(currentType)) {
 
       // TODO - in some cases parent and current type are the same - do not know why right now
-      // spotted e.g. for
       if (finished.contains(currentType)) {
         LOGGER.debug("The same type already processed, skipping" + currentType);
         continue;
       }
+
       finished.add(currentType);
 
       Set<String> parentMethods = methods.get(parent);
       // recurse up to parents.
       propagateInheritedMethods(inheritanceMap, methods, parent, parentMethods, finished);
       // extend the map with parents
-      currentMethods.addAll(parentMethods);
+      if (parentMethods != null) {
+        currentMethods.addAll(parentMethods); //TODO: Is ok for parentMethods to be null?
+      }
     }
   }
 
@@ -183,7 +205,7 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     Set<SuperCallSite> superCallSites = collectMethodsWithSuper();
     Set<String> superCallSitesDescs = new HashSet<>();
     superCallSites.forEach(
-      i -> superCallSitesDescs.add(i.getCu() + "/" + i.getMethodDecl()));  // convert to strings
+      i -> superCallSitesDescs.add(i.getCu() + "/" + i.getMethodDeclaration()));
 
     Multimap<String, ContractElement> removed = ArrayListMultimap.create();
 
@@ -226,9 +248,11 @@ public class SubtypeDiffExtractor implements DiffExtractor {
       String key = getIndexKey(pc.getProgramVersion(), pc.getCuName(), pc.getMethodDeclaration());
       if (done.add(key)) {
 
-        ClassAndVersion subClass = new ClassAndVersion(pc.getProgramVersion(),
+        ClassAndVersion subClass = new ClassAndVersion(
           SubtypeDiffKeys.EMPTY_CLASS_NAME.getKey(),
-          pc.getCuName());
+          pc.getCuName(),
+          pc.getProgramVersion()
+        );
         Set<ClassAndVersion> parents = inheritanceMap.get(subClass);
         List<ContractElement> constraints2 = constraintIndex.get(key);
 
@@ -262,10 +286,6 @@ public class SubtypeDiffExtractor implements DiffExtractor {
 
     outputResultsToConsole(total, contractElements, numberRemoved, removed);
     return results;
-  }
-
-  private void countContractElementsAndRemovedOnes() {
-
   }
 
   private ListMultimap<String, ContractElement> getConstraintsIndexByMethodOrClass(

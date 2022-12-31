@@ -1,6 +1,8 @@
 package contractstudy.model;
 
 import contractstudy.ProgramVersion;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -9,36 +11,25 @@ import java.util.Objects;
 /**
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
+@AllArgsConstructor
+@Getter
 public class ClassAndVersion {
 
   private final String className;
   private final String cuName;
   private final ProgramVersion programVersion;
 
-  public ClassAndVersion(
-    final ProgramVersion programVersion,
-    final String className,
-    final String cuName) {
-
-    this.className = className;
-    this.cuName = cuName;
-    this.programVersion = programVersion;
-  }
-
-
   public static ClassAndVersion create(
     final String programName,
     final String programVersion,
     final String className,
     final String cuName) {
-
     ProgramVersion v = ProgramVersion.getOrCreate(programName, programVersion);
-    return new ClassAndVersion(v, className, cuName);
+    return new ClassAndVersion(className, cuName, v);
   }
 
   public static ClassAndVersion fromJson(String json) throws IOException {
     JSONObject o = new JSONObject(json);
-
     return create(
       o.getString("programName"),
       o.getString("programVersion"),
@@ -47,25 +38,12 @@ public class ClassAndVersion {
     );
   }
 
-  public String getClassName() {
-    return className;
-  }
-
-  public ProgramVersion getProgramVersion() {
-    return programVersion;
-  }
-
-  public String getCuName() {
-    return cuName;
-  }
-
   public String toJson() {
     JSONObject o = new JSONObject();
     o.put("className", className);
     o.put("cuName", cuName);
     o.put("programName", programVersion.getName());
     o.put("programVersion", programVersion.getVersion());
-
     return o.toString();
   }
 

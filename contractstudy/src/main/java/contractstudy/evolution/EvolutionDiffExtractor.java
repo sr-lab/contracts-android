@@ -88,7 +88,7 @@ public class EvolutionDiffExtractor implements DiffExtractor {
       } else {
         if (!pv.getVersion().equals(pv2.getVersion())) {
           // cross-reference
-          pv.setNextVersion(pv2);
+          pv.setNextVersion(pv2); //TODO: Does version 1 and version 2 get correctly set?
           pv2.setPreviousVersion(pv); // double link !
           LOGGER.info("Upgrade " + " detected: " + pv + " -> " + pv2);
           pv = pv2;
@@ -215,9 +215,8 @@ public class EvolutionDiffExtractor implements DiffExtractor {
     for (File project : listProjects(INPUT_STRUCTS_FOLDER)) {
       for (File json : listJsons(project)) {
 
-        String projectName = project.getName();
-        String versionName = json.getName()
-          .substring(projectName.length() + 1, json.getName().lastIndexOf("-"));
+        String projectName = getProjectNameFromStructFolder(project);
+        String versionName = getProjectVersionFromStructFolder(project);
         ProgramVersion pv = ProgramVersion.getOrCreate(projectName, versionName);
 
         Multimap<String, String> methodsByCU = methodsByPVandCU.compute(pv,
@@ -237,6 +236,16 @@ public class EvolutionDiffExtractor implements DiffExtractor {
       }
     }
     return methodsByPVandCU;
+  }
+
+  private static String getProjectNameFromStructFolder(File projectZipFolder) {
+    return projectZipFolder.getName()
+      .substring(0, projectZipFolder.getName().lastIndexOf("-"));
+  }
+
+  private static String getProjectVersionFromStructFolder(File projectZipFolder) {
+    return projectZipFolder.getName()
+      .substring(projectZipFolder.getName().lastIndexOf("-") + 1, projectZipFolder.getName().lastIndexOf(".zip"));
   }
 
 }

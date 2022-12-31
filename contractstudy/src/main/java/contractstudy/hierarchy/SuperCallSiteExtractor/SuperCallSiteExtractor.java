@@ -35,7 +35,7 @@ public class SuperCallSiteExtractor extends VoidVisitorAdapter<Object> {
         default:
       }
     } catch (Exception t) {
-      System.out.println("Error"); // TODO: Improve.
+      System.out.println("Error while analysing SuperCallSiteExtract for " + cuName);
     }
   }
 
@@ -54,7 +54,7 @@ public class SuperCallSiteExtractor extends VoidVisitorAdapter<Object> {
     ProgramVersion programVersion,
     String cuName) throws IOException {
     String src = new InputStreamToStringConversion(in).getResult();
-    PsiFile psiFile = new KotlinParser().createKtFile("", src);
+    PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
     MethodVisitorToCollectSuperCallKotlin visitor = new MethodVisitorToCollectSuperCallKotlin(
       cuName, programVersion, superCallSites);
     psiFile.accept(visitor);

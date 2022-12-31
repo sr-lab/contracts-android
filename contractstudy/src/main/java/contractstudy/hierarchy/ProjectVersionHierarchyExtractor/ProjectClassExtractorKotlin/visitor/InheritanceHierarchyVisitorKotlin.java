@@ -13,6 +13,7 @@ import org.jetbrains.kotlin.psi.KtSuperTypeListEntry;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class InheritanceHierarchyVisitorKotlin extends ClassDefinitionVisitorKotlin implements
@@ -44,12 +45,18 @@ public class InheritanceHierarchyVisitorKotlin extends ClassDefinitionVisitorKot
 
   @Override
   public void visitImportDirective(@NotNull KtImportDirective importDirective) {
-    String importedName = importDirective.getImportedName().toString();
-    if (KotlinParserUtils.doesImportDirectiveContainsWildCard(importDirective)) {
-      importedName += ".*";
+    String importedName = "";
+    try {
+      importedName = Objects.requireNonNull(importDirective.getImportedName()).toString();
+    } catch (NullPointerException e) {
+      if (KotlinParserUtils.doesImportDirectiveContainsWildCard(importDirective)) {
+        importedName += ".*";
+      }
     }
-    packages.add(importedName);
-    super.visitImportDirective(importDirective);
+    if (!Objects.equals(importedName, "")) {
+      packages.add(importedName);
+      super.visitImportDirective(importDirective);
+    }
   }
 
   @Override

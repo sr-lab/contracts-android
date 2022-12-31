@@ -104,19 +104,13 @@ public class SourceClassFinder implements ClassFinder {
     if (packageName != null) {
       name = packageName + '.' + classSimpleName;
     }
-
     return name;
   }
 
   private ClassAndVersion createClassAndOrigin(final String className) {
     Collection<ProgramVersion> programVersions = classOrigin.get(className);
-//        if (files.size() > 1) {
-//            LOGGER.warn("More than 1 file provide a class " + className + " files: " + files);
-//        }
-
     ProgramVersion v = programVersions.toArray(new ProgramVersion[1])[0];
     String cuName = cuNames.column(v).get(className);
-
-    return new ClassAndVersion(v, className, cuName);
+    return new ClassAndVersion(className, cuName, v);
   }
 }
