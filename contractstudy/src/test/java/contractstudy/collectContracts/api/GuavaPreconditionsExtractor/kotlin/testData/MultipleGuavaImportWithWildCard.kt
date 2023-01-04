@@ -12,6 +12,7 @@ class MultipleGuavaImportWithWildCard {
     fun test2(flag: Boolean, list: List<String>) {
         checkNotNull(list, "This is an error")
         checkState(flag)
+        check(list.isEmpty())
     }
 
     fun test3(list: List<String?>?) {

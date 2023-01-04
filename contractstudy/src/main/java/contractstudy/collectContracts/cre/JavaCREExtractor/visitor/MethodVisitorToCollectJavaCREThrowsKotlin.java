@@ -1,9 +1,5 @@
 package contractstudy.collectContracts.cre.JavaCREExtractor.visitor;
 
-import com.github.javaparser.ast.expr.Expression;
-import com.github.javaparser.ast.expr.ObjectCreationExpr;
-import com.github.javaparser.ast.stmt.BlockStmt;
-import com.github.javaparser.ast.stmt.IfStmt;
 import contractstudy.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitorKotlin;
 import contractstudy.collectContracts.cre.JavaCREExtractor.constants.JavaLangCRE;
 import contractstudy.constants.constraint.ConstraintType;
@@ -12,18 +8,18 @@ import contractstudy.model.ExtractionListener;
 import contractstudy.model.ProgramVersion;
 import contractstudy.utils.kotlinParser.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.kotlin.com.intellij.psi.PsiElement;
 import org.jetbrains.kotlin.psi.KtBlockExpression;
 import org.jetbrains.kotlin.psi.KtIfExpression;
 import org.jetbrains.kotlin.psi.KtThrowExpression;
 
+import java.util.Objects;
+
 /**
  * Visitor for method nodes in the AST.
- *
- * @author jens dietrich
  */
 @SuppressWarnings("rawtypes")
-public class MethodVisitorToCollectJavaCREThrowsKotlin extends
-  AbstractMethodVisitorKotlin {
+public class MethodVisitorToCollectJavaCREThrowsKotlin extends AbstractMethodVisitorKotlin {
 
   public MethodVisitorToCollectJavaCREThrowsKotlin(
     ExtractionListener<ContractElement> consumer,
@@ -34,7 +30,6 @@ public class MethodVisitorToCollectJavaCREThrowsKotlin extends
 
   @Override
   public void visitThrowExpression(@NotNull KtThrowExpression expression) {
-
     if (!isCRE(expression)) {
       return;
     }
@@ -45,55 +40,37 @@ public class MethodVisitorToCollectJavaCREThrowsKotlin extends
 
     if (kind != null) {
 
-      //TODO: Get condition in if-statement.
-      // TODO: String additionalInfo = extractArguments(objCreationNode);
+      String ifStatementCondition = extractIfStatementArguments(expression);
+      String throwArguments = extractThrowArguments(expression);
 
       ContractElement p = initConstraint();
 
       p.setProgramVersion(ProgramVersion.getOrCreate(programName, this.version));
       p.setCuName(this.cuName);
       p.setMethodDeclaration(this.methodDeclaration);
-      p.setCondition("TODO:condition"); //TODO
+      p.setCondition(ifStatementCondition);
       p.setKind(kind);
       p.setLineNo(KotlinParserUtils.getElementBeginLine(expression));
-      p.setAdditionalInfo("TODO:additionalInfo"); //TODO
+      p.setAdditionalInfo(throwArguments);
 
       consumer.constraintFound(p);
     }
-
+    super.visitThrowExpression(expression);
   }
 
 
   /**
-   * look for the following pattern: if (<condition>) throw new <exception>(<args>);
+   * Look for the following pattern: if (<condition>) throw new <exception>(<args>); or if
+   * (<condition>) { throw new <exception>(<args>) };
    */
   private boolean isCRE(KtThrowExpression n) {
-    boolean flag = (isObjectCreationExpr(n) &&
-      (isParentAnIfStatement(n) || (isParentAnBlockStatement(n) && isGrandFatherAnIfStatement(n))));
-    return flag;
-  }
-
-  private boolean isObjectCreationExpr(KtThrowExpression n) {
-    return n.getNode().getElementType().getDebugName().equals("THROW"); //TODO: CHECK?
-  }
-
-  private boolean isParentAnIfStatement(KtThrowExpression n) {
-    return n.getNode().getTreeParent() instanceof KtIfExpression; //TODO: CHECK?
-  }
-
-  private boolean isParentAnBlockStatement(KtThrowExpression n) {
-    return n.getNode().getTreeParent() instanceof KtBlockExpression;
-  }
-
-  private boolean isGrandFatherAnIfStatement(KtThrowExpression n) {
-    return n.getNode().getTreeParent().getTreeParent().getTreeParent().getElementType()
-      .getDebugName().equals("IF"); //TODO: CHECK?
-  }
-
-  private KtIfExpression getConditionNode(KtThrowExpression n) {
-    return n.getNode().getTreeParent() instanceof KtBlockExpression ?
-      (KtIfExpression) n.getNode().getTreeParent().getTreeParent()
-      : (KtIfExpression) n.getNode().getTreeParent(); // TODO: Fix
+    PsiElement parent = n.getParent();
+    PsiElement grandParent = parent.getParent();
+    PsiElement grandGrandParent = grandParent.getParent();
+    return (
+      (grandParent instanceof KtIfExpression) ||
+        (parent instanceof KtBlockExpression && grandGrandParent instanceof KtIfExpression)
+    );
   }
 
   private String getExceptionName(KtThrowExpression n) {
@@ -106,34 +83,31 @@ public class MethodVisitorToCollectJavaCREThrowsKotlin extends
       name = n.getNode().getLastChildNode().getText()
         .substring(n.getNode().getLastChildNode().getText().indexOf("."), name.length());
     }
-    return name; //TODO: Check.
+    return name;
   }
 
-  private String extractCondition(IfStmt condNode) {
-    String cond = condNode.getCondition().removeComment().toString();
-
-    // if the parent is another conditional, prepend this
-    if (condNode.getParentNode().isPresent() && condNode.getParentNode().get() instanceof BlockStmt
-      && condNode.getParentNode().get().getParentNode().get() instanceof IfStmt) { // JFF
-      String pcond = extractCondition(
-        ((IfStmt) condNode.getParentNode().get().getParentNode().get())); // JFF
-      cond = pcond + " && " + cond;
-    }
-
-    return cond;
+  private String extractThrowArguments(KtThrowExpression expression) {
+    String throwArguments = expression.getText().substring(
+      expression.getText().indexOf("(") + 1,
+      expression.getText().lastIndexOf(")")
+    );
+    return throwArguments;
   }
 
-  private String extractArguments(ObjectCreationExpr objCreationNode) {
-    StringBuilder b = new StringBuilder();
-    if (objCreationNode.getArguments() != null) { // JFF
-      for (Expression expr : objCreationNode.getArguments()) {
-        if (b.length() > 0) {
-          b.append(',');
+  private String extractIfStatementArguments(KtThrowExpression expression) {
+    PsiElement element = expression.getParent();
+    while (element != null) {
+      if (element instanceof KtIfExpression) {
+        KtIfExpression ifExpression = (KtIfExpression) element;
+        try {
+          return Objects.requireNonNull(ifExpression.getCondition()).getText();
+        } catch (NullPointerException exception) {
+          return "ERROR WHILE GETTING IF CONDITION";
         }
-        b.append(expr.toString());
       }
+      element = element.getParent();
     }
-    return b.toString();
+    return "NONE";
   }
 
 }
