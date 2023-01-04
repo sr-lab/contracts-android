@@ -18,9 +18,8 @@ class MultipleJavaCRE {
     }
 
     fun test3(list: List<String?>) {
-        if (list.size < 5) {
+        if (list.size < 5)
             throw IndexOutOfBoundsException("Smaller than 5")
-        }
         throw DateTimeException("This is not an JavaCRE")
     }
 }

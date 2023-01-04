@@ -51,7 +51,7 @@ public class MethodVisitorToCollectJavaCREThrows extends AbstractMethodVisitor {
       p.setMethodDeclaration(this.methodDeclaration);
       p.setCondition(condition);
       p.setKind(kind);
-      p.setLineNo(n.getBegin().get().line); // JFF
+      p.setLineNo(n.getBegin().get().line);
       p.setAdditionalInfo(additionalInfo);
 
       consumer.constraintFound(p);
@@ -60,7 +60,8 @@ public class MethodVisitorToCollectJavaCREThrows extends AbstractMethodVisitor {
   }
 
   /**
-   * look for the following pattern: if (<condition>) throw new <exception>(<args>);
+   * Look for the following pattern: if (<condition>) throw new <exception>(<args>); or if
+   * (<condition>) { throw new <exception>(<args>) };
    */
   private boolean isCRE(ThrowStmt n) {
     return (isObjectCreationExpr(n) &&
