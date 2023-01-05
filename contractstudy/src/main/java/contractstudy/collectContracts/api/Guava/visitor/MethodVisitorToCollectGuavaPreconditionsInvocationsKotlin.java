@@ -3,6 +3,7 @@ package contractstudy.collectContracts.api.Guava.visitor;
 import contractstudy.collectContracts.api.Guava.constants.GuavaEnum;
 import contractstudy.collectContracts.common.MethodVisitorToCollectInvocations.MethodVisitorToCollectInvocationsKotlin;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
+import contractstudy.collectContracts.common.Utils;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.ProgramVersion;
@@ -41,7 +42,8 @@ public class MethodVisitorToCollectGuavaPreconditionsInvocationsKotlin extends
     int methodCallLine = KotlinParserUtils.getElementBeginLine(expression);
     //Expression expr = callExpr.getScope().orElse(null);
     //String scope = expr == null ? null : expr.toString(); //TODO: Get scope.
-    List<KtValueArgument> args = expression.getValueArguments(); //TODO: Get arguments values.
+    List<KtValueArgument> args = expression.getValueArguments();
+    String argumentMessage = Utils.getMessageFromArguments(args);
 
     ContractElement p = initConstraint();
     p.setProgramVersion(ProgramVersion.getOrCreate(programName, this.version));
@@ -52,30 +54,30 @@ public class MethodVisitorToCollectGuavaPreconditionsInvocationsKotlin extends
     //      "com.google.common.base.Preconditions")
     if (args.size() > 0) {
       GuavaEnum guava = GuavaEnum.getEnumValueFromMethodName(methodName);
-      p.setKind(guava.constraintType);
-      switch (guava) {
-        case CHECK_ARGUMENT:
-        case CHECK_STATE:
-          p.setCondition(args.get(0).toString());
-          //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 1));
-          break;
-        case ELEMENT_INDEX:
-        case POSITION_INDEX:
-          p.setCondition("0<=" + args.get(0) + "<" + args.get(1));
-          //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 2));
-          break;
-        case NOT_NULL:
-          p.setCondition(args.get(0) + "!=null");
-          //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 1));
-          break;
-        case POSITION_INDEXES:
-          p.setCondition("0<=" + args.get(0) + "<=" + args.get(1) + "<=" + args.get(2));
-          p.setAdditionalInfo("");
-          break;
+      if (guava != null) {
+        p.setKind(guava.constraintType);
+        switch (guava) {
+          case CHECK_ARGUMENT:
+          case CHECK_STATE:
+            p.setCondition(args.get(0).getText());
+            p.setAdditionalInfo(argumentMessage);
+            break;
+          case ELEMENT_INDEX:
+          case POSITION_INDEX:
+            p.setCondition("0<=" + args.get(0).getText() + "<" + args.get(1).getText());
+            p.setAdditionalInfo(argumentMessage);
+            break;
+          case NOT_NULL:
+            p.setCondition(args.get(0).getText() + "!=null");
+            p.setAdditionalInfo(argumentMessage);
+            break;
+          case POSITION_INDEXES:
+            p.setCondition("0<=" + args.get(0).getText() + "<=" + args.get(1).getText() + "<=" + args.get(2).getText());
+            p.setAdditionalInfo("");
+            break;
+        }
+        consumer.constraintFound(p);
       }
-      consumer.constraintFound(p);
     }
-
   }
-
 }

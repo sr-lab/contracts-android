@@ -15,7 +15,7 @@ class MultipleCommonsValidate2(name: String) {
     fun test2(flag: Boolean, list: List<String?>?) {
         Validate.isTrue(flag, "Flag is not true")
         Validate.notNull(list)
-        Validate.allElementsOfType(list, String::class.java)
+        Validate.allElementsOfType(list, String::class.java, "Message")
     }
 
     fun test3(list: List<String?>?) {

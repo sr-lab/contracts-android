@@ -34,24 +34,25 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
     String programName, String version,
     String cuName, StaticImportState importState, Map<String, ConstraintType> map) {
     super(consumer, programName, version, cuName);
-
     this.importState = importState;
     this.map = map;
   }
 
   @Override
   public void visit(NormalAnnotationExpr n, Object arg) {
-    //String name = n.getName().getName();
     String name = n.getName().getIdentifier(); // JFF: FIXME?
     ConstraintType constraintType = map.get(name);
     if (constraintType != null && importState == StaticImportState.CLASS) {
       String condition = n.getPairs().toString();
       ConstraintedArtefact artefact = getConstraintArtefact(n);
-      //ContractElement p = create(ProgramVersion.getOrCreate(programName, version), cuName, constraintType,
-      //        condition, n.getBeginLine(), artefact);
-      ContractElement p = create(ProgramVersion.getOrCreate(programName, version), cuName,
+      ContractElement p = create(
+        ProgramVersion.getOrCreate(programName, version),
+        cuName,
         constraintType,
-        condition, n.getBegin().get().line, artefact);
+        condition,
+        n.getBegin().get().line,
+        artefact
+      );
       consumer.constraintFound(p);
     }
     super.visit(n, arg);
@@ -59,7 +60,6 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
 
   @Override
   public void visit(SingleMemberAnnotationExpr n, Object arg) {
-    //String name = n.getName().getName();
     String name = n.getName().getIdentifier(); // JFF: FIXME?
     ConstraintType constraintType = map.get(name);
     if (constraintType == null) {
@@ -69,14 +69,16 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
       constraintType = map.get(name.replace('.', '_'));
     }
     if (constraintType != null && importState == StaticImportState.CLASS) {
-      //String condition = n.getMemberValue().toStringWithoutComments();
       String condition = n.getMemberValue().removeComment().toString(); // JFF: FIXME?
       ConstraintedArtefact artefact = getConstraintArtefact(n);
-      //ContractElement p = create(ProgramVersion.getOrCreate(programName, version), cuName, constraintType,
-      //        condition, n.getBeginLine(), artefact);
-      ContractElement p = create(ProgramVersion.getOrCreate(programName, version), cuName,
+      ContractElement p = create(
+        ProgramVersion.getOrCreate(programName, version),
+        cuName,
         constraintType,
-        condition, n.getBegin().get().line, artefact);
+        condition,
+        n.getBegin().get().line,
+        artefact
+      );
       consumer.constraintFound(p);
     }
     super.visit(n, arg);
@@ -84,28 +86,22 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
 
   @Override
   public void visit(MarkerAnnotationExpr n, Object arg) {
-
-    //String name = n.getName().getName();
     String name = n.getName().getIdentifier(); // JFF: FIXME?
     ConstraintType constraintType = map.get(name);
     if (constraintType != null && importState == StaticImportState.CLASS) {
       ConstraintedArtefact artefact = getConstraintArtefact(n);
-      //ContractElement p = create(ProgramVersion.getOrCreate(programName, version), cuName, constraintType, "",
-      //        n.getBeginLine(), artefact);
-      ContractElement p = create(ProgramVersion.getOrCreate(programName, version), cuName,
-        constraintType, "",
-        n.getBegin().get().line, artefact);
+      ContractElement p = create(
+        ProgramVersion.getOrCreate(programName, version),
+        cuName,
+        constraintType,
+        "",
+        n.getBegin().get().line,
+        artefact
+      );
       consumer.constraintFound(p);
     }
     super.visit(n, arg);
   }
-
-  /*
-   * @Override public void visit(SuppressLint n, Object arg){
-   *
-   * String name = n.getName().getName(); ConstraintType constraintType =
-   * map.get(name); }
-   */
 
   private ContractElement create(ProgramVersion programVersion, String cuName,
     ConstraintType constraintType,
@@ -122,7 +118,6 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
   }
 
   private ConstraintedArtefact getConstraintArtefact(AnnotationExpr annotationNode) {
-    //Node node = annotationNode.getParentNode();
     Node node = annotationNode.getParentNode().orElse(null); //JFF: FIXME?
     if (node instanceof MethodDeclaration) {
       return ConstraintedArtefact.METHOD;

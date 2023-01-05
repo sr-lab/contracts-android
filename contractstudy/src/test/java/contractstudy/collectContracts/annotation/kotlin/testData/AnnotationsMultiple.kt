@@ -1,4 +1,4 @@
-package contractstudy.collectContracts.abstractAnnotationExtractor.kotlin.testData
+package contractstudy.collectContracts.annotation.kotlin.testData
 
 import javax.validation.constraints.Max
 import javax.validation.constraints.Min

@@ -3,6 +3,7 @@ package contractstudy.collectContracts.api.CommonsValidate.CommonsValidate2.visi
 import contractstudy.collectContracts.api.CommonsValidate.CommonValidateBase.MethodVisitorToCollectCommonsValidateInvocationsKotlin;
 import contractstudy.collectContracts.api.CommonsValidate.constants.CommonsValidate2Enum;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
+import contractstudy.collectContracts.common.Utils;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.ProgramVersion;
@@ -18,8 +19,6 @@ import java.util.Objects;
 /**
  * Visitor for method nodes in the AST. Used to extract API calls to
  * org.apache.commons.lang.Validate.
- *
- * @author jens dietrich
  */
 @SuppressWarnings("rawtypes")
 public class MethodVisitorToCollectCommons2ValidateInvocationsKotlin extends
@@ -34,7 +33,6 @@ public class MethodVisitorToCollectCommons2ValidateInvocationsKotlin extends
     Collection<String> staticallyImportedMethodNames
   ) {
     super(consumer, programName, version, cuName, importState, staticallyImportedMethodNames);
-
   }
 
   // look for patterns only supported by lang2
@@ -45,7 +43,8 @@ public class MethodVisitorToCollectCommons2ValidateInvocationsKotlin extends
 
     //Expression expr = callExpr.getScope().orElse(null);
     //String scope = expr == null ? null : expr.toString(); //TODO: Get scope.
-    List<KtValueArgument> args = expression.getValueArguments(); //TODO: Get arguments.
+    List<KtValueArgument> args = expression.getValueArguments();
+    String argumentMessage = Utils.getMessageFromArguments(args);
 
     ContractElement p = initConstraint();
     p.setProgramVersion(ProgramVersion.getOrCreate(programName, this.version));
@@ -58,9 +57,8 @@ public class MethodVisitorToCollectCommons2ValidateInvocationsKotlin extends
       if (commonsValidate2 != null) {
         p.setKind(commonsValidate2.constraintType);
         p.setCondition(
-          "all of " + args.get(0).toString() + " instanceOf " + args.get(1)
-            .toString()); //TODO: GET arguments value.
-        //p.setAdditionalInfo(encodeMessageArgs(args, 2)); //TODO: Get additional info.
+          "all of " + args.get(0).getText() + " instanceOf " + args.get(1).getText());
+        p.setAdditionalInfo(argumentMessage);
         consumer.constraintFound(p);
       }
     }
