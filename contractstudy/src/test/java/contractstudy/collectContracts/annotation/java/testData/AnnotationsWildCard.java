@@ -1,11 +1,11 @@
-package contractstudy.collectContracts.abstractAnnotationExtractor.java.testData;
+package contractstudy.collectContracts.annotation.java.testData;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class AnnotationsMultiple {
+public class AnnotationsWildCard {
 
   @NotNull
   private final String manufacturer;
@@ -17,7 +17,7 @@ public class AnnotationsMultiple {
   @Min(2)
   private final int seatCount;
 
-  public AnnotationsMultiple(String manufacturer, String licencePlate, int seatCount) {
+  public AnnotationsWildCard(String manufacturer, String licencePlate, int seatCount) {
     this.manufacturer = manufacturer;
     this.licensePlate = licencePlate;
     this.seatCount = seatCount;

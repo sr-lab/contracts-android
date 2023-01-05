@@ -3,6 +3,7 @@ package contractstudy.collectContracts.api.SpringAssert.visitor;
 import contractstudy.collectContracts.api.SpringAssert.constants.SpringAssertEnum;
 import contractstudy.collectContracts.common.MethodVisitorToCollectInvocations.MethodVisitorToCollectInvocationsKotlin;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
+import contractstudy.collectContracts.common.Utils;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.ProgramVersion;
@@ -44,6 +45,7 @@ public class MethodVisitorToCollectSpringAssertInvocationsKotlin extends
     //Expression expr = callExpr.getScope().orElse(null);
     //String scope = expr == null ? null : expr.toString(); //TODO: Get scope.
     List<KtValueArgument> args = expression.getValueArguments(); //TODO: Get arguments.
+    String argumentMessage = Utils.getMessageFromArguments(args);
 
     ContractElement p = initConstraint();
     p.setProgramVersion(ProgramVersion.getOrCreate(programName, this.version));
@@ -57,45 +59,45 @@ public class MethodVisitorToCollectSpringAssertInvocationsKotlin extends
         p.setKind(springAssert.constraintType);
         switch (springAssert) {
           case DOES_NOT_CONTAIN:
-            p.setCondition("!" + args.get(0) + ".contains(" + args.get(1) + ")");
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 2));
+            p.setCondition("!" + args.get(0).getText() + ".contains(" + args.get(1).getText() + ")");
+            p.setAdditionalInfo(argumentMessage);
             break;
           case HAS_LENGTH:
-            p.setCondition(args.get(0) + "!=null && " + args.get(0) + ".length()>0");
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 1));
+            p.setCondition(args.get(0).getText() + "!=null && " + args.get(0).getText() + ".length()>0");
+            p.setAdditionalInfo(argumentMessage);
             break;
           case HAS_TEXT:
-            p.setCondition(args.get(0) + ".length()>0 && contains some none-whitespaces");
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 1));
+            p.setCondition(args.get(0).getText() + ".length()>0 && contains some none-whitespaces");
+            p.setAdditionalInfo(argumentMessage);
             break;
           case NOT_EMPTY:
-            p.setCondition(args.get(0) + ".size>0");
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 1));
+            p.setCondition(args.get(0).getText() + ".size>0");
+            p.setAdditionalInfo(argumentMessage);
             break;
           case NO_NULL_ELEMENTS:
-            p.setCondition(args.get(0) + " does not contain nulls");
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 1));
+            p.setCondition(args.get(0).getText() + " does not contain nulls");
+            p.setAdditionalInfo(argumentMessage);
             break;
           case IS_NULL:
-            p.setCondition(args.get(0) + " == null");
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 1));
+            p.setCondition(args.get(0).getText() + " == null");
+            p.setAdditionalInfo(argumentMessage);
             break;
           case NOT_NULL:
-            p.setCondition(args.get(0) + " != null");
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 1));
+            p.setCondition(args.get(0).getText() + " != null");
+            p.setAdditionalInfo(argumentMessage);
             break;
           case IS_INSTANCE_OF:
-            p.setCondition(args.get(1) + " instanceOf " + args.get(0));
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 2));
+            p.setCondition(args.get(1).getText() + " instanceOf " + args.get(0).getText());
+            p.setAdditionalInfo(argumentMessage);
             break;
           case IS_ASSIGNABLE:
-            p.setCondition("0<=" + args.get(0) + "<" + args.get(1));
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 2));
+            p.setCondition("0<=" + args.get(0).getText() + "<" + args.get(1).getText());
+            p.setAdditionalInfo(argumentMessage);
             break;
           case STATE:
           case IS_TRUE:
-            p.setCondition(args.get(0).toString());
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 1));
+            p.setCondition(args.get(0).getText());
+            p.setAdditionalInfo(argumentMessage);
             break;
         }
         consumer.constraintFound(p);

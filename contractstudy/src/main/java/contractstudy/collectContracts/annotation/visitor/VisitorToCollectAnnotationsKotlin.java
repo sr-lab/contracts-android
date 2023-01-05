@@ -11,12 +11,15 @@ import contractstudy.utils.kotlinParser.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.com.intellij.psi.PsiElement;
 import org.jetbrains.kotlin.psi.KtAnnotationEntry;
+import org.jetbrains.kotlin.psi.KtValueArgument;
+import org.jetbrains.kotlin.psi.KtValueArgumentList;
 import org.jetbrains.kotlin.psi.stubs.elements.KtFunctionElementType;
 import org.jetbrains.kotlin.psi.stubs.elements.KtParameterElementType;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotlin {
 
@@ -40,11 +43,9 @@ public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotl
   public void visitAnnotationEntry(@NotNull KtAnnotationEntry annotationEntry) {
     ConstraintType constraintType = getConstraintTypeString(annotationEntry);
     if (constraintType != null && importState == StaticImportState.CLASS) {
-      List<?> arguments = annotationEntry.getValueArguments();
-      String condition = "2"; // TODO: Get argument value (min=2 -> 2).
+      String condition = getAnnotationCondition(annotationEntry);
       ConstraintedArtefact artefact = getConstraintArtefact(annotationEntry);
       int beginLine = KotlinParserUtils.getElementBeginLine(annotationEntry);
-
       ContractElement p = create(
         ProgramVersion.getOrCreate(programName, version),
         cuName,
@@ -52,10 +53,25 @@ public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotl
         condition,
         beginLine,
         artefact);
-
       consumer.constraintFound(p);
     }
 
+  }
+
+  private String getAnnotationCondition(KtAnnotationEntry annotationEntry) {
+    StringBuilder condition;
+    try {
+      List<KtValueArgument> arguments = Objects.requireNonNull(
+        annotationEntry.getValueArgumentList()).getArguments();
+      condition = new StringBuilder("[");
+      for (KtValueArgument argument: arguments) {
+        condition.append(" ").append(argument.getText());
+      }
+      condition.append(" ]");
+    } catch (NullPointerException exception) {
+      condition = new StringBuilder("NONE");
+    }
+    return condition.toString();
   }
 
   private ConstraintType getConstraintTypeString(KtAnnotationEntry annotationEntry) {

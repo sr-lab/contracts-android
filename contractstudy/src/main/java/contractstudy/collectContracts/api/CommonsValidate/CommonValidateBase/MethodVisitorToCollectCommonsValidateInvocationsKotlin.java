@@ -3,6 +3,7 @@ package contractstudy.collectContracts.api.CommonsValidate.CommonValidateBase;
 import contractstudy.collectContracts.api.CommonsValidate.constants.CommonsValidateCommonEnum;
 import contractstudy.collectContracts.common.MethodVisitorToCollectInvocations.MethodVisitorToCollectInvocationsKotlin;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
+import contractstudy.collectContracts.common.Utils;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.ProgramVersion;
@@ -40,6 +41,7 @@ public abstract class MethodVisitorToCollectCommonsValidateInvocationsKotlin ext
     //Expression expr = callExpr.getScope().orElse(null);
     //String scope = expr == null ? null : expr.toString(); //TODO: Get scope.
     List<KtValueArgument> args = expression.getValueArguments();
+    String argumentMessage = Utils.getMessageFromArguments(args);
 
     ContractElement p = initConstraint();
     p.setProgramVersion(ProgramVersion.getOrCreate(programName, this.version));
@@ -52,7 +54,7 @@ public abstract class MethodVisitorToCollectCommonsValidateInvocationsKotlin ext
       if (commonsValidateCommonEnum != null) {
         p.setKind(commonsValidateCommonEnum.constraintType);
         p.setCondition(args.get(0).toString());
-        //p.setAdditionalInfo(encodeMessageArgs(args, 1)); //TODO: Get additional info.
+        p.setAdditionalInfo(argumentMessage);
         consumer.constraintFound(p);
       }
     }

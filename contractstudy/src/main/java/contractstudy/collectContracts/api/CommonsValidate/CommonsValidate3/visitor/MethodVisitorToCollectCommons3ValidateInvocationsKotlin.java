@@ -3,6 +3,7 @@ package contractstudy.collectContracts.api.CommonsValidate.CommonsValidate3.visi
 import contractstudy.collectContracts.api.CommonsValidate.CommonValidateBase.MethodVisitorToCollectCommonsValidateInvocationsKotlin;
 import contractstudy.collectContracts.api.CommonsValidate.constants.CommonsValidate3Enum;
 import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
+import contractstudy.collectContracts.common.Utils;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.ProgramVersion;
@@ -31,7 +32,6 @@ public class MethodVisitorToCollectCommons3ValidateInvocationsKotlin extends
     super(consumer, programName, version, cuName, importState, staticallyImportedMethodNames);
   }
 
-  // look for patterns only supported by lang2
   @Override
   public void visitCallExpression(@NotNull KtCallExpression expression) {
     String methodCallName = Objects.requireNonNull(expression.getCalleeExpression()).getText();
@@ -39,7 +39,8 @@ public class MethodVisitorToCollectCommons3ValidateInvocationsKotlin extends
 
     //Expression expr = callExpr.getScope().orElse(null);
     //String scope = expr == null ? null : expr.toString(); //TODO: Get scope.
-    List<KtValueArgument> args = expression.getValueArguments(); //TODO: Get arguments.
+    List<KtValueArgument> args = expression.getValueArguments();
+    String argumentMessage = Utils.getMessageFromArguments(args);
 
     ContractElement p = initConstraint();
     p.setProgramVersion(ProgramVersion.getOrCreate(programName, this.version));
@@ -53,36 +54,36 @@ public class MethodVisitorToCollectCommons3ValidateInvocationsKotlin extends
         p.setKind(commonsValidate3.constraintType);
         switch (commonsValidate3) {
           case EXCLUSIVE_BETWEEN:
-            p.setCondition(args.get(0) + " < " + args.get(2) + " < " + args.get(1));
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 3));
+            p.setCondition(args.get(0).getText() + " < " + args.get(2).getText() + " < " + args.get(1).getText());
+            p.setAdditionalInfo(argumentMessage);
             break;
           case INCLUSIVE_BETWEEN:
-            p.setCondition(args.get(0) + " <= " + args.get(2) + " <= " + args.get(1));
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 3));
+            p.setCondition(args.get(0).getText() + " <= " + args.get(2).getText() + " <= " + args.get(1).getText());
+            p.setAdditionalInfo(argumentMessage);
             break;
           case IS_ASSIGNABLE_FROM:
-            p.setCondition(args.get(1) + " subtypeOf " + args.get(0));
-            //TODO:  p.setAdditionalInfo(encodeMessageArgs(args, 2));
+            p.setCondition(args.get(1).getText() + " subtypeOf " + args.get(0).getText());
+            p.setAdditionalInfo(argumentMessage);
             break;
           case MATCHES_PATTERN:
-            p.setCondition(args.get(0) + " matches " + args.get(1));
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 2));
+            p.setCondition(args.get(0).getText() + " matches " + args.get(1).getText());
+            p.setAdditionalInfo(argumentMessage);
             break;
           case IS_INSTANCE_OF:
-            p.setCondition(args.get(1) + " instanceof " + args.get(0));
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 2));
+            p.setCondition(args.get(1).getText() + " instanceof " + args.get(0).getText());
+            p.setAdditionalInfo(argumentMessage);
             break;
           case NOT_BLANK:
-            p.setCondition(args.get(0) + " is not blank");
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 1));
+            p.setCondition(args.get(0).getText() + " is not blank");
+            p.setAdditionalInfo(argumentMessage);
             break;
           case VALID_INDEX:
-            p.setCondition(args.get(1) + " is valid index in " + args.get(0));
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 2));
+            p.setCondition(args.get(1).getText() + " is valid index in " + args.get(0).getText());
+            p.setAdditionalInfo(argumentMessage);
             break;
           case VALID_STATE:
             p.setCondition(args.get(0).toString());
-            //TODO: p.setAdditionalInfo(encodeMessageArgs(args, 1));
+            p.setAdditionalInfo(argumentMessage);
             break;
         }
         consumer.constraintFound(p);
