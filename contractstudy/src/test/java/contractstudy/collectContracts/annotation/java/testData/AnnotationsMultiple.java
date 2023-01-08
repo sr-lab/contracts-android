@@ -4,6 +4,8 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AnnotationsMultiple {
 
@@ -23,7 +25,15 @@ public class AnnotationsMultiple {
     this.seatCount = seatCount;
   }
 
+  @NotNull
   public String get(@Max(5) int index) {
     return "string";
+  }
+
+  @Size(min = 1)
+  List<String> addProductToList(@NotNull String product) {
+    List<String> list = new ArrayList<>();
+    list.add(product);
+    return list;
   }
 }

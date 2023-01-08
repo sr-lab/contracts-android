@@ -34,11 +34,9 @@ public class Utils {
   }
 
   /**
-   * Tries to get the message string from a list of arguments.
-   * If message does not exist, returns "".
-   * It assumes that message is always the last argument.
-   * For example, in <<Validate.notNull(null, "Passed value is null")>>,
-   * returns "Passed value is null".
+   * Tries to get the message string from a list of arguments. If message does not exist, returns
+   * "". It assumes that message is always the last argument. For example, in
+   * <<Validate.notNull(null, "Passed value is null")>>, returns "Passed value is null".
    */
   public static String getMessageFromArguments(List<KtValueArgument> arguments) {
     String messageArgument = "";

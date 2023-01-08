@@ -59,11 +59,13 @@ public class MethodVisitorToCollectSpringAssertInvocationsKotlin extends
         p.setKind(springAssert.constraintType);
         switch (springAssert) {
           case DOES_NOT_CONTAIN:
-            p.setCondition("!" + args.get(0).getText() + ".contains(" + args.get(1).getText() + ")");
+            p.setCondition(
+              "!" + args.get(0).getText() + ".contains(" + args.get(1).getText() + ")");
             p.setAdditionalInfo(argumentMessage);
             break;
           case HAS_LENGTH:
-            p.setCondition(args.get(0).getText() + "!=null && " + args.get(0).getText() + ".length()>0");
+            p.setCondition(
+              args.get(0).getText() + "!=null && " + args.get(0).getText() + ".length()>0");
             p.setAdditionalInfo(argumentMessage);
             break;
           case HAS_TEXT:

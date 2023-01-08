@@ -21,7 +21,6 @@ public class JavaAssertVisitor extends AbstractMethodVisitor {
   @Override
   public void visit(AssertStmt n, Object arg) {
 
-    //String condition = n.getCheck().toStringWithoutComments();
     String condition = n.getCheck().removeComment().toString(); // JFF: FIXME?
     Expression message = n.getMessage().orElse(null);
     String info = null;
@@ -35,7 +34,6 @@ public class JavaAssertVisitor extends AbstractMethodVisitor {
     p.setCuName(cuName);
     p.setCondition(condition);
     p.setKind(ConstraintType.JavaAssert);
-    //p.setLineNo(n.getBeginLine());
     p.setLineNo(n.getBegin().get().line); // JFF: FIXME?
     p.setAdditionalInfo(info);
 

@@ -14,6 +14,7 @@ class AnnotationsMultiple(
     ) val seatCount: Int
 ) {
     operator fun get(@Max(5) index: Int): String {
+        require(true)
         return "string"
     }
 }

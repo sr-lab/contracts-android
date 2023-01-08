@@ -6,7 +6,7 @@ class MultipleCommonsValidate3 {
     fun test1(list: List<String>) {
         Validate.notNull<Any?>(null, "Passes value is null")
         Validate.notEmpty(list)
-        Validate.exclusiveBetween(0, 10, 5, "Message");
+        Validate.exclusiveBetween(0, 10, 5, "Message")
     }
 
     fun test2(flag: Boolean, list: List<String>) {

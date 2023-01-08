@@ -54,11 +54,15 @@ public class MethodVisitorToCollectCommons3ValidateInvocationsKotlin extends
         p.setKind(commonsValidate3.constraintType);
         switch (commonsValidate3) {
           case EXCLUSIVE_BETWEEN:
-            p.setCondition(args.get(0).getText() + " < " + args.get(2).getText() + " < " + args.get(1).getText());
+            p.setCondition(
+              args.get(0).getText() + " < " + args.get(2).getText() + " < " + args.get(1)
+                .getText());
             p.setAdditionalInfo(argumentMessage);
             break;
           case INCLUSIVE_BETWEEN:
-            p.setCondition(args.get(0).getText() + " <= " + args.get(2).getText() + " <= " + args.get(1).getText());
+            p.setCondition(
+              args.get(0).getText() + " <= " + args.get(2).getText() + " <= " + args.get(1)
+                .getText());
             p.setAdditionalInfo(argumentMessage);
             break;
           case IS_ASSIGNABLE_FROM:

@@ -72,7 +72,9 @@ public class MethodVisitorToCollectGuavaPreconditionsInvocationsKotlin extends
             p.setAdditionalInfo(argumentMessage);
             break;
           case POSITION_INDEXES:
-            p.setCondition("0<=" + args.get(0).getText() + "<=" + args.get(1).getText() + "<=" + args.get(2).getText());
+            p.setCondition(
+              "0<=" + args.get(0).getText() + "<=" + args.get(1).getText() + "<=" + args.get(2)
+                .getText());
             p.setAdditionalInfo("");
             break;
         }

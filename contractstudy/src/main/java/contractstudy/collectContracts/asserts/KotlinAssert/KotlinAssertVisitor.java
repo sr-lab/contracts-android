@@ -1,7 +1,6 @@
 package contractstudy.collectContracts.asserts.KotlinAssert;
 
 import contractstudy.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitorKotlin;
-import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.ProgramVersion;
@@ -14,7 +13,11 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * @author Kamil Jezek [kamil.jezek@verifalabs.com]
+ * Extracts constraints for Kotlin stdlib expressions: assert(), require(), requireNotNull(),
+ * check() and checkNotNull().
+ * <p>
+ * Those are not reserved keywords in Kotlin. //TODO: Currently, we don't distinguish between a call
+ * to sdtlib method or a call to a custom method with same name.
  */
 public class KotlinAssertVisitor extends AbstractMethodVisitorKotlin {
 
@@ -25,33 +28,45 @@ public class KotlinAssertVisitor extends AbstractMethodVisitorKotlin {
 
   @Override
   public void visitCallExpression(@NotNull KtCallExpression expression) {
-    if (!isExpressionAKotlinAssert(expression)) {
+    KotlinAssertExpression assertExpression = getKotlinAssertExpression(expression);
+    if (assertExpression == KotlinAssertExpression.NONE) {
       return;
     }
 
+    String lambdaMessage = getLambdaMessage(expression);
     List<KtValueArgument> arguments = expression.getValueArguments();
 
-    ContractElement p = initConstraint();
+    if (arguments.size() > 0) {
+      ContractElement p = initConstraint();
+      p.setProgramVersion(ProgramVersion.getOrCreate(programName, version));
+      p.setCuName(cuName);
+      p.setCondition(arguments.get(0).getText());
+      p.setKind(KotlinAssertExpression.getConstraintTypeBy(assertExpression));
+      p.setLineNo(KotlinParserUtils.getElementBeginLine(expression));
+      p.setAdditionalInfo(lambdaMessage);
+      consumer.constraintFound(p);
+    }
 
-    p.setProgramVersion(ProgramVersion.getOrCreate(programName, version));
-    p.setCuName(cuName);
-    p.setCondition("condition"); // TODO: GET condition.
-    p.setKind(ConstraintType.KotlinAssert);
-    p.setLineNo(KotlinParserUtils.getElementBeginLine(expression));
-    p.setAdditionalInfo("info"); // TODO: Get assert message.
-
-    consumer.constraintFound(p);
+    super.visitCallExpression(expression);
   }
 
-  private boolean isExpressionAKotlinAssert(KtCallExpression expression) {
-    // TODO: It is not distinguishing between Kotlin assert or method named assert.
-
+  private KotlinAssertExpression getKotlinAssertExpression(KtCallExpression expression) {
     try {
       String name = Objects.requireNonNull(expression.getCalleeExpression()).getText();
-      return Objects.equals(name, "assert");
+      return KotlinAssertExpression.getExpressionKeyBy(name);
     } catch (NullPointerException nullPointerException) {
-      return false;
+      return KotlinAssertExpression.NONE;
     }
+  }
+
+  private String getLambdaMessage(KtCallExpression expression) {
+    String message = "";
+    if (expression.getLambdaArguments().size() > 0) {
+      message = expression.getLambdaArguments().get(0).getText();
+      message = message.replace("{", "");
+      message = message.replace("}", "");
+    }
+    return message;
   }
 
 }
