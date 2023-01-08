@@ -7,10 +7,14 @@ import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.utils.Utils;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.io.File;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -20,11 +24,22 @@ public class TestKotlinAssertsExtractor {
   private static final File TEST_DATA_FOLDER = new File(
     Utils.getBasePathTestFolder() + "collectContracts/asserts/kotlinAssertExtractor/testData");
 
-  @Test
-  public void testJavaAssertsExtractor_whenJavaAssertsExist_expectListOfAsserts() throws Exception {
+  private static Stream<Arguments> getTestingParams() {
+    return Stream.of(
+      Arguments.of(ConstraintType.KotlinAssert, "KotlinAssertsMultiple.kt", 4),
+      Arguments.of(ConstraintType.KotlinCheck, "KotlinAssertsMultiple.kt", 1),
+      Arguments.of(ConstraintType.KotlinCheckNotNull, "KotlinAssertsMultiple.kt", 1),
+      Arguments.of(ConstraintType.KotlinRequire, "KotlinAssertsMultiple.kt", 2),
+      Arguments.of(ConstraintType.KotlinRequireNotNull, "KotlinAssertsMultiple.kt", 1));
+  }
+
+  @ParameterizedTest
+  @MethodSource("getTestingParams")
+  public void testJavaAssertsExtractor_whenJavaAssertsExist_expectListOfAsserts(
+    ConstraintType constraintType, String fileName, int constraintCount) throws Exception {
 
     //given
-    File file = new File(TEST_DATA_FOLDER, "KotlinAssertsMultiple.kt");
+    File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
     KotlinAssertExtractor kotlinAssertExtractor = new KotlinAssertExtractor();
 
@@ -36,11 +51,11 @@ public class TestKotlinAssertsExtractor {
     List<ContractElement> contractsFound = collector
       .getContractElements()
       .stream()
-      .filter(c -> c.getKind().equals(ConstraintType.KotlinAssert))
+      .filter(c -> c.getKind().equals(constraintType))
       .collect(Collectors.toList());
 
     assertNotNull(contractsFound);
-    assertEquals(3, contractsFound.size());
+    assertEquals(constraintCount, contractsFound.size());
   }
 
   @Test

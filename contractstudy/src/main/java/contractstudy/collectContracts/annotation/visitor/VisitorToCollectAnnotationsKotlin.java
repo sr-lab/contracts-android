@@ -12,7 +12,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.com.intellij.psi.PsiElement;
 import org.jetbrains.kotlin.psi.KtAnnotationEntry;
 import org.jetbrains.kotlin.psi.KtValueArgument;
-import org.jetbrains.kotlin.psi.KtValueArgumentList;
 import org.jetbrains.kotlin.psi.stubs.elements.KtFunctionElementType;
 import org.jetbrains.kotlin.psi.stubs.elements.KtParameterElementType;
 
@@ -64,7 +63,7 @@ public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotl
       List<KtValueArgument> arguments = Objects.requireNonNull(
         annotationEntry.getValueArgumentList()).getArguments();
       condition = new StringBuilder("[");
-      for (KtValueArgument argument: arguments) {
+      for (KtValueArgument argument : arguments) {
         condition.append(" ").append(argument.getText());
       }
       condition.append(" ]");

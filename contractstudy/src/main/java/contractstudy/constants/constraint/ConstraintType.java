@@ -364,6 +364,11 @@ public enum ConstraintType {
 
   JavaAssert(ConstraintGroup.ASSERTION, _UNKNOWN, TVL.MAYBE),
   KotlinAssert(ConstraintGroup.ASSERTION, _UNKNOWN, TVL.MAYBE),
+  KotlinCheck(ConstraintGroup.ASSERTION, _UNKNOWN, TVL.MAYBE),
+  KotlinCheckNotNull(ConstraintGroup.ASSERTION, _UNKNOWN, TVL.MAYBE),
+  KotlinRequire(ConstraintGroup.ASSERTION, _UNKNOWN, TVL.MAYBE),
+  KotlinRequireNotNull(ConstraintGroup.ASSERTION, _UNKNOWN, TVL.MAYBE),
+
 
   // JSR303 annotations
   JSR303Null(ConstraintGroup.ANNO_JSR303, _STANDARD_ANNOTATION, TVL.NO),
