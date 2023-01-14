@@ -84,9 +84,11 @@ public class Preferences {
   public static String getDataFolder() {
     return getStringPref("data", "data");
   }
+
   public static int getThreadCount() {
     return getIntPref("threads", Runtime.getRuntime().availableProcessors());
   }
+
   public static boolean includePrivateMethods() {
     return getBooleanPref("includeprivate", false);
   }

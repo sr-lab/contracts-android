@@ -56,9 +56,8 @@ import static contractstudy.evolution.model.diffRules.Utils.NF;
  */
 public class CollectDatasetStats implements Experiment {
 
-  private static final Logger LOGGER = Logging.getLogger(CollectDatasetStats.class);
   final static File RESULTS_FOLDER = new File(Preferences.getOutputFolder());
-
+  private static final Logger LOGGER = Logging.getLogger(CollectDatasetStats.class);
 
   public static void main(String[] args) throws Exception {
 

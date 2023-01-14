@@ -54,10 +54,9 @@ import java.util.zip.ZipFile;
  */
 public class CollectContracts implements Experiment {
 
-  static Logger LOGGER = Logging.getLogger(CollectContracts.class);
-  final static File DATA_FOLDER =  new File(Preferences.getDataFolder());
+  final static File DATA_FOLDER = new File(Preferences.getDataFolder());
   final static File OUTPUT_FOLDER = ArtefactFactory.USAGE_CONTRACTS_FOLDER;
-
+  static Logger LOGGER = Logging.getLogger(CollectContracts.class);
   /*
   // TODO: Check if this true for Kotlin too.
   new LombokExtractor() is not added since at designtime (pre-compilation) lombok

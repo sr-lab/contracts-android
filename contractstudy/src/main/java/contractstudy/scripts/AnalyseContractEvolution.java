@@ -1,7 +1,6 @@
 package contractstudy.scripts;
 
 import contractstudy.config.Logging;
-import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.evolution.EvolutionDiffExtractor;
 import contractstudy.evolution.constants.DiffResult;
@@ -33,7 +32,6 @@ import static contractstudy.evolution.model.diffRules.Utils.NF;
 
 public class AnalyseContractEvolution implements Experiment {
 
-  static Logger LOGGER = Logging.getLogger(AnalyseContractEvolution.class);
   final static File RESULTS_FOLDER = ArtefactFactory.RESULTS_EVOLUTION_FOLDER;
   final static Map<DiffResult, File> LOG_FILES = new HashMap<>() {
     {
@@ -42,6 +40,7 @@ public class AnalyseContractEvolution implements Experiment {
       put(DiffResult.CANNOT_BE_CLASSIFIED, ArtefactFactory.EVOLUTION_CONTRACTS_NOT_CLASSIFIED);
     }
   };
+  static Logger LOGGER = Logging.getLogger(AnalyseContractEvolution.class);
 
   public static void main(String[] args) throws Exception {
     RESULTS_FOLDER.mkdirs();

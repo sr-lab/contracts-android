@@ -1,9 +1,0 @@
-PRECONDITION_ADDED
-version 1: greenaddress-abcore-0
-version 2: greenaddress-abcore-1
-compilation unit: app/src/main/java/com/greenaddress/abcore/AppCompatPreferenceActivity.java
-method: setContentView(int)
-constraints in greenaddress-abcore-0
-constraints in greenaddress-abcore-1
-	AndroidXLayoutRes condition: "" , add info: -
-

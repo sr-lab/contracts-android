@@ -3,7 +3,6 @@ package contractstudy.scripts;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import contractstudy.config.Logging;
-import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ConstraintCategory;
 import contractstudy.constants.constraint.ConstraintClassification;
 import contractstudy.constants.constraint.ConstraintGroup;
@@ -22,7 +21,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
@@ -46,9 +44,9 @@ import static contractstudy.evolution.model.diffRules.Utils.NF;
  */
 public class AnalyseContractUsage implements Experiment {
 
-  static Logger LOGGER = Logging.getLogger(AnalyseContractUsage.class);
   final static File INPUT_DATA_FOLDER = ArtefactFactory.USAGE_CONTRACTS_FOLDER;
   final static File OUTPUT_GINI_FOLDER = ArtefactFactory.USAGE_GINI_FOLDER;
+  static Logger LOGGER = Logging.getLogger(AnalyseContractUsage.class);
 
   public static void main(String[] args) throws Exception {
 

@@ -50,8 +50,8 @@ import static contractstudy.constants.SetStatsDataKeys.PUBLIC_METHODS;
  */
 public class CollectProgramVersionStats implements Experiment {
 
-  private static final Logger LOGGER = Logging.getLogger(CollectProgramVersionStats.class);
   final static File DATA_FOLDER = new File(Preferences.getDataFolder());
+  private static final Logger LOGGER = Logging.getLogger(CollectProgramVersionStats.class);
 
   public static void main(String[] args) throws Exception {
 

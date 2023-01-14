@@ -37,9 +37,8 @@ import java.util.zip.ZipFile;
  */
 public class CollectInvocationViaSuper implements Experiment {
 
-  private static final Logger LOGGER = Logging.getLogger(CollectInvocationViaSuper.class);
   final static File DATA_FOLDER = new File(Preferences.getDataFolder());
-
+  private static final Logger LOGGER = Logging.getLogger(CollectInvocationViaSuper.class);
 
   public static void main(String[] args) throws Exception {
     int THREAD_COUNT = Preferences.getThreadCount();

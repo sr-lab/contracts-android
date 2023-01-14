@@ -2,9 +2,7 @@ package contractstudy.scripts;
 
 import com.google.common.base.Preconditions;
 import contractstudy.config.Logging;
-import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.evolution.constants.DiffResult;
 import contractstudy.model.FindFirstAndLastProgramVersions;
 import contractstudy.model.ProgramVersion;
 import contractstudy.scripts.model.ArtefactFactory;
@@ -45,8 +43,8 @@ import static contractstudy.constants.SetStatsDataKeys.PUBLIC_METHODS;
  */
 public class AnalyseContractUsageAcrossVersions implements Experiment {
 
-  static Logger LOGGER = Logging.getLogger(AnalyseContractUsageAcrossVersions.class);
   static final File INPUT_DATA_FOLDER = ArtefactFactory.USAGE_CONTRACTS_FOLDER;
+  static Logger LOGGER = Logging.getLogger(AnalyseContractUsageAcrossVersions.class);
 
   public static void main(String[] args) throws Exception {
     new AnalyseContractUsageAcrossVersions().run();
@@ -124,7 +122,7 @@ public class AnalyseContractUsageAcrossVersions implements Experiment {
 
   public void outputResultsToCSVFile(
     Pair<Map<String, ProgramVersion>,
-    Map<String, ProgramVersion>> firstAndLatestVersions,
+      Map<String, ProgramVersion>> firstAndLatestVersions,
     Map<ProgramVersion, Map<String, Integer>> metrics,
     Map<ProgramVersion, Integer> constraintsInFirstVersions,
     Map<ProgramVersion, Integer> constraintsInLastVersions

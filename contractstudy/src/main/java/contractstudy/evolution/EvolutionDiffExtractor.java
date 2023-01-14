@@ -176,7 +176,6 @@ public class EvolutionDiffExtractor implements DiffExtractor {
         + removed.size());
     LOGGER.info("Number of used constraints: " + results.size());
 
-
     try {
       FileOutputStream errors = new FileOutputStream(ArtefactFactory.EVOLUTION_EVOLUTION_ERROR);
       for (ContractElement record : removed) {
@@ -190,7 +189,6 @@ public class EvolutionDiffExtractor implements DiffExtractor {
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
-
 
     return results;
   }

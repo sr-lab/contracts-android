@@ -34,9 +34,6 @@ import static contractstudy.evolution.model.diffRules.Utils.NF;
  */
 public class AnalyseHierarchyContracts implements Experiment {
 
-  private static final Logger LOGGER = Logging.getLogger(AnalyseHierarchyContracts.class);
-  private static final File RESULTS_FOLDER = new File(Preferences.getOutputFolder());
-
   final static Map<DiffResult, File> LOG_FILES = new HashMap<>() {
     {
       put(DiffResult.POSTCONDITION_REMOVED, ArtefactFactory.INHERITANCE_POST_CONDITION_REMOVED);
@@ -44,6 +41,8 @@ public class AnalyseHierarchyContracts implements Experiment {
       put(DiffResult.CANNOT_BE_CLASSIFIED, ArtefactFactory.INHERITANCE_CONTRACTS_NOT_CLASSIFIED);
     }
   };
+  private static final Logger LOGGER = Logging.getLogger(AnalyseHierarchyContracts.class);
+  private static final File RESULTS_FOLDER = new File(Preferences.getOutputFolder());
 
   public static void main(String[] args) throws Exception {
     FileUtils.forceMkdir(RESULTS_FOLDER);
