@@ -11,6 +11,7 @@ import contractstudy.evolution.model.DiffExtractor;
 import contractstudy.evolution.model.DiffRecord;
 import contractstudy.evolution.model.diffRules.Utils;
 import contractstudy.model.ProgramVersion;
+import contractstudy.scripts.model.ArtefactFactory;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
@@ -18,6 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -41,9 +43,8 @@ import static contractstudy.utils.CorpusUtils.listJsons;
  */
 public class EvolutionDiffExtractor implements DiffExtractor {
 
-  private static final File INPUT_STRUCTS_FOLDER = new File(Preferences.getOutputStructureFolder());
-  private static final File INPUT_CONTRACTS_FOLDER = new File(
-    Preferences.getOutputContractsFolder());
+  private static final File INPUT_STRUCTS_FOLDER = ArtefactFactory.INHERITANCE_STRUCTURE_FOLDER;
+  private static final File INPUT_CONTRACTS_FOLDER = ArtefactFactory.USAGE_CONTRACTS_FOLDER;
   private static final File RESULT_FOLDER = new File(Preferences.getOutputFolder());
   static Logger LOGGER = Logging.getLogger(EvolutionDiffExtractor.class);
 
@@ -175,15 +176,21 @@ public class EvolutionDiffExtractor implements DiffExtractor {
         + removed.size());
     LOGGER.info("Number of used constraints: " + results.size());
 
-    FileOutputStream errors = new FileOutputStream(new File(RESULT_FOLDER, "evolution.errors"));
-    for (ContractElement record : removed) {
-      errors.write((record.toString() + "\n").getBytes());
+
+    try {
+      FileOutputStream errors = new FileOutputStream(ArtefactFactory.EVOLUTION_EVOLUTION_ERROR);
+      for (ContractElement record : removed) {
+        errors.write((record.toString() + "\n").getBytes());
+      }
+
+      FileOutputStream ok = new FileOutputStream(ArtefactFactory.EVOLUTION_EVOLUTION_OK);
+      for (DiffRecord record : results) {
+        ok.write((record.toString() + "\n").getBytes());
+      }
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
     }
 
-    FileOutputStream ok = new FileOutputStream(new File(RESULT_FOLDER, "evolution.ok"));
-    for (DiffRecord record : results) {
-      ok.write((record.toString() + "\n").getBytes());
-    }
 
     return results;
   }
@@ -221,7 +228,7 @@ public class EvolutionDiffExtractor implements DiffExtractor {
   private Map<ProgramVersion, Multimap<String, String>> getMethodsByProgramVersionAndCompilationUnit()
     throws IOException {
 
-    Map<ProgramVersion, Multimap<String, String>> methodsByPVandCU = new HashMap<>();
+    Map<ProgramVersion, Multimap<String, String>> methodsByPVAndCU = new HashMap<>();
 
     for (File project : listProjects(INPUT_STRUCTS_FOLDER)) {
       for (File json : listJsons(project)) {
@@ -230,7 +237,7 @@ public class EvolutionDiffExtractor implements DiffExtractor {
         String versionName = getProjectVersionFromStructFolder(project);
         ProgramVersion pv = ProgramVersion.getOrCreate(projectName, versionName);
 
-        Multimap<String, String> methodsByCU = methodsByPVandCU.compute(pv,
+        Multimap<String, String> methodsByCU = methodsByPVAndCU.compute(pv,
           (k, v) -> v == null ? HashMultimap.create() : v);
 
         JSONArray arr = new JSONArray(
@@ -246,7 +253,7 @@ public class EvolutionDiffExtractor implements DiffExtractor {
         }
       }
     }
-    return methodsByPVandCU;
+    return methodsByPVAndCU;
   }
 
 }

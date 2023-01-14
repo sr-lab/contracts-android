@@ -80,12 +80,7 @@ public class Preferences {
   public static String getOutputFolder() {
     return getStringPref("output", "out");
   }
-  public static String getOutputContractsFolder() {
-    return getOutputFolder() + "/contracts";
-  }
-  public static String getOutputStructureFolder() {
-    return getOutputFolder() + "/struct";
-  }
+
   public static String getDataFolder() {
     return getStringPref("data", "data");
   }

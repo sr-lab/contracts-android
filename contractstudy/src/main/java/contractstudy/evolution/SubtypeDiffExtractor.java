@@ -12,9 +12,10 @@ import contractstudy.evolution.constants.SubtypeDiffKeys;
 import contractstudy.evolution.model.DiffExtractor;
 import contractstudy.evolution.model.DiffRecord;
 import contractstudy.evolution.model.diffRules.Utils;
-import contractstudy.hierarchy.model.SuperCallSite;
+import contractstudy.inheritance.model.SuperCallSite;
 import contractstudy.model.ClassAndVersion;
 import contractstudy.model.ProgramVersion;
+import contractstudy.scripts.model.ArtefactFactory;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.LineIterator;
@@ -78,7 +79,7 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     final HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap,
     final Map<ClassAndVersion, Set<String>> methods
   ) throws IOException {
-    for (File project : listProjects(new File(Preferences.getOutputStructureFolder()))) {
+    for (File project : listProjects(ArtefactFactory.USAGE_CONTRACTS_FOLDER)) {
       for (File projectStructFiles : listJsons(project)) {
         loopThroughProjectFilesToCollectMethodsAndParents(inheritanceMap, methods, project,
           projectStructFiles);
@@ -215,7 +216,7 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     List<ContractElement> contractElements = new ArrayList<>();
     int total = 0;
     int[] numberRemoved = new int[]{0};
-    Collection<File> jsons = FileUtils.listFiles(new File(Preferences.getOutputContractsFolder()),
+    Collection<File> jsons = FileUtils.listFiles((ArtefactFactory.USAGE_CONTRACTS_FOLDER),
       new String[]{"json"}, false);
 
     for (File json : jsons) {
@@ -340,7 +341,7 @@ public class SubtypeDiffExtractor implements DiffExtractor {
   private Set<SuperCallSite> collectMethodsWithSuper()
     throws IOException {
     Set<SuperCallSite> callSites = new HashSet<>();
-    File file = new File(Preferences.getOutputFolder(), "supercallsites.csv");
+    File file = ArtefactFactory.INHERITANCE_SUPER_CALL_SITE;
     LineIterator it = IOUtils.lineIterator(Files.newInputStream(file.toPath()), "utf-8");
     it.next();
     while (it.hasNext()) {

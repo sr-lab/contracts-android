@@ -2,8 +2,8 @@ package contractstudy.scripts;
 
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
-import contractstudy.hierarchy.SuperCallSiteExtractor.SuperCallSiteExtractor;
-import contractstudy.hierarchy.model.SuperCallSite;
+import contractstudy.inheritance.SuperCallSiteExtractor.SuperCallSiteExtractor;
+import contractstudy.inheritance.model.SuperCallSite;
 import contractstudy.model.ProgramVersion;
 import contractstudy.scripts.model.ArtefactFactory;
 import contractstudy.scripts.model.Experiment;
@@ -38,9 +38,10 @@ import java.util.zip.ZipFile;
 public class CollectInvocationViaSuper implements Experiment {
 
   private static final Logger LOGGER = Logging.getLogger(CollectInvocationViaSuper.class);
+  final static File DATA_FOLDER = new File(Preferences.getDataFolder());
+
 
   public static void main(String[] args) throws Exception {
-    File DATA_FOLDER = new File(Preferences.getDataFolder());
     int THREAD_COUNT = Preferences.getThreadCount();
     Collection<File> zips = FileUtils.listFiles(DATA_FOLDER, new String[]{"zip"}, true);
     AtomicInteger counter = new AtomicInteger(0);
@@ -74,9 +75,13 @@ public class CollectInvocationViaSuper implements Experiment {
     LOGGER.info("\ttime: " + (endTime - startTime) + " ms");
   }
 
-  private static void findSuperCallSites(AtomicInteger counter, Collection<File> zips, File f,
-    List<SuperCallSite> superCallSites, ProgramVersion pv)
-    throws IOException {
+  private static void findSuperCallSites(
+    AtomicInteger counter,
+    Collection<File> zips,
+    File f,
+    List<SuperCallSite> superCallSites,
+    ProgramVersion pv
+  ) throws IOException {
     LOGGER.info(
       "Analysing " + counter.incrementAndGet() + "/" + zips.size() + " - " + f.getName());
     SuperCallSiteExtractor extractor = new SuperCallSiteExtractor();
@@ -122,9 +127,8 @@ public class CollectInvocationViaSuper implements Experiment {
   }
 
   private static File getOutputFile() throws IOException {
-    File OUTPUT_FOLDER = new File(Preferences.getOutputFolder());
-    FileUtils.forceMkdir(OUTPUT_FOLDER);
-    return new File(Preferences.getOutputFolder(), "supercallsites.csv");
+    FileUtils.forceMkdir(ArtefactFactory.RESULTS_INHERITANCE_FOLDER);
+    return ArtefactFactory.INHERITANCE_SUPER_CALL_SITE;
   }
 
   @Override

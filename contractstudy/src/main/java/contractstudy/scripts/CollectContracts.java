@@ -55,6 +55,9 @@ import java.util.zip.ZipFile;
 public class CollectContracts implements Experiment {
 
   static Logger LOGGER = Logging.getLogger(CollectContracts.class);
+  final static File DATA_FOLDER =  new File(Preferences.getDataFolder());
+  final static File OUTPUT_FOLDER = ArtefactFactory.USAGE_CONTRACTS_FOLDER;
+
   /*
   // TODO: Check if this true for Kotlin too.
   new LombokExtractor() is not added since at designtime (pre-compilation) lombok
@@ -76,12 +79,11 @@ public class CollectContracts implements Experiment {
     new CommonsValidate3Extractor(),
     new SpringAssertExtractor(),
     new AndroidAnnotationExtractor(),
-    new AndroidXAnnotationExtractor()};
+    new AndroidXAnnotationExtractor()
+  };
 
   public static void main(String[] args) throws Exception {
 
-    File DATA_FOLDER = new File(Preferences.getDataFolder());
-    File OUTPUT_FOLDER = new File(Preferences.getOutputContractsFolder());
     int THREAD_COUNT = Preferences.getThreadCount();
 
     Collection<File> zips = FileUtils.listFiles(DATA_FOLDER, new String[]{"zip"}, true);
@@ -107,6 +109,7 @@ public class CollectContracts implements Experiment {
         @Override
         public void run() {
           try {
+
             ConstraintCollector consumer = new ConstraintCollector() {
               @Override
               public void extractionExceptionEncountered(String message, Throwable x) {
@@ -114,15 +117,11 @@ public class CollectContracts implements Experiment {
                 parserFailedCUCounter.incrementAndGet();
               }
             };
-
             findContractElements(new ZipFile(zip), consumer, programName, version, parsedCUCounter);
-
             LOGGER.info("Processed " + progressCounter.incrementAndGet() + "/" + total + ": "
               + zip.getAbsolutePath() + " -- " + "\t" + consumer.getContractElements().size()
               + " contracts found");
-
             constraintCounter.addAndGet(consumer.getContractElements().size());
-
             outputContractsToFile(OUTPUT_FOLDER, programName, version, consumer);
 
           } catch (Exception e) {
