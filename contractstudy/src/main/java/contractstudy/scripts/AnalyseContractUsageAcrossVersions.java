@@ -2,7 +2,6 @@ package contractstudy.scripts;
 
 import com.google.common.base.Preconditions;
 import contractstudy.config.Logging;
-import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.FindFirstAndLastProgramVersions;
 import contractstudy.model.ProgramVersion;
@@ -44,6 +43,7 @@ import static contractstudy.constants.SetStatsDataKeys.PUBLIC_METHODS;
  */
 public class AnalyseContractUsageAcrossVersions implements Experiment {
 
+  static final File INPUT_DATA_FOLDER = ArtefactFactory.USAGE_CONTRACTS_FOLDER;
   static Logger LOGGER = Logging.getLogger(AnalyseContractUsageAcrossVersions.class);
 
   public static void main(String[] args) throws Exception {
@@ -52,14 +52,13 @@ public class AnalyseContractUsageAcrossVersions implements Experiment {
 
   private static List<ContractElement> readContractElementsFromFiles()
     throws IOException {
-    File INPUT_DATA_FOLDER = new File(Preferences.getOutputContractsFolder());
 
     Preconditions.checkState(INPUT_DATA_FOLDER.exists(),
       "Data folder does not exist: " + INPUT_DATA_FOLDER);
 
     List<ContractElement> contractElements = new ArrayList<>();
-    Collection<File> jsons = FileUtils.listFiles(INPUT_DATA_FOLDER, new String[]{"json"}, true);
-    for (File json : jsons) {
+    Collection<File> jsonFiles = FileUtils.listFiles(INPUT_DATA_FOLDER, new String[]{"json"}, true);
+    for (File json : jsonFiles) {
       String data = FileUtils.readFileToString(json, StandardCharsets.UTF_8);
       JSONArray all = new JSONArray(data);
       all.forEach(e -> {
@@ -96,9 +95,7 @@ public class AnalyseContractUsageAcrossVersions implements Experiment {
   }
 
   public void run() throws Exception {
-
-    File RESULTS_FOLDER = new File(Preferences.getResultsFolder());
-    File METRICS_FILE = new File(RESULTS_FOLDER, "programversion_stats.csv");
+    File METRICS_FILE = ArtefactFactory.EVOLUTION_VERSION_STATS;
 
     List<ContractElement> contractElements = readContractElementsFromFiles();
 
@@ -123,15 +120,18 @@ public class AnalyseContractUsageAcrossVersions implements Experiment {
       constraintsInLastVersions);
   }
 
-  public void outputResultsToCSVFile(Pair<Map<String, ProgramVersion>,
-    Map<String, ProgramVersion>> firstAndLatestVersions,
+  public void outputResultsToCSVFile(
+    Pair<Map<String, ProgramVersion>,
+      Map<String, ProgramVersion>> firstAndLatestVersions,
     Map<ProgramVersion, Map<String, Integer>> metrics,
     Map<ProgramVersion, Integer> constraintsInFirstVersions,
-    Map<ProgramVersion, Integer> constraintsInLastVersions) throws IOException {
+    Map<ProgramVersion, Integer> constraintsInLastVersions
+  ) throws IOException {
+
     LOGGER.info("Finished contract usage across versions analysis");
 
+    File csv = ArtefactFactory.EVOLUTION_CONTRACTS_ACROSS_VERSIONS;
     char SEP = ',';
-    File csv = ArtefactFactory.RESULTS_CONTRACTS_ACROSS_VERSIONS;
 
     try (PrintStream out = new PrintStream(Files.newOutputStream(csv.toPath()))) {
       out.println(
@@ -189,9 +189,13 @@ public class AnalyseContractUsageAcrossVersions implements Experiment {
     return tmp == null ? 0 : tmp;
   }
 
-  public boolean include(ProgramVersion firstProgramVersion, ProgramVersion lastProgramVersion,
-    Map<ProgramVersion, Map<String, Integer>> metrics, int constraintsInFirstVersions,
-    int constraintsInLastVersions) {
+  public boolean include(
+    ProgramVersion firstProgramVersion,
+    ProgramVersion lastProgramVersion,
+    Map<ProgramVersion, Map<String, Integer>> metrics,
+    int constraintsInFirstVersions,
+    int constraintsInLastVersions
+  ) {
     return true;
   }
 

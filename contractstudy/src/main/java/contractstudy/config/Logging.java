@@ -21,5 +21,4 @@ public class Logging {
   public static Logger getLogger(Class<?> clazz) {
     return Logger.getLogger(clazz.getSimpleName());
   }
-
 }

@@ -3,10 +3,10 @@ package contractstudy.scripts;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.constants.ClassCoordinatesKeysEnum;
-import contractstudy.hierarchy.ProjectVersionHierarchyExtractor.ProjectVersionHierarchyExtractor;
-import contractstudy.hierarchy.model.ClassCoordinates;
-import contractstudy.hierarchy.model.ClassParents;
-import contractstudy.hierarchy.model.InheritanceResolved;
+import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectVersionHierarchyExtractor;
+import contractstudy.inheritance.model.ClassCoordinates;
+import contractstudy.inheritance.model.ClassParents;
+import contractstudy.inheritance.model.InheritanceResolved;
 import contractstudy.model.ClassAndVersion;
 import contractstudy.model.ProgramVersion;
 import contractstudy.scripts.model.ArtefactFactory;
@@ -39,9 +39,8 @@ import java.util.stream.Collectors;
 public class ComputeInheritanceHierarchy implements Experiment {
 
   private static final File INPUT_SOURCE_CODE = new File(Preferences.getDataFolder());
-  private static final File INPUT_CONTRACTS_FOUND = new File(
-    Preferences.getOutputContractsFolder());
-  private static final File ROOT = new File(Preferences.getOutputStructureFolder());
+  private static final File INPUT_CONTRACTS_FOUND = ArtefactFactory.USAGE_CONTRACTS_FOLDER;
+  private static final File OUTPUT_ROOT_FOLDER = ArtefactFactory.INHERITANCE_STRUCTURE_FOLDER;
   private static final ProjectVersionHierarchyExtractor extractor = new ProjectVersionHierarchyExtractor();
   private static final Logger LOGGER = Logging.getLogger(ComputeInheritanceHierarchy.class);
 
@@ -87,8 +86,10 @@ public class ComputeInheritanceHierarchy implements Experiment {
               }
             });
 
-            File file = new File(new File(ROOT, project.getName()), fileName(contractsJsonFile));
-            saveResultsToFile(file, classesMap);
+            File outputFolder = new File(OUTPUT_ROOT_FOLDER, project.getName());
+            File outputFile = new File(outputFolder, fileName(contractsJsonFile));
+            saveResultsToFile(outputFile, classesMap);
+
           } catch (Exception e) {
             e.printStackTrace();
             LOGGER.info("Skipping incompatible source-code version for " + contractsJsonFile);
@@ -143,7 +144,8 @@ public class ComputeInheritanceHierarchy implements Experiment {
 
   private static void saveResultsToFile(
     final File file,
-    final Map<ClassCoordinates, ClassParents> parents) throws IOException {
+    final Map<ClassCoordinates, ClassParents> parents
+  ) throws IOException {
 
     file.getParentFile().mkdirs();
     JSONArray a = new JSONArray();

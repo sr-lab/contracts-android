@@ -81,20 +81,8 @@ public class Preferences {
     return getStringPref("output", "out");
   }
 
-  public static String getOutputContractsFolder() {
-    return getOutputFolder() + "/contracts";
-  }
-
-  public static String getOutputStructureFolder() {
-    return getOutputFolder() + "/struct";
-  }
-
   public static String getDataFolder() {
     return getStringPref("data", "data");
-  }
-
-  public static String getResultsFolder() {
-    return getStringPref("results", "results");
   }
 
   public static int getThreadCount() {

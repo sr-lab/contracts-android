@@ -50,12 +50,11 @@ import static contractstudy.constants.SetStatsDataKeys.PUBLIC_METHODS;
  */
 public class CollectProgramVersionStats implements Experiment {
 
-
+  final static File DATA_FOLDER = new File(Preferences.getDataFolder());
   private static final Logger LOGGER = Logging.getLogger(CollectProgramVersionStats.class);
 
   public static void main(String[] args) throws Exception {
 
-    File DATA_FOLDER = new File(Preferences.getDataFolder());
     Preconditions.checkArgument(DATA_FOLDER.exists(),
       "Cannot find data in " + DATA_FOLDER.getAbsolutePath());
 
@@ -125,22 +124,16 @@ public class CollectProgramVersionStats implements Experiment {
 
   }
 
-  private static int getCounter(Map<String, Integer> values, String key) {
-    Integer v = values.get(key);
-    return v == null ? 0 : v;
-  }
-
   private static void outputResultsToCSVFile(Map<ProgramVersion, Map<String, Integer>> data)
     throws IOException {
-    File RESULTS_FOLDER = new File(Preferences.getResultsFolder());
-    File csv = new File(RESULTS_FOLDER, "programversion_stats.csv");
+    File csv = ArtefactFactory.EVOLUTION_VERSION_STATS;
     char SEP = ',';
     Map<String, Map<String, Long>> programTotals = new HashMap<>();
 
     try (PrintWriter out = new PrintWriter(new FileWriter(csv))) {
 
       out.println(
-        "prg. name,prg. version,loc,cus,classes,all methods, all constructors, pub. + prot. methods, pub. + prot. constr, id");
+        "name,version,loc,cus,classes,all methods, all constructors, pub. + prot. methods, pub. + prot. constr, id");
 
       for (Map.Entry<ProgramVersion, Map<String, Integer>> e : data.entrySet()) {
         if (!programTotals.containsKey(e.getKey().getName())) {
