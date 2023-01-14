@@ -36,7 +36,7 @@ public class AnalyseContractEvolution implements Experiment {
   static Logger LOGGER = Logging.getLogger(AnalyseContractEvolution.class);
 
   public static void main(String[] args) throws Exception {
-    File RESULTS_FOLDER = new File(Preferences.getResultsFolder());
+    File RESULTS_FOLDER = new File(Preferences.getOutputFolder());
     RESULTS_FOLDER.mkdirs();
     Map<DiffResult, File> DETAIL_LOGS = readLogsFromFiles(RESULTS_FOLDER);
     resetLogsByDeletingFiles(DETAIL_LOGS);

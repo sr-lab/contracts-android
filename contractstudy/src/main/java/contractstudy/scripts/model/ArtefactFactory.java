@@ -30,7 +30,7 @@ public class ArtefactFactory {
   public static final Collection<File> CONTRACT_FILES = new ArrayList<>();
   public static final Collection<File> STRUCT_FILES = new ArrayList<>();
 
-  public static final File RESULTS_DIR = new File(Preferences.getResultsFolder());
+  public static final File RESULTS_DIR = new File(Preferences.getOutputFolder());
 
   public static final File RESULTS_EVOLUTION = new File(RESULTS_DIR, "evolution.tex");
   public static final File RESULTS_HIERARCHY = new File(RESULTS_DIR, "hierarchy.tex");

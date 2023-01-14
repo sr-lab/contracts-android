@@ -97,7 +97,7 @@ public class AnalyseContractUsageAcrossVersions implements Experiment {
 
   public void run() throws Exception {
 
-    File RESULTS_FOLDER = new File(Preferences.getResultsFolder());
+    File RESULTS_FOLDER = new File(Preferences.getOutputFolder());
     File METRICS_FILE = new File(RESULTS_FOLDER, "programversion_stats.csv");
 
     List<ContractElement> contractElements = readContractElementsFromFiles();

@@ -65,7 +65,7 @@ public class CollectDatasetStats implements Experiment {
       "Cannot find data in " + DATA_FOLDER.getAbsolutePath());
 
     int THREAD_COUNT = Preferences.getThreadCount();
-    File RESULTS_FOLDER = new File(Preferences.getResultsFolder());
+    File RESULTS_FOLDER = new File(Preferences.getOutputFolder());
 
     Map<String, Integer> data = new ConcurrentHashMap<>();
     Collection<File> zips = FileUtils.listFiles(DATA_FOLDER, new String[]{"zip"}, true);

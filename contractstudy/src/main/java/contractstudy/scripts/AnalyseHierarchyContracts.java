@@ -35,7 +35,7 @@ import static contractstudy.evolution.model.diffRules.Utils.NF;
 public class AnalyseHierarchyContracts implements Experiment {
 
   private static final Logger LOGGER = Logging.getLogger(AnalyseHierarchyContracts.class);
-  private static final File RESULTS_FOLDER = new File(Preferences.getResultsFolder());
+  private static final File RESULTS_FOLDER = new File(Preferences.getOutputFolder());
 
   public static void main(String[] args) throws Exception {
     FileUtils.forceMkdir(RESULTS_FOLDER);

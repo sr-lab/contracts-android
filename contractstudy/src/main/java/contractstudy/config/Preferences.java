@@ -80,27 +80,18 @@ public class Preferences {
   public static String getOutputFolder() {
     return getStringPref("output", "out");
   }
-
   public static String getOutputContractsFolder() {
     return getOutputFolder() + "/contracts";
   }
-
   public static String getOutputStructureFolder() {
     return getOutputFolder() + "/struct";
   }
-
   public static String getDataFolder() {
     return getStringPref("data", "data");
   }
-
-  public static String getResultsFolder() {
-    return getStringPref("results", "results");
-  }
-
   public static int getThreadCount() {
     return getIntPref("threads", Runtime.getRuntime().availableProcessors());
   }
-
   public static boolean includePrivateMethods() {
     return getBooleanPref("includeprivate", false);
   }

@@ -132,7 +132,7 @@ public class CollectProgramVersionStats implements Experiment {
 
   private static void outputResultsToCSVFile(Map<ProgramVersion, Map<String, Integer>> data)
     throws IOException {
-    File RESULTS_FOLDER = new File(Preferences.getResultsFolder());
+    File RESULTS_FOLDER = new File(Preferences.getOutputFolder());
     File csv = new File(RESULTS_FOLDER, "programversion_stats.csv");
     char SEP = ',';
     Map<String, Map<String, Long>> programTotals = new HashMap<>();

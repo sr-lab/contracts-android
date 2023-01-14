@@ -44,7 +44,7 @@ public class EvolutionDiffExtractor implements DiffExtractor {
   private static final File INPUT_STRUCTS_FOLDER = new File(Preferences.getOutputStructureFolder());
   private static final File INPUT_CONTRACTS_FOLDER = new File(
     Preferences.getOutputContractsFolder());
-  private static final File RESULT_FOLDER = new File(Preferences.getResultsFolder());
+  private static final File RESULT_FOLDER = new File(Preferences.getOutputFolder());
   static Logger LOGGER = Logging.getLogger(EvolutionDiffExtractor.class);
 
   private static String getIndexKey(ProgramVersion pv, String cu, String methodDeclaration) {

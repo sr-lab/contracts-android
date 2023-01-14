@@ -50,7 +50,7 @@ public class AnalyseContractUsage implements Experiment {
 
   public static void main(String[] args) throws Exception {
 
-    File RESULTS_FOLDER = new File(Preferences.getResultsFolder());
+    File RESULTS_FOLDER = new File(Preferences.getOutputFolder());
 
     List<ContractElement> contractElements = readContractsFromFile();
 
