@@ -48,6 +48,7 @@ public class AnalyseContractUsage implements Experiment {
 
   static Logger LOGGER = Logging.getLogger(AnalyseContractUsage.class);
   final static File INPUT_DATA_FOLDER = ArtefactFactory.USAGE_CONTRACTS_FOLDER;
+  final static File OUTPUT_GINI_FOLDER = ArtefactFactory.USAGE_GINI_FOLDER;
 
   public static void main(String[] args) throws Exception {
 
@@ -113,6 +114,8 @@ public class AnalyseContractUsage implements Experiment {
       constraintsByProgramLatestVersionAndCategory.get(ConstraintCategory.ANNOTATION));
 
     LOGGER.info("Finished contract usage analysis");
+
+    OUTPUT_GINI_FOLDER.mkdir();
 
     outputGiniToConsole(gini4AllConstraints, gini4Assertions, gini4APIs, gini4RTExc,
       gini4Annotations);

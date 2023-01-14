@@ -26,33 +26,34 @@ public class ArtefactFactory {
   public static final File RESULTS_EVOLUTION_FOLDER = new File(RESULTS_FOLDER, "/evolution");
 
   public static final File USAGE_CONTRACTS_FOLDER = new File(RESULTS_USAGE_FOLDER,"/contracts");
-  public static final File USAGE_GINI = new File(RESULTS_USAGE_FOLDER, "/gini.tex");
-  public static final File USAGE_GINI_ANNOTATIONS = new File(RESULTS_USAGE_FOLDER, "/gini-annotations.tex");
-  public static final File USAGE_GINI_ASSERTIONS = new File(RESULTS_USAGE_FOLDER, "/gini-assertions.tex");
-  public static final File USAGE_GINI_APIS = new File(RESULTS_USAGE_FOLDER, "/gini-apis.tex");
-  public static final File USAGE_GINI_RUNTIME_EXCEPTIONS = new File(RESULTS_USAGE_FOLDER, "/gini-runtime-exceptions.tex");
-  public static final File USAGE_CONTRACTS_TOP_USER_IN_LAST_VERSION = new File(RESULTS_USAGE_FOLDER, "/top-users-in-last-version.tex");
-  public static final File USAGE_CONTRACTS_BY_CLASSIFICATION = new File(RESULTS_USAGE_FOLDER, "/contractsbyclassification.tex");
-  public static final File USAGE_CONTRACTS_BY_TYPE = new File(RESULTS_USAGE_FOLDER, "/contractsbytype.tex");
-  public static final File USAGE_CONTRACTS_BY_TYPE_FIRST_LAST_VERSION = new File(RESULTS_USAGE_FOLDER, "/contractsbytype_first_last.tex");
+  public static final File USAGE_GINI_FOLDER = new File(RESULTS_USAGE_FOLDER, "/gini");
+  public static final File USAGE_GINI = new File(USAGE_GINI_FOLDER, "/gini.tex");
+  public static final File USAGE_GINI_ANNOTATIONS = new File(USAGE_GINI_FOLDER, "/gini-annotations.tex");
+  public static final File USAGE_GINI_ASSERTIONS = new File(USAGE_GINI_FOLDER, "/gini-assertions.tex");
+  public static final File USAGE_GINI_APIS = new File(USAGE_GINI_FOLDER, "/gini-apis.tex");
+  public static final File USAGE_GINI_RUNTIME_EXCEPTIONS = new File(USAGE_GINI_FOLDER, "/gini-cre.tex");
+  public static final File USAGE_CONTRACTS_TOP_USER_IN_LAST_VERSION = new File(RESULTS_USAGE_FOLDER, "/topUsersInLastVersion.tex");
+  public static final File USAGE_CONTRACTS_BY_CLASSIFICATION = new File(RESULTS_USAGE_FOLDER, "/contractsByClassification.tex");
+  public static final File USAGE_CONTRACTS_BY_TYPE = new File(RESULTS_USAGE_FOLDER, "/contractsByType.tex");
+  public static final File USAGE_CONTRACTS_BY_TYPE_FIRST_LAST_VERSION = new File(RESULTS_USAGE_FOLDER, "/contractsByTypeWithVersions.tex");
   public static final File USAGE_DATASET_STATS = new File(RESULTS_USAGE_FOLDER, "/dataset.tex");
   public static final File USAGE_DATASET_ERRORS = new File(RESULTS_USAGE_FOLDER, "/dataset-errors.tex");
 
   public static final File INHERITANCE_SUPER_CALL_SITE = new File(RESULTS_INHERITANCE_FOLDER, "/superCallSites.csv");
   public static final File INHERITANCE_STRUCTURE_FOLDER = new File(RESULTS_INHERITANCE_FOLDER, "/struct");
-  public static final File INHERITANCE_POST_CONDITION_REMOVED = new File(RESULTS_INHERITANCE_FOLDER, "/postconditions_removed_inheritance.txt");
-  public static final File INHERITANCE_PRE_CONDITION_ADDED = new File(RESULTS_INHERITANCE_FOLDER, "/preconditions_added_inheritance.txt");
-  public static final File INHERITANCE_CONTRACTS_NOT_CLASSIFIED = new File(RESULTS_INHERITANCE_FOLDER, "/contracts_cannot_be_classified_inheritance.txt");
+  public static final File INHERITANCE_POST_CONDITION_REMOVED = new File(RESULTS_INHERITANCE_FOLDER, "/postConditionsRemoved-inheritance.txt");
+  public static final File INHERITANCE_PRE_CONDITION_ADDED = new File(RESULTS_INHERITANCE_FOLDER, "/preConditionsAdded-inheritance.txt");
+  public static final File INHERITANCE_CONTRACTS_NOT_CLASSIFIED = new File(RESULTS_INHERITANCE_FOLDER, "/contractsNotClassified-inheritance.txt");
   public static final File INHERITANCE_STATS = new File(RESULTS_INHERITANCE_FOLDER, "/hierarchy.tex");
 
   public static final File EVOLUTION_STATS = new File(RESULTS_EVOLUTION_FOLDER, "/evolution.tex");
-  public static final File EVOLUTION_POST_CONDITION_REMOVED = new File(RESULTS_EVOLUTION_FOLDER, "/postconditions_removed_evolution.txt");
-  public static final File EVOLUTION_PRE_CONDITION_ADDED = new File(RESULTS_EVOLUTION_FOLDER, "/preconditions_added_evolution.txt");
-  public static final File EVOLUTION_CONTRACTS_NOT_CLASSIFIED = new File(RESULTS_EVOLUTION_FOLDER, "/contracts_cannot_be_classified_evolution.txt");
-  public static final File EVOLUTION_VERSION_STATS = new File(RESULTS_EVOLUTION_FOLDER, "/programversion_stats.csv");
-  public static final File EVOLUTION_CONTRACTS_ACROSS_VERSIONS = new File(RESULTS_EVOLUTION_FOLDER,  "/contraints_across_versions.csv");
-  public static final File EVOLUTION_EVOLUTION_OK = new File(RESULTS_EVOLUTION_FOLDER,  "/evolution_ok.tex");
-  public static final File EVOLUTION_EVOLUTION_ERROR = new File(RESULTS_EVOLUTION_FOLDER,  "/evolution_error.tex");
+  public static final File EVOLUTION_POST_CONDITION_REMOVED = new File(RESULTS_EVOLUTION_FOLDER, "/postConditionsRemoved-evolution.txt");
+  public static final File EVOLUTION_PRE_CONDITION_ADDED = new File(RESULTS_EVOLUTION_FOLDER, "/preConditionsAdded-evolution.txt");
+  public static final File EVOLUTION_CONTRACTS_NOT_CLASSIFIED = new File(RESULTS_EVOLUTION_FOLDER, "/contractsNotClassified-evolution.txt");
+  public static final File EVOLUTION_VERSION_STATS = new File(RESULTS_EVOLUTION_FOLDER, "/programVersionStats.csv");
+  public static final File EVOLUTION_CONTRACTS_ACROSS_VERSIONS = new File(RESULTS_EVOLUTION_FOLDER,  "/constraintsAcrossVersions.csv");
+  public static final File EVOLUTION_EVOLUTION_OK = new File(RESULTS_EVOLUTION_FOLDER,  "/evolution-ok.tex");
+  public static final File EVOLUTION_EVOLUTION_ERROR = new File(RESULTS_EVOLUTION_FOLDER,  "/evolution-error.tex");
 
   public static final Collection<File> CONTRACT_FILES = new ArrayList<>();
   public static final Collection<File> STRUCT_FILES = new ArrayList<>();
