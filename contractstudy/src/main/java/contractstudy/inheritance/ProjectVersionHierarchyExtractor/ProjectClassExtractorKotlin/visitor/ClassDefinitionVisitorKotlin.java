@@ -1,9 +1,9 @@
 package contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassExtractorKotlin.visitor;
 
-import contractstudy.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitorKotlin;
 import contractstudy.constants.VisibilityModifier;
 import contractstudy.inheritance.model.ASTState;
 import contractstudy.inheritance.model.ClassCoordinates;
+import contractstudy.usage.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitorKotlin;
 import contractstudy.utils.kotlinParser.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.psi.KtClassOrObject;

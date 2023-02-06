@@ -6,10 +6,10 @@ import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.SuperExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import contractstudy.collectContracts.common.Utils;
 import contractstudy.config.Preferences;
 import contractstudy.inheritance.model.SuperCallSite;
 import contractstudy.model.ProgramVersion;
+import contractstudy.usage.collectContracts.common.Utils;
 import lombok.Setter;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package contractstudy.collectContracts.annotation.kotlin;
 
-import contractstudy.collectContracts.annotation.JSR303Extractor;
+import contractstudy.usage.collectContracts.annotation.JSR303Extractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;

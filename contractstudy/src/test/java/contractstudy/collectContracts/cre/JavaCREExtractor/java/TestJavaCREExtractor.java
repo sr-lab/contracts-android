@@ -1,6 +1,6 @@
 package contractstudy.collectContracts.cre.JavaCREExtractor.java;
 
-import contractstudy.collectContracts.cre.JavaCREExtractor.JavaCREExtractor;
+import contractstudy.usage.collectContracts.cre.JavaCREExtractor.JavaCREExtractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;

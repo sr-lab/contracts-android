@@ -6,9 +6,9 @@ import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.EnumDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
-import contractstudy.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitor;
 import contractstudy.inheritance.model.ASTState;
 import contractstudy.inheritance.model.ClassCoordinates;
+import contractstudy.usage.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitor;
 
 import java.util.HashMap;
 import java.util.HashSet;

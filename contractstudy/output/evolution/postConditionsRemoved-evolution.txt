@@ -1,0 +1,9 @@
+POSTCONDITION_REMOVED
+version 1: uberspot-2048-android-0
+version 2: uberspot-2048-android-1
+compilation unit: src/com/uberspot/a2048/MainActivity.java
+method: onCreate(Bundle)
+constraints in uberspot-2048-android-0
+	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
+constraints in uberspot-2048-android-1
+
