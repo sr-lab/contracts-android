@@ -1,6 +1,6 @@
 package contractstudy.collectDatasetStats.kotlin;
 
-import contractstudy.collectDatasetStats.DataCollectionExtractor;
+import contractstudy.usage.collectDatasetStats.DataCollectionExtractor;
 import contractstudy.constants.SetStatsDataKeys;
 import contractstudy.utils.Utils;
 import org.junit.jupiter.params.ParameterizedTest;

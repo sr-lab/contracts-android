@@ -1,6 +1,6 @@
 package contractstudy.collectContracts.cre.UnconditionalOperationNotSupported.java;
 
-import contractstudy.collectContracts.cre.UnconditionalOperationNotSupported.UnconditionalOperationNotSupportedExceptionExtractor;
+import contractstudy.usage.collectContracts.cre.UnconditionalOperationNotSupported.UnconditionalOperationNotSupportedExceptionExtractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;

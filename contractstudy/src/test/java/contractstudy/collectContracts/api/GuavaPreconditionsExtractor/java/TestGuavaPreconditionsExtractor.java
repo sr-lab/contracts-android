@@ -1,6 +1,6 @@
 package contractstudy.collectContracts.api.GuavaPreconditionsExtractor.java;
 
-import contractstudy.collectContracts.api.Guava.GuavaPreconditionsExtractor;
+import contractstudy.usage.collectContracts.api.Guava.GuavaPreconditionsExtractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;

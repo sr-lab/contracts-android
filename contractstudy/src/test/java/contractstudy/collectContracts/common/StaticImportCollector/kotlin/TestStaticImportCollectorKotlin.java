@@ -1,7 +1,7 @@
 package contractstudy.collectContracts.common.StaticImportCollector.kotlin;
 
-import contractstudy.collectContracts.common.StaticImportCollector.StaticImportCollectorKotlin;
-import contractstudy.collectContracts.common.StaticImportCollector.constants.StaticImportState;
+import contractstudy.usage.collectContracts.common.StaticImportCollector.StaticImportCollectorKotlin;
+import contractstudy.usage.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.Utils;
 import contractstudy.utils.kotlinParser.KotlinParser;

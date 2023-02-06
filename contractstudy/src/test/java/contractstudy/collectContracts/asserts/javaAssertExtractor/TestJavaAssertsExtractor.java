@@ -1,6 +1,6 @@
 package contractstudy.collectContracts.asserts.javaAssertExtractor;
 
-import contractstudy.collectContracts.asserts.JavaAssert.JavaAssertExtractor;
+import contractstudy.usage.collectContracts.asserts.JavaAssert.JavaAssertExtractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
