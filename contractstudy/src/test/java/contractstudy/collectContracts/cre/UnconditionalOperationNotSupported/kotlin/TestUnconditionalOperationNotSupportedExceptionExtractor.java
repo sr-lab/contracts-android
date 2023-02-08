@@ -1,9 +1,9 @@
 package contractstudy.collectContracts.cre.UnconditionalOperationNotSupported.kotlin;
 
-import contractstudy.usage.collectContracts.cre.UnconditionalOperationNotSupported.UnconditionalOperationNotSupportedExceptionExtractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.usage.collectContracts.cre.UnconditionalOperationNotSupported.UnconditionalOperationNotSupportedExceptionExtractor;
 import contractstudy.utils.Utils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

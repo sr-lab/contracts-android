@@ -25,6 +25,7 @@ import contractstudy.usage.collectContracts.api.SpringAssert.SpringAssertExtract
 import contractstudy.usage.collectContracts.asserts.JavaAssert.JavaAssertExtractor;
 import contractstudy.usage.collectContracts.cre.JavaCREExtractor.JavaCREExtractor;
 import contractstudy.usage.collectContracts.cre.UnconditionalOperationNotSupported.UnconditionalOperationNotSupportedExceptionExtractor;
+import contractstudy.usage.collectContracts.other.KotlinContract.KotlinContractExtractor;
 import contractstudy.utils.LanguageUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
@@ -78,7 +79,8 @@ public class CollectContracts implements Experiment {
     new CommonsValidate3Extractor(),
     new SpringAssertExtractor(),
     new AndroidAnnotationExtractor(),
-    new AndroidXAnnotationExtractor()
+    new AndroidXAnnotationExtractor(),
+    new KotlinContractExtractor(),
   };
 
   public static void main(String[] args) throws Exception {

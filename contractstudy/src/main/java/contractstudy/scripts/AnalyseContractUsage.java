@@ -110,13 +110,15 @@ public class AnalyseContractUsage implements Experiment {
       constraintsByProgramLatestVersionAndCategory.get(ConstraintCategory.RUNTIME_EXCEPTION));
     double gini4Annotations = computeGini(
       constraintsByProgramLatestVersionAndCategory.get(ConstraintCategory.ANNOTATION));
+    double gini4Others = computeGini(
+      constraintsByProgramLatestVersionAndCategory.get(ConstraintCategory.OTHERS));
 
     LOGGER.info("Finished contract usage analysis");
 
     OUTPUT_GINI_FOLDER.mkdir();
 
     outputGiniToConsole(gini4AllConstraints, gini4Assertions, gini4APIs, gini4RTExc,
-      gini4Annotations);
+      gini4Annotations, gini4Others);
     outputContractConstraintsToConsole(constraintsByGroup, constraintsByGroupLV,
       constraintsByClassification, constraintsByClassificationLV, constraintsByProgram,
       constraintsByProgramLV, topProgramsUsingContracts, topProgramsUsingContractsInLV);
@@ -130,7 +132,7 @@ public class AnalyseContractUsage implements Experiment {
     outputConstraintsByClassificationToLatex(constraintsByClassification,
       constraintsByClassificationLV, programsUsingConstraintClassifications);
     outputGiniToLatex(gini4AllConstraints, gini4Assertions, gini4APIs, gini4RTExc,
-      gini4Annotations);
+      gini4Annotations, gini4Others);
     outputCategoriesInfoToLatex(constraintsByProgramLatestVersionAndCategory);
   }
 
@@ -160,6 +162,7 @@ public class AnalyseContractUsage implements Experiment {
     constraintsByGroup.put(ConstraintGroup.ANNO_JSR303, 0);
     constraintsByGroup.put(ConstraintGroup.ANNO_JSR305, 0);
     constraintsByGroup.put(ConstraintGroup.ANNO_Android, 0);
+    constraintsByGroup.put(ConstraintGroup.KOTLIN_CONTRACTS, 0);
     return constraintsByGroup;
   }
 
@@ -169,6 +172,7 @@ public class AnalyseContractUsage implements Experiment {
     constraints.put(ConstraintCategory.ANNOTATION, new HashMap<>());
     constraints.put(ConstraintCategory.ASSERTION, new HashMap<>());
     constraints.put(ConstraintCategory.RUNTIME_EXCEPTION, new HashMap<>());
+    constraints.put(ConstraintCategory.OTHERS, new HashMap<>());
     return constraints;
   }
 
@@ -206,7 +210,8 @@ public class AnalyseContractUsage implements Experiment {
     double gini4Assertions,
     double gini4APIs,
     double gini4RTExc,
-    double gini4Annotations
+    double gini4Annotations,
+    double gini4Others
   ) {
     LOGGER.info(
       "\tGINI for distribution of contracts amongst latest version is " + gini4AllConstraints);
@@ -214,6 +219,7 @@ public class AnalyseContractUsage implements Experiment {
     LOGGER.info("\tGINI annotations only " + gini4Annotations);
     LOGGER.info("\tGINI apis only " + gini4APIs);
     LOGGER.info("\tGINI rt exceptions only " + gini4RTExc);
+    LOGGER.info("\tGINI others only " + gini4Others);
   }
 
   private static void outputContractConstraintsToConsole(
@@ -380,7 +386,8 @@ public class AnalyseContractUsage implements Experiment {
     double gini4Assertions,
     double gini4APIs,
     double gini4RTExc,
-    double gini4Annotations
+    double gini4Annotations,
+    double gini4Others
   ) throws Exception {
     File latex = ArtefactFactory.USAGE_GINI;
     try (PrintStream out = new PrintStream(Files.newOutputStream(latex.toPath()))) {
@@ -391,6 +398,7 @@ public class AnalyseContractUsage implements Experiment {
     exportGini(gini4Assertions, ArtefactFactory.USAGE_GINI_ASSERTIONS);
     exportGini(gini4APIs, ArtefactFactory.USAGE_GINI_APIS);
     exportGini(gini4RTExc, ArtefactFactory.USAGE_GINI_RUNTIME_EXCEPTIONS);
+    exportGini(gini4Others, ArtefactFactory.USAGE_GINI_OTHERS);
   }
 
   private static void exportGini(double value, File outputFile) throws Exception {

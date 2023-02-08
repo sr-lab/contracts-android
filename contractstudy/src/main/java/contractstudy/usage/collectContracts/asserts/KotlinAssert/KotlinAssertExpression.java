@@ -1,6 +1,8 @@
 package contractstudy.usage.collectContracts.asserts.KotlinAssert;
 
 import contractstudy.constants.constraint.ConstraintType;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import static contractstudy.constants.constraint.ConstraintType.KotlinAssert;
 import static contractstudy.constants.constraint.ConstraintType.KotlinCheck;
@@ -8,12 +10,13 @@ import static contractstudy.constants.constraint.ConstraintType.KotlinCheckNotNu
 import static contractstudy.constants.constraint.ConstraintType.KotlinRequire;
 import static contractstudy.constants.constraint.ConstraintType.KotlinRequireNotNull;
 
+@AllArgsConstructor
+@Getter
 public enum KotlinAssertExpression {
   ASSERT("assert"), CHECK("check"), CHECK_NOT_NULL("checkNotNull"), REQUIRE(
     "require"), REQUIRE_NOT_NULL("requireNotNull"), NONE("none");
 
-  KotlinAssertExpression(String expression) {
-  }
+  private String expression;
 
   public static KotlinAssertExpression getExpressionKeyBy(String expression) {
     if (expression == null) {

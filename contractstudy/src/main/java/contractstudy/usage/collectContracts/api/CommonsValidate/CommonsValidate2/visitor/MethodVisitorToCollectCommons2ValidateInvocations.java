@@ -33,7 +33,6 @@ public class MethodVisitorToCollectCommons2ValidateInvocations extends
     Collection<String> staticallyImportedMethodNames
   ) {
     super(consumer, programName, version, cuName, importState, staticallyImportedMethodNames);
-
   }
 
   // look for patterns only supported by lang2
