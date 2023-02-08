@@ -32,6 +32,8 @@ public class ArtefactFactory {
   public static final File USAGE_GINI_APIS = new File(USAGE_GINI_FOLDER, "/gini-apis.tex");
   public static final File USAGE_GINI_RUNTIME_EXCEPTIONS = new File(USAGE_GINI_FOLDER,
     "/gini-cre.tex");
+  public static final File USAGE_GINI_OTHERS = new File(USAGE_GINI_FOLDER,
+    "/gini-others.tex");
   public static final File USAGE_CONTRACTS_TOP_USER_IN_LAST_VERSION = new File(RESULTS_USAGE_FOLDER,
     "/topUsersInLastVersion.tex");
   public static final File USAGE_CONTRACTS_BY_CLASSIFICATION = new File(RESULTS_USAGE_FOLDER,

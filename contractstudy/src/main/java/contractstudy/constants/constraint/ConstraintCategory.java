@@ -13,7 +13,6 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum ConstraintCategory {
-
   ASSERTION("assertion"),
   RUNTIME_EXCEPTION("runtime exception"),
   API("api"),
@@ -21,5 +20,4 @@ public enum ConstraintCategory {
   OTHERS("others");
 
   private String name;
-
 }
