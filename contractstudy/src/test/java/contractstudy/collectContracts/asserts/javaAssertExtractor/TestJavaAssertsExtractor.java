@@ -1,9 +1,9 @@
 package contractstudy.collectContracts.asserts.javaAssertExtractor;
 
-import contractstudy.usage.collectContracts.asserts.JavaAssert.JavaAssertExtractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.usage.collectContracts.asserts.JavaAssert.JavaAssertExtractor;
 import contractstudy.utils.Utils;
 import org.junit.jupiter.api.Test;
 

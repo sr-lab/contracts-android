@@ -1,9 +1,9 @@
 package contractstudy.collectContracts.api.SpringAssertExtractor.kotlin;
 
-import contractstudy.usage.collectContracts.api.SpringAssert.SpringAssertExtractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.usage.collectContracts.api.SpringAssert.SpringAssertExtractor;
 import contractstudy.utils.Utils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

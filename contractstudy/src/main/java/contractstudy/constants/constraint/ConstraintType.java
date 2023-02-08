@@ -369,7 +369,6 @@ public enum ConstraintType {
   KotlinRequire(ConstraintGroup.ASSERTION, _UNKNOWN, TVL.MAYBE),
   KotlinRequireNotNull(ConstraintGroup.ASSERTION, _UNKNOWN, TVL.MAYBE),
 
-
   // JSR303 annotations
   JSR303Null(ConstraintGroup.ANNO_JSR303, _STANDARD_ANNOTATION, TVL.NO),
   JSR303NotNull(ConstraintGroup.ANNO_JSR303, _STANDARD_ANNOTATION, TVL.NO),
@@ -536,22 +535,21 @@ public enum ConstraintType {
   IntellijJdkConstants_Subst(ConstraintGroup.ANNO_JetBrains, _STANDARD_ANNOTATION, TVL.NO),
 
   // Lombok annotations
-  Lombok_NonNull(ConstraintGroup.ANNO_Lombok, _STANDARD_ANNOTATION, TVL.NO);
+  Lombok_NonNull(ConstraintGroup.ANNO_Lombok, _STANDARD_ANNOTATION, TVL.NO),
   // other lombok annotations are only used as instructions to generate code
 
-  private ConstraintGroup group = null;
-  private Function<ConstraintedArtefact, ConstraintClassification> classifier = null;
+  // Others
+  KotlinContract(ConstraintGroup.KOTLIN_CONTRACTS, _UNKNOWN, TVL.MAYBE);
+
+
+  private final ConstraintGroup group;
+  private final Function<ConstraintedArtefact, ConstraintClassification> classifier;
 
   // whether checking a constraint requires a check for all elements of a
   // collection
   // or array, including checks on all characters of a string
+  //TODO: Maybe delete this property since it doesn't seem to be used.
   private TVL isQuantifying = TVL.MAYBE;
-
-  ConstraintType(ConstraintGroup group,
-    Function<ConstraintedArtefact, ConstraintClassification> classifier) {
-    this.group = group;
-    this.classifier = classifier;
-  }
 
   ConstraintType(ConstraintGroup group,
     Function<ConstraintedArtefact, ConstraintClassification> classifier,
@@ -559,6 +557,10 @@ public enum ConstraintType {
     this.group = group;
     this.classifier = classifier;
     this.isQuantifying = isQuantifying;
+  }
+
+  public TVL isQuantifying() {
+    return isQuantifying;
   }
 
   public ConstraintGroup getGroup() {
@@ -569,8 +571,5 @@ public enum ConstraintType {
     return classifier.apply(artefact);
   }
 
-  public TVL isQuantifying() {
-    return isQuantifying;
-  }
 
 }

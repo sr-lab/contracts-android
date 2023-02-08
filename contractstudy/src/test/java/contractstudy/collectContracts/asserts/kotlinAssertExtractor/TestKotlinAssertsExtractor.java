@@ -1,10 +1,10 @@
 package contractstudy.collectContracts.asserts.kotlinAssertExtractor;
 
-import contractstudy.usage.collectContracts.asserts.JavaAssert.JavaAssertExtractor;
-import contractstudy.usage.collectContracts.asserts.KotlinAssert.KotlinAssertExtractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.usage.collectContracts.asserts.JavaAssert.JavaAssertExtractor;
+import contractstudy.usage.collectContracts.asserts.KotlinAssert.KotlinAssertExtractor;
 import contractstudy.utils.Utils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

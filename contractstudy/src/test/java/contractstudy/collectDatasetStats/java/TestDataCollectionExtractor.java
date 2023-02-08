@@ -1,7 +1,7 @@
 package contractstudy.collectDatasetStats.java;
 
-import contractstudy.usage.collectDatasetStats.DataCollectionExtractor;
 import contractstudy.constants.SetStatsDataKeys;
+import contractstudy.usage.collectDatasetStats.DataCollectionExtractor;
 import contractstudy.utils.Utils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

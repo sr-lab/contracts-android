@@ -1,9 +1,9 @@
 package contractstudy.collectContracts.annotation.java;
 
-import contractstudy.usage.collectContracts.annotation.JSR303Extractor;
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.usage.collectContracts.annotation.JSR303Extractor;
 import contractstudy.utils.Utils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
