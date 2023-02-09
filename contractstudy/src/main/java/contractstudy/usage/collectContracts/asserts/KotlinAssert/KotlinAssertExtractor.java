@@ -40,7 +40,8 @@ public class KotlinAssertExtractor implements Extractor<ContractElement> {
     String src = new InputStreamToStringConversion(in).getResult();
     PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
     List<KotlinAssertExpression> ambiguousAssertions = new ArrayList<>();
-    KotlinPotentialAmbiguousAssertionsVisitor ambiguousAssertionsVisitor = new KotlinPotentialAmbiguousAssertionsVisitor(programName, version, cuName, consumer, ambiguousAssertions);
+    KotlinPotentialAmbiguousAssertionsVisitor ambiguousAssertionsVisitor = new KotlinPotentialAmbiguousAssertionsVisitor(
+      programName, version, cuName, consumer, ambiguousAssertions);
     psiFile.accept(ambiguousAssertionsVisitor);
     ambiguousAssertions = ambiguousAssertionsVisitor.getAmbiguousExpressions();
     KotlinAssertVisitor kotlinAssertVisitor = new KotlinAssertVisitor(programName, version, cuName,
