@@ -27,6 +27,7 @@ public class TestKotlinAssertsExtractor {
   private static Stream<Arguments> getTestingParams() {
     return Stream.of(
       Arguments.of(ConstraintType.KotlinAssert, "KotlinAssertsMultiple.kt", 4),
+      Arguments.of(ConstraintType.KotlinAssert, "KotlinAssertsOnlyOne.kt", 1),
       Arguments.of(ConstraintType.KotlinCheck, "KotlinAssertsMultiple.kt", 1),
       Arguments.of(ConstraintType.KotlinCheckNotNull, "KotlinAssertsMultiple.kt", 1),
       Arguments.of(ConstraintType.KotlinRequire, "KotlinAssertsMultiple.kt", 2),
@@ -56,30 +57,6 @@ public class TestKotlinAssertsExtractor {
 
     assertNotNull(contractsFound);
     assertEquals(constraintCount, contractsFound.size());
-  }
-
-  @Test
-  public void testJavaAssertsExtractor_whenJavaAssertsNotExist_expectListOfAsserts()
-    throws Exception {
-
-    //given
-    File file = new File(TEST_DATA_FOLDER, "JavaAssertsNone.java");
-    ConstraintCollector collector = new ConstraintCollector();
-    JavaAssertExtractor javaAssertExtractor = new JavaAssertExtractor();
-
-    //when
-    javaAssertExtractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
-      collector);
-
-    //assert
-    List<ContractElement> contractsFound = collector
-      .getContractElements()
-      .stream()
-      .filter(c -> c.getKind().equals(ConstraintType.JavaAssert))
-      .collect(Collectors.toList());
-
-    assertNotNull(contractsFound);
-    assertEquals(0, contractsFound.size());
   }
 
 }

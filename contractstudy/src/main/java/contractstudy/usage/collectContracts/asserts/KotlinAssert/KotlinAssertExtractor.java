@@ -9,6 +9,8 @@ import contractstudy.utils.kotlinParser.KotlinParser;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class KotlinAssertExtractor implements Extractor<ContractElement> {
 
@@ -37,8 +39,12 @@ public class KotlinAssertExtractor implements Extractor<ContractElement> {
     final ExtractionListener<ContractElement> consumer) throws Exception {
     String src = new InputStreamToStringConversion(in).getResult();
     PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
+    List<KotlinAssertExpression> ambiguousAssertions = new ArrayList<>();
+    KotlinPotentialAmbiguousAssertionsVisitor ambiguousAssertionsVisitor = new KotlinPotentialAmbiguousAssertionsVisitor(programName, version, cuName, consumer, ambiguousAssertions);
+    psiFile.accept(ambiguousAssertionsVisitor);
+    ambiguousAssertions = ambiguousAssertionsVisitor.getAmbiguousExpressions();
     KotlinAssertVisitor kotlinAssertVisitor = new KotlinAssertVisitor(programName, version, cuName,
-      consumer);
+      consumer, ambiguousAssertions);
     psiFile.accept(kotlinAssertVisitor);
   }
 

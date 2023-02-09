@@ -13,10 +13,14 @@ import static contractstudy.constants.constraint.ConstraintType.KotlinRequireNot
 @AllArgsConstructor
 @Getter
 public enum KotlinAssertExpression {
-  ASSERT("assert"), CHECK("check"), CHECK_NOT_NULL("checkNotNull"), REQUIRE(
-    "require"), REQUIRE_NOT_NULL("requireNotNull"), NONE("none");
+  ASSERT("assert"),
+  CHECK("check"),
+  CHECK_NOT_NULL("checkNotNull"),
+  REQUIRE("require"),
+  REQUIRE_NOT_NULL("requireNotNull"),
+  NONE("none");
 
-  private String expression;
+  private final String expression;
 
   public static KotlinAssertExpression getExpressionKeyBy(String expression) {
     if (expression == null) {
