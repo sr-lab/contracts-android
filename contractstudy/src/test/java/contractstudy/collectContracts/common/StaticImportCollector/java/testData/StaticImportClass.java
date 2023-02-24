@@ -1,5 +1,7 @@
 package contractstudy.collectContracts.common.StaticImportCollector.java.testData;
 
+import com.google.common.base.Preconditions;
+
 import java.util.List;
 
 public class StaticImportClass {
@@ -17,6 +19,7 @@ public class StaticImportClass {
   }
 
   public void print(List<String> list) {
+    Preconditions.checkArgument(true, "This is an error");
     for (String item : list) {
       System.out.println(item);
     }

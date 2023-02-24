@@ -46,7 +46,6 @@ public abstract class AbstractMethodVisitorKotlin extends KtTreeVisitorVoid {
     ContractElement p = new ContractElement();
     p.setMethodAbstract(computeAbstractMethod());
     p.setMethodDeclaration(methodDeclaration);
-
     return p;
   }
 

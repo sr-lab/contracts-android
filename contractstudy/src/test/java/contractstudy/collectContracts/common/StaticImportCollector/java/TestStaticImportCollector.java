@@ -24,9 +24,11 @@ public class TestStaticImportCollector {
       Arguments.of(StaticImportState.NONE, "StaticImportNone.java", "none", "none"),
       Arguments.of(StaticImportState.CLASS, "StaticImportClass.java", "java.util.List",
         "java.util.List"),
-      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportAllStatic.java", "java.lang.Math",
+      Arguments.of(StaticImportState.CLASS, "StaticImportClass.java", "com.google.common.base",
+        "com.google.common.base.Preconditions"),
+      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportSomeStatic.java", "java.lang.Math",
         "java.lang.Math"),
-      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportAllStatic.java", "java.lang.System",
+      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportSomeStatic.java", "java.lang.System",
         "java.lang.System"),
       Arguments.of(StaticImportState.ALL_STATIC, "StaticImportWildCard.java",
         "java.lang.System", "java.lang.System"));
@@ -40,17 +42,14 @@ public class TestStaticImportCollector {
     String annotationPackageName,
     String targetQClassName
   ) throws Exception {
-    //given
     File file = new File(TEST_DATA_FOLDER, fileName);
     CompilationUnit cu = StaticJavaParser.parse(Utils.getInputStream(file));
 
-    //when
     StaticImportCollector importsCollector = new StaticImportCollector(annotationPackageName,
       targetQClassName);
     importsCollector.visit(cu, null);
     StaticImportState result = importsCollector.getStaticImportState();
 
-    //assert
     assertEquals(staticImportState, result);
   }
 

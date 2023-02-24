@@ -35,16 +35,17 @@ public abstract class MethodVisitorToCollectInvocationsKotlin extends AbstractMe
   // TODO: This is duplicated from MethodVisitorToCollectInvocations. Maybe only 1 method is needed.
   protected boolean checkImports(String methodName, String scope, String localClassName,
     String fullClassName) {
-    if (this.importState == StaticImportState.CLASS && localClassName.equals(scope)) {
-      return true;
-    }
-    if (this.importState == StaticImportState.ALL_STATIC) {
-      return true;
-    }
-    if (this.importState == StaticImportState.SOME_STATIC
-      && this.staticallyImportedMethodNames.contains(methodName)) {
-      return true;
-    }
-    return this.importState == StaticImportState.NONE && fullClassName.equals(scope);
+    return true; // TODO: Change
+//    if (this.importState == StaticImportState.CLASS && localClassName.equals(scope)) {
+//      return true;
+//    }
+//    if (this.importState == StaticImportState.ALL_STATIC) {
+//      return true;
+//    }
+//    if (this.importState == StaticImportState.SOME_STATIC
+//      && this.staticallyImportedMethodNames.contains(methodName)) {
+//      return true;
+//    }
+//    return this.importState == StaticImportState.NONE && fullClassName.equals(scope);
   }
 }

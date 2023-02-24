@@ -3,7 +3,7 @@ package contractstudy.collectContracts.common.StaticImportCollector.java.testDat
 import static java.lang.Math.PI;
 import static java.lang.System.out;
 
-public class StaticImportAllStatic {
+public class StaticImportSomeStatic {
 
   public boolean test(boolean flag) {
     return !flag;
