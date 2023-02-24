@@ -1,5 +1,8 @@
 package contractstudy.collectContracts.common.StaticImportCollector.kotlin.testData
 
+import org.jetbrains.annotations.NotNull
+
+
 class StaticImportClass {
     fun test(flag: Boolean): Boolean {
         return !flag
@@ -13,7 +16,9 @@ class StaticImportClass {
         return sum(area1, area2)
     }
 
+    @NotNull
     fun print(list: HashMap<Int, String>) {
+        val class1 = StaticImportClass()
         for (item in list) {
             println(item)
         }

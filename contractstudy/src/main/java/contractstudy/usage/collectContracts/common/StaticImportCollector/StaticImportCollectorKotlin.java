@@ -38,12 +38,37 @@ public class StaticImportCollectorKotlin extends KtTreeVisitorVoid {
 
     boolean hasWildCard = KotlinParserUtils.doesImportDirectiveContainsWildCard(importDirective);
 
-    if (isImportStatic(importStatement)) {
+    // TODO: Fixme. Currently, considering always static imports.
+
+    if (hasWildCard && importedPath.equals(targetQClassName)) {
+      this.staticImportState = StaticImportState.ALL_STATIC;
+    } else if (!hasWildCard) {
+      String importClass = null;
+      String importBasePath;
+      try {
+        importClass = Objects.requireNonNull(importDirective.getImportedName()).getIdentifier();
+        importBasePath = getImportBasePath(importedPath, importClass);
+      } catch (NullPointerException ignored) {
+        importBasePath = importedPath;
+      }
+      if (targetQClassName.startsWith(importBasePath)) {
+        this.staticImportState = StaticImportState.SOME_STATIC;
+        this.staticallyImportedMethodNames.add(importClass);
+      }
+    }
+
+    super.visitImportDirective(importDirective);
+
+    /*if (isImportStatic(importStatement)) {
       setImportStateFromStatic(importDirective, hasWildCard, importedPath);
     } else {
       setImportStateFromNonStatic(hasWildCard, importedPath);
-    }
+    }*/
   }
+
+
+
+
 
   private void setImportStateFromStatic(KtImportDirective importDirective, boolean hasWildCard,
     String importedPath) {

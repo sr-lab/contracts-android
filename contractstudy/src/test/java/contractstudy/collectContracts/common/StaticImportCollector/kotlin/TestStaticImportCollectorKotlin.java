@@ -24,12 +24,10 @@ public class TestStaticImportCollectorKotlin {
   private static Stream<Arguments> generateParameters() {
     return Stream.of(
       Arguments.of(StaticImportState.NONE, "StaticImportNone.kt", "none", "none"),
-      Arguments.of(StaticImportState.CLASS, "StaticImportClass.kt", "java.util",
-        "java.util.HashMap"),
-      Arguments.of(StaticImportState.ALL_STATIC, "StaticImportAllStatic.kt", "java.lang.Math",
-        "java.lang.Math.PI"),
-      Arguments.of(StaticImportState.ALL_STATIC, "StaticImportAllStatic.kt", "java.lang.System",
-        "java.lang.System"));
+      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportClass.kt", "org.jetbrains.annotations",
+        "org.jetbrains.annotations"),
+      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportSomeStatic.kt", "com.google.common.base",
+        "com.google.common.base.Preconditions"));
   }
 
   @ParameterizedTest
@@ -37,18 +35,16 @@ public class TestStaticImportCollectorKotlin {
   public void testStaticImportCollectorKotlin_withDifferentFiles_expectDifferentStates(
     StaticImportState staticImportState, String fileName, String annotationPackageName,
     String targetQClassName) throws Exception {
-    //given
+
     File file = new File(TEST_DATA_FOLDER, fileName);
     String src = new InputStreamToStringConversion(Utils.getInputStream(file)).getResult();
     PsiFile psiFile = new KotlinParser().createKtFile("test", src);
 
-    //when
     StaticImportCollectorKotlin importsCollector = new StaticImportCollectorKotlin(
       annotationPackageName, targetQClassName);
     psiFile.accept(importsCollector);
     StaticImportState result = importsCollector.getStaticImportState();
 
-    //assert
     assertEquals(staticImportState, result);
   }
 

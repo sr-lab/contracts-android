@@ -1,7 +1,6 @@
 package contractstudy.collectContracts.common.StaticImportCollector.java.testData;
 
-import java.util.List;
-
+import static java.lang.Math.PI;
 import static java.lang.System.out;
 
 public class StaticImportSomeStatic {
@@ -14,13 +13,11 @@ public class StaticImportSomeStatic {
     return num1 + num2;
   }
 
-  public long getTimeStamp(int area1) {
-    return System.currentTimeMillis();
+  public double compute(int area1) {
+    return sum(area1, PI);
   }
 
-  public void print(List<String> list) {
-    for (String item : list) {
-      out.println(item);
-    }
+  public void print(String text) {
+    out.println(text);
   }
 }

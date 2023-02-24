@@ -1,27 +1,25 @@
 package contractstudy.collectContracts.common.StaticImportCollector.java.testData;
 
-import com.google.common.base.Preconditions;
-
 import java.util.List;
+import static java.lang.System.*;
 
-public class StaticImportClass {
+public class StaticImportWildCard {
 
   public boolean test(boolean flag) {
     return !flag;
   }
 
-  public int sum(int num1, int num2) {
+  public double sum(int num1, double num2) {
     return num1 + num2;
   }
 
-  public int compute(int area1, int area2) {
-    return sum(area1, area2);
+  public long getTimeStamp(int area1) {
+    return System.currentTimeMillis();
   }
 
   public void print(List<String> list) {
-    Preconditions.checkArgument(true, "This is an error");
     for (String item : list) {
-      System.out.println(item);
+      out.println(item);
     }
   }
 }
