@@ -12,6 +12,8 @@ import java.util.List;
 /**
  * Visitor used to extract the state of static imports.
  *
+ * SOME_STATIC means that the static import does not contain a wild card.
+ *
  * @author jens dietrich
  */
 @SuppressWarnings("rawtypes")
@@ -51,8 +53,11 @@ public class StaticImportCollector extends VoidVisitorAdapter<Object> {
     return imp.removeComment().toString().contains(".*"); // JFF: FIXME?
   }
 
-  private void setImportStateFromStatic(ImportDeclaration imp, boolean hasWildCard,
-    String imported) {
+  private void setImportStateFromStatic(
+    ImportDeclaration imp,
+    boolean hasWildCard,
+    String imported
+  ) {
     if (hasWildCard && imported.equals(targetQClassName)) {
       this.staticImportState = StaticImportState.ALL_STATIC;
     } else {

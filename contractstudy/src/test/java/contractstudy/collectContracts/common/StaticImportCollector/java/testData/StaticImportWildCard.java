@@ -1,10 +1,9 @@
 package contractstudy.collectContracts.common.StaticImportCollector.java.testData;
 
 import java.util.List;
+import static java.lang.System.*;
 
-import static java.lang.System.out;
-
-public class StaticImportSomeStatic {
+public class StaticImportWildCard {
 
   public boolean test(boolean flag) {
     return !flag;

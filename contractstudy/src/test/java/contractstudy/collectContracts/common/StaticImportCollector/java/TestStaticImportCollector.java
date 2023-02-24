@@ -24,19 +24,22 @@ public class TestStaticImportCollector {
       Arguments.of(StaticImportState.NONE, "StaticImportNone.java", "none", "none"),
       Arguments.of(StaticImportState.CLASS, "StaticImportClass.java", "java.util.List",
         "java.util.List"),
-      Arguments.of(StaticImportState.ALL_STATIC, "StaticImportAllStatic.java", "java.lang.Math",
-        "java.lang.Math.PI"),
-      Arguments.of(StaticImportState.ALL_STATIC, "StaticImportAllStatic.java", "java.lang.System",
+      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportAllStatic.java", "java.lang.Math",
+        "java.lang.Math"),
+      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportAllStatic.java", "java.lang.System",
         "java.lang.System"),
-      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportSomeStatic.java",
-        "java.lang.System.out", "java.lang.System.out"));
+      Arguments.of(StaticImportState.ALL_STATIC, "StaticImportWildCard.java",
+        "java.lang.System", "java.lang.System"));
   }
 
   @ParameterizedTest
   @MethodSource("generateParameters")
   public void testStaticImportCollector_withDifferentFiles_expectDifferentStates(
-    StaticImportState staticImportState, String fileName, String annotationPackageName,
-    String targetQClassName) throws Exception {
+    StaticImportState staticImportState,
+    String fileName,
+    String annotationPackageName,
+    String targetQClassName
+  ) throws Exception {
     //given
     File file = new File(TEST_DATA_FOLDER, fileName);
     CompilationUnit cu = StaticJavaParser.parse(Utils.getInputStream(file));
