@@ -41,9 +41,6 @@ public class MethodVisitorToCollectCommons2ValidateInvocations extends
     String name = callExpr.getName().getIdentifier(); // JFF: FIXME?
     Expression expr = callExpr.getScope().orElse(null); // JFF: FIXME?
     String scope = expr == null ? null : expr.toString();
-    if (scope != null) {
-      System.out.println("nice");
-    }
     List<Expression> args = callExpr.getArguments(); //JFF
     ContractElement p = initConstraint();
     p.setProgramVersion(ProgramVersion.getOrCreate(programName, this.version));

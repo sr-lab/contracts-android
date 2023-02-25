@@ -2,6 +2,8 @@ package contractstudy.constants.constraint;
 
 import lombok.Getter;
 
+import java.util.Map;
+
 /**
  * Groups of constraints, usually grouping is by extractor. constraint type > constraint group >
  * constraint category example: ConstraintTypeJSR303Null > ConstraintGroup.ANNO_JSR30 >
@@ -37,5 +39,20 @@ public enum ConstraintGroup {
     this.name = name;
     this.shortName = shortName;
     this.category = category;
+  }
+
+  static public Map<ConstraintGroup, Integer> getListOfConstraintsGroup() {
+    return Map.ofEntries(
+      Map.entry(ConstraintGroup.ASSERTION, 0),
+      Map.entry(ConstraintGroup.CONDITIONAL_RUNTIME_EXCEPTION, 0),
+      Map.entry(ConstraintGroup.UNCONDITIONAL_RUNTIME_EXCEPTION, 0),
+      Map.entry(ConstraintGroup.CAPI_GUAVA, 0),
+      Map.entry(ConstraintGroup.CAPI_SPRING_ASSERT, 0),
+      Map.entry(ConstraintGroup.CAPI_COMMONS_VALIDATE, 0),
+      Map.entry(ConstraintGroup.ANNO_JSR303, 0),
+      Map.entry(ConstraintGroup.ANNO_JSR305, 0),
+      Map.entry(ConstraintGroup.ANNO_Android, 0),
+      Map.entry(ConstraintGroup.KOTLIN_CONTRACTS, 0)
+    );
   }
 }
