@@ -3,8 +3,8 @@ package contractstudy.constants.constraint;
 import com.google.common.base.Preconditions;
 import contractstudy.model.ProgramVersion;
 import contractstudy.utils.LanguageUtils;
-import org.json.JSONObject;
 import contractstudy.utils.LanguageUtils.Language;
+import org.json.JSONObject;
 
 /**
  * Represents a contract element.
@@ -12,6 +12,7 @@ import contractstudy.utils.LanguageUtils.Language;
  * @author jens dietrich
  */
 public class ContractElement {
+
   static final String MISSING_INFO = "-"; // useful for serializing
   private ProgramVersion programVersion = null;
   private String cuName = MISSING_INFO; // src file

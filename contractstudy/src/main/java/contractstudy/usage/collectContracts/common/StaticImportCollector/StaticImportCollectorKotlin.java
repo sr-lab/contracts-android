@@ -67,9 +67,6 @@ public class StaticImportCollectorKotlin extends KtTreeVisitorVoid {
   }
 
 
-
-
-
   private void setImportStateFromStatic(KtImportDirective importDirective, boolean hasWildCard,
     String importedPath) {
     String importClass = null;

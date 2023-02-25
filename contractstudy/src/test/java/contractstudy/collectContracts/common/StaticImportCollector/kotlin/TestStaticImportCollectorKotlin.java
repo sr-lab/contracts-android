@@ -24,9 +24,11 @@ public class TestStaticImportCollectorKotlin {
   private static Stream<Arguments> generateParameters() {
     return Stream.of(
       Arguments.of(StaticImportState.NONE, "StaticImportNone.kt", "none", "none"),
-      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportClass.kt", "org.jetbrains.annotations",
+      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportClass.kt",
+        "org.jetbrains.annotations",
         "org.jetbrains.annotations"),
-      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportSomeStatic.kt", "com.google.common.base",
+      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportSomeStatic.kt",
+        "com.google.common.base",
         "com.google.common.base.Preconditions"));
   }
 

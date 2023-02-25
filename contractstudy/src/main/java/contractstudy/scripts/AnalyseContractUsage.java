@@ -14,7 +14,7 @@ import contractstudy.model.ProgramVersion;
 import contractstudy.scripts.model.ArtefactFactory;
 import contractstudy.scripts.model.Experiment;
 import contractstudy.scripts.model.ExperimentArtefact;
-import contractstudy.utils.LanguageUtils;
+import contractstudy.utils.LanguageUtils.Language;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.log4j.Logger;
@@ -34,7 +34,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import contractstudy.utils.LanguageUtils.Language;
 
 import static contractstudy.evolution.model.diffRules.Utils.NF;
 
@@ -47,31 +46,50 @@ import static contractstudy.evolution.model.diffRules.Utils.NF;
 public class AnalyseContractUsage implements Experiment {
 
   final static File INPUT_DATA_FOLDER = ArtefactFactory.USAGE_CONTRACTS_FOLDER;
-  final static File OUTPUT_GINI_FOLDER = ArtefactFactory.USAGE_GINI_FOLDER;
   static Logger LOGGER = Logging.getLogger(AnalyseContractUsage.class);
 
-
-
   static Map<ConstraintGroup, Integer> constraintsByGroup = ConstraintGroup.getListOfConstraintsGroup();
-  static Map<ConstraintGroup, Integer> constraintsByGroupLV = new LinkedHashMap<>(ConstraintGroup.getListOfConstraintsGroup());
-
-  static Map<ConstraintCategory, Map<String, Integer>> constraintsByProgramLatestVersionAndCategory = ConstraintCategory.getConstraintCategoryListForProgramVersion();
+  static Map<ConstraintGroup, Integer> constraintsByGroupJava = ConstraintGroup.getListOfConstraintsGroup();
+  static Map<ConstraintGroup, Integer> constraintsByGroupKotlin = ConstraintGroup.getListOfConstraintsGroup();
+  static Map<ConstraintGroup, Integer> constraintsByGroupLV = new LinkedHashMap<>(
+    ConstraintGroup.getListOfConstraintsGroup());
+  static Map<ConstraintGroup, Integer> constraintsByGroupLVJava = new LinkedHashMap<>(
+    ConstraintGroup.getListOfConstraintsGroup());
+  static Map<ConstraintGroup, Integer> constraintsByGroupLVKotlin = new LinkedHashMap<>(
+    ConstraintGroup.getListOfConstraintsGroup());
 
   static Map<ConstraintClassification, Integer> constraintsByClassification = ConstraintClassification.getConstraintClassificationList();
-  static Map<ConstraintClassification, Integer> constraintsByClassificationLV = new LinkedHashMap<>(constraintsByClassification);
+  static Map<ConstraintClassification, Integer> constraintsByClassificationJava = ConstraintClassification.getConstraintClassificationList();
+  static Map<ConstraintClassification, Integer> constraintsByClassificationKotlin = ConstraintClassification.getConstraintClassificationList();
+  static Map<ConstraintClassification, Integer> constraintsByClassificationLV = new LinkedHashMap<>(
+    constraintsByClassification);
+  static Map<ConstraintClassification, Integer> constraintsByClassificationLVJava = new LinkedHashMap<>(
+    constraintsByClassification);
+  static Map<ConstraintClassification, Integer> constraintsByClassificationLVKotlin = new LinkedHashMap<>(
+    constraintsByClassification);
 
+  static Multimap<ConstraintGroup, String> programsUsingConstraintGroups = HashMultimap.create();
+  static Multimap<ConstraintGroup, String> programsUsingConstraintGroupsJava = HashMultimap.create();
+  static Multimap<ConstraintGroup, String> programsUsingConstraintGroupsKotlin = HashMultimap.create();
+
+  static Multimap<ConstraintClassification, String> programsUsingConstraintClassifications = HashMultimap.create();
+  static Multimap<ConstraintClassification, String> programsUsingConstraintClassificationsJava = HashMultimap.create();
+  static Multimap<ConstraintClassification, String> programsUsingConstraintClassificationsKotlin = HashMultimap.create();
+
+  static Map<String, Integer> constraintsByProgramLV = new HashMap<>();
+  static Map<String, Integer> constraintsByProgramLVJava = new HashMap<>();
+  static Map<String, Integer> constraintsByProgramLVKotlin = new HashMap<>();
+  static Map<ConstraintCategory, Map<String, Integer>> constraintsByCategoryInLV = ConstraintCategory.getConstraintCategoryListForProgramVersion();
+  static Map<ConstraintCategory, Map<String, Integer>> constraintsByCategoryInLVJava = ConstraintCategory.getConstraintCategoryListForProgramVersion();
+  static Map<ConstraintCategory, Map<String, Integer>> constraintsByCategoryInLVKotlin = ConstraintCategory.getConstraintCategoryListForProgramVersion();
 
   public static void main(String[] args) throws Exception {
-
-    Multimap<ConstraintGroup, String> programsUsingConstraintGroups = HashMultimap.create();
-    Multimap<ConstraintClassification, String> programsUsingConstraintClassifications = HashMultimap.create();
 
     List<ContractElement> contractElements = readContractsFromFile();
 
     Pair<Map<String, ProgramVersion>, Map<String, ProgramVersion>> firstAndLatestVersions = FindFirstAndLastProgramVersions.find();
     Collection<ProgramVersion> latestVersions = firstAndLatestVersions.getRight().values();
     Map<String, Integer> constraintsByProgram = new HashMap<>();
-    Map<String, Integer> constraintsByProgramLV = new HashMap<>();
 
     for (ContractElement c : contractElements) {
 
@@ -81,54 +99,72 @@ public class AnalyseContractUsage implements Experiment {
       String program = c.getProgramVersion().getName();
       Language fileLanguage = c.getFileLanguage();
 
-
-
-      constraintsByGroup.compute(group, (g, i) -> i == null ? 1 : i + 1);
-      constraintsByClassification.compute(classification, (g, i) -> i == null ? 1 : i + 1);
+      programsUsingConstraintGroups.put(group, program);
       constraintsByProgram.compute(program, (g, i) -> i == null ? 1 : i + 1);
+      constraintsByClassification.compute(classification, (g, i) -> i == null ? 1 : i + 1);
+      constraintsByGroup.compute(group, (g, i) -> i == null ? 1 : i + 1);
 
-
-      if (latestVersions.contains(c.getProgramVersion())) {
-        constraintsByGroupLV.compute(group, (g, i) -> i == null ? 1 : i + 1);
-        constraintsByClassificationLV.compute(classification, (g, i) -> i == null ? 1 : i + 1);
-        constraintsByProgramLV.compute(program, (g, i) -> i == null ? 1 : i + 1);
-        Map<String, Integer> data = constraintsByProgramLatestVersionAndCategory.get(
-          c.getKind().getGroup().getCategory());
-        data.compute(program, (g, i) -> i == null ? 1 : i + 1);
+      if (fileLanguage == Language.JAVA) {
+        constraintsByClassificationJava.compute(classification, (g, i) -> i == null ? 1 : i + 1);
+        constraintsByGroupJava.compute(group, (g, i) -> i == null ? 1 : i + 1);
+        programsUsingConstraintGroupsJava.put(group, program);
+      } else if (fileLanguage == Language.KOTLIN) {
+        constraintsByClassificationKotlin.compute(classification, (g, i) -> i == null ? 1 : i + 1);
+        constraintsByGroupKotlin.compute(group, (g, i) -> i == null ? 1 : i + 1);
+        programsUsingConstraintGroupsKotlin.put(group, program);
       }
 
+      if (latestVersions.contains(c.getProgramVersion())) {
 
-      programsUsingConstraintGroups.put(group, program);
-      programsUsingConstraintClassifications.put(classification, program);
+        constraintsByProgramLV.compute(program, (g, i) -> i == null ? 1 : i + 1);
+        constraintsByClassificationLV.compute(classification, (g, i) -> i == null ? 1 : i + 1);
+        constraintsByGroupLV.compute(group, (g, i) -> i == null ? 1 : i + 1);
+        programsUsingConstraintClassifications.put(classification, program);
+
+        Map<String, Integer> data = constraintsByCategoryInLV.get(
+          c.getKind().getGroup().getCategory());
+        data.compute(program, (g, i) -> i == null ? 1 : i + 1);
+
+        if (fileLanguage == Language.JAVA) {
+          constraintsByProgramLVJava.compute(program, (g, i) -> i == null ? 1 : i + 1);
+          constraintsByClassificationLVJava.compute(classification,
+            (g, i) -> i == null ? 1 : i + 1);
+          constraintsByGroupLVJava.compute(group, (g, i) -> i == null ? 1 : i + 1);
+          programsUsingConstraintClassificationsJava.put(classification, program);
+
+          Map<String, Integer> dataJava = constraintsByCategoryInLVJava.get(
+            c.getKind().getGroup().getCategory());
+          dataJava.compute(program, (g, i) -> i == null ? 1 : i + 1);
+
+        } else if (fileLanguage == Language.KOTLIN) {
+          constraintsByProgramLVKotlin.compute(program, (g, i) -> i == null ? 1 : i + 1);
+          constraintsByClassificationLVKotlin.compute(classification,
+            (g, i) -> i == null ? 1 : i + 1);
+          constraintsByGroupLVKotlin.compute(group, (g, i) -> i == null ? 1 : i + 1);
+          programsUsingConstraintClassificationsKotlin.put(classification, program);
+
+          Map<String, Integer> dataJavaKotlin = constraintsByCategoryInLVKotlin.get(
+            c.getKind().getGroup().getCategory());
+          dataJavaKotlin.compute(program, (g, i) -> i == null ? 1 : i + 1);
+        }
+
+
+      }
+
     }
 
-    double gini4AllConstraints = computeGini(constraintsByProgramLV);
-    double gini4Assertions = computeGini(
-      constraintsByProgramLatestVersionAndCategory.get(ConstraintCategory.ASSERTION));
-    double gini4APIs = computeGini(
-      constraintsByProgramLatestVersionAndCategory.get(ConstraintCategory.API));
-    double gini4RTExc = computeGini(
-      constraintsByProgramLatestVersionAndCategory.get(ConstraintCategory.RUNTIME_EXCEPTION));
-    double gini4Annotations = computeGini(
-      constraintsByProgramLatestVersionAndCategory.get(ConstraintCategory.ANNOTATION));
-    double gini4Others = computeGini(
-      constraintsByProgramLatestVersionAndCategory.get(ConstraintCategory.OTHERS));
-
     LOGGER.info("Finished contract usage analysis");
-
     LOGGER.info("Rendering output to latex");
 
-    OUTPUT_GINI_FOLDER.mkdir();
+    outputConstraintsByGroupToLatex();
 
-    outputConstraintsByGroupToLatex(constraintsByGroup, constraintsByGroupLV,
-      programsUsingConstraintGroups);
-    outputConstraintsByGroupInFirstAndLastVersionToLatex(constraintsByGroup,
-      constraintsByGroupLV, programsUsingConstraintGroups);
-    outputConstraintsByClassificationToLatex(constraintsByClassification,
-      constraintsByClassificationLV, programsUsingConstraintClassifications);
-    outputGiniToLatex(gini4AllConstraints, gini4Assertions, gini4APIs, gini4RTExc,
-      gini4Annotations, gini4Others);
-    outputCategoriesInfoToLatex(constraintsByProgramLatestVersionAndCategory);
+    outputConstraintsByGroupInFirstAndLastVersionToLatex();
+
+    outputConstraintsByClassificationToLatex();
+
+    computeGiniAndOutputToLatex();
+
+    outputCategoriesInfoToLatex(constraintsByCategoryInLV);
   }
 
   private static List<ContractElement> readContractsFromFile() throws IOException {
@@ -145,33 +181,13 @@ public class AnalyseContractUsage implements Experiment {
     return contractElements;
   }
 
-  private static Collection<String> getTopProgramsUsingContracts(
-    Map<String, Integer> constraintsByProgram) {
-    return constraintsByProgram.keySet().stream()
-      .sorted((s1, s2) -> constraintsByProgram.get(s2) - constraintsByProgram.get(s1)).limit(10)
-      .collect(Collectors.toList());
-  }
-
-  private static Collection<String> getTopProgramsUsingContractsInLatestVersion(
-    Map<String, Integer> constraintsByProgramLatestVersion) {
-    return constraintsByProgramLatestVersion.keySet().stream()
-      .sorted((s1, s2) -> constraintsByProgramLatestVersion.get(s2)
-        - constraintsByProgramLatestVersion.get(s1)).limit(10)
-      .collect(Collectors.toList());
-  }
-
   private static double computeGini(Map<String, Integer> constraintsByProgramLVs) {
     Integer[] vals = constraintsByProgramLVs.values().stream().sorted().toArray(Integer[]::new);
     return jct.util.Gini.compute(vals, true);
   }
 
-  private static void outputConstraintsByGroupToLatex(
-    Map<ConstraintGroup, Integer> constraintsByGroup,
-    Map<ConstraintGroup, Integer> constraintsByGroupLV,
-    Multimap<ConstraintGroup, String> programsUsingConstraintGroups
-  )
-    throws IOException {
-    File latex = ArtefactFactory.USAGE_CONTRACTS_BY_TYPE;
+  private static void outputConstraintsByGroupToLatex() throws IOException {
+    File latex = ArtefactFactory.USAGE_CONTRACTS_BY_GROUP;
     try (PrintStream out = new PrintStream(Files.newOutputStream(latex.toPath()))) {
       out.println("% TABLE GENERATED BY " + AnalyseContractUsage.class.getName());
       out.println("% TIMESTAMP:   " + new Date());
@@ -179,16 +195,24 @@ public class AnalyseContractUsage implements Experiment {
       out.println("\\centering");
       out.println("\\caption{Contract elements by type}");
       out.println("\\label{tab:contractsbytype}");
-      out.println("\\begin{tabular}{|p{5cm}|p{3cm}|r|r|r|} \\hline");
-      out.println(
-        "   type & category & \\parbox{1.2cm}{contracts\\ (all ver.)}  & \\parbox{1.2cm}{contracts\\ (latest)} & pro\\-grams \\\\ \\hline");
+      out.println("\\begin{tabular}{| c | c | c | c | c | c | c | c |} \\hline");
+      out.println("type & category & \\multicolumn{2}{ c |}{contracts (all ver.)} & "
+        + "\\multicolumn{2}{ c |}{contracts (latest)} & "
+        + "\\multicolumn{2}{ c |}{contracts (programs)} \\\\ \n"
+        + "\\cline{3-8}\n"
+        + "& & Java & Kotlin & Java & Kotlin & Java & Kotlin \\\\\n"
+        + "\\hline");
       for (Map.Entry<ConstraintGroup, Integer> entry : constraintsByGroup.entrySet()) {
         out.print("\t");
-        out.print(entry.getKey().getShortName() + " &  ");
-        out.print(entry.getKey().getCategory().getName() + " &  ");
-        out.print(NF.format(entry.getValue()) + " &  ");
-        out.print(NF.format(constraintsByGroupLV.get(entry.getKey())) + " &  ");
-        out.println(NF.format(programsUsingConstraintGroups.get(entry.getKey()).size()) + " \\\\ ");
+        out.print(entry.getKey().getShortName() + " & ");
+        out.print(entry.getKey().getCategory().getName() + " & ");
+        out.print(NF.format(constraintsByGroupJava.get(entry.getKey())) + " & ");
+        out.print(NF.format(constraintsByGroupKotlin.get(entry.getKey())) + " & ");
+        out.print(NF.format(constraintsByGroupLVJava.get(entry.getKey())) + " & ");
+        out.print(NF.format(constraintsByGroupLVKotlin.get(entry.getKey())) + " & ");
+        out.print(NF.format(programsUsingConstraintGroupsJava.get(entry.getKey()).size()) + " & ");
+        out.println(
+          NF.format(programsUsingConstraintGroupsKotlin.get(entry.getKey()).size()) + " \\\\ ");
       }
       out.println("\\hline");
       out.println("\\end{tabular}");
@@ -196,12 +220,8 @@ public class AnalyseContractUsage implements Experiment {
     }
   }
 
-  private static void outputConstraintsByGroupInFirstAndLastVersionToLatex(
-    Map<ConstraintGroup, Integer> constraintsByGroup,
-    Map<ConstraintGroup, Integer> constraintsByGroupLV,
-    Multimap<ConstraintGroup, String> programsUsingConstraintGroups
-  ) throws IOException {
-    File latex = ArtefactFactory.USAGE_CONTRACTS_BY_TYPE_FIRST_LAST_VERSION;
+  private static void outputConstraintsByGroupInFirstAndLastVersionToLatex() throws IOException {
+    File latex = ArtefactFactory.USAGE_CONTRACTS_BY_GROUP_FIRST_LAST_VERSION;
     try (PrintStream out = new PrintStream(Files.newOutputStream(latex.toPath()))) {
       out.println("% TABLE GENERATED BY " + AnalyseContractUsage.class.getName());
       out.println("% TIMESTAMP:   " + new Date());
@@ -209,47 +229,28 @@ public class AnalyseContractUsage implements Experiment {
       out.println("\\centering");
       out.println("\\caption{Contract elements by type}");
       out.println("\\label{tab:contractsbytype}");
-      out.println("\\begin{tabular}{|p{5cm}|p{3cm}|r|r|r|} \\hline");
-      out.println(
-        "   type & category & \\parbox{1.2cm}{contracts\\ (1st ver.)}  & \\parbox{1.2cm}{contracts\\ (latest)} & pro\\-grams \\\\ \\hline");
+      out.println("\\begin{tabular}{| c | c | c | c | c | c | c | c |} \\hline");
+      out.println("type & category & \\multicolumn{2}{ c |}{contracts (1st vers.)} & "
+        + "\\multicolumn{2}{ c |}{contracts (latest vers.)} & "
+        + "\\multicolumn{2}{ c |}{programs} \\\\ \n"
+        + "\\cline{3-8}\n"
+        + "& & Java & Kotlin & Java & Kotlin & Java & Kotlin \\\\\n"
+        + "\\hline");
       for (Map.Entry<ConstraintGroup, Integer> entry : constraintsByGroup.entrySet()) {
         out.print("\t");
-        out.print(entry.getKey().getShortName() + " &  ");
-        out.print(entry.getKey().getCategory().getName() + " &  ");
-        int total_contracts = entry.getValue();
-        int last_version = constraintsByGroupLV.get(entry.getKey());
-        int first_version = total_contracts - last_version;
-
-        double increase_rate = 0;
-        boolean show_increase_rate = true;
-        if (last_version > first_version && first_version != 0) {
-          increase_rate = (double) last_version / first_version;
-        } else if (first_version > last_version && last_version != 0) {
-          increase_rate = -((double) first_version / last_version);
-        }
-        if (first_version == 0 || last_version == 0) {
-          show_increase_rate = false;
-        }
-
-        if (total_contracts >= last_version) {
-          out.print(NF.format(first_version) + " &  ");
-          if (show_increase_rate) {
-            if (increase_rate != 0) {
-              out.print(
-                NF.format(constraintsByGroupLV.get(entry.getKey())) + " ( " + String.format("%.2f",
-                  increase_rate) + "x )" + " &  ");
-            } else {
-              out.print(
-                NF.format(constraintsByGroupLV.get(entry.getKey())) + " ( \\approx )" + " &  ");
-            }
-          } else {
-            out.print(NF.format(constraintsByGroupLV.get(entry.getKey())) + " &  ");
-          }
-        } else {
-          out.print(NF.format(entry.getValue()) + " &  ");
-          out.print(NF.format(constraintsByGroupLV.get(entry.getKey())) + " &  ");
-        }
-        out.println(NF.format(programsUsingConstraintGroups.get(entry.getKey()).size()) + " \\\\ ");
+        out.print(entry.getKey().getShortName() + " & ");
+        out.print(entry.getKey().getCategory().getName() + " & ");
+        out.print(NF.format(
+          constraintsByGroupJava.get(entry.getKey()) - constraintsByGroupLVJava.get(entry.getKey()))
+          + " & ");
+        out.print(NF.format(
+          constraintsByGroupKotlin.get(entry.getKey()) - constraintsByGroupLVKotlin.get(
+            entry.getKey())) + " & ");
+        out.print(NF.format(constraintsByGroupLVJava.get(entry.getKey())) + " & ");
+        out.print(NF.format(constraintsByGroupLVKotlin.get(entry.getKey())) + " & ");
+        out.print(NF.format(programsUsingConstraintGroupsJava.get(entry.getKey()).size()) + " & ");
+        out.println(
+          NF.format(programsUsingConstraintGroupsKotlin.get(entry.getKey()).size()) + " \\\\ ");
       }
       out.println("\\hline");
       out.println("\\end{tabular}");
@@ -257,12 +258,7 @@ public class AnalyseContractUsage implements Experiment {
     }
   }
 
-  private static void outputConstraintsByClassificationToLatex(
-    Map<ConstraintClassification, Integer> constraintsByClassification,
-    Map<ConstraintClassification, Integer> constraintsByClassificationLV,
-    Multimap<ConstraintClassification, String> programsUsingConstraintClassifications
-  )
-    throws IOException {
+  private static void outputConstraintsByClassificationToLatex() throws IOException {
     File latex = ArtefactFactory.USAGE_CONTRACTS_BY_CLASSIFICATION;
     try (PrintStream out = new PrintStream(Files.newOutputStream(latex.toPath()))) {
       out.println("% TABLE GENERATED BY " + AnalyseContractUsage.class.getName());
@@ -271,16 +267,33 @@ public class AnalyseContractUsage implements Experiment {
       out.println("\\centering");
       out.println("\\caption{Contracts by classification}");
       out.println("\\label{tab:contractsbyclassification}");
-      out.println("\\begin{tabular}{|p{2.1cm}|r|r|r|} \\hline");
-      out.println(
-        "   classification & \\parbox{1.2cm}{contracts\\ (all ver.)} & \\parbox{1.2cm}{contracts\\ (latest)} & programs \\\\ \\hline");
+      out.println("\\begin{tabular}{| c | c | c | c | c | c | c |} \\hline");
+      out.println("type & \\multicolumn{2}{ c |}{contracts (all ver.)} & "
+        + "\\multicolumn{2}{ c |}{contracts (latest)} & "
+        + "\\multicolumn{2}{ c |}{contracts (programs)} \\\\ \n"
+        + "\\cline{2-7}\n"
+        + "& Java & Kotlin & Java & Kotlin & Java & Kotlin \\\\\n"
+        + "\\hline");
       for (Map.Entry<ConstraintClassification, Integer> entry : constraintsByClassification.entrySet()) {
         out.print("\t");
-        out.print(entry.getKey().getName() + " &  ");
-        out.println(NF.format(entry.getValue()) + " & ");
-        out.println(NF.format(constraintsByClassificationLV.get(entry.getKey())) + " & ");
-        out.println(
-          NF.format(programsUsingConstraintClassifications.get(entry.getKey()).size()) + " \\\\ ");
+        out.print(entry.getKey().getName() + " & ");
+        out.print(NF.format(constraintsByClassificationJava.get(entry.getKey())) + " & ");
+        out.print(NF.format(constraintsByClassificationKotlin.get(entry.getKey())) + " & ");
+        out.print(NF.format(constraintsByClassificationLVJava.get(entry.getKey())) + " & ");
+        out.print(NF.format(constraintsByClassificationLVKotlin.get(entry.getKey())) + " & ");
+        try {
+          out.print(NF.format(programsUsingConstraintClassificationsJava.get(entry.getKey()).size())
+            + " & ");
+        } catch (IllegalArgumentException e) {
+          out.print(NF.format(0) + " & ");
+        }
+        try {
+          out.println(
+            NF.format(programsUsingConstraintClassificationsKotlin.get(entry.getKey()).size())
+              + " \\\\ ");
+        } catch (IllegalArgumentException e) {
+          out.println(NF.format(0) + " \\\\ ");
+        }
       }
       out.println("\\hline");
       out.println("\\end{tabular}");
@@ -288,31 +301,84 @@ public class AnalyseContractUsage implements Experiment {
     }
   }
 
-  private static void outputGiniToLatex(
-    double gini4AllConstraints,
-    double gini4Assertions,
-    double gini4APIs,
-    double gini4RTExc,
-    double gini4Annotations,
-    double gini4Others
-  ) throws Exception {
-    File latex = ArtefactFactory.USAGE_GINI;
+  private static void computeGiniAndOutputToLatex() throws IOException {
+    double gini4AllConstraints = computeGini(constraintsByProgramLV);
+    double gini4Assertions = computeGini(
+      constraintsByCategoryInLV.get(ConstraintCategory.ASSERTION));
+    double gini4APIs = computeGini(
+      constraintsByCategoryInLV.get(ConstraintCategory.API));
+    double gini4RTExc = computeGini(
+      constraintsByCategoryInLV.get(ConstraintCategory.RUNTIME_EXCEPTION));
+    double gini4Annotations = computeGini(
+      constraintsByCategoryInLV.get(ConstraintCategory.ANNOTATION));
+    double gini4Others = computeGini(
+      constraintsByCategoryInLV.get(ConstraintCategory.OTHERS));
+
+    double gini4AllConstraintsJava = computeGini(constraintsByProgramLVJava);
+    double gini4AssertionsJava = computeGini(
+      constraintsByCategoryInLVJava.get(ConstraintCategory.ASSERTION));
+    double gini4APIsJava = computeGini(
+      constraintsByCategoryInLVJava.get(ConstraintCategory.API));
+    double gini4RTExcJava = computeGini(
+      constraintsByCategoryInLVJava.get(ConstraintCategory.RUNTIME_EXCEPTION));
+    double gini4AnnotationsJava = computeGini(
+      constraintsByCategoryInLVJava.get(ConstraintCategory.ANNOTATION));
+    double gini4OthersJava = computeGini(
+      constraintsByCategoryInLVJava.get(ConstraintCategory.OTHERS));
+
+    double gini4AllConstraintsKotlin = computeGini(constraintsByProgramLVKotlin);
+    double gini4AssertionsKotlin = computeGini(
+      constraintsByCategoryInLVKotlin.get(ConstraintCategory.ASSERTION));
+    double gini4APIsKotlin = computeGini(
+      constraintsByCategoryInLVKotlin.get(ConstraintCategory.API));
+    double gini4RTExcKotlin = computeGini(
+      constraintsByCategoryInLVKotlin.get(ConstraintCategory.RUNTIME_EXCEPTION));
+    double gini4AnnotationsKotlin = computeGini(
+      constraintsByCategoryInLVKotlin.get(ConstraintCategory.ANNOTATION));
+    double gini4OthersKotlin = computeGini(
+      constraintsByCategoryInLVKotlin.get(ConstraintCategory.OTHERS));
+
+    File latex = ArtefactFactory.USAGE_GINI_ALL;
     try (PrintStream out = new PrintStream(Files.newOutputStream(latex.toPath()))) {
-      out.print(Math.round(gini4AllConstraints * 100.0) / 100.0);
+      out.println("% TABLE GENERATED BY " + AnalyseContractUsage.class.getName());
+      out.println("% TIMESTAMP:   " + new Date());
+      out.println("\\begin{table}[]");
+      out.println("\\centering");
+      out.println("\\caption{Gini}");
+      out.println("\\label{tab:contractsGini}");
+      out.println("\\begin{tabular}{| c | c | c | c | } \\hline");
+      out.println("category & Java & Kotlin & Both \\ \\hline");
+      out.print("\t");
+      out.println("All constraints & " + getGini(gini4AllConstraintsJava) + " & " + getGini(
+        gini4AllConstraintsKotlin) + " & " + getGini(gini4AllConstraints) + " \\\\ ");
+      out.print("\t");
+      out.println(
+        "Assertions & " + getGini(gini4AssertionsJava) + " & " + getGini(gini4AssertionsKotlin)
+          + " & " + getGini(gini4Assertions) + " \\\\ ");
+      out.print("\t");
+      out.println(
+        "APIs & " + getGini(gini4APIsJava) + " & " + getGini(gini4APIsKotlin) + " & " + getGini(
+          gini4APIs) + " \\\\ ");
+      out.print("\t");
+      out.println(
+        "Annotations & " + getGini(gini4AnnotationsJava) + " & " + getGini(gini4AnnotationsKotlin)
+          + " & " + getGini(gini4Annotations) + " \\\\ ");
+      out.print("\t");
+      out.println(
+        "CRE & " + getGini(gini4RTExcJava) + " & " + getGini(gini4RTExcKotlin) + " & " + getGini(
+          gini4RTExc) + " \\\\ ");
+      out.print("\t");
+      out.println(
+        "Others & " + getGini(gini4OthersJava) + " & " + getGini(gini4OthersKotlin) + " & "
+          + getGini(gini4Others) + " \\\\ ");
+      out.println("\\hline");
+      out.println("\\end{tabular}");
+      out.println("\\end{table}");
     }
-    exportGini(gini4AllConstraints, ArtefactFactory.USAGE_GINI);
-    exportGini(gini4Annotations, ArtefactFactory.USAGE_GINI_ANNOTATIONS);
-    exportGini(gini4Assertions, ArtefactFactory.USAGE_GINI_ASSERTIONS);
-    exportGini(gini4APIs, ArtefactFactory.USAGE_GINI_APIS);
-    exportGini(gini4RTExc, ArtefactFactory.USAGE_GINI_RUNTIME_EXCEPTIONS);
-    exportGini(gini4Others, ArtefactFactory.USAGE_GINI_OTHERS);
   }
 
-  private static void exportGini(double value, File outputFile) throws Exception {
-    try (PrintStream out = new PrintStream(Files.newOutputStream(outputFile.toPath()))) {
-      out.print(Math.round(value * 100.0) / 100.0);
-    }
-    LOGGER.info("Gini value written to " + outputFile.getAbsolutePath());
+  private static double getGini(double value) {
+    return Math.round(value * 100.0) / 100.0;
   }
 
   private static void outputCategoriesInfoToLatex(

@@ -53,6 +53,7 @@ public enum ConstraintGroup {
     groups.put(ConstraintGroup.ANNO_JSR303, 0);
     groups.put(ConstraintGroup.ANNO_JSR305, 0);
     groups.put(ConstraintGroup.ANNO_Android, 0);
+    groups.put(ConstraintGroup.ANNO_AndroidX, 0);
     groups.put(ConstraintGroup.KOTLIN_CONTRACTS, 0);
     return groups;
   }
