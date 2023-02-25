@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -25,12 +26,12 @@ public enum ConstraintCategory {
   private final String name;
 
   static public Map<ConstraintCategory, Map<String, Integer>> getConstraintCategoryListForProgramVersion() {
-    return Map.ofEntries(
-      Map.entry(ConstraintCategory.API, new HashMap<>()),
-      Map.entry(ConstraintCategory.ANNOTATION, new HashMap<>()),
-      Map.entry(ConstraintCategory.ASSERTION, new HashMap<>()),
-      Map.entry(ConstraintCategory.RUNTIME_EXCEPTION, new HashMap<>()),
-      Map.entry(ConstraintCategory.OTHERS, new HashMap<>())
-    );
+    Map<ConstraintCategory, Map<String, Integer>> categories = new LinkedHashMap<>();
+    categories.put(ConstraintCategory.API, new HashMap<>());
+    categories.put(ConstraintCategory.ANNOTATION, new HashMap<>());
+    categories.put(ConstraintCategory.ASSERTION, new HashMap<>());
+    categories.put(ConstraintCategory.RUNTIME_EXCEPTION, new HashMap<>());
+    categories.put(ConstraintCategory.OTHERS, new HashMap<>());
+    return categories;
   }
 }

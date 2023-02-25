@@ -2,6 +2,7 @@ package contractstudy.constants.constraint;
 
 import lombok.Getter;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -42,17 +43,17 @@ public enum ConstraintGroup {
   }
 
   static public Map<ConstraintGroup, Integer> getListOfConstraintsGroup() {
-    return Map.ofEntries(
-      Map.entry(ConstraintGroup.ASSERTION, 0),
-      Map.entry(ConstraintGroup.CONDITIONAL_RUNTIME_EXCEPTION, 0),
-      Map.entry(ConstraintGroup.UNCONDITIONAL_RUNTIME_EXCEPTION, 0),
-      Map.entry(ConstraintGroup.CAPI_GUAVA, 0),
-      Map.entry(ConstraintGroup.CAPI_SPRING_ASSERT, 0),
-      Map.entry(ConstraintGroup.CAPI_COMMONS_VALIDATE, 0),
-      Map.entry(ConstraintGroup.ANNO_JSR303, 0),
-      Map.entry(ConstraintGroup.ANNO_JSR305, 0),
-      Map.entry(ConstraintGroup.ANNO_Android, 0),
-      Map.entry(ConstraintGroup.KOTLIN_CONTRACTS, 0)
-    );
+    Map<ConstraintGroup, Integer> groups = new LinkedHashMap<>();
+    groups.put(ConstraintGroup.ASSERTION, 0);
+    groups.put(ConstraintGroup.CONDITIONAL_RUNTIME_EXCEPTION, 0);
+    groups.put(ConstraintGroup.UNCONDITIONAL_RUNTIME_EXCEPTION, 0);
+    groups.put(ConstraintGroup.CAPI_GUAVA, 0);
+    groups.put(ConstraintGroup.CAPI_SPRING_ASSERT, 0);
+    groups.put(ConstraintGroup.CAPI_COMMONS_VALIDATE, 0);
+    groups.put(ConstraintGroup.ANNO_JSR303, 0);
+    groups.put(ConstraintGroup.ANNO_JSR305, 0);
+    groups.put(ConstraintGroup.ANNO_Android, 0);
+    groups.put(ConstraintGroup.KOTLIN_CONTRACTS, 0);
+    return groups;
   }
 }

@@ -3,6 +3,7 @@ package contractstudy.constants.constraint;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -18,16 +19,15 @@ public enum ConstraintClassification {
   INVARIANT("invariants"),
   ANY("not classified");
 
-  private String name;
+  private final String name;
 
   static public Map<ConstraintClassification, Integer> getConstraintClassificationList() {
-    return Map.ofEntries(
-      Map.entry(ConstraintClassification.PRECONDITION, 0),
-      Map.entry(ConstraintClassification.POSTCONDITION, 0),
-      Map.entry(ConstraintClassification.INVARIANT, 0),
-      Map.entry(ConstraintClassification.ANY, 0)
-    );
+    Map<ConstraintClassification, Integer> classifications = new LinkedHashMap<>();
+    classifications.put(ConstraintClassification.PRECONDITION, 0);
+    classifications.put(ConstraintClassification.POSTCONDITION, 0);
+    classifications.put(ConstraintClassification.INVARIANT, 0);
+    classifications.put(ConstraintClassification.ANY, 0);
+    return classifications;
   }
-
 
 }
