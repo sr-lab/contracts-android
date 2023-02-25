@@ -23,25 +23,15 @@ public class ArtefactFactory {
   public static final File RESULTS_FOLDER = new File(Preferences.getOutputFolder());
   public static final File RESULTS_USAGE_FOLDER = new File(RESULTS_FOLDER, "/usage");
   public static final File USAGE_CONTRACTS_FOLDER = new File(RESULTS_USAGE_FOLDER, "/contracts");
-  public static final File USAGE_GINI_FOLDER = new File(RESULTS_USAGE_FOLDER, "/gini");
-  public static final File USAGE_GINI = new File(USAGE_GINI_FOLDER, "/gini.tex");
-  public static final File USAGE_GINI_ANNOTATIONS = new File(USAGE_GINI_FOLDER,
-    "/gini-annotations.tex");
-  public static final File USAGE_GINI_ASSERTIONS = new File(USAGE_GINI_FOLDER,
-    "/gini-assertions.tex");
-  public static final File USAGE_GINI_APIS = new File(USAGE_GINI_FOLDER, "/gini-apis.tex");
-  public static final File USAGE_GINI_RUNTIME_EXCEPTIONS = new File(USAGE_GINI_FOLDER,
-    "/gini-cre.tex");
-  public static final File USAGE_GINI_OTHERS = new File(USAGE_GINI_FOLDER,
-    "/gini-others.tex");
+  public static final File USAGE_GINI_ALL = new File(RESULTS_USAGE_FOLDER, "/gini.tex");
   public static final File USAGE_CONTRACTS_TOP_USER_IN_LAST_VERSION = new File(RESULTS_USAGE_FOLDER,
     "/topUsersInLastVersion.tex");
   public static final File USAGE_CONTRACTS_BY_CLASSIFICATION = new File(RESULTS_USAGE_FOLDER,
     "/contractsByClassification.tex");
-  public static final File USAGE_CONTRACTS_BY_TYPE = new File(RESULTS_USAGE_FOLDER,
-    "/contractsByType.tex");
-  public static final File USAGE_CONTRACTS_BY_TYPE_FIRST_LAST_VERSION = new File(
-    RESULTS_USAGE_FOLDER, "/contractsByTypeWithVersions.tex");
+  public static final File USAGE_CONTRACTS_BY_GROUP = new File(RESULTS_USAGE_FOLDER,
+    "/contractsByGroup.tex");
+  public static final File USAGE_CONTRACTS_BY_GROUP_FIRST_LAST_VERSION = new File(
+    RESULTS_USAGE_FOLDER, "/contractsByGroupWithVersions.tex");
   public static final File USAGE_DATASET_STATS = new File(RESULTS_USAGE_FOLDER, "/dataset.tex");
   public static final File USAGE_DATASET_ERRORS = new File(RESULTS_USAGE_FOLDER,
     "/dataset-errors.tex");
@@ -107,7 +97,7 @@ public class ArtefactFactory {
    * @return several tables about contracts usage
    */
   public static ExperimentArtefact contractsUsage() {
-    return new FileScanArtefact(USAGE_CONTRACTS_BY_TYPE_FIRST_LAST_VERSION);
+    return new FileScanArtefact(USAGE_CONTRACTS_BY_GROUP_FIRST_LAST_VERSION);
   }
 
   /**

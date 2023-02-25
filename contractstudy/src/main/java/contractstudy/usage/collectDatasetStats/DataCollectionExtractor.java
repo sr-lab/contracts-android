@@ -22,13 +22,14 @@ public class DataCollectionExtractor {
   public void analyse(
     final String cuName,
     final InputStream in,
-    final Map<String, Integer> data) throws Exception {
+    final Map<String, Integer> dataJava,
+    final Map<String, Integer> dataKotlin) throws Exception {
     switch (LanguageUtils.getLanguageFromNameExtension(cuName)) {
       case JAVA:
-        analyseJava(in, data);
+        analyseJava(in, dataJava);
         break;
       case KOTLIN:
-        analyseKotlin(in, data);
+        analyseKotlin(in, dataKotlin);
         break;
       default:
     }

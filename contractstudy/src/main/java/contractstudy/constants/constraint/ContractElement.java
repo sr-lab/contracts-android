@@ -2,6 +2,8 @@ package contractstudy.constants.constraint;
 
 import com.google.common.base.Preconditions;
 import contractstudy.model.ProgramVersion;
+import contractstudy.utils.LanguageUtils;
+import contractstudy.utils.LanguageUtils.Language;
 import org.json.JSONObject;
 
 /**
@@ -11,7 +13,6 @@ import org.json.JSONObject;
  */
 public class ContractElement {
 
-  public static final char CSV_SEPARATOR = '\t';
   static final String MISSING_INFO = "-"; // useful for serializing
   private ProgramVersion programVersion = null;
   private String cuName = MISSING_INFO; // src file
@@ -157,6 +158,10 @@ public class ContractElement {
 
   public ConstraintClassification getClassification() {
     return this.getKind().getClassification(this.getConstraintedArtefact());
+  }
+
+  public Language getFileLanguage() {
+    return LanguageUtils.getLanguageFromNameExtension(this.cuName);
   }
 
 }

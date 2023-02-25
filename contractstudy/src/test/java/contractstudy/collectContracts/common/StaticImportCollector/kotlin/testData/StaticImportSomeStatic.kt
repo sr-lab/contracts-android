@@ -5,7 +5,7 @@ import com.google.common.base.Preconditions
 
 class StaticImportSomeStatic {
     fun test(flag: Boolean): Boolean {
-        Preconditions.checkArgument(flag!!, "This is an error")
+        Preconditions.checkArgument(flag, "This is an error")
         return !flag
     }
 

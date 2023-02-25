@@ -3,6 +3,7 @@ package contractstudy.scripts;
 import com.google.common.base.Preconditions;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
+import contractstudy.constants.SetStatsDataKeys;
 import contractstudy.model.ProgramVersion;
 import contractstudy.scripts.model.ArtefactFactory;
 import contractstudy.scripts.model.Experiment;
@@ -59,6 +60,10 @@ public class CollectDatasetStats implements Experiment {
   final static File RESULTS_FOLDER = new File(Preferences.getOutputFolder());
   private static final Logger LOGGER = Logging.getLogger(CollectDatasetStats.class);
 
+  static Map<String, Integer> data = new ConcurrentHashMap<>();
+  static Map<String, Integer> dataJava = new ConcurrentHashMap<>();
+  static Map<String, Integer> dataKotlin = new ConcurrentHashMap<>();
+
   public static void main(String[] args) throws Exception {
 
     File DATA_FOLDER = new File(Preferences.getDataFolder());
@@ -67,7 +72,6 @@ public class CollectDatasetStats implements Experiment {
 
     int THREAD_COUNT = Preferences.getThreadCount();
 
-    Map<String, Integer> data = new ConcurrentHashMap<>();
     Collection<File> zips = FileUtils.listFiles(DATA_FOLDER, new String[]{"zip"}, true);
     ExecutorService executor = Executors.newFixedThreadPool(THREAD_COUNT);
     Set<String> seenPrograms = Collections.synchronizedSet(new HashSet<>());
@@ -96,7 +100,7 @@ public class CollectDatasetStats implements Experiment {
               "Analysing " + counter.incrementAndGet() + "/" + zips.size() + " - " + f.getName());
             ZipFile zip = new ZipFile(f);
             DataCollectionExtractor dataCollectionExtractor = new DataCollectionExtractor();
-            collectStats(zip, dataCollectionExtractor, data, errorCuNames);
+            collectStats(zip, dataCollectionExtractor, errorCuNames);
           } catch (Exception e) {
             LOGGER.warn("Cannot parse file: " + f, e);
           }
@@ -108,15 +112,14 @@ public class CollectDatasetStats implements Experiment {
     executor.shutdown();
     executor.awaitTermination(1, TimeUnit.DAYS);
 
-    LOGGER.info("Analysis finished, printing stats");
+    LOGGER.info("Analysis finished.");
 
-    outputStatsToConsole(data);
-    outputStatsToLatex(data);
+    outputStatsToLatex();
     outputErrorsToFile(errorCuNames);
   }
 
-  private static void collectStats(ZipFile zip, DataCollectionExtractor dataCollectionExtractor,
-    Map<String, Integer> data, List<String> errorCuNames) throws IOException {
+  private static void collectStats(ZipFile zip, DataCollectionExtractor dataCollectionExtractor
+    , List<String> errorCuNames) throws IOException {
     Enumeration<? extends ZipEntry> en = zip.entries();
     while (en.hasMoreElements()) {
       ZipEntry e = en.nextElement();
@@ -125,10 +128,15 @@ public class CollectDatasetStats implements Experiment {
       if (language == LanguageUtils.Language.JAVA || language == LanguageUtils.Language.KOTLIN) {
         try (InputStream in = zip.getInputStream(e)) {
           try {
-            dataCollectionExtractor.analyse(e.getName(), in, data);
+            dataCollectionExtractor.analyse(e.getName(), in, dataJava, dataKotlin);
           } catch (Exception t) {
-            data.compute(COMPILATION_UNITS_PARSING_FAILED.getKey(),
-              (k, v) -> v == null ? 1 : v + 1);
+            if (language == LanguageUtils.Language.JAVA) {
+              dataJava.compute(COMPILATION_UNITS_PARSING_FAILED.getKey(),
+                (k, v) -> v == null ? 1 : v + 1);
+            } else {
+              dataKotlin.compute(COMPILATION_UNITS_PARSING_FAILED.getKey(),
+                (k, v) -> v == null ? 1 : v + 1);
+            }
             errorCuNames.add(zip.getName() + ", " + name + ", Error: " + t.getMessage());
           }
         }
@@ -136,15 +144,7 @@ public class CollectDatasetStats implements Experiment {
     }
   }
 
-  private static void outputStatsToConsole(Map<String, Integer> data) {
-    LOGGER.info("Details written to " + RESULTS_FOLDER.getAbsolutePath());
-    for (Map.Entry<String, Integer> entry : data.entrySet()) {
-      LOGGER.info("" + entry.getKey() + " : " + entry.getValue());
-    }
-  }
-
-  private static void outputStatsToLatex(Map<String, Integer> data)
-    throws IOException {
+  private static void outputStatsToLatex() throws IOException {
     LOGGER.info("Rendering output to latex");
     File latex = ArtefactFactory.USAGE_DATASET_STATS;
     try (PrintStream out = new PrintStream(Files.newOutputStream(latex.toPath()))) {
@@ -152,37 +152,80 @@ public class CollectDatasetStats implements Experiment {
       out.println("% TIMESTAMP:   " + new Date());
       out.println("\\begin{table}[]");
       out.println("\\centering");
-      out.println("\\caption{Data set metrics }");
+      out.println("\\caption{Dataset metrics }");
       out.println("\\label{tab:data-metrics}");
-      out.println("\\begin{tabular}{|l|l|} \\hline");
-      out.println("   metric & value  \\\\ \\hline");
-      out.println("   programs & " + NF.format(data.get(PROGRAMS.getKey())) + "  \\\\");
-      out.println("   program versions & " + NF.format(data.get(VERSIONS.getKey())) + "  \\\\");
+      out.println("\\begin{tabular}{|l|l|l|l|} \\hline");
+      out.println("metric & Java & Kotlin & Both \\\\ \\hline");
+      out.println("programs & ? & ? &" + get(data, PROGRAMS) + "  \\\\");
+      out.println("program versions & ? & ? &" + get(data, VERSIONS) + "  \\\\");
       out.println(
-        "   compilation units & " + NF.format(data.get(COMPILATION_UNITS.getKey())) + "  \\\\");
-      if (data.get(COMPILATION_UNITS_PARSING_FAILED.getKey()) != null)  // JFF: it was failing here
-      {
-        out.println("   unparsable compilation units & " + NF.format(
-          data.get(COMPILATION_UNITS_PARSING_FAILED.getKey())) + "  \\\\");
-      }
-      out.println("   \\hline");
-      out.println("   classes & " + NF.format(data.get(CLASSES.getKey())) + "  \\\\");
-      out.println("   methods (all)& " + NF.format(data.get(ALL_METHODS.getKey())) + "  \\\\");
+        "compilation units & " + get(dataJava, COMPILATION_UNITS) + " & " + get(dataKotlin,
+          COMPILATION_UNITS) + " & " + getTotal(COMPILATION_UNITS) + " \\\\");
       out.println(
-        "   constructors (all)& " + NF.format(data.get(ALL_CONSTRUCTORS.getKey())) + "  \\\\");
+        "unparsable compilation units & " + get(dataJava, COMPILATION_UNITS_PARSING_FAILED) + " & "
+          + get(dataKotlin, COMPILATION_UNITS_PARSING_FAILED) + " & " + get(data,
+          COMPILATION_UNITS_PARSING_FAILED) + " \\\\");
+      out.println("\\hline");
       out.println(
-        "   methods (public and protected) & " + NF.format(data.get(PUBLIC_METHODS.getKey()))
-          + "  \\\\");
+        "classes & " + get(dataJava, CLASSES) + " & " + get(dataKotlin, CLASSES) + " & " + getTotal(
+          CLASSES) + " \\\\");
       out.println(
-        "   constructors (public and protected) & " + NF.format(
-          data.get(PUBLIC_CONSTRUCTORS.getKey()))
-          + "  \\\\");
+        "methods (all) & " + get(dataJava, ALL_METHODS) + " & " + get(dataKotlin, ALL_METHODS)
+          + " & " + getTotal(ALL_METHODS) + " \\\\");
       out.println(
-        "   KLOC incl comments& " + NF.format(data.get(LOC.getKey()) / 1000) + "  \\\\ \\hline");
+        "constructors (all) & " + get(dataJava, ALL_CONSTRUCTORS) + " & " + get(dataKotlin,
+          ALL_CONSTRUCTORS) + " & " + getTotal(ALL_CONSTRUCTORS) + " \\\\");
+      out.println("methods (public and protected) & " + get(dataJava, PUBLIC_METHODS) + " & " + get(
+        dataKotlin, PUBLIC_METHODS) + " & " + getTotal(PUBLIC_METHODS) + " \\\\");
+      out.println(
+        "constructors (public and protected) & " + get(dataJava, PUBLIC_CONSTRUCTORS) + " & " + get(
+          dataKotlin, PUBLIC_CONSTRUCTORS) + " & " + getTotal(PUBLIC_CONSTRUCTORS) + " \\\\");
+      out.println("KLOC incl comments & " + getKLOC(dataJava) + " & " + getKLOC(dataKotlin) + " & "
+        + getTotalKLOC() + " \\\\");
+      out.println("\\hline");
       out.println("\\end{tabular}");
       out.println("\\end{table}");
     }
     LOGGER.info("Latex table with results created at " + latex.getAbsolutePath());
+  }
+
+  private static String get(Map<String, Integer> data, SetStatsDataKeys key) {
+    String value = "-";
+    if (data.get(key.getKey()) != null) {
+      value = NF.format(data.get(key.getKey()));
+    }
+    return value;
+  }
+
+  private static String getTotal(SetStatsDataKeys key) {
+    Integer value = 0;
+    if (dataJava.get(key.getKey()) != null) {
+      value += dataJava.get(key.getKey());
+    }
+    if (dataKotlin.get(key.getKey()) != null) {
+      value += dataKotlin.get(key.getKey());
+    }
+    return NF.format(value);
+  }
+
+  private static String getKLOC(Map<String, Integer> data) {
+    Integer value = 0;
+    if (data.get(LOC.getKey()) != null) {
+      value = data.get(LOC.getKey()) / 1000;
+    }
+    return NF.format(value);
+  }
+
+  private static String getTotalKLOC() {
+    Integer value = 0;
+    if (dataJava.get(LOC.getKey()) != null) {
+      value += dataJava.get(LOC.getKey());
+    }
+    if (dataKotlin.get(LOC.getKey()) != null) {
+      value += dataKotlin.get(LOC.getKey());
+    }
+    value = value / 1000;
+    return NF.format(value);
   }
 
   private static void outputErrorsToFile(List<String> errorCuNames)

@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Visitor used to extract the state of static imports.
- *
+ * <p>
  * SOME_STATIC means that the static import does not contain a wild card.
  *
  * @author jens dietrich
