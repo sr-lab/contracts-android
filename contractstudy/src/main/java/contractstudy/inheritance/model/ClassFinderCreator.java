@@ -70,7 +70,7 @@ public class ClassFinderCreator {
     cuNames.put(classCoordinates.getClassName(), programVersion, cuName);
   }
 
-  public ClassFinder toFinder() {
+  public SourceClassFinder toFinder() {
     return new SourceClassFinder(classPcgs, classOrigin, cuNames);
   }
 

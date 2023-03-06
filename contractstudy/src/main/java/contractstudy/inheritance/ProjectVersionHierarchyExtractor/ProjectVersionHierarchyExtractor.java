@@ -5,22 +5,19 @@ import com.github.javaparser.ast.CompilationUnit;
 import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassExtractor.ProjectClassExtractor;
 import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassExtractorKotlin.ProjectClassExtractorKotlin;
 import contractstudy.inheritance.model.ClassCoordinates;
-import contractstudy.inheritance.model.ClassFinder;
 import contractstudy.inheritance.model.ClassFinderCreator;
 import contractstudy.inheritance.model.ClassParents;
 import contractstudy.inheritance.model.InheritanceResolved;
+import contractstudy.inheritance.model.SourceClassFinder;
 import contractstudy.model.ClassAndVersion;
 import contractstudy.model.ProgramVersion;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import contractstudy.utils.kotlinParser.KotlinParser;
-import org.apache.commons.io.FileUtils;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 import java.io.File;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.util.Collection;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Map;
@@ -123,7 +120,8 @@ public class ProjectVersionHierarchyExtractor {
     final ClassFinderCreator creator,
     final InheritanceResolved notifier
   ) throws Exception {
-    if (Objects.equals(sourceCodeFileName, "src/commonMain/kotlin/org/andstatus/game2048/ViewPosition.kt")) {
+    if (Objects.equals(sourceCodeFileName,
+      "src/commonMain/kotlin/org/andstatus/game2048/ViewPosition.kt")) {
       System.out.println("nice");
     }
     String src = new InputStreamToStringConversion(inputStream).getResult();
@@ -141,8 +139,8 @@ public class ProjectVersionHierarchyExtractor {
     final ProgramVersion programVersion,
     final ClassFinderCreator creator,
     final InheritanceResolved notifier,
-    final Set<String> allParents) throws Exception {
-    ClassFinder classFinder = creator.toFinder();
+    final Set<String> allParents) {
+    SourceClassFinder classFinder = creator.toFinder();
     Map<ClassCoordinates, CompilationUnit> javaUnits = creator.getCus().column(programVersion);
     Map<ClassCoordinates, PsiFile> kotlinUnits = creator.getPsis().column(programVersion);
     resolveInheritanceForJava(javaUnits, classFinder, notifier, allParents);
@@ -151,7 +149,7 @@ public class ProjectVersionHierarchyExtractor {
 
   private void resolveInheritanceForJava(
     final Map<ClassCoordinates, CompilationUnit> javaUnits,
-    ClassFinder classFinder,
+    SourceClassFinder classFinder,
     final InheritanceResolved notifier,
     final Set<String> allParents
   ) {
@@ -165,7 +163,7 @@ public class ProjectVersionHierarchyExtractor {
 
   private void resolveInheritanceForKotlin(
     final Map<ClassCoordinates, PsiFile> kotlinUnits,
-    ClassFinder classFinder,
+    SourceClassFinder classFinder,
     final InheritanceResolved notifier,
     final Set<String> allParents
   ) {

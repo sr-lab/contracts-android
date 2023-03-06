@@ -3,8 +3,8 @@ package contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassE
 import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassExtractorKotlin.visitor.ClassDefinitionVisitorKotlin;
 import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassExtractorKotlin.visitor.InheritanceHierarchyVisitorKotlin;
 import contractstudy.inheritance.model.ClassCoordinates;
-import contractstudy.inheritance.model.ClassFinder;
 import contractstudy.inheritance.model.ClassParents;
+import contractstudy.inheritance.model.SourceClassFinder;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 /**
@@ -23,7 +23,7 @@ public class ProjectClassExtractorKotlin {
   public ClassParents readInheritance(
     final PsiFile cu,
     final String cuName,
-    final ClassFinder classFinder) {
+    final SourceClassFinder classFinder) {
     InheritanceHierarchyVisitorKotlin visitor = new InheritanceHierarchyVisitorKotlin(cuName,
       classFinder);
     cu.accept(visitor);

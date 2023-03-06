@@ -4,8 +4,8 @@ import com.github.javaparser.ast.CompilationUnit;
 import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassExtractor.visitor.ClassDefinitionVisitor;
 import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassExtractor.visitor.InheritanceHierarchyVisitor;
 import contractstudy.inheritance.model.ClassCoordinates;
-import contractstudy.inheritance.model.ClassFinder;
 import contractstudy.inheritance.model.ClassParents;
+import contractstudy.inheritance.model.SourceClassFinder;
 
 /**
  * Extract information from single class.
@@ -25,7 +25,7 @@ public class ProjectClassExtractor {
   public ClassParents readInheritance(
     final CompilationUnit cu,
     final String cuName,
-    final ClassFinder classFinder) {
+    final SourceClassFinder classFinder) {
     InheritanceHierarchyVisitor visitor = new InheritanceHierarchyVisitor(cuName, classFinder);
     visitor.visit(cu, null);
     return visitor;

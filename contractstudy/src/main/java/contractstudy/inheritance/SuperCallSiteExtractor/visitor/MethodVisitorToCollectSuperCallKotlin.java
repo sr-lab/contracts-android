@@ -1,7 +1,6 @@
 package contractstudy.inheritance.SuperCallSiteExtractor.visitor;
 
 import contractstudy.config.Preferences;
-import contractstudy.constants.VisibilityModifier;
 import contractstudy.inheritance.model.SuperCallSite;
 import contractstudy.model.ProgramVersion;
 import contractstudy.utils.kotlinParser.KotlinParserUtils;
@@ -13,7 +12,6 @@ import org.jetbrains.kotlin.psi.KtSuperExpression;
 import org.jetbrains.kotlin.psi.KtTreeVisitorVoid;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Stores in a list instances of "super.foo()" or "super()".

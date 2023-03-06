@@ -5,9 +5,10 @@ import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import contractstudy.inheritance.model.ClassCoordinates;
-import contractstudy.inheritance.model.ClassFinder;
 import contractstudy.inheritance.model.ClassParents;
+import contractstudy.inheritance.model.SourceClassFinder;
 import contractstudy.model.ClassAndVersion;
+import contractstudy.utils.GeneralUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,12 +20,12 @@ import java.util.Set;
 public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implements ClassParents,
   ClassCoordinates {
 
-  private final ClassFinder classFinder;
+  private final SourceClassFinder classFinder;
   private final List<String> packages = new ArrayList<>();
 
   public InheritanceHierarchyVisitor(
     final String cuName,
-    final ClassFinder classFinder) {
+    final SourceClassFinder classFinder) {
     super(cuName);
     this.classFinder = classFinder;
   }
@@ -32,14 +33,8 @@ public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implemen
   @Override
   public void visit(PackageDeclaration n, Object arg) {
     String packageName = n.getName().getIdentifier();
-    addImplicitImports(packageName);
+    packages.addAll(GeneralUtils.getImplicitImportsForPackageName(packageName));
     super.visit(n, arg);
-  }
-
-  private void addImplicitImports(String packageName) {
-    packages.add(packageName + ".*");
-    packages.add("kotlin.*");
-    packages.add("java.lang.*");
   }
 
 
@@ -65,10 +60,11 @@ public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implemen
     addParentToChildClassStateIfItBelongsToItsImports(n, superInterfaces);
   }
 
-  private void addParentToChildClassStateIfItBelongsToItsImports(ClassOrInterfaceDeclaration n, List<ClassOrInterfaceType> types) {
-    for (ClassOrInterfaceType type : types) {
-      String typeName = type.getNameWithScope(); //TODO: JFF type.getName().getIdentifier()
-      ClassAndVersion classAndOrigin = classFinder.findClass(typeName,
+  private void addParentToChildClassStateIfItBelongsToItsImports(ClassOrInterfaceDeclaration n,
+    List<ClassOrInterfaceType> superClassesAndInterfaces) {
+    for (ClassOrInterfaceType superClass : superClassesAndInterfaces) {
+      String superClassName = superClass.getNameWithScope(); //TODO: JFF type.getName().getIdentifier()
+      ClassAndVersion classAndOrigin = classFinder.findClass(superClassName,
         packages.toArray(new String[0]));
       if (classAndOrigin != null) {
         getState(n).getParents().add(classAndOrigin);

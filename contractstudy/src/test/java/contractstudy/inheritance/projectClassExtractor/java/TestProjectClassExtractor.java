@@ -4,9 +4,9 @@ import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassExtractor.ProjectClassExtractor;
 import contractstudy.inheritance.model.ClassCoordinates;
-import contractstudy.inheritance.model.ClassFinder;
 import contractstudy.inheritance.model.ClassFinderCreator;
 import contractstudy.inheritance.model.ClassParents;
+import contractstudy.inheritance.model.SourceClassFinder;
 import contractstudy.utils.Utils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -56,7 +56,7 @@ public class TestProjectClassExtractor {
     CompilationUnit cu = StaticJavaParser.parse(in);
     ProjectClassExtractor extractor = new ProjectClassExtractor();
     ClassFinderCreator creator = new ClassFinderCreator(globalCreator);
-    ClassFinder classFinder = creator.toFinder();
+    SourceClassFinder classFinder = creator.toFinder();
 
     ClassParents result = extractor.readInheritance(cu, "name", classFinder);
 
