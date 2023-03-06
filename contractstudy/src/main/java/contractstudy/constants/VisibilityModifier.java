@@ -14,21 +14,24 @@ public enum VisibilityModifier {
   }
 
   public static VisibilityModifier getVisibilityModifierFromKeyword(String keyword) {
+    //FIXME: An override method can either be protected or public.
+    //FIXME: In Kotlin, the default visibility for a method in an inner interface is protected.
     if (keyword == null) {
       return NONE;
     }
-    switch (keyword) {
-      case "private":
-        return PRIVATE;
-      case "protected":
-      case "override":
-        return PROTECTED;
-      case "internal":
-        return INTERNAL;
-      case "public":
-        return PUBLIC;
+    if (keyword.endsWith("private")) {
+      return PRIVATE;
     }
-    return NONE;
+    if (keyword.endsWith("protected")) {
+      return PROTECTED;
+    }
+    if (keyword.endsWith("override")) {
+      return PROTECTED;
+    }
+    if (keyword.endsWith("internal")) {
+      return INTERNAL;
+    }
+    return PUBLIC;
   }
 
 }

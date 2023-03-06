@@ -1,0 +1,1 @@
+[{"cu":"src/com/uberspot/a2048/MainActivity.java","condition":"\"SetJavaScriptEnabled\"","method":"onCreate(Bundle)","additional_info":"-","artefact_type":"METHOD","line":13,"name":"uberspot-2048-android","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

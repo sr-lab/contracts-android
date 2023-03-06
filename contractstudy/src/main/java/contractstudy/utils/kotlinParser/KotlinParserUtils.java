@@ -49,6 +49,12 @@ public class KotlinParserUtils {
     return fileViewProvider.getDocument();
   }
 
+  public static boolean isMethodVisibilityAccepted(KtModifierList ktModifierList) {
+    //TODO: Should we include internal?
+    VisibilityModifier visibility = getVisibilityModifier(ktModifierList);
+    return visibility == VisibilityModifier.PROTECTED || visibility == VisibilityModifier.PRIVATE;
+  }
+
   public static VisibilityModifier getVisibilityModifier(KtModifierList ktModifierList) {
     String visibilityKeyword = "public";
     if (ktModifierList != null && ktModifierList.getText() != null) {

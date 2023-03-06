@@ -39,14 +39,8 @@ public class MethodVisitorToCollectSuperCallKotlin extends KtTreeVisitorVoid {
 
   @Override
   public void visitNamedFunction(@NotNull KtNamedFunction function) {
-    if (Objects.equals(this.cuName,
-      "andstatus-game2048-1/src/androidMain/kotlin/org/andstatus/game2048/MainActivity.kt")) {
-      System.out.println("nice");
-    }
     KtModifierList ktModifierList = function.getModifierList();
-    VisibilityModifier visibility = KotlinParserUtils.getVisibilityModifier(ktModifierList);
-    //TODO: Should we include internal?
-    if (visibility == VisibilityModifier.PUBLIC || visibility == VisibilityModifier.PROTECTED) {
+    if (KotlinParserUtils.isMethodVisibilityAccepted(ktModifierList)) {
       this.methodDeclaration = function.getName() + "()";
       this.isMethod = true;
     }
@@ -57,13 +51,10 @@ public class MethodVisitorToCollectSuperCallKotlin extends KtTreeVisitorVoid {
   // FIXME: It is not capturing constructors (super()).
   @Override
   public void visitSuperExpression(@NotNull KtSuperExpression expression) {
-    // TODO: Why are there instances where methodDeclaration is null?
     if (methodDeclaration != null) {
       SuperCallSite callSite = new SuperCallSite(programVersion, cuName, methodDeclaration,
         isMethod);
       superCallSites.add(callSite);
-    } else {
-      System.out.println();
     }
   }
 }
