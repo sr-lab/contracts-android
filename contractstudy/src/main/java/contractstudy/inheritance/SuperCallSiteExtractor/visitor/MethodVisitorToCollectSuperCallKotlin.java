@@ -13,6 +13,7 @@ import org.jetbrains.kotlin.psi.KtSuperExpression;
 import org.jetbrains.kotlin.psi.KtTreeVisitorVoid;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Stores in a list instances of "super.foo()" or "super()".
@@ -38,6 +39,10 @@ public class MethodVisitorToCollectSuperCallKotlin extends KtTreeVisitorVoid {
 
   @Override
   public void visitNamedFunction(@NotNull KtNamedFunction function) {
+    if (Objects.equals(this.cuName,
+      "andstatus-game2048-1/src/androidMain/kotlin/org/andstatus/game2048/MainActivity.kt")) {
+      System.out.println("nice");
+    }
     KtModifierList ktModifierList = function.getModifierList();
     VisibilityModifier visibility = KotlinParserUtils.getVisibilityModifier(ktModifierList);
     //TODO: Should we include internal?
@@ -48,7 +53,6 @@ public class MethodVisitorToCollectSuperCallKotlin extends KtTreeVisitorVoid {
     super.visitNamedFunction(function);
   }
 
-  //TODO: We are not catching constructors.
 
   // FIXME: It is not capturing constructors (super()).
   @Override
@@ -58,6 +62,8 @@ public class MethodVisitorToCollectSuperCallKotlin extends KtTreeVisitorVoid {
       SuperCallSite callSite = new SuperCallSite(programVersion, cuName, methodDeclaration,
         isMethod);
       superCallSites.add(callSite);
+    } else {
+      System.out.println();
     }
   }
 }

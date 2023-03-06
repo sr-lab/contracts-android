@@ -21,6 +21,7 @@ public enum VisibilityModifier {
       case "private":
         return PRIVATE;
       case "protected":
+      case "override":
         return PROTECTED;
       case "internal":
         return INTERNAL;

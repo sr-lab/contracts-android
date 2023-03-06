@@ -32,9 +32,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
- * Currently, we skip project's dependencies.
  *
- * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
 public class ComputeInheritanceHierarchy implements Experiment {
 

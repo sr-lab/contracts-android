@@ -64,4 +64,16 @@ public class KotlinParserUtils {
       return false;
     }
   }
+
+  public static String getImportedName(KtImportDirective importDirective) {
+    String importedName = null;
+    try {
+      importedName = Objects.requireNonNull(importDirective.getImportedName()).toString();
+    } catch (NullPointerException e) {
+      if (KotlinParserUtils.doesImportDirectiveContainsWildCard(importDirective)) {
+        importedName = ".*";
+      }
+    }
+    return importedName;
+  }
 }

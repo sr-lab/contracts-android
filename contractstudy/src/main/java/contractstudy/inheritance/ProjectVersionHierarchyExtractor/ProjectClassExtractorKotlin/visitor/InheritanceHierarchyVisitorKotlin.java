@@ -45,15 +45,8 @@ public class InheritanceHierarchyVisitorKotlin extends ClassDefinitionVisitorKot
 
   @Override
   public void visitImportDirective(@NotNull KtImportDirective importDirective) {
-    String importedName = "";
-    try {
-      importedName = Objects.requireNonNull(importDirective.getImportedName()).toString();
-    } catch (NullPointerException e) {
-      if (KotlinParserUtils.doesImportDirectiveContainsWildCard(importDirective)) {
-        importedName += ".*";
-      }
-    }
-    if (!Objects.equals(importedName, "")) {
+    String importedName = KotlinParserUtils.getImportedName(importDirective);
+    if (importedName != null) {
       packages.add(importedName);
       super.visitImportDirective(importDirective);
     }
@@ -63,10 +56,10 @@ public class InheritanceHierarchyVisitorKotlin extends ClassDefinitionVisitorKot
   public void visitClassOrObject(@NotNull KtClassOrObject classOrObject) {
     super.visitClassOrObject(classOrObject);
     List<KtSuperTypeListEntry> entries = classOrObject.getSuperTypeListEntries();
-    findClasses(classOrObject, entries);
+    addParentToChildClassStateIfItBelongsToItsImports(classOrObject, entries);
   }
 
-  private void findClasses(KtClassOrObject n, List<KtSuperTypeListEntry> types) {
+  private void addParentToChildClassStateIfItBelongsToItsImports(KtClassOrObject n, List<KtSuperTypeListEntry> types) {
     for (KtSuperTypeListEntry entry : types) {
       String typeName = entry.getTypeReference().getText();
       ClassAndVersion classAndOrigin = classFinder.findClass(typeName,

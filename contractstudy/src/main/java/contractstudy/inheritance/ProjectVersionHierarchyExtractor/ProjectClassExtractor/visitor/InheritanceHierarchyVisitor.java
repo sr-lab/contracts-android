@@ -3,7 +3,6 @@ package contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassE
 import com.github.javaparser.ast.ImportDeclaration;
 import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
-import com.github.javaparser.ast.expr.SuperExpr;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import contractstudy.inheritance.model.ClassCoordinates;
 import contractstudy.inheritance.model.ClassFinder;
@@ -62,18 +61,13 @@ public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implemen
     super.visit(n, arg);
     List<ClassOrInterfaceType> superClasses = n.getExtendedTypes();
     List<ClassOrInterfaceType> superInterfaces = n.getImplementedTypes();
-    findClasses(n, superClasses);
-    findClasses(n, superInterfaces);
+    addParentToChildClassStateIfItBelongsToItsImports(n, superClasses);
+    addParentToChildClassStateIfItBelongsToItsImports(n, superInterfaces);
   }
 
-  @Override
-  public void visit(SuperExpr n, Object arg) {
-    super.visit(n, arg);
-  }
-
-  private void findClasses(ClassOrInterfaceDeclaration n, List<ClassOrInterfaceType> types) {
+  private void addParentToChildClassStateIfItBelongsToItsImports(ClassOrInterfaceDeclaration n, List<ClassOrInterfaceType> types) {
     for (ClassOrInterfaceType type : types) {
-      String typeName = type.getNameWithScope(); // type.getName().getIdentifier(); // JFF
+      String typeName = type.getNameWithScope(); //TODO: JFF type.getName().getIdentifier()
       ClassAndVersion classAndOrigin = classFinder.findClass(typeName,
         packages.toArray(new String[0]));
       if (classAndOrigin != null) {
@@ -81,7 +75,6 @@ public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implemen
       }
     }
   }
-
 
   @Override
   public Set<ClassAndVersion> getParents(String className) {

@@ -14,19 +14,19 @@ import contractstudy.inheritance.model.ClassParents;
  */
 public class ProjectClassExtractor {
 
-  public ClassParents readInheritance(
+  public ClassCoordinates readClass(
     final CompilationUnit cu,
-    final String cuName,
-    final ClassFinder classFinder) throws Exception {
-    InheritanceHierarchyVisitor visitor = new InheritanceHierarchyVisitor(cuName, classFinder);
+    final String cuName) {
+    ClassDefinitionVisitor visitor = new ClassDefinitionVisitor(cuName);
     visitor.visit(cu, null);
     return visitor;
   }
 
-  public ClassCoordinates readClass(
+  public ClassParents readInheritance(
     final CompilationUnit cu,
-    final String cuName) throws Exception {
-    ClassDefinitionVisitor visitor = new ClassDefinitionVisitor(cuName);
+    final String cuName,
+    final ClassFinder classFinder) {
+    InheritanceHierarchyVisitor visitor = new InheritanceHierarchyVisitor(cuName, classFinder);
     visitor.visit(cu, null);
     return visitor;
   }

@@ -16,7 +16,6 @@ import java.util.Collection;
  */
 public class SourceClassFinder implements ClassFinder {
 
-  private final Logger LOGGER = Logging.getLogger(CollectContracts.class);
   /**
    * CU cache  key - class name, program version,  value CU
    */
@@ -24,18 +23,18 @@ public class SourceClassFinder implements ClassFinder {
   /**
    * key - simple class name, value - package
    */
-  private Multimap<String, String> classPcgs = HashMultimap.create();
+  private Multimap<String, String> classPackages;
   /**
    * key - class origin, value - full class name
    */
-  private Multimap<String, ProgramVersion> classOrigin = HashMultimap.create();
+  private Multimap<String, ProgramVersion> classOrigin;
 
   public SourceClassFinder(
-    final Multimap<String, String> classPcgs,
+    final Multimap<String, String> classPackages,
     final Multimap<String, ProgramVersion> classOrigin,
     final Table<String, ProgramVersion, String> cuNames) {
 
-    this.classPcgs = classPcgs;
+    this.classPackages = classPackages;
     this.classOrigin = classOrigin;
     this.cuNames = cuNames;
   }
@@ -46,7 +45,7 @@ public class SourceClassFinder implements ClassFinder {
     final String[] imports) {
 
     // check that we have the parent class at all.
-    Collection<String> pcgs = classPcgs.get(simpleClassName);
+    Collection<String> pcgs = classPackages.get(simpleClassName);
 
     ClassAndVersion r = null;
     if (!pcgs.isEmpty()) {
