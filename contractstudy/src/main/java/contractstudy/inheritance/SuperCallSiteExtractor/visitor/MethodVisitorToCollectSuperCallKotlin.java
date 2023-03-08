@@ -1,7 +1,6 @@
 package contractstudy.inheritance.SuperCallSiteExtractor.visitor;
 
 import contractstudy.config.Preferences;
-import contractstudy.constants.VisibilityModifier;
 import contractstudy.inheritance.model.SuperCallSite;
 import contractstudy.model.ProgramVersion;
 import contractstudy.utils.kotlinParser.KotlinParserUtils;
@@ -39,21 +38,17 @@ public class MethodVisitorToCollectSuperCallKotlin extends KtTreeVisitorVoid {
   @Override
   public void visitNamedFunction(@NotNull KtNamedFunction function) {
     KtModifierList ktModifierList = function.getModifierList();
-    VisibilityModifier visibility = KotlinParserUtils.getVisibilityModifier(ktModifierList);
-    //TODO: Should we include internal?
-    if (visibility == VisibilityModifier.PUBLIC || visibility == VisibilityModifier.PROTECTED) {
+    if (KotlinParserUtils.isMethodVisibilityAccepted(ktModifierList)) {
       this.methodDeclaration = function.getName() + "()";
       this.isMethod = true;
     }
     super.visitNamedFunction(function);
   }
 
-  //TODO: We are not catching constructors.
 
   // FIXME: It is not capturing constructors (super()).
   @Override
   public void visitSuperExpression(@NotNull KtSuperExpression expression) {
-    // TODO: Why are there instances where methodDeclaration is null?
     if (methodDeclaration != null) {
       SuperCallSite callSite = new SuperCallSite(programVersion, cuName, methodDeclaration,
         isMethod);

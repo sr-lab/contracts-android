@@ -3,9 +3,9 @@ package contractstudy.inheritance.projectClassExtractor.kotlin;
 
 import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassExtractorKotlin.ProjectClassExtractorKotlin;
 import contractstudy.inheritance.model.ClassCoordinates;
-import contractstudy.inheritance.model.ClassFinder;
 import contractstudy.inheritance.model.ClassFinderCreator;
 import contractstudy.inheritance.model.ClassParents;
+import contractstudy.inheritance.model.SourceClassFinder;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.Utils;
 import contractstudy.utils.kotlinParser.KotlinParser;
@@ -61,7 +61,7 @@ public class TestProjectClassExtractor {
     PsiFile psiFile = new KotlinParser().createKtFile("test", src);
     ProjectClassExtractorKotlin extractor = new ProjectClassExtractorKotlin();
     ClassFinderCreator creator = new ClassFinderCreator(globalCreator);
-    ClassFinder classFinder = creator.toFinder();
+    SourceClassFinder classFinder = creator.toFinder();
 
     ClassParents result = extractor.readInheritance(psiFile, psiFile.getName(), classFinder);
 

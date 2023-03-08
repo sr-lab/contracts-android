@@ -1,9 +1,10 @@
 package contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassExtractorKotlin.visitor;
 
 import contractstudy.inheritance.model.ClassCoordinates;
-import contractstudy.inheritance.model.ClassFinder;
 import contractstudy.inheritance.model.ClassParents;
+import contractstudy.inheritance.model.SourceClassFinder;
 import contractstudy.model.ClassAndVersion;
+import contractstudy.utils.GeneralUtils;
 import contractstudy.utils.kotlinParser.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.psi.KtClassOrObject;
@@ -13,19 +14,18 @@ import org.jetbrains.kotlin.psi.KtSuperTypeListEntry;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 public class InheritanceHierarchyVisitorKotlin extends ClassDefinitionVisitorKotlin implements
   ClassParents,
   ClassCoordinates {
 
-  private final ClassFinder classFinder;
+  private final SourceClassFinder classFinder;
   private final List<String> packages = new ArrayList<>();
 
   public InheritanceHierarchyVisitorKotlin(
     final String cuName,
-    final ClassFinder classFinder) {
+    final SourceClassFinder classFinder) {
     super(cuName);
     this.classFinder = classFinder;
   }
@@ -33,27 +33,14 @@ public class InheritanceHierarchyVisitorKotlin extends ClassDefinitionVisitorKot
   @Override
   public void visitPackageDirective(@NotNull KtPackageDirective directive) {
     String packageName = directive.getName();
-    addImplicitImports(packageName);
+    packages.addAll(GeneralUtils.getImplicitImportsForPackageName(packageName));
     super.visitPackageDirective(directive);
-  }
-
-  private void addImplicitImports(String packageName) {
-    packages.add(packageName + ".*");
-    packages.add("kotlin.*");
-    packages.add("java.lang.*");
   }
 
   @Override
   public void visitImportDirective(@NotNull KtImportDirective importDirective) {
-    String importedName = "";
-    try {
-      importedName = Objects.requireNonNull(importDirective.getImportedName()).toString();
-    } catch (NullPointerException e) {
-      if (KotlinParserUtils.doesImportDirectiveContainsWildCard(importDirective)) {
-        importedName += ".*";
-      }
-    }
-    if (!Objects.equals(importedName, "")) {
+    String importedName = KotlinParserUtils.getImportedName(importDirective);
+    if (importedName != null) {
       packages.add(importedName);
       super.visitImportDirective(importDirective);
     }
@@ -62,14 +49,15 @@ public class InheritanceHierarchyVisitorKotlin extends ClassDefinitionVisitorKot
   @Override
   public void visitClassOrObject(@NotNull KtClassOrObject classOrObject) {
     super.visitClassOrObject(classOrObject);
-    List<KtSuperTypeListEntry> entries = classOrObject.getSuperTypeListEntries();
-    findClasses(classOrObject, entries);
+    List<KtSuperTypeListEntry> superClassesAndInterfaces = classOrObject.getSuperTypeListEntries();
+    addParentToChildClassStateIfItBelongsToItsImports(classOrObject, superClassesAndInterfaces);
   }
 
-  private void findClasses(KtClassOrObject n, List<KtSuperTypeListEntry> types) {
-    for (KtSuperTypeListEntry entry : types) {
-      String typeName = entry.getTypeReference().getText();
-      ClassAndVersion classAndOrigin = classFinder.findClass(typeName,
+  private void addParentToChildClassStateIfItBelongsToItsImports(KtClassOrObject n,
+    List<KtSuperTypeListEntry> superClassesAndInterfaces) {
+    for (KtSuperTypeListEntry superClass : superClassesAndInterfaces) {
+      String superClassName = superClass.getTypeReference().getText();
+      ClassAndVersion classAndOrigin = classFinder.findClass(superClassName,
         packages.toArray(new String[0]));
       if (classAndOrigin != null) {
         getState(n).getParents().add(classAndOrigin);
