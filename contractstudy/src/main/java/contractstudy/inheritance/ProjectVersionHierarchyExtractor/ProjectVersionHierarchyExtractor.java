@@ -21,7 +21,6 @@ import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
@@ -120,18 +119,12 @@ public class ProjectVersionHierarchyExtractor {
     final ClassFinderCreator creator,
     final InheritanceResolved notifier
   ) throws Exception {
-    if (Objects.equals(sourceCodeFileName,
-      "src/commonMain/kotlin/org/andstatus/game2048/ViewPosition.kt")) {
-      System.out.println("nice");
-    }
     String src = new InputStreamToStringConversion(inputStream).getResult();
     PsiFile psiFile = new KotlinParser().createKtFile(sourceCodeFileName, src);
     ClassCoordinates classCoordinates = classExtractorKotlin.readClass(psiFile, sourceCodeFileName);
     if (classCoordinates.getClassSimpleName() != null) {
       creator.add(programVersion, classCoordinates, psiFile, file.getName());
       notifier.notify(classCoordinates);
-    } else {
-      System.out.println("nice");
     }
   }
 

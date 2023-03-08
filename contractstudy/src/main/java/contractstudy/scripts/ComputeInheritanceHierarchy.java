@@ -19,12 +19,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -64,34 +64,31 @@ public class ComputeInheritanceHierarchy implements Experiment {
         continue;
       }
 
-      Runnable task = new Runnable() {
-        @Override
-        public void run() {
-          try {
-            ProgramVersion version = createProgramVersionFromSourceCodeAndContractsFoundJsonFile(
-              project, contractsJsonFile);
-            Map<ClassCoordinates, ClassParents> classesMap = new HashMap<>();
+      Runnable task = () -> {
+        try {
+          ProgramVersion version = createProgramVersionFromSourceCodeAndContractsFoundJsonFile(
+            project, contractsJsonFile);
+          Map<ClassCoordinates, ClassParents> classesMap = new HashMap<>();
 
-            extractor.analyse(version, new InheritanceResolved() {
-              @Override
-              public void notify(ClassParents parents) {
-                classesMap.put(parents, parents);
-              }
+          extractor.analyse(version, new InheritanceResolved() {
+            @Override
+            public void notify(ClassParents parents) {
+              classesMap.put(parents, parents);
+            }
 
-              @Override
-              public void notify(ClassCoordinates classCoordinates) {
-                classesMap.put(classCoordinates, null);
-              }
-            });
+            @Override
+            public void notify(ClassCoordinates classCoordinates) {
+              classesMap.put(classCoordinates, null);
+            }
+          });
 
-            File outputFolder = new File(OUTPUT_ROOT_FOLDER, project.getName());
-            File outputFile = new File(outputFolder, fileName(contractsJsonFile));
-            saveResultsToFile(outputFile, classesMap);
+          File outputFolder = new File(OUTPUT_ROOT_FOLDER, project.getName());
+          File outputFile = new File(outputFolder, fileName(contractsJsonFile));
+          saveResultsToFile(outputFile, classesMap);
 
-          } catch (Exception e) {
-            e.printStackTrace();
-            LOGGER.info("Skipping incompatible source-code version for " + contractsJsonFile);
-          }
+        } catch (Exception e) {
+          e.printStackTrace();
+          LOGGER.info("Skipping incompatible source-code version for " + contractsJsonFile);
         }
       };
 
@@ -143,10 +140,11 @@ public class ComputeInheritanceHierarchy implements Experiment {
   private static void saveResultsToFile(
     final File file,
     final Map<ClassCoordinates, ClassParents> parents
-  ) throws IOException {
+  ) throws Exception {
 
     file.getParentFile().mkdirs();
     JSONArray a = new JSONArray();
+    HashMap<String, String> seenClasses = new HashMap<>();
 
     for (ClassCoordinates c : parents.keySet()) {
       Set<ClassCoordinates> withInnerSet = new HashSet<>();
@@ -154,10 +152,19 @@ public class ComputeInheritanceHierarchy implements Experiment {
       withInnerSet.addAll(c.getInnerClasses());
       ClassParents classParents = parents.get(c);
       for (ClassCoordinates cc : withInnerSet) {
+        if (isClassAlreadySeen(cc, seenClasses)) {
+          continue;
+        }
         a.put(getClassCoordinate(classParents, cc));
+        seenClasses.put(cc.getClassName(), cc.getCuName());
       }
     }
     IOUtils.write(a.toString(), Files.newOutputStream(file.toPath()), "utf-8");
+  }
+
+  private static boolean isClassAlreadySeen(ClassCoordinates currentClass,
+    HashMap<String, String> pastClasses) {
+    return Objects.equals(pastClasses.get(currentClass.getClassName()), currentClass.getCuName());
   }
 
   private static JSONObject getClassCoordinate(ClassParents classParents, ClassCoordinates cc) {
