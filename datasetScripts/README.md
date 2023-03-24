@@ -49,7 +49,7 @@ If those variables are not present in the `config.env` file, scripts are going t
 Since the execution of scripts that analyse and/or clone Github projects may take a while, you can segment by chunks the projects to analyse/clone by using the pagination variables - offset and limit - in `config.env` file such as
 ```
 FILTER-PAGINATION-OFFSET={insert-number}
-FILTER-PAGINATION-OFFSET={insert-number}
+FILTER-PAGINATION-LIMIT={insert-number}
 ```
 If those variables are not present in the `config.env` file, the script will analyse/fetch all projects.
 
@@ -58,7 +58,7 @@ If those variables are not present in the `config.env` file, the script will ana
 Many scripts create output files. In general, the location and names for those files are specified in the [filePaths.env](./filePaths.env) file.
 
 ### Clean output folder.
-To clean all the output files and cloned projects produzed by the scripts, run the command:
+To clean all the output files and cloned projects produced by the scripts, run the command:
 ```
 make clean-output
 ```
