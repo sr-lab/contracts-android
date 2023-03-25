@@ -3,8 +3,7 @@ package contractstudy.model;
 import contractstudy.constants.constraint.ContractElement;
 
 /**
- * Consumes constraints found, for instance, by collecting them in a list, or by appending them to a
- * report.
+ * Consumes constraints found, for instance, by collecting them in a list, or by appending them to a report.
  *
  * @author jens dietrich
  */

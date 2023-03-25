@@ -33,19 +33,20 @@ public class TestDataCollectionExtractor {
     Integer loc) throws Exception {
     //given
     File file = new File(TEST_DATA_FOLDER, fileName);
-    Map<String, Integer> data = new HashMap<>();
+    Map<String, Integer> dataJava = new HashMap<>();
+    Map<String, Integer> dataKotlin = new HashMap<>();
     DataCollectionExtractor extractor = new DataCollectionExtractor();
     //when
-    extractor.analyse(file.getName(), Utils.getInputStream(file), data);
+    extractor.analyse(file.getName(), Utils.getInputStream(file), dataJava, dataKotlin);
     //assert
-    assertNotEquals(0, data.size());
-    assertEquals(constructors, data.get(SetStatsDataKeys.ALL_CONSTRUCTORS.getKey()));
-    assertEquals(constructorsPublic, data.get(SetStatsDataKeys.PUBLIC_CONSTRUCTORS.getKey()));
-    assertEquals(cu, data.get(SetStatsDataKeys.COMPILATION_UNITS.getKey()));
-    assertEquals(methods, data.get(SetStatsDataKeys.ALL_METHODS.getKey()));
-    assertEquals(methodsPublic, data.get(SetStatsDataKeys.PUBLIC_METHODS.getKey()));
-    assertEquals(classes, data.get(SetStatsDataKeys.CLASSES.getKey()));
-    assertEquals(loc, data.get(SetStatsDataKeys.LOC.getKey()));
+    assertNotEquals(0, dataKotlin.size());
+    assertEquals(constructors, dataKotlin.get(SetStatsDataKeys.ALL_CONSTRUCTORS.getKey()));
+    assertEquals(constructorsPublic, dataKotlin.get(SetStatsDataKeys.PUBLIC_CONSTRUCTORS.getKey()));
+    assertEquals(cu, dataKotlin.get(SetStatsDataKeys.COMPILATION_UNITS.getKey()));
+    assertEquals(methods, dataKotlin.get(SetStatsDataKeys.ALL_METHODS.getKey()));
+    assertEquals(methodsPublic, dataKotlin.get(SetStatsDataKeys.PUBLIC_METHODS.getKey()));
+    assertEquals(classes, dataKotlin.get(SetStatsDataKeys.CLASSES.getKey()));
+    assertEquals(loc, dataKotlin.get(SetStatsDataKeys.LOC.getKey()));
   }
 
 }

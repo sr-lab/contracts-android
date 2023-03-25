@@ -4,8 +4,7 @@ import contractstudy.constants.constraint.ConstraintType;
 import lombok.AllArgsConstructor;
 
 /**
- * Patterns supported by both org.apache.commons.lang2.Validate and
- * org.apache.commons.lang3.Validate.
+ * Patterns supported by both org.apache.commons.lang2.Validate and org.apache.commons.lang3.Validate.
  */
 @AllArgsConstructor
 public enum CommonsValidateCommonEnum {

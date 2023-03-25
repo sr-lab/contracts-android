@@ -36,8 +36,7 @@ import static contractstudy.constants.SetStatsDataKeys.PUBLIC_CONSTRUCTORS;
 import static contractstudy.constants.SetStatsDataKeys.PUBLIC_METHODS;
 
 /**
- * Script used to analyse how contractual constraints are used by different versions of the same
- * program.
+ * Script used to analyse how contractual constraints are used by different versions of the same program.
  *
  * @author jens dietrich
  */

@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.com.intellij.psi.PsiElement;
 import org.jetbrains.kotlin.psi.KtClassOrObject;
 import org.jetbrains.kotlin.psi.KtElement;
+import org.jetbrains.kotlin.psi.KtImportDirective;
 import org.jetbrains.kotlin.psi.KtModifierList;
 import org.jetbrains.kotlin.psi.KtNamedFunction;
 import org.jetbrains.kotlin.psi.KtPackageDirective;
@@ -20,10 +21,10 @@ public abstract class AbstractMethodVisitorKotlin extends KtTreeVisitorVoid {
 
   private final boolean includePrivateMethods = Preferences.includePrivateMethods();
   private final boolean isAbstractMethod = false;
-  protected ExtractionListener<ContractElement> consumer = null;
-  protected String programName = null;
-  protected String version = null;
-  protected String cuName = null;
+  protected ExtractionListener<ContractElement> consumer;
+  protected String programName;
+  protected String version;
+  protected String cuName;
   protected String methodDeclaration = null;
   private boolean isInterface = false;
   private boolean isDefaultMethod = false;
@@ -108,6 +109,10 @@ public abstract class AbstractMethodVisitorKotlin extends KtTreeVisitorVoid {
     }
 
     return packageName + "." + owner;
+  }
+
+  protected String getImportedNameIdentified(KtImportDirective importDirective) throws NullPointerException {
+    return importDirective.getImportedName().getIdentifier();
   }
 
 

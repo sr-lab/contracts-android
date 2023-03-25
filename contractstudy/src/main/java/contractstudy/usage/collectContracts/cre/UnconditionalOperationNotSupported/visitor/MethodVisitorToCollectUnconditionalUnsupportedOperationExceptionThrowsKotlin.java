@@ -12,8 +12,7 @@ import org.jetbrains.kotlin.psi.KtIfExpression;
 import org.jetbrains.kotlin.psi.KtThrowExpression;
 
 /**
- * Visitor for method nodes in the AST, used to extract unconditional throws of
- * UnsupportedOperationException.
+ * Visitor for method nodes in the AST, used to extract unconditional throws of UnsupportedOperationException.
  *
  * @author jens dietrich
  */

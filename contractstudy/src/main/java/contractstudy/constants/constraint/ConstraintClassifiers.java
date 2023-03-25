@@ -3,8 +3,8 @@ package contractstudy.constants.constraint;
 import java.util.function.Function;
 
 /**
- * Some premade classifier functions used to compute constraint classifications. This is usually
- * static, but in particular for annotations depends on context.
+ * Some premade classifier functions used to compute constraint classifications. This is usually static, but in particular
+ * for annotations depends on context.
  *
  * @author jens dietrich
  */

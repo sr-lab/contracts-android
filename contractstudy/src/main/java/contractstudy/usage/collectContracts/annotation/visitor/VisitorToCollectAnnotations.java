@@ -19,8 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Generic visitor to collect annotations. Based on the visitor developed by Kamil for JSR303
- * extraction.
+ * Generic visitor to collect annotations. Based on the visitor developed by Kamil for JSR303 extraction.
  *
  * @author kamil jezek
  */

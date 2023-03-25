@@ -23,6 +23,7 @@ import contractstudy.usage.collectContracts.api.CommonsValidate.CommonsValidate3
 import contractstudy.usage.collectContracts.api.Guava.GuavaPreconditionsExtractor;
 import contractstudy.usage.collectContracts.api.SpringAssert.SpringAssertExtractor;
 import contractstudy.usage.collectContracts.asserts.JavaAssert.JavaAssertExtractor;
+import contractstudy.usage.collectContracts.asserts.KotlinAssert.KotlinAssertExtractor;
 import contractstudy.usage.collectContracts.cre.JavaCREExtractor.JavaCREExtractor;
 import contractstudy.usage.collectContracts.cre.UnconditionalOperationNotSupported.UnconditionalOperationNotSupportedExceptionExtractor;
 import contractstudy.usage.collectContracts.other.KotlinContract.KotlinContractExtractor;
@@ -48,8 +49,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 /**
- * Collect contracts from Java source code. Uses multiple threads, the number of threads is set as a
- * constant. This produces intermediate JSON files used by other scripts.
+ * Collect contracts from Java source code. Uses multiple threads, the number of threads is set as a constant. This produces
+ * intermediate JSON files used by other scripts.
  *
  * @author jens dietrich
  */
@@ -72,6 +73,7 @@ public class CollectContracts implements Experiment {
     new JetBrainsExtractor(),
     new IntellijExtractor(),
     new JavaAssertExtractor(),
+    new KotlinAssertExtractor(),
     new JavaCREExtractor(),
     new UnconditionalOperationNotSupportedExceptionExtractor(),
     new GuavaPreconditionsExtractor(),

@@ -48,19 +48,26 @@ public class InheritanceHierarchyVisitorKotlin extends ClassDefinitionVisitorKot
 
   @Override
   public void visitClassOrObject(@NotNull KtClassOrObject classOrObject) {
+    try {
+      List<KtSuperTypeListEntry> superClassesAndInterfaces = classOrObject.getSuperTypeListEntries();
+      addParentToChildClassStateIfItBelongsToItsImports(classOrObject, superClassesAndInterfaces);
+    } catch (NullPointerException ignored) {
+    }
     super.visitClassOrObject(classOrObject);
-    List<KtSuperTypeListEntry> superClassesAndInterfaces = classOrObject.getSuperTypeListEntries();
-    addParentToChildClassStateIfItBelongsToItsImports(classOrObject, superClassesAndInterfaces);
   }
 
-  private void addParentToChildClassStateIfItBelongsToItsImports(KtClassOrObject n,
-    List<KtSuperTypeListEntry> superClassesAndInterfaces) {
+  private void addParentToChildClassStateIfItBelongsToItsImports(
+    KtClassOrObject n,
+    List<KtSuperTypeListEntry> superClassesAndInterfaces
+  ) {
     for (KtSuperTypeListEntry superClass : superClassesAndInterfaces) {
       String superClassName = superClass.getTypeReference().getText();
-      ClassAndVersion classAndOrigin = classFinder.findClass(superClassName,
-        packages.toArray(new String[0]));
+      ClassAndVersion classAndOrigin = classFinder.findClass(superClassName, packages.toArray(new String[0]));
       if (classAndOrigin != null) {
-        getState(n).getParents().add(classAndOrigin);
+        try {
+          getState(n).getParents().add(classAndOrigin);
+        } catch (NullPointerException ignored) {
+        }
       }
     }
   }

@@ -10,8 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * If two constraint sets have the same elements only differing in the additional info field, and
- * perhaps permutated.
+ * If two constraint sets have the same elements only differing in the additional info field, and perhaps permutated.
  *
  * @author jens dietrich
  */

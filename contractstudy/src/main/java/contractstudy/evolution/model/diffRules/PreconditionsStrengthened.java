@@ -8,8 +8,8 @@ import contractstudy.evolution.model.DiffRule;
 import java.util.List;
 
 /**
- * Check whether a precondition was added. This corresponds to "strengthened expectations" and
- * usually constitutes a contract violation in the context of method overriding or evolution.
+ * Check whether a precondition was added. This corresponds to "strengthened expectations" and usually constitutes a contract
+ * violation in the context of method overriding or evolution.
  *
  * @author jens dietrich
  */

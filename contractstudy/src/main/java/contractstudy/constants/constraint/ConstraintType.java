@@ -10,9 +10,8 @@ import static contractstudy.constants.constraint.ConstraintClassifiers._STANDARD
 import static contractstudy.constants.constraint.ConstraintClassifiers._UNKNOWN;
 
 /**
- * Represents types of constraints found in Java classes. constraint type > contstraint group >
- * constraint category example: ConstraintTypeJSR303Null > ConstraintGroup.ANNO_JSR30 >
- * ConstraintCategory.ANNOTATION
+ * Represents types of constraints found in Java classes. constraint type > contstraint group > constraint category example:
+ * ConstraintTypeJSR303Null > ConstraintGroup.ANNO_JSR30 > ConstraintCategory.ANNOTATION
  *
  * @author jens dietrich
  */

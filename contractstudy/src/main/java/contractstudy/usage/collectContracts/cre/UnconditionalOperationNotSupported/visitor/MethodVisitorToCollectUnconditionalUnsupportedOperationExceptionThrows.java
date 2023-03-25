@@ -12,8 +12,7 @@ import contractstudy.model.ProgramVersion;
 import contractstudy.usage.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitor;
 
 /**
- * Visitor for method nodes in the AST, used to extract unconditional throws of
- * UnsupportedOperationException.
+ * Visitor for method nodes in the AST, used to extract unconditional throws of UnsupportedOperationException.
  *
  * @author jens dietrich
  */

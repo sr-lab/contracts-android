@@ -9,5 +9,4 @@ class KotlinAssertsOnlyOne {
     fun assert(expression: Boolean) {
         return
     }
-
 }

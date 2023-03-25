@@ -12,7 +12,6 @@ public class Utils {
   }
 
   public static InputStream getInputStream(File file) throws IOException {
-    InputStream in = Files.newInputStream(file.toPath());
-    return in;
+    return Files.newInputStream(file.toPath());
   }
 }

@@ -122,8 +122,7 @@ import java.util.regex.PatternSyntaxException;
 public class JavaLangCRE {
 
   /**
-   * Note that this can yield false results of classes with this name are imported from packages
-   * other than java.lang !
+   * Note that this can yield false results of classes with this name are imported from packages other than java.lang !
    *
    * @param excName
    * @return

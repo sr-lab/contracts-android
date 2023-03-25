@@ -6,10 +6,9 @@ import contractstudy.model.ProgramVersion;
 import java.util.List;
 
 /**
- * Data structure to represent to constraint sets and some contextual data. Note that the
- * constraints have this contextual data (program version, compilation unit , ..) as well, however,
- * we cannot always infer this as we want to be able to investigate cases where one constraint set
- * is empty !
+ * Data structure to represent to constraint sets and some contextual data. Note that the constraints have this contextual
+ * data (program version, compilation unit , ..) as well, however, we cannot always infer this as we want to be able to
+ * investigate cases where one constraint set is empty !
  *
  * @author jens dietrich
  */

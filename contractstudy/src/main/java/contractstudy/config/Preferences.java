@@ -6,8 +6,8 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 /**
- * Project specific preferences backed by preferences.properties. Note that this file is in
- * .hgignore to allow project specific settings.
+ * Project specific preferences backed by preferences.properties. Note that this file is in .hgignore to allow project
+ * specific settings.
  *
  * @author jens dietrich
  */

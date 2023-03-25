@@ -1,5 +1,7 @@
 package contractstudy.model;
 
+import contractstudy.constants.constraint.ContractElement;
+import contractstudy.evolution.constants.SubtypeDiffKeys;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.json.JSONObject;
@@ -34,6 +36,14 @@ public class ClassAndVersion {
       o.getString("programVersion"),
       o.getString("className"),
       o.getString("cuName")
+    );
+  }
+
+  public static ClassAndVersion fromContractElement(ContractElement contract) {
+    return new ClassAndVersion(
+      SubtypeDiffKeys.EMPTY_CLASS_NAME.getKey(),
+      contract.getCuName(),
+      contract.getProgramVersion()
     );
   }
 

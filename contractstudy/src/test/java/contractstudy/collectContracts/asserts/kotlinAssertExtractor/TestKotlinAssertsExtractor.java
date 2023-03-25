@@ -5,6 +5,7 @@ import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.usage.collectContracts.asserts.KotlinAssert.KotlinAssertExtractor;
 import contractstudy.utils.Utils;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -34,19 +35,16 @@ public class TestKotlinAssertsExtractor {
 
   @ParameterizedTest
   @MethodSource("getTestingParams")
-  public void testJavaAssertsExtractor_whenJavaAssertsExist_expectListOfAsserts(
+  public void testKotlinAssertsExtractor_whenKotlinAssertsExist_expectListOfAsserts(
     ConstraintType constraintType, String fileName, int constraintCount) throws Exception {
 
-    //given
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
     KotlinAssertExtractor kotlinAssertExtractor = new KotlinAssertExtractor();
 
-    //when
     kotlinAssertExtractor.analyse(Utils.getInputStream(file), "test", "<no version>",
       file.getName(), collector);
 
-    //assert
     List<ContractElement> contractsFound = collector
       .getContractElements()
       .stream()
@@ -55,6 +53,25 @@ public class TestKotlinAssertsExtractor {
 
     assertNotNull(contractsFound);
     assertEquals(constraintCount, contractsFound.size());
+  }
+
+  @Test
+  public void testKotlinAssertsExtractor_whenAKotlinAssertExists_expectSingleAssert() throws Exception {
+    File file = new File(TEST_DATA_FOLDER, "KotlinAssertsComplex");
+    ConstraintCollector collector = new ConstraintCollector();
+    KotlinAssertExtractor kotlinAssertExtractor = new KotlinAssertExtractor();
+
+    kotlinAssertExtractor.analyse(Utils.getInputStream(file), "test", "<no version>",
+      "KotlinAssertComplex.kt", collector);
+
+    List<ContractElement> contractsFound = collector
+      .getContractElements()
+      .stream()
+      .filter(c -> c.getKind().equals(ConstraintType.KotlinAssert))
+      .collect(Collectors.toList());
+
+    assertNotNull(contractsFound);
+    assertEquals(1, contractsFound.size());
   }
 
 }

@@ -6,9 +6,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Groups of constraints, usually grouping is by extractor. constraint type > constraint group >
- * constraint category example: ConstraintTypeJSR303Null > ConstraintGroup.ANNO_JSR30 >
- * ConstraintCategory.ANNOTATION
+ * Groups of constraints, usually grouping is by extractor. constraint type > constraint group > constraint category example:
+ * ConstraintTypeJSR303Null > ConstraintGroup.ANNO_JSR30 > ConstraintCategory.ANNOTATION
  *
  * @author jens dietrich
  */

@@ -12,8 +12,8 @@ import static contractstudy.evolution.model.diffRules.Utils.filter;
 import static contractstudy.evolution.model.diffRules.Utils.unchanged;
 
 /**
- * Check whether a postcondition was removed. This corresponds to "weakening guarantees" and usually
- * constitutes a contract violation in the context of method overriding or evolution.
+ * Check whether a postcondition was removed. This corresponds to "weakening guarantees" and usually constitutes a contract
+ * violation in the context of method overriding or evolution.
  *
  * @author jens dietrich
  */

@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author Kamil Jezek [kamil.jezek@verifalabs.com]
+ *
  */
 public class ClassDefinitionVisitorKotlin extends AbstractMethodVisitorKotlin implements
   ClassCoordinates {
