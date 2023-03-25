@@ -60,8 +60,8 @@ public class MethodVisitorToCollectJavaCREThrowsKotlin extends AbstractMethodVis
 
 
   /**
-   * Look for the following pattern: if (<condition>) throw new <exception>(<args>); or if
-   * (<condition>) { throw new <exception>(<args>) };
+   * Look for the following pattern: if (<condition>) throw new <exception>(<args>); or if (<condition>) { throw new
+   * <exception>(<args>) };
    */
   private boolean isCRE(KtThrowExpression n) {
     PsiElement parent = n.getParent();

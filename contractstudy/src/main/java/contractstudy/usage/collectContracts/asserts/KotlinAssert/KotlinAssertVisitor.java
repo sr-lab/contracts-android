@@ -13,15 +13,12 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Extracts constraints for Kotlin stdlib expressions: assert(), require(), requireNotNull(),
- * check() and checkNotNull().
+ * Extracts constraints for Kotlin stdlib expressions: assert(), require(), requireNotNull(), check() and checkNotNull().
  * <p>
- * Those are not reserved keywords in Kotlin. Therefore, there can be developer's methods with the
- * same names.
+ * Those are not reserved keywords in Kotlin. Therefore, there can be developer's methods with the same names.
  * <p>
- * To differentiate a real assertion from a developer's method: If there is any method/import in
- * that file with the same name as one of the assertions, and the expression contains no lambda
- * arguments => it is not a Kotlin assertion.
+ * To differentiate a real assertion from a developer's method: If there is any method/import in that file with the same name
+ * as one of the assertions, and the expression contains no lambda arguments => it is not a Kotlin assertion.
  */
 public class KotlinAssertVisitor extends AbstractMethodVisitorKotlin {
 

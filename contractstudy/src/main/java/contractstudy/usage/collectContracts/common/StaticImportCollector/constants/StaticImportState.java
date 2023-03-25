@@ -1,9 +1,8 @@
 package contractstudy.usage.collectContracts.common.StaticImportCollector.constants;
 
 /**
- * Data structure to communicate how a class that has static members has been imported. Example:
- * consider a client using check method defined in com.google.common.base.Preconditions. Then the
- * options are:
+ * Data structure to communicate how a class that has static members has been imported. Example: consider a client using
+ * check method defined in com.google.common.base.Preconditions. Then the options are:
  * <ol>
  * <li>NONE - there is no import statement for com.google.common.base.Preconditions
  * <li>CLASS - the class or package has been imported: import com.google.common.base.Preconditions or import <li>NONE - there is no import statement for com.google.common.base.*

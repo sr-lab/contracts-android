@@ -36,15 +36,13 @@ public class SourceClassFinder {
     Collection<String> parentClasses = classPackages.get(superClassName);
     ClassAndVersion r = null;
     if (!parentClasses.isEmpty()) {
-      String fullClassName = doesImportClassNameCorrespondsWithImports(superClassName,
-        parentClasses, imports);
+      String fullClassName = doesImportClassNameCorrespondsWithImports(superClassName, parentClasses, imports);
       if (fullClassName != null) {
         r = createClassAndOrigin(fullClassName);
       }
     }
     return r;
   }
-
 
   private String doesImportClassNameCorrespondsWithImports(
     final String simpleClassName,

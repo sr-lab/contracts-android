@@ -15,8 +15,7 @@ import java.util.List;
 import static contractstudy.usage.collectContracts.common.Utils.encodeMessageArgs;
 
 /**
- * Visitor for method nodes in the AST. Used to extract API calls to
- * org.apache.commons.lang3.Validate.
+ * Visitor for method nodes in the AST. Used to extract API calls to org.apache.commons.lang3.Validate.
  *
  * @author jens dietrich
  */

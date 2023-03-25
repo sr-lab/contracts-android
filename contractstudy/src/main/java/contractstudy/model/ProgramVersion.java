@@ -38,8 +38,8 @@ public class ProgramVersion implements Comparable<ProgramVersion> {
   }
 
   /**
-   * Creates the programname-version pair from the path to the given (artefact) file, assuming that
-   * the file is placed in a folder named <programname>.
+   * Creates the programname-version pair from the path to the given (artefact) file, assuming that the file is placed in a
+   * folder named <programname>.
    */
   public static ProgramVersion getOrCreateFromFile(File f) {
     String contextName = f.getName().substring(0, f.getName().lastIndexOf('.'));
@@ -136,34 +136,30 @@ public class ProgramVersion implements Comparable<ProgramVersion> {
   /**
    * Version patterns: current -> successor
    * <p>
-   * * regular:  angular-1.4.1 -> angular-1.4.2 * numeric:  angular-1.2.9 -> angular-1.2.16 *
-   * dropped micro:  easymock-2.5 -> easymock-2.5.1 * alphanumeric component:  jetty-6.1H.4 ,
-   * guava-r09 (-> guava-10.0.x) , scalatest_2.10-2.0.M5b , scalatest_2.10-1.9.2-SNAP2 , cglib-2.1_2
-   * * status in last segment:  jetty-6.0.0beta2 , android-1.5_r3 , asm-5.0_ALPHA * status as build:
-   * jetty-6.1.12.rc2 , jline-3.0.0.M1 , javassist-3.12.0.SP1 , scalatest_2.10-2.0.M8 ,
-   * elasticsearch-0.19.0.RC1 * datetime:  json-20070829 -> json-20080701 * multi-level:
-   * scalatest_2.11-2.1.3 -> scalatest_2.11-2.1.4
+   * * regular:  angular-1.4.1 -> angular-1.4.2 * numeric:  angular-1.2.9 -> angular-1.2.16 * dropped micro:  easymock-2.5 ->
+   * easymock-2.5.1 * alphanumeric component:  jetty-6.1H.4 , guava-r09 (-> guava-10.0.x) , scalatest_2.10-2.0.M5b ,
+   * scalatest_2.10-1.9.2-SNAP2 , cglib-2.1_2 * status in last segment:  jetty-6.0.0beta2 , android-1.5_r3 , asm-5.0_ALPHA *
+   * status as build: jetty-6.1.12.rc2 , jline-3.0.0.M1 , javassist-3.12.0.SP1 , scalatest_2.10-2.0.M8 ,
+   * elasticsearch-0.19.0.RC1 * datetime:  json-20070829 -> json-20080701 * multi-level: scalatest_2.11-2.1.3 ->
+   * scalatest_2.11-2.1.4
    * <p>
    * Assumptions / rules:
    * <p>
-   * * version segment starts after last "-" in artefact identifier * version starts with numeric
-   * field, "api" in "slf4j-api" is not a version identifier * dropped micro means zero:
-   * "easymock-2.5" == "easymock-2.5.0" * status may (not) be separated: "jetty-6.1.26RC0" ==
-   * "jetty-6.1.26rc0" == "jetty-6.1.26.rc0" * status id order: "alpha" < "beta" | "pre" | "m" <
-   * "rc" < no-status | "ga" | "final" < "sp" | "sec"
+   * * version segment starts after last "-" in artefact identifier * version starts with numeric field, "api" in "slf4j-api"
+   * is not a version identifier * dropped micro means zero: "easymock-2.5" == "easymock-2.5.0" * status may (not) be
+   * separated: "jetty-6.1.26RC0" == "jetty-6.1.26rc0" == "jetty-6.1.26.rc0" * status id order: "alpha" < "beta" | "pre" |
+   * "m" < "rc" < no-status | "ga" | "final" < "sp" | "sec"
    * <p>
-   * Troublemakers: put on a blacklist (generated into a file) those which will not fit patterns
-   * based on the assumptions/rules above
+   * Troublemakers: put on a blacklist (generated into a file) those which will not fit patterns based on the
+   * assumptions/rules above
    * <p>
-   * * variant designators:  postgresql-9.4.1207 <-> postgresql-9.4.1207.jre6 <->
-   * postgresql-9.4.1207.jre7 , jetty-6.1.x <-> jetty-6.1H.x => "jre" and "1H" mean "go to
-   * blacklist" unconditionally (jetty "H" variants contain code with rejected patches, i.e. things
-   * which probably are not available anyway) * several successors: e.g. javassist "-3.12.x" line:
-   * time-dimension: 12.0.GA < 12.1.GA < 12.0.SP1 succ-dimension: 12.0.GA predecessor to both
-   * "12.0.SP1" and "12.1.GA" => "sp", "sec" accepted after discussion, lattice/acyclic graph is OK
-   * for pairwise comparison * jetty, scalatest-2.10 -- highly diverse and disordered use of version
-   * identifiers => put on blacklist those which don't fit a pattern * guava -- until version 9
-   * pattern "guava-r09" then "guava-10.0" => put on blacklist if don't fit a pattern
+   * * variant designators:  postgresql-9.4.1207 <-> postgresql-9.4.1207.jre6 <-> postgresql-9.4.1207.jre7 , jetty-6.1.x <->
+   * jetty-6.1H.x => "jre" and "1H" mean "go to blacklist" unconditionally (jetty "H" variants contain code with rejected
+   * patches, i.e. things which probably are not available anyway) * several successors: e.g. javassist "-3.12.x" line:
+   * time-dimension: 12.0.GA < 12.1.GA < 12.0.SP1 succ-dimension: 12.0.GA predecessor to both "12.0.SP1" and "12.1.GA" =>
+   * "sp", "sec" accepted after discussion, lattice/acyclic graph is OK for pairwise comparison * jetty, scalatest-2.10 --
+   * highly diverse and disordered use of version identifiers => put on blacklist those which don't fit a pattern * guava --
+   * until version 9 pattern "guava-r09" then "guava-10.0" => put on blacklist if don't fit a pattern
    */
   @Override
   public int compareTo(ProgramVersion pv) {
@@ -176,19 +172,17 @@ public class ProgramVersion implements Comparable<ProgramVersion> {
 
 
   /**
-   * Cleans up version string, so it can be used for comparison using simple string.compareTo(). For
-   * date/time-stamp, do nothing, for other formats, try to convert to semantic version
-   * (major.minor.micro.qualifier) and return as string.  If conversion fails, returns the version
-   * string untouched, and hopes for the best with the caller...
+   * Cleans up version string, so it can be used for comparison using simple string.compareTo(). For date/time-stamp, do
+   * nothing, for other formats, try to convert to semantic version (major.minor.micro.qualifier) and return as string.  If
+   * conversion fails, returns the version string untouched, and hopes for the best with the caller...
    * <p>
-   * Examples of conversions: * 1.2.127 			-> 001.002.127.7zz * 2.9 				-> 002.009.000.7zz *
-   * netty-3.6.6.Final 	-> 003.006.006.7final * 7.0.0.pre4 		-> 007.000.000.3pre4 * jetty-6.1.12rc1
-   * -> 006.001.012.5rc1 * 9.4.1209.jre7 		-> ***fail*** (denotes variant)
+   * Examples of conversions: * 1.2.127 			-> 001.002.127.7zz * 2.9 				-> 002.009.000.7zz * netty-3.6.6.Final 	->
+   * 003.006.006.7final * 7.0.0.pre4 		-> 007.000.000.3pre4 * jetty-6.1.12rc1 -> 006.001.012.5rc1 * 9.4.1209.jre7 		->
+   * ***fail*** (denotes variant)
    * <p>
-   * 1. Replace "_" and "-" with "." , convert to lowercase. 2. Convert to "M.m.u[.q]" format, or
-   * else reject. Set "m" and "u" to zero, "q" to empty if not specified. 3. Convert to string, with
-   * M,m,u 3-digit with leading zeroes and allowed qualifiers modified to induce ordering by
-   * status.
+   * 1. Replace "_" and "-" with "." , convert to lowercase. 2. Convert to "M.m.u[.q]" format, or else reject. Set "m" and
+   * "u" to zero, "q" to empty if not specified. 3. Convert to string, with M,m,u 3-digit with leading zeroes and allowed
+   * qualifiers modified to induce ordering by status.
    */
   public String getSanitizedVersion() {
 

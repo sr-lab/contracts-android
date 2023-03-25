@@ -30,8 +30,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 /**
- * Analyse whether method invoke overridden methods via super. Results will be written to a csv
- * file.
+ * Analyse whether method invoke overridden methods via super. Results will be written to a csv file.
  *
  * @author jens dietrich
  */

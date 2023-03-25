@@ -17,8 +17,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Visitor for method nodes in the AST. Used to extract API calls to
- * org.apache.commons.lang.Validate.
+ * Visitor for method nodes in the AST. Used to extract API calls to org.apache.commons.lang.Validate.
  */
 @SuppressWarnings("rawtypes")
 public class MethodVisitorToCollectCommons2ValidateInvocationsKotlin extends

@@ -28,13 +28,13 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import static contractstudy.utils.CorpusUtils.listJsons;
@@ -47,14 +47,14 @@ public class SubtypeDiffExtractor implements DiffExtractor {
 
   private static final Logger LOGGER = Logging.getLogger(SubtypeDiffExtractor.class);
 
-  private static String getIndexKey(ProgramVersion pv, String cu, String methodDecl) {
+  private static String buildIndexKey(ProgramVersion pv, String cu, String methodDecl) {
     return pv.getName() + "-" + pv.getVersion() + '#' + cu + '/' + (methodDecl == null ? ""
       : methodDecl);
   }
 
   /**
-   * This creates index for the same constraints, which differ only in applied versions. In other
-   * words, it captures if the same constraints is added again and again to different versions
+   * This creates index for the same constraints, which differ only in applied versions. In other words, it captures if the
+   * same constraints is added again and again to different versions
    *
    * @return
    */
@@ -66,29 +66,21 @@ public class SubtypeDiffExtractor implements DiffExtractor {
       + pc.getCondition() + "," + pc.getKind();
   }
 
-  /**
-   * This method goes through the input data files and fill-ins the input map with information about
-   * what inherits what and which methods are available by a class.
-   *
-   * @param inheritanceMap key - sub class, value - parent class
-   * @param methods        key a class, value methods including inherited ones.
-   * @throws IOException error to load files
-   */
   public static void readInheritanceCSV(
-    final HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap,
+    final HashMultimap<ClassAndVersion, ClassAndVersion> classesThatOverridesMap,
     final Map<ClassAndVersion, Set<String>> methods
   ) throws IOException {
-    for (File project : listProjects(ArtefactFactory.USAGE_CONTRACTS_FOLDER)) {
+    for (File project : listProjects(ArtefactFactory.INHERITANCE_STRUCTURE_FOLDER)) {
       for (File projectStructFiles : listJsons(project)) {
-        loopThroughProjectFilesToCollectMethodsAndParents(inheritanceMap, methods, project,
+        loopThroughProjectFilesToCollectMethodsAndParents(classesThatOverridesMap, methods, project,
           projectStructFiles);
       }
     }
-    propagateInheritedMethods(inheritanceMap, methods);
+    propagateInheritedMethods(classesThatOverridesMap, methods);
   }
 
   private static void loopThroughProjectFilesToCollectMethodsAndParents(
-    final HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap,
+    final HashMultimap<ClassAndVersion, ClassAndVersion> classesThatOverridesMap,
     final Map<ClassAndVersion, Set<String>> methods,
     File projectZipFolder,
     File projectStructFiles
@@ -108,7 +100,7 @@ public class SubtypeDiffExtractor implements DiffExtractor {
         o.getString("cuName")
       );
       collectMethods(o, subTypeTmp, methods);
-      collectParents(o, subTypeTmp, inheritanceMap);
+      collectParents(o, subTypeTmp, classesThatOverridesMap);
     }
   }
 
@@ -135,7 +127,7 @@ public class SubtypeDiffExtractor implements DiffExtractor {
   }
 
   private static void collectParents(JSONObject o, ClassAndVersion subTypeTmp,
-    HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap) throws IOException {
+    HashMultimap<ClassAndVersion, ClassAndVersion> classesThatOverridesMap) throws IOException {
     JSONArray pp = o.getJSONArray("parents");
     for (Object aPp : pp) {
       JSONObject ppO = (JSONObject) aPp;
@@ -145,7 +137,7 @@ public class SubtypeDiffExtractor implements DiffExtractor {
         superType.getCuName(),
         superType.getProgramVersion()
       );
-      inheritanceMap.put(subTypeTmp, superTypeTmp
+      classesThatOverridesMap.put(subTypeTmp, superTypeTmp
       );
     }
   }
@@ -201,13 +193,12 @@ public class SubtypeDiffExtractor implements DiffExtractor {
   @Override
   public List<DiffRecord> extract() throws Exception {
 
-    HashMultimap<ClassAndVersion, ClassAndVersion> inheritanceMap = HashMultimap.create();
+    HashMultimap<ClassAndVersion, ClassAndVersion> classesThatOverridesMap = HashMultimap.create();
     Map<ClassAndVersion, Set<String>> methodsMap = new HashMap<>();
-    readInheritanceCSV(inheritanceMap, methodsMap);
+    readInheritanceCSV(classesThatOverridesMap, methodsMap);
     Set<SuperCallSite> superCallSites = collectMethodsWithSuper();
-    Set<String> superCallSitesDescs = new HashSet<>();
-    superCallSites.forEach(
-      i -> superCallSitesDescs.add(i.getCu() + "/" + i.getMethodDeclaration()));
+    Set<String> superCallSitesWithClassAndMethodName = new HashSet<>();
+    superCallSites.forEach(i -> superCallSitesWithClassAndMethodName.add(i.getCu() + "/" + i.getMethodDeclaration()));
 
     Multimap<String, ContractElement> removed = ArrayListMultimap.create();
 
@@ -215,15 +206,15 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     List<ContractElement> contractElements = new ArrayList<>();
     int total = 0;
     int[] numberRemoved = new int[]{0};
-    Collection<File> jsons = FileUtils.listFiles((ArtefactFactory.USAGE_CONTRACTS_FOLDER),
+    Collection<File> contractsPerProgram = FileUtils.listFiles((ArtefactFactory.USAGE_CONTRACTS_FOLDER),
       new String[]{"json"}, false);
 
-    for (File json : jsons) {
-      String data = FileUtils.readFileToString(json, StandardCharsets.UTF_8);
+    for (File contractsInProgram : contractsPerProgram) {
+      String data = FileUtils.readFileToString(contractsInProgram, StandardCharsets.UTF_8);
       JSONArray all = new JSONArray(data);
       all.forEach(e -> {
         ContractElement c = ContractElement.fromJSON((JSONObject) e);
-        if (!toBeExcludedDueToFilter(c, removed, superCallSitesDescs)) {
+        if (!toBeExcludedDueToFilter(c, removed, superCallSitesWithClassAndMethodName)) {
           contractElements.add(c);
         } else {
           numberRemoved[0]++;
@@ -232,31 +223,27 @@ public class SubtypeDiffExtractor implements DiffExtractor {
       total += all.length();
     }
 
-    // sort !!
-    Collections.sort(contractElements, new Comparator<ContractElement>() {
-      @Override
-      public int compare(ContractElement pc1, ContractElement pc2) {
-        return pc1.getProgramVersion().toString().compareTo(pc2.getProgramVersion().toString());
-      }
-    });
+    contractElements.sort(Comparator.comparing(pc -> pc.getProgramVersion().toString()));
 
-    ListMultimap<String, ContractElement> constraintIndex = getConstraintsIndexByMethodOrClass(
-      contractElements);
+    ListMultimap<String, ContractElement> constraintIndex = getConstraintsIndexByMethodOrClass(contractElements);
 
     Set<String> processedIndexes = new HashSet<>();
-    // build diff records
-    Set<String> done = new HashSet<>();
-    for (ContractElement pc : contractElements) {
-      String key = getIndexKey(pc.getProgramVersion(), pc.getCuName(), pc.getMethodDeclaration());
-      if (done.add(key)) {
 
-        ClassAndVersion subClass = new ClassAndVersion(
-          SubtypeDiffKeys.EMPTY_CLASS_NAME.getKey(),
-          pc.getCuName(),
-          pc.getProgramVersion()
-        );
-        Set<ClassAndVersion> parents = inheritanceMap.get(subClass);
-        List<ContractElement> constraints2 = constraintIndex.get(key);
+    // build diff records
+    Set<String> alreadyAnalyzed = new HashSet<>();
+
+    for (ContractElement contract : contractElements) {
+
+      String programMethodIdentifier = buildIndexKey(contract.getProgramVersion(), contract.getCuName(),
+        contract.getMethodDeclaration());
+
+      if (alreadyAnalyzed.add(programMethodIdentifier)) {
+
+        ClassAndVersion subClass = ClassAndVersion.fromContractElement(contract);
+
+        Set<ClassAndVersion> parents = findParentsInMapForSubClass(classesThatOverridesMap, subClass);
+
+        List<ContractElement> constraints2 = constraintIndex.get(programMethodIdentifier);
 
         if (wasInputConstraintsNotProcessedYet(constraints2, processedIndexes)) {
           // JFF: nunca entra aqui
@@ -264,20 +251,20 @@ public class SubtypeDiffExtractor implements DiffExtractor {
             Set<String> methods = methodsMap.get(parent);
 
             // create record only if the parent method exists (a method exists in respective CU
-            if (methods.contains(pc.getMethodDeclaration())) {
-              String parentKey = getIndexKey(parent.getProgramVersion(), parent.getCuName(),
-                pc.getMethodDeclaration());
+            if (methods.contains(contract.getMethodDeclaration())) {
+              String parentKey = buildIndexKey(parent.getProgramVersion(), parent.getCuName(),
+                contract.getMethodDeclaration());
               List<ContractElement> constraints1 = constraintIndex.get(parentKey);
 
               DiffRecord record = new DiffRecord(
                 constraints1,
                 parent.getProgramVersion(),
                 parent.getCuName(),
-                pc.getMethodDeclaration(),
+                contract.getMethodDeclaration(),
                 constraints2,
-                pc.getProgramVersion(),
-                pc.getCuName(),
-                pc.getMethodDeclaration());
+                contract.getProgramVersion(),
+                contract.getCuName(),
+                contract.getMethodDeclaration());
 
               results.add(record);
             }
@@ -290,12 +277,25 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     return results;
   }
 
+  private Set<ClassAndVersion> findParentsInMapForSubClass(
+    HashMultimap<ClassAndVersion, ClassAndVersion> classesThatOverridesMap,
+    ClassAndVersion subClass
+  ) {
+    for (ClassAndVersion inheritanceKey : classesThatOverridesMap.keys()) {
+      if (subClass.getCuName().endsWith(inheritanceKey.getCuName()) && Objects.equals(subClass.getClassName(),
+        inheritanceKey.getClassName())) {
+        return classesThatOverridesMap.get(inheritanceKey);
+      }
+    }
+    return new HashSet<>();
+  }
+
   private ListMultimap<String, ContractElement> getConstraintsIndexByMethodOrClass(
     List<ContractElement> contractElements) {
     ListMultimap<String, ContractElement> constraintIndex = ArrayListMultimap.create();
     for (ContractElement pc : contractElements) {
       constraintIndex.put(
-        getIndexKey(pc.getProgramVersion(), pc.getCuName(), pc.getMethodDeclaration()), pc);
+        buildIndexKey(pc.getProgramVersion(), pc.getCuName(), pc.getMethodDeclaration()), pc);
     }
     return constraintIndex;
   }

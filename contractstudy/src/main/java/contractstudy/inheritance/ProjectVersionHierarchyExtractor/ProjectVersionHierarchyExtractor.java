@@ -148,8 +148,7 @@ public class ProjectVersionHierarchyExtractor {
   ) {
     for (ClassCoordinates classCoordinates : javaUnits.keySet()) {
       CompilationUnit cu = javaUnits.get(classCoordinates);
-      ClassParents parents = classExtractor.readInheritance(cu, classCoordinates.getCuName(),
-        classFinder);
+      ClassParents parents = classExtractor.readInheritance(cu, classCoordinates.getCuName(), classFinder);
       notifyParents(parents, notifier, allParents);
     }
   }
@@ -162,9 +161,7 @@ public class ProjectVersionHierarchyExtractor {
   ) {
     for (ClassCoordinates classCoordinates : kotlinUnits.keySet()) {
       PsiFile psiFile = kotlinUnits.get(classCoordinates);
-      ClassParents parents = classExtractorKotlin.readInheritance(psiFile,
-        classCoordinates.getCuName(),
-        classFinder);
+      ClassParents parents = classExtractorKotlin.readInheritance(psiFile, classCoordinates.getCuName(), classFinder);
       notifyParents(parents, notifier, allParents);
     }
   }

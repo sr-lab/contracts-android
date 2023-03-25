@@ -43,8 +43,7 @@ import static contractstudy.constants.SetStatsDataKeys.PUBLIC_CONSTRUCTORS;
 import static contractstudy.constants.SetStatsDataKeys.PUBLIC_METHODS;
 
 /**
- * Script used to collect some stats on program versions in the dataset. Output is written to a csv
- * file.
+ * Script used to collect some stats on program versions in the dataset. Output is written to a csv file.
  *
  * @author jens dietrich
  */

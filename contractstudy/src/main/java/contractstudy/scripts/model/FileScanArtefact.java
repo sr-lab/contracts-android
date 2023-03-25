@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * Default artefact that is based on files, i.e. check existence of an artefact by existence of
- * files.
+ * Default artefact that is based on files, i.e. check existence of an artefact by existence of files.
  *
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */

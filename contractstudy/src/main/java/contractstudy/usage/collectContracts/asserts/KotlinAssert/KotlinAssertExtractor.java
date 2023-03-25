@@ -26,8 +26,7 @@ public class KotlinAssertExtractor implements Extractor<ContractElement> {
         analyseKotlin(in, programName, version, cuName, consumer);
       }
     } catch (Error | Exception e) {
-      consumer.extractionExceptionEncountered(
-        "Cannot parse " + programName + "-" + version + "/" + cuName, e);
+      consumer.extractionExceptionEncountered("Cannot parse " + programName + "-" + version + "/" + cuName, e);
     }
   }
 

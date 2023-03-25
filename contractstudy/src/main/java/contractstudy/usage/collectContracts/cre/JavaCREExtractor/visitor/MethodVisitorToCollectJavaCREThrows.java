@@ -60,8 +60,8 @@ public class MethodVisitorToCollectJavaCREThrows extends AbstractMethodVisitor {
   }
 
   /**
-   * Look for the following pattern: if (<condition>) throw new <exception>(<args>); or if
-   * (<condition>) { throw new <exception>(<args>) };
+   * Look for the following pattern: if (<condition>) throw new <exception>(<args>); or if (<condition>) { throw new
+   * <exception>(<args>) };
    */
   private boolean isCRE(ThrowStmt n) {
     return (isObjectCreationExpr(n) &&

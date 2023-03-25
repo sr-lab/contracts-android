@@ -38,8 +38,7 @@ import java.util.stream.Collectors;
 import static contractstudy.evolution.model.diffRules.Utils.NF;
 
 /**
- * Script used to analyse how contracts are used by programs. This script counts the contracts
- * elements.
+ * Script used to analyse how contracts are used by programs. This script counts the contracts elements.
  *
  * @author jens dietrich
  */

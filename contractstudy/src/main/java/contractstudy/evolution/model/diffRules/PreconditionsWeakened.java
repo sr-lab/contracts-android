@@ -12,8 +12,8 @@ import static contractstudy.evolution.model.diffRules.Utils.filter;
 import static contractstudy.evolution.model.diffRules.Utils.unchanged;
 
 /**
- * Check whether a precondition was removed. This is usually considered as compatible / uncritical
- * in the context of subtyping and evolution.
+ * Check whether a precondition was removed. This is usually considered as compatible / uncritical in the context of
+ * subtyping and evolution.
  *
  * @author jens dietrich
  */

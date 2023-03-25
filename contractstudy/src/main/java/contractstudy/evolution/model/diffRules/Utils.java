@@ -40,9 +40,9 @@ public class Utils {
   }
 
   /**
-   * Useful comparision to match contstraints from different sources. Ignores program, cu and
-   * additional info: ignore program version to facilitate evolution studies ignore cu to facilitate
-   * hierarchy (LSP) studies ignore additional info (optional) as it is considered irrelvant)
+   * Useful comparision to match contstraints from different sources. Ignores program, cu and additional info: ignore program
+   * version to facilitate evolution studies ignore cu to facilitate hierarchy (LSP) studies ignore additional info
+   * (optional) as it is considered irrelvant)
    *
    * @param o1
    * @param o2
@@ -58,8 +58,8 @@ public class Utils {
 
 
   /**
-   * Return true if condition in second constrains has been only extended. The extension is checked
-   * by added logical condition.
+   * Return true if condition in second constrains has been only extended. The extension is checked by added logical
+   * condition.
    *
    * @param o1
    * @param o2
@@ -105,8 +105,8 @@ public class Utils {
   }
 
   /**
-   * Return true if condition in second constrains has been only extended. The extension is checked
-   * by added logical condition.
+   * Return true if condition in second constrains has been only extended. The extension is checked by added logical
+   * condition.
    *
    * @param o1
    * @param o2
@@ -118,8 +118,8 @@ public class Utils {
   }
 
   /**
-   * Return true if condition in second constrains has been only extended. The extension is checked
-   * by added logical condition.
+   * Return true if condition in second constrains has been only extended. The extension is checked by added logical
+   * condition.
    *
    * @param o1
    * @param o2

@@ -56,9 +56,9 @@ public class ComputeInheritanceHierarchy implements Experiment {
       LOGGER.info("Processing: " + project);
 
       File contractsJsonFile;
+
       try {
-        contractsJsonFile = getContractsFoundJsonFileAssociatedWithProjectZip(
-          foundContractsJsonFiles, project);
+        contractsJsonFile = getContractsFoundJsonFileAssociatedWithProjectZip(foundContractsJsonFiles, project);
       } catch (IndexOutOfBoundsException exception) {
         LOGGER.info("No Contracts JSON file was found for project " + project.getName());
         continue;

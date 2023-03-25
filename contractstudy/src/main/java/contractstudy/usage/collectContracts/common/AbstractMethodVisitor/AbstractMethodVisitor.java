@@ -15,8 +15,7 @@ import contractstudy.model.ExtractionListener;
 import contractstudy.usage.collectContracts.common.Utils;
 
 /**
- * Abstract superclass for visitors for method nodes in the AST, used to collect invocations of API
- * methods
+ * Abstract superclass for visitors for method nodes in the AST, used to collect invocations of API methods
  *
  * @author jens dietrich
  */
