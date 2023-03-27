@@ -37,8 +37,7 @@ public class Differ {
    * the artefact associates with  constraints1 should be compatible (substitutable by) the artefact associated with
    * constraints2 !
    */
-  public DiffResult compare(List<ContractElement> constraints1,
-    List<ContractElement> constraints2) {
+  public DiffResult compare(List<ContractElement> constraints1, List<ContractElement> constraints2) {
     DiffResult result = null;
     for (DiffRule rule : RULES) {
       result = rule.compare(constraints1, constraints2);

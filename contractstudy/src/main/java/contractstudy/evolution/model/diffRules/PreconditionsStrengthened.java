@@ -16,13 +16,10 @@ import java.util.List;
 public class PreconditionsStrengthened implements DiffRule {
 
   @Override
-  public DiffResult compare(List<ContractElement> constraints1,
-    List<ContractElement> constraints2) {
+  public DiffResult compare(List<ContractElement> constraints1, List<ContractElement> constraints2) {
 
-    constraints1 = Utils.filter(constraints1,
-      c -> c.getClassification() == ConstraintClassification.PRECONDITION);
-    constraints2 = Utils.filter(constraints2,
-      c -> c.getClassification() == ConstraintClassification.PRECONDITION);
+    constraints1 = Utils.filter(constraints1, c -> c.getClassification() == ConstraintClassification.PRECONDITION);
+    constraints2 = Utils.filter(constraints2, c -> c.getClassification() == ConstraintClassification.PRECONDITION);
 
     // if preconditions are the sane, it is handled by a earlier rule
     if (constraints2.size() > 0 && constraints1.size() <= constraints2.size()) {

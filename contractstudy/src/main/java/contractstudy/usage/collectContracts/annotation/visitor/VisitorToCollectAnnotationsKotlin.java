@@ -84,7 +84,7 @@ public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotl
   }
 
   private ConstraintedArtefact getConstraintArtefact(KtAnnotationEntry annotationEntry) {
-    PsiElement node = annotationEntry.getParent();
+    PsiElement node = annotationEntry.getParent().getParent();
     if (node instanceof KtFunctionElementType) {
       return ConstraintedArtefact.METHOD;
     } else if (node instanceof KtParameterElementType) {

@@ -20,12 +20,10 @@ import static contractstudy.evolution.model.diffRules.Utils.unchanged;
 public class PostconditionsWeakened implements DiffRule {
 
   @Override
-  public DiffResult compare(List<ContractElement> constraints1,
-    List<ContractElement> constraints2) {
-    constraints1 = filter(constraints1,
-      c -> c.getClassification() == ConstraintClassification.POSTCONDITION);
-    constraints2 = filter(constraints2,
-      c -> c.getClassification() == ConstraintClassification.POSTCONDITION);
+  public DiffResult compare(List<ContractElement> constraints1, List<ContractElement> constraints2) {
+
+    constraints1 = filter(constraints1, c -> c.getClassification() == ConstraintClassification.POSTCONDITION);
+    constraints2 = filter(constraints2, c -> c.getClassification() == ConstraintClassification.POSTCONDITION);
 
     // if preconditions are the sane, it is handled by an earlier rule
     if (constraints1.size() > 0 && constraints1.size() >= constraints2.size()) {
