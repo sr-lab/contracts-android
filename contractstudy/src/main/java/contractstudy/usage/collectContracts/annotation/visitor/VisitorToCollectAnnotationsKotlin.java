@@ -10,10 +10,13 @@ import contractstudy.usage.collectContracts.common.StaticImportCollector.constan
 import contractstudy.utils.kotlinParser.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.com.intellij.psi.PsiElement;
+import org.jetbrains.kotlin.com.intellij.psi.impl.source.tree.PsiWhiteSpaceImpl;
 import org.jetbrains.kotlin.psi.KtAnnotationEntry;
+import org.jetbrains.kotlin.psi.KtNamedFunction;
+import org.jetbrains.kotlin.psi.KtParameter;
+import org.jetbrains.kotlin.psi.KtProperty;
 import org.jetbrains.kotlin.psi.KtValueArgument;
 import org.jetbrains.kotlin.psi.stubs.elements.KtFunctionElementType;
-import org.jetbrains.kotlin.psi.stubs.elements.KtParameterElementType;
 
 import java.util.HashMap;
 import java.util.List;
@@ -84,14 +87,35 @@ public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotl
   }
 
   private ConstraintedArtefact getConstraintArtefact(KtAnnotationEntry annotationEntry) {
-    PsiElement node = annotationEntry.getParent().getParent();
-    if (node instanceof KtFunctionElementType) {
-      return ConstraintedArtefact.METHOD;
-    } else if (node instanceof KtParameterElementType) {
-      return ConstraintedArtefact.METHOD_PARAMETER;
-    } else {
+    try {
+      PsiElement node = annotationEntry.getContext().getParent();
+      if (node instanceof KtFunctionElementType) {
+        return ConstraintedArtefact.METHOD_PARAMETER;
+      } else if (checkIfAnnotationIsMethodParameter(node)) {
+        return ConstraintedArtefact.METHOD_PARAMETER;
+      } else if (checkIfNextSiblingIsFunction(node) && !(node instanceof KtProperty)) {
+        return ConstraintedArtefact.METHOD;
+      } else {
+        return ConstraintedArtefact.CLASS;
+      }
+    } catch (NullPointerException ignored) {
       return ConstraintedArtefact.CLASS;
     }
+  }
+
+  private boolean checkIfAnnotationIsMethodParameter(PsiElement node) {
+    return (node instanceof KtParameter &&
+      (node.getParent().getContext() instanceof KtNamedFunction ||
+        node.getParent().getContext() instanceof KtFunctionElementType)
+    );
+  }
+
+  private boolean checkIfNextSiblingIsFunction(PsiElement node) {
+    PsiElement nextSibling = node;
+    do {
+      nextSibling = nextSibling.getNextSibling();
+    } while (!(nextSibling.getNextSibling() instanceof PsiWhiteSpaceImpl));
+    return nextSibling instanceof KtNamedFunction || nextSibling instanceof KtFunctionElementType;
   }
 
   private ContractElement create(ProgramVersion programVersion, String cuName,

@@ -2,7 +2,9 @@ package contractstudy.collectContracts.annotation.kotlin;
 
 import contractstudy.constants.constraint.ConstraintCollector;
 import contractstudy.constants.constraint.ConstraintType;
+import contractstudy.constants.constraint.ConstraintedArtefact;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.usage.collectContracts.annotation.AndroidAnnotationExtractor;
 import contractstudy.usage.collectContracts.annotation.JSR303Extractor;
 import contractstudy.utils.Utils;
 import org.junit.jupiter.api.Test;
@@ -38,6 +40,31 @@ public class TestAbstractAnnotationExtractorKotlin {
       Arguments.of(ConstraintType.JSR303Max, "AnnotationsWildCard.kt", 1),
       Arguments.of(ConstraintType.JSR303NotNull, "AnnotationsWildCard.kt", 2),
       Arguments.of(ConstraintType.JSR303Size, "AnnotationsWildCard.kt", 1));
+  }
+
+  private static Stream<Arguments> generateInputForConstraintArtefactTest() {
+    return Stream.of(
+      Arguments.of(ConstraintType.JSR303NotNull, "AnnotationsArtefact.kt", ConstraintedArtefact.CLASS),
+      Arguments.of(ConstraintType.JSR303Size, "AnnotationsArtefact.kt", ConstraintedArtefact.CLASS),
+      Arguments.of(ConstraintType.JSR303Max, "AnnotationsArtefact.kt", ConstraintedArtefact.METHOD_PARAMETER),
+      Arguments.of(ConstraintType.JSR303Null, "AnnotationsArtefact.kt", ConstraintedArtefact.METHOD_PARAMETER)
+    );
+  }
+
+  private static Stream<Arguments> generateInputForJSR303ConstraintArtefactTest() {
+    return Stream.of(
+      Arguments.of(ConstraintType.JSR303NotNull, "AnnotationsArtefact.kt", ConstraintedArtefact.CLASS),
+      Arguments.of(ConstraintType.JSR303Min, "AnnotationsArtefact.kt", ConstraintedArtefact.CLASS),
+      Arguments.of(ConstraintType.JSR303Size, "AnnotationsArtefact.kt", ConstraintedArtefact.METHOD),
+      Arguments.of(ConstraintType.JSR303Max, "AnnotationsArtefact.kt", ConstraintedArtefact.METHOD_PARAMETER),
+      Arguments.of(ConstraintType.JSR303Null, "AnnotationsArtefact.kt", ConstraintedArtefact.METHOD_PARAMETER)
+    );
+  }
+
+  private static Stream<Arguments> generateInputForAndroidConstraintArtefactTest() {
+    return Stream.of(
+      Arguments.of(ConstraintType.AndroidSuppressLint, "AnnotationsArtefact.kt", ConstraintedArtefact.METHOD)
+    );
   }
 
   @ParameterizedTest
@@ -112,6 +139,78 @@ public class TestAbstractAnnotationExtractorKotlin {
 
     assertNotNull(contractsFound);
     assertEquals(0, contractsFound.size());
+  }
+
+  @ParameterizedTest
+  @MethodSource("generateInputForConstraintArtefactTest")
+  public void testConstraintArtefact_whenMultipleAnnotationsExist_expectCorrectArtefactAssociation(
+    ConstraintType constraintType,
+    String fileName,
+    ConstraintedArtefact constraintedArtefact
+  ) throws Exception {
+    File file = new File(TEST_DATA_FOLDER, fileName);
+    ConstraintCollector collector = new ConstraintCollector();
+    JSR303Extractor jSR303Extractor = new JSR303Extractor();
+
+    jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
+      collector);
+
+    List<ContractElement> contractsFound = collector
+      .getContractElements()
+      .stream()
+      .filter(c -> c.getKind().equals(constraintType))
+      .collect(Collectors.toList());
+
+    assertNotNull(contractsFound.get(0));
+    assertEquals(constraintedArtefact, contractsFound.get(0).getConstraintedArtefact());
+  }
+
+  @ParameterizedTest
+  @MethodSource("generateInputForJSR303ConstraintArtefactTest")
+  public void testConstraintArtefact_whenJSR303ExtractorAnnotations_expectCorrectArtefactAssociation(
+    ConstraintType constraintType,
+    String fileName,
+    ConstraintedArtefact constraintedArtefact
+  ) throws Exception {
+    File file = new File(TEST_DATA_FOLDER, fileName);
+    ConstraintCollector collector = new ConstraintCollector();
+    JSR303Extractor jSR303Extractor = new JSR303Extractor();
+
+    jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
+      collector);
+
+    List<ContractElement> contractsFound = collector
+      .getContractElements()
+      .stream()
+      .filter(c -> c.getKind().equals(constraintType))
+      .collect(Collectors.toList());
+
+    assertNotNull(contractsFound.get(0));
+    assertEquals(constraintedArtefact, contractsFound.get(0).getConstraintedArtefact());
+  }
+
+  @ParameterizedTest
+  @MethodSource("generateInputForAndroidConstraintArtefactTest")
+  public void testConstraintArtefact_whenAndroidExtractorAnnotations_expectCorrectArtefactAssociation(
+    ConstraintType constraintType,
+    String fileName,
+    ConstraintedArtefact constraintedArtefact
+  ) throws Exception {
+    File file = new File(TEST_DATA_FOLDER, fileName);
+    ConstraintCollector collector = new ConstraintCollector();
+    AndroidAnnotationExtractor androidAnnotationExtractor = new AndroidAnnotationExtractor();
+
+    androidAnnotationExtractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
+      collector);
+
+    List<ContractElement> contractsFound = collector
+      .getContractElements()
+      .stream()
+      .filter(c -> c.getKind().equals(constraintType))
+      .collect(Collectors.toList());
+
+    assertNotNull(contractsFound.get(0));
+    assertEquals(constraintedArtefact, contractsFound.get(0).getConstraintedArtefact());
   }
 
 }
