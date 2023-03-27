@@ -15,7 +15,6 @@ import contractstudy.model.ProgramVersion;
 import contractstudy.usage.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitor;
 import contractstudy.usage.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -26,8 +25,8 @@ import java.util.Map;
 @SuppressWarnings("rawtypes")
 public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
 
-  private StaticImportState importState = null;
-  private Map<String, ConstraintType> map = new HashMap<>();
+  private final StaticImportState importState;
+  private final Map<String, ConstraintType> map;
 
   public VisitorToCollectAnnotations(ExtractionListener<ContractElement> consumer,
     String programName, String version,
@@ -62,8 +61,7 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
     String name = n.getName().getIdentifier(); // JFF: FIXME?
     ConstraintType constraintType = map.get(name);
     if (constraintType == null) {
-      // rule useful if nested annotations like JdkConstants.AdjustableOrientation are
-      // used
+      // rule useful if nested annotations like JdkConstants.AdjustableOrientation are used
       // (example from org.intellij.lang.annotations)
       constraintType = map.get(name.replace('.', '_'));
     }
