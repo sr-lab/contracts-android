@@ -120,11 +120,15 @@ public class CollectContracts implements Experiment {
                 parserFailedCUCounter.incrementAndGet();
               }
             };
+
             findContractElements(new ZipFile(zip), consumer, programName, version, parsedCUCounter);
+
             LOGGER.info("Processed " + progressCounter.incrementAndGet() + "/" + total + ": "
               + zip.getAbsolutePath() + " -- " + "\t" + consumer.getContractElements().size()
               + " contracts found");
+
             constraintCounter.addAndGet(consumer.getContractElements().size());
+
             outputContractsToFile(OUTPUT_FOLDER, programName, version, consumer);
 
           } catch (Exception e) {

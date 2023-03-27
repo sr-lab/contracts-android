@@ -57,18 +57,18 @@ public class AnalyseContractEvolution implements Experiment {
   }
 
   public static Map<DiffResult, Integer> compareEvolutionAndLogResults() throws Exception {
-    List<DiffRecord> evolutionData = new EvolutionDiffExtractor().extract();
+    List<DiffRecord> evolutionRecords = new EvolutionDiffExtractor().extract();
     Differ differ = new Differ();
-    Map<DiffResult, Integer> stats = initEmpty();
-    for (DiffRecord record : evolutionData) {
+    Map<DiffResult, Integer> evolutionStats = initEmpty();
+    for (DiffRecord record : evolutionRecords) {
       DiffResult result = differ.compare(record.getConstraints1(), record.getConstraints2());
-      stats.compute(result, (k, v) -> (v == null) ? 1 : v + 1);
+      evolutionStats.compute(result, (k, v) -> (v == null) ? 1 : v + 1);
       File log = LOG_FILES.get(result);
       if (log != null) {
         outputEachEvolutionStatsToFile(record, result, log);
       }
     }
-    return stats;
+    return evolutionStats;
   }
 
   public static Map<DiffResult, Integer> initEmpty() {
@@ -79,11 +79,7 @@ public class AnalyseContractEvolution implements Experiment {
     return stats;
   }
 
-  private static void outputEachEvolutionStatsToFile(
-    DiffRecord record,
-    DiffResult result,
-    File log
-  ) {
+  private static void outputEachEvolutionStatsToFile(DiffRecord record, DiffResult result, File log) {
     try (PrintWriter out = new PrintWriter(new FileWriter(log, true))) {
       out.println(result);
       out.println("version 1: " + record.getProgramVersion1());

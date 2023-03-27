@@ -5,7 +5,6 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimap;
 import contractstudy.config.Logging;
-import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.evolution.model.DiffExtractor;
 import contractstudy.evolution.model.DiffRecord;
@@ -45,7 +44,6 @@ public class EvolutionDiffExtractor implements DiffExtractor {
 
   private static final File INPUT_STRUCTS_FOLDER = ArtefactFactory.INHERITANCE_STRUCTURE_FOLDER;
   private static final File INPUT_CONTRACTS_FOLDER = ArtefactFactory.USAGE_CONTRACTS_FOLDER;
-  private static final File RESULT_FOLDER = new File(Preferences.getOutputFolder());
   static Logger LOGGER = Logging.getLogger(EvolutionDiffExtractor.class);
 
   private static String getIndexKey(ProgramVersion pv, String cu, String methodDeclaration) {
@@ -75,7 +73,7 @@ public class EvolutionDiffExtractor implements DiffExtractor {
     List<ContractElement> contractElements = new ArrayList<>();
     Set<ContractElement> removed = new HashSet<>();
 
-    completeListOfContractsAndRemoved(contractElements, removed);
+    getListOfUsageResults(contractElements, removed);
 
     Collections.sort(contractElements, new Comparator<ContractElement>() {
       @Override
@@ -86,8 +84,6 @@ public class EvolutionDiffExtractor implements DiffExtractor {
 
     LOGGER.info(contractElements.size() + " constraints imported");
 
-    // link versions
-    // do not sort, reply on export to order records
     ProgramVersion pv = null;
     for (ContractElement pc : contractElements) {
       ProgramVersion pv2 = pc.getProgramVersion();
@@ -95,14 +91,11 @@ public class EvolutionDiffExtractor implements DiffExtractor {
         pv = pv2;
       }
       if (!pv.getName().equals(pv2.getName())) {
-        // new program
-        pv = pv2;
+        pv = pv2; // new program
       } else {
         if (!pv.getVersion().equals(pv2.getVersion())) {
-          // cross-reference
-          pv.setNextVersion(pv2); //TODO: Does version 1 and version 2 get correctly set?
-          pv2.setPreviousVersion(pv); // double link !
-          LOGGER.info("Upgrade " + " detected: " + pv + " -> " + pv2);
+          pv.setNextVersion(pv2); // cross-reference
+          pv2.setPreviousVersion(pv);
           pv = pv2;
         }
       }
@@ -117,9 +110,10 @@ public class EvolutionDiffExtractor implements DiffExtractor {
     Set<String> done = new HashSet<>();
     for (ContractElement pc : contractElements) {
       String key = getIndexKey(pc.getProgramVersion(), pc.getCuName(), pc.getMethodDeclaration());
+
       if (done.add(key)) {
 
-        // control this in order to investigate each artefact only once
+        // Get next Version of the Program.
         pv = pc.getProgramVersion();
         ProgramVersion succPV = pv.getNextVersion();
 
@@ -139,7 +133,7 @@ public class EvolutionDiffExtractor implements DiffExtractor {
           results.add(record);
         }
 
-        // also look for match with the previous version
+        // Get previous version of the program.
         // we only have to do this if the respective constraints are empty, otherwise we
         // would double-count, see issue #16 for a discussion
         ProgramVersion prevPV = pv.getPreviousVersion();
@@ -148,8 +142,10 @@ public class EvolutionDiffExtractor implements DiffExtractor {
 
           // methodsByCU will be null in case the respective sources cannot be parsed
           // this is an issue if for instance enum is used as an identifier in the program
-          boolean methodExists = methodsByCU != null && methodsByCU.get(pc.getCuName())
-            .contains(pc.getMethodDeclaration());
+          String programPath = pc.getCuName().substring(pc.getCuName().indexOf("/"), pc.getCuName().length() - 1);
+          programPath = programPath.substring(programPath.indexOf("/"), programPath.length() - 1);
+          boolean methodExists = methodsByCU != null && doesMethodExistsInVersion(pc, methodsByCU);
+
           if (methodExists) {
             String prevKey = getIndexKey(prevPV, pc.getCuName(), pc.getMethodDeclaration());
             List<ContractElement> constraints2 = constraintIndex.get(prevKey);
@@ -193,12 +189,21 @@ public class EvolutionDiffExtractor implements DiffExtractor {
     return results;
   }
 
-  private void completeListOfContractsAndRemoved(List<ContractElement> contractElements,
-    Set<ContractElement> removed)
+  private boolean doesMethodExistsInVersion(ContractElement contractInProgram, Multimap<String, String> methodsInProgram) {
+    String programPath = contractInProgram.getCuName()
+      .substring(contractInProgram.getCuName().indexOf("/"));
+    programPath = programPath.substring(programPath.indexOf("/"));
+    for (String method : methodsInProgram.keySet()) {
+      if (method.endsWith(programPath)) {
+        return methodsInProgram.get(method).contains(contractInProgram.getMethodDeclaration());
+      }
+    }
+    return true;
+  }
+
+  private void getListOfUsageResults(List<ContractElement> contractElements, Set<ContractElement> removed)
     throws IOException {
-    Collection<File> collectedContractsJSONFiles = FileUtils.listFiles(INPUT_CONTRACTS_FOLDER,
-      new String[]{"json"},
-      true);
+    Collection<File> collectedContractsJSONFiles = FileUtils.listFiles(INPUT_CONTRACTS_FOLDER, new String[]{"json"}, true);
     for (File json : collectedContractsJSONFiles) {
       String data = FileUtils.readFileToString(json, StandardCharsets.UTF_8);
       JSONArray all = new JSONArray(data);
