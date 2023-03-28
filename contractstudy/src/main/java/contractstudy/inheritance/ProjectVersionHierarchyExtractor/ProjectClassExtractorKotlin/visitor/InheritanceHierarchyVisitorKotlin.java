@@ -5,7 +5,7 @@ import contractstudy.inheritance.model.ClassParents;
 import contractstudy.inheritance.model.SourceClassFinder;
 import contractstudy.model.ClassAndVersion;
 import contractstudy.utils.GeneralUtils;
-import contractstudy.utils.kotlinParser.KotlinParserUtils;
+import contractstudy.utils.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.psi.KtClassOrObject;
 import org.jetbrains.kotlin.psi.KtImportDirective;

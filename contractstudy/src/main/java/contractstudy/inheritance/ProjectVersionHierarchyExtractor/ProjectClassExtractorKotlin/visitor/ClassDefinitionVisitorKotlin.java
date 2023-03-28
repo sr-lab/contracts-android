@@ -4,7 +4,7 @@ import contractstudy.constants.VisibilityModifier;
 import contractstudy.inheritance.model.ASTState;
 import contractstudy.inheritance.model.ClassCoordinates;
 import contractstudy.usage.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitorKotlin;
-import contractstudy.utils.kotlinParser.KotlinParserUtils;
+import contractstudy.utils.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.psi.KtClassOrObject;
 import org.jetbrains.kotlin.psi.KtElement;

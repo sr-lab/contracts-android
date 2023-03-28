@@ -7,7 +7,7 @@ import contractstudy.usage.collectDatasetStats.visitor.DataCollectionVisitorKotl
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import contractstudy.utils.kotlinParser.KotlinParser;
-import contractstudy.utils.kotlinParser.KotlinParserUtils;
+import contractstudy.utils.KotlinParserUtils;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 import java.io.InputStream;

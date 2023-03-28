@@ -1,4 +1,4 @@
-package contractstudy.utils.kotlinParser;
+package contractstudy.utils;
 
 import contractstudy.constants.VisibilityModifier;
 import org.jetbrains.kotlin.com.intellij.openapi.editor.Document;

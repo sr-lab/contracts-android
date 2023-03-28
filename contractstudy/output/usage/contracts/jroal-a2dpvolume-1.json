@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/a2dp/Vol/service.java","condition":"Build.VERSION_CODES.O","method":"onTick(long)","additional_info":"-","artefact_type":"METHOD","line":1797,"name":"jroal-a2dpvolume","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

@@ -1,0 +1,37 @@
+PRECONDITION_ADDED
+version 1: andstatus-game2048-0
+version 2: andstatus-game2048-1
+compilation unit: andstatus-game2048-1/src/commonMain/kotlin/org/andstatus/game2048/Board.kt
+method: firstSquareToIterate()
+constraints in andstatus-game2048-0
+constraints in andstatus-game2048-1
+	AndroidXLayoutRes condition: "NONE" , add info: -
+
+PRECONDITION_ADDED
+version 1: greenaddress-0
+version 2: greenaddress-1
+compilation unit: fabmazz-triesteinbus-0.1-1/app/src/main/java/com/greenaddress/abcore/AppCompatPreferenceActivity.java
+method: setContentView(int)
+constraints in greenaddress-0
+constraints in greenaddress-1
+	AndroidXLayoutRes condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: greenaddress-0
+version 2: greenaddress-1
+compilation unit: fabmazz-triesteinbus-0.1-1/app/src/main/java/com/greenaddress/abcore/LogLinesAdapter.java
+method: onCreateViewHolder(ViewGroup,
+constraints in greenaddress-0
+constraints in greenaddress-1
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: greenaddress-0
+version 2: greenaddress-1
+compilation unit: fabmazz-triesteinbus-0.1-1/app/src/main/java/com/greenaddress/abcore/LogLinesAdapter.java
+method: onBindViewHolder(LogViewHolder,
+constraints in greenaddress-0
+constraints in greenaddress-1
+	AndroidXNonNull condition: "" , add info: -
+
