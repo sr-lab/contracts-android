@@ -6,4 +6,4 @@ RUN apt-get update && \
 VOLUME ["/contractstudy", "/datasetScripts"]
 WORKDIR /contractstudy
 
-CMD ["mvn", "clean", "install"]
+#CMD ["mvn", "clean", "install"]
