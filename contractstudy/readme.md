@@ -6,12 +6,8 @@ This repository contains scripts and data to extract semantic annotations and co
 
 ## Setup
 
-### Running the Docker container
+### Running all scripts
 
 ```
-docker build -t contracts-study .
-
-docker run -v “$(pwd)/contractstudy:/contractstudy” -v “$(pwd)/datasetscripts:/datasetscripts” contracts-study mvn clean install
-
-mvn exec:java  -Dexec.mainClass=contractstudy.scripts.CollectDatasetStats (or other script)
+mvn exec:java  -Dexec.mainClass=contractstudy.scripts.RunAllExperiments (or other script)
 ```
