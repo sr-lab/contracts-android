@@ -4,7 +4,7 @@ import contractstudy.config.Preferences;
 import contractstudy.constants.VisibilityModifier;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
-import contractstudy.utils.kotlinParser.KotlinParserUtils;
+import contractstudy.utils.KotlinParserUtils;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.com.intellij.psi.PsiElement;

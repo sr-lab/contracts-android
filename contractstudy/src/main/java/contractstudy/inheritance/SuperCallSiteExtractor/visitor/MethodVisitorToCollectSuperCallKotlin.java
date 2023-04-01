@@ -3,7 +3,7 @@ package contractstudy.inheritance.SuperCallSiteExtractor.visitor;
 import contractstudy.config.Preferences;
 import contractstudy.inheritance.model.SuperCallSite;
 import contractstudy.model.ProgramVersion;
-import contractstudy.utils.kotlinParser.KotlinParserUtils;
+import contractstudy.utils.KotlinParserUtils;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.psi.KtModifierList;

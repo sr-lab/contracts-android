@@ -1,7 +1,7 @@
 package contractstudy.usage.collectDatasetStats.visitor;
 
 import contractstudy.constants.VisibilityModifier;
-import contractstudy.utils.kotlinParser.KotlinParserUtils;
+import contractstudy.utils.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.com.intellij.psi.PsiElement;
 import org.jetbrains.kotlin.psi.KtClassOrObject;

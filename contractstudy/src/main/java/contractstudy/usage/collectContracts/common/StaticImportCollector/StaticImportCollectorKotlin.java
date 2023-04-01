@@ -2,7 +2,7 @@ package contractstudy.usage.collectContracts.common.StaticImportCollector;
 
 import contractstudy.usage.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.utils.StringUtils;
-import contractstudy.utils.kotlinParser.KotlinParserUtils;
+import contractstudy.utils.KotlinParserUtils;
 import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
