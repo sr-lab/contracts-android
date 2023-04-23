@@ -3,8 +3,6 @@ datasetScripts/f-droid/github_repos
 local-env/
 datasetScripts/output/
 
-
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -175,10 +173,8 @@ doc/paper/ssv.blg
 doc/paper/ssv.pdf
 doc/paper/ssv.synctex.gz
 
-# test data
-src/test/java/contractstudy/hierarchy/testdata/simple/simple-1.0-deps.json
-src/test/java/contractstudy/hierarchy/testdata/simple/simple-1.0.zip
-src/test/resources/struct/simple/simple-1.0-struct.json
-
 # VS Code stuff
 .DS_Store
+
+# Lib
+contractstudy/lib/open-jdk/

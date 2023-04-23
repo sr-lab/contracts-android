@@ -2,6 +2,7 @@ package contractstudy.inheritance.ProjectVersionHierarchyExtractor;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import contractstudy.config.Logging;
 import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassExtractor.ProjectClassExtractor;
 import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassExtractorKotlin.ProjectClassExtractorKotlin;
 import contractstudy.inheritance.model.ClassCoordinates;
@@ -14,12 +15,15 @@ import contractstudy.model.ProgramVersion;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import contractstudy.utils.kotlinParser.KotlinParser;
+import org.apache.log4j.Logger;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -35,22 +39,35 @@ import static contractstudy.utils.LanguageUtils.getLanguageFromNameExtension;
  */
 public class ProjectVersionHierarchyExtractor {
 
+  private static final Logger LOGGER = Logging.getLogger(ProjectVersionHierarchyExtractor.class);
   private final ProjectClassExtractor classExtractor = new ProjectClassExtractor();
   private final ProjectClassExtractorKotlin classExtractorKotlin = new ProjectClassExtractorKotlin();
   private final ClassFinderCreator globalCreator = new ClassFinderCreator();
 
 
+  public ProjectVersionHierarchyExtractor addGlobal(
+    ProgramVersion projectVersion,
+    final InheritanceResolved notifier
+  ) throws Exception {
+    analyse(projectVersion, new ArrayList<>(), globalCreator, notifier);
+    return this;
+  }
+
   public void analyse(
     final ProgramVersion projectVersion,
-    final InheritanceResolved notifier) throws Exception {
+    final List<ProgramVersion> dependencies,
+    final InheritanceResolved notifier
+  ) throws Exception {
     ClassFinderCreator creator = new ClassFinderCreator(globalCreator);
-    analyse(projectVersion, creator, notifier);
+    analyse(projectVersion, dependencies, creator, notifier);
   }
 
   private void analyse(
     final ProgramVersion projectVersion,
+    final List<ProgramVersion> dependencies,
     final ClassFinderCreator creator,
-    final InheritanceResolved notifier) throws Exception {
+    final InheritanceResolved notifier
+  ) throws Exception {
     readClasses(projectVersion, creator, notifier);
     Set<String> parents = new HashSet<>();
     resolveInheritance(projectVersion, creator, notifier, parents);
@@ -59,7 +76,8 @@ public class ProjectVersionHierarchyExtractor {
   private void readClasses(
     final ProgramVersion programVersion,
     final ClassFinderCreator creator,
-    final InheritanceResolved notifier) throws Exception {
+    final InheritanceResolved notifier
+  ) throws Exception {
     File project = programVersion.getFile();
     if (!project.isDirectory()) {
       readClassesForNonDirectoryFile(project, programVersion, creator, notifier);
@@ -83,11 +101,9 @@ public class ProjectVersionHierarchyExtractor {
         if (language == KOTLIN || language == JAVA) {
           try (InputStream in = zip.getInputStream(e)) {
             if (language == JAVA) {
-              readClassesForJavaInputStream(project, sourceCodeFileName, in, programVersion,
-                creator, notifier);
+              readClassesForJavaInputStream(project, sourceCodeFileName, in, programVersion, creator, notifier);
             } else {
-              readClassesForKotlinInputStream(project, sourceCodeFileName, in, programVersion,
-                creator, notifier);
+              readClassesForKotlinInputStream(project, sourceCodeFileName, in, programVersion, creator, notifier);
             }
           }
         }
@@ -103,11 +119,16 @@ public class ProjectVersionHierarchyExtractor {
     final ClassFinderCreator creator,
     final InheritanceResolved notifier
   ) {
-    CompilationUnit cu = StaticJavaParser.parse(inputStream);
-    ClassCoordinates classCoordinates = classExtractor.readClass(cu, sourceCodeFileName);
-    if (classCoordinates.getClassSimpleName() != null) {
-      creator.add(programVersion, classCoordinates, cu, file.getName());
-      notifier.notify(classCoordinates);
+    try {
+      CompilationUnit cu = StaticJavaParser.parse(inputStream);
+      ClassCoordinates classCoordinates = classExtractor.readClass(cu, sourceCodeFileName);
+      if (classCoordinates.getClassSimpleName() != null) {
+        creator.add(programVersion, classCoordinates, cu, file.getName());
+        notifier.notify(classCoordinates);
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+      LOGGER.warn("Exception thrown when reading classes from " + sourceCodeFileName);
     }
   }
 

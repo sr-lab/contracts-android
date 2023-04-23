@@ -20,9 +20,11 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -44,6 +46,8 @@ public class ComputeInheritanceHierarchy implements Experiment {
 
   public static void main(String[] args) throws Exception {
 
+    //createAndSaveStructFileForJDK();
+
     long startTime = System.currentTimeMillis();
     ExecutorService executor = Executors.newFixedThreadPool(Preferences.getThreadCount());
     Collection<File> sourceCodeZips = FileUtils.listFiles(INPUT_SOURCE_CODE, new String[]{"zip"},
@@ -52,9 +56,7 @@ public class ComputeInheritanceHierarchy implements Experiment {
       new String[]{"json"}, true);
 
     for (File project : sourceCodeZips) {
-
       LOGGER.info("Processing: " + project);
-
       File contractsJsonFile;
 
       try {
@@ -68,9 +70,10 @@ public class ComputeInheritanceHierarchy implements Experiment {
         try {
           ProgramVersion version = createProgramVersionFromSourceCodeAndContractsFoundJsonFile(
             project, contractsJsonFile);
+          List<ProgramVersion> deps = new ArrayList<>(); //Skipping all dependencies for now.
           Map<ClassCoordinates, ClassParents> classesMap = new HashMap<>();
 
-          extractor.analyse(version, new InheritanceResolved() {
+          extractor.analyse(version, deps, new InheritanceResolved() {
             @Override
             public void notify(ClassParents parents) {
               classesMap.put(parents, parents);
@@ -104,6 +107,28 @@ public class ComputeInheritanceHierarchy implements Experiment {
     LOGGER.info("\ttime: " + (endTime - startTime) + " ms");
     LOGGER.info("\tthreads used: " + Preferences.getThreadCount());
 
+  }
+
+  private static void createAndSaveStructFileForJDK() throws Exception {
+    File jdk = Preferences.getJDKZip();
+    Map<ClassCoordinates, ClassParents> classesMap = new HashMap<>();
+
+    extractor.addGlobal(ProgramVersion.getOrCreateFromFile(jdk), new InheritanceResolved() {
+      @Override
+      public void notify(ClassParents parents) {
+        classesMap.put(parents, parents);
+      }
+
+      @Override
+      public void notify(ClassCoordinates classCoordinates) {
+        classesMap.put(classCoordinates, null);
+
+      }
+    });
+
+    File outputFolder = new File(OUTPUT_ROOT_FOLDER, "open-jdk-8");
+    File outputFile = new File(outputFolder, "open-jdk-8-struct.json");
+    saveResultsToFile(outputFile, classesMap);
   }
 
   private static File getContractsFoundJsonFileAssociatedWithProjectZip(
