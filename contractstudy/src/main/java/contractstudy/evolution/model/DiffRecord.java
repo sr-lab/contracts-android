@@ -14,21 +14,28 @@ import java.util.List;
  */
 public class DiffRecord {
 
-  private List<ContractElement> constraints1 = null;
+  private final List<ContractElement> constraints1;
   // contextual info
-  private ProgramVersion programVersion1 = null;
-  private String cu1 = null;
-  private String methodDecl1 = null;
-  private List<ContractElement> constraints2 = null;
+  private final ProgramVersion programVersion1;
+  private final String cu1;
+  private final String methodDecl1;
+  private final List<ContractElement> constraints2;
 
   // contextual info
-  private ProgramVersion programVersion2 = null;
-  private String cu2 = null;
-  private String methodDecl2 = null;
+  private final ProgramVersion programVersion2;
+  private final String cu2;
+  private final String methodDecl2;
 
-  public DiffRecord(List<ContractElement> constraints1, ProgramVersion programVersion1, String cu1,
-    String methodDecl1, List<ContractElement> constraints2, ProgramVersion programVersion2,
-    String cu2, String methodDecl2) {
+  public DiffRecord(
+    List<ContractElement> constraints1,
+    ProgramVersion programVersion1,
+    String cu1,
+    String methodDecl1,
+    List<ContractElement> constraints2,
+    ProgramVersion programVersion2,
+    String cu2,
+    String methodDecl2
+  ) {
     this.constraints1 = constraints1;
     this.programVersion1 = programVersion1;
     this.cu1 = cu1;
@@ -63,7 +70,6 @@ public class DiffRecord {
   public ProgramVersion getProgramVersion2() {
     return programVersion2;
   }
-
 
   public String getCu2() {
     return cu2;

@@ -78,5 +78,6 @@ make get-fdroid-dataset
 | filterProjectsByStats.py | Fetches info and stats for each project and filters them.           | 2-non-duplicated-projects.txt | 3-projects-stats.csv; 3-filtered-projects.txt |
 | createVersionsFiles.py   | Augments list with URLs for first and last version of each project. | 3-filtered-projects.txt       | 4-projects-versions.txt                       |
 | cloneProjects.py         | Clones all listed repositories.                                     | 4-projects-versions.txt       | 5-projects/*                                  |
+| cleanProjects.py        | Removes from each project unwanted files such as tests and assets.   | 5-projects/*                  | 5-projects/*                                   |
 | prepareDataset.py        | Zips each cloned repositories and creates final folder structure.   | 5-projects/*                  | 6-dataset/*                                   |
 
