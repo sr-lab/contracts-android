@@ -64,6 +64,7 @@ def prepareProjectWithTwoVersionsForRename(folder, appDir):
         if (version != None):
             versions.append(version)
             appNames.append(appName)
+    print(appDir)
     latestVersionIndex = getIndexForLatestVersion(versions)
     renameProjectsFromSameFolder(folder, appNames, latestVersionIndex)
 
@@ -123,6 +124,7 @@ def renameProjectsFromSameFolder(folder, appNames, lastVersionIndex):
         return    
 
 if __name__ == "__main__":
+    print("prepareDateset.py: Preparing dataset...")
     for f in os.listdir(INPUT_FOLDER):
         zipDirectory(OUTPUT_FOLDER+"/"+f, INPUT_FOLDER+"/"+f)        
     organizeProjectsZipsFolders()

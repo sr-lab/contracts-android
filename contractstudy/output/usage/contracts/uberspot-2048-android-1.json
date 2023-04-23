@@ -1,1 +1,0 @@
-[{"cu":"src/com/uberspot/a2048/MainActivity.java","condition":"{ \"SetJavaScriptEnabled\", \"NewApi\", \"ShowToast\" }","method":"onTouch(View,","additional_info":"-","artefact_type":"METHOD","line":44,"name":"uberspot-2048-android","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]
