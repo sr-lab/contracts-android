@@ -1,6 +1,5 @@
 package contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassExtractorKotlin.visitor;
 
-import contractstudy.constants.VisibilityModifier;
 import contractstudy.inheritance.model.ASTState;
 import contractstudy.inheritance.model.ClassCoordinates;
 import contractstudy.usage.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitorKotlin;
@@ -45,10 +44,8 @@ public class ClassDefinitionVisitorKotlin extends AbstractMethodVisitorKotlin im
   public void visitNamedFunction(@NotNull KtNamedFunction function) {
     super.visitNamedFunction(function);
     KtModifierList ktModifierList = function.getModifierList();
-    VisibilityModifier visibility = KotlinParserUtils.getVisibilityModifier(ktModifierList);
     boolean isAbstract = super.computeAbstractMethod();
-    //TODO: Should we include internal?
-    if (visibility != VisibilityModifier.PRIVATE && !isAbstract) {
+    if (KotlinParserUtils.isMethodVisibilityAccepted(ktModifierList) && !isAbstract) {
       if (getState(function) != null) {
         //TODO: Why is state sometimes null?
         getState(function).getMethods().add(super.methodDeclaration);

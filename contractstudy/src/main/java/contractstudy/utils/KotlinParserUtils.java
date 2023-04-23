@@ -1,5 +1,6 @@
 package contractstudy.utils;
 
+import contractstudy.config.Preferences;
 import contractstudy.constants.VisibilityModifier;
 import org.jetbrains.kotlin.com.intellij.openapi.editor.Document;
 import org.jetbrains.kotlin.com.intellij.psi.FileViewProvider;
@@ -50,9 +51,13 @@ public class KotlinParserUtils {
   }
 
   public static boolean isMethodVisibilityAccepted(KtModifierList ktModifierList) {
-    //TODO: Should we include internal?
     VisibilityModifier visibility = getVisibilityModifier(ktModifierList);
-    return visibility == VisibilityModifier.PROTECTED || visibility == VisibilityModifier.PRIVATE;
+    return (
+      visibility == VisibilityModifier.PROTECTED ||
+        visibility == VisibilityModifier.PRIVATE ||
+        visibility == VisibilityModifier.INTERNAL ||
+        (Preferences.includePrivateMethods() && visibility == VisibilityModifier.PRIVATE)
+    );
   }
 
   public static VisibilityModifier getVisibilityModifier(KtModifierList ktModifierList) {

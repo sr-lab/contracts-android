@@ -1,7 +1,6 @@
 package contractstudy.usage.collectContracts.common.AbstractMethodVisitor;
 
 import contractstudy.config.Preferences;
-import contractstudy.constants.VisibilityModifier;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.utils.KotlinParserUtils;
@@ -69,11 +68,8 @@ public abstract class AbstractMethodVisitorKotlin extends KtTreeVisitorVoid {
   @Override
   public void visitNamedFunction(@NotNull KtNamedFunction function) {
     KtModifierList ktModifierList = function.getModifierList();
-    VisibilityModifier visibility = KotlinParserUtils.getVisibilityModifier(ktModifierList);
     isDefaultMethod = false; //TODO: Do default methods exist in Kotlin?
-    //TODO: Include internal methods?
-    if (includePrivateMethods || isInterface || visibility == VisibilityModifier.PUBLIC
-      || visibility == VisibilityModifier.PROTECTED) {
+    if (includePrivateMethods || isInterface || KotlinParserUtils.isMethodVisibilityAccepted(ktModifierList)) {
       this.methodDeclaration = function.getName() + "()";
     }
     super.visitNamedFunction(function);
