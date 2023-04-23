@@ -5,9 +5,9 @@ import com.github.javaparser.ast.CompilationUnit;
 import contractstudy.usage.collectDatasetStats.visitor.DataCollectionVisitor;
 import contractstudy.usage.collectDatasetStats.visitor.DataCollectionVisitorKotlin;
 import contractstudy.utils.InputStreamToStringConversion;
+import contractstudy.utils.KotlinParserUtils;
 import contractstudy.utils.LanguageUtils;
 import contractstudy.utils.kotlinParser.KotlinParser;
-import contractstudy.utils.KotlinParserUtils;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 import java.io.InputStream;

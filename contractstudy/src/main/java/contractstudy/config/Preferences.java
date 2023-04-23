@@ -2,6 +2,7 @@ package contractstudy.config;
 
 import org.apache.log4j.Logger;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
 
@@ -91,6 +92,14 @@ public class Preferences {
 
   public static boolean includePrivateMethods() {
     return getBooleanPref("includeprivate", false);
+  }
+
+  public static String getLibFolder() {
+    return getStringPref("lib", "lib");
+  }
+
+  public static File getJDKZip() {
+    return new File(new File(Preferences.getLibFolder(), "open-jdk"), "open-jdk-8.zip");
   }
 
 }
