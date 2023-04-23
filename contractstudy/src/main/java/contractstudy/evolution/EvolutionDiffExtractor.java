@@ -75,46 +75,25 @@ public class EvolutionDiffExtractor implements DiffExtractor {
 
     getListOfUsageResults(contractElements, removed);
 
-    Collections.sort(contractElements, new Comparator<ContractElement>() {
-      @Override
-      public int compare(ContractElement pc1, ContractElement pc2) {
-        return pc1.getProgramVersion().compareTo(pc2.getProgramVersion());
-      }
-    });
+    contractElements.sort(Comparator.comparing(ContractElement::getProgramVersion));
 
     LOGGER.info(contractElements.size() + " constraints imported");
 
-    ProgramVersion pv = null;
-    for (ContractElement pc : contractElements) {
-      ProgramVersion pv2 = pc.getProgramVersion();
-      if (pv == null) {
-        pv = pv2;
-      }
-      if (!pv.getName().equals(pv2.getName())) {
-        pv = pv2; // new program
-      } else {
-        if (!pv.getVersion().equals(pv2.getVersion())) {
-          pv.setNextVersion(pv2); // cross-reference
-          pv2.setPreviousVersion(pv);
-          pv = pv2;
-        }
-      }
-    }
+    contractElements = linkContractVersions(contractElements);
 
-    ListMultimap<String, ContractElement> constraintIndex = getIndexConstraintsByMethodOrClass(
-      contractElements);
-
+    ListMultimap<String, ContractElement> constraintIndex = getIndexConstraintsByMethodOrClass(contractElements);
     Map<ProgramVersion, Multimap<String, String>> methodsByPVAndCU = getMethodsByProgramVersionAndCompilationUnit();
 
     // build diff records
     Set<String> done = new HashSet<>();
     for (ContractElement pc : contractElements) {
+
       String key = getIndexKey(pc.getProgramVersion(), pc.getCuName(), pc.getMethodDeclaration());
 
       if (done.add(key)) {
 
         // Get next Version of the Program.
-        pv = pc.getProgramVersion();
+        ProgramVersion pv = pc.getProgramVersion();
         ProgramVersion succPV = pv.getNextVersion();
 
         if (succPV != null) {
@@ -167,9 +146,7 @@ public class EvolutionDiffExtractor implements DiffExtractor {
       }
     }
 
-    LOGGER.info(
-      "Number of removed constraints (their program versions have unknown evolution position): "
-        + removed.size());
+    LOGGER.info("Number of removed constraints (their program versions have unknown evolution position): " + removed.size());
     LOGGER.info("Number of used constraints: " + results.size());
 
     try {
@@ -187,6 +164,26 @@ public class EvolutionDiffExtractor implements DiffExtractor {
     }
 
     return results;
+  }
+
+  private List<ContractElement> linkContractVersions(List<ContractElement> contractElements) {
+    ProgramVersion pv = null;
+    for (ContractElement pc : contractElements) {
+      ProgramVersion pv2 = pc.getProgramVersion();
+      if (pv == null) {
+        pv = pv2;
+      }
+      if (!pv.getName().equals(pv2.getName())) {
+        pv = pv2; // new program
+      } else {
+        if (!pv.getVersion().equals(pv2.getVersion())) {
+          pv.setNextVersion(pv2); // cross-reference
+          pv2.setPreviousVersion(pv);
+          pv = pv2;
+        }
+      }
+    }
+    return contractElements;
   }
 
   private boolean doesMethodExistsInVersion(ContractElement contractInProgram, Multimap<String, String> methodsInProgram) {
