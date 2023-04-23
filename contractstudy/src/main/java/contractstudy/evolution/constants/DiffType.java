@@ -5,6 +5,7 @@ package contractstudy.evolution.constants;
  *
  * @author jens dietrich
  */
+//TODO: Maybe remove since it is not used.
 public enum DiffType {
   PRECONDITION_CHANGED,
   PRECONDITION_ADDED,
