@@ -8,24 +8,27 @@ get-fdroid-index:
 
 clean-projects-list: remove-non-github-urls remove-duplicates 
 
-remove-non-github-urls: output/1-f-droid-projects.txt
+remove-non-github-urls: output/0-f-droid-projects.txt
 	python3 removeNonGithubURL.py
 
-remove-duplicates: output/2-github-projects.txt
+remove-duplicates: output/1-github-projects.txt
 	python3 removeDuplicatedURL.py
 
-filter-projects: output/3-non-duplicated-projects.txt
+filter-projects: output/2-non-duplicated-projects.txt
 	python3 filterProjectsByStats.py
 
-get-versions: output/4-filtered-projects.txt
+get-versions: output/3-filtered-projects.txt
 	python3 createVersionsFile.py
 
-get-dataset: clone-projects prepare-dataset
+get-dataset: clone-projects clean-projects prepare-dataset
 
-clone-projects: output/5-projects-versions.txt
+clone-projects: output/4-projects-versions.txt
 	python3 cloneProjects.py
 
-prepare-dataset: output/6-projects
+clean-projects: output/5-projects
+	python3 cleanProjects.py
+
+prepare-dataset: output/5-projects
 	python3 prepareDataset.py
 
 clean-output:
