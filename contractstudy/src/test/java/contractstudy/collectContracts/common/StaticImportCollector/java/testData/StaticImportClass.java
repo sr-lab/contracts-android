@@ -1,12 +1,12 @@
 package contractstudy.collectContracts.common.StaticImportCollector.java.testData;
 
 import com.google.common.base.Preconditions;
-
+import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class StaticImportClass {
 
-  public boolean test(boolean flag) {
+  static public boolean test(boolean flag) {
     return !flag;
   }
 
@@ -18,6 +18,7 @@ public class StaticImportClass {
     return sum(area1, area2);
   }
 
+  @NotNull
   public void print(List<String> list) {
     Preconditions.checkArgument(true, "This is an error");
     for (String item : list) {

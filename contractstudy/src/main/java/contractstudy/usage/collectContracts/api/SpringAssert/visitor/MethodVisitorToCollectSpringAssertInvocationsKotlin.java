@@ -42,9 +42,8 @@ public class MethodVisitorToCollectSpringAssertInvocationsKotlin extends
     String methodName = Objects.requireNonNull(expression.getCalleeExpression()).getText();
     int methodCallLine = KotlinParserUtils.getElementBeginLine(expression);
 
-    //Expression expr = callExpr.getScope().orElse(null);
-    //String scope = expr == null ? null : expr.toString(); //TODO: Get scope.
-    List<KtValueArgument> args = expression.getValueArguments(); //TODO: Get arguments.
+    String scope = getScope(expression);
+    List<KtValueArgument> args = expression.getValueArguments();
     String argumentMessage = Utils.getMessageFromArguments(args);
 
     ContractElement p = initConstraint();
@@ -52,8 +51,7 @@ public class MethodVisitorToCollectSpringAssertInvocationsKotlin extends
     p.setCuName(this.cuName);
     p.setLineNo(methodCallLine);
 
-    // TODO: args.size() > 0 && checkImports(name, scope, "Assert", "org.springframework.util.Assert")
-    if (args.size() > 0) {
+    if (args.size() > 0 && checkImports(methodName, scope, "Assert", "org.springframework.util.Assert")) {
       SpringAssertEnum springAssert = SpringAssertEnum.getEnumValueFromMethodName(methodName);
       if (springAssert != null) {
         p.setKind(springAssert.constraintType);

@@ -21,16 +21,15 @@ import java.util.List;
 @Setter
 public class StaticImportCollector extends VoidVisitorAdapter<Object> {
 
-  private String targetPackageName = null; // the target package, such as com.google.common.base
-  private String targetQClassName = null; // the qualified class name, such as com.google.common.base.Preconditions
-  // state used to return results
+  private String targetPackageName;
+  private String targetQualifiedClassName;
   private StaticImportState staticImportState = StaticImportState.NONE;
   private List<String> staticallyImportedMethodNames = new ArrayList<>();
 
-  public StaticImportCollector(String targetPackageName, String targetQClassName) {
+  public StaticImportCollector(String targetPackageName, String targetQualifiedClassName) {
     super();
     this.targetPackageName = targetPackageName;
-    this.targetQClassName = targetQClassName;
+    this.targetQualifiedClassName = targetQualifiedClassName;
   }
 
   /**
@@ -40,17 +39,18 @@ public class StaticImportCollector extends VoidVisitorAdapter<Object> {
   public void visit(ImportDeclaration imp, Object arg) {
     String imported = imp.getName().toString();
     boolean hasWildCard = doesImportStatementContainsWildCard(imp);
+
     if (imp.isStatic()) {
       setImportStateFromStatic(imp, hasWildCard, imported);
     } else {
       setImportStateFromNonStatic(imp, hasWildCard, imported);
     }
+
     super.visit(imp, arg);
   }
 
   private boolean doesImportStatementContainsWildCard(ImportDeclaration imp) {
-    //boolean hasWildcard = imp.toStringWithoutComments().contains(".*");
-    return imp.removeComment().toString().contains(".*"); // JFF: FIXME?
+    return imp.removeComment().toString().contains(".*");
   }
 
   private void setImportStateFromStatic(
@@ -58,35 +58,32 @@ public class StaticImportCollector extends VoidVisitorAdapter<Object> {
     boolean hasWildCard,
     String imported
   ) {
-    if (hasWildCard && imported.equals(targetQClassName)) {
+    if (hasWildCard && imported.equals(targetQualifiedClassName)) {
       this.staticImportState = StaticImportState.ALL_STATIC;
     } else {
-      //String clName = imp.getName().getChildrenNodes().get(0).toString();
-      String clName = imp.getName().getChildNodes().get(0).toString(); // JFF: FIXME?
-      //String mName = imp.getName().getName();
-      String mName = imp.getName().getIdentifier(); // JFF: FIXME?
-      if (clName.equals(targetQClassName)) {
+      String className = imp.getName().getChildNodes().get(0).toString();
+      String methodName = imp.getName().getIdentifier();
+      if (className.equals(targetQualifiedClassName)) {
         this.staticImportState = StaticImportState.SOME_STATIC;
-        this.staticallyImportedMethodNames.add(mName);
+        this.staticallyImportedMethodNames.add(methodName);
       }
     }
   }
 
-  private void setImportStateFromNonStatic(ImportDeclaration imp, boolean hasWildCard,
-    String imported) {
+  private void setImportStateFromNonStatic(
+    ImportDeclaration imp,
+    boolean hasWildCard,
+    String imported
+  ) {
     if (staticImportState == StaticImportState.NONE) {
-      //String importName = imp.getName().toStringWithoutComments();
       String importName = imp.getName().removeComment().toString();
       String pcgOnly = importName;
 
-      // import name contains the class name after the last dot,
-      // or the whole package if wildcard is used.
       if (!hasWildCard) {
-        pcgOnly = importName.substring(0,
-          importName.lastIndexOf("."));  // suppose no inner classes are used
+        pcgOnly = importName.substring(0, importName.lastIndexOf("."));
       }
 
-      if (targetPackageName.equals(pcgOnly) || targetQClassName.equals(imported)) {
+      if (targetPackageName.equals(pcgOnly) || targetQualifiedClassName.equals(imported)) {
         this.staticImportState = StaticImportState.CLASS;
       }
     }

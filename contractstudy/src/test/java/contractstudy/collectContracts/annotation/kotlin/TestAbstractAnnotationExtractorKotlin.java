@@ -45,7 +45,7 @@ public class TestAbstractAnnotationExtractorKotlin {
   private static Stream<Arguments> generateInputForConstraintArtefactTest() {
     return Stream.of(
       Arguments.of(ConstraintType.JSR303NotNull, "AnnotationsArtefact.kt", ConstraintedArtefact.CLASS),
-      Arguments.of(ConstraintType.JSR303Size, "AnnotationsArtefact.kt", ConstraintedArtefact.CLASS),
+      Arguments.of(ConstraintType.JSR303Size, "AnnotationsArtefact.kt", ConstraintedArtefact.METHOD),
       Arguments.of(ConstraintType.JSR303Max, "AnnotationsArtefact.kt", ConstraintedArtefact.METHOD_PARAMETER),
       Arguments.of(ConstraintType.JSR303Null, "AnnotationsArtefact.kt", ConstraintedArtefact.METHOD_PARAMETER)
     );

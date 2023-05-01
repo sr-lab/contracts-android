@@ -31,7 +31,7 @@ public class TestAbstractAnnotationExtractor {
     return Stream.of(
       Arguments.of(ConstraintType.JSR303Min, "AnnotationsMultiple.java", 1),
       Arguments.of(ConstraintType.JSR303Max, "AnnotationsMultiple.java", 1),
-      Arguments.of(ConstraintType.JSR303NotNull, "AnnotationsMultiple.java", 2),
+      Arguments.of(ConstraintType.JSR303NotNull, "AnnotationsMultiple.java", 3),
       Arguments.of(ConstraintType.JSR303Size, "AnnotationsMultiple.java", 1));
   }
 
@@ -39,7 +39,7 @@ public class TestAbstractAnnotationExtractor {
     return Stream.of(
       Arguments.of(ConstraintType.JSR303Min, "AnnotationsWildCard.java", 1),
       Arguments.of(ConstraintType.JSR303Max, "AnnotationsWildCard.java", 1),
-      Arguments.of(ConstraintType.JSR303NotNull, "AnnotationsWildCard.java", 2),
+      Arguments.of(ConstraintType.JSR303NotNull, "AnnotationsWildCard.java", 3),
       Arguments.of(ConstraintType.JSR303Size, "AnnotationsWildCard.java", 1));
   }
 

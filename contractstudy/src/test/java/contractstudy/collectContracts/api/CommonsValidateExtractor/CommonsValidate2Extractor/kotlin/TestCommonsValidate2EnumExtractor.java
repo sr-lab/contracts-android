@@ -44,16 +44,13 @@ public class TestCommonsValidate2EnumExtractor {
   @MethodSource("generatorCommonsValidate2")
   public void testCommonsValidate2Extractor_whenMultipleUses_expectListOfUses(
     ConstraintType constraintType, String fileName, int count) throws Exception {
-    //given
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
     CommonsValidate2Extractor commonsValidate2Extractor = new CommonsValidate2Extractor();
 
-    //when
     commonsValidate2Extractor.analyse(Utils.getInputStream(file), "test", "<no version>",
       file.getName(), collector);
 
-    //assert
     List<ContractElement> contractsFound = collector
       .getContractElements()
       .stream()

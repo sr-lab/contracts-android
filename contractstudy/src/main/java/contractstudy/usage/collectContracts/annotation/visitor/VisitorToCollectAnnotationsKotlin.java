@@ -44,8 +44,8 @@ public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotl
   @Override
   public void visitAnnotationEntry(@NotNull KtAnnotationEntry annotationEntry) {
     ConstraintType constraintType = getConstraintTypeString(annotationEntry);
-    if (constraintType
-      != null) { //TODO: Fixme? (constraintType != null && importState == StaticImportState.CLASS)
+    //TODO: Fixme? (constraintType != null && importState == StaticImportState.CLASS)
+    if (constraintType!= null) {
       String condition = getAnnotationCondition(annotationEntry);
       ConstraintedArtefact artefact = getConstraintArtefact(annotationEntry);
       int beginLine = KotlinParserUtils.getElementBeginLine(annotationEntry);

@@ -37,8 +37,7 @@ public class MethodVisitorToCollectCommons3ValidateInvocationsKotlin extends
     String methodCallName = Objects.requireNonNull(expression.getCalleeExpression()).getText();
     int methodCallLine = KotlinParserUtils.getElementBeginLine(expression);
 
-    //Expression expr = callExpr.getScope().orElse(null);
-    //String scope = expr == null ? null : expr.toString(); //TODO: Get scope.
+    String scope = getScope(expression);
     List<KtValueArgument> args = expression.getValueArguments();
     String argumentMessage = Utils.getMessageFromArguments(args);
 
@@ -47,7 +46,7 @@ public class MethodVisitorToCollectCommons3ValidateInvocationsKotlin extends
     p.setCuName(this.cuName);
     p.setLineNo(methodCallLine);
 
-    if (args.size() > 0) { // TODO: args.size() > 0 && checkImports(methodCallName, "TODO: Scope")
+    if (args.size() > 0 && checkImports(methodCallName, scope)) {
       CommonsValidate3Enum commonsValidate3 = CommonsValidate3Enum.getEnumValueFromMethodName(
         methodCallName);
       if (commonsValidate3 != null) {

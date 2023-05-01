@@ -18,18 +18,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestStaticImportCollectorKotlin {
 
   private static final File TEST_DATA_FOLDER = new File(
-    Utils.getBasePathTestFolder()
-      + "collectContracts/common/StaticImportCollector/kotlin/testData");
+    Utils.getBasePathTestFolder() + "collectContracts/common/StaticImportCollector/kotlin/testData");
 
   private static Stream<Arguments> generateParameters() {
     return Stream.of(
       Arguments.of(StaticImportState.NONE, "StaticImportNone.kt", "none", "none"),
-      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportClass.kt",
-        "org.jetbrains.annotations",
-        "org.jetbrains.annotations"),
-      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportSomeStatic.kt",
-        "com.google.common.base",
-        "com.google.common.base.Preconditions"));
+      Arguments.of(StaticImportState.CLASS, "StaticImportClass.kt", "java.util", "java.util.List"),
+      Arguments.of(StaticImportState.CLASS, "StaticImportClass.kt", "com.google.common.base",
+        "com.google.common.base.Preconditions"),
+      Arguments.of(StaticImportState.ALL_STATIC, "StaticImportWildCard.kt", "java.lang.System",
+        "java.lang.System"));
   }
 
   @ParameterizedTest

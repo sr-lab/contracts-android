@@ -53,16 +53,13 @@ public class TestGuavaPreconditionsExtractor {
   @MethodSource("generateMultipleGuavaPreconditions")
   public void testGuavaPreconditionsExtractor_whenMultipleUses_expectListOfUses(
     ConstraintType constraintType, String fileName, int count) throws Exception {
-    //given
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
     GuavaPreconditionsExtractor guavaPreconditionsExtractor = new GuavaPreconditionsExtractor();
 
-    //when
     guavaPreconditionsExtractor.analyse(Utils.getInputStream(file), "test", "<no version>",
       file.getName(), collector);
 
-    //assert
     List<ContractElement> contractsFound = collector
       .getContractElements()
       .stream()
@@ -77,16 +74,13 @@ public class TestGuavaPreconditionsExtractor {
   @MethodSource("generateWildCardImportGuavaPreconditions")
   public void testGuavaPreconditionsExtractor_whenMultipleUsesWildCardImport_expectListOfUses(
     ConstraintType constraintType, String fileName, int count) throws Exception {
-    //given
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
     GuavaPreconditionsExtractor guavaPreconditionsExtractor = new GuavaPreconditionsExtractor();
 
-    //when
     guavaPreconditionsExtractor.analyse(Utils.getInputStream(file), "test", "<no version>",
       file.getName(), collector);
 
-    //assert
     List<ContractElement> contractsFound = collector
       .getContractElements()
       .stream()
