@@ -2,7 +2,7 @@ package contractstudy.collectContracts.common.StaticImportCollector.java.testDat
 
 import java.util.List;
 
-import static java.lang.System.out;
+import static java.lang.System.*;
 
 public class StaticImportWildCard {
 

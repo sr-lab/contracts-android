@@ -40,8 +40,7 @@ public class MethodVisitorToCollectGuavaPreconditionsInvocationsKotlin extends
   public void visitCallExpression(@NotNull KtCallExpression expression) {
     String methodName = Objects.requireNonNull(expression.getCalleeExpression()).getText();
     int methodCallLine = KotlinParserUtils.getElementBeginLine(expression);
-    //Expression expr = callExpr.getScope().orElse(null);
-    //String scope = expr == null ? null : expr.toString(); //TODO: Get scope.
+    String scope = getScope(expression);
     List<KtValueArgument> args = expression.getValueArguments();
     String argumentMessage = Utils.getMessageFromArguments(args);
 
@@ -50,9 +49,7 @@ public class MethodVisitorToCollectGuavaPreconditionsInvocationsKotlin extends
     p.setCuName(this.cuName);
     p.setLineNo(methodCallLine);
 
-    //TODO: args.size() > 0 && checkImports(name, scope, "Preconditions",
-    //      "com.google.common.base.Preconditions")
-    if (args.size() > 0) {
+    if (args.size() > 0 && checkImports(methodName, scope, "Preconditions", "com.google.common.base.Preconditions")) {
       GuavaEnum guava = GuavaEnum.getEnumValueFromMethodName(methodName);
       if (guava != null) {
         p.setKind(guava.constraintType);

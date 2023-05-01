@@ -22,7 +22,7 @@ public class TestDataCollectionExtractor {
 
   private static Stream<Arguments> generateFiles() {
     return Stream.of(
-      Arguments.of("DummyJavaFile.java", 2, 2, 1, 5, 4, 2, 31));
+      Arguments.of("DummyJavaFile.java", 2, 2, 1, 5, 4, 2, 32));
   }
 
   @ParameterizedTest

@@ -28,16 +28,10 @@ import java.util.Map;
 public class AbstractAnnotationExtractor implements Extractor<ContractElement> {
 
   private final Map<String, ConstraintType> constraintsByName = new HashMap<>();
-
-  // the prefix for the respective constraint types as defined in ConstraintType
-  private String constraintTypePrefix = null;
-
-  // package where the annotations are defined
-  private String annotationPackageName = null;
+  private String annotationPackageName;
 
 
   public AbstractAnnotationExtractor(String constraintTypePrefix, String annotationPackageName) {
-    this.constraintTypePrefix = constraintTypePrefix;
     this.annotationPackageName = annotationPackageName;
 
     for (ConstraintType p : ConstraintType.values()) {
@@ -76,8 +70,8 @@ public class AbstractAnnotationExtractor implements Extractor<ContractElement> {
     final String programName,
     final String version,
     final String cuName,
-    final ExtractionListener<ContractElement> consumer) {
-
+    final ExtractionListener<ContractElement> consumer
+  ) {
     CompilationUnit cu = StaticJavaParser.parse(in);
     StaticImportCollector importsCollector = new StaticImportCollector(annotationPackageName, "");
     importsCollector.visit(cu, null);
@@ -92,19 +86,16 @@ public class AbstractAnnotationExtractor implements Extractor<ContractElement> {
     final String programName,
     final String version,
     final String cuName,
-    final ExtractionListener<ContractElement> consumer) throws Exception {
-
+    final ExtractionListener<ContractElement> consumer
+  ) throws Exception {
     String src = new InputStreamToStringConversion(in).getResult();
     PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
-    StaticImportCollectorKotlin importsCollector = new StaticImportCollectorKotlin(
-      annotationPackageName, "");
+    StaticImportCollectorKotlin importsCollector = new StaticImportCollectorKotlin(annotationPackageName, "");
     psiFile.accept(importsCollector);
     StaticImportState importState = importsCollector.getStaticImportState();
-    VisitorToCollectAnnotationsKotlin visitor = new VisitorToCollectAnnotationsKotlin(consumer,
-      programName,
-      version, cuName, importState, constraintsByName);
+    VisitorToCollectAnnotationsKotlin visitor = new VisitorToCollectAnnotationsKotlin(consumer, programName, version, cuName,
+      importState, constraintsByName);
     psiFile.accept(visitor);
   }
-
 
 }

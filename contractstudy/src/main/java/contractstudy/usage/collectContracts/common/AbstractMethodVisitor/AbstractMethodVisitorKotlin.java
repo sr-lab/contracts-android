@@ -7,6 +7,7 @@ import contractstudy.utils.KotlinParserUtils;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.com.intellij.psi.PsiElement;
+import org.jetbrains.kotlin.psi.KtCallExpression;
 import org.jetbrains.kotlin.psi.KtClassOrObject;
 import org.jetbrains.kotlin.psi.KtElement;
 import org.jetbrains.kotlin.psi.KtImportDirective;
@@ -14,6 +15,8 @@ import org.jetbrains.kotlin.psi.KtModifierList;
 import org.jetbrains.kotlin.psi.KtNamedFunction;
 import org.jetbrains.kotlin.psi.KtPackageDirective;
 import org.jetbrains.kotlin.psi.KtTreeVisitorVoid;
+
+import java.util.Objects;
 
 @Getter
 public abstract class AbstractMethodVisitorKotlin extends KtTreeVisitorVoid {
@@ -111,5 +114,19 @@ public abstract class AbstractMethodVisitorKotlin extends KtTreeVisitorVoid {
     return importDirective.getImportedName().getIdentifier();
   }
 
+  protected String getScope(KtCallExpression ktCallExpression) {
+    try {
+      String context = Objects.requireNonNull(ktCallExpression.getContext()).getText();
+      if (context.startsWith("{") && context.endsWith("}")) {
+        return "";
+      }
+      if (context.contains("(")) {
+        context = context.substring(0, context.indexOf("("));
+      }
+      return ktCallExpression.getContext().getText().substring(0, context.lastIndexOf("."));
+    } catch (NullPointerException exception) {
+      return "";
+    }
+  }
 
 }

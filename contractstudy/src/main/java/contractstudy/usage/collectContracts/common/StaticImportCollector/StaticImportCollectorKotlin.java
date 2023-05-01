@@ -17,98 +17,37 @@ import java.util.Objects;
 @Setter
 public class StaticImportCollectorKotlin extends KtTreeVisitorVoid {
 
-  private String targetPackageName = null; // the target package, such as com.google.common.base
-  private String targetQClassName = null; // the qualified class name, such as com.google.common.base.Preconditions
-  // state used to return results
+  private String targetPackageName;
+  private String targetQualifiedClassName;
   private StaticImportState staticImportState = StaticImportState.NONE;
   private List<String> staticallyImportedMethodNames = new ArrayList<>();
 
-  public StaticImportCollectorKotlin(String targetPackageName, String targetQClassName) {
+  public StaticImportCollectorKotlin(String targetPackageName, String targetQualifiedClassName) {
     super();
     this.targetPackageName = targetPackageName;
-    this.targetQClassName = targetQClassName;
+    this.targetQualifiedClassName = targetQualifiedClassName;
   }
 
   /**
    * From Imports list, finds type of imports. (all static, some static, none, class).
    */
   public void visitImportDirective(@NotNull KtImportDirective importDirective) {
-    String importedPath = importDirective.getImportPath().getPathStr();
-    String importStatement = StringUtils.removeComments(importDirective.getText());
-
     boolean hasWildCard = KotlinParserUtils.doesImportDirectiveContainsWildCard(importDirective);
+    String importedPath = importDirective.getImportPath().getPathStr();
+    String className = importedPath.substring(0, importedPath.lastIndexOf("."));
+    String importedPathWithoutWildCard = importedPath;
+    if (hasWildCard) {
+      importedPathWithoutWildCard = importedPath.substring(0, importedPath.lastIndexOf(".*"));
+    }
 
-    // TODO: Fixme. Currently, considering always static imports.
-
-    if (hasWildCard && importedPath.equals(targetQClassName)) {
+    if (hasWildCard && importedPathWithoutWildCard.equals(targetQualifiedClassName)) {
       this.staticImportState = StaticImportState.ALL_STATIC;
-    } else if (!hasWildCard) {
-      String importClass = null;
-      String importBasePath;
-      try {
-        importClass = Objects.requireNonNull(importDirective.getImportedName()).getIdentifier();
-        importBasePath = getImportBasePath(importedPath, importClass);
-      } catch (NullPointerException ignored) {
-        importBasePath = importedPath;
-      }
-      if (targetQClassName.startsWith(importBasePath)) {
-        this.staticImportState = StaticImportState.SOME_STATIC;
-        this.staticallyImportedMethodNames.add(importClass);
-      }
+    } else if (!hasWildCard && (targetPackageName.equals(className) && targetQualifiedClassName.equals(importedPath))) {
+      this.staticImportState = StaticImportState.CLASS;
     }
 
     super.visitImportDirective(importDirective);
 
-    /*if (isImportStatic(importStatement)) {
-      setImportStateFromStatic(importDirective, hasWildCard, importedPath);
-    } else {
-      setImportStateFromNonStatic(hasWildCard, importedPath);
-    }*/
-  }
-
-
-  private void setImportStateFromStatic(KtImportDirective importDirective, boolean hasWildCard,
-    String importedPath) {
-    String importClass = null;
-    String importBasePath;
-
-    try {
-      importClass = Objects.requireNonNull(importDirective.getImportedName()).getIdentifier();
-      importBasePath = getImportBasePath(importedPath, importClass);
-    } catch (NullPointerException ignored) {
-      importBasePath = importedPath;
-    }
-
-    if (hasWildCard && importedPath.equals(targetQClassName)) {
-      this.staticImportState = StaticImportState.ALL_STATIC;
-    } else {
-      if (importBasePath.equals(targetQClassName)) {
-        this.staticImportState = StaticImportState.SOME_STATIC;
-        this.staticallyImportedMethodNames.add(importClass);
-      }
-    }
-  }
-
-  private void setImportStateFromNonStatic(boolean hasWildCard, String importedPath) {
-    if (staticImportState == StaticImportState.NONE) {
-      String pcgOnly = importedPath.replace(".*", "");
-      if (!hasWildCard) {
-        // suppose no inner classes are used
-        pcgOnly = importedPath.substring(0, importedPath.lastIndexOf("."));
-      }
-      if (targetPackageName.equals(pcgOnly) || targetQClassName.equals(importedPath)) {
-        this.staticImportState = StaticImportState.CLASS;
-      }
-    }
-  }
-
-  // TODO: Fixme
-  private Boolean isImportStatic(String importStatement) {
-    return false;
-  }
-
-  private String getImportBasePath(String importPath, String importLeaf) {
-    return (importPath.split("." + importLeaf))[0];
   }
 
 }

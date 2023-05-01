@@ -22,7 +22,7 @@ public class TestStaticImportCollector {
   private static Stream<Arguments> generateParameters() {
     return Stream.of(
       Arguments.of(StaticImportState.NONE, "StaticImportNone.java", "none", "none"),
-      Arguments.of(StaticImportState.CLASS, "StaticImportClass.java", "java.util.List",
+      Arguments.of(StaticImportState.CLASS, "StaticImportClass.java", "java.util",
         "java.util.List"),
       Arguments.of(StaticImportState.CLASS, "StaticImportClass.java", "com.google.common.base",
         "com.google.common.base.Preconditions"),

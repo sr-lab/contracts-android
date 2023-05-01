@@ -11,6 +11,7 @@ public class StaticImportNone {
   }
 
   public int compute(int area1, int area2) {
+    StaticImportClass.test(true);
     return sum(area1, area2);
   }
 
