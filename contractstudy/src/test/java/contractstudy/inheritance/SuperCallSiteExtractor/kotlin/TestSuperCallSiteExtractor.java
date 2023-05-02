@@ -23,7 +23,8 @@ public class TestSuperCallSiteExtractor {
 
   private static Stream<Arguments> generateFiles() {
     return Stream.of(
-      Arguments.of("SubClass1.kt", 2, 1));
+      Arguments.of("SubClass1.kt", 2, 1),
+      Arguments.of("SubClass2.kt", 2, 1));
   }
 
   @ParameterizedTest

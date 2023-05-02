@@ -51,11 +51,8 @@ public class Utils {
     return messageArgument;
   }
 
-  /**
-   * Trim the return type from the descriptor used to identify methods.
-   */
-  public static final String trimRetType(String desc) {
-    return desc.split(" ")[1];
+  public static String trimReturnType(String desc) {
+    return desc.substring(desc.indexOf(" ")).replace(" ", "");
   }
 
 }

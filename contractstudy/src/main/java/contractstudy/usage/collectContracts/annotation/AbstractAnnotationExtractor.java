@@ -28,7 +28,7 @@ import java.util.Map;
 public class AbstractAnnotationExtractor implements Extractor<ContractElement> {
 
   private final Map<String, ConstraintType> constraintsByName = new HashMap<>();
-  private String annotationPackageName;
+  private final String annotationPackageName;
 
 
   public AbstractAnnotationExtractor(String constraintTypePrefix, String annotationPackageName) {

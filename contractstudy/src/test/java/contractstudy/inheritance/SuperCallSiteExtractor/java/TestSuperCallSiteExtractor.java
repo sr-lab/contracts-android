@@ -28,8 +28,11 @@ public class TestSuperCallSiteExtractor {
 
   @ParameterizedTest
   @MethodSource("generateFiles")
-  public void testDataCollectionVisitorExtractor(String fileName, int expectedMethods,
-    int expectedConstructors) throws Exception {
+  public void testDataCollectionVisitorExtractor(
+    String fileName,
+    int expectedMethods,
+    int expectedConstructors
+  ) throws Exception {
     File file = new File(TEST_DATA_FOLDER, fileName);
     InputStream in = Utils.getInputStream(file);
     SuperCallSiteExtractor extractor = new SuperCallSiteExtractor();

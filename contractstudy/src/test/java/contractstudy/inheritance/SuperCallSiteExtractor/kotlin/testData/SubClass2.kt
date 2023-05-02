@@ -1,6 +1,8 @@
 package contractstudy.inheritance.SuperCallSiteExtractor.kotlin.testData
 
-class SubClass1() : ParentClass("test") {
+class SubClass2: ParentClass2 {
+
+    constructor(text: String, age: String) : super(text, age)
 
     override fun test(): String {
         super.test()
