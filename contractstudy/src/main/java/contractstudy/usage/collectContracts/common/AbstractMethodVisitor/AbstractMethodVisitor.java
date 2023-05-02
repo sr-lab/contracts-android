@@ -74,7 +74,7 @@ public abstract class AbstractMethodVisitor extends VoidVisitorAdapter<Object> {
     //if (includePrivateMethods || isInterface || ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
     if (includePrivateMethods || isInterface || modifiers.contains(Modifier.publicModifier())
       || modifiers.contains(Modifier.protectedModifier())) {
-      this.methodDeclaration = Utils.trimRetType(methodDeclr.getDeclarationAsString(false, false,
+      this.methodDeclaration = Utils.trimReturnType(methodDeclr.getDeclarationAsString(false, false,
         false)); // flags: incl modifiers , incl throws
       super.visit(methodDeclr, arg);
     }

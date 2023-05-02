@@ -50,14 +50,11 @@ public class CollectInvocationViaSuper implements Experiment {
 
     for (File f : zips) {
       ProgramVersion pv = ProgramVersion.getOrCreateFromFile(f);
-      Runnable task = new Runnable() {
-        @Override
-        public void run() {
-          try {
-            findSuperCallSites(counter, zips, f, superCallSites, pv);
-          } catch (Exception e) {
-            LOGGER.warn("Cannot parse file: " + f, e);
-          }
+      Runnable task = () -> {
+        try {
+          findSuperCallSites(counter, zips, f, superCallSites, pv);
+        } catch (Exception e) {
+          LOGGER.warn("Cannot parse file: " + f, e);
         }
       };
       executor.submit(task);

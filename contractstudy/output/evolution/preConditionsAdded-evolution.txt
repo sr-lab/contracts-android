@@ -1,0 +1,76 @@
+PRECONDITION_ADDED
+version 1: greenaddress-abcore-0
+version 2: greenaddress-abcore-1
+compilation unit: app/src/main/java/com/greenaddress/abcore/AppCompatPreferenceActivity.java
+method: setContentView(int)
+constraints in greenaddress-abcore-0
+constraints in greenaddress-abcore-1
+	AndroidXLayoutRes condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: greenaddress-abcore-0
+version 2: greenaddress-abcore-1
+compilation unit: app/src/main/java/com/greenaddress/abcore/LogLinesAdapter.java
+method: onCreateViewHolder(ViewGroup,
+constraints in greenaddress-abcore-0
+constraints in greenaddress-abcore-1
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: greenaddress-abcore-0
+version 2: greenaddress-abcore-1
+compilation unit: app/src/main/java/com/greenaddress/abcore/LogLinesAdapter.java
+method: onBindViewHolder(LogViewHolder,
+constraints in greenaddress-abcore-0
+constraints in greenaddress-abcore-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/util/UIUtils.java
+method: getDimension(Context,
+constraints in sdex-ActivityManager-0
+constraints in sdex-ActivityManager-1
+	AndroidXDimenRes condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/util/highlightjs/HighlightJsView.java
+method: onLanguageChanged(Language)
+constraints in sdex-ActivityManager-0
+constraints in sdex-ActivityManager-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/util/highlightjs/HighlightJsView.java
+method: onThemeChanged(Theme)
+constraints in sdex-ActivityManager-0
+constraints in sdex-ActivityManager-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/util/highlightjs/utils/SourceUtils.java
+method: generateContent(String,
+constraints in sdex-ActivityManager-0
+constraints in sdex-ActivityManager-1
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/extensions/ViewExtensions.kt
+method: onGlobalLayout()
+constraints in sdex-ActivityManager-0
+constraints in sdex-ActivityManager-1
+	AndroidXColorInt condition: "NONE" , add info: -
+	AndroidXAttrRes condition: "NONE" , add info: -
+	AndroidXAttrRes condition: "NONE" , add info: -
+

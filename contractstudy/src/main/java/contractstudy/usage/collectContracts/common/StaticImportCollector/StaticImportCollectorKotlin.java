@@ -2,7 +2,6 @@ package contractstudy.usage.collectContracts.common.StaticImportCollector;
 
 import contractstudy.usage.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.utils.KotlinParserUtils;
-import contractstudy.utils.StringUtils;
 import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
@@ -11,7 +10,6 @@ import org.jetbrains.kotlin.psi.KtTreeVisitorVoid;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Getter
 @Setter

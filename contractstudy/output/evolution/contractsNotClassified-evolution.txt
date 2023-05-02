@@ -1,0 +1,38 @@
+CANNOT_BE_CLASSIFIED
+version 1: greenaddress-abcore-0
+version 2: greenaddress-abcore-1
+compilation unit: app/src/main/java/com/greenaddress/abcore/SettingsActivity.java
+method: onOptionsItemSelected(MenuItem)
+constraints in greenaddress-abcore-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
+constraints in greenaddress-abcore-1
+	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
+	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: greenaddress-abcore-0
+version 2: greenaddress-abcore-1
+compilation unit: app/src/main/java/com/greenaddress/abcore/DownloadSettingsActivity.java
+method: onOptionsItemSelected(MenuItem)
+constraints in greenaddress-abcore-0
+constraints in greenaddress-abcore-1
+	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/highlightjs/HighlightJsView.java
+method: HighlightJsView(Context, AttributeSet, int, int)
+constraints in sdex-ActivityManager-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.LOLLIPOP" , add info: -
+constraints in sdex-ActivityManager-1
+
+CANNOT_BE_CLASSIFIED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/app/ApplicationsListAdapter.kt
+method: getSectionName()
+constraints in sdex-ActivityManager-0
+constraints in sdex-ActivityManager-1
+	AndroidSuppressLint condition: "[ "NotifyDataSetChanged" ]" , add info: -
+

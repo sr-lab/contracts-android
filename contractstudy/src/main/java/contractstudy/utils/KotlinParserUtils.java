@@ -1,5 +1,7 @@
 package contractstudy.utils;
 
+import com.github.javaparser.ast.Modifier;
+import com.github.javaparser.ast.NodeList;
 import contractstudy.config.Preferences;
 import contractstudy.constants.VisibilityModifier;
 import org.jetbrains.kotlin.com.intellij.openapi.editor.Document;
@@ -8,7 +10,9 @@ import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 import org.jetbrains.kotlin.psi.KtElement;
 import org.jetbrains.kotlin.psi.KtImportDirective;
 import org.jetbrains.kotlin.psi.KtModifierList;
+import org.jetbrains.kotlin.psi.KtParameter;
 
+import java.util.List;
 import java.util.Objects;
 
 public class KotlinParserUtils {
@@ -54,9 +58,17 @@ public class KotlinParserUtils {
     VisibilityModifier visibility = getVisibilityModifier(ktModifierList);
     return (
       visibility == VisibilityModifier.PROTECTED ||
-        visibility == VisibilityModifier.PRIVATE ||
+        visibility == VisibilityModifier.PUBLIC ||
         visibility == VisibilityModifier.INTERNAL ||
         (Preferences.includePrivateMethods() && visibility == VisibilityModifier.PRIVATE)
+    );
+  }
+
+  public static boolean isJavaMethodVisibilityAccepted(NodeList<Modifier> modifiers) {
+    return (
+      modifiers.contains(Modifier.publicModifier()) ||
+        modifiers.contains(Modifier.protectedModifier()) ||
+        (Preferences.includePrivateMethods() && modifiers.contains(Modifier.privateModifier()))
     );
   }
 
@@ -86,5 +98,19 @@ public class KotlinParserUtils {
       }
     }
     return importedName;
+  }
+
+  public static String getDeclaration(String expressionName, List<KtParameter> parameters) {
+    StringBuilder declaration = new StringBuilder(expressionName);
+    declaration.append("(");
+    for (int i = 0; i < parameters.size(); i++) {
+      String parameterString = parameters.get(i).getText();
+      declaration.append(parameterString, parameterString.indexOf(":") + 1, parameterString.length());
+      if (i + 1 != parameters.size()) {
+        declaration.append(",");
+      }
+    }
+    declaration.append(")");
+    return declaration.toString().replace(" ", "");
   }
 }
