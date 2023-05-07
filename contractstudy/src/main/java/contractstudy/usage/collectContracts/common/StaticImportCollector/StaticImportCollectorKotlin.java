@@ -34,6 +34,7 @@ public class StaticImportCollectorKotlin extends KtTreeVisitorVoid {
     String importedPath = importDirective.getImportPath().getPathStr();
     String className = importedPath.substring(0, importedPath.lastIndexOf("."));
     String importedPathWithoutWildCard = importedPath;
+
     if (hasWildCard) {
       importedPathWithoutWildCard = importedPath.substring(0, importedPath.lastIndexOf(".*"));
     }
@@ -45,7 +46,6 @@ public class StaticImportCollectorKotlin extends KtTreeVisitorVoid {
     }
 
     super.visitImportDirective(importDirective);
-
   }
 
 }

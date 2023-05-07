@@ -23,10 +23,10 @@ import contractstudy.usage.collectContracts.common.Utils;
 public abstract class AbstractMethodVisitor extends VoidVisitorAdapter<Object> {
 
   private final boolean includePrivateMethods = Preferences.includePrivateMethods();
-  protected ExtractionListener<ContractElement> consumer = null;
-  protected String programName = null;
-  protected String version = null;
-  protected String cuName = null;
+  protected ExtractionListener<ContractElement> consumer;
+  protected String programName;
+  protected String version;
+  protected String cuName;
   protected String methodDeclaration = null;
   private String packageName;
   private boolean isAbstractMethod = false;
@@ -49,9 +49,7 @@ public abstract class AbstractMethodVisitor extends VoidVisitorAdapter<Object> {
 
   @Override
   public void visit(ClassOrInterfaceDeclaration n, Object arg) {
-
     this.isInterface = n.isInterface();
-
     super.visit(n, arg);
   }
 
@@ -66,16 +64,13 @@ public abstract class AbstractMethodVisitor extends VoidVisitorAdapter<Object> {
   // control the methods being visited
   @Override
   public void visit(MethodDeclaration methodDeclr, Object arg) {
-    //int modifiers = methodDeclr.getModifiers();
     NodeList<Modifier> modifiers = methodDeclr.getModifiers();
     isDefaultMethod = methodDeclr.isDefault();
-    //isAbstractMethod = ModifierSet.isAbstract(modifiers);
     isAbstractMethod = modifiers.contains(Modifier.abstractModifier());
-    //if (includePrivateMethods || isInterface || ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
-    if (includePrivateMethods || isInterface || modifiers.contains(Modifier.publicModifier())
-      || modifiers.contains(Modifier.protectedModifier())) {
-      this.methodDeclaration = Utils.trimReturnType(methodDeclr.getDeclarationAsString(false, false,
-        false)); // flags: incl modifiers , incl throws
+    if (includePrivateMethods || isInterface || modifiers.contains(Modifier.publicModifier()) || modifiers.contains(
+      Modifier.protectedModifier())) {
+      this.methodDeclaration = Utils.trimReturnType(
+        methodDeclr.getDeclarationAsString(false, false, false)); // flags: incl modifiers , incl throws
       super.visit(methodDeclr, arg);
     }
   }
@@ -87,8 +82,8 @@ public abstract class AbstractMethodVisitor extends VoidVisitorAdapter<Object> {
     isDefaultMethod = false;
     isAbstractMethod = false;
     //if (includePrivateMethods || isInterface || ModifierSet.isPublic(modifiers) || ModifierSet.isProtected(modifiers)) {
-    if (includePrivateMethods || isInterface || modifiers.contains(Modifier.publicModifier())
-      || modifiers.contains(Modifier.protectedModifier())) {
+    if (includePrivateMethods || isInterface || modifiers.contains(Modifier.publicModifier()) || modifiers.contains(
+      Modifier.protectedModifier())) {
       this.methodDeclaration = constructorDeclr.getDeclarationAsString(false, false, false);
       super.visit(constructorDeclr, arg);
     }
@@ -103,7 +98,6 @@ public abstract class AbstractMethodVisitor extends VoidVisitorAdapter<Object> {
     ContractElement p = new ContractElement();
     p.setMethodAbstract(computeAbstractMethod());
     p.setMethodDeclaration(methodDeclaration);
-
     return p;
   }
 
@@ -114,10 +108,9 @@ public abstract class AbstractMethodVisitor extends VoidVisitorAdapter<Object> {
    * @return class owenr includding inner classes - e.g.  Foo.Inner.XY
    */
   protected String findOwner(Node node) {
-    Node parent = node;
-
     final String separator = ".";
     String owner = "";
+    Node parent = node;
 
     while (parent != null) {
       if (parent instanceof ClassOrInterfaceDeclaration) {
@@ -128,7 +121,7 @@ public abstract class AbstractMethodVisitor extends VoidVisitorAdapter<Object> {
         String name = ((EnumDeclaration) parent).getName().getIdentifier();
         owner = name + separator + owner;
       }
-      parent = parent.getParentNode().orElse(null); // JFF: FIXME?
+      parent = parent.getParentNode().orElse(null);
     }
 
     if (owner.endsWith(".")) {

@@ -1,9 +1,6 @@
 package contractstudy.collectContracts.annotation.java.testData;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class AnnotationsWildCard {
 
@@ -17,7 +14,7 @@ public class AnnotationsWildCard {
   @Min(2)
   private final int seatCount;
 
-  public AnnotationsWildCard(String manufacturer, String licencePlate, int seatCount) {
+  public AnnotationsWildCard(String manufacturer, @NotNull String licencePlate, int seatCount) {
     this.manufacturer = manufacturer;
     this.licensePlate = licencePlate;
     this.seatCount = seatCount;

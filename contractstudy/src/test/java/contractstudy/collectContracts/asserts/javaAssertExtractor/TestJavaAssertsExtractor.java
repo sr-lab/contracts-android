@@ -22,16 +22,13 @@ public class TestJavaAssertsExtractor {
   @Test
   public void testJavaAssertsExtractor_whenJavaAssertsExist_expectListOfAsserts() throws Exception {
 
-    //given
     File file = new File(TEST_DATA_FOLDER, "JavaAssertsMultiple.java");
     ConstraintCollector collector = new ConstraintCollector();
     JavaAssertExtractor javaAssertExtractor = new JavaAssertExtractor();
 
-    //when
     javaAssertExtractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
       collector);
 
-    //assert
     List<ContractElement> contractsFound = collector
       .getContractElements()
       .stream()
@@ -46,16 +43,13 @@ public class TestJavaAssertsExtractor {
   public void testJavaAssertsExtractor_whenJavaAssertsNotExist_expectListOfAsserts()
     throws Exception {
 
-    //given
     File file = new File(TEST_DATA_FOLDER, "JavaAssertsNone.java");
     ConstraintCollector collector = new ConstraintCollector();
     JavaAssertExtractor javaAssertExtractor = new JavaAssertExtractor();
 
-    //when
     javaAssertExtractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
       collector);
 
-    //assert
     List<ContractElement> contractsFound = collector
       .getContractElements()
       .stream()

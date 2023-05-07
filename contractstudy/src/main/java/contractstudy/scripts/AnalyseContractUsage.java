@@ -120,49 +120,37 @@ public class AnalyseContractUsage implements Experiment {
         constraintsByGroupLV.compute(group, (g, i) -> i == null ? 1 : i + 1);
         programsUsingConstraintClassifications.put(classification, program);
 
-        Map<String, Integer> data = constraintsByCategoryInLV.get(
-          c.getKind().getGroup().getCategory());
+        Map<String, Integer> data = constraintsByCategoryInLV.get(c.getKind().getGroup().getCategory());
         data.compute(program, (g, i) -> i == null ? 1 : i + 1);
 
         if (fileLanguage == Language.JAVA) {
           constraintsByProgramLVJava.compute(program, (g, i) -> i == null ? 1 : i + 1);
-          constraintsByClassificationLVJava.compute(classification,
-            (g, i) -> i == null ? 1 : i + 1);
+          constraintsByClassificationLVJava.compute(classification, (g, i) -> i == null ? 1 : i + 1);
           constraintsByGroupLVJava.compute(group, (g, i) -> i == null ? 1 : i + 1);
           programsUsingConstraintClassificationsJava.put(classification, program);
 
-          Map<String, Integer> dataJava = constraintsByCategoryInLVJava.get(
-            c.getKind().getGroup().getCategory());
+          Map<String, Integer> dataJava = constraintsByCategoryInLVJava.get(c.getKind().getGroup().getCategory());
           dataJava.compute(program, (g, i) -> i == null ? 1 : i + 1);
 
         } else if (fileLanguage == Language.KOTLIN) {
           constraintsByProgramLVKotlin.compute(program, (g, i) -> i == null ? 1 : i + 1);
-          constraintsByClassificationLVKotlin.compute(classification,
-            (g, i) -> i == null ? 1 : i + 1);
+          constraintsByClassificationLVKotlin.compute(classification, (g, i) -> i == null ? 1 : i + 1);
           constraintsByGroupLVKotlin.compute(group, (g, i) -> i == null ? 1 : i + 1);
           programsUsingConstraintClassificationsKotlin.put(classification, program);
 
-          Map<String, Integer> dataJavaKotlin = constraintsByCategoryInLVKotlin.get(
-            c.getKind().getGroup().getCategory());
+          Map<String, Integer> dataJavaKotlin = constraintsByCategoryInLVKotlin.get(c.getKind().getGroup().getCategory());
           dataJavaKotlin.compute(program, (g, i) -> i == null ? 1 : i + 1);
         }
-
-
       }
-
     }
 
     LOGGER.info("Finished contract usage analysis");
     LOGGER.info("Rendering output to latex");
 
     outputConstraintsByGroupToLatex();
-
     outputConstraintsByGroupInFirstAndLastVersionToLatex();
-
     outputConstraintsByClassificationToLatex();
-
     computeGiniAndOutputToLatex();
-
     outputCategoriesInfoToLatex(constraintsByCategoryInLV);
   }
 
@@ -202,6 +190,7 @@ public class AnalyseContractUsage implements Experiment {
         + "& & Java & Kotlin & Java & Kotlin & Java & Kotlin \\\\\n"
         + "\\hline");
       for (Map.Entry<ConstraintGroup, Integer> entry : constraintsByGroup.entrySet()) {
+        System.out.println(entry.getKey());
         out.print("\t");
         out.print(entry.getKey().getShortName() + " & ");
         out.print(entry.getKey().getCategory().getName() + " & ");
@@ -239,12 +228,8 @@ public class AnalyseContractUsage implements Experiment {
         out.print("\t");
         out.print(entry.getKey().getShortName() + " & ");
         out.print(entry.getKey().getCategory().getName() + " & ");
-        out.print(NF.format(
-          constraintsByGroupJava.get(entry.getKey()) - constraintsByGroupLVJava.get(entry.getKey()))
-          + " & ");
-        out.print(NF.format(
-          constraintsByGroupKotlin.get(entry.getKey()) - constraintsByGroupLVKotlin.get(
-            entry.getKey())) + " & ");
+        out.print(NF.format(constraintsByGroupJava.get(entry.getKey()) - constraintsByGroupLVJava.get(entry.getKey())) + " & ");
+        out.print(NF.format(constraintsByGroupKotlin.get(entry.getKey()) - constraintsByGroupLVKotlin.get( entry.getKey())) + " & ");
         out.print(NF.format(constraintsByGroupLVJava.get(entry.getKey())) + " & ");
         out.print(NF.format(constraintsByGroupLVKotlin.get(entry.getKey())) + " & ");
         out.print(NF.format(programsUsingConstraintGroupsJava.get(entry.getKey()).size()) + " & ");

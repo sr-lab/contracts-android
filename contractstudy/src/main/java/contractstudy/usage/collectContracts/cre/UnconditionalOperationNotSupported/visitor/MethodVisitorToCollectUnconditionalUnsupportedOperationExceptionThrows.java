@@ -38,16 +38,14 @@ public class MethodVisitorToCollectUnconditionalUnsupportedOperationExceptionThr
     IfStmt condNode = getConditionNode(n);
     String condition = extractCondition(condNode);
 
-    ObjectCreationExpr objCreationNode = (ObjectCreationExpr) n.getExpression();  // JFF
-    String excTypeName = objCreationNode.getType().getName().getIdentifier(); // JFF: FIXME
+    ObjectCreationExpr objCreationNode = (ObjectCreationExpr) n.getExpression();
+    String excTypeName = objCreationNode.getType().getName().getIdentifier();
     ConstraintType kind = getPreconditionTypeFromExceptionName(excTypeName);
 
     if (kind != null) {
-
       String additionalInfo = extractArguments(objCreationNode);
 
       ContractElement p = initConstraint();
-
       p.setProgramVersion(ProgramVersion.getOrCreate(programName, this.version));
       p.setCuName(this.cuName);
       p.setMethodDeclaration(this.methodDeclaration);
@@ -88,21 +86,17 @@ public class MethodVisitorToCollectUnconditionalUnsupportedOperationExceptionThr
 
   private IfStmt getConditionNode(ThrowStmt n) {
     return n.getParentNode().get() instanceof BlockStmt ?
-      (IfStmt) n.getParentNode().get().getParentNode().get()
-      : (IfStmt) n.getParentNode().get(); // JFF: FIXME? added get()
+      (IfStmt) n.getParentNode().get().getParentNode().get() : (IfStmt) n.getParentNode().get();
   }
 
   private String extractCondition(IfStmt condNode) {
     String cond = condNode.getCondition().removeComment().toString();
-
     // if the parent is another conditional, prepend this
     if (condNode.getParentNode().isPresent() && condNode.getParentNode().get() instanceof BlockStmt
-      && condNode.getParentNode().get().getParentNode().get() instanceof IfStmt) { // JFF
-      String pcond = extractCondition(
-        ((IfStmt) condNode.getParentNode().get().getParentNode().get())); // JFF
+      && condNode.getParentNode().get().getParentNode().get() instanceof IfStmt) {
+      String pcond = extractCondition(((IfStmt) condNode.getParentNode().get().getParentNode().get()));
       cond = pcond + " && " + cond;
     }
-
     return cond;
   }
 

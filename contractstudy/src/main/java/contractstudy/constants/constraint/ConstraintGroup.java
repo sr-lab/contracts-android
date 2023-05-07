@@ -1,5 +1,6 @@
 package contractstudy.constants.constraint;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.LinkedHashMap;
@@ -12,6 +13,7 @@ import java.util.Map;
  * @author jens dietrich
  */
 @Getter
+@AllArgsConstructor
 public enum ConstraintGroup {
   CONDITIONAL_RUNTIME_EXCEPTION("conditional runtime exception", "cond. runtime exc.",
     ConstraintCategory.RUNTIME_EXCEPTION),
@@ -28,29 +30,25 @@ public enum ConstraintGroup {
   ANNO_Lombok("Lombok", "lombok", ConstraintCategory.ANNOTATION),
   ANNO_Android("Android", "android", ConstraintCategory.ANNOTATION),
   ANNO_AndroidX("AndroidX", "androidx", ConstraintCategory.ANNOTATION),
-
   KOTLIN_CONTRACTS("Kotlin Contracts", "kotlin contracts", ConstraintCategory.OTHERS);
 
   private final String name;
   private final String shortName;
   private final ConstraintCategory category;
 
-  ConstraintGroup(String name, String shortName, ConstraintCategory category) {
-    this.name = name;
-    this.shortName = shortName;
-    this.category = category;
-  }
-
   static public Map<ConstraintGroup, Integer> getListOfConstraintsGroup() {
     Map<ConstraintGroup, Integer> groups = new LinkedHashMap<>();
-    groups.put(ConstraintGroup.ASSERTION, 0);
     groups.put(ConstraintGroup.CONDITIONAL_RUNTIME_EXCEPTION, 0);
     groups.put(ConstraintGroup.UNCONDITIONAL_RUNTIME_EXCEPTION, 0);
+    groups.put(ConstraintGroup.ASSERTION, 0);
     groups.put(ConstraintGroup.CAPI_GUAVA, 0);
-    groups.put(ConstraintGroup.CAPI_SPRING_ASSERT, 0);
     groups.put(ConstraintGroup.CAPI_COMMONS_VALIDATE, 0);
+    groups.put(ConstraintGroup.CAPI_SPRING_ASSERT, 0);
     groups.put(ConstraintGroup.ANNO_JSR303, 0);
     groups.put(ConstraintGroup.ANNO_JSR305, 0);
+    groups.put(ConstraintGroup.ANNO_FINDBUGS, 0);
+    groups.put(ConstraintGroup.ANNO_JetBrains, 0);
+    groups.put(ConstraintGroup.ANNO_Lombok, 0);
     groups.put(ConstraintGroup.ANNO_Android, 0);
     groups.put(ConstraintGroup.ANNO_AndroidX, 0);
     groups.put(ConstraintGroup.KOTLIN_CONTRACTS, 0);

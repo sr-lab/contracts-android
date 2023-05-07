@@ -15,8 +15,6 @@ public class Utils {
 
   /**
    * Encode a message composed of several arguments into one string. This is commonly used in APIs.
-   * TODO: usually this is a pattern where the first arg is a template string, and all following params are args.
-   * We could encode it like this !
    */
   public static String encodeMessageArgs(List<Expression> args, int startPos) {
     Preconditions.checkArgument(startPos <= args.size());

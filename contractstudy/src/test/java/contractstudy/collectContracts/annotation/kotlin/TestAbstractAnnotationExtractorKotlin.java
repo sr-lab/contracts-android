@@ -70,18 +70,17 @@ public class TestAbstractAnnotationExtractorKotlin {
   @ParameterizedTest
   @MethodSource("generatorJSR305Extractor")
   public void testJSR305Extractor_whenAnnotationExists_expectListOfAnnotations(
-    ConstraintType constraintType, String fileName, int count) throws Exception {
-
-    //given
+    ConstraintType constraintType,
+    String fileName,
+    int count
+  ) throws Exception {
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
     JSR303Extractor jSR303Extractor = new JSR303Extractor();
 
-    //when
     jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
       collector);
 
-    //assert
     List<ContractElement> contractsFound = collector
       .getContractElements()
       .stream()
@@ -95,18 +94,17 @@ public class TestAbstractAnnotationExtractorKotlin {
   @ParameterizedTest
   @MethodSource("generatorJSR305ExtractorWithWildCardImport")
   public void testJSR305Extractor_whenAnnotationExistsWithWildCardImport_expectListOfAnnotations(
-    ConstraintType constraintType, String fileName, int count) throws Exception {
-
-    //given
+    ConstraintType constraintType,
+    String fileName,
+    int count
+  ) throws Exception {
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
     JSR303Extractor jSR303Extractor = new JSR303Extractor();
 
-    //when
     jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
       collector);
 
-    //assert
     List<ContractElement> contractsFound = collector
       .getContractElements()
       .stream()
@@ -120,17 +118,13 @@ public class TestAbstractAnnotationExtractorKotlin {
 
   @Test
   public void testJSR305Extractor_whenAnnotationNotExists_expectEmptyList() throws Exception {
-
-    //given
     File file = new File(TEST_DATA_FOLDER, "AnnotationsMultiple.kt");
     ConstraintCollector collector = new ConstraintCollector();
     JSR303Extractor jSR303Extractor = new JSR303Extractor();
 
-    //when
     jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
       collector);
 
-    //assert
     List<ContractElement> contractsFound = collector
       .getContractElements()
       .stream()

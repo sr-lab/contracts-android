@@ -6,7 +6,6 @@ import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.ProgramVersion;
 import contractstudy.usage.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitorKotlin;
-import contractstudy.usage.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.utils.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.com.intellij.psi.PsiElement;
@@ -18,25 +17,21 @@ import org.jetbrains.kotlin.psi.KtProperty;
 import org.jetbrains.kotlin.psi.KtValueArgument;
 import org.jetbrains.kotlin.psi.stubs.elements.KtFunctionElementType;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotlin {
 
-  private StaticImportState importState = null;
-  private Map<String, ConstraintType> map = new HashMap<>();
+  private final Map<String, ConstraintType> map;
 
   public VisitorToCollectAnnotationsKotlin(
     ExtractionListener<ContractElement> consumer,
     String programName,
     String version,
     String cuName,
-    StaticImportState importState,
     Map<String, ConstraintType> map) {
     super(consumer, programName, version, cuName);
-    this.importState = importState;
     this.map = map;
   }
 
@@ -44,7 +39,6 @@ public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotl
   @Override
   public void visitAnnotationEntry(@NotNull KtAnnotationEntry annotationEntry) {
     ConstraintType constraintType = getConstraintTypeString(annotationEntry);
-    //TODO: Fixme? (constraintType != null && importState == StaticImportState.CLASS)
     if (constraintType != null) {
       String condition = getAnnotationCondition(annotationEntry);
       ConstraintedArtefact artefact = getConstraintArtefact(annotationEntry);

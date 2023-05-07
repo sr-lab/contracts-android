@@ -37,10 +37,11 @@ public class MethodVisitorToCollectCommons2ValidateInvocations extends
   // look for patterns only supported by lang2
   @Override
   public void visit(MethodCallExpr callExpr, Object arg) {
-    String name = callExpr.getName().getIdentifier(); // JFF: FIXME?
-    Expression expr = callExpr.getScope().orElse(null); // JFF: FIXME?
+    String name = callExpr.getName().getIdentifier();
+    Expression expr = callExpr.getScope().orElse(null);
     String scope = expr == null ? null : expr.toString();
-    List<Expression> args = callExpr.getArguments(); //JFF
+    List<Expression> args = callExpr.getArguments();
+
     ContractElement p = initConstraint();
     p.setProgramVersion(ProgramVersion.getOrCreate(programName, this.version));
     p.setCuName(this.cuName);

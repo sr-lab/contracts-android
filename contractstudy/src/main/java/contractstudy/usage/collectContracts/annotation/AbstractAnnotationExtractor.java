@@ -8,9 +8,6 @@ import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
 import contractstudy.usage.collectContracts.annotation.visitor.VisitorToCollectAnnotations;
 import contractstudy.usage.collectContracts.annotation.visitor.VisitorToCollectAnnotationsKotlin;
-import contractstudy.usage.collectContracts.common.StaticImportCollector.StaticImportCollector;
-import contractstudy.usage.collectContracts.common.StaticImportCollector.StaticImportCollectorKotlin;
-import contractstudy.usage.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import contractstudy.utils.kotlinParser.KotlinParser;
@@ -73,11 +70,8 @@ public class AbstractAnnotationExtractor implements Extractor<ContractElement> {
     final ExtractionListener<ContractElement> consumer
   ) {
     CompilationUnit cu = StaticJavaParser.parse(in);
-    StaticImportCollector importsCollector = new StaticImportCollector(annotationPackageName, "");
-    importsCollector.visit(cu, null);
-    StaticImportState importState = importsCollector.getStaticImportState();
-    VisitorToCollectAnnotations visitor = new VisitorToCollectAnnotations(consumer, programName,
-      version, cuName, importState, constraintsByName);
+    VisitorToCollectAnnotations visitor = new VisitorToCollectAnnotations(consumer, programName, version, cuName,
+      constraintsByName);
     visitor.visit(cu, null);
   }
 
@@ -90,11 +84,8 @@ public class AbstractAnnotationExtractor implements Extractor<ContractElement> {
   ) throws Exception {
     String src = new InputStreamToStringConversion(in).getResult();
     PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
-    StaticImportCollectorKotlin importsCollector = new StaticImportCollectorKotlin(annotationPackageName, "");
-    psiFile.accept(importsCollector);
-    StaticImportState importState = importsCollector.getStaticImportState();
     VisitorToCollectAnnotationsKotlin visitor = new VisitorToCollectAnnotationsKotlin(consumer, programName, version, cuName,
-      importState, constraintsByName);
+      constraintsByName);
     psiFile.accept(visitor);
   }
 
