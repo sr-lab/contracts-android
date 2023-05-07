@@ -36,14 +36,15 @@ public class MethodVisitorToCollectSpringAssertInvocations extends
 
   @Override
   public void visit(MethodCallExpr callExpr, Object arg) {
-    String name = callExpr.getName().getIdentifier(); // JFF
-    Expression expr = callExpr.getScope().orElse(null); // JFF: FIXME?
+    String name = callExpr.getName().getIdentifier();
+    Expression expr = callExpr.getScope().orElse(null);
     String scope = expr == null ? null : expr.toString();
     List<Expression> args = callExpr.getArguments();
+
     ContractElement p = initConstraint();
     p.setProgramVersion(ProgramVersion.getOrCreate(programName, this.version));
     p.setCuName(this.cuName);
-    p.setLineNo(callExpr.getBegin().get().line); //JFF: FIXME?? .getBeginLine());
+    p.setLineNo(callExpr.getBegin().get().line);
 
     if (args.size() > 0 && checkImports(name, scope, "Assert", "org.springframework.util.Assert")) {
       SpringAssertEnum springAssert = SpringAssertEnum.getEnumValueFromMethodName(name);

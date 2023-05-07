@@ -22,30 +22,27 @@ public class MethodVisitorToCollectJavaCREThrows extends AbstractMethodVisitor {
 
   public MethodVisitorToCollectJavaCREThrows(
     ExtractionListener<ContractElement> consumer,
-    String programName, String version, String cuName) {
+    String programName, String version, String cuName
+  ) {
     super(consumer, programName, version, cuName);
   }
 
   @Override
   public void visit(ThrowStmt n, Object arg) {
-
     if (!isCRE(n)) {
       return;
     }
 
     IfStmt condNode = getConditionNode(n);
     String condition = extractCondition(condNode);
-
-    ObjectCreationExpr objCreationNode = (ObjectCreationExpr) n.getExpression();  // JFF
-    String excTypeName = objCreationNode.getType().getName().getIdentifier(); // JFF: FIXME
-    ConstraintType kind = JavaLangCRE.getPreconditionTypeFromExceptionName(
-      excTypeName);
+    ObjectCreationExpr objCreationNode = (ObjectCreationExpr) n.getExpression();
+    String excTypeName = objCreationNode.getType().getName().getIdentifier();
+    ConstraintType kind = JavaLangCRE.getPreconditionTypeFromExceptionName(excTypeName);
 
     if (kind != null) {
       String additionalInfo = extractArguments(objCreationNode);
 
       ContractElement p = initConstraint();
-
       p.setProgramVersion(ProgramVersion.getOrCreate(programName, this.version));
       p.setCuName(this.cuName);
       p.setMethodDeclaration(this.methodDeclaration);
@@ -87,7 +84,7 @@ public class MethodVisitorToCollectJavaCREThrows extends AbstractMethodVisitor {
   private IfStmt getConditionNode(ThrowStmt n) {
     return n.getParentNode().get() instanceof BlockStmt ?
       (IfStmt) n.getParentNode().get().getParentNode().get()
-      : (IfStmt) n.getParentNode().get(); // JFF: FIXME? added get()
+      : (IfStmt) n.getParentNode().get();
   }
 
   private String extractCondition(IfStmt condNode) {

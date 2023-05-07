@@ -119,10 +119,14 @@ public class TestAbstractAnnotationExtractor {
     assertEquals(0, contractsFound.size());
   }
 
-  @Test
-  public void testJSR305Extractor_whenAnnotationExistsWithWildCard_expectListOfAnnotations()
-    throws Exception {
-    File file = new File(TEST_DATA_FOLDER, "AnnotationsWildCard.java");
+  @ParameterizedTest
+  @MethodSource("generatorJSR305ExtractorWithWildCardImport")
+  public void testJSR305Extractor_whenAnnotationExistsWithWildCard_expectListOfAnnotations(
+    ConstraintType constraintType,
+    String fileName,
+    int count
+  ) throws Exception {
+    File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
     JSR303Extractor jSR303Extractor = new JSR303Extractor();
 
@@ -132,11 +136,11 @@ public class TestAbstractAnnotationExtractor {
     List<ContractElement> contractsFound = collector
       .getContractElements()
       .stream()
-      .filter(c -> c.getKind().equals(ConstraintType.JSR303Min))
+      .filter(c -> c.getKind().equals(constraintType))
       .collect(Collectors.toList());
 
     assertNotNull(contractsFound);
-    assertNotEquals(0, contractsFound.size());
+    assertEquals(count, contractsFound.size());
   }
 
   @Test

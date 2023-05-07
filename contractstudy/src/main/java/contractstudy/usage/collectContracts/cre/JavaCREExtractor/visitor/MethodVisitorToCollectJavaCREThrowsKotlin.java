@@ -23,7 +23,8 @@ public class MethodVisitorToCollectJavaCREThrowsKotlin extends AbstractMethodVis
 
   public MethodVisitorToCollectJavaCREThrowsKotlin(
     ExtractionListener<ContractElement> consumer,
-    String programName, String version, String cuName) {
+    String programName, String version, String cuName
+  ) {
     super(consumer, programName, version, cuName);
   }
 
@@ -35,16 +36,13 @@ public class MethodVisitorToCollectJavaCREThrowsKotlin extends AbstractMethodVis
     }
 
     String exceptionName = getExceptionName(expression);
-    ConstraintType kind = JavaLangCRE.getPreconditionTypeFromExceptionName(
-      exceptionName);
+    ConstraintType kind = JavaLangCRE.getPreconditionTypeFromExceptionName(exceptionName);
 
     if (kind != null) {
-
       String ifStatementCondition = extractIfStatementArguments(expression);
       String throwArguments = extractThrowArguments(expression);
 
       ContractElement p = initConstraint();
-
       p.setProgramVersion(ProgramVersion.getOrCreate(programName, this.version));
       p.setCuName(this.cuName);
       p.setMethodDeclaration(this.methodDeclaration);
@@ -83,7 +81,7 @@ public class MethodVisitorToCollectJavaCREThrowsKotlin extends AbstractMethodVis
       name = n.getNode().getLastChildNode().getText()
         .substring(n.getNode().getLastChildNode().getText().indexOf("."), name.length());
     }
-    return name;
+    return name.replace(".", "");
   }
 
   private String extractThrowArguments(KtThrowExpression expression) {

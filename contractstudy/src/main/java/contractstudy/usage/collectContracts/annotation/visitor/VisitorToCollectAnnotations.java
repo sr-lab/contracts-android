@@ -13,7 +13,6 @@ import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.ProgramVersion;
 import contractstudy.usage.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitor;
-import contractstudy.usage.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 
 import java.util.Map;
 
@@ -25,22 +24,23 @@ import java.util.Map;
 @SuppressWarnings("rawtypes")
 public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
 
-  private final StaticImportState importState;
   private final Map<String, ConstraintType> map;
 
-  public VisitorToCollectAnnotations(ExtractionListener<ContractElement> consumer,
+  public VisitorToCollectAnnotations(
+    ExtractionListener<ContractElement> consumer,
     String programName, String version,
-    String cuName, StaticImportState importState, Map<String, ConstraintType> map) {
+    String cuName,
+    Map<String, ConstraintType> map
+  ) {
     super(consumer, programName, version, cuName);
-    this.importState = importState;
     this.map = map;
   }
 
   @Override
   public void visit(NormalAnnotationExpr n, Object arg) {
-    String name = n.getName().getIdentifier(); // JFF: FIXME?
+    String name = n.getName().getIdentifier();
     ConstraintType constraintType = map.get(name);
-    if (constraintType != null && importState == StaticImportState.CLASS) {
+    if (constraintType != null) {
       String condition = n.getPairs().toString();
       ConstraintedArtefact artefact = getConstraintArtefact(n);
       ContractElement p = create(
@@ -58,15 +58,15 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
 
   @Override
   public void visit(SingleMemberAnnotationExpr n, Object arg) {
-    String name = n.getName().getIdentifier(); // JFF: FIXME?
+    String name = n.getName().getIdentifier();
     ConstraintType constraintType = map.get(name);
+
     if (constraintType == null) {
-      // rule useful if nested annotations like JdkConstants.AdjustableOrientation are used
-      // (example from org.intellij.lang.annotations)
       constraintType = map.get(name.replace('.', '_'));
     }
-    if (constraintType != null && importState == StaticImportState.CLASS) {
-      String condition = n.getMemberValue().removeComment().toString(); // JFF: FIXME?
+
+    if (constraintType != null) {
+      String condition = n.getMemberValue().removeComment().toString();
       ConstraintedArtefact artefact = getConstraintArtefact(n);
       ContractElement p = create(
         ProgramVersion.getOrCreate(programName, version),
@@ -78,14 +78,16 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
       );
       consumer.constraintFound(p);
     }
+
     super.visit(n, arg);
   }
 
   @Override
   public void visit(MarkerAnnotationExpr n, Object arg) {
-    String name = n.getName().getIdentifier(); // JFF: FIXME?
+    String name = n.getName().getIdentifier();
     ConstraintType constraintType = map.get(name);
-    if (constraintType != null && importState == StaticImportState.CLASS) {
+
+    if (constraintType != null) {
       ConstraintedArtefact artefact = getConstraintArtefact(n);
       ContractElement p = create(
         ProgramVersion.getOrCreate(programName, version),
@@ -97,6 +99,7 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
       );
       consumer.constraintFound(p);
     }
+
     super.visit(n, arg);
   }
 
@@ -115,7 +118,7 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
   }
 
   private ConstraintedArtefact getConstraintArtefact(AnnotationExpr annotationNode) {
-    Node node = annotationNode.getParentNode().orElse(null); //JFF: FIXME?
+    Node node = annotationNode.getParentNode().orElse(null);
     if (node instanceof MethodDeclaration) {
       return ConstraintedArtefact.METHOD;
     } else if (node instanceof Parameter) {

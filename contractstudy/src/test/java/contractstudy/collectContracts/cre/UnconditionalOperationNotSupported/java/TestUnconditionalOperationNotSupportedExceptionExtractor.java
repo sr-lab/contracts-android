@@ -20,8 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class TestUnconditionalOperationNotSupportedExceptionExtractor {
 
   private static final File TEST_DATA_FOLDER = new File(
-    Utils.getBasePathTestFolder()
-      + "extractor/cre/UnconditionalOperationNotSupported/java/testData");
+    Utils.getBasePathTestFolder() + "collectContracts/cre/UnconditionalOperationNotSupported/java/testData");
 
   private static Stream<Arguments> generateJavaCRE() {
     return Stream.of(
@@ -32,17 +31,17 @@ public class TestUnconditionalOperationNotSupportedExceptionExtractor {
   @ParameterizedTest
   @MethodSource("generateJavaCRE")
   public void testSpringAssertExtractor_whenMultipleUses_expectListOfUses(
-    ConstraintType constraintType, String fileName, int count) throws Exception {
-    //given
+    ConstraintType constraintType,
+    String fileName,
+    int count
+  ) throws Exception {
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
     UnconditionalOperationNotSupportedExceptionExtractor extractor = new UnconditionalOperationNotSupportedExceptionExtractor();
 
-    //when
     extractor.analyse(Utils.getInputStream(file), "test", "<no version>",
       file.getName(), collector);
 
-    //assert
     List<ContractElement> contractsFound = collector
       .getContractElements()
       .stream()

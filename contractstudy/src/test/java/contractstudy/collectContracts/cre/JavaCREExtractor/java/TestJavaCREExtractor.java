@@ -34,16 +34,13 @@ public class TestJavaCREExtractor {
   @MethodSource("generateJavaCRE")
   public void testSpringAssertExtractor_whenMultipleUses_expectListOfUses(
     ConstraintType constraintType, String fileName, int count) throws Exception {
-    //given
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
     JavaCREExtractor javaCREExtractor = new JavaCREExtractor();
 
-    //when
     javaCREExtractor.analyse(Utils.getInputStream(file), "test", "<no version>",
       file.getName(), collector);
 
-    //assert
     List<ContractElement> contractsFound = collector
       .getContractElements()
       .stream()
