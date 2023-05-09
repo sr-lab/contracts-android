@@ -26,7 +26,7 @@ public class MethodVisitorToCollectSuperCallKotlin extends KtTreeVisitorVoid {
 
   private String cuName;
   private String methodDeclaration;
-  private boolean isMethod = true; // false, if constructor
+  private boolean isMethod = true;
   private ProgramVersion programVersion;
   private List<SuperCallSite> superCallSites;
 

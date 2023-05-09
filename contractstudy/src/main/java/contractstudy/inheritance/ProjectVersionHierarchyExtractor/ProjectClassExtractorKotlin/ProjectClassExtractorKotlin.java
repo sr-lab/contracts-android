@@ -24,8 +24,7 @@ public class ProjectClassExtractorKotlin {
     final PsiFile cu,
     final String cuName,
     final SourceClassFinder classFinder) {
-    InheritanceHierarchyVisitorKotlin visitor = new InheritanceHierarchyVisitorKotlin(cuName,
-      classFinder);
+    InheritanceHierarchyVisitorKotlin visitor = new InheritanceHierarchyVisitorKotlin(cuName, classFinder);
     cu.accept(visitor);
     return visitor;
   }

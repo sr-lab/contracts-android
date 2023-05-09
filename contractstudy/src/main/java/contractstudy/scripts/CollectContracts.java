@@ -168,8 +168,7 @@ public class CollectContracts implements Experiment {
         parsedCUCounter.incrementAndGet();
         for (Extractor<ContractElement> extractor : EXTRACTORS) {
           try (InputStream in = zip.getInputStream(e)) {
-            LOGGER.trace(
-              "Analysing " + zip.getName() + " # " + e.getName() + " with extractor " + extractor);
+            LOGGER.trace("Analysing " + zip.getName() + " # " + e.getName() + " with extractor " + extractor);
             extractor.analyse(in, programName, version, e.getName(), consumer);
           }
         }

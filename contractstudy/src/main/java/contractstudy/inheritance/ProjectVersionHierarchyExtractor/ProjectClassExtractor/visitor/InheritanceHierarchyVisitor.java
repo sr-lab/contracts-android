@@ -25,7 +25,8 @@ public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implemen
 
   public InheritanceHierarchyVisitor(
     final String cuName,
-    final SourceClassFinder classFinder) {
+    final SourceClassFinder classFinder
+  ) {
     super(cuName);
     this.classFinder = classFinder;
   }
@@ -37,12 +38,10 @@ public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implemen
     super.visit(n, arg);
   }
 
-
   @Override
   public void visit(ImportDeclaration n, Object arg) {
     if (!n.isStatic()) {
-      //String pcg = n.getName().toStringWithoutComments();
-      String pcg = n.getName().getIdentifier(); // JFF: FIXME: without comments?
+      String pcg = n.getName().getIdentifier();
       if (n.isAsterisk()) {
         pcg += ".*";
       }
@@ -60,14 +59,15 @@ public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implemen
     addParentToChildClassStateIfItBelongsToItsImports(n, superInterfaces);
   }
 
-  private void addParentToChildClassStateIfItBelongsToItsImports(ClassOrInterfaceDeclaration n,
-    List<ClassOrInterfaceType> superClassesAndInterfaces) {
+  private void addParentToChildClassStateIfItBelongsToItsImports(
+    ClassOrInterfaceDeclaration n,
+    List<ClassOrInterfaceType> superClassesAndInterfaces
+  ) {
     for (ClassOrInterfaceType superClass : superClassesAndInterfaces) {
-      String superClassName = superClass.getNameWithScope(); //TODO: JFF type.getName().getIdentifier()
-      ClassAndVersion classAndOrigin = classFinder.findClass(superClassName,
-        packages.toArray(new String[0]));
-      if (classAndOrigin != null) {
-        getState(n).getParents().add(classAndOrigin);
+      String superClassName = superClass.getNameWithScope();
+      ClassAndVersion potentialParent = classFinder.findClass(superClassName, packages.toArray(new String[0]));
+      if (potentialParent != null) {
+        getOwnerState(n).getParents().add(potentialParent);
       }
     }
   }

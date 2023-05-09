@@ -1,0 +1,766 @@
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/App.java
+method: -
+constraints in AChep-AcDisplay-0
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/ui/components/NotifyWidget.java
+method: run()
+constraints in AChep-AcDisplay-0
+	JSR305Nullable condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNullable condition: "" , add info: -
+	JetBrainsNullable condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/ui/components/NotifyWidget.java
+method: onDismiss()
+constraints in AChep-AcDisplay-0
+	JavaAssert condition: "mNotifyWidget.getNotification() != null" , add info: -
+constraints in AChep-AcDisplay-1
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/permissions/PermissionDeviceAdmin.java
+method: -
+constraints in AChep-AcDisplay-0
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/permissions/PermissionUsageStats.java
+method: -
+constraints in AChep-AcDisplay-0
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/notifications/NotificationUiHelper.java
+method: rebuildActionViews(Action[])
+constraints in AChep-AcDisplay-0
+	JavaAssert condition: "container != null" , add info: -
+	JavaAssert condition: "inflater != null" , add info: -
+constraints in AChep-AcDisplay-1
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/notifications/Action.java
+method: -
+constraints in AChep-AcDisplay-0
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+constraints in AChep-AcDisplay-1
+	JSR305Nullable condition: "" , add info: -
+	JSR305Nullable condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNullable condition: "" , add info: -
+	FindBugsNullable condition: "" , add info: -
+	JetBrainsNullable condition: "" , add info: -
+	JetBrainsNullable condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXDrawableRes condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/notifications/IconFactory.java
+method: run()
+constraints in AChep-AcDisplay-0
+	JSR305Nullable condition: "" , add info: -
+	FindBugsNullable condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	JetBrainsNullable condition: "" , add info: -
+	JavaAssert condition: "task != null" , add info: -
+	AndroidXNullable condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+constraints in AChep-AcDisplay-1
+	JSR305Nullable condition: "" , add info: -
+	FindBugsNullable condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	JetBrainsNullable condition: "" , add info: -
+	JavaAssert condition: "task != null" , add info: -
+	AndroidXNullable condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/services/media/MediaController2Lollipop.java
+method: sendMediaAction(int)
+constraints in AChep-AcDisplay-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.LOLLIPOP" , add info: -
+constraints in AChep-AcDisplay-1
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/base/ui/fragments/dialogs/PermissionsDialog.java
+method: onCreateDialog(Bundle)
+constraints in AChep-AcDisplay-0
+	JavaAssert condition: "context != null" , add info: -
+constraints in AChep-AcDisplay-1
+	JavaAssert condition: "context != null" , add info: -
+	JavaAssert condition: "listView != null" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/base/ui/fragments/dialogs/FeedbackDialog.java
+method: onShow(DialogInterface)
+constraints in AChep-AcDisplay-0
+	JavaAssert condition: "button != null" , add info: -
+constraints in AChep-AcDisplay-1
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/base/content/ConfigBase.java
+method: onPreferenceChange(Preference,Object)
+constraints in AChep-AcDisplay-0
+	JavaAssert condition: "group != null" , add info: -
+constraints in AChep-AcDisplay-1
+	JavaAssert condition: "item != null" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/ui/fragments/AcDisplayFragment.java
+method: run()
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	JavaAssert condition: "context != null" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/ui/activities/tests/ShakeTestActivity.java
+method: onShakeDetected()
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/ui/widgets/CircleView.java
+method: get(CircleView)
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXDrawableRes condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/ui/widgets/notification/NotificationActions.java
+method: onLongClick(View)
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	JSR305Nullable condition: "" , add info: -
+	JSR305Nullable condition: "" , add info: -
+	JSR305Nullable condition: "" , add info: -
+	JSR305Nullable condition: "" , add info: -
+	FindBugsNullable condition: "" , add info: -
+	FindBugsNullable condition: "" , add info: -
+	FindBugsNullable condition: "" , add info: -
+	FindBugsNullable condition: "" , add info: -
+	JetBrainsNullable condition: "" , add info: -
+	JetBrainsNullable condition: "" , add info: -
+	JetBrainsNullable condition: "" , add info: -
+	JetBrainsNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/ui/widgets/notification/NotificationActions.java
+method: onClick(View)
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	JavaAssert condition: "action != null" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/ui/widgets/notification/NotificationActions.java
+method: hideRii()
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	JavaAssert condition: "mTextable != null" , add info: -
+	JavaAssert condition: "mView != null" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/appwidget/MyAppWidgetHost.java
+method: -
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	JSR305Nullable condition: "" , add info: -
+	FindBugsNullable condition: "" , add info: -
+	JetBrainsNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/appwidget/MyAppWidgetHostView.java
+method: -
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/notifications/NotificationPrTask.java
+method: -
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	JSR305Nullable condition: "" , add info: -
+	FindBugsNullable condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	JetBrainsNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/notifications/NotificationPrProxy.java
+method: -
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/services/KeyguardService.java
+method: onReceive(Context,Intent)
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	JSR305Nullable condition: "" , add info: -
+	FindBugsNullable condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	JetBrainsNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/services/switches/WeakNotifiesSwitch.java
+method: -
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/services/switches/WeakNotifiesSwitch.java
+method: run()
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/services/switches/PhoneCallSwitch.java
+method: -
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/services/switches/PhoneCallSwitch.java
+method: run()
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/services/switches/AlarmSwitch.java
+method: onReceive(Context,Intent)
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/services/switches/AlarmSwitch.java
+method: isActive()
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/services/media/MediaControllerAsyncWrapper.java
+method: isLost()
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	JSR305Nullable condition: "" , add info: -
+	FindBugsNullable condition: "" , add info: -
+	JetBrainsNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/services/media/MediaController2Ics.java
+method: updatePlaybackState(int)
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/services/media/MediaControlsHelper.java
+method: -
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/base/ui/preferences/MaterialDialogPreference.java
+method: MaterialDialogPreference(Context, AttributeSet, int, int)
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	AndroidTargetApi condition: "Build.VERSION_CODES.LOLLIPOP" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/base/ui/preferences/MaterialDialogPreference.java
+method: MaterialDialogPreference(Context)
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	AndroidTargetApi condition: "Build.VERSION_CODES.LOLLIPOP" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/base/ui/activities/ActivityBaseStock.java
+method: -
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/base/utils/RefCacheBase.java
+method: -
+constraints in AChep-AcDisplay-0
+constraints in AChep-AcDisplay-1
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/service/PreferencesServiceImpl.java
+method: getBrowserConnectedCount()
+constraints in AdguardTeam-ContentBlocker-0
+	AndroidSuppressLint condition: ""CommitPrefEdits"" , add info: -
+constraints in AdguardTeam-ContentBlocker-1
+
+CANNOT_BE_CLASSIFIED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/ui/MainActivity.java
+method: onClick(View)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/ui/utils/ApplyAndRefreshTask.java
+method: -
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidSuppressLint condition: ""StaticFieldLeak"" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/service/PreferencesServiceImpl.java
+method: setDisabledWhitelistRules(Set<String>)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidSuppressLint condition: ""applyPrefEdits"" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: MatteCarra-AccA-0
+version 2: MatteCarra-AccA-1
+compilation unit: app/src/main/java/mattecarra/accapp/AccTileService.kt
+method: -
+constraints in MatteCarra-AccA-0
+	AndroidTargetApi condition: "[ Build.VERSION_CODES.N ]" , add info: -
+constraints in MatteCarra-AccA-1
+
+CANNOT_BE_CLASSIFIED
+version 1: MatteCarra-AccA-0
+version 2: MatteCarra-AccA-1
+compilation unit: app/src/main/java/mattecarra/accapp/fragments/SettingsFragment.kt
+method: onCreatePreferences()
+constraints in MatteCarra-AccA-0
+constraints in MatteCarra-AccA-1
+	AndroidSuppressLint condition: "[ "DefaultLocale" ]" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: MatteCarra-AccA-0
+version 2: MatteCarra-AccA-1
+compilation unit: app/src/main/java/mattecarra/accapp/dialogs/MaterialDialogsExtensions.kt
+method: shareLogsNeutralButton()
+constraints in MatteCarra-AccA-0
+constraints in MatteCarra-AccA-1
+	AndroidXCheckResult condition: "NONE" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: MatteCarra-AccA-0
+version 2: MatteCarra-AccA-1
+compilation unit: app/src/main/java/mattecarra/accapp/dialogs/MaterialDialogsExtensions.kt
+method: onKeyCodeBackPressed()
+constraints in MatteCarra-AccA-0
+constraints in MatteCarra-AccA-1
+	AndroidXCheckResult condition: "NONE" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: MatteCarra-AccA-0
+version 2: MatteCarra-AccA-1
+compilation unit: app/src/main/java/mattecarra/accapp/dialogs/MaterialDialogsExtensions.kt
+method: accVersionSingleChoice()
+constraints in MatteCarra-AccA-0
+constraints in MatteCarra-AccA-1
+	AndroidXCheckResult condition: "NONE" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: MatteCarra-AccA-0
+version 2: MatteCarra-AccA-1
+compilation unit: app/src/main/java/mattecarra/accapp/dialogs/DialogProgressExt.kt
+method: getTextView()
+constraints in MatteCarra-AccA-0
+constraints in MatteCarra-AccA-1
+	AndroidXCheckResult condition: "NONE" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: MatteCarra-AccA-0
+version 2: MatteCarra-AccA-1
+compilation unit: app/src/main/java/mattecarra/accapp/dialogs/DialogProgressExt.kt
+method: progress()
+constraints in MatteCarra-AccA-0
+constraints in MatteCarra-AccA-1
+	AndroidXCheckResult condition: "NONE" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: MatteCarra-AccA-0
+version 2: MatteCarra-AccA-1
+compilation unit: app/src/main/java/mattecarra/accapp/services/AccProfileTileService.kt
+method: -
+constraints in MatteCarra-AccA-0
+constraints in MatteCarra-AccA-1
+	AndroidTargetApi condition: "[ Build.VERSION_CODES.N ]" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: MatteCarra-AccA-0
+version 2: MatteCarra-AccA-1
+compilation unit: app/src/main/java/mattecarra/accapp/services/AccdTileService.kt
+method: -
+constraints in MatteCarra-AccA-0
+constraints in MatteCarra-AccA-1
+	AndroidTargetApi condition: "[ Build.VERSION_CODES.N ]" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: butzist-ActivityLauncher-0
+version 2: butzist-ActivityLauncher-1
+compilation unit: ActivityLauncherApp/src/main/java/de/szalkowski/activitylauncher/MyPackageInfo.java
+method: MyPackageInfo(PackageInfo, PackageManager, PackageManagerCache)
+constraints in butzist-ActivityLauncher-0
+	JavaAssert condition: "(activity.packageName.equals(info.packageName))" , add info: -
+constraints in butzist-ActivityLauncher-1
+
+CANNOT_BE_CLASSIFIED
+version 1: greenaddress-abcore-0
+version 2: greenaddress-abcore-1
+compilation unit: app/src/main/java/com/greenaddress/abcore/SettingsActivity.java
+method: onOptionsItemSelected(MenuItem)
+constraints in greenaddress-abcore-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
+constraints in greenaddress-abcore-1
+	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
+	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: greenaddress-abcore-0
+version 2: greenaddress-abcore-1
+compilation unit: app/src/main/java/com/greenaddress/abcore/DownloadSettingsActivity.java
+method: onOptionsItemSelected(MenuItem)
+constraints in greenaddress-abcore-0
+constraints in greenaddress-abcore-1
+	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: k3b-APhotoManager-0
+version 2: k3b-APhotoManager-1
+compilation unit: fotoview.library/src/main/java/uk/co/senab/photoview/scrollerproxy/GingerScroller.java
+method: getCurrY()
+constraints in k3b-APhotoManager-0
+	AndroidTargetApi condition: "9" , add info: -
+constraints in k3b-APhotoManager-1
+
+CANNOT_BE_CLASSIFIED
+version 1: k3b-APhotoManager-0
+version 2: k3b-APhotoManager-1
+compilation unit: fotoview.library/src/main/java/uk/co/senab/photoview/scrollerproxy/IcsScroller.java
+method: computeScrollOffset()
+constraints in k3b-APhotoManager-0
+	AndroidTargetApi condition: "14" , add info: -
+constraints in k3b-APhotoManager-1
+
+CANNOT_BE_CLASSIFIED
+version 1: k3b-APhotoManager-0
+version 2: k3b-APhotoManager-1
+compilation unit: fotoview.library/src/main/java/uk/co/senab/photoview/gestures/FroyoGestureDetector.java
+method: onTouchEvent(MotionEvent)
+constraints in k3b-APhotoManager-0
+	AndroidTargetApi condition: "8" , add info: -
+constraints in k3b-APhotoManager-1
+
+CANNOT_BE_CLASSIFIED
+version 1: k3b-APhotoManager-0
+version 2: k3b-APhotoManager-1
+compilation unit: fotoview.library/src/main/java/uk/co/senab/photoview/gestures/EclairGestureDetector.java
+method: onTouchEvent(MotionEvent)
+constraints in k3b-APhotoManager-0
+	AndroidTargetApi condition: "5" , add info: -
+constraints in k3b-APhotoManager-1
+
+CANNOT_BE_CLASSIFIED
+version 1: k3b-APhotoManager-0
+version 2: k3b-APhotoManager-1
+compilation unit: k3b-APhotoManager-1/fotolib2/src/main/java/de/k3b/media/PhotoPropertiesWrapper.java
+method: getTitle()
+constraints in k3b-APhotoManager-0
+constraints in k3b-APhotoManager-1
+	JavaAssert condition: "result != null" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: k3b-APhotoManager-0
+version 2: k3b-APhotoManager-1
+compilation unit: k3b-APhotoManager-1/fotolib2/src/main/java/de/k3b/media/PhotoPropertiesChainReader.java
+method: getTitle()
+constraints in k3b-APhotoManager-0
+constraints in k3b-APhotoManager-1
+	JavaAssert condition: "result != null" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: k3b-APhotoManager-0
+version 2: k3b-APhotoManager-1
+compilation unit: k3b-APhotoManager-1/app/src/main/java/de/k3b/android/androFotoFinder/LockScreen.java
+method: removeDangerousCommandsFromMenu(Menu)
+constraints in k3b-APhotoManager-0
+constraints in k3b-APhotoManager-1
+	AndroidTargetApi condition: "Build.VERSION_CODES.M" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: k3b-APhotoManager-0
+version 2: k3b-APhotoManager-1
+compilation unit: k3b-APhotoManager-1/app/src/main/java/de/k3b/android/widget/HistoryEditText.java
+method: onHistoryPick(EditorHandler,EditText,String)
+constraints in k3b-APhotoManager-0
+constraints in k3b-APhotoManager-1
+	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: k3b-APhotoManager-0
+version 2: k3b-APhotoManager-1
+compilation unit: k3b-APhotoManager-1/app/src/main/java/de/k3b/android/util/AndroidFileCommands.java
+method: dismiss()
+constraints in k3b-APhotoManager-0
+constraints in k3b-APhotoManager-1
+	AndroidSuppressLint condition: ""ValidFragment"" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: lolo-io-OneList-onelist-0
+version 2: lolo-io-OneList-onelist-1
+compilation unit: app/src/main/java/com/lolo/io/onelist/DialogsKt.kt
+method: promptEditItem()
+constraints in lolo-io-OneList-onelist-0
+	AndroidSuppressLint condition: "[ "InflateParams" ]" , add info: -
+constraints in lolo-io-OneList-onelist-1
+
+CANNOT_BE_CLASSIFIED
+version 1: lolo-io-OneList-onelist-0
+version 2: lolo-io-OneList-onelist-1
+compilation unit: app/src/main/java/com/lolo/io/onelist/PersistenceHelper.kt
+method: createListFromUri()
+constraints in lolo-io-OneList-onelist-0
+constraints in lolo-io-OneList-onelist-1
+	KotlinRequire condition: "!listsIds.containsKey(list.stableId)" , add info:  app.getString(R.string.list_already_in_your_lists) 
+
+CANNOT_BE_CLASSIFIED
+version 1: lolo-io-OneList-onelist-0
+version 2: lolo-io-OneList-onelist-1
+compilation unit: app/src/main/java/com/lolo/io/onelist/PersistenceHelper.kt
+method: importList()
+constraints in lolo-io-OneList-onelist-0
+constraints in lolo-io-OneList-onelist-1
+	KotlinRequire condition: "!listsIds.containsKey(list.stableId)" , add info:  app.getString(R.string.list_already_in_your_lists) 
+
+CANNOT_BE_CLASSIFIED
+version 1: lolo-io-OneList-onelist-0
+version 2: lolo-io-OneList-onelist-1
+compilation unit: app/src/main/java/com/lolo/io/onelist/dialogs/EditItemDialog.kt
+method: editItemDialog()
+constraints in lolo-io-OneList-onelist-0
+constraints in lolo-io-OneList-onelist-1
+	AndroidSuppressLint condition: "[ "InflateParams" ]" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: lolo-io-OneList-onelist-0
+version 2: lolo-io-OneList-onelist-1
+compilation unit: app/src/main/java/com/lolo/io/onelist/dialogs/DeleteListDialog.kt
+method: deleteListDialog()
+constraints in lolo-io-OneList-onelist-0
+constraints in lolo-io-OneList-onelist-1
+	AndroidSuppressLint condition: "[ "InflateParams" ]" , add info: -
+
+CANNOT_BE_CLASSIFIED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/highlightjs/HighlightJsView.java
+method: HighlightJsView(Context, AttributeSet, int, int)
+constraints in sdex-ActivityManager-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.LOLLIPOP" , add info: -
+constraints in sdex-ActivityManager-1
+
+CANNOT_BE_CLASSIFIED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/manifest/ManifestWriter.kt
+method: saveAndroidManifest()
+constraints in sdex-ActivityManager-0
+	AndroidXWorkerThread condition: "NONE" , add info: -
+constraints in sdex-ActivityManager-1
+
+CANNOT_BE_CLASSIFIED
+version 1: the3deers-android-3D-model-viewer-0
+version 2: the3deers-android-3D-model-viewer-1
+compilation unit: src/org/andresoviedo/app/model3D/util/SystemUiHiderHoneycomb.java
+method: onSystemUiVisibilityChange(int)
+constraints in the3deers-android-3D-model-viewer-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
+constraints in the3deers-android-3D-model-viewer-1
+
+CANNOT_BE_CLASSIFIED
+version 1: the3deers-android-3D-model-viewer-0
+version 2: the3deers-android-3D-model-viewer-1
+compilation unit: engine/src/main/java/org/andresoviedo/util/android/SystemUiHiderHoneycomb.java
+method: onSystemUiVisibilityChange(int)
+constraints in the3deers-android-3D-model-viewer-0
+constraints in the3deers-android-3D-model-viewer-1
+	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
+

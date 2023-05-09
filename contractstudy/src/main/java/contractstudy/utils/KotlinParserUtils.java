@@ -89,13 +89,14 @@ public class KotlinParserUtils {
   }
 
   public static String getImportedName(KtImportDirective importDirective) {
-    String importedName = null;
-    try {
-      importedName = Objects.requireNonNull(importDirective.getImportedName()).toString();
-    } catch (NullPointerException e) {
-      if (KotlinParserUtils.doesImportDirectiveContainsWildCard(importDirective)) {
-        importedName = ".*";
-      }
+    String importedName;
+    String importText = importDirective.getText();
+    if (importText.endsWith(".*")) {
+      importedName = importText.substring(0, importText.lastIndexOf("."));
+      importedName = importedName.substring(importedName.lastIndexOf(".")+1);
+      importedName += ".*";
+    } else {
+      importedName = importText.substring(importText.lastIndexOf(".")+1);
     }
     return importedName;
   }

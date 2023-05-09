@@ -29,7 +29,7 @@ public class ClassAndVersion {
     return new ClassAndVersion(className, cuName, v);
   }
 
-  public static ClassAndVersion fromJson(String json) throws IOException {
+  public static ClassAndVersion fromJson(String json) {
     JSONObject o = new JSONObject(json);
     return create(
       o.getString("programName"),

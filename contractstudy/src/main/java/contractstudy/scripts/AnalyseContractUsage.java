@@ -190,7 +190,6 @@ public class AnalyseContractUsage implements Experiment {
         + "& & Java & Kotlin & Java & Kotlin & Java & Kotlin \\\\\n"
         + "\\hline");
       for (Map.Entry<ConstraintGroup, Integer> entry : constraintsByGroup.entrySet()) {
-        System.out.println(entry.getKey());
         out.print("\t");
         out.print(entry.getKey().getShortName() + " & ");
         out.print(entry.getKey().getCategory().getName() + " & ");
@@ -228,8 +227,10 @@ public class AnalyseContractUsage implements Experiment {
         out.print("\t");
         out.print(entry.getKey().getShortName() + " & ");
         out.print(entry.getKey().getCategory().getName() + " & ");
-        out.print(NF.format(constraintsByGroupJava.get(entry.getKey()) - constraintsByGroupLVJava.get(entry.getKey())) + " & ");
-        out.print(NF.format(constraintsByGroupKotlin.get(entry.getKey()) - constraintsByGroupLVKotlin.get( entry.getKey())) + " & ");
+        out.print(
+          NF.format(constraintsByGroupJava.get(entry.getKey()) - constraintsByGroupLVJava.get(entry.getKey())) + " & ");
+        out.print(
+          NF.format(constraintsByGroupKotlin.get(entry.getKey()) - constraintsByGroupLVKotlin.get(entry.getKey())) + " & ");
         out.print(NF.format(constraintsByGroupLVJava.get(entry.getKey())) + " & ");
         out.print(NF.format(constraintsByGroupLVKotlin.get(entry.getKey())) + " & ");
         out.print(NF.format(programsUsingConstraintGroupsJava.get(entry.getKey()).size()) + " & ");

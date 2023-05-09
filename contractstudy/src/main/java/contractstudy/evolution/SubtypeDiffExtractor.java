@@ -46,6 +46,8 @@ import static contractstudy.utils.CorpusUtils.listProjects;
 public class SubtypeDiffExtractor implements DiffExtractor {
 
   private static final Logger LOGGER = Logging.getLogger(SubtypeDiffExtractor.class);
+  List<ContractElement> contractElements = new ArrayList<>();
+  int[] numberRemoved = new int[]{0};
 
   private static String buildIndexKey(ProgramVersion pv, String cu, String methodDecl) {
     return pv.getName() + "-" + pv.getVersion() + '#' + cu + '/' + (methodDecl == null ? ""
@@ -72,8 +74,7 @@ public class SubtypeDiffExtractor implements DiffExtractor {
   ) throws IOException {
     for (File project : listProjects(ArtefactFactory.INHERITANCE_STRUCTURE_FOLDER)) {
       for (File projectStructFiles : listJsons(project)) {
-        loopThroughProjectFilesToCollectMethodsAndParents(classesThatOverridesMap, methods, project,
-          projectStructFiles);
+        loopThroughProjectFilesToCollectMethodsAndParents(classesThatOverridesMap, methods, project, projectStructFiles);
       }
     }
     propagateInheritedMethods(classesThatOverridesMap, methods);
@@ -85,9 +86,7 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     File projectZipFolder,
     File projectStructFiles
   ) throws IOException {
-    JSONArray arr = new JSONArray(
-      IOUtils.toString(Files.newInputStream(projectStructFiles.toPath()), StandardCharsets.UTF_8));
-
+    JSONArray arr = new JSONArray(IOUtils.toString(Files.newInputStream(projectStructFiles.toPath()), StandardCharsets.UTF_8));
     String projectName = getProjectNameFromStructFolder(projectZipFolder);
     String versionName = getProjectVersionFromStructFolder(projectZipFolder);
 
@@ -99,6 +98,7 @@ public class SubtypeDiffExtractor implements DiffExtractor {
         SubtypeDiffKeys.EMPTY_CLASS_NAME.getKey(),
         o.getString("cuName")
       );
+
       collectMethods(o, subTypeTmp, methods);
       collectParents(o, subTypeTmp, classesThatOverridesMap);
     }
@@ -115,8 +115,12 @@ public class SubtypeDiffExtractor implements DiffExtractor {
         projectZipFolder.getName().lastIndexOf(".zip"));
   }
 
-  private static void collectMethods(JSONObject o, ClassAndVersion subTypeTmp,
-    Map<ClassAndVersion, Set<String>> methods) throws IOException {
+  private static void collectMethods(
+    JSONObject o,
+    ClassAndVersion subTypeTmp,
+    Map<ClassAndVersion,
+      Set<String>> methods
+  ) {
     JSONArray mm = o.getJSONArray("methods");
     Iterator<Object> itM = mm.iterator();
     Set<String> meth = new HashSet<>();
@@ -126,8 +130,12 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     methods.put(subTypeTmp, meth);
   }
 
-  private static void collectParents(JSONObject o, ClassAndVersion subTypeTmp,
-    HashMultimap<ClassAndVersion, ClassAndVersion> classesThatOverridesMap) throws IOException {
+  private static void collectParents(
+    JSONObject o,
+    ClassAndVersion subTypeTmp,
+    HashMultimap<ClassAndVersion,
+      ClassAndVersion> classesThatOverridesMap
+  ) {
     JSONArray pp = o.getJSONArray("parents");
     for (Object aPp : pp) {
       JSONObject ppO = (JSONObject) aPp;
@@ -167,47 +175,106 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     final Map<ClassAndVersion, Set<String>> methods,
     final ClassAndVersion currentType,
     final Set<String> currentMethods,
-    final Set<ClassAndVersion> finished) {
-
-    // give all parents
+    final Set<ClassAndVersion> finished
+  ) {
     for (ClassAndVersion parent : inheritanceMap.get(currentType)) {
-
-      // TODO - in some cases parent and current type are the same - do not know why right now
       if (finished.contains(currentType)) {
         LOGGER.debug("The same type already processed, skipping" + currentType);
         continue;
       }
 
-      finished.add(currentType);
+      // Value of inheritanceMap is incorrect.
 
+      finished.add(currentType);
       Set<String> parentMethods = methods.get(parent);
-      // recurse up to parents.
+
       propagateInheritedMethods(inheritanceMap, methods, parent, parentMethods, finished);
-      // extend the map with parents
+
       if (parentMethods != null) {
-        currentMethods.addAll(parentMethods); //TODO: Is ok for parentMethods to be null?
+        currentMethods.addAll(parentMethods); //TODO: Never enters here.
       }
     }
   }
 
   @Override
   public List<DiffRecord> extract() throws Exception {
-
+    int total;
     HashMultimap<ClassAndVersion, ClassAndVersion> classesThatOverridesMap = HashMultimap.create();
     Map<ClassAndVersion, Set<String>> methodsMap = new HashMap<>();
+    Set<String> processedIndexes = new HashSet<>();
+    Set<String> alreadyAnalyzed = new HashSet<>();
+    Multimap<String, ContractElement> removed = ArrayListMultimap.create();
+    List<DiffRecord> results = new ArrayList<>();
+
     readInheritanceCSV(classesThatOverridesMap, methodsMap);
+    Collection<File> contractsPerProgram = getContractsInProgramsFiles();
+    total = filterContracts(contractsPerProgram, removed);
+    contractElements.sort(Comparator.comparing(pc -> pc.getProgramVersion().toString()));
+    ListMultimap<String, ContractElement> constraintIndex = getConstraintsIndexByMethodOrClass(contractElements);
+
+    for (ContractElement contract : contractElements) {
+
+      String programMethodIdentifier = buildIndexKey(
+        contract.getProgramVersion(),
+        contract.getCuName(),
+        contract.getMethodDeclaration()
+      );
+
+      if (alreadyAnalyzed.add(programMethodIdentifier)) {
+
+        ClassAndVersion subClass = ClassAndVersion.fromContractElement(contract);
+        Set<ClassAndVersion> parents = findParentsInMapForSubClass(classesThatOverridesMap, subClass);
+        List<ContractElement> constraints2 = constraintIndex.get(programMethodIdentifier);
+
+        if (wasInputConstraintsNotProcessedYet(constraints2, processedIndexes)) {
+
+          for (ClassAndVersion parent : parents) {
+            Set<String> methods = methodsMap.get(parent);
+
+            if (methods != null && methods.contains(contract.getMethodDeclaration())) {
+
+              String parentKey = buildIndexKey(parent.getProgramVersion(), parent.getCuName(), contract.getMethodDeclaration());
+              List<ContractElement> constraints1 = constraintIndex.get(parentKey);
+
+              DiffRecord record = new DiffRecord(
+                constraints1,
+                parent.getProgramVersion(),
+                parent.getCuName(),
+                contract.getMethodDeclaration(),
+                constraints2,
+                contract.getProgramVersion(),
+                contract.getCuName(),
+                contract.getMethodDeclaration()
+              );
+
+              results.add(record);
+            }
+          }
+        }
+      }
+    }
+
+    outputResultsToConsole(total, contractElements, numberRemoved, removed);
+    return results;
+  }
+
+  private Collection<File> getContractsInProgramsFiles() {
+    return FileUtils.listFiles(
+      (ArtefactFactory.USAGE_CONTRACTS_FOLDER),
+      new String[]{"json"},
+      false
+    );
+  }
+
+  private int filterContracts(
+    Collection<File> contractsPerProgram,
+    Multimap<String, ContractElement> removed
+  ) throws IOException {
+    int total = 0;
     Set<SuperCallSite> superCallSites = collectMethodsWithSuper();
     Set<String> superCallSitesWithClassAndMethodName = new HashSet<>();
+
     superCallSites.forEach(i -> superCallSitesWithClassAndMethodName.add(i.getCu() + "/" + i.getMethodDeclaration()));
-
-    Multimap<String, ContractElement> removed = ArrayListMultimap.create();
-
-    List<DiffRecord> results = new ArrayList<>();
-    List<ContractElement> contractElements = new ArrayList<>();
-    int total = 0;
-    int[] numberRemoved = new int[]{0};
-    Collection<File> contractsPerProgram = FileUtils.listFiles((ArtefactFactory.USAGE_CONTRACTS_FOLDER),
-      new String[]{"json"}, false);
 
     for (File contractsInProgram : contractsPerProgram) {
       String data = FileUtils.readFileToString(contractsInProgram, StandardCharsets.UTF_8);
@@ -223,58 +290,29 @@ public class SubtypeDiffExtractor implements DiffExtractor {
       total += all.length();
     }
 
-    contractElements.sort(Comparator.comparing(pc -> pc.getProgramVersion().toString()));
+    return total;
+  }
 
-    ListMultimap<String, ContractElement> constraintIndex = getConstraintsIndexByMethodOrClass(contractElements);
-
-    Set<String> processedIndexes = new HashSet<>();
-
-    // build diff records
-    Set<String> alreadyAnalyzed = new HashSet<>();
-
-    for (ContractElement contract : contractElements) {
-
-      String programMethodIdentifier = buildIndexKey(contract.getProgramVersion(), contract.getCuName(),
-        contract.getMethodDeclaration());
-
-      if (alreadyAnalyzed.add(programMethodIdentifier)) {
-
-        ClassAndVersion subClass = ClassAndVersion.fromContractElement(contract);
-
-        Set<ClassAndVersion> parents = findParentsInMapForSubClass(classesThatOverridesMap, subClass);
-
-        List<ContractElement> constraints2 = constraintIndex.get(programMethodIdentifier);
-
-        if (wasInputConstraintsNotProcessedYet(constraints2, processedIndexes)) {
-          // JFF: nunca entra aqui
-          for (ClassAndVersion parent : parents) {
-            Set<String> methods = methodsMap.get(parent);
-
-            // create record only if the parent method exists (a method exists in respective CU
-            if (methods.contains(contract.getMethodDeclaration())) {
-              String parentKey = buildIndexKey(parent.getProgramVersion(), parent.getCuName(),
-                contract.getMethodDeclaration());
-              List<ContractElement> constraints1 = constraintIndex.get(parentKey);
-
-              DiffRecord record = new DiffRecord(
-                constraints1,
-                parent.getProgramVersion(),
-                parent.getCuName(),
-                contract.getMethodDeclaration(),
-                constraints2,
-                contract.getProgramVersion(),
-                contract.getCuName(),
-                contract.getMethodDeclaration());
-
-              results.add(record);
-            }
-          }
-        }
-      }
+  private boolean toBeExcludedDueToFilter(
+    final ContractElement contractElement,
+    final Multimap<String, ContractElement> removed,
+    final Set<String> superCallSites
+  ) {
+    boolean r = false;
+    if (Utils.cannotSort(contractElement.getProgramVersion())) {
+      removed.put(SubtypeDiffKeys.REMOVED_SORT.getKey(), contractElement);
+      r = true;
+    } else if (contractElement.isMethodAbstract()) {
+      removed.put(SubtypeDiffKeys.REMOVED_ABSTRACT.getKey(), contractElement);
+      r = true;
+    } else if (superCallSites.contains(contractElement.getCuName() + "/" + contractElement.getMethodDeclaration())) {
+      removed.put(SubtypeDiffKeys.REMOVED_SUPER.getKey(), contractElement);
+      r = true;
+    } else if (contractElement.getKind().getGroup().getCategory() == ConstraintCategory.ANNOTATION) {
+      removed.put(SubtypeDiffKeys.REMOVED_ANNOTATIONS.getKey(), contractElement);
+      r = true;
     }
-
-    outputResultsToConsole(total, contractElements, numberRemoved, removed);
-    return results;
+    return r;
   }
 
   private Set<ClassAndVersion> findParentsInMapForSubClass(
@@ -282,8 +320,7 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     ClassAndVersion subClass
   ) {
     for (ClassAndVersion inheritanceKey : classesThatOverridesMap.keys()) {
-      if (subClass.getCuName().endsWith(inheritanceKey.getCuName()) && Objects.equals(subClass.getClassName(),
-        inheritanceKey.getClassName())) {
+      if (inheritanceKey.getCuName().endsWith(subClass.getCuName()) && Objects.equals(subClass.getClassName(), inheritanceKey.getClassName())) {
         return classesThatOverridesMap.get(inheritanceKey);
       }
     }
@@ -311,34 +348,7 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     return canProcess;
   }
 
-  private boolean toBeExcludedDueToFilter(
-    final ContractElement contractElement,
-    final Multimap<String, ContractElement> removed,
-    final Set<String> superCallSites) {
-
-    boolean r = false;
-
-    if (Utils.cannotSort(contractElement.getProgramVersion())) {
-      removed.put(SubtypeDiffKeys.REMOVED_SORT.getKey(), contractElement);
-      r = true;
-    } else if (contractElement.isMethodAbstract()) {
-      removed.put(SubtypeDiffKeys.REMOVED_ABSTRACT.getKey(), contractElement);
-      r = true;
-    } else if (superCallSites.contains(
-      contractElement.getCuName() + "/" + contractElement.getMethodDeclaration())) {
-      removed.put(SubtypeDiffKeys.REMOVED_SUPER.getKey(), contractElement);
-      r = true;
-    } else if (contractElement.getKind().getGroup().getCategory()
-      == ConstraintCategory.ANNOTATION) {
-      removed.put(SubtypeDiffKeys.REMOVED_ANNOTATIONS.getKey(), contractElement);
-      r = true; // Do not remove, only report  // TODO ask jens if should be removed.  It changes numbers widely
-    }
-
-    return r;
-  }
-
-  private Set<SuperCallSite> collectMethodsWithSuper()
-    throws IOException {
+  private Set<SuperCallSite> collectMethodsWithSuper() throws IOException {
     Set<SuperCallSite> callSites = new HashSet<>();
     File file = ArtefactFactory.INHERITANCE_SUPER_CALL_SITE;
     LineIterator it = IOUtils.lineIterator(Files.newInputStream(file.toPath()), "utf-8");

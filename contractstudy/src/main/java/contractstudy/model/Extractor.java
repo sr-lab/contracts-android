@@ -6,7 +6,6 @@ import java.io.InputStream;
 
 /**
  * Interface for services to extract constraints from source code.
- * TODO: could extend interface for hybrid source / bytecode analysis.
  *
  * @author jens dietrich
  */

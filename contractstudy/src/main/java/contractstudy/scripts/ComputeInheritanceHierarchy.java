@@ -50,10 +50,8 @@ public class ComputeInheritanceHierarchy implements Experiment {
 
     long startTime = System.currentTimeMillis();
     ExecutorService executor = Executors.newFixedThreadPool(Preferences.getThreadCount());
-    Collection<File> sourceCodeZips = FileUtils.listFiles(INPUT_SOURCE_CODE, new String[]{"zip"},
-      true);
-    Collection<File> foundContractsJsonFiles = FileUtils.listFiles(INPUT_CONTRACTS_FOUND,
-      new String[]{"json"}, true);
+    Collection<File> sourceCodeZips = FileUtils.listFiles(INPUT_SOURCE_CODE, new String[]{"zip"}, true);
+    Collection<File> foundContractsJsonFiles = FileUtils.listFiles(INPUT_CONTRACTS_FOUND, new String[]{"json"}, true);
 
     for (File project : sourceCodeZips) {
       LOGGER.info("Processing: " + project);
@@ -68,17 +66,14 @@ public class ComputeInheritanceHierarchy implements Experiment {
 
       Runnable task = () -> {
         try {
-          ProgramVersion version = createProgramVersionFromSourceCodeAndContractsFoundJsonFile(
-            project, contractsJsonFile);
-          List<ProgramVersion> deps = new ArrayList<>(); //Skipping all dependencies for now.
+          ProgramVersion version = createProgramVersionFromSourceCodeAndContractsFoundJsonFile(project, contractsJsonFile);
           Map<ClassCoordinates, ClassParents> classesMap = new HashMap<>();
 
-          extractor.analyse(version, deps, new InheritanceResolved() {
+          extractor.analyse(version, new InheritanceResolved() {
             @Override
             public void notify(ClassParents parents) {
               classesMap.put(parents, parents);
             }
-
             @Override
             public void notify(ClassCoordinates classCoordinates) {
               classesMap.put(classCoordinates, null);
