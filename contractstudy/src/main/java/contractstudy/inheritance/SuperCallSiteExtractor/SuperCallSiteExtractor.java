@@ -43,7 +43,8 @@ public class SuperCallSiteExtractor extends VoidVisitorAdapter<Object> {
     InputStream in,
     List<SuperCallSite> superCallSites,
     ProgramVersion programVersion,
-    String cuName) {
+    String cuName
+  ) {
     CompilationUnit cu = StaticJavaParser.parse(in);
     new MethodVisitorToCollectSuperCall(cuName, programVersion, superCallSites).visit(cu, null);
   }
@@ -52,11 +53,12 @@ public class SuperCallSiteExtractor extends VoidVisitorAdapter<Object> {
     InputStream in,
     List<SuperCallSite> superCallSites,
     ProgramVersion programVersion,
-    String cuName) throws IOException {
+    String cuName
+  ) throws IOException {
     String src = new InputStreamToStringConversion(in).getResult();
     PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
-    MethodVisitorToCollectSuperCallKotlin visitor = new MethodVisitorToCollectSuperCallKotlin(
-      cuName, programVersion, superCallSites);
+    MethodVisitorToCollectSuperCallKotlin visitor = new MethodVisitorToCollectSuperCallKotlin(cuName, programVersion,
+      superCallSites);
     psiFile.accept(visitor);
   }
 

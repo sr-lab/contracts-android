@@ -93,10 +93,10 @@ public class KotlinParserUtils {
     String importText = importDirective.getText();
     if (importText.endsWith(".*")) {
       importedName = importText.substring(0, importText.lastIndexOf("."));
-      importedName = importedName.substring(importedName.lastIndexOf(".")+1);
+      importedName = importedName.substring(importedName.lastIndexOf(".") + 1);
       importedName += ".*";
     } else {
-      importedName = importText.substring(importText.lastIndexOf(".")+1);
+      importedName = importText.substring(importText.lastIndexOf(".") + 1);
     }
     return importedName;
   }

@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.Objects;
 
 /**

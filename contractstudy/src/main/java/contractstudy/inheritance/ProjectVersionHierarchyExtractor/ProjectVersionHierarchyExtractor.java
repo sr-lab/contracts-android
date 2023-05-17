@@ -111,7 +111,7 @@ public class ProjectVersionHierarchyExtractor {
       CompilationUnit cu = StaticJavaParser.parse(inputStream);
       ClassCoordinates classCoordinates = classExtractor.readClass(cu, sourceCodeFileName);
       if (classCoordinates.getClassSimpleName() != null) {
-        creator.add(programVersion, classCoordinates, cu, file.getName());
+        creator.add(programVersion, classCoordinates, cu, sourceCodeFileName);
         notifier.notify(classCoordinates);
       }
     } catch (Error | Exception e) {
@@ -131,7 +131,7 @@ public class ProjectVersionHierarchyExtractor {
     PsiFile psiFile = new KotlinParser().createKtFile(sourceCodeFileName, src);
     ClassCoordinates classCoordinates = classExtractorKotlin.readClass(psiFile, sourceCodeFileName);
     if (classCoordinates.getClassSimpleName() != null) {
-      creator.add(programVersion, classCoordinates, psiFile, file.getName());
+      creator.add(programVersion, classCoordinates, psiFile, sourceCodeFileName);
       notifier.notify(classCoordinates);
     }
   }

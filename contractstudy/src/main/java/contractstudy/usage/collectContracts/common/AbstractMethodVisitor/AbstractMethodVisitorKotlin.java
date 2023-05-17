@@ -15,7 +15,6 @@ import org.jetbrains.kotlin.psi.KtModifierList;
 import org.jetbrains.kotlin.psi.KtNamedFunction;
 import org.jetbrains.kotlin.psi.KtPackageDirective;
 import org.jetbrains.kotlin.psi.KtParameter;
-import org.jetbrains.kotlin.psi.KtParameterList;
 import org.jetbrains.kotlin.psi.KtTreeVisitorVoid;
 
 import java.util.List;

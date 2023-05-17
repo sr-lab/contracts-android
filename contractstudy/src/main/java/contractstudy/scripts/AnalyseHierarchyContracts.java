@@ -39,8 +39,10 @@ public class AnalyseHierarchyContracts implements Experiment {
       put(DiffResult.POSTCONDITION_REMOVED, ArtefactFactory.INHERITANCE_POST_CONDITION_REMOVED);
       put(DiffResult.PRECONDITION_ADDED, ArtefactFactory.INHERITANCE_PRE_CONDITION_ADDED);
       put(DiffResult.CANNOT_BE_CLASSIFIED, ArtefactFactory.INHERITANCE_CONTRACTS_NOT_CLASSIFIED);
+      put(DiffResult.UNCHANGED, ArtefactFactory.INHERITANCE_CONTRACTS_UNCHANGED);
     }
   };
+
   private static final Logger LOGGER = Logging.getLogger(AnalyseHierarchyContracts.class);
   private static final File RESULTS_FOLDER = new File(Preferences.getOutputFolder());
 
@@ -88,26 +90,26 @@ public class AnalyseHierarchyContracts implements Experiment {
   ) {
     try (PrintWriter out = new PrintWriter(new FileWriter(log, true))) {
       out.println(result);
-      out.println("version with super type: " + record.getProgramVersion1());
-      out.println("version with sub type:   " + record.getProgramVersion2());
-      out.println("compilation unit: " + record.getCu2() + " extends " + record.getCu1());
-      if (record.getMethodDecl1() != null) {
-        out.println("method: " + record.getMethodDecl1());
-      }
-      out.println("constraints in " + record.getProgramVersion1());
+      out.println("program: " + record.getProgramVersion1());
+      out.println("parent: " + record.getCu1());
+      out.println("sub: " + record.getCu2());
+      out.println("method: " + record.getMethodDecl1());
+
+      out.println("parent constraints: ");
       for (ContractElement c : record.getConstraints1()) {
-        String addInfo = c.getAdditionalInfo() == null ? "?"
-          : c.getAdditionalInfo().replaceAll("\\r\\n|\\r|\\n", " "); // remove new line chars !
+        String addInfo = c.getAdditionalInfo() == null ? "?" : c.getAdditionalInfo().replaceAll("\\r\\n|\\r|\\n", " ");
         out.println(
           "\t" + c.getKind() + " condition: \"" + c.getCondition() + "\" , add info: " + addInfo);
       }
-      out.println("constraints in " + record.getProgramVersion2());
+
+      out.println("sub constraints: ");
       for (ContractElement c : record.getConstraints2()) {
         String addInfo = c.getAdditionalInfo() == null ? "?"
           : c.getAdditionalInfo().replaceAll("\\r\\n|\\r|\\n", " "); // remove new line chars !
         out.println(
           "\t" + c.getKind() + " condition: \"" + c.getCondition() + "\" , add info: " + addInfo);
       }
+
       out.println();
     } catch (IOException x) {
       LOGGER.warn("Exception writing details to log " + log.getAbsolutePath(), x);

@@ -1,1 +1,0 @@
-[{"cu":"src/org/osmdroid/views/MapView.java","condition":"\"WrongCall\"","method":"dispatchDraw(Canvas)","additional_info":"-","artefact_type":"METHOD","line":798,"name":"bailuk-AAT-v0.8","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

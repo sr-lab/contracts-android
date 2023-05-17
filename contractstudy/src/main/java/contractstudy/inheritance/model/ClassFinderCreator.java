@@ -52,7 +52,8 @@ public class ClassFinderCreator {
     final ProgramVersion programVersion,
     final ClassCoordinates classCoordinates,
     final CompilationUnit cu,
-    final String cuName) {
+    final String cuName
+  ) {
     classPcgs.put(classCoordinates.getClassSimpleName(), classCoordinates.getPackageName());
     classOrigin.put(classCoordinates.getClassName(), programVersion);
     cus.put(classCoordinates, programVersion, cu);
@@ -63,7 +64,8 @@ public class ClassFinderCreator {
     final ProgramVersion programVersion,
     final ClassCoordinates classCoordinates,
     final PsiFile psi,
-    final String cuName) {
+    final String cuName
+  ) {
     classPcgs.put(classCoordinates.getClassSimpleName(), classCoordinates.getPackageName());
     classOrigin.put(classCoordinates.getClassName(), programVersion);
     psis.put(classCoordinates, programVersion, psi);

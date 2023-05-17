@@ -19,6 +19,7 @@ import java.util.Set;
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
 public class ClassDefinitionVisitor extends AbstractMethodVisitor implements ClassCoordinates {
+
   private final Map<String, ASTState> innerClassesState = new HashMap<>();
   private String classSimpleName = null;
 
@@ -128,22 +129,27 @@ public class ClassDefinitionVisitor extends AbstractMethodVisitor implements Cla
       public String getPackageName() {
         return delegate.getPackageName();
       }
+
       @Override
       public String getClassSimpleName() {
         return className.substring(getPackageName().length() - 1);
       }
+
       @Override
       public String getClassName() {
         return className;
       }
+
       @Override
       public String getCuName() {
         return delegate.getCuName();
       }
+
       @Override
       public Set<ClassCoordinates> getInnerClasses() {
         return null;  // TODO: structure is flat for now
       }
+
       @Override
       public Set<String> getMethods() {
         return innerClassesState.get(className).getMethods();

@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class ClassDefinitionVisitorKotlin extends AbstractMethodVisitorKotlin implements ClassCoordinates {
+
   private final Map<String, ASTState> innerClassesState = new HashMap<>();
   private String classSimpleName = null;
 

@@ -20,11 +20,9 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -74,6 +72,7 @@ public class ComputeInheritanceHierarchy implements Experiment {
             public void notify(ClassParents parents) {
               classesMap.put(parents, parents);
             }
+
             @Override
             public void notify(ClassCoordinates classCoordinates) {
               classesMap.put(classCoordinates, null);
@@ -145,15 +144,14 @@ public class ComputeInheritanceHierarchy implements Experiment {
   }
 
   private static ProgramVersion createProgramVersionFromSourceCodeAndContractsFoundJsonFile(
-    File sourceCodeZip, File foundContractsJsonFile) {
+    File sourceCodeZip,
+    File foundContractsJsonFile
+  ) {
     String jsonFileName = foundContractsJsonFile.getName();
-    String projectName = foundContractsJsonFile.getName()
-      .substring(0, jsonFileName.lastIndexOf("-"));
+    String projectName = foundContractsJsonFile.getName().substring(0, jsonFileName.lastIndexOf("-"));
     String version = foundContractsJsonFile.getName()
       .substring(jsonFileName.lastIndexOf("-") + 1, jsonFileName.lastIndexOf("."));
-    ProgramVersion programVersion = ProgramVersion.getOrCreate(
-      projectName,
-      version);
+    ProgramVersion programVersion = ProgramVersion.getOrCreate(projectName, version);
     return programVersion.withFile(sourceCodeZip);
   }
 

@@ -36,12 +36,15 @@ import java.util.zip.ZipFile;
  */
 public class CollectInvocationViaSuper implements Experiment {
 
-  final static File DATA_FOLDER = new File(Preferences.getDataFolder());
+  final static File INPUT_DATA_FOLDER = new File(Preferences.getDataFolder());
+  final static File OUTPUT_INHERITANCE_FOLDER = ArtefactFactory.RESULTS_INHERITANCE_FOLDER;
+  final static File OUTPUT_SUPER_CALL_SITE = ArtefactFactory.INHERITANCE_SUPER_CALL_SITE;
+
   private static final Logger LOGGER = Logging.getLogger(CollectInvocationViaSuper.class);
 
   public static void main(String[] args) throws Exception {
     int THREAD_COUNT = Preferences.getThreadCount();
-    Collection<File> zips = FileUtils.listFiles(DATA_FOLDER, new String[]{"zip"}, true);
+    Collection<File> zips = FileUtils.listFiles(INPUT_DATA_FOLDER, new String[]{"zip"}, true);
     AtomicInteger counter = new AtomicInteger(0);
     List<SuperCallSite> superCallSites = Collections.synchronizedList(new ArrayList<>());
 
@@ -98,9 +101,9 @@ public class CollectInvocationViaSuper implements Experiment {
     }
   }
 
-  private static void outputResultsToCSV(List<SuperCallSite> superCallSites)
-    throws IOException {
-    File outputFile = getOutputFile();
+  private static void outputResultsToCSV(List<SuperCallSite> superCallSites) throws IOException {
+    FileUtils.forceMkdir(OUTPUT_INHERITANCE_FOLDER);
+    File outputFile = OUTPUT_SUPER_CALL_SITE;
     LOGGER.info("Analysis done, exporting results to  " + outputFile.getAbsolutePath());
     LOGGER.info("\tSuper call sites found:  " + superCallSites.size());
     char SEP = ',';
@@ -119,11 +122,6 @@ public class CollectInvocationViaSuper implements Experiment {
         out.println();
       }
     }
-  }
-
-  private static File getOutputFile() throws IOException {
-    FileUtils.forceMkdir(ArtefactFactory.RESULTS_INHERITANCE_FOLDER);
-    return ArtefactFactory.INHERITANCE_SUPER_CALL_SITE;
   }
 
   @Override
