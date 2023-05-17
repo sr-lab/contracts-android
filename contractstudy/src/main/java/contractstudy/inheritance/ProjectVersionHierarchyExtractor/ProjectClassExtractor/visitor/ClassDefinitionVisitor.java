@@ -20,12 +20,8 @@ import java.util.Set;
  */
 public class ClassDefinitionVisitor extends AbstractMethodVisitor implements ClassCoordinates {
 
-  /**
-   * Key is a class name. Value all inner classes.
-   */
   private final Map<String, ASTState> innerClassesState = new HashMap<>();
   private String classSimpleName = null;
-
 
   public ClassDefinitionVisitor(String cuName) {
     super(null, null, null, cuName);
@@ -34,7 +30,7 @@ public class ClassDefinitionVisitor extends AbstractMethodVisitor implements Cla
 
   @Override
   public void visit(final EnumDeclaration n, final Object arg) {
-    init(n);
+    addElementToInnerClasses(n);
     if (classSimpleName == null) {
       classSimpleName = n.getName().getIdentifier();
     }
@@ -43,21 +39,19 @@ public class ClassDefinitionVisitor extends AbstractMethodVisitor implements Cla
 
   @Override
   public void visit(ClassOrInterfaceDeclaration n, Object arg) {
-    init(n);
+    addElementToInnerClasses(n);
     if (classSimpleName == null) {
       classSimpleName = n.getName().getIdentifier();
     }
     super.visit(n, arg);
   }
 
-  private void init(Node n) {
+  private void addElementToInnerClasses(Node n) {
     String owner = findOwner(n);
     ASTState innerClass = innerClassesState.get(owner);
     if (innerClass == null) {
-      innerClass = new ASTState();
-      innerClassesState.put(owner, innerClass);
+      innerClassesState.put(owner, new ASTState());
     }
-
   }
 
   @Override
@@ -66,11 +60,15 @@ public class ClassDefinitionVisitor extends AbstractMethodVisitor implements Cla
     NodeList<Modifier> modifiers = methodDeclr.getModifiers();
     boolean isAbstract = super.computeAbstractMethod();
     if (!modifiers.contains(Modifier.privateModifier()) && !isAbstract) {
-      getState(methodDeclr).getMethods().add(super.methodDeclaration);
+      addMethodToOwnerState(methodDeclr);
     }
   }
 
-  protected ASTState getState(Node node) {
+  private void addMethodToOwnerState(MethodDeclaration methodDeclr) {
+    getOwnerState(methodDeclr).getMethods().add(super.methodDeclaration);
+  }
+
+  protected ASTState getOwnerState(Node node) {
     String owner = findOwner(node);
     return innerClassesState.get(owner);
   }
@@ -117,12 +115,10 @@ public class ClassDefinitionVisitor extends AbstractMethodVisitor implements Cla
         keys.add(name);
       }
     }
-
     Set<ClassCoordinates> inner = new HashSet<>();
     for (String key : keys) {
       inner.add(create(key));
     }
-
     return inner;
   }
 

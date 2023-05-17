@@ -15,15 +15,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-/**
- *
- */
-public class ClassDefinitionVisitorKotlin extends AbstractMethodVisitorKotlin implements
-  ClassCoordinates {
+public class ClassDefinitionVisitorKotlin extends AbstractMethodVisitorKotlin implements ClassCoordinates {
 
-  /**
-   * Key is a class name. Value all inner classes.
-   */
   private final Map<String, ASTState> innerClassesState = new HashMap<>();
   private String classSimpleName = null;
 
@@ -33,11 +26,19 @@ public class ClassDefinitionVisitorKotlin extends AbstractMethodVisitorKotlin im
 
   @Override
   public void visitClassOrObject(@NotNull KtClassOrObject classOrObject) {
-    init(classOrObject);
+    addElementToInnerClasses(classOrObject);
     if (classSimpleName == null) {
       classSimpleName = classOrObject.getName();
     }
     super.visitClassOrObject(classOrObject);
+  }
+
+  private void addElementToInnerClasses(KtElement element) {
+    String owner = findOwner(element);
+    ASTState innerClass = innerClassesState.get(owner);
+    if (innerClass == null) {
+      innerClassesState.put(owner, new ASTState());
+    }
   }
 
   @Override
@@ -46,23 +47,17 @@ public class ClassDefinitionVisitorKotlin extends AbstractMethodVisitorKotlin im
     KtModifierList ktModifierList = function.getModifierList();
     boolean isAbstract = super.computeAbstractMethod();
     if (KotlinParserUtils.isMethodVisibilityAccepted(ktModifierList) && !isAbstract) {
-      if (getState(function) != null) {
-        //TODO: Why is state sometimes null?
-        getState(function).getMethods().add(super.methodDeclaration);
-      }
+      addMethodToOwnerState(function);
     }
   }
 
-  private void init(KtElement element) {
-    String owner = findOwner(element);
-    ASTState innerClass = innerClassesState.get(owner);
-    if (innerClass == null) {
-      innerClass = new ASTState();
-      innerClassesState.put(owner, innerClass);
+  private void addMethodToOwnerState(KtNamedFunction function) {
+    if (getOwnerState(function) != null) {
+      getOwnerState(function).getMethods().add(super.methodDeclaration);
     }
   }
 
-  protected ASTState getState(KtElement element) {
+  protected ASTState getOwnerState(KtElement element) {
     String owner = findOwner(element);
     return innerClassesState.get(owner);
   }

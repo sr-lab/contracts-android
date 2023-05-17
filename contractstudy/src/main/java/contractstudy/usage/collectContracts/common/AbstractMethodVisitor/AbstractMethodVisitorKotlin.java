@@ -14,8 +14,10 @@ import org.jetbrains.kotlin.psi.KtImportDirective;
 import org.jetbrains.kotlin.psi.KtModifierList;
 import org.jetbrains.kotlin.psi.KtNamedFunction;
 import org.jetbrains.kotlin.psi.KtPackageDirective;
+import org.jetbrains.kotlin.psi.KtParameter;
 import org.jetbrains.kotlin.psi.KtTreeVisitorVoid;
 
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -71,9 +73,11 @@ public abstract class AbstractMethodVisitorKotlin extends KtTreeVisitorVoid {
   @Override
   public void visitNamedFunction(@NotNull KtNamedFunction function) {
     KtModifierList ktModifierList = function.getModifierList();
+    String functionName = function.getName();
+    List<KtParameter> functionParameters = function.getValueParameters();
     isDefaultMethod = false; //TODO: Do default methods exist in Kotlin?
     if (includePrivateMethods || isInterface || KotlinParserUtils.isMethodVisibilityAccepted(ktModifierList)) {
-      this.methodDeclaration = function.getName() + "()";
+      this.methodDeclaration = KotlinParserUtils.getDeclaration(functionName, functionParameters);
     }
     super.visitNamedFunction(function);
   }

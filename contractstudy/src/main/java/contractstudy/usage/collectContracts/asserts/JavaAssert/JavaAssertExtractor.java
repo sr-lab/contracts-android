@@ -41,10 +41,8 @@ public class JavaAssertExtractor implements Extractor<ContractElement> {
     final String version,
     final String cuName,
     final ExtractionListener<ContractElement> consumer) {
-
     CompilationUnit cu = StaticJavaParser.parse(in);
     new JavaAssertVisitor(programName, version, cuName, consumer).visit(cu, null);
-
   }
 
 }

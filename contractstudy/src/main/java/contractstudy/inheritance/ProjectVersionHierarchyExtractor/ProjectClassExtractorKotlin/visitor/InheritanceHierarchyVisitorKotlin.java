@@ -25,7 +25,8 @@ public class InheritanceHierarchyVisitorKotlin extends ClassDefinitionVisitorKot
 
   public InheritanceHierarchyVisitorKotlin(
     final String cuName,
-    final SourceClassFinder classFinder) {
+    final SourceClassFinder classFinder
+  ) {
     super(cuName);
     this.classFinder = classFinder;
   }
@@ -40,20 +41,15 @@ public class InheritanceHierarchyVisitorKotlin extends ClassDefinitionVisitorKot
   @Override
   public void visitImportDirective(@NotNull KtImportDirective importDirective) {
     String importedName = KotlinParserUtils.getImportedName(importDirective);
-    if (importedName != null) {
-      packages.add(importedName);
-      super.visitImportDirective(importDirective);
-    }
+    packages.add(importedName);
+    super.visitImportDirective(importDirective);
   }
 
   @Override
   public void visitClassOrObject(@NotNull KtClassOrObject classOrObject) {
-    try {
-      List<KtSuperTypeListEntry> superClassesAndInterfaces = classOrObject.getSuperTypeListEntries();
-      addParentToChildClassStateIfItBelongsToItsImports(classOrObject, superClassesAndInterfaces);
-    } catch (NullPointerException ignored) {
-    }
     super.visitClassOrObject(classOrObject);
+    List<KtSuperTypeListEntry> superClassesAndInterfaces = classOrObject.getSuperTypeListEntries();
+    addParentToChildClassStateIfItBelongsToItsImports(classOrObject, superClassesAndInterfaces);
   }
 
   private void addParentToChildClassStateIfItBelongsToItsImports(
@@ -62,12 +58,9 @@ public class InheritanceHierarchyVisitorKotlin extends ClassDefinitionVisitorKot
   ) {
     for (KtSuperTypeListEntry superClass : superClassesAndInterfaces) {
       String superClassName = superClass.getTypeReference().getText();
-      ClassAndVersion classAndOrigin = classFinder.findClass(superClassName, packages.toArray(new String[0]));
-      if (classAndOrigin != null) {
-        try {
-          getState(n).getParents().add(classAndOrigin);
-        } catch (NullPointerException ignored) {
-        }
+      ClassAndVersion potentialParent = classFinder.findClass(superClassName, packages.toArray(new String[0]));
+      if (potentialParent != null) {
+        getOwnerState(n).getParents().add(potentialParent);
       }
     }
   }

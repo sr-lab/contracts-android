@@ -20,10 +20,8 @@ import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 import java.io.File;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -49,22 +47,20 @@ public class ProjectVersionHierarchyExtractor {
     ProgramVersion projectVersion,
     final InheritanceResolved notifier
   ) throws Exception {
-    analyse(projectVersion, new ArrayList<>(), globalCreator, notifier);
+    resolveClassesAndInheritance(projectVersion, globalCreator, notifier);
     return this;
   }
 
   public void analyse(
     final ProgramVersion projectVersion,
-    final List<ProgramVersion> dependencies,
     final InheritanceResolved notifier
   ) throws Exception {
     ClassFinderCreator creator = new ClassFinderCreator(globalCreator);
-    analyse(projectVersion, dependencies, creator, notifier);
+    resolveClassesAndInheritance(projectVersion, creator, notifier);
   }
 
-  private void analyse(
+  private void resolveClassesAndInheritance(
     final ProgramVersion projectVersion,
-    final List<ProgramVersion> dependencies,
     final ClassFinderCreator creator,
     final InheritanceResolved notifier
   ) throws Exception {
@@ -79,19 +75,11 @@ public class ProjectVersionHierarchyExtractor {
     final InheritanceResolved notifier
   ) throws Exception {
     File project = programVersion.getFile();
-    if (!project.isDirectory()) {
-      readClassesForNonDirectoryFile(project, programVersion, creator, notifier);
-    } else {
+
+    if (project.isDirectory()) {
       throw new Exception("Received directory project instead of a file.");
     }
-  }
 
-  private void readClassesForNonDirectoryFile(
-    final File project,
-    final ProgramVersion programVersion,
-    final ClassFinderCreator creator,
-    final InheritanceResolved notifier
-  ) throws Exception {
     try (ZipFile zip = new ZipFile(project)) {
       Enumeration<? extends ZipEntry> en = zip.entries();
       while (en.hasMoreElements()) {
@@ -123,11 +111,10 @@ public class ProjectVersionHierarchyExtractor {
       CompilationUnit cu = StaticJavaParser.parse(inputStream);
       ClassCoordinates classCoordinates = classExtractor.readClass(cu, sourceCodeFileName);
       if (classCoordinates.getClassSimpleName() != null) {
-        creator.add(programVersion, classCoordinates, cu, file.getName());
+        creator.add(programVersion, classCoordinates, cu, sourceCodeFileName);
         notifier.notify(classCoordinates);
       }
-    } catch (Exception e) {
-      e.printStackTrace();
+    } catch (Error | Exception e) {
       LOGGER.warn("Exception thrown when reading classes from " + sourceCodeFileName);
     }
   }
@@ -144,7 +131,7 @@ public class ProjectVersionHierarchyExtractor {
     PsiFile psiFile = new KotlinParser().createKtFile(sourceCodeFileName, src);
     ClassCoordinates classCoordinates = classExtractorKotlin.readClass(psiFile, sourceCodeFileName);
     if (classCoordinates.getClassSimpleName() != null) {
-      creator.add(programVersion, classCoordinates, psiFile, file.getName());
+      creator.add(programVersion, classCoordinates, psiFile, sourceCodeFileName);
       notifier.notify(classCoordinates);
     }
   }
@@ -190,7 +177,8 @@ public class ProjectVersionHierarchyExtractor {
   private void notifyParents(
     final ClassParents classParents,
     final InheritanceResolved notifier,
-    final Set<String> allParents) {
+    final Set<String> allParents
+  ) {
 
     notifier.notify(classParents);
 

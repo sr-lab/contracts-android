@@ -57,7 +57,6 @@ import static contractstudy.evolution.model.diffRules.Utils.NF;
  */
 public class CollectDatasetStats implements Experiment {
 
-  final static File RESULTS_FOLDER = new File(Preferences.getOutputFolder());
   private static final Logger LOGGER = Logging.getLogger(CollectDatasetStats.class);
 
   static Map<String, Integer> data = new ConcurrentHashMap<>();

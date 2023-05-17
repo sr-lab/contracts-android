@@ -20,11 +20,9 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -50,10 +48,8 @@ public class ComputeInheritanceHierarchy implements Experiment {
 
     long startTime = System.currentTimeMillis();
     ExecutorService executor = Executors.newFixedThreadPool(Preferences.getThreadCount());
-    Collection<File> sourceCodeZips = FileUtils.listFiles(INPUT_SOURCE_CODE, new String[]{"zip"},
-      true);
-    Collection<File> foundContractsJsonFiles = FileUtils.listFiles(INPUT_CONTRACTS_FOUND,
-      new String[]{"json"}, true);
+    Collection<File> sourceCodeZips = FileUtils.listFiles(INPUT_SOURCE_CODE, new String[]{"zip"}, true);
+    Collection<File> foundContractsJsonFiles = FileUtils.listFiles(INPUT_CONTRACTS_FOUND, new String[]{"json"}, true);
 
     for (File project : sourceCodeZips) {
       LOGGER.info("Processing: " + project);
@@ -68,12 +64,10 @@ public class ComputeInheritanceHierarchy implements Experiment {
 
       Runnable task = () -> {
         try {
-          ProgramVersion version = createProgramVersionFromSourceCodeAndContractsFoundJsonFile(
-            project, contractsJsonFile);
-          List<ProgramVersion> deps = new ArrayList<>(); //Skipping all dependencies for now.
+          ProgramVersion version = createProgramVersionFromSourceCodeAndContractsFoundJsonFile(project, contractsJsonFile);
           Map<ClassCoordinates, ClassParents> classesMap = new HashMap<>();
 
-          extractor.analyse(version, deps, new InheritanceResolved() {
+          extractor.analyse(version, new InheritanceResolved() {
             @Override
             public void notify(ClassParents parents) {
               classesMap.put(parents, parents);
@@ -150,15 +144,14 @@ public class ComputeInheritanceHierarchy implements Experiment {
   }
 
   private static ProgramVersion createProgramVersionFromSourceCodeAndContractsFoundJsonFile(
-    File sourceCodeZip, File foundContractsJsonFile) {
+    File sourceCodeZip,
+    File foundContractsJsonFile
+  ) {
     String jsonFileName = foundContractsJsonFile.getName();
-    String projectName = foundContractsJsonFile.getName()
-      .substring(0, jsonFileName.lastIndexOf("-"));
+    String projectName = foundContractsJsonFile.getName().substring(0, jsonFileName.lastIndexOf("-"));
     String version = foundContractsJsonFile.getName()
       .substring(jsonFileName.lastIndexOf("-") + 1, jsonFileName.lastIndexOf("."));
-    ProgramVersion programVersion = ProgramVersion.getOrCreate(
-      projectName,
-      version);
+    ProgramVersion programVersion = ProgramVersion.getOrCreate(projectName, version);
     return programVersion.withFile(sourceCodeZip);
   }
 

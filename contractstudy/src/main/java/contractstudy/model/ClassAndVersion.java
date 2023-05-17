@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.Objects;
 
 /**
@@ -29,7 +28,7 @@ public class ClassAndVersion {
     return new ClassAndVersion(className, cuName, v);
   }
 
-  public static ClassAndVersion fromJson(String json) throws IOException {
+  public static ClassAndVersion fromJson(String json) {
     JSONObject o = new JSONObject(json);
     return create(
       o.getString("programName"),

@@ -46,6 +46,8 @@ public class ArtefactFactory {
     "/preConditionsAdded-inheritance.txt");
   public static final File INHERITANCE_CONTRACTS_NOT_CLASSIFIED = new File(
     RESULTS_INHERITANCE_FOLDER, "/contractsNotClassified-inheritance.txt");
+  public static final File INHERITANCE_CONTRACTS_UNCHANGED = new File(
+    RESULTS_INHERITANCE_FOLDER, "/contractsUnchanged-inheritance.txt");
   public static final File INHERITANCE_STATS = new File(RESULTS_INHERITANCE_FOLDER,
     "/hierarchy.tex");
   public static final File RESULTS_EVOLUTION_FOLDER = new File(RESULTS_FOLDER, "/evolution");

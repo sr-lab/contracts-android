@@ -16,7 +16,8 @@ public class ProjectClassExtractor {
 
   public ClassCoordinates readClass(
     final CompilationUnit cu,
-    final String cuName) {
+    final String cuName
+  ) {
     ClassDefinitionVisitor visitor = new ClassDefinitionVisitor(cuName);
     visitor.visit(cu, null);
     return visitor;
@@ -25,7 +26,8 @@ public class ProjectClassExtractor {
   public ClassParents readInheritance(
     final CompilationUnit cu,
     final String cuName,
-    final SourceClassFinder classFinder) {
+    final SourceClassFinder classFinder
+  ) {
     InheritanceHierarchyVisitor visitor = new InheritanceHierarchyVisitor(cuName, classFinder);
     visitor.visit(cu, null);
     return visitor;
