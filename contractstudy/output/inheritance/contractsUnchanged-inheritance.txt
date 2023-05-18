@@ -1,0 +1,42 @@
+UNCHANGED
+program: AChep-AcDisplay-0
+parent: project/app/src/main/java/com/achep/acdisplay/notifications/OpenNotificationJellyBeanMR2.java
+sub: project/app/src/main/java/com/achep/acdisplay/notifications/OpenNotificationKitKatWatch.java
+method: hasIdenticalIds(OpenNotification)
+parent constraints: 
+	JavaAssert condition: "sbn2 != null" , add info: -
+sub constraints: 
+	JavaAssert condition: "sbn2 != null" , add info: -
+
+UNCHANGED
+program: AChep-AcDisplay-0
+parent: project/app/src/main/java/com/achep/base/async/AsyncTask.java
+sub: project/app/src/main/java/com/achep/base/async/AsyncTask.java
+method: onPostExecute(String[])
+parent constraints: 
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+sub constraints: 
+	FindBugsNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+UNCHANGED
+program: AChep-AcDisplay-0
+parent: project/app/src/main/java/com/achep/base/async/AsyncTask.java
+sub: project/app/src/main/java/com/achep/base/async/AsyncTask.java
+method: doInBackground(String...)
+parent constraints: 
+	JavaAssert condition: "thread != null" , add info: -
+sub constraints: 
+	JavaAssert condition: "thread != null" , add info: -
+
+UNCHANGED
+program: k3b-APhotoManager-1
+parent: k3b-APhotoManager-1/fotolib2/src/main/java/de/k3b/media/PhotoPropertiesWrapper.java
+sub: k3b-APhotoManager-1/fotolib2/src/main/java/de/k3b/media/PhotoPropertiesChainReader.java
+method: getTitle()
+parent constraints: 
+	JavaAssert condition: "result != null" , add info: -
+sub constraints: 
+	JavaAssert condition: "result != null" , add info: -
+

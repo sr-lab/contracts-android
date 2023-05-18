@@ -23,18 +23,18 @@ import java.util.Objects;
 
 public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotlin {
 
-  private final Map<String, ConstraintType> map;
+  private final Map<String, ConstraintType> annotationsMap;
 
   public VisitorToCollectAnnotationsKotlin(
     ExtractionListener<ContractElement> consumer,
     String programName,
     String version,
     String cuName,
-    Map<String, ConstraintType> map) {
+    Map<String, ConstraintType> annotationsMap
+  ) {
     super(consumer, programName, version, cuName);
-    this.map = map;
+    this.annotationsMap = annotationsMap;
   }
-
 
   @Override
   public void visitAnnotationEntry(@NotNull KtAnnotationEntry annotationEntry) {
@@ -73,9 +73,9 @@ public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotl
 
   private ConstraintType getConstraintTypeString(KtAnnotationEntry annotationEntry) {
     String name = annotationEntry.getShortName().getIdentifier();
-    ConstraintType constraintType = map.get(name);
+    ConstraintType constraintType = annotationsMap.get(name);
     if (constraintType == null) {
-      constraintType = map.get(name.replace('.', '_'));
+      constraintType = annotationsMap.get(name.replace('.', '_'));
     }
     return constraintType;
   }

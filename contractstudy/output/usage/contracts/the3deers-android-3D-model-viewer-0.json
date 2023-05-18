@@ -1,0 +1,1 @@
+[{"cu":"src/org/andresoviedo/app/model3D/util/SystemUiHiderHoneycomb.java","condition":"Build.VERSION_CODES.HONEYCOMB","method":"onSystemUiVisibilityChange(int)","additional_info":"-","artefact_type":"CLASS","line":14,"name":"the3deers-android-3D-model-viewer","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]
