@@ -1,0 +1,10 @@
+CANNOT_BE_CLASSIFIED
+program: k3b-APhotoManager-0
+parent: fotoview.library/src/main/java/uk/co/senab/photoview/gestures/EclairGestureDetector.java
+sub: fotoview.library/src/main/java/uk/co/senab/photoview/gestures/FroyoGestureDetector.java
+method: onTouchEvent(MotionEvent)
+parent constraints: 
+	AndroidTargetApi condition: "5" , add info: -
+sub constraints: 
+	AndroidTargetApi condition: "8" , add info: -
+
