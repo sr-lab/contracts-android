@@ -47,40 +47,49 @@ public class AnalyseContractUsage implements Experiment {
   final static File INPUT_DATA_FOLDER = ArtefactFactory.USAGE_CONTRACTS_FOLDER;
   static Logger LOGGER = Logging.getLogger(AnalyseContractUsage.class);
 
+  // By Group
   static Map<ConstraintGroup, Integer> constraintsByGroup = ConstraintGroup.getListOfConstraintsGroup();
   static Map<ConstraintGroup, Integer> constraintsByGroupJava = ConstraintGroup.getListOfConstraintsGroup();
   static Map<ConstraintGroup, Integer> constraintsByGroupKotlin = ConstraintGroup.getListOfConstraintsGroup();
-  static Map<ConstraintGroup, Integer> constraintsByGroupLV = new LinkedHashMap<>(
-    ConstraintGroup.getListOfConstraintsGroup());
-  static Map<ConstraintGroup, Integer> constraintsByGroupLVJava = new LinkedHashMap<>(
-    ConstraintGroup.getListOfConstraintsGroup());
-  static Map<ConstraintGroup, Integer> constraintsByGroupLVKotlin = new LinkedHashMap<>(
-    ConstraintGroup.getListOfConstraintsGroup());
-
-  static Map<ConstraintClassification, Integer> constraintsByClassification = ConstraintClassification.getConstraintClassificationList();
-  static Map<ConstraintClassification, Integer> constraintsByClassificationJava = ConstraintClassification.getConstraintClassificationList();
-  static Map<ConstraintClassification, Integer> constraintsByClassificationKotlin = ConstraintClassification.getConstraintClassificationList();
-  static Map<ConstraintClassification, Integer> constraintsByClassificationLV = new LinkedHashMap<>(
-    constraintsByClassification);
-  static Map<ConstraintClassification, Integer> constraintsByClassificationLVJava = new LinkedHashMap<>(
-    constraintsByClassification);
-  static Map<ConstraintClassification, Integer> constraintsByClassificationLVKotlin = new LinkedHashMap<>(
-    constraintsByClassification);
-
+  static Map<ConstraintGroup, Integer> constraintsByGroupLV = new LinkedHashMap<>(ConstraintGroup.getListOfConstraintsGroup());
+  static Map<ConstraintGroup, Integer> constraintsByGroupLVJava = new LinkedHashMap<>(ConstraintGroup.getListOfConstraintsGroup());
+  static Map<ConstraintGroup, Integer> constraintsByGroupLVKotlin = new LinkedHashMap<>(ConstraintGroup.getListOfConstraintsGroup());
   static Multimap<ConstraintGroup, String> programsUsingConstraintGroups = HashMultimap.create();
   static Multimap<ConstraintGroup, String> programsUsingConstraintGroupsJava = HashMultimap.create();
   static Multimap<ConstraintGroup, String> programsUsingConstraintGroupsKotlin = HashMultimap.create();
+
+
+  // By Category
+  static Map<ConstraintCategory, Integer> constraintsByCategory = ConstraintCategory.getConstraintCategory();
+  static Map<ConstraintCategory, Integer> constraintsByCategoryJava = ConstraintCategory.getConstraintCategory();
+  static Map<ConstraintCategory, Integer> constraintsByCategoryKotlin = ConstraintCategory.getConstraintCategory();
+  static Map<ConstraintCategory, Integer> constraintsByCategoryLV = new LinkedHashMap<>(ConstraintCategory.getConstraintCategory());
+  static Map<ConstraintCategory, Integer> constraintsByCategoryLVJava = new LinkedHashMap<>(ConstraintCategory.getConstraintCategory());
+  static Map<ConstraintCategory, Integer> constraintsByCategoryLVKotlin = new LinkedHashMap<>(ConstraintCategory.getConstraintCategory());
+  static Multimap<ConstraintCategory, String> programsUsingConstraintCategories = HashMultimap.create();
+  static Multimap<ConstraintCategory, String> programsUsingConstraintCategoriesJava = HashMultimap.create();
+  static Multimap<ConstraintCategory, String> programsUsingConstraintCategoriesKotlin = HashMultimap.create();
+
+
+  // By Classification
+  static Map<ConstraintClassification, Integer> constraintsByClassification = ConstraintClassification.getConstraintClassificationList();
+  static Map<ConstraintClassification, Integer> constraintsByClassificationJava = ConstraintClassification.getConstraintClassificationList();
+  static Map<ConstraintClassification, Integer> constraintsByClassificationKotlin = ConstraintClassification.getConstraintClassificationList();
+  static Map<ConstraintClassification, Integer> constraintsByClassificationLV = new LinkedHashMap<>(constraintsByClassification);
+  static Map<ConstraintClassification, Integer> constraintsByClassificationLVJava = new LinkedHashMap<>(constraintsByClassification);
+  static Map<ConstraintClassification, Integer> constraintsByClassificationLVKotlin = new LinkedHashMap<>(constraintsByClassification);
 
   static Multimap<ConstraintClassification, String> programsUsingConstraintClassifications = HashMultimap.create();
   static Multimap<ConstraintClassification, String> programsUsingConstraintClassificationsJava = HashMultimap.create();
   static Multimap<ConstraintClassification, String> programsUsingConstraintClassificationsKotlin = HashMultimap.create();
 
+  // By Constraints
   static Map<String, Integer> constraintsByProgramLV = new HashMap<>();
   static Map<String, Integer> constraintsByProgramLVJava = new HashMap<>();
   static Map<String, Integer> constraintsByProgramLVKotlin = new HashMap<>();
-  static Map<ConstraintCategory, Map<String, Integer>> constraintsByCategoryInLV = ConstraintCategory.getConstraintCategoryListForProgramVersion();
-  static Map<ConstraintCategory, Map<String, Integer>> constraintsByCategoryInLVJava = ConstraintCategory.getConstraintCategoryListForProgramVersion();
-  static Map<ConstraintCategory, Map<String, Integer>> constraintsByCategoryInLVKotlin = ConstraintCategory.getConstraintCategoryListForProgramVersion();
+  static Map<ConstraintCategory, Map<String, Integer>> constraintsByCategoryInLV = ConstraintCategory.getConstraintCategoryHashMap();
+  static Map<ConstraintCategory, Map<String, Integer>> constraintsByCategoryInLVJava = ConstraintCategory.getConstraintCategoryHashMap();
+  static Map<ConstraintCategory, Map<String, Integer>> constraintsByCategoryInLVKotlin = ConstraintCategory.getConstraintCategoryHashMap();
 
   public static void main(String[] args) throws Exception {
 
@@ -95,6 +104,7 @@ public class AnalyseContractUsage implements Experiment {
       ConstraintType type = c.getKind();
       ConstraintGroup group = type.getGroup();
       ConstraintClassification classification = c.getClassification();
+      ConstraintCategory category = group.getCategory();
       String program = c.getProgramVersion().getName();
       Language fileLanguage = c.getFileLanguage();
 
@@ -102,15 +112,21 @@ public class AnalyseContractUsage implements Experiment {
       constraintsByProgram.compute(program, (g, i) -> i == null ? 1 : i + 1);
       constraintsByClassification.compute(classification, (g, i) -> i == null ? 1 : i + 1);
       constraintsByGroup.compute(group, (g, i) -> i == null ? 1 : i + 1);
+      constraintsByCategory.compute(category, (g, i) -> i == null ? 1 : i + 1);
+      programsUsingConstraintCategories.put(category, program);
 
       if (fileLanguage == Language.JAVA) {
         constraintsByClassificationJava.compute(classification, (g, i) -> i == null ? 1 : i + 1);
         constraintsByGroupJava.compute(group, (g, i) -> i == null ? 1 : i + 1);
         programsUsingConstraintGroupsJava.put(group, program);
+        constraintsByCategoryJava.compute(category, (g, i) -> i == null ? 1 : i + 1);
+        programsUsingConstraintCategoriesJava.put(category, program);
       } else if (fileLanguage == Language.KOTLIN) {
         constraintsByClassificationKotlin.compute(classification, (g, i) -> i == null ? 1 : i + 1);
         constraintsByGroupKotlin.compute(group, (g, i) -> i == null ? 1 : i + 1);
         programsUsingConstraintGroupsKotlin.put(group, program);
+        constraintsByCategoryKotlin.compute(category, (g, i) -> i == null ? 1 : i + 1);
+        programsUsingConstraintCategoriesKotlin.put(category, program);
       }
 
       if (latestVersions.contains(c.getProgramVersion())) {
@@ -119,6 +135,7 @@ public class AnalyseContractUsage implements Experiment {
         constraintsByClassificationLV.compute(classification, (g, i) -> i == null ? 1 : i + 1);
         constraintsByGroupLV.compute(group, (g, i) -> i == null ? 1 : i + 1);
         programsUsingConstraintClassifications.put(classification, program);
+        constraintsByCategoryLV.compute(category, (g, i) -> i == null ? 1 : i + 1);
 
         Map<String, Integer> data = constraintsByCategoryInLV.get(c.getKind().getGroup().getCategory());
         data.compute(program, (g, i) -> i == null ? 1 : i + 1);
@@ -128,6 +145,8 @@ public class AnalyseContractUsage implements Experiment {
           constraintsByClassificationLVJava.compute(classification, (g, i) -> i == null ? 1 : i + 1);
           constraintsByGroupLVJava.compute(group, (g, i) -> i == null ? 1 : i + 1);
           programsUsingConstraintClassificationsJava.put(classification, program);
+          constraintsByCategoryLVJava.compute(category, (g, i) -> i == null ? 1 : i + 1);
+          programsUsingConstraintCategoriesJava.put(category, program);
 
           Map<String, Integer> dataJava = constraintsByCategoryInLVJava.get(c.getKind().getGroup().getCategory());
           dataJava.compute(program, (g, i) -> i == null ? 1 : i + 1);
@@ -137,6 +156,8 @@ public class AnalyseContractUsage implements Experiment {
           constraintsByClassificationLVKotlin.compute(classification, (g, i) -> i == null ? 1 : i + 1);
           constraintsByGroupLVKotlin.compute(group, (g, i) -> i == null ? 1 : i + 1);
           programsUsingConstraintClassificationsKotlin.put(classification, program);
+          constraintsByCategoryLVKotlin.compute(category, (g, i) -> i == null ? 1 : i + 1);
+          programsUsingConstraintCategoriesKotlin.put(category, program);
 
           Map<String, Integer> dataJavaKotlin = constraintsByCategoryInLVKotlin.get(c.getKind().getGroup().getCategory());
           dataJavaKotlin.compute(program, (g, i) -> i == null ? 1 : i + 1);
@@ -150,6 +171,7 @@ public class AnalyseContractUsage implements Experiment {
     outputConstraintsByGroupToLatex();
     outputConstraintsByGroupInFirstAndLastVersionToLatex();
     outputConstraintsByClassificationToLatex();
+    outputConstraintsByCategoryToLatex();
     computeGiniAndOutputToLatex();
     outputCategoriesInfoToLatex(constraintsByCategoryInLV);
   }
@@ -275,6 +297,49 @@ public class AnalyseContractUsage implements Experiment {
         try {
           out.println(
             NF.format(programsUsingConstraintClassificationsKotlin.get(entry.getKey()).size())
+              + " \\\\ ");
+        } catch (IllegalArgumentException e) {
+          out.println(NF.format(0) + " \\\\ ");
+        }
+      }
+      out.println("\\hline");
+      out.println("\\end{tabular}");
+      out.println("\\end{table}");
+    }
+  }
+
+  private static void outputConstraintsByCategoryToLatex() throws IOException {
+    File latex = ArtefactFactory.USAGE_CONTRACTS_BY_CATEGORY;
+    try (PrintStream out = new PrintStream(Files.newOutputStream(latex.toPath()))) {
+      out.println("% TABLE GENERATED BY " + AnalyseContractUsage.class.getName());
+      out.println("% TIMESTAMP:   " + new Date());
+      out.println("\\begin{table}[]");
+      out.println("\\centering");
+      out.println("\\caption{Contracts by category}");
+      out.println("\\label{tab:contractsbycategory}");
+      out.println("\\begin{tabular}{| c | c | c | c | c | c | c |} \\hline");
+      out.println("type & \\multicolumn{2}{ c |}{contracts (all ver.)} & "
+        + "\\multicolumn{2}{ c |}{contracts (latest)} & "
+        + "\\multicolumn{2}{ c |}{contracts (programs)} \\\\ \n"
+        + "\\cline{2-7}\n"
+        + "& Java & Kotlin & Java & Kotlin & Java & Kotlin \\\\\n"
+        + "\\hline");
+      for (Map.Entry<ConstraintCategory, Integer> entry : constraintsByCategory.entrySet()) {
+        out.print("\t");
+        out.print(entry.getKey().getName() + " & ");
+        out.print(NF.format(constraintsByCategoryJava.get(entry.getKey())) + " & ");
+        out.print(NF.format(constraintsByCategoryKotlin.get(entry.getKey())) + " & ");
+        out.print(NF.format(constraintsByCategoryLVJava.get(entry.getKey())) + " & ");
+        out.print(NF.format(constraintsByCategoryLVKotlin.get(entry.getKey())) + " & ");
+        try {
+          out.print(NF.format(programsUsingConstraintCategoriesJava.get(entry.getKey()).size())
+            + " & ");
+        } catch (IllegalArgumentException e) {
+          out.print(NF.format(0) + " & ");
+        }
+        try {
+          out.println(
+            NF.format(programsUsingConstraintCategoriesKotlin.get(entry.getKey()).size())
               + " \\\\ ");
         } catch (IllegalArgumentException e) {
           out.println(NF.format(0) + " \\\\ ");

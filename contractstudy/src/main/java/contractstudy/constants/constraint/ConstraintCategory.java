@@ -24,7 +24,7 @@ public enum ConstraintCategory {
 
   private final String name;
 
-  static public Map<ConstraintCategory, Map<String, Integer>> getConstraintCategoryListForProgramVersion() {
+  static public Map<ConstraintCategory, Map<String, Integer>> getConstraintCategoryHashMap() {
     Map<ConstraintCategory, Map<String, Integer>> categories = new LinkedHashMap<>();
     categories.put(ConstraintCategory.API, new HashMap<>());
     categories.put(ConstraintCategory.ANNOTATION, new HashMap<>());
@@ -33,4 +33,15 @@ public enum ConstraintCategory {
     categories.put(ConstraintCategory.OTHERS, new HashMap<>());
     return categories;
   }
+
+  static public Map<ConstraintCategory, Integer> getConstraintCategory() {
+    Map<ConstraintCategory, Integer> categories = new LinkedHashMap<>();
+    categories.put(ConstraintCategory.API, 0);
+    categories.put(ConstraintCategory.ANNOTATION, 0);
+    categories.put(ConstraintCategory.ASSERTION, 0);
+    categories.put(ConstraintCategory.RUNTIME_EXCEPTION, 0);
+    categories.put(ConstraintCategory.OTHERS, 0);
+    return categories;
+  }
+
 }

@@ -28,6 +28,8 @@ public class ArtefactFactory {
     "/topUsersInLastVersion.tex");
   public static final File USAGE_CONTRACTS_BY_CLASSIFICATION = new File(RESULTS_USAGE_FOLDER,
     "/contractsByClassification.tex");
+  public static final File USAGE_CONTRACTS_BY_CATEGORY = new File(RESULTS_USAGE_FOLDER,
+    "/contractsByCategory.tex");
   public static final File USAGE_CONTRACTS_BY_GROUP = new File(RESULTS_USAGE_FOLDER,
     "/contractsByGroup.tex");
   public static final File USAGE_CONTRACTS_BY_GROUP_FIRST_LAST_VERSION = new File(

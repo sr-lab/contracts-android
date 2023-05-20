@@ -19,7 +19,8 @@ public enum ConstraintGroup {
     ConstraintCategory.RUNTIME_EXCEPTION),
   UNCONDITIONAL_RUNTIME_EXCEPTION("unsupported operation exception", "unsupp. op. exc.",
     ConstraintCategory.RUNTIME_EXCEPTION),
-  ASSERTION("assertion", "assert", ConstraintCategory.ASSERTION),
+  JAVA_ASSERTION("java assertion", "java assert", ConstraintCategory.ASSERTION),
+  KOTLIN_ASSERTION("kotlin assertion", "kotlin assert", ConstraintCategory.ASSERTION),
   CAPI_GUAVA("guava precondition API", "guava precond.", ConstraintCategory.API),
   CAPI_COMMONS_VALIDATE("commons validate API", "commons validate", ConstraintCategory.API),
   CAPI_SPRING_ASSERT("spring assert API", "spring assert", ConstraintCategory.API),
@@ -40,7 +41,8 @@ public enum ConstraintGroup {
     Map<ConstraintGroup, Integer> groups = new LinkedHashMap<>();
     groups.put(ConstraintGroup.CONDITIONAL_RUNTIME_EXCEPTION, 0);
     groups.put(ConstraintGroup.UNCONDITIONAL_RUNTIME_EXCEPTION, 0);
-    groups.put(ConstraintGroup.ASSERTION, 0);
+    groups.put(ConstraintGroup.JAVA_ASSERTION, 0);
+    groups.put(ConstraintGroup.KOTLIN_ASSERTION, 0);
     groups.put(ConstraintGroup.CAPI_GUAVA, 0);
     groups.put(ConstraintGroup.CAPI_COMMONS_VALIDATE, 0);
     groups.put(ConstraintGroup.CAPI_SPRING_ASSERT, 0);
@@ -48,7 +50,6 @@ public enum ConstraintGroup {
     groups.put(ConstraintGroup.ANNO_JSR305, 0);
     groups.put(ConstraintGroup.ANNO_FINDBUGS, 0);
     groups.put(ConstraintGroup.ANNO_JetBrains, 0);
-    groups.put(ConstraintGroup.ANNO_Lombok, 0);
     groups.put(ConstraintGroup.ANNO_Android, 0);
     groups.put(ConstraintGroup.ANNO_AndroidX, 0);
     groups.put(ConstraintGroup.KOTLIN_CONTRACTS, 0);

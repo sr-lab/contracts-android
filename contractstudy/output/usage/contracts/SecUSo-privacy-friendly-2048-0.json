@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/org/secuso/privacyfriendly2048/activities/SettingsActivity.java","condition":"Build.VERSION_CODES.HONEYCOMB","method":"onOptionsItemSelected(MenuItem)","additional_info":"-","artefact_type":"CLASS","line":185,"name":"SecUSo-privacy-friendly-2048","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

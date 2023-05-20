@@ -249,12 +249,12 @@ public enum ConstraintType {
   SpringAssertIsTrue(ConstraintGroup.CAPI_SPRING_ASSERT, _PRECONDITION, TVL.MAYBE),
   SpringAssertNotNull(ConstraintGroup.CAPI_SPRING_ASSERT, _PRECONDITION, TVL.NO),
 
-  JavaAssert(ConstraintGroup.ASSERTION, _UNKNOWN, TVL.MAYBE),
-  KotlinAssert(ConstraintGroup.ASSERTION, _UNKNOWN, TVL.MAYBE),
-  KotlinCheck(ConstraintGroup.ASSERTION, _UNKNOWN, TVL.MAYBE),
-  KotlinCheckNotNull(ConstraintGroup.ASSERTION, _UNKNOWN, TVL.MAYBE),
-  KotlinRequire(ConstraintGroup.ASSERTION, _UNKNOWN, TVL.MAYBE),
-  KotlinRequireNotNull(ConstraintGroup.ASSERTION, _UNKNOWN, TVL.MAYBE),
+  JavaAssert(ConstraintGroup.JAVA_ASSERTION, _UNKNOWN, TVL.MAYBE),
+  KotlinAssert(ConstraintGroup.KOTLIN_ASSERTION, _UNKNOWN, TVL.MAYBE),
+  KotlinCheck(ConstraintGroup.KOTLIN_ASSERTION, _UNKNOWN, TVL.MAYBE),
+  KotlinCheckNotNull(ConstraintGroup.KOTLIN_ASSERTION, _UNKNOWN, TVL.MAYBE),
+  KotlinRequire(ConstraintGroup.KOTLIN_ASSERTION, _UNKNOWN, TVL.MAYBE),
+  KotlinRequireNotNull(ConstraintGroup.KOTLIN_ASSERTION, _UNKNOWN, TVL.MAYBE),
 
   // JSR303 annotations
   JSR303Null(ConstraintGroup.ANNO_JSR303, _STANDARD_ANNOTATION, TVL.NO),
