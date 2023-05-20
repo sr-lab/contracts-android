@@ -2,6 +2,7 @@ package contractstudy.usage.collectContracts.api.CommonsValidate.CommonsValidate
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import contractstudy.constants.constraint.ConstraintCategory;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
@@ -69,7 +70,10 @@ public class CommonsValidate2Extractor implements Extractor<ContractElement> {
     String src = new InputStreamToStringConversion(in).getResult();
     PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
     StaticImportCollectorKotlin staticCollector = new StaticImportCollectorKotlin(
-      "org.apache.commons.lang", "org.apache.commons.lang.Validate");
+      "org.apache.commons.lang",
+      "org.apache.commons.lang.Validate",
+      ConstraintCategory.API
+    );
     psiFile.accept(staticCollector);
     MethodVisitorToCollectCommons2ValidateInvocationsKotlin methodVisitorToCollectCommons2ValidateInvocationsKotlin =
       new MethodVisitorToCollectCommons2ValidateInvocationsKotlin(

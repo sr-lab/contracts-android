@@ -2,6 +2,7 @@ package contractstudy.usage.collectContracts.api.SpringAssert;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import contractstudy.constants.constraint.ConstraintCategory;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
@@ -67,7 +68,9 @@ public class SpringAssertExtractor implements Extractor<ContractElement> {
     PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
     StaticImportCollectorKotlin staticCollector = new StaticImportCollectorKotlin(
       "org.springframework.util",
-      "org.springframework.util.Assert");
+      "org.springframework.util.Assert",
+      ConstraintCategory.API
+    );
     psiFile.accept(staticCollector);
     MethodVisitorToCollectSpringAssertInvocationsKotlin methodVisitorToCollectSpringAssertInvocations =
       new MethodVisitorToCollectSpringAssertInvocationsKotlin(
