@@ -12,6 +12,7 @@ load_dotenv("filePaths.env")
 
 INPUT_FOLDER = os.getenv('CLONED-PROJECTS-FOLDER')
 OUTPUT_FOLDER = os.getenv('DATASET-PROJECTS-FOLDER')
+OUTPUT_FILE = os.getenv('DATASET-PROJECTS-LIST')
 
 def zipDirectory(outputPath, inputPath):
     shutil.make_archive(outputPath, 'zip', inputPath)
@@ -122,6 +123,23 @@ def renameProjectsFromSameFolder(folder, appNames, lastVersionIndex):
             index += 1
     except: 
         return    
+    
+    
+def listDataset():
+    dirListInDataset = listdir(OUTPUT_FOLDER)  
+    projects = []
+    for directory in dirListInDataset:
+        appDir = listdir(OUTPUT_FOLDER + "/" + directory)
+        firstElement = appDir[0]
+        removeExtension = firstElement.rsplit(".", 1)[0]
+        authorProjectName = removeExtension.rsplit("-", 1)[0]
+        projects.append(str(authorProjectName) + " : " + str(len(appDir)) + "\n")
+        
+    sortedProjects = sorted([string.lower() for string in projects])
+    registryFile = open(OUTPUT_FILE, 'w')
+    for project in sortedProjects: 
+        registryFile.write(project)
+    registryFile.close()
 
 if __name__ == "__main__":
     print("prepareDateset.py: Preparing dataset...")
@@ -129,5 +147,6 @@ if __name__ == "__main__":
         zipDirectory(OUTPUT_FOLDER+"/"+f, INPUT_FOLDER+"/"+f)        
     organizeProjectsZipsFolders()
     updateZipNameWithStandarizedVersionNumber()
+    listDataset()
     print("SUCCESS: Cloned projects were organized and zipped to folder " + OUTPUT_FOLDER)
     
