@@ -2,6 +2,7 @@ package contractstudy.usage.collectContracts.api.Guava;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import contractstudy.constants.constraint.ConstraintCategory;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
@@ -67,7 +68,9 @@ public class GuavaPreconditionsExtractor implements Extractor<ContractElement> {
     PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
     StaticImportCollectorKotlin staticCollector = new StaticImportCollectorKotlin(
       "com.google.common.base",
-      "com.google.common.base.Preconditions");
+      "com.google.common.base.Preconditions",
+      ConstraintCategory.API
+    );
     psiFile.accept(staticCollector);
     MethodVisitorToCollectGuavaPreconditionsInvocationsKotlin visitor = new MethodVisitorToCollectGuavaPreconditionsInvocationsKotlin(
       consumer, programName, version,

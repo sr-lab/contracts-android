@@ -1,5 +1,6 @@
 package contractstudy.collectContracts.common.StaticImportCollector.kotlin;
 
+import contractstudy.constants.constraint.ConstraintCategory;
 import contractstudy.usage.collectContracts.common.StaticImportCollector.StaticImportCollectorKotlin;
 import contractstudy.usage.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 import contractstudy.utils.InputStreamToStringConversion;
@@ -41,7 +42,7 @@ public class TestStaticImportCollectorKotlin {
     PsiFile psiFile = new KotlinParser().createKtFile("test", src);
 
     StaticImportCollectorKotlin importsCollector = new StaticImportCollectorKotlin(
-      annotationPackageName, targetQClassName);
+      annotationPackageName, targetQClassName, ConstraintCategory.ANNOTATION);
     psiFile.accept(importsCollector);
     StaticImportState result = importsCollector.getStaticImportState();
 

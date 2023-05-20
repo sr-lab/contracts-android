@@ -13,6 +13,7 @@ import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.ProgramVersion;
 import contractstudy.usage.collectContracts.common.AbstractMethodVisitor.AbstractMethodVisitor;
+import contractstudy.usage.collectContracts.common.StaticImportCollector.constants.StaticImportState;
 
 import java.util.Map;
 
@@ -24,23 +25,26 @@ import java.util.Map;
 @SuppressWarnings("rawtypes")
 public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
 
+  private final StaticImportState importState;
   private final Map<String, ConstraintType> map;
 
   public VisitorToCollectAnnotations(
     ExtractionListener<ContractElement> consumer,
     String programName, String version,
     String cuName,
-    Map<String, ConstraintType> map
+    Map<String, ConstraintType> map,
+    StaticImportState importState
   ) {
     super(consumer, programName, version, cuName);
     this.map = map;
+    this.importState = importState;
   }
 
   @Override
   public void visit(NormalAnnotationExpr n, Object arg) {
     String name = n.getName().getIdentifier();
     ConstraintType constraintType = map.get(name);
-    if (constraintType != null) {
+    if (constraintType != null && importState == StaticImportState.CLASS) {
       String condition = n.getPairs().toString();
       ConstraintedArtefact artefact = getConstraintArtefact(n);
       ContractElement p = create(
@@ -65,7 +69,7 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
       constraintType = map.get(name.replace('.', '_'));
     }
 
-    if (constraintType != null) {
+    if (constraintType != null && importState == StaticImportState.CLASS) {
       String condition = n.getMemberValue().removeComment().toString();
       ConstraintedArtefact artefact = getConstraintArtefact(n);
       ContractElement p = create(
@@ -87,7 +91,7 @@ public class VisitorToCollectAnnotations extends AbstractMethodVisitor {
     String name = n.getName().getIdentifier();
     ConstraintType constraintType = map.get(name);
 
-    if (constraintType != null) {
+    if (constraintType != null && importState == StaticImportState.CLASS) {
       ConstraintedArtefact artefact = getConstraintArtefact(n);
       ContractElement p = create(
         ProgramVersion.getOrCreate(programName, version),

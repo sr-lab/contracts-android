@@ -9,6 +9,7 @@ import contractstudy.evolution.model.Differ;
 import contractstudy.scripts.model.ArtefactFactory;
 import contractstudy.scripts.model.Experiment;
 import contractstudy.scripts.model.ExperimentArtefact;
+import contractstudy.utils.LanguageUtils;
 import org.apache.log4j.Logger;
 
 import java.io.File;
@@ -32,6 +33,7 @@ import static contractstudy.evolution.model.diffRules.Utils.NF;
 
 public class AnalyseContractEvolution implements Experiment {
 
+  static Logger LOGGER = Logging.getLogger(AnalyseContractEvolution.class);
   final static File RESULTS_FOLDER = ArtefactFactory.RESULTS_EVOLUTION_FOLDER;
   final static Map<DiffResult, File> LOG_FILES = new HashMap<>() {
     {
@@ -40,14 +42,15 @@ public class AnalyseContractEvolution implements Experiment {
       put(DiffResult.CANNOT_BE_CLASSIFIED, ArtefactFactory.EVOLUTION_CONTRACTS_NOT_CLASSIFIED);
     }
   };
-  static Logger LOGGER = Logging.getLogger(AnalyseContractEvolution.class);
+  static Map<DiffResult, Integer> evolutionStatsInJava = new HashMap<>();
+  static Map<DiffResult, Integer> evolutionStatsInKotlin = new HashMap<>();
 
   public static void main(String[] args) throws Exception {
     RESULTS_FOLDER.mkdirs();
     resetLogsByDeletingFiles();
     Map<DiffResult, Integer> stats = compareEvolutionAndLogResults();
     outputStatsToConsole(stats);
-    outputStatsToLatex(stats);
+    outputStatsToLatex();
   }
 
   private static void resetLogsByDeletingFiles() {
@@ -59,7 +62,11 @@ public class AnalyseContractEvolution implements Experiment {
   public static Map<DiffResult, Integer> compareEvolutionAndLogResults() throws Exception {
     List<DiffRecord> evolutionRecords = new EvolutionDiffExtractor().extract();
     Differ differ = new Differ();
+
     Map<DiffResult, Integer> evolutionStats = initEmpty();
+    evolutionStatsInJava = initEmpty();
+    evolutionStatsInKotlin = initEmpty();
+
     for (DiffRecord record : evolutionRecords) {
       DiffResult result = differ.compare(record.getConstraints1(), record.getConstraints2());
       evolutionStats.compute(result, (k, v) -> (v == null) ? 1 : v + 1);
@@ -67,7 +74,15 @@ public class AnalyseContractEvolution implements Experiment {
       if (log != null) {
         outputEachEvolutionStatsToFile(record, result, log);
       }
+
+      LanguageUtils.Language language = LanguageUtils.getLanguageFromNameExtension(record.getCu1());
+      if (language == LanguageUtils.Language.JAVA) {
+        evolutionStatsInJava.compute(result, (k, v) -> (v == null) ? 1 : v + 1);
+      } else if (language == LanguageUtils.Language.KOTLIN) {
+        evolutionStatsInKotlin.compute(result, (k, v) -> (v == null) ? 1 : v + 1);
+      }
     }
+
     return evolutionStats;
   }
 
@@ -116,7 +131,7 @@ public class AnalyseContractEvolution implements Experiment {
     }
   }
 
-  private static void outputStatsToLatex(Map<DiffResult, Integer> stats)
+  private static void outputStatsToLatex()
     throws IOException {
     LOGGER.info("Rendering output to latex");
     File latex = ArtefactFactory.EVOLUTION_STATS;
@@ -127,22 +142,22 @@ public class AnalyseContractEvolution implements Experiment {
       out.println("\\centering");
       out.println("\\caption{Contract evolution data result summary}");
       out.println("\\label{tab:results-evolution}");
-      out.println("\\begin{tabular}{|l|l|r|} \\hline");
-      out.println("   evolution & critical & count \\\\ \\hline");
-      out.println("   unchanged & no & " + NF.format(stats.get(DiffResult.UNCHANGED)) + "  \\\\");
-      out.println(
-        "   minor change & no & " + NF.format(stats.get(DiffResult.MINOR_CHANGE)) + "  \\\\");
-      out.println(
-        "   pre-conditions weakened & no & " + NF.format(stats.get(DiffResult.PRECONDITION_REMOVED))
-          + "  \\\\");
-      out.println("   post-conditions strengthened & no & " + NF.format(
-        stats.get(DiffResult.POSTCONDITION_ADDED)) + "  \\\\ \\hline");
-      out.println("   pre-conditions strengthened & yes & " + NF.format(
-        stats.get(DiffResult.PRECONDITION_ADDED)) + "  \\\\");
-      out.println("   post-conditions weakened & yes & " + NF.format(
-        stats.get(DiffResult.POSTCONDITION_REMOVED)) + "  \\\\ \\hline");
-      out.println("   unclassified & ? & " + NF.format(stats.get(DiffResult.CANNOT_BE_CLASSIFIED))
-        + "  \\\\ \\hline");
+      out.println("\\begin{tabular}{|l|l|r|r|} \\hline");
+      out.println("   evolution & critical & java count & kotlin count \\\\ \\hline");
+      out.println("   unchanged & no & "
+        + NF.format(evolutionStatsInJava.get(DiffResult.UNCHANGED)) + " & " + NF.format(evolutionStatsInKotlin.get(DiffResult.UNCHANGED)) + "  \\\\");
+      out.println("   minor change & no & "
+        + NF.format(evolutionStatsInJava.get(DiffResult.MINOR_CHANGE)) + " & " + NF.format(evolutionStatsInKotlin.get(DiffResult.MINOR_CHANGE)) + "  \\\\");
+      out.println("   pre-conditions weakened & no & "
+          + NF.format(evolutionStatsInJava.get(DiffResult.PRECONDITION_REMOVED)) + " & " + NF.format(evolutionStatsInKotlin.get(DiffResult.PRECONDITION_REMOVED)) + "  \\\\");
+      out.println("   post-conditions strengthened & no & " +
+        NF.format(evolutionStatsInJava.get(DiffResult.POSTCONDITION_ADDED)) + " & " + NF.format(evolutionStatsInKotlin.get(DiffResult.POSTCONDITION_ADDED)) + "  \\\\ \\hline");
+      out.println("   pre-conditions strengthened & yes & "
+        + NF.format(evolutionStatsInJava.get(DiffResult.PRECONDITION_ADDED)) + " & " + NF.format(evolutionStatsInKotlin.get(DiffResult.PRECONDITION_ADDED)) + "  \\\\");
+      out.println("   post-conditions weakened & yes & "
+        + NF.format(evolutionStatsInJava.get(DiffResult.POSTCONDITION_REMOVED)) + " & " +  NF.format(evolutionStatsInKotlin.get(DiffResult.POSTCONDITION_REMOVED)) + "  \\\\ \\hline");
+      out.println("   unclassified & ? & "
+        + NF.format(evolutionStatsInJava.get(DiffResult.CANNOT_BE_CLASSIFIED)) + " & " + NF.format(evolutionStatsInKotlin.get(DiffResult.CANNOT_BE_CLASSIFIED)) + "  \\\\ \\hline");
       out.println("\\end{tabular}");
       out.println("\\end{table}");
     }

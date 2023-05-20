@@ -120,8 +120,7 @@ public class AnalyseContractUsageAcrossVersions implements Experiment {
   }
 
   public void outputResultsToCSVFile(
-    Pair<Map<String, ProgramVersion>,
-      Map<String, ProgramVersion>> firstAndLatestVersions,
+    Pair<Map<String, ProgramVersion>, Map<String, ProgramVersion>> firstAndLatestVersions,
     Map<ProgramVersion, Map<String, Integer>> metrics,
     Map<ProgramVersion, Integer> constraintsInFirstVersions,
     Map<ProgramVersion, Integer> constraintsInLastVersions

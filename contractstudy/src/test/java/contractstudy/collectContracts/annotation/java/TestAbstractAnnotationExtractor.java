@@ -64,6 +64,7 @@ public class TestAbstractAnnotationExtractor {
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
     JSR303Extractor jSR303Extractor = new JSR303Extractor();
+    int totalContracts = 6;
 
     jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
       collector);
@@ -74,6 +75,7 @@ public class TestAbstractAnnotationExtractor {
       .filter(c -> c.getKind().equals(constraintType))
       .collect(Collectors.toList());
 
+    assertEquals(totalContracts, collector.getContractElements().size());
     assertNotNull(contractsFound);
     assertEquals(count, contractsFound.size());
   }
@@ -82,10 +84,10 @@ public class TestAbstractAnnotationExtractor {
   @MethodSource("generatorJSR305Extractor")
   public void testJSR305Extractor_whenAnnotationExistsWithWildCardImport_expectListOfAnnotations(
     ConstraintType constraintType, String fileName, int count) throws Exception {
-
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
     JSR303Extractor jSR303Extractor = new JSR303Extractor();
+    int totalContracts = 6;
 
     jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
       collector);
@@ -96,6 +98,7 @@ public class TestAbstractAnnotationExtractor {
       .filter(c -> c.getKind().equals(constraintType))
       .collect(Collectors.toList());
 
+    assertEquals(totalContracts, collector.getContractElements().size());
     assertNotNull(contractsFound);
     assertEquals(count, contractsFound.size());
   }
@@ -105,6 +108,7 @@ public class TestAbstractAnnotationExtractor {
     File file = new File(TEST_DATA_FOLDER, "AnnotationsMultiple.java");
     ConstraintCollector collector = new ConstraintCollector();
     JSR303Extractor jSR303Extractor = new JSR303Extractor();
+    int totalContracts = 6;
 
     jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
       collector);
@@ -115,6 +119,7 @@ public class TestAbstractAnnotationExtractor {
       .filter(c -> c.getKind().equals(ConstraintType.JSR303Null))
       .collect(Collectors.toList());
 
+    assertEquals(totalContracts, collector.getContractElements().size());
     assertNotNull(contractsFound);
     assertEquals(0, contractsFound.size());
   }
@@ -129,6 +134,7 @@ public class TestAbstractAnnotationExtractor {
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
     JSR303Extractor jSR303Extractor = new JSR303Extractor();
+    int totalContracts = 6;
 
     jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
       collector);
@@ -139,6 +145,7 @@ public class TestAbstractAnnotationExtractor {
       .filter(c -> c.getKind().equals(constraintType))
       .collect(Collectors.toList());
 
+    assertEquals(totalContracts, collector.getContractElements().size());
     assertNotNull(contractsFound);
     assertEquals(count, contractsFound.size());
   }
@@ -148,6 +155,7 @@ public class TestAbstractAnnotationExtractor {
     File file = new File(TEST_DATA_FOLDER, "AnnotationsStaticImport.java");
     ConstraintCollector collector = new ConstraintCollector();
     JSR303Extractor jSR303Extractor = new JSR303Extractor();
+    int totalContracts = 5;
 
     jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
       collector);
@@ -158,6 +166,7 @@ public class TestAbstractAnnotationExtractor {
       .filter(c -> c.getKind().equals(ConstraintType.JSR303Null))
       .collect(Collectors.toList());
 
+    assertEquals(totalContracts, collector.getContractElements().size());
     assertNotNull(contractsFound);
     assertEquals(0, contractsFound.size());
   }
@@ -172,6 +181,7 @@ public class TestAbstractAnnotationExtractor {
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
     JSR303Extractor jSR303Extractor = new JSR303Extractor();
+    int totalContracts = 3;
 
     jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
       collector);
@@ -182,6 +192,7 @@ public class TestAbstractAnnotationExtractor {
       .filter(c -> c.getKind().equals(constraintType))
       .collect(Collectors.toList());
 
+    assertEquals(totalContracts, collector.getContractElements().size());
     assertNotNull(contractsFound.get(0));
     assertEquals(constraintedArtefact, contractsFound.get(0).getConstraintedArtefact());
   }
@@ -196,6 +207,7 @@ public class TestAbstractAnnotationExtractor {
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
     AndroidAnnotationExtractor androidAnnotationExtractor = new AndroidAnnotationExtractor();
+    int totalContracts = 1;
 
     androidAnnotationExtractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
       collector);
@@ -206,6 +218,7 @@ public class TestAbstractAnnotationExtractor {
       .filter(c -> c.getKind().equals(constraintType))
       .collect(Collectors.toList());
 
+    assertEquals(totalContracts, collector.getContractElements().size());
     assertNotNull(contractsFound.get(0));
     assertEquals(constraintedArtefact, contractsFound.get(0).getConstraintedArtefact());
   }
