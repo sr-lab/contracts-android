@@ -1,0 +1,276 @@
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/FiltersContentProvider.java
+method: openFile(Uri,String)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/FiltersContentProvider.java
+method: getType(Uri)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/FiltersContentProvider.java
+method: query(Uri,String[],String,String[],String)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/FiltersContentProvider.java
+method: insert(Uri,ContentValues)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/FiltersContentProvider.java
+method: update(Uri,ContentValues,String,String[])
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/FiltersContentProvider.java
+method: delete(Uri,String,String[])
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/ui/MainActivity.java
+method: onConfigurationChanged(Configuration)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/ui/MainActivity.java
+method: onDrawerSlide(View,float)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/ui/MainActivity.java
+method: onDrawerOpened(View)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/ui/MainActivity.java
+method: onDrawerClosed(View)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/ui/WhitelistActivity.java
+method: onCreate(Bundle)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNullable condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/ui/UserFilterActivity.java
+method: onClick(View)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNullable condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/service/NotificationServiceImpl.java
+method: showRateAppNotification(String)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/service/NotificationService.java
+method: showRateAppNotification(String)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/service/job/Worker.java
+method: Worker(Context, WorkerParameters)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/onboarding/OnboardingActivity.java
+method: onCreateView(LayoutInflater,ViewGroup,Bundle)
+constraints in AdguardTeam-ContentBlocker-0
+constraints in AdguardTeam-ContentBlocker-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: butzist-ActivityLauncher-0
+version 2: butzist-ActivityLauncher-1
+compilation unit: ActivityLauncherApp/src/main/java/de/szalkowski/activitylauncher/ShortcutActivity.java
+method: onCreate(Bundle)
+constraints in butzist-ActivityLauncher-0
+constraints in butzist-ActivityLauncher-1
+	AndroidXNullable condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: butzist-ActivityLauncher-0
+version 2: butzist-ActivityLauncher-1
+compilation unit: ActivityLauncherApp/src/main/java/de/szalkowski/activitylauncher/IconPickerDialogFragment.java
+method: onAttach(Context)
+constraints in butzist-ActivityLauncher-0
+constraints in butzist-ActivityLauncher-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: butzist-ActivityLauncher-0
+version 2: butzist-ActivityLauncher-1
+compilation unit: ActivityLauncherApp/src/main/java/de/szalkowski/activitylauncher/MainActivity.java
+method: onRestoreInstanceState(Bundle)
+constraints in butzist-ActivityLauncher-0
+constraints in butzist-ActivityLauncher-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: butzist-ActivityLauncher-0
+version 2: butzist-ActivityLauncher-1
+compilation unit: ActivityLauncherApp/src/main/java/de/szalkowski/activitylauncher/MainActivity.java
+method: onSaveInstanceState(Bundle)
+constraints in butzist-ActivityLauncher-0
+constraints in butzist-ActivityLauncher-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: butzist-ActivityLauncher-0
+version 2: butzist-ActivityLauncher-1
+compilation unit: ActivityLauncherApp/src/main/java/de/szalkowski/activitylauncher/AllTasksListFragment.java
+method: onCreateContextMenu(ContextMenu,View,ContextMenuInfo)
+constraints in butzist-ActivityLauncher-0
+constraints in butzist-ActivityLauncher-1
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: greenaddress-abcore-0
+version 2: greenaddress-abcore-1
+compilation unit: app/src/main/java/com/greenaddress/abcore/AppCompatPreferenceActivity.java
+method: setContentView(int)
+constraints in greenaddress-abcore-0
+constraints in greenaddress-abcore-1
+	AndroidXLayoutRes condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: greenaddress-abcore-0
+version 2: greenaddress-abcore-1
+compilation unit: app/src/main/java/com/greenaddress/abcore/LogLinesAdapter.java
+method: onCreateViewHolder(ViewGroup,int)
+constraints in greenaddress-abcore-0
+constraints in greenaddress-abcore-1
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: greenaddress-abcore-0
+version 2: greenaddress-abcore-1
+compilation unit: app/src/main/java/com/greenaddress/abcore/LogLinesAdapter.java
+method: onBindViewHolder(LogViewHolder,int)
+constraints in greenaddress-abcore-0
+constraints in greenaddress-abcore-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/util/UIUtils.java
+method: getDimension(Context,int)
+constraints in sdex-ActivityManager-0
+constraints in sdex-ActivityManager-1
+	AndroidXDimenRes condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/util/highlightjs/HighlightJsView.java
+method: onLanguageChanged(Language)
+constraints in sdex-ActivityManager-0
+constraints in sdex-ActivityManager-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/util/highlightjs/HighlightJsView.java
+method: onThemeChanged(Theme)
+constraints in sdex-ActivityManager-0
+constraints in sdex-ActivityManager-1
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/util/highlightjs/utils/SourceUtils.java
+method: generateContent(String,String,String,boolean,boolean)
+constraints in sdex-ActivityManager-0
+constraints in sdex-ActivityManager-1
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+
+PRECONDITION_ADDED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/extensions/ViewExtensions.kt
+method: resolveColorAttr(Int)
+constraints in sdex-ActivityManager-0
+constraints in sdex-ActivityManager-1
+	AndroidXColorInt condition: "NONE" , add info: -
+	AndroidXAttrRes condition: "NONE" , add info: -
+
+PRECONDITION_ADDED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/extensions/ViewExtensions.kt
+method: resolveThemeAttr(Int)
+constraints in sdex-ActivityManager-0
+constraints in sdex-ActivityManager-1
+	AndroidXAttrRes condition: "NONE" , add info: -
+

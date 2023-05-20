@@ -36,18 +36,20 @@ public class MethodVisitorToCollectGuavaPreconditionsInvocations extends
 
   @Override
   public void visit(MethodCallExpr callExpr, Object arg) {
-    String name = callExpr.getName().getIdentifier(); // JFF
-    Expression expr = callExpr.getScope().orElse(null); // JFF
+    String name = callExpr.getName().getIdentifier();
+    Expression expr = callExpr.getScope().orElse(null);
     String scope = expr == null ? null : expr.toString();
-    List<Expression> args = callExpr.getArguments(); // JFF
+    List<Expression> args = callExpr.getArguments();
+
+    boolean isImportStateAccepted = checkImports(name, scope, "Preconditions", "com.google.common.base.Preconditions");
+
     ContractElement p = initConstraint();
     p.setProgramVersion(ProgramVersion.getOrCreate(programName, this.version));
     p.setCuName(this.cuName);
     p.setMethodDeclaration(this.methodDeclaration);
-    p.setLineNo(callExpr.getBegin().get().line); // JFF
+    p.setLineNo(callExpr.getBegin().get().line);
 
-    if (args.size() > 0 && checkImports(name, scope, "Preconditions",
-      "com.google.common.base.Preconditions")) {
+    if (args.size() > 0 && isImportStateAccepted) {
       GuavaEnum guava = GuavaEnum.getEnumValueFromMethodName(name);
       p.setKind(guava.constraintType);
       switch (guava) {
