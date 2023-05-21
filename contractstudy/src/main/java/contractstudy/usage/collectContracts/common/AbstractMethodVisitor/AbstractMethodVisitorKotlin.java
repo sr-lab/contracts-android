@@ -128,7 +128,7 @@ public abstract class AbstractMethodVisitorKotlin extends KtTreeVisitorVoid {
         context = context.substring(0, context.indexOf("("));
       }
       return ktCallExpression.getContext().getText().substring(0, context.lastIndexOf("."));
-    } catch (NullPointerException exception) {
+    } catch (NullPointerException | StringIndexOutOfBoundsException exception) {
       return "";
     }
   }

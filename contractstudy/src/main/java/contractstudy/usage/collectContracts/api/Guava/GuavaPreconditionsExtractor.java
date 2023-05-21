@@ -72,11 +72,19 @@ public class GuavaPreconditionsExtractor implements Extractor<ContractElement> {
       ConstraintCategory.API
     );
     psiFile.accept(staticCollector);
-    MethodVisitorToCollectGuavaPreconditionsInvocationsKotlin visitor = new MethodVisitorToCollectGuavaPreconditionsInvocationsKotlin(
-      consumer, programName, version,
-      cuName, staticCollector.getStaticImportState(),
-      staticCollector.getStaticallyImportedMethodNames());
-    psiFile.accept(visitor);
+    try {
+      MethodVisitorToCollectGuavaPreconditionsInvocationsKotlin visitor = new MethodVisitorToCollectGuavaPreconditionsInvocationsKotlin(
+        consumer,
+        programName,
+        version,
+        cuName,
+        staticCollector.getStaticImportState(),
+        staticCollector.getStaticallyImportedMethodNames()
+      );
+      psiFile.accept(visitor);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
 }

@@ -9,6 +9,7 @@ import contractstudy.usage.collectContracts.cre.JavaCREExtractor.constants.JavaL
 import contractstudy.utils.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.com.intellij.psi.PsiElement;
+import org.jetbrains.kotlin.psi.KtBinaryExpression;
 import org.jetbrains.kotlin.psi.KtBlockExpression;
 import org.jetbrains.kotlin.psi.KtIfExpression;
 import org.jetbrains.kotlin.psi.KtThrowExpression;
@@ -31,6 +32,10 @@ public class MethodVisitorToCollectJavaCREThrowsKotlin extends AbstractMethodVis
 
   @Override
   public void visitThrowExpression(@NotNull KtThrowExpression expression) {
+    if (cuName.contains("DocumentSequence")) {
+      System.out.println("nice");
+    }
+
     if (!isCRE(expression)) {
       return;
     }
@@ -66,22 +71,24 @@ public class MethodVisitorToCollectJavaCREThrowsKotlin extends AbstractMethodVis
     PsiElement grandParent = parent.getParent();
     PsiElement grandGrandParent = grandParent.getParent();
     return (
-      (grandParent instanceof KtIfExpression) ||
+      (grandParent instanceof KtIfExpression) || (parent instanceof KtBinaryExpression) ||
         (parent instanceof KtBlockExpression && grandGrandParent instanceof KtIfExpression)
     );
   }
 
   private String getExceptionName(KtThrowExpression n) {
-    String name = n.getNode().getLastChildNode().getText();
-    if (n.getNode().getLastChildNode().getText().contains("(")) {
-      name = n.getNode().getLastChildNode().getText()
-        .substring(0, n.getNode().getLastChildNode().getText().indexOf("("));
+    try {
+      String name = n.getNode().getLastChildNode().getText();
+      if (name.contains("(")) {
+        name = name.substring(0, n.getNode().getLastChildNode().getText().indexOf("("));
+      }
+      if (name.contains(".")) {
+        name = name.substring(name.indexOf("."));
+      }
+      return name.replace(".", "");
+    } catch (StringIndexOutOfBoundsException exc) {
+      return "";
     }
-    if (n.getNode().getLastChildNode().getText().contains(".")) {
-      name = n.getNode().getLastChildNode().getText()
-        .substring(n.getNode().getLastChildNode().getText().indexOf("."), name.length());
-    }
-    return name.replace(".", "");
   }
 
   private String extractThrowArguments(KtThrowExpression expression) {
