@@ -37,8 +37,6 @@ invalidLanguageErrorCount = 0
 archivedErrorCount = 0
 inactiveErrorCount = 0
 notFoundErrorCount = 0
-repoStats = []
-repoURLs = []
 
 def logNumberOfItemsToFetch():
 	if (PAGINATION_LIMIT == False):
@@ -138,9 +136,8 @@ def computeRatioMergedPerClosedPulls(closedPulls, totalClosedPulls, mergedPulls)
 
 def addValidatedRepoToArrays(urlName, repo, mergedPulls, totalClosedPulls, percentage):
 	global validProjectCount
-	global repoStats
 	validProjectCount  += 1
-	repoStats.append({
+	repoStats = {
 			"APPLICATION NAME": str(repo.full_name),
 			"GITHUB LINK": urlName.replace("\n", ""),
 			"LANGUAGE": str(repo.language),
@@ -152,20 +149,35 @@ def addValidatedRepoToArrays(urlName, repo, mergedPulls, totalClosedPulls, perce
 			"TOTAL MERGED PULL REQUESTS": len(mergedPulls),
 			"TOTAL CLOSED PULL REQUESTS": totalClosedPulls,
 			"% OF PULL REQUESTS ACCEPTED": percentage
-	})
-	repoURLs.append(urlName)
+	}
+	saveStatsToOutputFile(repoStats)
+	saveRepoURLToFile(urlName)
  
-def saveStatsToOutputFile():
-     global repoStats
-     df = pd.DataFrame(repoStats)
-     df.to_csv(PROJECTS_STATS_FILE )
+def saveStatsToOutputFile(repoStats):
+     df = pd.DataFrame(repoStats, index=[0])
+     df.to_csv(PROJECTS_STATS_FILE, mode='a', header=False)
      
-def saveRepoURLToRegistry():
-	registryFile = open(OUTPUT_FILE, 'w')
-	for url in repoURLs:
-		registryFile.write(url)
+def saveRepoURLToFile(repoURL):
+	registryFile = open(OUTPUT_FILE, 'a')
+	registryFile.write(repoURL)
 	registryFile.close()
-	print("SUCCESS: Filtered Github projects' urls were saved to " + OUTPUT_FILE)
+
+def saveHeaderRowToCSV():
+    header = {
+			"APPLICATION NAME": "APPLICATION NAME",
+			"GITHUB LINK": "GITHUB LINK",
+			"LANGUAGE": "LANGUAGE",
+			"WATCHERS": "WATCHERS",
+			"STARS": "STARS",
+			"FORKS": "FORKS",
+			"CONTRIBUTORS": "CONTRIBUTORS",
+			"DATE OF LAST COMMIT": "DATE OF LAST COMMIT",
+			"TOTAL MERGED PULL REQUESTS": "TOTAL MERGED PULL REQUESTS",
+			"TOTAL CLOSED PULL REQUESTS": "TOTAL CLOSED PULL REQUESTS",
+			"% OF PULL REQUESTS ACCEPTED": "% OF PULL REQUESTS ACCEPTED"
+	}
+    df = pd.DataFrame(header, index=[0])
+    df.to_csv(PROJECTS_STATS_FILE, mode='a', header=False)
 
 def checkIfProjectsNumberReachedLimit():
 	global validProjectCount
@@ -189,43 +201,42 @@ def printResultLogs():
  
  
 if __name__ == "__main__":
+    saveHeaderRowToCSV()
+    logNumberOfItemsToFetch()
+    git = Github(GITHUB_ACCESS_TOKEN)
+    i = 0
     
-	logNumberOfItemsToFetch()
-	git = Github(GITHUB_ACCESS_TOKEN)
-	i = 0
-
-	for repoURL in open(INPUT_FILE, "r"):
-		print("=====================")		
-		print("[" + str(i) + "]")
-		i += 1
-  
-		if (checkRequestOffsetReached() == False):
-			currentPaginationIndex += 1
-			continue
-					
-		try:
-			validateRepo(repoURL)
-		except RateLimitExceededException:
-			print('INFO: Waiting for an hour... ')
-			time.sleep(1800)
-			time.sleep(1800)
-			try:
-				validateRepo(repoURL)
-				if (checkIfProjectsNumberReachedLimit()):
-					break
-				continue
-			except:
-				if (checkIfProjectsNumberReachedLimit()):
-					break
-				continue
-		except UnknownObjectException:
-			print("ERROR: Project ignored since it does not exist.")
-			notFoundErrorCount += 1
-			continue
-		
-		if (checkIfProjectsNumberReachedLimit()):
-			break
-
-	printResultLogs()
-	saveRepoURLToRegistry()
-	saveStatsToOutputFile()
+    for repoURL in open(INPUT_FILE, "r"):
+        print("=====================")		
+        print("[" + str(i) + "]")
+        i += 1
+        
+        if (checkRequestOffsetReached() == False):
+            currentPaginationIndex += 1
+            continue
+        
+        try:
+            validateRepo(repoURL)
+        except RateLimitExceededException:
+            print('INFO: Waiting for an hour... ')
+            time.sleep(1800)
+            time.sleep(1800)
+            try:
+                validateRepo(repoURL)
+                if (checkIfProjectsNumberReachedLimit()):
+                    break
+                continue
+            except:
+                if (checkIfProjectsNumberReachedLimit()):
+                    break
+                continue
+        except UnknownObjectException:
+            print("ERROR: Project ignored since it does not exist.")
+            notFoundErrorCount += 1
+            continue
+        
+        if (checkIfProjectsNumberReachedLimit()):
+            break
+        
+    printResultLogs()
+    print("SUCCESS: PROJECTS ARE NOW FILTERED AND THEIR URLs WERE SAVED TO " + OUTPUT_FILE)
