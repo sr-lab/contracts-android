@@ -84,12 +84,16 @@ def getIndexForLatestVersion(versions):
     version2 = versionNumbers[1]
     version2Length = len(version2)
     maxLength = maxNumber(version1Length, version2Length)
-    for i in range(maxLength):
-        if (int(version1[i]) > int(version2[i])):
-            return 0
-        elif (int(version1[i]) < int(version2[i])):
-            return 1
-    return 0
+    try:
+        for i in range(maxLength):
+            if (int(version1[i]) > int(version2[i])):
+                return 0
+            elif (int(version1[i]) < int(version2[i])):
+                return 1
+            else:
+                return 0
+    except IndexError:
+        return 0
     
 def cleanVersions(versions):
     versionsNumbers = []

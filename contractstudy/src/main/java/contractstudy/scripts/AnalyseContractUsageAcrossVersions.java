@@ -173,12 +173,14 @@ public class AnalyseContractUsageAcrossVersions implements Experiment {
     }
   }
 
-  private int computeMethodCountInVersion(Map<ProgramVersion, Map<String, Integer>> metrics,
-    ProgramVersion version) {
-    int methodCountInVersion = metrics.get(version).get(ALL_METHODS.getKey());
-    methodCountInVersion =
-      methodCountInVersion + metrics.get(version).get(ALL_CONSTRUCTORS.getKey());
-    return methodCountInVersion;
+  private int computeMethodCountInVersion(Map<ProgramVersion, Map<String, Integer>> metrics, ProgramVersion version) {
+    try {
+      int methodCountInVersion = metrics.get(version).get(ALL_METHODS.getKey());
+      methodCountInVersion = methodCountInVersion + metrics.get(version).get(ALL_CONSTRUCTORS.getKey());
+      return methodCountInVersion;
+    } catch (NullPointerException exception) {
+      return 0;
+    }
   }
 
   private int getConstraintCountInVersion(Map<ProgramVersion, Map<String, Integer>> metrics,

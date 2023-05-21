@@ -128,10 +128,7 @@ public class JavaLangCRE {
    * @return
    */
   public static ConstraintType getPreconditionTypeFromExceptionName(String excName) {
-    if (excName.endsWith(ActivityNotFoundException.class.getTypeName())
-      || ActivityNotFoundException.class.getTypeName().equals("android.content." + excName)) {
-      return ConstraintType.CREActivityNotFoundException;
-    } else if (excName.endsWith(AndroidRuntimeException.class.getSimpleName())) {
+    if (excName.endsWith(AndroidRuntimeException.class.getSimpleName())) {
       return ConstraintType.CREAndroidRuntimeException;
     } else if (excName.endsWith(AnnotationTypeMismatchException.class.getSimpleName())) {
       return ConstraintType.CREAnnotationTypeMismatchException;
@@ -162,13 +159,6 @@ public class JavaLangCRE {
     } else if (excName.endsWith(FileSystemNotFoundException.class.getSimpleName())) {
       return ConstraintType.CREFileSystemNotFoundException;
     }
-    // else if (excName.endsWith(FileUriExposedException.class.getSimpleName()))
-    // return ConstraintType.CREFileUriExposedException;
-    else if (excName.endsWith(GLException.class.getSimpleName())) {
-      return ConstraintType.CREGLException;
-    }
-    // else if (excName.endsWith(ICUUncheckedIOException.class.getSimpleName()))
-    // return ConstraintType.CREICUUncheckedIOException;
     else if (excName.endsWith(IllegalArgumentException.class.getSimpleName())) {
       return ConstraintType.CREIllegalArgumentException;
     } else if (excName.endsWith(IllegalMonitorStateException.class.getSimpleName())) {
@@ -176,8 +166,6 @@ public class JavaLangCRE {
     } else if (excName.endsWith(IllegalStateException.class.getSimpleName())) {
       return ConstraintType.CREIllegalStateException;
     }
-    // else if (excName.endsWith(IllformedLocaleException.class.getSimpleName()))
-    // return ConstraintType.CREIllformedLocaleException;
     else if (excName.endsWith(IncompleteAnnotationException.class.getSimpleName())) {
       return ConstraintType.CREIncompleteAnnotationException;
     } else if (excName.endsWith(IndexOutOfBoundsException.class.getSimpleName())) {
@@ -185,13 +173,6 @@ public class JavaLangCRE {
     } else if (excName.endsWith(InflateException.class.getSimpleName())) {
       return ConstraintType.CREInflateException;
     }
-    // else if
-    // (excName.endsWith(InspectionCompanion.UninitializedPropertyMapException.class.getSimpleName()))
-    // return
-    // ConstraintType.CREInspectionCompanion.UninitializedPropertyMapException;
-    // else if
-    // (excName.endsWith(UninitializedPropertyMapException.class.getSimpleName()))
-    // return ConstraintType.CREUninitializedPropertyMapException;
     else if (excName.endsWith(LSException.class.getSimpleName())) {
       return ConstraintType.CRELSException;
     } else if (excName.endsWith(MalformedParameterizedTypeException.class.getSimpleName())) {
@@ -199,21 +180,9 @@ public class JavaLangCRE {
     } else if (excName.endsWith(MalformedParametersException.class.getSimpleName())) {
       return ConstraintType.CREMalformedParametersException;
     }
-    // else if (excName.endsWith(MediaCodec.CryptoException.class.getSimpleName()))
-    // return ConstraintType.CREMediaCodec.CryptoException;
     else if (excName.endsWith(MediaCodec.CryptoException.class.getSimpleName())) {
       return ConstraintType.CRECryptoException;
     }
-    // else if
-    // (excName.endsWith(MediaCodec.IncompatibleWithBlockModelException.class.getSimpleName()))
-    // return ConstraintType.CREMediaCodec.IncompatibleWithBlockModelException;
-    // else if
-    // (excName.endsWith(IncompatibleWithBlockModelException.class.getSimpleName()))
-    // return ConstraintType.CREIncompatibleWithBlockModelException;
-    // else if (excName.endsWith(MediaDrm.SessionException.class.getSimpleName()))
-    // return ConstraintType.CREMediaDrm.SessionException;
-    // else if (excName.endsWith(SessionException.class.getSimpleName()))
-    // return ConstraintType.CRESessionException;
     else if (excName.endsWith(MissingResourceException.class.getSimpleName())) {
       return ConstraintType.CREMissingResourceException;
     } else if (excName.endsWith(NegativeArraySizeException.class.getSimpleName())) {
@@ -227,24 +196,11 @@ public class JavaLangCRE {
     } else if (excName.endsWith(NullPointerException.class.getSimpleName())) {
       return ConstraintType.CRENullPointerException;
     }
-    // else if (excName.endsWith(OperationCanceledException.class.getSimpleName()))
-    // return ConstraintType.CREOperationCanceledException;
     else if (excName.endsWith(ParcelFormatException.class.getSimpleName())) {
       return ConstraintType.CREParcelFormatException;
     } else if (excName.endsWith(ParseException.class.getSimpleName())) {
       return ConstraintType.CREParseException;
     }
-    // else if
-    // (excName.endsWith(PropertyMapper.PropertyConflictException.class.getSimpleName()))
-    // return ConstraintType.CREPropertyMapper.PropertyConflictException;
-    // else if (excName.endsWith(PropertyConflictException.class.getSimpleName()))
-    // return ConstraintType.CREPropertyConflictException;
-    // else if
-    // (excName.endsWith(PropertyReader.PropertyTypeMismatchException.class.getSimpleName()))
-    // return ConstraintType.CREPropertyReader.PropertyTypeMismatchException;
-    // else if
-    // (excName.endsWith(PropertyTypeMismatchException.class.getSimpleName()))
-    // return ConstraintType.CREPropertyTypeMismatchException;
     else if (excName.endsWith(ProviderException.class.getSimpleName())) {
       return ConstraintType.CREProviderException;
     } else if (excName.endsWith(ProviderNotFoundException.class.getSimpleName())) {
@@ -254,13 +210,9 @@ public class JavaLangCRE {
     } else if (excName.endsWith(RejectedExecutionException.class.getSimpleName())) {
       return ConstraintType.CRERejectedExecutionException;
     }
-    // else if (excName.endsWith(RemoteViews.ActionException.class.getSimpleName()))
-    // return ConstraintType.CRERemoteViews.ActionException;
     else if (excName.endsWith(RemoteViews.ActionException.class.getSimpleName())) {
       return ConstraintType.CREActionException;
     }
-    // else if (excName.endsWith(Resources.NotFoundException.class.getSimpleName()))
-    // return ConstraintType.CREResources.NotFoundException;
     else if (excName.endsWith(Resources.NotFoundException.class.getSimpleName())) {
       return ConstraintType.CRENotFoundException;
     } else if (excName.endsWith(SQLException.class.getSimpleName())) {
@@ -270,15 +222,9 @@ public class JavaLangCRE {
     } else if (excName.endsWith(StaleDataException.class.getSimpleName())) {
       return ConstraintType.CREStaleDataException;
     }
-    // else if
-    // (excName.endsWith(Surface.OutOfResourcesException.class.getSimpleName()))
-    // return ConstraintType.CRESurface.OutOfResourcesException;
     else if (excName.endsWith(SurfaceTexture.OutOfResourcesException.class.getSimpleName())) {
       return ConstraintType.CREOutOfResourcesException;
     }
-    // else if
-    // (excName.endsWith(SurfaceHolder.BadSurfaceTypeException.class.getSimpleName()))
-    // return ConstraintType.CRESurfaceHolder.BadSurfaceTypeException;
     else if (excName.endsWith(SurfaceHolder.BadSurfaceTypeException.class.getSimpleName())) {
       return ConstraintType.CREBadSurfaceTypeException;
     } else if (excName.endsWith(TimeFormatException.class.getSimpleName())) {
@@ -292,22 +238,9 @@ public class JavaLangCRE {
     } else if (excName.endsWith(UnsupportedOperationException.class.getTypeName())) {
       return ConstraintType.CREUnsupportedOperationException;
     }
-    // else if
-    // (excName.endsWith(UserManager.UserOperationException.class.getSimpleName()))
-    // return ConstraintType.CREUserManager.UserOperationException;
-    // else if (excName.endsWith(UserOperationException.class.getSimpleName()))
-    // return ConstraintType.CREUserOperationException;
-    // else if
-    // (excName.endsWith(WindowManager.BadTokenException.class.getSimpleName()))
-    // return ConstraintType.CREWindowManager.BadTokenException;
     else if (excName.endsWith(WindowManager.BadTokenException.class.getSimpleName())) {
       return ConstraintType.CREBadTokenException;
     }
-    // else if
-    // (excName.endsWith(WindowManager.InvalidDisplayException.class.getSimpleName()))
-    // return ConstraintType.CREWindowManager.InvalidDisplayException;
-    // else if (excName.endsWith(InvalidDisplayException.class.getSimpleName()))
-    // return ConstraintType.CREInvalidDisplayException;
     else if (excName.endsWith(WrongMethodTypeException.class.getSimpleName())) {
       return ConstraintType.CREWrongMethodTypeException;
     } else if (excName.endsWith(AcceptPendingException.class.getSimpleName())) {
@@ -321,9 +254,6 @@ public class JavaLangCRE {
     } else if (excName.endsWith(ArrayIndexOutOfBoundsException.class.getSimpleName())) {
       return ConstraintType.CREArrayIndexOutOfBoundsException;
     }
-    // else if
-    // (excName.endsWith(AuthenticationRequiredException.class.getSimpleName()))
-    // return ConstraintType.CREAuthenticationRequiredException;
     else if (excName.endsWith(BadParcelableException.class.getSimpleName())) {
       return ConstraintType.CREBadParcelableException;
     } else if (excName.endsWith(CancellationException.class.getSimpleName())) {
@@ -353,11 +283,6 @@ public class JavaLangCRE {
     } else if (excName.endsWith(FormatterClosedException.class.getSimpleName())) {
       return ConstraintType.CREFormatterClosedException;
     }
-    // else if
-    // (excName.endsWith(Fragment.InstantiationException.class.getSimpleName()))
-    // return ConstraintType.CREFragment.InstantiationException;
-    // else if (excName.endsWith(InstantiationException.class.getSimpleName()))
-    // return ConstraintType.CREInstantiationException;
     else if (excName.endsWith(IllegalBlockingModeException.class.getSimpleName())) {
       return ConstraintType.CREIllegalBlockingModeException;
     } else if (excName.endsWith(IllegalChannelGroupException.class.getSimpleName())) {
@@ -389,27 +314,9 @@ public class JavaLangCRE {
     } else if (excName.endsWith(InvalidPathException.class.getSimpleName())) {
       return ConstraintType.CREInvalidPathException;
     }
-    // else if
-    // (excName.endsWith(KeyCharacterMap.UnavailableException.class.getSimpleName()))
-    // return ConstraintType.CREKeyCharacterMap.UnavailableException;
     else if (excName.endsWith(KeyCharacterMap.UnavailableException.class.getSimpleName())) {
       return ConstraintType.CREUnavailableException;
     }
-    // else if (excName.endsWith(LimitExceededException.class.getSimpleName()))
-    // return ConstraintType.CRELimitExceededException;
-    // else if (excName.endsWith(MediaCasStateException.class.getSimpleName()))
-    // return ConstraintType.CREMediaCasStateException;
-    // else if (excName.endsWith(MediaCodec.CodecException.class.getSimpleName()))
-    // return ConstraintType.CREMediaCodec.CodecException;
-    // else if (excName.endsWith(CodecException.class.getSimpleName()))
-    // return ConstraintType.CRECodecException.class;
-    // else if
-    // (excName.endsWith(MediaDrm.MediaDrmStateException.class.getSimpleName()))
-    // return ConstraintType.CREMediaDrm.MediaDrmStateException;
-    // else if (excName.endsWith(MediaDrmStateException.class.getSimpleName()))
-    // return ConstraintType.CREMediaDrmStateException;
-    // else if (excName.endsWith(MediaDrmResetException.class.getSimpleName()))
-    // return ConstraintType.CREMediaDrmResetException;
     else if (excName.endsWith(MissingFormatArgumentException.class.getSimpleName())) {
       return ConstraintType.CREMissingFormatArgumentException;
     } else if (excName.endsWith(MissingFormatWidthException.class.getSimpleName())) {
@@ -447,9 +354,6 @@ public class JavaLangCRE {
     } else if (excName.endsWith(ReceiverCallNotAllowedException.class.getSimpleName())) {
       return ConstraintType.CREReceiverCallNotAllowedException;
     }
-    // else if
-    // (excName.endsWith(RecoverableSecurityException.class.getSimpleName()))
-    // return ConstraintType.CRERecoverableSecurityException;
     else if (excName.endsWith(SQLiteAbortException.class.getSimpleName())) {
       return ConstraintType.CRESQLiteAbortException;
     } else if (excName.endsWith(SQLiteAccessPermException.class.getSimpleName())) {
@@ -485,22 +389,11 @@ public class JavaLangCRE {
     } else if (excName.endsWith(SQLiteTableLockedException.class.getSimpleName())) {
       return ConstraintType.CRESQLiteTableLockedException;
     }
-    // else if
-    // (excName.endsWith(SecureKeyImportUnavailableException.class.getSimpleName()))
-    // return ConstraintType.CRESecureKeyImportUnavailableException;
     else if (excName.endsWith(ShutdownChannelGroupException.class.getSimpleName())) {
       return ConstraintType.CREShutdownChannelGroupException;
     } else if (excName.endsWith(StringIndexOutOfBoundsException.class.getSimpleName())) {
       return ConstraintType.CREStringIndexOutOfBoundsException;
     }
-    // else if
-    // (excName.endsWith(StrongBoxUnavailableException.class.getSimpleName()))
-    // return ConstraintType.CREStrongBoxUnavailableException;
-    // else if
-    // (excName.endsWith(SystemUpdatePolicy.ValidationFailedException.class.getSimpleName()))
-    // return ConstraintType.CRESystemUpdatePolicy.ValidationFailedException;
-    // else if (excName.endsWith(ValidationFailedException.class.getSimpleName()))
-    // return ConstraintType.CREValidationFailedException;
     else if (excName.endsWith(UnknownFormatConversionException.class.getSimpleName())) {
       return ConstraintType.CREUnknownFormatConversionException;
     } else if (excName.endsWith(UnknownFormatFlagsException.class.getSimpleName())) {
@@ -518,7 +411,7 @@ public class JavaLangCRE {
     } else if (excName.endsWith(ZoneRulesException.class.getSimpleName())) {
       return ConstraintType.CREZoneRulesException;
     } else {
-      return null; // could be standard exception - do not report !
+      return null;
     }
   }
 }

@@ -58,11 +58,14 @@ public class JavaCREExtractor implements Extractor<ContractElement> {
     final String version,
     final String cuName,
     final ExtractionListener<ContractElement> consumer) throws IOException {
-    String src = new InputStreamToStringConversion(in).getResult();
-    PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
-    MethodVisitorToCollectJavaCREThrowsKotlin visitor =
-      new MethodVisitorToCollectJavaCREThrowsKotlin(consumer, programName, version,
-        cuName);
-    psiFile.accept(visitor);
+    try {
+      String src = new InputStreamToStringConversion(in).getResult();
+      PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
+      MethodVisitorToCollectJavaCREThrowsKotlin visitor =
+        new MethodVisitorToCollectJavaCREThrowsKotlin(consumer, programName, version, cuName);
+      psiFile.accept(visitor);
+    } catch (Exception e) {
+      System.out.println("nice");
+    }
   }
 }
