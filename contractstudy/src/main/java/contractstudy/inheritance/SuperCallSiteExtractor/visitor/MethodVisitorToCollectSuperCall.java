@@ -39,6 +39,9 @@ public class MethodVisitorToCollectSuperCall extends VoidVisitorAdapter<Object> 
 
   @Override
   public void visit(MethodDeclaration methodDeclr, Object arg) {
+    if (cuName.contains("PhotoPropertiesChainReader")) {
+      System.out.println("nice");
+    }
     NodeList<Modifier> modifiers = methodDeclr.getModifiers();
     if (isJavaMethodVisibilityAccepted(modifiers)) {
       this.methodDeclaration = Utils.trimReturnType(methodDeclr.getDeclarationAsString(false, false, false));
@@ -49,6 +52,9 @@ public class MethodVisitorToCollectSuperCall extends VoidVisitorAdapter<Object> 
 
   @Override
   public void visit(ConstructorDeclaration constructorDeclr, Object arg) {
+    if (cuName.contains("PhotoPropertiesChainReader")) {
+      System.out.println("nice");
+    }
     NodeList<Modifier> modifiers = constructorDeclr.getModifiers();
     if (isJavaMethodVisibilityAccepted(modifiers)) {
       this.methodDeclaration = constructorDeclr.getDeclarationAsString(false, false, false);
@@ -59,6 +65,9 @@ public class MethodVisitorToCollectSuperCall extends VoidVisitorAdapter<Object> 
 
   @Override
   public void visit(SuperExpr n, Object arg) {
+    if (cuName.contains("PhotoPropertiesChainReader")) {
+      System.out.println("nice");
+    }
     SuperCallSite callSite = new SuperCallSite(programVersion, cuName, methodDeclaration, isMethod);
     superCallSites.add(callSite);
     super.visit(n, arg);
@@ -66,6 +75,9 @@ public class MethodVisitorToCollectSuperCall extends VoidVisitorAdapter<Object> 
 
   @Override
   public void visit(ExplicitConstructorInvocationStmt n, Object arg) {
+    if (cuName.contains("PhotoPropertiesChainReader")) {
+      System.out.println("nice");
+    }
     super.visit(n, arg);
     if (n.isThis()) {
       return;

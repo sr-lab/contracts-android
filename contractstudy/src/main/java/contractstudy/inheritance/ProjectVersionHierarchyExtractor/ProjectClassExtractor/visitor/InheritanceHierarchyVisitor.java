@@ -64,10 +64,14 @@ public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implemen
     List<ClassOrInterfaceType> superClassesAndInterfaces
   ) {
     for (ClassOrInterfaceType superClass : superClassesAndInterfaces) {
-      String superClassName = superClass.getNameWithScope();
-      ClassAndVersion potentialParent = classFinder.findClass(superClassName, packages.toArray(new String[0]));
-      if (potentialParent != null) {
-        getOwnerState(n).getParents().add(potentialParent);
+      try {
+        String superClassName = superClass.getNameWithScope();
+        ClassAndVersion potentialParent = classFinder.findClass(superClassName, packages.toArray(new String[0]));
+        if (potentialParent != null) {
+          getOwnerState(n).getParents().add(potentialParent);
+        }
+      } catch (Exception e) {
+        e.printStackTrace();
       }
     }
   }

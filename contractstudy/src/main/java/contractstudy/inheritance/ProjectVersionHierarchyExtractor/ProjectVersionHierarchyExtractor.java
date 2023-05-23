@@ -140,7 +140,8 @@ public class ProjectVersionHierarchyExtractor {
     final ProgramVersion programVersion,
     final ClassFinderCreator creator,
     final InheritanceResolved notifier,
-    final Set<String> allParents) {
+    final Set<String> allParents
+  ) {
     SourceClassFinder classFinder = creator.toFinder();
     Map<ClassCoordinates, CompilationUnit> javaUnits = creator.getCus().column(programVersion);
     Map<ClassCoordinates, PsiFile> kotlinUnits = creator.getPsis().column(programVersion);
@@ -179,12 +180,12 @@ public class ProjectVersionHierarchyExtractor {
     final InheritanceResolved notifier,
     final Set<String> allParents
   ) {
-
     notifier.notify(classParents);
 
     String className = classParents.getClassName();
     Set<ClassAndVersion> parents = classParents.getParents(className);
-    allParents.addAll(getParentsClassNameList(parents));
+    Set<String> parentsClassNames = getParentsClassNameList(parents);
+    allParents.addAll(parentsClassNames);
 
     for (ClassCoordinates innerClass : classParents.getInnerClasses()) {
       Set<ClassAndVersion> innerParents = classParents.getParents(innerClass.getClassName());
