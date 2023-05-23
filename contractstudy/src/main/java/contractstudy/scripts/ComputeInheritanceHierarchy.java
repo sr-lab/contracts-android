@@ -20,9 +20,12 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -90,7 +93,6 @@ public class ComputeInheritanceHierarchy implements Experiment {
       };
 
       executor.submit(task);
-
     }
 
     executor.shutdown();
@@ -159,12 +161,15 @@ public class ComputeInheritanceHierarchy implements Experiment {
     final File file,
     final Map<ClassCoordinates, ClassParents> parents
   ) throws Exception {
-
     file.getParentFile().mkdirs();
     JSONArray a = new JSONArray();
     HashMap<String, String> seenClasses = new HashMap<>();
 
     for (ClassCoordinates c : parents.keySet()) {
+      if (c.getCuName().contains("PhotoPropertiesChainReader")) {
+        System.out.println("Nice");
+      }
+
       Set<ClassCoordinates> withInnerSet = new HashSet<>();
       withInnerSet.add(c);
       withInnerSet.addAll(c.getInnerClasses());
@@ -173,7 +178,18 @@ public class ComputeInheritanceHierarchy implements Experiment {
         if (isClassAlreadySeen(cc, seenClasses)) {
           continue;
         }
-        a.put(getClassCoordinate(classParents, cc));
+
+        List<ClassAndVersion> allParents = new ArrayList<>();
+        for (ClassCoordinates otherClassInstances: parents.keySet()) {
+          ClassParents instance = parents.get(otherClassInstances);
+          if (instance != null && Objects.equals(instance.getCuName(), c.getCuName())) {
+            Set<ClassAndVersion> otherClassInstancesParents = instance.getParents(c.getClassName());
+            allParents.addAll(otherClassInstancesParents);
+          }
+        }
+
+        JSONObject classCoordinate = getClassCoordinate(cc, allParents);
+        a.put(classCoordinate);
         seenClasses.put(cc.getClassName(), cc.getCuName());
       }
     }
@@ -185,14 +201,14 @@ public class ComputeInheritanceHierarchy implements Experiment {
     return Objects.equals(pastClasses.get(currentClass.getClassName()), currentClass.getCuName());
   }
 
-  private static JSONObject getClassCoordinate(ClassParents classParents, ClassCoordinates cc) {
+  private static JSONObject getClassCoordinate(ClassCoordinates cc, List<ClassAndVersion> allParents) {
     JSONObject classCoordinates = new JSONObject();
     classCoordinates.put(ClassCoordinatesKeysEnum.CLASS_NAME.getKeyword(), cc.getClassName());
     classCoordinates.put(ClassCoordinatesKeysEnum.CU_NAME.getKeyword(), cc.getCuName());
     classCoordinates.put(ClassCoordinatesKeysEnum.METHODS.getKeyword(), cc.getMethods());
     JSONArray aa = new JSONArray();
-    if (classParents != null) {
-      for (ClassAndVersion parent : classParents.getParents(cc.getClassName())) {
+    if (allParents != null) {
+      for (ClassAndVersion parent : allParents) {
         aa.put(new JSONObject(parent.toJson()));
       }
     }

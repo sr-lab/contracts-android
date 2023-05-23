@@ -80,6 +80,7 @@ def saveVersionURLsToOutputIfValid():
     outputFile.close()
   
 def validateURLVersionFormat(url):
+    print("VALIDATING: " + url)
     regexTextAtBeginning = ";(.*(((\d+).?(\d+.)*(\*|\d+)?))|None)$"
     regexTextAtEnd = ";(v?(((\d+).?(\d+.)*(\*|\d+)?).*)|None)$"
     matchAtBeginning = re.search(regexTextAtBeginning, url)
@@ -102,6 +103,7 @@ def main():
     currentPaginationIndex = 0
     links = readURLsFromInputFile()
     for line in links:
+        print(line)
         if (checkRequestOffsetReached(currentPaginationIndex) == False):
             currentPaginationIndex += 1
             continue
