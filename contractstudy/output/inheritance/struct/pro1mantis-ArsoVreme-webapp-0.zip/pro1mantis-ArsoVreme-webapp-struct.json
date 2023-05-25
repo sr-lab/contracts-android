@@ -1,0 +1,1 @@
+[{"methods":["onCreate(Bundle)"],"cuName":"app/src/main/java/com/julij/arsovreme/MainActivity.java","className":"arsovreme.MainActivity","parents":[]},{"methods":["shouldOverrideKeyEvent(WebView,KeyEvent)"],"cuName":"app/src/main/java/com/julij/arsovreme/MainActivity.java","className":"arsovreme.MainActivity.Callback","parents":[]}]

@@ -1,0 +1,1 @@
+[{"cu":"src/com/commonsware/android/arXiv/SingleItemWindow.java","condition":"c.getResponseCode() == 200","method":"run()","additional_info":"-","artefact_type":"METHOD","line":367,"name":"jdeslip-arxiv-mobile","abstract_method":false,"type":"JavaAssert","version":"1"}]

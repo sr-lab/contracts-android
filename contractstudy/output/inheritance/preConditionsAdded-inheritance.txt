@@ -1,0 +1,217 @@
+PRECONDITION_ADDED
+program: AntennaPod-AntennaPod-0
+parent: app/src/main/java/de/danoeh/antennapod/fragment/gpodnet/PodcastListFragment.java
+sub: app/src/main/java/de/danoeh/antennapod/fragment/gpodnet/TagFragment.java
+method: onCreate(Bundle)
+parent constraints: 
+sub constraints: 
+	CommonsLangIsTrue condition: "args != null && args.getParcelable("tag") != null" , add info: "args invalid"
+
+PRECONDITION_ADDED
+program: AntennaPod-AntennaPod-1
+parent: parser/media/src/main/java/de/danoeh/antennapod/parser/media/id3/ID3Reader.java
+sub: parser/media/src/main/java/de/danoeh/antennapod/parser/media/id3/ChapterReader.java
+method: readFrame(FrameHeader)
+parent constraints: 
+sub constraints: 
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+program: AntennaPod-AntennaPod-1
+parent: parser/media/src/main/java/de/danoeh/antennapod/parser/media/id3/ID3Reader.java
+sub: parser/media/src/main/java/de/danoeh/antennapod/parser/media/id3/Id3MetadataReader.java
+method: readFrame(FrameHeader)
+parent constraints: 
+sub constraints: 
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+program: AnySoftKeyboard-AnySoftKeyboard-1.11-1
+parent: ime/app/src/main/java/com/anysoftkeyboard/ime/AnySoftKeyboardKeyboardSwitchedListener.java
+sub: ime/app/src/main/java/com/anysoftkeyboard/ime/AnySoftKeyboardSuggestions.java
+method: onAlphabetKeyboardSet(AnyKeyboard)
+parent constraints: 
+sub constraints: 
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+program: AnySoftKeyboard-AnySoftKeyboard-1.11-1
+parent: ime/app/src/main/java/com/anysoftkeyboard/ime/AnySoftKeyboardClipboard.java
+sub: ime/app/src/main/java/com/anysoftkeyboard/ime/AnySoftKeyboardPressEffects.java
+method: onThemeChanged(KeyboardTheme)
+parent constraints: 
+sub constraints: 
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+program: MuntashirAkon-AppManager-pre-1
+parent: app/src/main/java/io/github/muntashirakon/AppManager/apk/installer/AMPackageInstaller.java
+sub: app/src/main/java/io/github/muntashirakon/AppManager/apk/installer/PackageInstallerCompat.java
+method: install(ApkFile)
+parent constraints: 
+sub constraints: 
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+program: MuntashirAkon-AppManager-pre-1
+parent: app/src/main/java/io/github/muntashirakon/AppManager/ipc/RootService.java
+sub: app/src/main/java/io/github/muntashirakon/AppManager/ipc/AMService.java
+method: onRebind(Intent)
+parent constraints: 
+sub constraints: 
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+program: MuntashirAkon-AppManager-v3.2.0-1
+parent: app/src/main/java/io/github/muntashirakon/AppManager/logcat/AbsLogViewerFragment.java
+sub: app/src/main/java/io/github/muntashirakon/AppManager/logcat/SavedLogViewerFragment.java
+method: onOptionsItemSelected(MenuItem)
+parent constraints: 
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXCallSuper condition: "" , add info: -
+sub constraints: 
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+program: MuntashirAkon-AppManager-v3.2.0-1
+parent: app/src/main/java/io/github/muntashirakon/AppManager/logcat/AbsLogViewerFragment.java
+sub: app/src/main/java/io/github/muntashirakon/AppManager/logcat/LiveLogViewerFragment.java
+method: onPrepareOptionsMenu(Menu)
+parent constraints: 
+sub constraints: 
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+program: MuntashirAkon-AppManager-v3.2.0-1
+parent: app/src/main/java/io/github/muntashirakon/AppManager/logcat/AbsLogViewerFragment.java
+sub: app/src/main/java/io/github/muntashirakon/AppManager/logcat/LiveLogViewerFragment.java
+method: onOptionsItemSelected(MenuItem)
+parent constraints: 
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXCallSuper condition: "" , add info: -
+sub constraints: 
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+program: MuntashirAkon-AppManager-v3.2.0-1
+parent: app/src/main/java/io/github/muntashirakon/AppManager/details/AppDetailsFragment.java
+sub: app/src/main/java/io/github/muntashirakon/AppManager/details/AppDetailsPermissionsFragment.java
+method: onCreate(Bundle)
+parent constraints: 
+	AndroidXNullable condition: "" , add info: -
+	AndroidXCallSuper condition: "" , add info: -
+sub constraints: 
+	AndroidXNullable condition: "" , add info: -
+
+PRECONDITION_ADDED
+program: MuntashirAkon-AppManager-v3.2.0-1
+parent: app/src/main/java/io/github/muntashirakon/AppManager/details/AppDetailsFragment.java
+sub: app/src/main/java/io/github/muntashirakon/AppManager/details/AppDetailsOtherFragment.java
+method: onCreate(Bundle)
+parent constraints: 
+	AndroidXNullable condition: "" , add info: -
+	AndroidXCallSuper condition: "" , add info: -
+sub constraints: 
+	AndroidXNullable condition: "" , add info: -
+
+PRECONDITION_ADDED
+program: MuntashirAkon-AppManager-v3.2.0-1
+parent: app/src/main/java/io/github/muntashirakon/AppManager/details/AppDetailsFragment.java
+sub: app/src/main/java/io/github/muntashirakon/AppManager/details/AppDetailsComponentsFragment.java
+method: onCreate(Bundle)
+parent constraints: 
+	AndroidXNullable condition: "" , add info: -
+	AndroidXCallSuper condition: "" , add info: -
+sub constraints: 
+	AndroidXNullable condition: "" , add info: -
+
+PRECONDITION_ADDED
+program: MuntashirAkon-AppManager-v3.2.0-1
+parent: app/src/main/java/io/github/muntashirakon/AppManager/ipc/RootService.java
+sub: app/src/main/java/io/github/muntashirakon/AppManager/ipc/AMService.java
+method: onRebind(Intent)
+parent constraints: 
+sub constraints: 
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+program: MuntashirAkon-AppManager-v3.2.0-1
+parent: app/src/main/java/io/github/muntashirakon/AppManager/ipc/RootService.java
+sub: app/src/main/java/io/github/muntashirakon/AppManager/ipc/FileSystemService.java
+method: onRebind(Intent)
+parent constraints: 
+sub constraints: 
+	AndroidXNonNull condition: "" , add info: -
+
+PRECONDITION_ADDED
+program: bailuk-AAT-1
+parent: aat-lib/src/main/java/ch/bailu/aat_lib/dispatcher/ContentSource.java
+sub: aat-android/src/main/java/ch/bailu/aat/dispatcher/EditorOrBackupSource.java
+method: setTarget(OnContentUpdatedInterface)
+parent constraints: 
+sub constraints: 
+	JSR305Nonnull condition: "" , add info: -
+
+PRECONDITION_ADDED
+program: beemdevelopment-Aegis-1
+parent: app/src/main/java/com/beemdevelopment/aegis/otp/TotpInfo.java
+sub: app/src/main/java/com/beemdevelopment/aegis/otp/MotpInfo.java
+method: getOtp()
+parent constraints: 
+sub constraints: 
+	CREIllegalStateException condition: "_pin == null" , add info: "PIN must be set before generating an OTP"
+
+PRECONDITION_ADDED
+program: beemdevelopment-Aegis-1
+parent: app/src/main/java/com/beemdevelopment/aegis/otp/TotpInfo.java
+sub: app/src/main/java/com/beemdevelopment/aegis/otp/MotpInfo.java
+method: getOtp(long)
+parent constraints: 
+sub constraints: 
+	CREIllegalStateException condition: "_pin == null" , add info: "PIN must be set before generating an OTP"
+
+PRECONDITION_ADDED
+program: beemdevelopment-Aegis-1
+parent: app/src/main/java/com/beemdevelopment/aegis/otp/TotpInfo.java
+sub: app/src/main/java/com/beemdevelopment/aegis/otp/YandexInfo.java
+method: getOtp()
+parent constraints: 
+sub constraints: 
+	CREIllegalStateException condition: "_pin == null" , add info: "PIN must be set before generating an OTP"
+
+PRECONDITION_ADDED
+program: cmeng-git-atalk-android-1
+parent: aTalk/src/main/java/net/java/sip/communicator/service/protocol/AbstractOperationSetPersistentPresence.java
+sub: aTalk/src/main/java/net/java/sip/communicator/impl/protocol/jabber/OperationSetPersistentPresenceJabberImpl.java
+method: setDisplayName(Contact,String)
+parent constraints: 
+sub constraints: 
+	CREIllegalArgumentException condition: "!(contact instanceof ContactJabberImpl)" , add info: "Argument is not an jabber contact (contact = " + contact + ")"
+
+PRECONDITION_ADDED
+program: cmeng-git-atalk-android-1
+parent: aTalk/src/main/java/net/java/sip/communicator/service/protocol/AbstractProtocolProviderService.java
+sub: aTalk/src/main/java/net/java/sip/communicator/impl/protocol/jabber/ProtocolProviderServiceJabberImpl.java
+method: validateContactAddress(String,List<String>)
+parent constraints: 
+sub constraints: 
+	CREIllegalArgumentException condition: "result == null" , add info: "result must be an empty list"
+
+PRECONDITION_ADDED
+program: cmeng-git-atalk-android-1
+parent: aTalk/src/main/java/org/atalk/impl/neomedia/device/MediaDeviceSession.java
+sub: aTalk/src/main/java/org/atalk/impl/neomedia/device/VideoMediaDeviceSession.java
+method: checkDevice(AbstractMediaDevice)
+parent constraints: 
+sub constraints: 
+	CREIllegalArgumentException condition: "!MediaType.VIDEO.equals(device.getMediaType())" , add info: "device"
+
+PRECONDITION_ADDED
+program: cmeng-git-atalk-android-1
+parent: aTalk/src/main/java/org/atalk/service/neomedia/AbstractSrtpControl.java
+sub: aTalk/src/main/java/org/atalk/impl/neomedia/transform/zrtp/ZrtpControlImpl.java
+method: setMultistream(SrtpControl)
+parent constraints: 
+sub constraints: 
+	CREIllegalArgumentException condition: "!(master instanceof ZrtpControlImpl)" , add info: "master is no ZRTP control"
+

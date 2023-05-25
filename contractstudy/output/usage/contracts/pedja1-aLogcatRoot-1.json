@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/rs/pedjaapps/alogcatroot/app/LogCat.java","condition":"handler == null","method":"LogCat(Handler)","additional_info":"\"Handler cannot be null\"","artefact_type":"METHOD","line":70,"name":"pedja1-aLogcatRoot","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

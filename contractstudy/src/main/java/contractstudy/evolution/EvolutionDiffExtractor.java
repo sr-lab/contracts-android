@@ -15,6 +15,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -237,19 +238,20 @@ public class EvolutionDiffExtractor implements DiffExtractor {
         String versionName = getProjectVersionFromStructFolder(project);
         ProgramVersion pv = ProgramVersion.getOrCreate(projectName, versionName);
 
-        Multimap<String, String> methodsByCU = methodsByPVAndCU.compute(pv,
-          (k, v) -> v == null ? HashMultimap.create() : v);
+        Multimap<String, String> methodsByCU = methodsByPVAndCU.compute(pv, (k, v) -> v == null ? HashMultimap.create() : v);
 
         JSONArray arr = new JSONArray(
           IOUtils.toString(Files.newInputStream(json.toPath()), StandardCharsets.UTF_8));
         for (Object anArr : arr) {
           JSONObject o = (JSONObject) anArr;
           String cuName = o.getString("cuName");
-          JSONArray mm = o.getJSONArray("methods");
-          for (Object next : mm) {
-            String method = next.toString();
-            methodsByCU.put(cuName, method);
-          }
+          try {
+            JSONArray mm = o.getJSONArray("methods");
+            for (Object next : mm) {
+              String method = next.toString();
+              methodsByCU.put(cuName, method);
+            }
+          } catch (JSONException ignored) {}
         }
       }
     }

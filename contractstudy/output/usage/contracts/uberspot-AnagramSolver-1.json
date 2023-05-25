@@ -1,0 +1,1 @@
+[{"cu":"src/com/as/anagramsolver/SettingsPage.java","condition":"\"NewApi\"","method":"setEnabledDictionaries(Set<String>)","additional_info":"-","artefact_type":"CLASS","line":24,"name":"uberspot-AnagramSolver","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

@@ -2,9 +2,11 @@ package contractstudy.usage.collectContracts.annotation;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import contractstudy.config.Logging;
 import contractstudy.constants.constraint.ConstraintCategory;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectVersionHierarchyExtractor;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
 import contractstudy.usage.collectContracts.annotation.visitor.VisitorToCollectAnnotations;
@@ -15,6 +17,7 @@ import contractstudy.usage.collectContracts.common.StaticImportCollector.constan
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import contractstudy.utils.kotlinParser.KotlinParser;
+import org.apache.log4j.Logger;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 import java.io.InputStream;
@@ -27,7 +30,7 @@ import java.util.Map;
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
 public class AbstractAnnotationExtractor implements Extractor<ContractElement> {
-
+  private static final Logger LOGGER = Logging.getLogger(AbstractAnnotationExtractor.class);
   private final Map<String, ConstraintType> constraintsByName = new HashMap<>();
   private final String annotationPackageName;
 
@@ -72,13 +75,17 @@ public class AbstractAnnotationExtractor implements Extractor<ContractElement> {
     final String cuName,
     final ExtractionListener<ContractElement> consumer
   ) {
-    CompilationUnit cu = StaticJavaParser.parse(in);
-    StaticImportCollector importsCollector = new StaticImportCollector(annotationPackageName, "");
-    importsCollector.visit(cu, null);
-    StaticImportState importState = importsCollector.getStaticImportState();
-    VisitorToCollectAnnotations visitor = new VisitorToCollectAnnotations(consumer, programName, version, cuName,
-      constraintsByName, importState);
-    visitor.visit(cu, null);
+    try {
+      CompilationUnit cu = StaticJavaParser.parse(in);
+      StaticImportCollector importsCollector = new StaticImportCollector(annotationPackageName, "");
+      importsCollector.visit(cu, null);
+      StaticImportState importState = importsCollector.getStaticImportState();
+      VisitorToCollectAnnotations visitor = new VisitorToCollectAnnotations(consumer, programName, version, cuName,
+        constraintsByName, importState);
+      visitor.visit(cu, null);
+    } catch (Exception e) {
+      LOGGER.warn("Exception while extracting from " + cuName);
+    }
   }
 
   private void analyseKotlin(
@@ -87,19 +94,22 @@ public class AbstractAnnotationExtractor implements Extractor<ContractElement> {
     final String version,
     final String cuName,
     final ExtractionListener<ContractElement> consumer
-  ) throws Exception {
-    String src = new InputStreamToStringConversion(in).getResult();
-    PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
-    StaticImportCollectorKotlin importsCollector = new StaticImportCollectorKotlin(
-      annotationPackageName,
-      "",
-      ConstraintCategory.ANNOTATION
-    );
-    psiFile.accept(importsCollector);
-    StaticImportState importState = importsCollector.getStaticImportState();
-    VisitorToCollectAnnotationsKotlin visitor = new VisitorToCollectAnnotationsKotlin(consumer, programName, version, cuName,
-      constraintsByName, importState);
-    psiFile.accept(visitor);
+  ) {
+    try {
+      String src = new InputStreamToStringConversion(in).getResult();
+      PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
+      StaticImportCollectorKotlin importsCollector = new StaticImportCollectorKotlin(
+        annotationPackageName,
+        "",
+        ConstraintCategory.ANNOTATION
+      );
+      psiFile.accept(importsCollector);
+      StaticImportState importState = importsCollector.getStaticImportState();
+      VisitorToCollectAnnotationsKotlin visitor = new VisitorToCollectAnnotationsKotlin(consumer, programName, version, cuName,
+        constraintsByName, importState);
+      psiFile.accept(visitor);
+    } catch (Exception e) {
+      LOGGER.warn("Exception while extracting from " + cuName);
+    }
   }
-
 }

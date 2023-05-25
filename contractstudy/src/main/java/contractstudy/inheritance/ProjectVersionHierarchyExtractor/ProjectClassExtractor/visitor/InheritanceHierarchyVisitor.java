@@ -11,6 +11,7 @@ import contractstudy.model.ClassAndVersion;
 import contractstudy.utils.GeneralUtils;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -78,6 +79,10 @@ public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implemen
 
   @Override
   public Set<ClassAndVersion> getParents(String className) {
-    return getInnerClassesState().get(className).getParents();
+    try {
+      return getInnerClassesState().get(className).getParents();
+    } catch (NullPointerException exception) {
+      return new HashSet<>();
+    }
   }
 }

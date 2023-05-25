@@ -1,0 +1,93 @@
+CANNOT_BE_CLASSIFIED
+program: AndBible-and-bible-alpha-1
+parent: app/src/main/java/net/bible/android/view/activity/speak/AbstractSpeakActivity.kt
+sub: app/src/main/java/net/bible/android/view/activity/speak/BibleSpeakActivity.kt
+method: onCreate(Bundle?)
+parent constraints: 
+sub constraints: 
+	AndroidSuppressLint condition: "[ "SetTextI18n" ]" , add info: -
+
+CANNOT_BE_CLASSIFIED
+program: AndBible-and-bible-production-1
+parent: app/src/main/java/net/bible/android/view/activity/speak/AbstractSpeakActivity.kt
+sub: app/src/main/java/net/bible/android/view/activity/speak/BibleSpeakActivity.kt
+method: onCreate(Bundle?)
+parent constraints: 
+sub constraints: 
+	AndroidSuppressLint condition: "[ "SetTextI18n" ]" , add info: -
+
+CANNOT_BE_CLASSIFIED
+program: AnySoftKeyboard-AnySoftKeyboard-1.11-1
+parent: ime/app/src/main/java/com/anysoftkeyboard/ui/settings/setup/WizardPageBaseFragment.java
+sub: ime/app/src/main/java/com/anysoftkeyboard/ui/settings/setup/WizardPermissionsFragment.java
+method: refreshFragmentUi()
+parent constraints: 
+sub constraints: 
+	AndroidXDrawableRes condition: "" , add info: -
+
+CANNOT_BE_CLASSIFIED
+program: JiriSko-amixer-webui-android-0
+parent: app/src/main/java/cz/jiriskorpil/amixerwebui/activity/AppCompatPreferenceActivity.java
+sub: app/src/main/java/cz/jiriskorpil/amixerwebui/activity/SettingsActivity.java
+method: onCreate(Bundle)
+parent constraints: 
+sub constraints: 
+	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
+	AndroidTargetApi condition: "Build.VERSION_CODES.HONEYCOMB" , add info: -
+
+CANNOT_BE_CLASSIFIED
+program: bailuk-AAT-1
+parent: aat-lib/src/main/java/ch/bailu/aat_lib/service/location/LocationStackChainedItem.java
+sub: aat-android/src/main/java/ch/bailu/aat/services/location/RealLocation.java
+method: appendStatusText(StringBuilder)
+parent constraints: 
+sub constraints: 
+	AndroidSuppressLint condition: ""MissingPermission"" , add info: -
+
+CANNOT_BE_CLASSIFIED
+program: helloworld1-AnyMemo-0
+parent: app/src/main/java/org/liberty/android/fantastischmemo/ui/FileBrowserFragment.java
+sub: app/src/main/java/org/liberty/android/fantastischmemo/ui/ConverterFragment.java
+method: onCreate(Bundle)
+parent constraints: 
+sub constraints: 
+	JavaAssert condition: "args != null" , add info: "Null args in ConverterFragment"
+
+CANNOT_BE_CLASSIFIED
+program: k3b-APhotoManager-0
+parent: fotoview.library/src/main/java/uk/co/senab/photoview/gestures/EclairGestureDetector.java
+sub: fotoview.library/src/main/java/uk/co/senab/photoview/gestures/FroyoGestureDetector.java
+method: onTouchEvent(MotionEvent)
+parent constraints: 
+	AndroidTargetApi condition: "5" , add info: -
+sub constraints: 
+	AndroidTargetApi condition: "8" , add info: -
+
+CANNOT_BE_CLASSIFIED
+program: k3b-APhotoManager-0
+parent: fotoview.library/src/main/java/uk/co/senab/photoview/gestures/CupcakeGestureDetector.java
+sub: fotoview.library/src/main/java/uk/co/senab/photoview/gestures/EclairGestureDetector.java
+method: onTouchEvent(MotionEvent)
+parent constraints: 
+sub constraints: 
+	AndroidTargetApi condition: "5" , add info: -
+
+CANNOT_BE_CLASSIFIED
+program: klassm-andFHEM-0
+parent: app/src/main/java/li/klass/fhem/adapter/ListDataAdapter.java
+sub: app/src/main/java/li/klass/fhem/adapter/ConnectionListAdapter.java
+method: getView(int,View,ViewGroup)
+parent constraints: 
+sub constraints: 
+	JavaAssert condition: "convertView != null" , add info: -
+
+CANNOT_BE_CLASSIFIED
+program: mjaun-android-anuto-1
+parent: app/src/main/java/ch/logixisland/anuto/util/iterator/StreamIterator.java
+sub: app/src/main/java/ch/logixisland/anuto/util/iterator/ComputingIterator.java
+method: next()
+parent constraints: 
+	CRENoSuchElementException condition: "!hasNext()" , add info: 
+sub constraints: 
+	CRENoSuchElementException condition: "mNext == null" , add info: 
+

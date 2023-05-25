@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/iamtrk/ItemListFragment.java","condition":"!(activity instanceof Callbacks)","method":"onAttach(Activity)","additional_info":"\"Activity must implement fragment's callbacks.\"","artefact_type":"METHOD","line":110,"name":"iamtrk-Device-Explorer","abstract_method":true,"type":"CREIllegalStateException","version":"1"}]

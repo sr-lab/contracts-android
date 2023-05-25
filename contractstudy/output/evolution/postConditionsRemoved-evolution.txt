@@ -1,0 +1,2948 @@
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/home/HomeEnvironment.java
+method: getBaseDir()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/tip/TipDialog.java
+method: setCancelable(boolean)
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/tip/TipDialog.java
+method: setDismissOnTouchOutside(boolean)
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/tip/TipDialog.java
+method: create()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/tip/TipDialog.java
+method: show()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/receiver/importer/Importer.java
+method: getTypePrefix()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/receiver/importer/Importer.java
+method: getDestinationFolder()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/receiver/importer/Importer.java
+method: getDefaultName()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/receiver/importer/ImageImporter.java
+method: getTypePrefix()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/receiver/importer/ImageImporter.java
+method: getDestinationFolder()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/receiver/importer/ImageImporter.java
+method: getDefaultName()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/receiver/importer/AudioImporter.java
+method: getTypePrefix()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/receiver/importer/AudioImporter.java
+method: getDestinationFolder()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/receiver/importer/AudioImporter.java
+method: getDefaultName()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/receiver/importer/VideoImporter.java
+method: getTypePrefix()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/receiver/importer/VideoImporter.java
+method: getDestinationFolder()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/receiver/importer/VideoImporter.java
+method: getDefaultName()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/receiver/importer/PdfImporter.java
+method: getTypePrefix()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/receiver/importer/PdfImporter.java
+method: getDestinationFolder()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/receiver/importer/PdfImporter.java
+method: getDefaultName()
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: 2bllw8-anemo-0
+version 2: 2bllw8-anemo-1
+compilation unit: java/eu/bbllw8/anemo/documents/AnemoUtils.java
+method: getTypeForFile(File)
+constraints in 2bllw8-anemo-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in 2bllw8-anemo-1
+
+POSTCONDITION_REMOVED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/utils/MaterialAnimationUtils.java
+method: createCircularReveal(View,boolean)
+constraints in AChep-AcDisplay-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.LOLLIPOP" , add info: -
+constraints in AChep-AcDisplay-1
+
+POSTCONDITION_REMOVED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/utils/MaterialAnimationUtils.java
+method: onAnimationStart(Animator)
+constraints in AChep-AcDisplay-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.LOLLIPOP" , add info: -
+constraints in AChep-AcDisplay-1
+
+POSTCONDITION_REMOVED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/notifications/OpenNotification.java
+method: newInstance(StatusBarNotification)
+constraints in AChep-AcDisplay-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.JELLY_BEAN_MR2" , add info: -
+constraints in AChep-AcDisplay-1
+
+POSTCONDITION_REMOVED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/acdisplay/notifications/NotificationUiHelper.java
+method: onClick(View)
+constraints in AChep-AcDisplay-0
+	JavaAssert condition: "mData.actionClickCallback != null" , add info: -
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
+constraints in AChep-AcDisplay-1
+
+POSTCONDITION_REMOVED
+version 1: AChep-AcDisplay-0
+version 2: AChep-AcDisplay-1
+compilation unit: project/app/src/main/java/com/achep/base/utils/power/PowerUtils.java
+method: isScreenOn(PowerManager)
+constraints in AChep-AcDisplay-0
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
+constraints in AChep-AcDisplay-1
+
+POSTCONDITION_REMOVED
+version 1: AdguardTeam-ContentBlocker-0
+version 2: AdguardTeam-ContentBlocker-1
+compilation unit: adguard_cb/src/main/java/com/adguard/android/contentblocker/MainActivity.java
+method: onPostExecute(Integer)
+constraints in AdguardTeam-ContentBlocker-0
+	AndroidSuppressLint condition: ""DefaultLocale"" , add info: -
+constraints in AdguardTeam-ContentBlocker-1
+
+POSTCONDITION_REMOVED
+version 1: AntennaPod-AntennaPod-0
+version 2: AntennaPod-AntennaPod-1
+compilation unit: app/src/main/java/de/danoeh/antennapod/preferences/PreferenceController.java
+method: onActivityResult(int,int,Intent)
+constraints in AntennaPod-AntennaPod-0
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
+constraints in AntennaPod-AntennaPod-1
+
+POSTCONDITION_REMOVED
+version 1: AntennaPod-AntennaPod-0
+version 2: AntennaPod-AntennaPod-1
+compilation unit: app/src/main/java/de/danoeh/antennapod/activity/MainActivity.java
+method: onTrimMemory(int)
+constraints in AntennaPod-AntennaPod-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.ICE_CREAM_SANDWICH" , add info: -
+constraints in AntennaPod-AntennaPod-1
+
+POSTCONDITION_REMOVED
+version 1: AntennaPod-AntennaPod-0
+version 2: AntennaPod-AntennaPod-1
+compilation unit: app/src/main/java/de/danoeh/antennapod/activity/MediaplayerActivity.java
+method: onTrimMemory(int)
+constraints in AntennaPod-AntennaPod-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.ICE_CREAM_SANDWICH" , add info: -
+constraints in AntennaPod-AntennaPod-1
+
+POSTCONDITION_REMOVED
+version 1: AntennaPod-AntennaPod-0
+version 2: AntennaPod-AntennaPod-1
+compilation unit: app/src/main/java/de/danoeh/antennapod/fragment/ItemDescriptionFragment.java
+method: onPageFinished(WebView,String)
+constraints in AntennaPod-AntennaPod-0
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
+constraints in AntennaPod-AntennaPod-1
+
+POSTCONDITION_REMOVED
+version 1: AntennaPod-AntennaPod-0
+version 2: AntennaPod-AntennaPod-1
+compilation unit: app/src/main/java/de/danoeh/antennapod/fragment/ItemDescriptionFragment.java
+method: onCreate(Bundle)
+constraints in AntennaPod-AntennaPod-0
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
+constraints in AntennaPod-AntennaPod-1
+
+POSTCONDITION_REMOVED
+version 1: AntennaPod-AntennaPod-0
+version 2: AntennaPod-AntennaPod-1
+compilation unit: app/src/main/java/de/danoeh/antennapod/fragment/ItemDescriptionFragment.java
+method: onContextItemSelected(MenuItem)
+constraints in AntennaPod-AntennaPod-0
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
+constraints in AntennaPod-AntennaPod-1
+
+POSTCONDITION_REMOVED
+version 1: AsteroidOS-AsteroidOSSync-0
+version 2: AsteroidOS-AsteroidOSSync-1
+compilation unit: app/src/main/java/org/asteroidos/sync/fragments/DeviceDetailFragment.java
+method: onCheckedChanged(CompoundButton,boolean)
+constraints in AsteroidOS-AsteroidOSSync-0
+	AndroidSuppressLint condition: ""SetTextI18n"" , add info: -
+constraints in AsteroidOS-AsteroidOSSync-1
+
+POSTCONDITION_REMOVED
+version 1: AsteroidOS-AsteroidOSSync-0
+version 2: AsteroidOS-AsteroidOSSync-1
+compilation unit: app/src/main/java/org/asteroidos/sync/services/NLService.java
+method: onListenerDisconnected()
+constraints in AsteroidOS-AsteroidOSSync-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.N" , add info: -
+constraints in AsteroidOS-AsteroidOSSync-1
+
+POSTCONDITION_REMOVED
+version 1: AsteroidOS-AsteroidOSSync-0
+version 2: AsteroidOS-AsteroidOSSync-1
+compilation unit: app/src/main/lib/sweetblue/library/src/main/java/com/idevicesinc/sweetblue/P_BluetoothCrashResolver.java
+method: notifyScannedDevice(P_NativeDeviceLayer,BluetoothAdapter.LeScanCallback,ScanCallback)
+constraints in AsteroidOS-AsteroidOSSync-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.LOLLIPOP" , add info: -
+constraints in AsteroidOS-AsteroidOSSync-1
+
+POSTCONDITION_REMOVED
+version 1: AsteroidOS-AsteroidOSSync-0
+version 2: AsteroidOS-AsteroidOSSync-1
+compilation unit: app/src/main/lib/sweetblue/library/src/main/java/com/idevicesinc/sweetblue/P_BluetoothCrashResolver.java
+method: startRecovery()
+constraints in AsteroidOS-AsteroidOSSync-0
+	AndroidTargetApi condition: "17" , add info: -
+constraints in AsteroidOS-AsteroidOSSync-1
+
+POSTCONDITION_REMOVED
+version 1: AsteroidOS-AsteroidOSSync-0
+version 2: AsteroidOS-AsteroidOSSync-1
+compilation unit: app/src/main/lib/sweetblue/library/src/main/java/com/idevicesinc/sweetblue/P_Task_Bond.java
+method: execute()
+constraints in AsteroidOS-AsteroidOSSync-0
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
+constraints in AsteroidOS-AsteroidOSSync-1
+
+POSTCONDITION_REMOVED
+version 1: AsteroidOS-AsteroidOSSync-0
+version 2: AsteroidOS-AsteroidOSSync-1
+compilation unit: app/src/main/lib/sweetblue/library/src/main/java/com/idevicesinc/sweetblue/P_Task_Unbond.java
+method: execute()
+constraints in AsteroidOS-AsteroidOSSync-0
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
+constraints in AsteroidOS-AsteroidOSSync-1
+
+POSTCONDITION_REMOVED
+version 1: FunkyMuse-Aurora-0
+version 2: FunkyMuse-Aurora-1
+compilation unit: book/bookui/src/main/java/com/funkymuse/aurora/bookui/BookUi.kt
+method: LoadingBook(Book)
+constraints in FunkyMuse-Aurora-0
+	AndroidSuppressLint condition: "[ "DefaultLocale" ]" , add info: -
+constraints in FunkyMuse-Aurora-1
+
+POSTCONDITION_REMOVED
+version 1: SubhamTyagi-AppLock-0
+version 2: SubhamTyagi-AppLock-1
+compilation unit: app/src/main/java/com/lzx/lock/service/Camera2Manager.java
+method: onSurfaceTextureAvailable(SurfaceTexture,int,int)
+constraints in SubhamTyagi-AppLock-0
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
+constraints in SubhamTyagi-AppLock-1
+
+POSTCONDITION_REMOVED
+version 1: SubhamTyagi-AppLock-0
+version 2: SubhamTyagi-AppLock-1
+compilation unit: app/src/main/java/com/lzx/lock/service/Camera2Manager.java
+method: run()
+constraints in SubhamTyagi-AppLock-0
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
+constraints in SubhamTyagi-AppLock-1
+
+POSTCONDITION_REMOVED
+version 1: SubhamTyagi-AppLock-0
+version 2: SubhamTyagi-AppLock-1
+compilation unit: app/src/main/java/com/lzx/lock/service/Camera2Manager.java
+method: handleMessage(Message)
+constraints in SubhamTyagi-AppLock-0
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
+constraints in SubhamTyagi-AppLock-1
+
+POSTCONDITION_REMOVED
+version 1: TeamAmaze-AmazeFileManager-0
+version 2: TeamAmaze-AmazeFileManager-1
+compilation unit: app/src/main/java/com/amaze/filemanager/ui/views/preference/SelectedColorsPreference.java
+method: onBindView(View)
+constraints in TeamAmaze-AmazeFileManager-0
+	AndroidSuppressLint condition: ""WrongConstant"" , add info: -
+constraints in TeamAmaze-AmazeFileManager-1
+
+POSTCONDITION_REMOVED
+version 1: TeamAmaze-AmazeFileManager-0
+version 2: TeamAmaze-AmazeFileManager-1
+compilation unit: app/src/main/java/com/amaze/filemanager/filesystem/FileUtil.java
+method: getExtSdCardPathsForActivity(Context)
+constraints in TeamAmaze-AmazeFileManager-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.KITKAT" , add info: -
+constraints in TeamAmaze-AmazeFileManager-1
+
+POSTCONDITION_REMOVED
+version 1: TeamAmaze-AmazeFileManager-0
+version 2: TeamAmaze-AmazeFileManager-1
+compilation unit: app/src/main/java/com/amaze/filemanager/filesystem/FileUtil.java
+method: isOnExtSdCard(File,Context)
+constraints in TeamAmaze-AmazeFileManager-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.KITKAT" , add info: -
+constraints in TeamAmaze-AmazeFileManager-1
+
+POSTCONDITION_REMOVED
+version 1: TeamAmaze-AmazeFileUtilities-0
+version 2: TeamAmaze-AmazeFileUtilities-1
+compilation unit: app/src/main/java/com/amaze/fileutilities/utilis/Utils.kt
+method: applicationIsGame(ApplicationInfo)
+constraints in TeamAmaze-AmazeFileUtilities-0
+	AndroidXRequiresApi condition: "[ Build.VERSION_CODES.LOLLIPOP ]" , add info: -
+constraints in TeamAmaze-AmazeFileUtilities-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/util/Union.java
+method: getA()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/util/Union.java
+method: getB()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/util/AddressInfo.java
+method: getAddress()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/util/AddressInfo.java
+method: getNormalizedAddress()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/util/AddressInfo.java
+method: getAddressLabel()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/util/CompoundErrorDetails.java
+method: getDetail()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/util/ContactInfo.java
+method: getName()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/util/ContactInfo.java
+method: getAddresses()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/util/ContactInfo.java
+method: clone()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/util/DirectConnectionParams.java
+method: getFallbackAddress()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/util/DirectConnectionParams.java
+method: toString()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/util/TapbackDisplayData.java
+method: getIconResource()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXDrawableRes condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/util/TapbackDisplayData.java
+method: getColor()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXColorRes condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/util/TapbackDisplayData.java
+method: getLabel()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXStringRes condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/recyclerupdate/PayloadConversationUpdate.java
+method: getPreview()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/recyclerupdate/PayloadConversationUpdate.java
+method: getTitle()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/data/SharedPreferencesManager.java
+method: upgradeSharedPreferences(Context)
+constraints in airmessage-airmessage-android-rel-0
+	AndroidSuppressLint condition: ""ApplySharedPref"" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/data/SharedPreferencesManager.java
+method: upgradeSharedPreferencesLegacy(Context)
+constraints in airmessage-airmessage-android-rel-0
+	AndroidSuppressLint condition: ""ApplySharedPref"" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/data/SharedPreferencesManager.java
+method: getInstallationID(Context)
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/data/SharedPreferencesManager.java
+method: getLastConnectionInstallationID(Context)
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/data/SharedPreferencesManager.java
+method: getLastSyncInstallationID(Context)
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/helper/ConversationBuildHelper.java
+method: generatePersonList(Context,ConversationInfo)
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.P]" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/helper/SmartReplyHelper.java
+method: messagesToTextClassifierMessageList(List<MessageInfo>)
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.Q]" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/helper/SmartReplyHelper.java
+method: generateResponsesTextClassifier(Context,List<ConversationActions.Message>)
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.Q]" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/helper/ErrorDetailsHelper.java
+method: getButton()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+	AndroidXStringRes condition: "" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/helper/ErrorDetailsHelper.java
+method: ConnectionManager>getClickListener()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/helper/LanguageHelper.java
+method: getNameFromContentType(String)
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXStringRes condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/helper/NotificationHelper.java
+method: initializeChannels(Context)
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.O]" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/MessageComponentText.java
+method: getText()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/MessageComponentText.java
+method: getSubject()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/AMConversationAction.java
+method: getIcon()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/ChatRenameAction.java
+method: clone()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/ConversationPreview.java
+method: getMessage()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/ConversationPreview.java
+method: getSubject()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/ConversationPreview.java
+method: getSendStyle()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/ConversationPreview.java
+method: getAttachments()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/ChatMemberAction.java
+method: clone()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/ConversationInfo.java
+method: getTitle()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/ConversationInfo.java
+method: getMessagePreview()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/ConversationInfo.java
+method: getDraftPreview()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/ConversationInfo.java
+method: getDynamicPreview()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/ConversationInfo.java
+method: getDraftMessage()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/ConversationInfo.java
+method: clone()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/TapbackInfo.java
+method: getSender()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/AttachmentInfo.java
+method: clone()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/MessageInfo.java
+method: getSender()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/MessageInfo.java
+method: getMessageText()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/MessageInfo.java
+method: getMessageSubject()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/MessageInfo.java
+method: getMessageTextInfo()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/MessageInfo.java
+method: getAttachments()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/MessageInfo.java
+method: getSendStyle()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/MessageInfo.java
+method: getErrorDetails()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/MessageInfo.java
+method: clone()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/FileLinked.java
+method: getMetadata()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/FileLinked.java
+method: getMediaStoreData()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNullable condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/MemberInfo.java
+method: getAddress()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/MemberInfo.java
+method: clone()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/ChatCreateAction.java
+method: clone()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: airmessage-airmessage-android-rel-0
+version 2: airmessage-airmessage-android-rel-1
+compilation unit: app/src/main/java/me/tagavari/airmessage/messaging/ConversationItem.java
+method: clone()
+constraints in airmessage-airmessage-android-rel-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in airmessage-airmessage-android-rel-1
+
+POSTCONDITION_REMOVED
+version 1: aistra0528-ArknightsTap-0
+version 2: aistra0528-ArknightsTap-1
+compilation unit: app/src/main/java/com/icebem/akt/app/PreferenceManager.java
+method: getDefaultPackage()
+constraints in aistra0528-ArknightsTap-0
+	AndroidXNullable condition: "" , add info: -
+constraints in aistra0528-ArknightsTap-1
+
+POSTCONDITION_REMOVED
+version 1: akvo-akvo-rsr-up-0
+version 2: akvo-akvo-rsr-up-1
+compilation unit: android/AkvoRSR/src/org/akvo/rsr/up/util/FileUtil.java
+method: getExternalCacheDir(Context)
+constraints in akvo-akvo-rsr-up-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.FROYO" , add info: -
+constraints in akvo-akvo-rsr-up-1
+
+POSTCONDITION_REMOVED
+version 1: akvo-akvo-rsr-up-0
+version 2: akvo-akvo-rsr-up-1
+compilation unit: android/AkvoRSR/src/org/akvo/rsr/up/util/FileUtil.java
+method: getExternalPhotoDir(Context)
+constraints in akvo-akvo-rsr-up-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.FROYO" , add info: -
+constraints in akvo-akvo-rsr-up-1
+
+POSTCONDITION_REMOVED
+version 1: apk-editor-APK-Explorer-Editor-0
+version 2: apk-editor-APK-Explorer-Editor-1
+compilation unit: app/src/main/java/com/apk/editor/utils/SplitAPKInstaller.java
+method: doInBackground(Void...)
+constraints in apk-editor-APK-Explorer-Editor-0
+	AndroidXRequiresApi condition: "[api = Build.VERSION_CODES.O]" , add info: -
+constraints in apk-editor-APK-Explorer-Editor-1
+
+POSTCONDITION_REMOVED
+version 1: apk-editor-APK-Explorer-Editor-0
+version 2: apk-editor-APK-Explorer-Editor-1
+compilation unit: app/src/main/java/com/apk/editor/adapters/RecycleViewApksAdapter.java
+method: onCreateViewHolder(ViewGroup,int)
+constraints in apk-editor-APK-Explorer-Editor-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in apk-editor-APK-Explorer-Editor-1
+
+POSTCONDITION_REMOVED
+version 1: apk-editor-APK-Explorer-Editor-0
+version 2: apk-editor-APK-Explorer-Editor-1
+compilation unit: app/src/main/java/com/apk/editor/adapters/RecycleViewAPKExplorerAdapter.java
+method: onCreateViewHolder(ViewGroup,int)
+constraints in apk-editor-APK-Explorer-Editor-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in apk-editor-APK-Explorer-Editor-1
+
+POSTCONDITION_REMOVED
+version 1: apk-editor-APK-Explorer-Editor-0
+version 2: apk-editor-APK-Explorer-Editor-1
+compilation unit: app/src/main/java/com/apk/editor/adapters/RecycleViewAboutAdapter.java
+method: onCreateViewHolder(ViewGroup,int)
+constraints in apk-editor-APK-Explorer-Editor-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in apk-editor-APK-Explorer-Editor-1
+
+POSTCONDITION_REMOVED
+version 1: apk-editor-APK-Explorer-Editor-0
+version 2: apk-editor-APK-Explorer-Editor-1
+compilation unit: app/src/main/java/com/apk/editor/adapters/RecycleViewAppsAdapter.java
+method: onCreateViewHolder(ViewGroup,int)
+constraints in apk-editor-APK-Explorer-Editor-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in apk-editor-APK-Explorer-Editor-1
+
+POSTCONDITION_REMOVED
+version 1: beemdevelopment-Aegis-0
+version 2: beemdevelopment-Aegis-1
+compilation unit: app/src/main/java/com/beemdevelopment/aegis/ui/AegisActivity.java
+method: onLocked()
+constraints in beemdevelopment-Aegis-0
+	AndroidXCallSuper condition: "" , add info: -
+constraints in beemdevelopment-Aegis-1
+
+POSTCONDITION_REMOVED
+version 1: beemdevelopment-Aegis-0
+version 2: beemdevelopment-Aegis-1
+compilation unit: app/src/main/java/com/beemdevelopment/aegis/ui/ChangelogDialog.java
+method: onCreateDialog(Bundle)
+constraints in beemdevelopment-Aegis-0
+	AndroidSuppressLint condition: ""InflateParams"" , add info: -
+	AndroidXNonNull condition: "" , add info: -
+constraints in beemdevelopment-Aegis-1
+
+POSTCONDITION_REMOVED
+version 1: butzist-ActivityLauncher-0
+version 2: butzist-ActivityLauncher-1
+compilation unit: ActivityLauncherApp/src/main/java/org/thirdparty/LauncherIconCreator.java
+method: onClick(DialogInterface,int)
+constraints in butzist-ActivityLauncher-0
+	AndroidTargetApi condition: "26" , add info: -
+constraints in butzist-ActivityLauncher-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2Android-0
+version 2: devgianlu-Aria2Android-1
+compilation unit: app/src/main/java/com/gianlu/aria2android/OptionsAdapter.java
+method: get()
+constraints in devgianlu-Aria2Android-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2Android-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Options/OptionsManager.java
+method: loadGlobalOptions()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Options/OptionsManager.java
+method: loadDownloadOptions()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Options/OptionsDialog.java
+method: getDownload(String,boolean)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Options/OptionsDialog.java
+method: getGlobal(boolean)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Options/OptionsDialog.java
+method: onCreateDialog(Bundle)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Options/OptionsView.java
+method: getAdapter()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Tutorial/Discovery.java
+method: extendsBaseTutorial>tutorialClass()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/NetInstanceHolder.java
+method: referenceFor(AbstractClient)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/CertUtils.java
+method: toString()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AbstractClient.java
+method: close()
+constraints in devgianlu-Aria2App-0
+	AndroidXWorkerThread condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AbstractClient.java
+method: closeClient()
+constraints in devgianlu-Aria2App-0
+	AndroidXWorkerThread condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AbstractClient.java
+method: onSuccess()
+constraints in devgianlu-Aria2App-0
+	AndroidXUiThread condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AbstractClient.java
+method: run()
+constraints in devgianlu-Aria2App-0
+	AndroidXWorkerThread condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/HttpClient.java
+method: run()
+constraints in devgianlu-Aria2App-0
+	AndroidXWorkerThread condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: changePosition(String,int,String)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: changeDownloadOptions(String,OptionsMap)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: changeGlobalOptions(OptionsMap)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: saveSession()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: purgeDownloadResults()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: pauseAll()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: unpauseAll()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: forcePauseAll()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: forcePause(String)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: forceRemove(String)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: pause(String)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: unpause(String)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: remove(String)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: removeDownloadResult(String)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: tellActiveSmall()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: tellWaitingSmall(int,int)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/AriaRequests.java
+method: tellStoppedSmall(int,int)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/PeerIdParser.java
+method: toString()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/TrackersListFetch.java
+method: get()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/TrackersListFetch.java
+method: getId()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/Peers.java
+method: empty()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/Peers.java
+method: find(Peer)
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/AriaFile.java
+method: getName()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/AriaFile.java
+method: getMimeType()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/AriaFile.java
+method: findByStatus(Status)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/OptionsMap.java
+method: put(String,String)
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/OptionsMap.java
+method: toJson()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/OptionsMap.java
+method: values()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/DownloadWithUpdate.java
+method: create(ClientInterface,JSONObject,boolean)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/DownloadWithUpdate.java
+method: update(JSONObject,boolean)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/DownloadWithUpdate.java
+method: update()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/DownloadWithUpdate.java
+method: getFilterable()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/DownloadWithUpdate.java
+method: bigUpdate()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/DownloadWithUpdate.java
+method: download()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/DownloadWithUpdate.java
+method: getName()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/DownloadWithUpdate.java
+method: getThemeResource()
+constraints in devgianlu-Aria2App-0
+	AndroidXStyleRes condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/DownloadWithUpdate.java
+method: getBackgroundColor()
+constraints in devgianlu-Aria2App-0
+	AndroidXColorRes condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/DownloadWithUpdate.java
+method: getColorAccent()
+constraints in devgianlu-Aria2App-0
+	AndroidXColorRes condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/BitTorrent.java
+method: create(JSONObject)
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/AriaFiles.java
+method: findFileByIndex(int)
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/Option.java
+method: toString()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/Servers.java
+method: empty()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/SparseServers.java
+method: empty()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/SparseServers.java
+method: find(Server)
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/Peer.java
+method: peerId()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/AriaDirectory.java
+method: allFiles()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/AriaDirectory.java
+method: findDirectory(String)
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/Download.java
+method: stringValues()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/Download.java
+method: getFormal(Context,boolean)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/AriaException.java
+method: toString()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Aria2/Server.java
+method: getShortUri()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Downloader/FetchDownloadWrapper.java
+method: get()
+constraints in devgianlu-Aria2App-0
+	JetBrainsNotNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Downloader/FetchDownloadWrapper.java
+method: getName()
+constraints in devgianlu-Aria2App-0
+	JetBrainsNotNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Downloader/FetchDownloadWrapper.java
+method: getStatus()
+constraints in devgianlu-Aria2App-0
+	JetBrainsNotNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Downloader/FetchDownloadWrapper.java
+method: getFile()
+constraints in devgianlu-Aria2App-0
+	JetBrainsNotNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Downloader/FetchDownloadWrapper.java
+method: getUri()
+constraints in devgianlu-Aria2App-0
+	JetBrainsNotNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Downloader/FetchDownloadWrapper.java
+method: getDecodedUrl()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Downloader/FetchDownloadWrapper.java
+method: getUrl()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Downloader/FetchHelper.java
+method: intercept(Chain)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/UpdaterFragment.java
+method: getHelper()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/UpdaterFragment.java
+method: onDestroy()
+constraints in devgianlu-Aria2App-0
+	AndroidXCallSuper condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/UpdaterFragment.java
+method: onPause()
+constraints in devgianlu-Aria2App-0
+	AndroidXCallSuper condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/UpdaterFragment.java
+method: onStop()
+constraints in devgianlu-Aria2App-0
+	AndroidXCallSuper condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/PayloadUpdater.java
+method: getHelper()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/Receiver.java
+method: wants()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/Receiver.java
+method: requireProvider()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/Wants.java
+method: downloadsAndStats()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/PayloadProvider.java
+method: toString()
+constraints in devgianlu-Aria2App-0
+	JetBrainsNotNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/PayloadProvider.java
+method: provides()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/PayloadProvider.java
+method: getHelper()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/UpdaterActivity.java
+method: onResume()
+constraints in devgianlu-Aria2App-0
+	AndroidXCallSuper condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/UpdaterActivity.java
+method: onDestroy()
+constraints in devgianlu-Aria2App-0
+	AndroidXCallSuper condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/UpdaterActivity.java
+method: onPause()
+constraints in devgianlu-Aria2App-0
+	AndroidXCallSuper condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/UpdaterActivity.java
+method: onStop()
+constraints in devgianlu-Aria2App-0
+	AndroidXCallSuper condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/UpdaterActivity.java
+method: getFramework()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/UpdaterFramework.java
+method: get()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Updater/ReceiverOwner.java
+method: toString()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Search/SearchEngine.java
+method: list(JSONArray)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Search/MissingSearchEngine.java
+method: toString()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Search/SearchResult.java
+method: list(JSONArray)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Search/SearchApi.java
+method: get()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Geolocalization/GeoIP.java
+method: get()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/NetIO/Geolocalization/IPDetails.java
+method: getNiceLocalizationString()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/WebView/InterceptedRequest.java
+method: url()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/WebView/InterceptedRequest.java
+method: String>headers()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/WebView/InterceptedRequest.java
+method: filename()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/WebView/WebViewActivity.java
+method: shouldInterceptRequest(WebView,WebResourceRequest)
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Adapters/StatePagerAdapter.java
+method: getItem(int)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Adapters/SearchResultsAdapter.java
+method: getDateFromItem(SearchResult)
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Adapters/DownloadCardsAdapter.java
+method: getComparatorFor(SortBy)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Adapters/PagerAdapter.java
+method: getItem(int)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Adapters/DirectDownloadsAdapter.java
+method: add(Download)
+constraints in devgianlu-Aria2App-0
+	AndroidXUiThread condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Adapters/DirectDownloadsAdapter.java
+method: remove(Download)
+constraints in devgianlu-Aria2App-0
+	AndroidXUiThread condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Adapters/AddDownloadBundlesAdapter.java
+method: getBundles()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/ChooserTargetsCache.java
+method: get()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/ProfilesManager.java
+method: exportAllProfiles()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/ProfilesManager.java
+method: getCurrentSpecific()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/ProfilesManager.java
+method: getCurrent()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/ProfilesManager.java
+method: getLastProfile()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/ProfilesManager.java
+method: getProfiles()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/ProfilesManager.java
+method: getWifiManager()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/ProfilesManager.java
+method: getConnectivityManager()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/MultiProfile.java
+method: shouldSkipVersionCheck(Context)
+constraints in devgianlu-Aria2App-0
+	JetBrainsNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/MultiProfile.java
+method: toString()
+constraints in devgianlu-Aria2App-0
+	JetBrainsNotNull condition: "" , add info: -
+	JetBrainsNotNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/MultiProfile.java
+method: getUrl()
+constraints in devgianlu-Aria2App-0
+	JetBrainsNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/MultiProfile.java
+method: getEncodedCredentials()
+constraints in devgianlu-Aria2App-0
+	JetBrainsNullable condition: "" , add info: -
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/MultiProfile.java
+method: forInAppDownloader()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/MultiProfile.java
+method: getProfile(ProfilesManager)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/MultiProfile.java
+method: getProfile(Context)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/MultiProfile.java
+method: getProfile(int,WifiManager)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/MultiProfile.java
+method: changeDefaultValue(boolean)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/MultiProfile.java
+method: getParent()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/Testers/BaseTester.java
+method: describe()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/Testers/Aria2Tester.java
+method: describe()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/Testers/NetTester.java
+method: describe()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/ProfilesManager/Testers/DirectDownloadTester.java
+method: describe()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/MoreAboutDownloadActivity.java
+method: wants()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/AddDownloadActivity.java
+method: createBundle()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/EditProfileActivity.java
+method: getProfile()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/AddUriActivity.java
+method: createBundle()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/AddTorrentActivity.java
+method: createBundle()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/AddMetalinkActivity.java
+method: createBundle()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/EditProfile/TestFragment.java
+method: getInstance(Context)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/EditProfile/TestFragment.java
+method: getProfile()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/EditProfile/WifisAdapter.java
+method: getItem(int)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/EditProfile/WifisAdapter.java
+method: getFilter()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/EditProfile/CertificateInputView.java
+method: saveState()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/EditProfile/CertificateInputView.java
+method: getActivity()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/AddDownload/Base64Fragment.java
+method: getFilenameOnDevice()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/AddDownload/Base64Fragment.java
+method: getBase64()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/AddDownload/Base64Fragment.java
+method: getFileUri()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/AddDownload/UrisFragment.java
+method: getUris()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/AddDownload/OptionsFragment.java
+method: getInstance(Context,boolean)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/AddDownload/OptionsFragment.java
+method: getFilename()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/AddDownload/OptionsFragment.java
+method: getOptions()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/AddDownload/OptionsFragment.java
+method: getPosition()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/AddDownload/AddBase64Bundle.java
+method: fileUri()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/MoreAboutDownload/Info/InfoFragment.java
+method: getInstance(Context,String)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/MoreAboutDownload/Files/DirectorySheet.java
+method: get()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/MoreAboutDownload/Files/FilesFragment.java
+method: getInstance(Context,String)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/MoreAboutDownload/Files/FilesAdapter.java
+method: getSelectedFiles()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/MoreAboutDownload/Files/FilesAdapter.java
+method: getCurrentDir()
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/MoreAboutDownload/Files/FileSheet.java
+method: get()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/MoreAboutDownload/Peers/PeersAdapter.java
+method: getComparatorFor(SortBy)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/MoreAboutDownload/Peers/PeerSheet.java
+method: get()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/MoreAboutDownload/Peers/PeersFragment.java
+method: getInstance(Context,String)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/MoreAboutDownload/Servers/ServerSheet.java
+method: get()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Activities/MoreAboutDownload/Servers/ServersFragment.java
+method: getInstance(Context,String)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Main/MainActivity.java
+method: wants()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Main/AboutAria2Dialog.java
+method: get()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Main/AboutAria2Dialog.java
+method: onCreateDialog(Bundle)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/InAppAria2/Aria2ConfigProvider.java
+method: extendsActivity>actionClass()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+	AndroidXKeep condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Services/NotificationService.java
+method: onBind(Intent)
+constraints in devgianlu-Aria2App-0
+	AndroidXNullable condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Services/NotificationService.java
+method: prefsValues()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Services/NotificationService.java
+method: formalValues(Context)
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: devgianlu-Aria2App-0
+version 2: devgianlu-Aria2App-1
+compilation unit: app/src/main/java/com/gianlu/aria2app/Services/NotificationService.java
+method: channelName()
+constraints in devgianlu-Aria2App-0
+	AndroidXNonNull condition: "" , add info: -
+constraints in devgianlu-Aria2App-1
+
+POSTCONDITION_REMOVED
+version 1: fighthawkarg-NasaApodMD-0
+version 2: fighthawkarg-NasaApodMD-1
+compilation unit: app/src/main/java/com/jvillalba/apod/dm/activities/ImageActivity.java
+method: run()
+constraints in fighthawkarg-NasaApodMD-0
+	AndroidSuppressLint condition: ""InlinedApi"" , add info: -
+constraints in fighthawkarg-NasaApodMD-1
+
+POSTCONDITION_REMOVED
+version 1: jenspfahl-ANOTHERpass-0
+version 2: jenspfahl-ANOTHERpass-1
+compilation unit: app/src/main/java/de/jepfa/yapm/ui/credential/ListCredentialsActivity.kt
+method: pushBackAutofill(EncCredential,Key?)
+constraints in jenspfahl-ANOTHERpass-0
+	AndroidXRequiresApi condition: "[ Build.VERSION_CODES.O ]" , add info: -
+constraints in jenspfahl-ANOTHERpass-1
+
+POSTCONDITION_REMOVED
+version 1: jenspfahl-ANOTHERpass-0
+version 2: jenspfahl-ANOTHERpass-1
+compilation unit: app/src/main/java/de/jepfa/yapm/repository/CredentialRepository.kt
+method: insert(EncCredential)
+constraints in jenspfahl-ANOTHERpass-0
+	AndroidXWorkerThread condition: "NONE" , add info: -
+constraints in jenspfahl-ANOTHERpass-1
+
+POSTCONDITION_REMOVED
+version 1: jenspfahl-ANOTHERpass-0
+version 2: jenspfahl-ANOTHERpass-1
+compilation unit: app/src/main/java/de/jepfa/yapm/repository/CredentialRepository.kt
+method: update(EncCredential)
+constraints in jenspfahl-ANOTHERpass-0
+	AndroidXWorkerThread condition: "NONE" , add info: -
+constraints in jenspfahl-ANOTHERpass-1
+
+POSTCONDITION_REMOVED
+version 1: jenspfahl-ANOTHERpass-0
+version 2: jenspfahl-ANOTHERpass-1
+compilation unit: app/src/main/java/de/jepfa/yapm/repository/CredentialRepository.kt
+method: delete(EncCredential)
+constraints in jenspfahl-ANOTHERpass-0
+	AndroidXWorkerThread condition: "NONE" , add info: -
+constraints in jenspfahl-ANOTHERpass-1
+
+POSTCONDITION_REMOVED
+version 1: jenspfahl-ANOTHERpass-0
+version 2: jenspfahl-ANOTHERpass-1
+compilation unit: app/src/main/java/de/jepfa/yapm/repository/LabelRepository.kt
+method: insert(EncLabel)
+constraints in jenspfahl-ANOTHERpass-0
+	AndroidXWorkerThread condition: "NONE" , add info: -
+constraints in jenspfahl-ANOTHERpass-1
+
+POSTCONDITION_REMOVED
+version 1: jenspfahl-ANOTHERpass-0
+version 2: jenspfahl-ANOTHERpass-1
+compilation unit: app/src/main/java/de/jepfa/yapm/repository/LabelRepository.kt
+method: update(EncLabel)
+constraints in jenspfahl-ANOTHERpass-0
+	AndroidXWorkerThread condition: "NONE" , add info: -
+constraints in jenspfahl-ANOTHERpass-1
+
+POSTCONDITION_REMOVED
+version 1: jenspfahl-ANOTHERpass-0
+version 2: jenspfahl-ANOTHERpass-1
+compilation unit: app/src/main/java/de/jepfa/yapm/repository/LabelRepository.kt
+method: delete(EncLabel)
+constraints in jenspfahl-ANOTHERpass-0
+	AndroidXWorkerThread condition: "NONE" , add info: -
+constraints in jenspfahl-ANOTHERpass-1
+
+POSTCONDITION_REMOVED
+version 1: k3b-APhotoManager-0
+version 2: k3b-APhotoManager-1
+compilation unit: fotoview.library/src/main/java/uk/co/senab/photoview/HugeImageLoader.java
+method: getMaxTextureSize()
+constraints in k3b-APhotoManager-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.FROYO" , add info: -
+constraints in k3b-APhotoManager-1
+
+POSTCONDITION_REMOVED
+version 1: k3b-APhotoManager-0
+version 2: k3b-APhotoManager-1
+compilation unit: fotoview.library/src/main/java/uk/co/senab/photoview/PhotoViewAttacher.java
+method: onTouch(View,MotionEvent)
+constraints in k3b-APhotoManager-0
+	AndroidSuppressLint condition: ""ClickableViewAccessibility"" , add info: -
+constraints in k3b-APhotoManager-1
+
+POSTCONDITION_REMOVED
+version 1: k3b-APhotoManager-0
+version 2: k3b-APhotoManager-1
+compilation unit: app/src/main/java/de/k3b/android/osmdroid/FolderOverlay.java
+method: draw(Canvas,MapView,boolean)
+constraints in k3b-APhotoManager-0
+	AndroidSuppressLint condition: ""WrongCall"" , add info: -
+constraints in k3b-APhotoManager-1
+
+POSTCONDITION_REMOVED
+version 1: klassm-andFHEM-0
+version 2: klassm-andFHEM-1
+compilation unit: app/src/main/java/li/klass/fhem/ui/FragmentType.java
+method: forEnumName(String)
+constraints in klassm-andFHEM-0
+	AndroidXNullable condition: "" , add info: -
+constraints in klassm-andFHEM-1
+
+POSTCONDITION_REMOVED
+version 1: klassm-andFHEM-0
+version 2: klassm-andFHEM-1
+compilation unit: app/src/main/java/li/klass/fhem/widget/deviceFunctionality/DeviceFunctionalityOrderPreference.kt
+method: onCreateDialogView()
+constraints in klassm-andFHEM-0
+	AndroidSuppressLint condition: "[ "InflateParams" ]" , add info: -
+constraints in klassm-andFHEM-1
+
+POSTCONDITION_REMOVED
+version 1: klassm-andFHEM-0
+version 2: klassm-andFHEM-1
+compilation unit: app/src/main/java/li/klass/fhem/connection/ui/ConnectionDetailFragment.kt
+method: mayPullToRefresh()
+constraints in klassm-andFHEM-0
+	KotlinAssert condition: "view != null" , add info: 
+	AndroidSuppressLint condition: "[ "InflateParams" ]" , add info: -
+constraints in klassm-andFHEM-1
+	AndroidSuppressLint condition: "[ "InflateParams" ]" , add info: -
+
+POSTCONDITION_REMOVED
+version 1: klassm-andFHEM-0
+version 2: klassm-andFHEM-1
+compilation unit: app/src/main/java/li/klass/fhem/adapter/devices/core/GenericOverviewDetailDeviceAdapter.kt
+method: getDeviceDetailView(Context,FhemDevice,String?)
+constraints in klassm-andFHEM-0
+	AndroidSuppressLint condition: "[ "InflateParams" ]" , add info: -
+constraints in klassm-andFHEM-1
+
+POSTCONDITION_REMOVED
+version 1: klassm-andFHEM-0
+version 2: klassm-andFHEM-1
+compilation unit: app/src/main/java/li/klass/fhem/adapter/devices/genericui/availableTargetStates/SliderSetListTargetStateHandler.kt
+method: handle(SetListEntry,Context,FhemDevice,OnTargetStateSelectedCallback<FhemDevice>)
+constraints in klassm-andFHEM-0
+	AndroidSuppressLint condition: "[ "InflateParams" ]" , add info: -
+	AndroidSuppressLint condition: "[ "InflateParams" ]" , add info: -
+constraints in klassm-andFHEM-1
+
+POSTCONDITION_REMOVED
+version 1: klassm-andFHEM-0
+version 2: klassm-andFHEM-1
+compilation unit: app/src/main/java/li/klass/fhem/appwidget/ui/widget/big/BigWeatherForecastWidget.kt
+method: fillWidgetView(Context,RemoteViews,FhemDevice,WidgetConfiguration)
+constraints in klassm-andFHEM-0
+	AndroidTargetApi condition: "[ Build.VERSION_CODES.ICE_CREAM_SANDWICH ]" , add info: -
+constraints in klassm-andFHEM-1
+
+POSTCONDITION_REMOVED
+version 1: klassm-andFHEM-0
+version 2: klassm-andFHEM-1
+compilation unit: app/src/main/java/li/klass/fhem/alarm/clock/update/AlarmClockUpdateService.kt
+method: updateNextAlarmClock()
+constraints in klassm-andFHEM-0
+	AndroidXRequiresApi condition: "[ Build.VERSION_CODES.LOLLIPOP ]" , add info: -
+constraints in klassm-andFHEM-1
+
+POSTCONDITION_REMOVED
+version 1: lolo-io-OneList-onelist-0
+version 2: lolo-io-OneList-onelist-1
+compilation unit: app/src/main/java/com/lolo/io/onelist/DialogsKt.kt
+method: promptDeleteList(ItemList,(action:Int)->Any?)
+constraints in lolo-io-OneList-onelist-0
+	AndroidSuppressLint condition: "[ "InflateParams" ]" , add info: -
+constraints in lolo-io-OneList-onelist-1
+
+POSTCONDITION_REMOVED
+version 1: lolo-io-OneList-onelist-0
+version 2: lolo-io-OneList-onelist-1
+compilation unit: app/src/main/java/com/lolo/io/onelist/DialogsKt.kt
+method: promptAddOrEditList(String="",(listTitle:String)->Any?)
+constraints in lolo-io-OneList-onelist-0
+	AndroidSuppressLint condition: "[ "InflateParams" ]" , add info: -
+constraints in lolo-io-OneList-onelist-1
+
+POSTCONDITION_REMOVED
+version 1: lolo-io-OneList-onelist-0
+version 2: lolo-io-OneList-onelist-1
+compilation unit: app/src/main/java/com/lolo/io/onelist/ItemsAdapterKt.kt
+method: onSwipeItem(ItemViewHolder,Int,Int)
+constraints in lolo-io-OneList-onelist-0
+	AndroidSuppressLint condition: "[ "SwitchIntDef" ]" , add info: -
+constraints in lolo-io-OneList-onelist-1
+
+POSTCONDITION_REMOVED
+version 1: lolo-io-OneList-onelist-0
+version 2: lolo-io-OneList-onelist-1
+compilation unit: app/src/main/java/com/lolo/io/onelist/ItemsAdapterKt.kt
+method: onSetSwipeBackground(ItemViewHolder,Int,Int)
+constraints in lolo-io-OneList-onelist-0
+	AndroidSuppressLint condition: "[ "SwitchIntDef" ]" , add info: -
+constraints in lolo-io-OneList-onelist-1
+
+POSTCONDITION_REMOVED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/commons/content/ContentManager.java
+method: getFilePath(String)
+constraints in sdex-ActivityManager-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.KITKAT" , add info: -
+constraints in sdex-ActivityManager-1
+
+POSTCONDITION_REMOVED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/highlightjs/HighlightJsView.java
+method: initView(Context)
+constraints in sdex-ActivityManager-0
+	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
+constraints in sdex-ActivityManager-1
+
+POSTCONDITION_REMOVED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/MainActivity.kt
+method: onStart()
+constraints in sdex-ActivityManager-0
+	AndroidSuppressLint condition: "[ "NotifyDataSetChanged" ]" , add info: -
+constraints in sdex-ActivityManager-1
+
+POSTCONDITION_REMOVED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/app/ActivitiesListViewModel.kt
+method: filterItems(String,String?)
+constraints in sdex-ActivityManager-0
+	AndroidXWorkerThread condition: "NONE" , add info: -
+constraints in sdex-ActivityManager-1
+
+POSTCONDITION_REMOVED
+version 1: sdex-ActivityManager-0
+version 2: sdex-ActivityManager-1
+compilation unit: app/src/main/java/com/sdex/activityrunner/manifest/ManifestReader.kt
+method: loadAndroidManifest(Context,String)
+constraints in sdex-ActivityManager-0
+	AndroidXWorkerThread condition: "NONE" , add info: -
+constraints in sdex-ActivityManager-1
+
+POSTCONDITION_REMOVED
+version 1: seemoo-lab-AirGuard-0
+version 2: seemoo-lab-AirGuard-1
+compilation unit: app/src/main/java/de/seemoo/at_tracking_detection/database/repository/DeviceRepository.kt
+method: insert(Device)
+constraints in seemoo-lab-AirGuard-0
+	AndroidXWorkerThread condition: "NONE" , add info: -
+constraints in seemoo-lab-AirGuard-1
+
+POSTCONDITION_REMOVED
+version 1: seemoo-lab-AirGuard-0
+version 2: seemoo-lab-AirGuard-1
+compilation unit: app/src/main/java/de/seemoo/at_tracking_detection/database/repository/DeviceRepository.kt
+method: update(Device)
+constraints in seemoo-lab-AirGuard-0
+	AndroidXWorkerThread condition: "NONE" , add info: -
+constraints in seemoo-lab-AirGuard-1
+
+POSTCONDITION_REMOVED
+version 1: seemoo-lab-AirGuard-0
+version 2: seemoo-lab-AirGuard-1
+compilation unit: app/src/main/java/de/seemoo/at_tracking_detection/database/repository/DeviceRepository.kt
+method: ignoreDevice(String)
+constraints in seemoo-lab-AirGuard-0
+	AndroidXWorkerThread condition: "NONE" , add info: -
+constraints in seemoo-lab-AirGuard-1
+
+POSTCONDITION_REMOVED
+version 1: uberspot-2048-android-0
+version 2: uberspot-2048-android-1
+compilation unit: src/com/uberspot/a2048/MainActivity.java
+method: onCreate(Bundle)
+constraints in uberspot-2048-android-0
+	AndroidSuppressLint condition: ""SetJavaScriptEnabled"" , add info: -
+constraints in uberspot-2048-android-1
+
+POSTCONDITION_REMOVED
+version 1: ukanth-afwall-0
+version 2: ukanth-afwall-1
+compilation unit: aFWall/src/main/java/dev/ukanth/ufirewall/Api.java
+method: showInstalledAppDetails(Context,String)
+constraints in ukanth-afwall-0
+	AndroidSuppressLint condition: ""InlinedApi"" , add info: -
+constraints in ukanth-afwall-1
+
+POSTCONDITION_REMOVED
+version 1: ukanth-afwall-0
+version 2: ukanth-afwall-1
+compilation unit: aFWall/src/main/java/dev/ukanth/ufirewall/Api.java
+method: setUserOwner(Context)
+constraints in ukanth-afwall-0
+	AndroidTargetApi condition: "Build.VERSION_CODES.JELLY_BEAN_MR1" , add info: -
+constraints in ukanth-afwall-1
+
+POSTCONDITION_REMOVED
+version 1: ukanth-afwall-0
+version 2: ukanth-afwall-1
+compilation unit: aFWall/src/main/java/dev/ukanth/ufirewall/Api.java
+method: supportsMultipleUsers(Context)
+constraints in ukanth-afwall-0
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
+constraints in ukanth-afwall-1
+
+POSTCONDITION_REMOVED
+version 1: ukanth-afwall-0
+version 2: ukanth-afwall-1
+compilation unit: aFWall/src/main/java/dev/ukanth/ufirewall/preferences/ExpPreferenceFragment.java
+method: onCreate(Bundle)
+constraints in ukanth-afwall-0
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
+constraints in ukanth-afwall-1
+
+POSTCONDITION_REMOVED
+version 1: ukanth-afwall-0
+version 2: ukanth-afwall-1
+compilation unit: aFWall/src/main/java/dev/ukanth/ufirewall/preferences/SecPreferenceFragment.java
+method: onCreate(Bundle)
+constraints in ukanth-afwall-0
+	AndroidSuppressLint condition: ""NewApi"" , add info: -
+constraints in ukanth-afwall-1
+
+POSTCONDITION_REMOVED
+version 1: ukanth-afwall-0
+version 2: ukanth-afwall-1
+compilation unit: aFWall/src/main/java/dev/ukanth/ufirewall/preferences/SharePreference.java
+method: getStringSet(String,Set<String>)
+constraints in ukanth-afwall-0
+	AndroidTargetApi condition: "11" , add info: -
+constraints in ukanth-afwall-1
+
+POSTCONDITION_REMOVED
+version 1: ukanth-afwall-0
+version 2: ukanth-afwall-1
+compilation unit: aFWall/src/main/java/dev/ukanth/ufirewall/preferences/SharePreference.java
+method: putStringSet(String,Set<String>)
+constraints in ukanth-afwall-0
+	AndroidTargetApi condition: "11" , add info: -
+constraints in ukanth-afwall-1
+

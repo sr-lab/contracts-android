@@ -77,7 +77,9 @@ public abstract class AbstractMethodVisitorKotlin extends KtTreeVisitorVoid {
     List<KtParameter> functionParameters = function.getValueParameters();
     isDefaultMethod = false; //TODO: Do default methods exist in Kotlin?
     if (includePrivateMethods || isInterface || KotlinParserUtils.isMethodVisibilityAccepted(ktModifierList)) {
-      this.methodDeclaration = KotlinParserUtils.getDeclaration(functionName, functionParameters);
+      if (functionName != null) {
+        this.methodDeclaration = KotlinParserUtils.getDeclaration(functionName, functionParameters);
+      }
     }
     super.visitNamedFunction(function);
   }

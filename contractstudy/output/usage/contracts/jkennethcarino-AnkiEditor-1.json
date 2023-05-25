@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/jkcarino/ankieditor/extensions/ViewExtensions.kt","condition":"NONE","method":"showSnackBar(Int,Int)","additional_info":"-","artefact_type":"METHOD_PARAMETER","line":24,"name":"jkennethcarino-AnkiEditor","abstract_method":false,"type":"AndroidXStringRes","version":"1"}]
