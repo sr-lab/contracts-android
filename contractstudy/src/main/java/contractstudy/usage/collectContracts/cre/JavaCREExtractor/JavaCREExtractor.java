@@ -41,6 +41,7 @@ public class JavaCREExtractor implements Extractor<ContractElement> {
         default:
       }
     } catch (Error | Exception e) {
+      e.printStackTrace();
       LOGGER.warn("Exception while extracting from " + cuName);
       consumer.extractionExceptionEncountered("Cannot parse " + programName + "-" + version + "/" + cuName, e);
     }

@@ -41,6 +41,7 @@ public class UnconditionalOperationNotSupportedExceptionExtractor implements Ext
         default:
       }
     } catch (Exception t) {
+      t.printStackTrace();
       LOGGER.warn("Exception while extracting from " + cuName);
       consumer.extractionExceptionEncountered("Cannot parse " + programName + "-" + version + "/" + cuName, t);
     }

@@ -1,1 +1,0 @@
-[{"methods":["onCreate(Bundle)","onActivityResult(int,int,Intent)"],"cuName":"app/src/main/java/ru/ifproject/android/afr/MainActivity.java","className":"afr.MainActivity","parents":[]},{"methods":["onItemClick(AdapterView<?>,View,int,long)"],"cuName":"app/src/main/java/ru/ifproject/android/afr/MainActivity.java","className":"afr.MainActivity.FaceItemClickListener","parents":[]}]

@@ -1,1 +1,0 @@
-[{"cu":"src/org/moparisthebest/openintents/filemanager/IconifiedText.java","condition":"this.mText != null","method":"compareTo(IconifiedText)","additional_info":"","artefact_type":"METHOD","line":73,"name":"moparisthebest-AppBak","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

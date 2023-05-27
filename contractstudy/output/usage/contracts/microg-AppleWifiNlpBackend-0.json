@@ -1,1 +1,0 @@
-[{"cu":"src/org/microg/nlp/backend/apple/LocationRetriever.java","condition":"mac.length() == 17","method":"wellFormedMac(String)","additional_info":"\"Can't read this string as mac address\"","artefact_type":"METHOD","line":116,"name":"microg-AppleWifiNlpBackend","abstract_method":false,"type":"CREIllegalArgumentException","version":"0"}]

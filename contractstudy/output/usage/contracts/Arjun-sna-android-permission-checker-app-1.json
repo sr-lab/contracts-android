@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/in/arjsna/permissionchecker/Transition.java","condition":"Build.VERSION_CODES.LOLLIPOP","method":"Transition(Context, AttributeSet)","additional_info":"-","artefact_type":"CLASS","line":19,"name":"Arjun-sna-android-permission-checker-app","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

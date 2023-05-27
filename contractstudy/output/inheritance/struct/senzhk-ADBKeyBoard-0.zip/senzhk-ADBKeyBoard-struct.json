@@ -1,1 +1,0 @@
-[{"methods":["onReceive(Context,Intent)"],"cuName":"keyboardservice/src/main/java/com/android/adbkeyboard/AdbIME.java","className":"adbkeyboard.AdbIME.AdbReceiver","parents":[]},{"methods":["onCreateInputView()","onDestroy()"],"cuName":"keyboardservice/src/main/java/com/android/adbkeyboard/AdbIME.java","className":"adbkeyboard.AdbIME","parents":[]}]

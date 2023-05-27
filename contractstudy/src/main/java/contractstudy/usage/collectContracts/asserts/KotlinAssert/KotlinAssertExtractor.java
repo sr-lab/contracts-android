@@ -4,7 +4,6 @@ import contractstudy.config.Logging;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
-import contractstudy.usage.collectContracts.asserts.JavaAssert.JavaAssertExtractor;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import contractstudy.utils.kotlinParser.KotlinParser;
