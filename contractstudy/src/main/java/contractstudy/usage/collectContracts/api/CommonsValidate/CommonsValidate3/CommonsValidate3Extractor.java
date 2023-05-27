@@ -2,10 +2,12 @@ package contractstudy.usage.collectContracts.api.CommonsValidate.CommonsValidate
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import contractstudy.config.Logging;
 import contractstudy.constants.constraint.ConstraintCategory;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
+import contractstudy.usage.collectContracts.api.CommonsValidate.CommonsValidate2.CommonsValidate2Extractor;
 import contractstudy.usage.collectContracts.api.CommonsValidate.CommonsValidate3.visitor.MethodVisitorToCollectCommons3ValidateInvocations;
 import contractstudy.usage.collectContracts.api.CommonsValidate.CommonsValidate3.visitor.MethodVisitorToCollectCommons3ValidateInvocationsKotlin;
 import contractstudy.usage.collectContracts.common.StaticImportCollector.StaticImportCollector;
@@ -13,6 +15,7 @@ import contractstudy.usage.collectContracts.common.StaticImportCollector.StaticI
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import contractstudy.utils.kotlinParser.KotlinParser;
+import org.apache.log4j.Logger;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 import java.io.IOException;
@@ -25,9 +28,16 @@ import java.io.InputStream;
  */
 public class CommonsValidate3Extractor implements Extractor<ContractElement> {
 
+  private static final Logger LOGGER = Logging.getLogger(CommonsValidate3Extractor.class);
+
   @Override
-  public void analyse(InputStream in, String programName, String version, String cuName,
-    ExtractionListener<ContractElement> consumer) throws Exception {
+  public void analyse(
+    InputStream in,
+    String programName,
+    String version,
+    String cuName,
+    ExtractionListener<ContractElement> consumer
+  ) {
     try {
       switch (LanguageUtils.getLanguageFromNameExtension(cuName)) {
         case JAVA:
@@ -39,8 +49,8 @@ public class CommonsValidate3Extractor implements Extractor<ContractElement> {
         default:
       }
     } catch (Exception t) {
-      consumer.extractionExceptionEncountered(
-        "Cannot parse " + programName + "-" + version + "/" + cuName, t);
+      LOGGER.warn("Exception while extracting from " + cuName);
+      consumer.extractionExceptionEncountered("Cannot parse " + programName + "-" + version + "/" + cuName, t);
     }
   }
 

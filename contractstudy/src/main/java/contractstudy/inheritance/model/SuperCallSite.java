@@ -16,12 +16,11 @@ public class SuperCallSite {
    */
   public boolean isMethod = true;
 
-  public static SuperCallSite fromCSV(String line) {
-    String[] items = line.split(",");
-    ProgramVersion v = ProgramVersion.getOrCreate(items[0], items[1]);
-    String cu = items[2];
-    boolean isMethod = items[4].equals("method");
-    String methodDec = items[3];
+  public static SuperCallSite fromCSV(String[] lineComponents) {
+    ProgramVersion v = ProgramVersion.getOrCreate(lineComponents[0], lineComponents[1]);
+    String cu = lineComponents[2];
+    boolean isMethod = lineComponents[4].equals("method");
+    String methodDec = lineComponents[3];
     return new SuperCallSite(v, cu, methodDec, isMethod);
   }
 

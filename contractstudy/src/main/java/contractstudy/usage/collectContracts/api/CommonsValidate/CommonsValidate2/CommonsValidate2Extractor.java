@@ -2,8 +2,10 @@ package contractstudy.usage.collectContracts.api.CommonsValidate.CommonsValidate
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import contractstudy.config.Logging;
 import contractstudy.constants.constraint.ConstraintCategory;
 import contractstudy.constants.constraint.ContractElement;
+import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectVersionHierarchyExtractor;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
 import contractstudy.usage.collectContracts.api.CommonsValidate.CommonsValidate2.visitor.MethodVisitorToCollectCommons2ValidateInvocations;
@@ -13,6 +15,7 @@ import contractstudy.usage.collectContracts.common.StaticImportCollector.StaticI
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import contractstudy.utils.kotlinParser.KotlinParser;
+import org.apache.log4j.Logger;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 import java.io.IOException;
@@ -24,6 +27,7 @@ import java.io.InputStream;
  * @author jens dietrich
  */
 public class CommonsValidate2Extractor implements Extractor<ContractElement> {
+  private static final Logger LOGGER = Logging.getLogger(CommonsValidate2Extractor.class);
 
   @Override
   public void analyse(InputStream in, String programName, String version, String cuName,
@@ -39,8 +43,8 @@ public class CommonsValidate2Extractor implements Extractor<ContractElement> {
         default:
       }
     } catch (Exception t) {
-      consumer.extractionExceptionEncountered(
-        "Cannot parse " + programName + "-" + version + "/" + cuName, t);
+      LOGGER.warn("Exception while extracting from " + cuName);
+      consumer.extractionExceptionEncountered("Cannot parse " + programName + "-" + version + "/" + cuName, t);
     }
   }
 

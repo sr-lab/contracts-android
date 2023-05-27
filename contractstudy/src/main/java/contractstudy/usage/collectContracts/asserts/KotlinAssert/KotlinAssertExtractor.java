@@ -1,11 +1,13 @@
 package contractstudy.usage.collectContracts.asserts.KotlinAssert;
 
+import contractstudy.config.Logging;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
 import contractstudy.utils.InputStreamToStringConversion;
 import contractstudy.utils.LanguageUtils;
 import contractstudy.utils.kotlinParser.KotlinParser;
+import org.apache.log4j.Logger;
 import org.jetbrains.kotlin.com.intellij.psi.PsiFile;
 
 import java.io.InputStream;
@@ -14,18 +16,22 @@ import java.util.List;
 
 public class KotlinAssertExtractor implements Extractor<ContractElement> {
 
+  private static final Logger LOGGER = Logging.getLogger(KotlinAssertExtractor.class);
+
   @Override
   public void analyse(
     final InputStream in,
     final String programName,
     final String version,
     final String cuName,
-    final ExtractionListener<ContractElement> consumer) throws Exception {
+    final ExtractionListener<ContractElement> consumer
+  ) {
     try {
       if (LanguageUtils.getLanguageFromNameExtension(cuName) == LanguageUtils.Language.KOTLIN) {
         analyseKotlin(in, programName, version, cuName, consumer);
       }
     } catch (Error | Exception e) {
+      LOGGER.warn("Exception while extracting from " + cuName);
       consumer.extractionExceptionEncountered("Cannot parse " + programName + "-" + version + "/" + cuName, e);
     }
   }

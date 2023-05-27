@@ -20,6 +20,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.LineIterator;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -119,16 +120,17 @@ public class SubtypeDiffExtractor implements DiffExtractor {
   private static void collectMethods(
     JSONObject o,
     ClassAndVersion subTypeTmp,
-    Map<ClassAndVersion,
-      Set<String>> methods
+    Map<ClassAndVersion, Set<String>> methods
   ) {
-    JSONArray mm = o.getJSONArray("methods");
-    Iterator<Object> itM = mm.iterator();
-    Set<String> meth = new HashSet<>();
-    while (itM.hasNext()) {
-      meth.add(itM.next().toString());
-    }
-    methods.put(subTypeTmp, meth);
+    try {
+      JSONArray mm = o.getJSONArray("methods");
+      Iterator<Object> itM = mm.iterator();
+      Set<String> meth = new HashSet<>();
+      while (itM.hasNext()) {
+        meth.add(itM.next().toString());
+      }
+      methods.put(subTypeTmp, meth);
+    } catch (JSONException ignored) {}
   }
 
   private static void collectParents(
@@ -357,7 +359,10 @@ public class SubtypeDiffExtractor implements DiffExtractor {
     it.next();
     while (it.hasNext()) {
       String line = it.next();
-      callSites.add(SuperCallSite.fromCSV(line));
+      String[] lineComponents = line.split(",");
+      if (lineComponents.length == 5) {
+        callSites.add(SuperCallSite.fromCSV(lineComponents));
+      }
     }
     return callSites;
   }

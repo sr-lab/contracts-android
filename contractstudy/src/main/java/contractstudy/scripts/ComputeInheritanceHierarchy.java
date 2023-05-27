@@ -166,14 +166,9 @@ public class ComputeInheritanceHierarchy implements Experiment {
     HashMap<String, String> seenClasses = new HashMap<>();
 
     for (ClassCoordinates c : parents.keySet()) {
-      if (c.getCuName().contains("PhotoPropertiesChainReader")) {
-        System.out.println("Nice");
-      }
-
       Set<ClassCoordinates> withInnerSet = new HashSet<>();
       withInnerSet.add(c);
       withInnerSet.addAll(c.getInnerClasses());
-      ClassParents classParents = parents.get(c);
       for (ClassCoordinates cc : withInnerSet) {
         if (isClassAlreadySeen(cc, seenClasses)) {
           continue;
@@ -205,7 +200,11 @@ public class ComputeInheritanceHierarchy implements Experiment {
     JSONObject classCoordinates = new JSONObject();
     classCoordinates.put(ClassCoordinatesKeysEnum.CLASS_NAME.getKeyword(), cc.getClassName());
     classCoordinates.put(ClassCoordinatesKeysEnum.CU_NAME.getKeyword(), cc.getCuName());
-    classCoordinates.put(ClassCoordinatesKeysEnum.METHODS.getKeyword(), cc.getMethods());
+    try {
+      classCoordinates.put(ClassCoordinatesKeysEnum.METHODS.getKeyword(), cc.getMethods());
+    } catch (NullPointerException e) {
+      classCoordinates.put(ClassCoordinatesKeysEnum.METHODS.getKeyword(), new HashMap<>());
+    }
     JSONArray aa = new JSONArray();
     if (allParents != null) {
       for (ClassAndVersion parent : allParents) {

@@ -80,16 +80,18 @@ public class MethodVisitorToCollectUnconditionalUnsupportedOperationExceptionThr
   }
 
   private String getExceptionName(KtThrowExpression n) {
-    String name = n.getNode().getLastChildNode().getText();
-    if (n.getNode().getLastChildNode().getText().contains("(")) {
-      name = n.getNode().getLastChildNode().getText()
-        .substring(0, n.getNode().getLastChildNode().getText().indexOf("("));
+    try {
+      String name = n.getNode().getLastChildNode().getText();
+      if (name.contains("(")) {
+        name = name.substring(0, n.getNode().getLastChildNode().getText().indexOf("("));
+      }
+      if (name.contains(".")) {
+        name = name.substring(name.indexOf("."));
+      }
+      return name.replace(".", "");
+    } catch (StringIndexOutOfBoundsException exc) {
+      return "";
     }
-    if (n.getNode().getLastChildNode().getText().contains(".")) {
-      name = n.getNode().getLastChildNode().getText()
-        .substring(n.getNode().getLastChildNode().getText().indexOf("."), name.length());
-    }
-    return name.replace(".", "");
   }
 
   private ConstraintType getPreconditionTypeFromExceptionName(String exceptionName) {
