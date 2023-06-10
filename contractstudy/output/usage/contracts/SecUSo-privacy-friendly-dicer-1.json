@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/org/secuso/privacyfriendlydicer/ui/MainActivity.java","condition":"","method":"getDicerDrawable(int)","additional_info":"-","artefact_type":"METHOD","line":198,"name":"SecUSo-privacy-friendly-dicer","abstract_method":false,"type":"AndroidXDrawableRes","version":"1"}]

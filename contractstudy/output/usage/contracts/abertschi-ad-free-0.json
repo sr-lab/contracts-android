@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/ch/abertschi/adfree/model/PreferencesFactory.kt","condition":"instance == null","method":"providePrefernecesFactory()","additional_info":"\"Preference factory should be initialized by Application at very beginning\"","artefact_type":"METHOD","line":58,"name":"abertschi-ad-free","abstract_method":false,"type":"CREIllegalStateException","version":"0"}]

@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/openfoodfacts/github/scrachx/openfood/utils/Utils.java","condition":"Build.VERSION_CODES.JELLY_BEAN_MR1","method":"isAirplaneModeActive(Context)","additional_info":"-","artefact_type":"METHOD","line":440,"name":"openfoodfacts-openfoodfacts-androidapp","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

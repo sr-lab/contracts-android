@@ -1,0 +1,1 @@
+[{"cu":"src/com/tkjelectronics/balanduino/BalanduinoActivity.java","condition":"\"HandlerLeak\"","method":"run()","additional_info":"-","artefact_type":"CLASS","line":474,"name":"TKJElectronics-BalanduinoAndroidApp","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

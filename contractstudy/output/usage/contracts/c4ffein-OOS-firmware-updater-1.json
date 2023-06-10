@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/fr/witchdoctors/c4ffein/oosfirmwareextractor/MainActivity.java","condition":"\"WrongViewCast\"","method":"onClick(View)","additional_info":"-","artefact_type":"METHOD","line":220,"name":"c4ffein-OOS-firmware-updater","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

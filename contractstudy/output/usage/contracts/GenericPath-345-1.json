@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/otago/open/MarkViewFragment.kt","condition":"[ \"SetJavaScriptEnabled\" ]","method":"onViewCreated(View,Bundle?)","additional_info":"-","artefact_type":"CLASS","line":91,"name":"GenericPath-345","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/termux/widget/TermuxWidgetService.java","condition":"\"SdCardPath\"","method":"compare(File,File)","additional_info":"-","artefact_type":"METHOD","line":108,"name":"termux-termux-widget","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

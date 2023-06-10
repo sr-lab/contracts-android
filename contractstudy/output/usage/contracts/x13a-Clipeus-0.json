@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/me/lucky/clipeus/NotificationListenerService.kt","condition":"[ Build.VERSION_CODES.S ]","method":"onListenerConnected()","additional_info":"-","artefact_type":"CLASS","line":29,"name":"x13a-Clipeus","abstract_method":false,"type":"AndroidXRequiresApi","version":"0"}]

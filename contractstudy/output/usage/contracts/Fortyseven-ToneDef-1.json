@@ -1,0 +1,1 @@
+[{"cu":"MainApp/src/main/java/com/bytestemplar/tonedef/international/CountryTonesRepository.java","condition":"instance == null","method":"getInstance()","additional_info":"\"Must call getInstance at least once with a parent Activity\"","artefact_type":"METHOD","line":35,"name":"Fortyseven-ToneDef","abstract_method":false,"type":"CREIllegalStateException","version":"1"}]

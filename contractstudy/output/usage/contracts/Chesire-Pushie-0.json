@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/chesire/pushie/api/PasswordPusher.kt","condition":"password.isBlank()","method":"sendPassword(String,Int,Int)","additional_info":"\"Password cannot be a blank string\"","artefact_type":"METHOD","line":30,"name":"Chesire-Pushie","abstract_method":false,"type":"CREInvalidParameterException","version":"0"}]

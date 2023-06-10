@@ -1,0 +1,1 @@
+[{"cu":"src/net/iowaline/dotdash/DotDashIMEService.java","condition":"\"InflateParams\"","method":"onCreateInputView()","additional_info":"-","artefact_type":"METHOD","line":160,"name":"agwells-dotdash-keyboard-android-version","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

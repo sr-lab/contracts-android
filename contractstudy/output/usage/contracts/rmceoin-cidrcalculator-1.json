@@ -1,0 +1,1 @@
+[{"cu":"cidrcalculator/app/src/main/java/us/lindanrandy/cidrcalculator/HistoryProvider.java","condition":"sUriMatcher.match(uri) != HISTORY","method":"insert(Uri,ContentValues)","additional_info":"\"Unknown URI \" + uri","artefact_type":"METHOD","line":171,"name":"rmceoin-cidrcalculator","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

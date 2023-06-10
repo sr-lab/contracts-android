@@ -1,0 +1,1 @@
+[{"cu":"handheld/src/main/java/ca/rmen/android/frcwidget/FRCAppWidgetProvider.java","condition":"16","method":"onAppWidgetOptionsChanged(Context,AppWidgetManager,int,Bundle)","additional_info":"-","artefact_type":"METHOD","line":82,"name":"caarmen-FRCAndroidWidget-release","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

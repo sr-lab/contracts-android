@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/me/bgregos/foreground/TaskDetailFragment.kt","condition":"detail_name.text.toString().isBlank() || detail_name.text.toString().isEmpty()","method":"onPause()","additional_info":"\"Task uuid lookup failed!\"","artefact_type":"METHOD","line":205,"name":"bgregos-foreground","abstract_method":false,"type":"CRENullPointerException","version":"0"}]

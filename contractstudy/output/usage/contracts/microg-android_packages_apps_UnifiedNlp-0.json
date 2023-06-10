@@ -1,0 +1,1 @@
+[{"cu":"unifiednlp-base/src/main/java/org/microg/nlp/ui/SettingInjectorService.java","condition":"Build.VERSION_CODES.KITKAT","method":"settingsInjectionPossible(Context)","additional_info":"-","artefact_type":"CLASS","line":38,"name":"microg-android_packages_apps_UnifiedNlp","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

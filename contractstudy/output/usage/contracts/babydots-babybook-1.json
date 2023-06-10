@@ -1,0 +1,1 @@
+[{"cu":"android/src/main/java/com/serwylo/babybook/editbookpage/EditBookPageActivity.kt","condition":"bookId <= 0","method":"onCreate(Bundle?)","additional_info":"\"Expected $EXTRA_BOOK_ID to be > 0, but got 0\"","artefact_type":"METHOD","line":52,"name":"babydots-babybook","abstract_method":false,"type":"CREIllegalStateException","version":"1"}]

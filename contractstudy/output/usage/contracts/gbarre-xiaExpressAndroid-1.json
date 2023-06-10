@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/fr/ac_versailles/dane/xiaexpress/TextConverter.java","condition":"\"SetJavaScriptEnabled\"","method":"onPostExecute(String)","additional_info":"-","artefact_type":"METHOD","line":317,"name":"gbarre-xiaExpressAndroid","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

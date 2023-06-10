@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/org/eztarget/micopi/engine/Painter.java","condition":"Build.VERSION_CODES.LOLLIPOP","method":"paintRoundedSquare(int,Texture,float,float,float)","additional_info":"-","artefact_type":"METHOD","line":311,"name":"easytargetmixel-micopi_android","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

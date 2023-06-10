@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/org/jfet/batsHIIT/HIITRun.java","condition":"\"HandlerLeak\"","method":"handleMessage(Message)","additional_info":"-","artefact_type":"CLASS","line":208,"name":"kwantam-batsHIIT","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

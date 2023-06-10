@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/rascarlo/adaptive/brightness/tile/SettingsFragment.java","condition":"","method":"onCreateView(LayoutInflater,ViewGroup,Bundle)","additional_info":"-","artefact_type":"METHOD_PARAMETER","line":24,"name":"rascarlo-AdaptiveBrightnessTile","abstract_method":false,"type":"AndroidXNonNull","version":"1"}]

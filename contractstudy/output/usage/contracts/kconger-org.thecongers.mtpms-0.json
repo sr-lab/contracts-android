@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/org/thecongers/mtpms/MainActivity.java","condition":"\"HandlerLeak\"","method":"handleMessage(Message)","additional_info":"-","artefact_type":"METHOD","line":106,"name":"kconger-org.thecongers.mtpms","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

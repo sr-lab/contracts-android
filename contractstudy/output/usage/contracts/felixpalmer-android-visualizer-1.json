@@ -1,0 +1,1 @@
+[{"cu":"src/com/pheelicks/visualizer/VisualizerView.java","condition":"player == null","method":"link(MediaPlayer)","additional_info":"\"Cannot link to null MediaPlayer\"","artefact_type":"METHOD","line":82,"name":"felixpalmer-android-visualizer","abstract_method":false,"type":"CRENullPointerException","version":"1"}]

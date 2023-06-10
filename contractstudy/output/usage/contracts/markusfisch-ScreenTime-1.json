@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/kotlin/de/markusfisch/android/screentime/notification/Notification.kt","condition":"[ Build.VERSION_CODES.O ]","method":"createChannel()","additional_info":"-","artefact_type":"CLASS","line":52,"name":"markusfisch-ScreenTime","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

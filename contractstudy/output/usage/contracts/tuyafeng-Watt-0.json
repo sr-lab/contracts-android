@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/tuyafeng/watt/di/ViewModelFactory.kt","condition":"creator == null","method":"create(Class<T>)","additional_info":"\"Unknown model class: $modelClass\"","artefact_type":"METHOD","line":43,"name":"tuyafeng-Watt","abstract_method":false,"type":"CREIllegalArgumentException","version":"0"}]

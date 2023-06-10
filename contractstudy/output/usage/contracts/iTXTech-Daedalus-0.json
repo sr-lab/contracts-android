@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/org/itxtech/daedalus/AboutActivity.java","condition":"{ \"JavascriptInterface\", \"SetJavaScriptEnabled\" }","method":"onPageFinished(WebView,String)","additional_info":"-","artefact_type":"METHOD","line":30,"name":"iTXTech-Daedalus","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

@@ -1,0 +1,1 @@
+[{"cu":"Application/src/main/java/de/uwepost/android/deltacam/AutoFitTextureView.java","condition":"width < 0 || height < 0","method":"setAspectRatio(int,int)","additional_info":"\"Size cannot be negative.\"","artefact_type":"METHOD","line":53,"name":"upost-DeltaCamera","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

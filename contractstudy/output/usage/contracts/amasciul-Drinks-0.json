@@ -1,0 +1,1 @@
+[{"cu":"Drinks/src/main/java/fr/masciulli/drinks/util/Blur.java","condition":"\"NewApi\"","method":"fastblur(Context,Bitmap,int)","additional_info":"-","artefact_type":"METHOD","line":17,"name":"amasciul-Drinks","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

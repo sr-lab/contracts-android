@@ -1,0 +1,1 @@
+[{"cu":"src/main/java/de/j4velin/pedometer/util/API23Wrapper.java","condition":"Build.VERSION_CODES.M","method":"requestPermission(Activity,String[])","additional_info":"-","artefact_type":"CLASS","line":23,"name":"j4velin-Pedometer","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

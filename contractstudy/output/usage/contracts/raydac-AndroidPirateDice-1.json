@@ -1,0 +1,1 @@
+[{"cu":"PirateDice/src/main/java/com/igormaznitsa/piratedice/model/Model.java","condition":"t == null","method":"setType(Type)","additional_info":"","artefact_type":"METHOD","line":42,"name":"raydac-AndroidPirateDice","abstract_method":true,"type":"CRENullPointerException","version":"1"}]

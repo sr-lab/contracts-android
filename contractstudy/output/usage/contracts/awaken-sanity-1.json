@@ -1,0 +1,1 @@
+[{"cu":"src/cri/sanity/util/License.java","condition":"completed","method":"run()","additional_info":"","artefact_type":"METHOD","line":65,"name":"awaken-sanity","abstract_method":false,"type":"CREIllegalStateException","version":"1"}]

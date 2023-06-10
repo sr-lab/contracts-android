@@ -1,0 +1,10 @@
+UNCHANGED
+program: AChep-AcDisplay-0
+parent: project/app/src/main/java/com/achep/acdisplay/notifications/OpenNotificationJellyBeanMR2.java
+sub: project/app/src/main/java/com/achep/acdisplay/notifications/OpenNotificationKitKatWatch.java
+method: hasIdenticalIds(OpenNotification)
+parent constraints: 
+	JavaAssert condition: "sbn2 != null" , add info: -
+sub constraints: 
+	JavaAssert condition: "sbn2 != null" , add info: -
+

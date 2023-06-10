@@ -1,0 +1,1 @@
+[{"cu":"src/main/java/net/tevp/postcode/Postcode.java","condition":"coords.length == 2","method":"main(String[])","additional_info":"-","artefact_type":"METHOD","line":103,"name":"palfrey-postcode","abstract_method":false,"type":"JavaAssert","version":"1"}]

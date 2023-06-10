@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/example/spokennumbers/MainActivity.java","condition":"\"ClickableViewAccessibility\"","method":"onFinish()","additional_info":"-","artefact_type":"METHOD","line":107,"name":"vivekthazhathattil-dekadico","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/gunshippenguin/openflood/Game.java","condition":"(color < numColors)","method":"setColor(int,int,int)","additional_info":"-","artefact_type":"METHOD","line":31,"name":"GunshipPenguin-open_flood","abstract_method":false,"type":"JavaAssert","version":"0"}]

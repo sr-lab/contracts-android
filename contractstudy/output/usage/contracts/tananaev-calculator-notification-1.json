@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/tananaev/calculator/MainTileService.java","condition":"Build.VERSION_CODES.N","method":"onClick()","additional_info":"-","artefact_type":"CLASS","line":8,"name":"tananaev-calculator-notification","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

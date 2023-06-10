@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/flx_apps/digitaldetox/QuickSettingsTileService.kt","condition":"[ Build.VERSION_CODES.N ]","method":"-","additional_info":"-","artefact_type":"CLASS","line":14,"name":"flxapps-DetoxDroid","abstract_method":false,"type":"AndroidXRequiresApi","version":"1"}]

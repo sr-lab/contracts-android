@@ -1,0 +1,1 @@
+[{"cu":"src/main/java/timur/webcall/callee/WebCallService.java","condition":"\"SetJavaScriptEnabled\"","method":"fileSelect(Uri[])","additional_info":"-","artefact_type":"CLASS","line":866,"name":"mehrvarz-webcall-android","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

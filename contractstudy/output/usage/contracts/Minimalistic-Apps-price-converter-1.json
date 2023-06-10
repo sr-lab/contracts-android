@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/minimalisticapps/priceconverter/presentation/ui/widget/TextInputBtc.kt","condition":"[ \"UnrememberedMutableState\" ]","method":"TextInputBtc(HomeViewModel=hiltViewModel())","additional_info":"-","artefact_type":"CLASS","line":20,"name":"Minimalistic-Apps-price-converter","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

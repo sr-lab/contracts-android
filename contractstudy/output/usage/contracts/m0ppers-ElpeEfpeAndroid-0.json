@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/koeln/mop/elpeefpe/CharacterListActivity.java","condition":"recyclerView != null","method":"onClick(View)","additional_info":"-","artefact_type":"METHOD","line":51,"name":"m0ppers-ElpeEfpeAndroid","abstract_method":false,"type":"JavaAssert","version":"0"}]

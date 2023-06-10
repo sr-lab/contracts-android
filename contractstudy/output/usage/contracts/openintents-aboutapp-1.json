@@ -1,0 +1,1 @@
+[{"cu":"AboutApp/src/main/java/org/openintents/about/About.java","condition":"imageDescriptionUri != null","method":"changeLogoImageUri(String)","additional_info":"\"Not a valid image.\"","artefact_type":"METHOD","line":173,"name":"openintents-aboutapp","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/stericson/RootTools/execution/Shell.java","condition":"this.close","method":"add(Command)","additional_info":"\"Unable to add commands to a closed shell\"","artefact_type":"METHOD","line":221,"name":"miracle2k-android-autostarts","abstract_method":false,"type":"CREIllegalStateException","version":"1"}]

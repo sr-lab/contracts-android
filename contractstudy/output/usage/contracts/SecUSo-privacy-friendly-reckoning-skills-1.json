@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/org/secuso/privacyfriendlyreckoningskills/activities/SettingsActivity.java","condition":"Build.VERSION_CODES.HONEYCOMB","method":"onOptionsItemSelected(MenuItem)","additional_info":"-","artefact_type":"CLASS","line":183,"name":"SecUSo-privacy-friendly-reckoning-skills","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

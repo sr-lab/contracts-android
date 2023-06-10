@@ -1,0 +1,1 @@
+[{"cu":"src/ru/glesik/nostrangersms/JunkSMSList.java","condition":"\"NewApi\"","method":"onContextItemSelected(MenuItem)","additional_info":"-","artefact_type":"METHOD","line":122,"name":"amiryal-misbotheringsms","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

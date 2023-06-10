@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/eu/siebeck/sipswitch/SipSwitchActivity.java","condition":"Build.VERSION_CODES.JELLY_BEAN","method":"onAppWidgetOptionsChanged(Context,AppWidgetManager,int,android.os.Bundle)","additional_info":"-","artefact_type":"METHOD","line":169,"name":"robert7k-sipswitch","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

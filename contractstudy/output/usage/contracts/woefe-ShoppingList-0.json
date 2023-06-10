@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/woefe/shoppinglist/dialog/TextInputDialog.java","condition":"\"InflateParams\"","method":"onCreateView(LayoutInflater,ViewGroup,Bundle)","additional_info":"-","artefact_type":"CLASS","line":86,"name":"woefe-ShoppingList","abstract_method":true,"type":"AndroidSuppressLint","version":"0"}]

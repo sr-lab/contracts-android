@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/evenement/eveControl/WebCookieManager.java","condition":"(uri == null) || (requestHeaders == null)","method":"List<String>>get(URI,Map<String,List<String>>)","additional_info":"\"Argument is null\"","artefact_type":"METHOD","line":61,"name":"e-venement-eve-control","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

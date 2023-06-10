@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/vincentengelsoftware/androidimagecompare/helper/MainHelper.java","condition":"\"ClickableViewAccessibility\"","method":"passClickToUnderlyingView(FrameLayout,ImageButton)","additional_info":"-","artefact_type":"METHOD","line":19,"name":"VincentEngel-VES-Image-Compare-fdroid","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

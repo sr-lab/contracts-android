@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/emmaguy/cleanstatusbar/widgets/BatteryMeterView.java","condition":"\"MissingSuperCall\"","method":"draw(Canvas)","additional_info":"-","artefact_type":"METHOD","line":77,"name":"emmaguy-clean-status-bar","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

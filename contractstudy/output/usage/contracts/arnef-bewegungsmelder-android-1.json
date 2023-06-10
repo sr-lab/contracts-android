@@ -1,0 +1,1 @@
+[{"cu":"src/main/java/de/arnefeil/bewegungsmelder/MainActivity.java","condition":"\"ValidFragment\"","method":"onCreateView(LayoutInflater,ViewGroup,Bundle)","additional_info":"-","artefact_type":"CLASS","line":262,"name":"arnef-bewegungsmelder-android","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/kotlin/com/simplemobiletools/notes/pro/helpers/Config.kt","condition":"[ \"RtlHardcoded\" ]","method":"getTextGravity()","additional_info":"-","artefact_type":"CLASS","line":82,"name":"SimpleMobileTools-Simple-Notes","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/tjEnterprises/phase10Counter/MainActivity.kt","condition":"[ \"CommitPrefEdits\" ]","method":"onCreate(Bundle?)","additional_info":"-","artefact_type":"METHOD","line":46,"name":"etwasmitbaum-Phase10Counter","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

@@ -1,0 +1,1 @@
+[{"cu":"src/com/mobilepearls/sokoban/SokobanGameState.java","condition":"dx != 0 && dy != 0","method":"tryMove(int,int)","additional_info":"\"Can only move straight lines. dx=\" + dx + \", dy=\" + dy","artefact_type":"METHOD","line":138,"name":"mobilepearls-com.mobilepearls.sokoban-release","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/siteswaplib/CyclicByteArray.java","condition":"iterator_count >= length()","method":"next()","additional_info":"","artefact_type":"METHOD","line":60,"name":"namlit-siteswap_generator","abstract_method":false,"type":"CRENoSuchElementException","version":"0"}]

@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/kotlin/com/simplemobiletools/camera/views/Preview.kt","condition":"[ \"ClickableViewAccessibility\" ]","method":"-","additional_info":"-","artefact_type":"METHOD","line":72,"name":"SimpleMobileTools-Simple-Camera","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

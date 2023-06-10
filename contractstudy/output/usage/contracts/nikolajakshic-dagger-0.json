@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/nikola/jakshic/dagger/DaggerViewModelFactory.java","condition":"creator == null","method":"create(Class<T>)","additional_info":"\"unknown model class \" + modelClass","artefact_type":"METHOD","line":37,"name":"nikolajakshic-dagger","abstract_method":false,"type":"CREIllegalArgumentException","version":"0"}]

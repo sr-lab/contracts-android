@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/io/github/deweyreed/clipboardcleaner/MainActivity.kt","condition":"[ \"InlinedApi\" ]","method":"onRequestPermissionsResult(Int,Array<outString>,IntArray)","additional_info":"-","artefact_type":"METHOD","line":72,"name":"DeweyReed-ClipboardCleaner","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

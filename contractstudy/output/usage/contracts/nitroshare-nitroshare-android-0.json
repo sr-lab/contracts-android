@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/net/nitroshare/android/bundle/FileItem.java","condition":"\"DefaultLocale\"","method":"FileItem(String, Map<String, Object>, boolean)","additional_info":"-","artefact_type":"CLASS","line":58,"name":"nitroshare-nitroshare-android","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

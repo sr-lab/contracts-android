@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/phikal/regex/Utils/Word.java","condition":"parts[1] == null","method":"parse(String)","additional_info":"","artefact_type":"METHOD","line":31,"name":"phikal-ReGeX","abstract_method":false,"type":"CREIndexOutOfBoundsException","version":"0"}]

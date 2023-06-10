@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/malek/alldebrid/ui/fragment/TorrentFragment.java","condition":"Build.VERSION_CODES.JELLY_BEAN","method":"onActivityResult(int,int,Intent)","additional_info":"-","artefact_type":"METHOD","line":70,"name":"Allsimon-Alldebrid","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/org/stratum0/statuswidget/StratumsphereStatusProvider.kt","condition":"[ \"ApplySharedPref\" ]","method":"onReceive(Context,Intent)","additional_info":"-","artefact_type":"METHOD","line":47,"name":"Valodim-Stratum0Widget","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

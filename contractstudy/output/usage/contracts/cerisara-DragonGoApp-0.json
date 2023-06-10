@@ -1,0 +1,1 @@
+[{"cu":"src/org/json/JSONObject.java","condition":"key == null","method":"put(String,Object)","additional_info":"\"Null key.\"","artefact_type":"METHOD","line":1138,"name":"cerisara-DragonGoApp","abstract_method":false,"type":"CRENullPointerException","version":"0"}]

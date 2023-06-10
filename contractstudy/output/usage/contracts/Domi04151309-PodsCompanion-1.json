@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/io/github/domi04151309/podscompanion/activities/SetupActivity.kt","condition":"[ \"BatteryLife\" ]","method":"onCreate(Bundle?)","additional_info":"-","artefact_type":"METHOD","line":27,"name":"Domi04151309-PodsCompanion","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

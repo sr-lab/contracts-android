@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/de/antonarnold/android/xoverrideheadphonejackdetection/MainActivity.java","condition":"\"SetTextI18n\"","method":"onCreate(Bundle)","additional_info":"-","artefact_type":"METHOD","line":45,"name":"anton-arnold-xoverrideheadphonejackdetection","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

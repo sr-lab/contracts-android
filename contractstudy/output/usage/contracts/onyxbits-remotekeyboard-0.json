@@ -1,0 +1,1 @@
+[{"cu":"src/net/wimpi/telnetd/io/toolkit/CharBuffer.java","condition":"chars > (m_Size - m_Buffer.size())","method":"ensureSpace(int)","additional_info":"","artefact_type":"METHOD","line":111,"name":"onyxbits-remotekeyboard","abstract_method":false,"type":"CREBufferOverflowException","version":"0"}]

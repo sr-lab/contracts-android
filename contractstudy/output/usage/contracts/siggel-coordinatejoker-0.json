@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/github/siggel/coordinatejoker/SettingsActivity.java","condition":"Build.VERSION_CODES.HONEYCOMB","method":"onCreate(Bundle)","additional_info":"-","artefact_type":"CLASS","line":100,"name":"siggel-coordinatejoker","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

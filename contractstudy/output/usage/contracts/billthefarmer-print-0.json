@@ -1,0 +1,1 @@
+[{"cu":"src/main/java/com/ibm/icu/text/CharsetDetector.java","condition":"modIdx < 0","method":"setDetectableCharset(String,boolean)","additional_info":"\"Invalid encoding: \" + \"\\\"\" + encoding + \"\\\"\"","artefact_type":"METHOD","line":567,"name":"billthefarmer-print","abstract_method":false,"type":"CREIllegalArgumentException","version":"0"}]

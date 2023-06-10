@@ -1,0 +1,1 @@
+[{"cu":"rabbit-escape-engine/src/rabbitescape/engine/util/Util.java","condition":"i >= strLength","method":"next()","additional_info":"","artefact_type":"METHOD","line":194,"name":"andybalaam-rabbit-escape","abstract_method":false,"type":"CRENoSuchElementException","version":"0"}]

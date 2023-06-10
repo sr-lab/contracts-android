@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/me/anon/grow/fragment/AddNutrientDialogFragment.java","condition":"\"ValidFragment\"","method":"AddNutrientDialogFragment(Nutrient)","additional_info":"-","artefact_type":"CLASS","line":42,"name":"7LPdWcaW-GrowTracker-Android","abstract_method":true,"type":"AndroidSuppressLint","version":"0"}]

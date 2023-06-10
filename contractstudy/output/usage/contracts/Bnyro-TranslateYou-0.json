@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/bnyro/translate/MainActivity.kt","condition":"[ \"UnusedMaterial3ScaffoldPaddingParameter\" ]","method":"ScreenContent()","additional_info":"-","artefact_type":"CLASS","line":43,"name":"Bnyro-TranslateYou","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

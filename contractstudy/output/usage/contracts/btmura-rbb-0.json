@@ -1,0 +1,1 @@
+[{"cu":"src/com/btmura/android/reddit/widget/SubredditAdapter.java","condition":"!c.moveToPosition(position)","method":"getName(Context,int)","additional_info":"","artefact_type":"METHOD","line":106,"name":"btmura-rbb","abstract_method":false,"type":"CREIllegalStateException","version":"0"}]

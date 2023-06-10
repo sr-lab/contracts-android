@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/kaeruct/gotosleep/webview/WebViewHelper.java","condition":"Build.VERSION_CODES.M","method":"onReceivedError(WebView,WebResourceRequest,WebResourceError)","additional_info":"-","artefact_type":"METHOD","line":117,"name":"KaeruCT-Go-To-Sleep-Android","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

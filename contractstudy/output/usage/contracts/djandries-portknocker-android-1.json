@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/ca/andries/portknocker/util/PortParseUtil.kt","condition":"v < 1 || v > 65535","method":"validateAndParsePorts(Context,String)","additional_info":"","artefact_type":"METHOD","line":16,"name":"djandries-portknocker-android","abstract_method":false,"type":"CRENumberFormatException","version":"1"}]

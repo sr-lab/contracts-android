@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/moe/dic1911/autodnd/ui/main/PageViewModel.kt","condition":"[ \"StaticFieldLeak\" ]","method":"-","additional_info":"-","artefact_type":"CLASS","line":12,"name":"dic1911-android_AutoDND","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

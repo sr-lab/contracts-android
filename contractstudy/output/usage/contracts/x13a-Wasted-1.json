@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/me/lucky/wasted/QSTileService.kt","condition":"[ Build.VERSION_CODES.N ]","method":"-","additional_info":"-","artefact_type":"CLASS","line":11,"name":"x13a-Wasted","abstract_method":false,"type":"AndroidXRequiresApi","version":"1"}]

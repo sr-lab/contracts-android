@@ -1,0 +1,1 @@
+[{"cu":"BluezIME/src/com/hexad/bluezime/ImprovedBluetoothDevice.java","condition":"base == null","method":"ImprovedBluetoothDevice(BluetoothDevice)","additional_info":"","artefact_type":"METHOD","line":151,"name":"kenkendk-android-bluez-ime","abstract_method":false,"type":"CRENullPointerException","version":"1"}]

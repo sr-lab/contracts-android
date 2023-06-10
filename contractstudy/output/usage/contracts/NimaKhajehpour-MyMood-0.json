@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/nima/mymood/screens/HomeScreen.kt","condition":"[ \"UnusedMaterial3ScaffoldPaddingParameter\" ]","method":"HomeScreen(NavController,HomeViewModel)","additional_info":"-","artefact_type":"CLASS","line":46,"name":"NimaKhajehpour-MyMood","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

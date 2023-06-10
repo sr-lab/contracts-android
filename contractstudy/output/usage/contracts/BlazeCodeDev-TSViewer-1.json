@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/blazecode/tsviewer/viewmodels/IntroductionViewModel.kt","condition":"[ Build.VERSION_CODES.TIRAMISU ]","method":"placeQsTile()","additional_info":"-","artefact_type":"CLASS","line":62,"name":"BlazeCodeDev-TSViewer","abstract_method":false,"type":"AndroidXRequiresApi","version":"1"}]

@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/omegacentauri/mobi/simplestopwatch/MyChrono.java","condition":"\"NewApi\"","method":"handleMessage(Message)","additional_info":"-","artefact_type":"CLASS","line":33,"name":"arpruss-simplestopwatch","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

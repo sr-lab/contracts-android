@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/at/manuelbichler/octalsuntime/AddLocationAutoCompletionDialogFragment.kt","condition":"NONE","method":"onClick(Location)","additional_info":"\"Activity cannot be null\"","artefact_type":"METHOD","line":75,"name":"votacom-octalsuntime","abstract_method":false,"type":"CREIllegalStateException","version":"0"}]

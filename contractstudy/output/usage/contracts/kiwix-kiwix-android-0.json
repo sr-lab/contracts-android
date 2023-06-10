@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/org/kiwix/kiwixmobile/utils/KiwixTextToSpeech.java","condition":"\"NewApi\"","method":"onError(String)","additional_info":"-","artefact_type":"METHOD","line":262,"name":"kiwix-kiwix-android","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

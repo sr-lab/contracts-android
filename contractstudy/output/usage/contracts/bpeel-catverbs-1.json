@@ -1,0 +1,1 @@
+[{"cu":"src/uk/co/busydoingnothing/catverbs/Article.java","condition":"article.parent == 0xffff","method":"getValue(int,StringBuilder)","additional_info":"\"Missing value for variable \" + variable","artefact_type":"METHOD","line":110,"name":"bpeel-catverbs","abstract_method":false,"type":"CREIllegalStateException","version":"1"}]

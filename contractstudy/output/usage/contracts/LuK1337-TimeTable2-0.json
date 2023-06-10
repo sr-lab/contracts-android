@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/luk/timetable2/SettingsActivity.java","condition":"Build.VERSION_CODES.HONEYCOMB","method":"onBuildHeaders(List<Header>)","additional_info":"-","artefact_type":"METHOD","line":174,"name":"LuK1337-TimeTable2","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

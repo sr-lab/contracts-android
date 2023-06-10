@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/fr/hnit/riverferry/NextDeparture.java","condition":"!binFile.delete()","method":"reloadHoraires()","additional_info":"\"reloadHoraires: Could not delete binary schedules: \" + binFile","artefact_type":"METHOD","line":390,"name":"mdecorde-BAC76","abstract_method":false,"type":"CREIllegalStateException","version":"0"}]

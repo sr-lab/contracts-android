@@ -1,0 +1,1 @@
+[{"cu":"colorPicker/src/main/java/com/mridang/colorpicker/ColorPreference.java","condition":"\"InflateParams\"","method":"onItemClick(AdapterView<?>,View,int,long)","additional_info":"-","artefact_type":"METHOD","line":169,"name":"mridang-microchip","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/aksahyaap/mouseremote/TouchPad.java","condition":"{ \"ClickableViewAccessibility\", \"SetTextI18n\", \"DefaultLocale\" }","method":"onCreate(Bundle)","additional_info":"-","artefact_type":"METHOD","line":29,"name":"vitaminncpp-TouchDroid-MouseRemote","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

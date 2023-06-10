@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/termux/widget/TermuxWidgetControlsProviderService.java","condition":"Build.VERSION_CODES.R","method":"performControlAction(String,ControlAction,Consumer<Integer>)","additional_info":"-","artefact_type":"CLASS","line":40,"name":"termux-termux-widget","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/top/donmor/tiddloid/TWEditorWV.java","condition":"Build.VERSION_CODES.LOLLIPOP","method":"onCanceled()","additional_info":"-","artefact_type":"METHOD","line":181,"name":"donmor-Tiddloid","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

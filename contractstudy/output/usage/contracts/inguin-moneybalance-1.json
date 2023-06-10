@@ -1,0 +1,1 @@
+[{"cu":"src/ivl/android/moneybalance/CurrencyEditor.java","condition":"\"InflateParams\"","method":"onNothingSelected(AdapterView<?>)","additional_info":"-","artefact_type":"CLASS","line":32,"name":"inguin-moneybalance","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

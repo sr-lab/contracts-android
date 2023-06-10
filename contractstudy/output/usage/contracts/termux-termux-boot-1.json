@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/termux/boot/BootReceiver.java","condition":"\"SdCardPath\"","method":"onReceive(Context,Intent)","additional_info":"-","artefact_type":"CLASS","line":25,"name":"termux-termux-boot","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

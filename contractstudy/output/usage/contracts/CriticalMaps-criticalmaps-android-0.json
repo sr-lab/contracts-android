@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/de/stephanlindauer/criticalmaps/notifications/reminder/AlarmNotificationReceiver.java","condition":"Build.VERSION_CODES.JELLY_BEAN","method":"onReceive(Context,Intent)","additional_info":"-","artefact_type":"METHOD","line":20,"name":"CriticalMaps-criticalmaps-android","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

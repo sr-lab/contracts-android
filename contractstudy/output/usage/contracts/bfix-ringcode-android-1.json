@@ -1,0 +1,1 @@
+[{"cu":"src/org/hoi_polloi/android/ringcode/Repository.java","condition":"uriMatcher.match(uri) != NUMBERCODE","method":"insert(Uri,ContentValues)","additional_info":"\"Unknown URI \" + uri","artefact_type":"METHOD","line":263,"name":"bfix-ringcode-android","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

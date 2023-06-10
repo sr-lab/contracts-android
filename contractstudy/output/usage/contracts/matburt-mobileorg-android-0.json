@@ -1,0 +1,1 @@
+[{"cu":"libs/locale/src/com/twofortyfouram/locale/BreadCrumber.java","condition":"null == context","method":"generateBreadcrumb(Context,Intent,String)","additional_info":"\"context cannot be null\"","artefact_type":"METHOD","line":55,"name":"matburt-mobileorg-android","abstract_method":false,"type":"CREIllegalArgumentException","version":"0"}]

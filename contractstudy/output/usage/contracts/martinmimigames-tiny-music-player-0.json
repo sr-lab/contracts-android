@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/martinmimigames/tinymusicplayer/Service.java","condition":"Build.VERSION_CODES.ECLAIR","method":"onStartCommand(Intent,int,int)","additional_info":"-","artefact_type":"METHOD","line":109,"name":"martinmimigames-tiny-music-player","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

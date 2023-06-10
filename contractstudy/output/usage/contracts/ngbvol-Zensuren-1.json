@@ -1,0 +1,1 @@
+[{"cu":"src/main/java/com/app/Zensuren/Option.java","condition":"this.name != null","method":"compareTo(Option)","additional_info":"","artefact_type":"METHOD","line":34,"name":"ngbvol-Zensuren","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

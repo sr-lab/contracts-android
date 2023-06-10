@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/sduduzog/slimlauncher/adapters/CustomAppsAdapter.kt","condition":"[ \"ClickableViewAccessibility\" ]","method":"onBindViewHolder(ViewHolder,Int)","additional_info":"-","artefact_type":"METHOD","line":29,"name":"jkuester-unlauncher","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

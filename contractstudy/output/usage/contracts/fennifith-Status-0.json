@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/james/status/views/StatusView.java","condition":"21","method":"StatusView(Context, AttributeSet, int, int)","additional_info":"-","artefact_type":"CLASS","line":66,"name":"fennifith-Status","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

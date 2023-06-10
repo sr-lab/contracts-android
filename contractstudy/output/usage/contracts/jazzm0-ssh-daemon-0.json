@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/sshdaemon/sshd/SshDaemon.java","condition":"","method":"onBind(Intent)","additional_info":"-","artefact_type":"METHOD","line":182,"name":"jazzm0-ssh-daemon","abstract_method":false,"type":"AndroidXNullable","version":"0"}]

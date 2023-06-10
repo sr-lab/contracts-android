@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/me/lucky/vibe/Vibrator.kt","condition":"[ Manifest.permission.VIBRATE ]","method":"vibrate()","additional_info":"-","artefact_type":"METHOD","line":19,"name":"x13a-Vibe","abstract_method":false,"type":"AndroidXRequiresPermission","version":"0"}]

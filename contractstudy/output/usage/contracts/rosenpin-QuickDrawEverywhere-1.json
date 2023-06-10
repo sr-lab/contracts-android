@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/tomer/draw/helpers/WindowsManager.kt","condition":"NONE","method":"moveYAttachedView(FloatingView,Int,MoveListener?=null)","additional_info":"","artefact_type":"METHOD","line":59,"name":"rosenpin-QuickDrawEverywhere","abstract_method":false,"type":"CREIllegalStateException","version":"1"}]

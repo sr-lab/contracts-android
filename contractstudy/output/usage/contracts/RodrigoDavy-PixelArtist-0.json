@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/rodrigodavy/com/github/pixelartist/DrawerMenuItemAdapter.java","condition":"drawerMenuItem != null","method":"getView(int,View,ViewGroup)","additional_info":"-","artefact_type":"METHOD","line":34,"name":"RodrigoDavy-PixelArtist","abstract_method":false,"type":"JavaAssert","version":"0"}]

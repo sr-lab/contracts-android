@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/com/sanskritbasics/MainActivity.kt","condition":"[ \"SetJavaScriptEnabled\" ]","method":"onCreate(Bundle?)","additional_info":"-","artefact_type":"METHOD","line":29,"name":"sanskritbscs-letters","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

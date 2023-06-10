@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/me/lucky/volta/AccessibilityService.kt","condition":"[ Build.VERSION_CODES.O ]","method":"-","additional_info":"-","artefact_type":"CLASS","line":25,"name":"x13a-Volta","abstract_method":false,"type":"AndroidXRequiresApi","version":"1"}]

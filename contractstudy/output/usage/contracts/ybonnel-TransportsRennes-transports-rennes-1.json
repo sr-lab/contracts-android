@@ -1,0 +1,1 @@
+[{"cu":"TransportsRennes/src/fr/ybo/transportsrennes/util/PolylineEncoder.java","condition":"value.length() == 0","method":"decodeNumberWithIndex(String,int)","additional_info":"\"string is empty\"","artefact_type":"METHOD","line":101,"name":"ybonnel-TransportsRennes-transports-rennes","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

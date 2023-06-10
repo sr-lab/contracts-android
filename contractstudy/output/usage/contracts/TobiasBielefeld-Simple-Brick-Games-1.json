@@ -1,0 +1,1 @@
+[{"cu":"app/src/main/java/de/tobiasbielefeld/brickgames/ui/Main.java","condition":"Build.VERSION_CODES.LOLLIPOP","method":"createNewSoundPool()","additional_info":"-","artefact_type":"METHOD","line":307,"name":"TobiasBielefeld-Simple-Brick-Games","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]
