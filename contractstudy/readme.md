@@ -1,8 +1,8 @@
-#Contracts In the Wild - A Study of Java Programs
+# Static Code Analysis Tool to Investigate Contracts
 
 ## Overview
 
-This project investigates the presence and usage of contracts in Java and Kotlin applications. It is divided in three main componentes: usage, inheritance, and evolution. Altough, each script can be run by itself there are some data requirements that need to be observed.
+This project investigates the presence and usage of contracts in Java and Kotlin applications. It is divided into three main components: usage, inheritance, and evolution. Although, each script can be run by itself, there are some data requirements that need to be observed.
 
 This tool performs a static analysis of the dataset's source code using the [JavaParser](https://javaparser.org) and [JetBrain's Kotlin compiler](https://github.com/JetBrains/kotlin) libraries.
 
@@ -18,5 +18,5 @@ The main scripts to conduct the evaluation are located in [/src/main/java/contra
 
 You can run all scripts using the terminal through the next command:
 ```
-mvn exec:java  -Dexec.mainClass=contractstudy.scripts.RunAllExperiments (or other script)
+mvn exec:java  -Dexec.mainClass=contractstudy.scripts.RunAllExperiments (or other scripts)
 ```
