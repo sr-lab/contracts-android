@@ -3,7 +3,6 @@ package contractstudy.collectContracts.annotation.kotlin.testData
 import android.annotation.SuppressLint
 import javax.validation.constraints.*
 
-
 class AnnotationsArtefact(
     @NotNull private val manufacturer: String
 ) {

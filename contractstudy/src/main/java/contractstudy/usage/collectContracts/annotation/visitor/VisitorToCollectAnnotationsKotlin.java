@@ -10,8 +10,10 @@ import contractstudy.usage.collectContracts.common.StaticImportCollector.constan
 import contractstudy.utils.KotlinParserUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.kotlin.com.intellij.psi.PsiElement;
+import org.jetbrains.kotlin.com.intellij.psi.PsiWhiteSpace;
 import org.jetbrains.kotlin.com.intellij.psi.impl.source.tree.PsiWhiteSpaceImpl;
 import org.jetbrains.kotlin.psi.KtAnnotationEntry;
+import org.jetbrains.kotlin.psi.KtModifierList;
 import org.jetbrains.kotlin.psi.KtNamedFunction;
 import org.jetbrains.kotlin.psi.KtParameter;
 import org.jetbrains.kotlin.psi.KtProperty;
@@ -56,7 +58,6 @@ public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotl
         artefact);
       consumer.constraintFound(p);
     }
-
   }
 
   private String getAnnotationCondition(KtAnnotationEntry annotationEntry) {
@@ -91,7 +92,7 @@ public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotl
         return ConstraintedArtefact.METHOD_PARAMETER;
       } else if (checkIfAnnotationIsMethodParameter(node)) {
         return ConstraintedArtefact.METHOD_PARAMETER;
-      } else if (checkIfNextSiblingIsFunction(node) && !(node instanceof KtProperty)) {
+      } else if (checkIfNextSiblingIsFunction(annotationEntry) && !(node instanceof KtProperty)) {
         return ConstraintedArtefact.METHOD;
       } else {
         return ConstraintedArtefact.CLASS;
@@ -108,12 +109,31 @@ public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotl
     );
   }
 
-  private boolean checkIfNextSiblingIsFunction(PsiElement node) {
-    PsiElement nextSibling = node;
-    do {
-      nextSibling = nextSibling.getNextSibling();
-    } while (!(nextSibling.getNextSibling() instanceof PsiWhiteSpaceImpl));
-    return nextSibling instanceof KtNamedFunction || nextSibling instanceof KtFunctionElementType;
+  private boolean checkIfNextSiblingIsFunction(KtAnnotationEntry annotationEntry) {
+    PsiElement nextParentSibling = annotationEntry.getContext().getParent();
+    try {
+      do {
+        nextParentSibling = nextParentSibling.getNextSibling();
+      } while (!(nextParentSibling.getNextSibling() instanceof PsiWhiteSpaceImpl));
+    } catch (Exception ignored) {}
+
+    boolean isMethod = nextParentSibling instanceof KtNamedFunction || nextParentSibling instanceof KtFunctionElementType;
+    if (isMethod)
+      return true;
+
+    return checkIfAssociatedWithMethodExtendingClass(annotationEntry);
+  }
+
+  private boolean checkIfAssociatedWithMethodExtendingClass(PsiElement node) {
+    PsiElement iterator = node.getContext();
+    if (!(iterator instanceof KtModifierList)) {
+      return false;
+    }
+    while ((iterator.getNextSibling() instanceof PsiWhiteSpace)) {
+      iterator = iterator.getNextSibling();
+    }
+    iterator = iterator.getNextSibling().getContext();
+    return (iterator instanceof KtNamedFunction || iterator instanceof KtFunctionElementType);
   }
 
   private ContractElement create(ProgramVersion programVersion, String cuName,
