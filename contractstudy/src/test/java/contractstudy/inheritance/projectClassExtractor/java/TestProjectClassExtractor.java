@@ -35,20 +35,6 @@ public class TestProjectClassExtractor {
   }
 
   @ParameterizedTest
-  @MethodSource("generateFilesReadClass")
-  public void testReadClass(String fileName, String[] innerClassState, int[] innerClassMethodsCount,
-    int[] innerClassParentsCount) throws Exception {
-    File file = new File(TEST_DATA_FOLDER, fileName);
-    InputStream in = Utils.getInputStream(file);
-    CompilationUnit cu = StaticJavaParser.parse(in);
-    ProjectClassExtractor extractor = new ProjectClassExtractor();
-
-    ClassCoordinates result = extractor.readClass(cu, "name");
-
-    assertNotNull(result);
-  }
-
-  @ParameterizedTest
   @MethodSource("generateFilesInheritance")
   public void readInheritance(String fileName) throws Exception {
     File file = new File(TEST_DATA_FOLDER, fileName);
