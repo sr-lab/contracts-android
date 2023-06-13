@@ -6,6 +6,7 @@ import contractstudy.constants.constraint.ConstraintedArtefact;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.usage.collectContracts.annotation.AndroidAnnotationExtractor;
 import contractstudy.usage.collectContracts.annotation.JSR303Extractor;
+import contractstudy.usage.collectContracts.annotation.JSR305Extractor;
 import contractstudy.utils.Utils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -67,6 +68,12 @@ public class TestAbstractAnnotationExtractorKotlin {
     );
   }
 
+  private static Stream<Arguments> generateInputForSpecialCasesTest() {
+    return Stream.of(
+      Arguments.of(ConstraintType.JSR305Nullable, "AnnotationsSpecialCases.kt", ConstraintedArtefact.METHOD)
+    );
+  }
+
   @ParameterizedTest
   @MethodSource("generatorJSR305Extractor")
   public void testJSR305Extractor_whenAnnotationExists_expectListOfAnnotations(
@@ -76,10 +83,9 @@ public class TestAbstractAnnotationExtractorKotlin {
   ) throws Exception {
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
-    JSR303Extractor jSR303Extractor = new JSR303Extractor();
+    JSR303Extractor extractor = new JSR303Extractor();
 
-    jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
-      collector);
+    extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(), collector);
 
     List<ContractElement> contractsFound = collector
       .getContractElements()
@@ -100,10 +106,9 @@ public class TestAbstractAnnotationExtractorKotlin {
   ) throws Exception {
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
-    JSR303Extractor jSR303Extractor = new JSR303Extractor();
+    JSR303Extractor extractor = new JSR303Extractor();
 
-    jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
-      collector);
+    extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(), collector);
 
     List<ContractElement> contractsFound = collector
       .getContractElements()
@@ -120,10 +125,9 @@ public class TestAbstractAnnotationExtractorKotlin {
   public void testJSR305Extractor_whenAnnotationNotExists_expectEmptyList() throws Exception {
     File file = new File(TEST_DATA_FOLDER, "AnnotationsMultiple.kt");
     ConstraintCollector collector = new ConstraintCollector();
-    JSR303Extractor jSR303Extractor = new JSR303Extractor();
+    JSR303Extractor extractor = new JSR303Extractor();
 
-    jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
-      collector);
+    extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(), collector);
 
     List<ContractElement> contractsFound = collector
       .getContractElements()
@@ -144,10 +148,9 @@ public class TestAbstractAnnotationExtractorKotlin {
   ) throws Exception {
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
-    JSR303Extractor jSR303Extractor = new JSR303Extractor();
+    JSR303Extractor extractor = new JSR303Extractor();
 
-    jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
-      collector);
+    extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(), collector);
 
     List<ContractElement> contractsFound = collector
       .getContractElements()
@@ -168,10 +171,9 @@ public class TestAbstractAnnotationExtractorKotlin {
   ) throws Exception {
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
-    JSR303Extractor jSR303Extractor = new JSR303Extractor();
+    JSR303Extractor extractor = new JSR303Extractor();
 
-    jSR303Extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
-      collector);
+    extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(), collector);
 
     List<ContractElement> contractsFound = collector
       .getContractElements()
@@ -192,10 +194,32 @@ public class TestAbstractAnnotationExtractorKotlin {
   ) throws Exception {
     File file = new File(TEST_DATA_FOLDER, fileName);
     ConstraintCollector collector = new ConstraintCollector();
-    AndroidAnnotationExtractor androidAnnotationExtractor = new AndroidAnnotationExtractor();
+    AndroidAnnotationExtractor extractor = new AndroidAnnotationExtractor();
 
-    androidAnnotationExtractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(),
-      collector);
+    extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(), collector);
+
+    List<ContractElement> contractsFound = collector
+      .getContractElements()
+      .stream()
+      .filter(c -> c.getKind().equals(constraintType))
+      .collect(Collectors.toList());
+
+    assertNotNull(contractsFound.get(0));
+    assertEquals(constraintedArtefact, contractsFound.get(0).getConstraintedArtefact());
+  }
+
+  @ParameterizedTest
+  @MethodSource("generateInputForSpecialCasesTest")
+  public void testConstraintArtefact_whenSpecialCases_expectCorrectArtefactAssociation(
+    ConstraintType constraintType,
+    String fileName,
+    ConstraintedArtefact constraintedArtefact
+  ) throws Exception {
+    File file = new File(TEST_DATA_FOLDER, fileName);
+    ConstraintCollector collector = new ConstraintCollector();
+    JSR305Extractor extractor = new JSR305Extractor();
+
+    extractor.analyse(Utils.getInputStream(file), "test", "<no version>", file.getName(), collector);
 
     List<ContractElement> contractsFound = collector
       .getContractElements()

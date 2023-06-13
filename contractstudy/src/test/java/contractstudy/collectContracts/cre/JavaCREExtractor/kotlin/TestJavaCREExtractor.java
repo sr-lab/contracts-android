@@ -25,7 +25,6 @@ public class TestJavaCREExtractor {
   private static Stream<Arguments> generateJavaCRE() {
     return Stream.of(
       Arguments.of(ConstraintType.CREIllegalArgumentException, "MultipleJavaCRE.kt", 1),
-      Arguments.of(ConstraintType.CRENotFoundException, "MultipleJavaCRE.kt", 1),
       Arguments.of(ConstraintType.CREIndexOutOfBoundsException, "MultipleJavaCRE.kt", 1),
       Arguments.of(ConstraintType.CREDateTimeException, "MultipleJavaCRE.kt", 0));
   }

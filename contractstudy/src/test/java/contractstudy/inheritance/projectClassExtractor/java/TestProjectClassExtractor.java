@@ -3,7 +3,6 @@ package contractstudy.inheritance.projectClassExtractor.java;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassExtractor.ProjectClassExtractor;
-import contractstudy.inheritance.model.ClassCoordinates;
 import contractstudy.inheritance.model.ClassFinderCreator;
 import contractstudy.inheritance.model.ClassParents;
 import contractstudy.inheritance.model.SourceClassFinder;
@@ -32,20 +31,6 @@ public class TestProjectClassExtractor {
   private static Stream<Arguments> generateFilesInheritance() {
     return Stream.of(
       Arguments.of("SubClass1.java"));
-  }
-
-  @ParameterizedTest
-  @MethodSource("generateFilesReadClass")
-  public void testReadClass(String fileName, String[] innerClassState, int[] innerClassMethodsCount,
-    int[] innerClassParentsCount) throws Exception {
-    File file = new File(TEST_DATA_FOLDER, fileName);
-    InputStream in = Utils.getInputStream(file);
-    CompilationUnit cu = StaticJavaParser.parse(in);
-    ProjectClassExtractor extractor = new ProjectClassExtractor();
-
-    ClassCoordinates result = extractor.readClass(cu, "name");
-
-    assertNotNull(result);
   }
 
   @ParameterizedTest

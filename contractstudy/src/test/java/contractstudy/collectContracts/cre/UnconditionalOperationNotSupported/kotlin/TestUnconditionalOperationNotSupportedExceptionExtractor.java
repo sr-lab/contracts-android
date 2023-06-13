@@ -20,8 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class TestUnconditionalOperationNotSupportedExceptionExtractor {
 
   private static final File TEST_DATA_FOLDER = new File(
-    Utils.getBasePathTestFolder()
-      + "extractor/cre/UnconditionalOperationNotSupported/kotlin/testData");
+    Utils.getBasePathTestFolder() + "collectContracts/cre/UnconditionalOperationNotSupported/kotlin/testData");
 
   private static Stream<Arguments> generateJavaCRE() {
     return Stream.of(

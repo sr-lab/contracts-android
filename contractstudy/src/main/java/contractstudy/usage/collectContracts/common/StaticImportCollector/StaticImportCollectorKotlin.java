@@ -52,9 +52,13 @@ public class StaticImportCollectorKotlin extends KtTreeVisitorVoid {
   private void getImportStateForAnnotationInvestigation(KtImportDirective importDirective) {
     boolean hasWildCard = KotlinParserUtils.doesImportDirectiveContainsWildCard(importDirective);
     String importedPath = importDirective.getImportPath().getPathStr();
-    String importWithoutClass = importedPath.substring(0, importedPath.lastIndexOf("."));
-    String className = importedPath.substring(importedPath.lastIndexOf(".") + 1);
-    if (!hasWildCard && targetPackageName.equals(importWithoutClass) && !targetPackageName.contains(className)) {
+
+    String importedPathWithoutWildCard = importedPath;
+    if (hasWildCard) {
+      importedPathWithoutWildCard = importedPath.substring(0, importedPath.lastIndexOf(".*"));
+    }
+
+    if (targetPackageName.equals(importedPathWithoutWildCard) || targetQualifiedClassName.equals(importedPath)) {
       this.staticImportState = StaticImportState.CLASS;
     }
   }

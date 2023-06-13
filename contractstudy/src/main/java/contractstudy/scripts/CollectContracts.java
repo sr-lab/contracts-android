@@ -59,11 +59,7 @@ public class CollectContracts implements Experiment {
   final static File DATA_FOLDER = new File(Preferences.getDataFolder());
   final static File OUTPUT_FOLDER = ArtefactFactory.USAGE_CONTRACTS_FOLDER;
   static Logger LOGGER = Logging.getLogger(CollectContracts.class);
-  /*
-  // TODO: Check if this true for Kotlin too.
-  new LombokExtractor() is not added since at designtime (pre-compilation) lombok
-  annotations are translated into CREs!.
-   */
+
   @SuppressWarnings("rawtypes")
   static Extractor[] EXTRACTORS = {
     new JSR303Extractor(),

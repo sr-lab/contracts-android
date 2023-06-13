@@ -27,7 +27,7 @@ public class TestStaticImportCollectorKotlin {
       Arguments.of(StaticImportState.CLASS, "StaticImportClass.kt", "java.util", "java.util.List"),
       Arguments.of(StaticImportState.CLASS, "StaticImportClass.kt", "com.google.common.base",
         "com.google.common.base.Preconditions"),
-      Arguments.of(StaticImportState.ALL_STATIC, "StaticImportWildCard.kt", "java.lang.System",
+      Arguments.of(StaticImportState.CLASS, "StaticImportWildCard.kt", "java.lang.System",
         "java.lang.System"));
   }
 

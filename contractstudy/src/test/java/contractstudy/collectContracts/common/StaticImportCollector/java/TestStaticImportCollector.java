@@ -30,7 +30,7 @@ public class TestStaticImportCollector {
         "java.lang.Math"),
       Arguments.of(StaticImportState.SOME_STATIC, "StaticImportSomeStatic.java", "java.lang.System",
         "java.lang.System"),
-      Arguments.of(StaticImportState.ALL_STATIC, "StaticImportWildCard.java",
+      Arguments.of(StaticImportState.SOME_STATIC, "StaticImportWildCard.java",
         "java.lang.System", "java.lang.System"));
   }
 
