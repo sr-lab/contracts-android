@@ -115,11 +115,13 @@ public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotl
       do {
         nextParentSibling = nextParentSibling.getNextSibling();
       } while (!(nextParentSibling.getNextSibling() instanceof PsiWhiteSpaceImpl));
-    } catch (Exception ignored) {}
+    } catch (Exception ignored) {
+    }
 
     boolean isMethod = nextParentSibling instanceof KtNamedFunction || nextParentSibling instanceof KtFunctionElementType;
-    if (isMethod)
+    if (isMethod) {
       return true;
+    }
 
     return checkIfAssociatedWithMethodExtendingClass(annotationEntry);
   }

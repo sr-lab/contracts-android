@@ -3,7 +3,6 @@ package contractstudy.inheritance.projectClassExtractor.java;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectClassExtractor.ProjectClassExtractor;
-import contractstudy.inheritance.model.ClassCoordinates;
 import contractstudy.inheritance.model.ClassFinderCreator;
 import contractstudy.inheritance.model.ClassParents;
 import contractstudy.inheritance.model.SourceClassFinder;

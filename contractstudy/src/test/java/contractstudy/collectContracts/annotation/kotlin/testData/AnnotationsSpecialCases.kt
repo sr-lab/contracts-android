@@ -7,6 +7,4 @@ fun AnnotationsSpecialCases.returnFlag(): Boolean {
     return true
 }
 
-class AnnotationsSpecialCases() {
-
-}
+class AnnotationsSpecialCases
