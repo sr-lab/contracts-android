@@ -2,7 +2,7 @@ package contractstudy.inheritance.SuperCallSiteExtractor.kotlin.testData
 
 open class ParentClass(age: String) {
 
-    constructor(age: String, text: String): this(age)
+    constructor(age: String, text: String) : this(age)
 
     open fun test(): String {
         return "test"

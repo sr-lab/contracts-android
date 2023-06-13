@@ -6,7 +6,6 @@ import contractstudy.config.Logging;
 import contractstudy.constants.constraint.ConstraintCategory;
 import contractstudy.constants.constraint.ConstraintType;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectVersionHierarchyExtractor;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
 import contractstudy.usage.collectContracts.annotation.visitor.VisitorToCollectAnnotations;
@@ -30,6 +29,7 @@ import java.util.Map;
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
 public class AbstractAnnotationExtractor implements Extractor<ContractElement> {
+
   private static final Logger LOGGER = Logging.getLogger(AbstractAnnotationExtractor.class);
   private final Map<String, ConstraintType> constraintsByName = new HashMap<>();
   private final String annotationPackageName;
@@ -105,7 +105,8 @@ public class AbstractAnnotationExtractor implements Extractor<ContractElement> {
       );
       psiFile.accept(importsCollector);
       StaticImportState importState = importsCollector.getStaticImportState();
-      VisitorToCollectAnnotationsKotlin visitor = new VisitorToCollectAnnotationsKotlin(consumer, programName, version, cuName,
+      VisitorToCollectAnnotationsKotlin visitor = new VisitorToCollectAnnotationsKotlin(consumer, programName, version,
+        cuName,
         constraintsByName, importState);
       psiFile.accept(visitor);
     } catch (Exception e) {

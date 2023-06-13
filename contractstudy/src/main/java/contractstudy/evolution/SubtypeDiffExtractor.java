@@ -130,7 +130,8 @@ public class SubtypeDiffExtractor implements DiffExtractor {
         meth.add(itM.next().toString());
       }
       methods.put(subTypeTmp, meth);
-    } catch (JSONException ignored) {}
+    } catch (JSONException ignored) {
+    }
   }
 
   private static void collectParents(

@@ -6,7 +6,6 @@ import contractstudy.config.Logging;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
-import contractstudy.usage.collectContracts.api.SpringAssert.SpringAssertExtractor;
 import contractstudy.usage.collectContracts.cre.JavaCREExtractor.visitor.MethodVisitorToCollectJavaCREThrows;
 import contractstudy.usage.collectContracts.cre.JavaCREExtractor.visitor.MethodVisitorToCollectJavaCREThrowsKotlin;
 import contractstudy.utils.InputStreamToStringConversion;
@@ -41,8 +40,7 @@ public class JavaCREExtractor implements Extractor<ContractElement> {
         default:
       }
     } catch (Error | Exception e) {
-      e.printStackTrace();
-      LOGGER.warn("Exception while extracting from " + cuName);
+      LOGGER.warn("Exception while extracting CRE from " + cuName + " : " + e.getMessage());
       consumer.extractionExceptionEncountered("Cannot parse " + programName + "-" + version + "/" + cuName, e);
     }
   }
@@ -64,11 +62,11 @@ public class JavaCREExtractor implements Extractor<ContractElement> {
     final String programName,
     final String version,
     final String cuName,
-    final ExtractionListener<ContractElement> consumer) throws IOException  {
-      String src = new InputStreamToStringConversion(in).getResult();
-      PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
-      MethodVisitorToCollectJavaCREThrowsKotlin visitor =
-        new MethodVisitorToCollectJavaCREThrowsKotlin(consumer, programName, version, cuName);
-      psiFile.accept(visitor);
+    final ExtractionListener<ContractElement> consumer) throws IOException {
+    String src = new InputStreamToStringConversion(in).getResult();
+    PsiFile psiFile = new KotlinParser().createKtFile(cuName, src);
+    MethodVisitorToCollectJavaCREThrowsKotlin visitor =
+      new MethodVisitorToCollectJavaCREThrowsKotlin(consumer, programName, version, cuName);
+    psiFile.accept(visitor);
   }
 }

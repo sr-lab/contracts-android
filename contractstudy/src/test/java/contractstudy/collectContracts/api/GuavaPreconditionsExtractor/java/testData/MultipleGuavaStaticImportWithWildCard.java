@@ -3,7 +3,12 @@ package contractstudy.collectContracts.api.GuavaPreconditionsExtractor.java.test
 
 import java.util.List;
 
-import static com.google.common.base.Preconditions.*;
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkElementIndex;
+import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.base.Preconditions.checkPositionIndex;
+import static com.google.common.base.Preconditions.checkPositionIndexes;
+import static com.google.common.base.Preconditions.checkState;
 
 
 public class MultipleGuavaStaticImportWithWildCard {

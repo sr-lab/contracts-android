@@ -51,9 +51,12 @@ public class AnalyseContractUsage implements Experiment {
   static Map<ConstraintGroup, Integer> constraintsByGroup = ConstraintGroup.getListOfConstraintsGroup();
   static Map<ConstraintGroup, Integer> constraintsByGroupJava = ConstraintGroup.getListOfConstraintsGroup();
   static Map<ConstraintGroup, Integer> constraintsByGroupKotlin = ConstraintGroup.getListOfConstraintsGroup();
-  static Map<ConstraintGroup, Integer> constraintsByGroupLV = new LinkedHashMap<>(ConstraintGroup.getListOfConstraintsGroup());
-  static Map<ConstraintGroup, Integer> constraintsByGroupLVJava = new LinkedHashMap<>(ConstraintGroup.getListOfConstraintsGroup());
-  static Map<ConstraintGroup, Integer> constraintsByGroupLVKotlin = new LinkedHashMap<>(ConstraintGroup.getListOfConstraintsGroup());
+  static Map<ConstraintGroup, Integer> constraintsByGroupLV = new LinkedHashMap<>(
+    ConstraintGroup.getListOfConstraintsGroup());
+  static Map<ConstraintGroup, Integer> constraintsByGroupLVJava = new LinkedHashMap<>(
+    ConstraintGroup.getListOfConstraintsGroup());
+  static Map<ConstraintGroup, Integer> constraintsByGroupLVKotlin = new LinkedHashMap<>(
+    ConstraintGroup.getListOfConstraintsGroup());
   static Multimap<ConstraintGroup, String> programsUsingConstraintGroups = HashMultimap.create();
   static Multimap<ConstraintGroup, String> programsUsingConstraintGroupsJava = HashMultimap.create();
   static Multimap<ConstraintGroup, String> programsUsingConstraintGroupsKotlin = HashMultimap.create();
@@ -63,9 +66,12 @@ public class AnalyseContractUsage implements Experiment {
   static Map<ConstraintCategory, Integer> constraintsByCategory = ConstraintCategory.getConstraintCategory();
   static Map<ConstraintCategory, Integer> constraintsByCategoryJava = ConstraintCategory.getConstraintCategory();
   static Map<ConstraintCategory, Integer> constraintsByCategoryKotlin = ConstraintCategory.getConstraintCategory();
-  static Map<ConstraintCategory, Integer> constraintsByCategoryLV = new LinkedHashMap<>(ConstraintCategory.getConstraintCategory());
-  static Map<ConstraintCategory, Integer> constraintsByCategoryLVJava = new LinkedHashMap<>(ConstraintCategory.getConstraintCategory());
-  static Map<ConstraintCategory, Integer> constraintsByCategoryLVKotlin = new LinkedHashMap<>(ConstraintCategory.getConstraintCategory());
+  static Map<ConstraintCategory, Integer> constraintsByCategoryLV = new LinkedHashMap<>(
+    ConstraintCategory.getConstraintCategory());
+  static Map<ConstraintCategory, Integer> constraintsByCategoryLVJava = new LinkedHashMap<>(
+    ConstraintCategory.getConstraintCategory());
+  static Map<ConstraintCategory, Integer> constraintsByCategoryLVKotlin = new LinkedHashMap<>(
+    ConstraintCategory.getConstraintCategory());
   static Multimap<ConstraintCategory, String> programsUsingConstraintCategories = HashMultimap.create();
   static Multimap<ConstraintCategory, String> programsUsingConstraintCategoriesJava = HashMultimap.create();
   static Multimap<ConstraintCategory, String> programsUsingConstraintCategoriesKotlin = HashMultimap.create();
@@ -75,9 +81,12 @@ public class AnalyseContractUsage implements Experiment {
   static Map<ConstraintClassification, Integer> constraintsByClassification = ConstraintClassification.getConstraintClassificationList();
   static Map<ConstraintClassification, Integer> constraintsByClassificationJava = ConstraintClassification.getConstraintClassificationList();
   static Map<ConstraintClassification, Integer> constraintsByClassificationKotlin = ConstraintClassification.getConstraintClassificationList();
-  static Map<ConstraintClassification, Integer> constraintsByClassificationLV = new LinkedHashMap<>(constraintsByClassification);
-  static Map<ConstraintClassification, Integer> constraintsByClassificationLVJava = new LinkedHashMap<>(constraintsByClassification);
-  static Map<ConstraintClassification, Integer> constraintsByClassificationLVKotlin = new LinkedHashMap<>(constraintsByClassification);
+  static Map<ConstraintClassification, Integer> constraintsByClassificationLV = new LinkedHashMap<>(
+    constraintsByClassification);
+  static Map<ConstraintClassification, Integer> constraintsByClassificationLVJava = new LinkedHashMap<>(
+    constraintsByClassification);
+  static Map<ConstraintClassification, Integer> constraintsByClassificationLVKotlin = new LinkedHashMap<>(
+    constraintsByClassification);
 
   static Multimap<ConstraintClassification, String> programsUsingConstraintClassifications = HashMultimap.create();
   static Multimap<ConstraintClassification, String> programsUsingConstraintClassificationsJava = HashMultimap.create();

@@ -33,7 +33,6 @@ import static contractstudy.evolution.model.diffRules.Utils.NF;
 
 public class AnalyseContractEvolution implements Experiment {
 
-  static Logger LOGGER = Logging.getLogger(AnalyseContractEvolution.class);
   final static File RESULTS_FOLDER = ArtefactFactory.RESULTS_EVOLUTION_FOLDER;
   final static Map<DiffResult, File> LOG_FILES = new HashMap<>() {
     {
@@ -42,6 +41,7 @@ public class AnalyseContractEvolution implements Experiment {
       put(DiffResult.CANNOT_BE_CLASSIFIED, ArtefactFactory.EVOLUTION_CONTRACTS_NOT_CLASSIFIED);
     }
   };
+  static Logger LOGGER = Logging.getLogger(AnalyseContractEvolution.class);
   static Map<DiffResult, Integer> evolutionStatsInJava = new HashMap<>();
   static Map<DiffResult, Integer> evolutionStatsInKotlin = new HashMap<>();
 
@@ -145,19 +145,26 @@ public class AnalyseContractEvolution implements Experiment {
       out.println("\\begin{tabular}{|l|l|r|r|} \\hline");
       out.println("   evolution & critical & java count & kotlin count \\\\ \\hline");
       out.println("   unchanged & no & "
-        + NF.format(evolutionStatsInJava.get(DiffResult.UNCHANGED)) + " & " + NF.format(evolutionStatsInKotlin.get(DiffResult.UNCHANGED)) + "  \\\\");
+        + NF.format(evolutionStatsInJava.get(DiffResult.UNCHANGED)) + " & " + NF.format(
+        evolutionStatsInKotlin.get(DiffResult.UNCHANGED)) + "  \\\\");
       out.println("   minor change & no & "
-        + NF.format(evolutionStatsInJava.get(DiffResult.MINOR_CHANGE)) + " & " + NF.format(evolutionStatsInKotlin.get(DiffResult.MINOR_CHANGE)) + "  \\\\");
+        + NF.format(evolutionStatsInJava.get(DiffResult.MINOR_CHANGE)) + " & " + NF.format(
+        evolutionStatsInKotlin.get(DiffResult.MINOR_CHANGE)) + "  \\\\");
       out.println("   pre-conditions weakened & no & "
-          + NF.format(evolutionStatsInJava.get(DiffResult.PRECONDITION_REMOVED)) + " & " + NF.format(evolutionStatsInKotlin.get(DiffResult.PRECONDITION_REMOVED)) + "  \\\\");
+        + NF.format(evolutionStatsInJava.get(DiffResult.PRECONDITION_REMOVED)) + " & " + NF.format(
+        evolutionStatsInKotlin.get(DiffResult.PRECONDITION_REMOVED)) + "  \\\\");
       out.println("   post-conditions strengthened & no & " +
-        NF.format(evolutionStatsInJava.get(DiffResult.POSTCONDITION_ADDED)) + " & " + NF.format(evolutionStatsInKotlin.get(DiffResult.POSTCONDITION_ADDED)) + "  \\\\ \\hline");
+        NF.format(evolutionStatsInJava.get(DiffResult.POSTCONDITION_ADDED)) + " & " + NF.format(
+        evolutionStatsInKotlin.get(DiffResult.POSTCONDITION_ADDED)) + "  \\\\ \\hline");
       out.println("   pre-conditions strengthened & yes & "
-        + NF.format(evolutionStatsInJava.get(DiffResult.PRECONDITION_ADDED)) + " & " + NF.format(evolutionStatsInKotlin.get(DiffResult.PRECONDITION_ADDED)) + "  \\\\");
+        + NF.format(evolutionStatsInJava.get(DiffResult.PRECONDITION_ADDED)) + " & " + NF.format(
+        evolutionStatsInKotlin.get(DiffResult.PRECONDITION_ADDED)) + "  \\\\");
       out.println("   post-conditions weakened & yes & "
-        + NF.format(evolutionStatsInJava.get(DiffResult.POSTCONDITION_REMOVED)) + " & " +  NF.format(evolutionStatsInKotlin.get(DiffResult.POSTCONDITION_REMOVED)) + "  \\\\ \\hline");
+        + NF.format(evolutionStatsInJava.get(DiffResult.POSTCONDITION_REMOVED)) + " & " + NF.format(
+        evolutionStatsInKotlin.get(DiffResult.POSTCONDITION_REMOVED)) + "  \\\\ \\hline");
       out.println("   unclassified & ? & "
-        + NF.format(evolutionStatsInJava.get(DiffResult.CANNOT_BE_CLASSIFIED)) + " & " + NF.format(evolutionStatsInKotlin.get(DiffResult.CANNOT_BE_CLASSIFIED)) + "  \\\\ \\hline");
+        + NF.format(evolutionStatsInJava.get(DiffResult.CANNOT_BE_CLASSIFIED)) + " & " + NF.format(
+        evolutionStatsInKotlin.get(DiffResult.CANNOT_BE_CLASSIFIED)) + "  \\\\ \\hline");
       out.println("\\end{tabular}");
       out.println("\\end{table}");
     }

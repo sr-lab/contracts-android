@@ -1,6 +1,6 @@
 package contractstudy.collectContracts.common.StaticImportCollector.kotlin.testData
 
-import java.lang.System.*
+import java.lang.System.out
 
 class StaticImportWildCard {
     fun test(flag: Boolean): Boolean {

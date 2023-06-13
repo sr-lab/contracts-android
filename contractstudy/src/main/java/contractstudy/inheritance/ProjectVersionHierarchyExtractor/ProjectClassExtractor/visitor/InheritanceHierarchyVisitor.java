@@ -4,11 +4,13 @@ import com.github.javaparser.ast.ImportDeclaration;
 import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
+import contractstudy.config.Logging;
 import contractstudy.inheritance.model.ClassCoordinates;
 import contractstudy.inheritance.model.ClassParents;
 import contractstudy.inheritance.model.SourceClassFinder;
 import contractstudy.model.ClassAndVersion;
 import contractstudy.utils.GeneralUtils;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -21,6 +23,7 @@ import java.util.Set;
 public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implements ClassParents,
   ClassCoordinates {
 
+  static Logger LOGGER = Logging.getLogger(InheritanceHierarchyVisitor.class);
   private final SourceClassFinder classFinder;
   private final List<String> packages = new ArrayList<>();
 
@@ -72,7 +75,7 @@ public class InheritanceHierarchyVisitor extends ClassDefinitionVisitor implemen
           getOwnerState(n).getParents().add(potentialParent);
         }
       } catch (Exception e) {
-        e.printStackTrace();
+        LOGGER.warn("Exception while adding Parent to child state: " + e.getMessage());
       }
     }
   }

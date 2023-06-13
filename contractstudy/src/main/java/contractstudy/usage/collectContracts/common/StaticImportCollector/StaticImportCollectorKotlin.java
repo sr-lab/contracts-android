@@ -46,15 +46,14 @@ public class StaticImportCollectorKotlin extends KtTreeVisitorVoid {
   }
 
   /**
-   * When investigating annotations, we can only be certain that the annotation found
-   * belongs to the import directive when the import contains the class.
-   * Therefore, if the import does not contain the class, we treat it as None.
+   * When investigating annotations, we can only be certain that the annotation found belongs to the import directive when
+   * the import contains the class. Therefore, if the import does not contain the class, we treat it as None.
    */
   private void getImportStateForAnnotationInvestigation(KtImportDirective importDirective) {
     boolean hasWildCard = KotlinParserUtils.doesImportDirectiveContainsWildCard(importDirective);
     String importedPath = importDirective.getImportPath().getPathStr();
     String importWithoutClass = importedPath.substring(0, importedPath.lastIndexOf("."));
-    String className = importedPath.substring(importedPath.lastIndexOf(".")+1);
+    String className = importedPath.substring(importedPath.lastIndexOf(".") + 1);
     if (!hasWildCard && targetPackageName.equals(importWithoutClass) && !targetPackageName.contains(className)) {
       this.staticImportState = StaticImportState.CLASS;
     }

@@ -6,7 +6,6 @@ import contractstudy.config.Logging;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
-import contractstudy.usage.collectContracts.api.CommonsValidate.CommonsValidate3.CommonsValidate3Extractor;
 import contractstudy.usage.collectContracts.cre.UnconditionalOperationNotSupported.visitor.MethodVisitorToCollectUnconditionalUnsupportedOperationExceptionThrows;
 import contractstudy.usage.collectContracts.cre.UnconditionalOperationNotSupported.visitor.MethodVisitorToCollectUnconditionalUnsupportedOperationExceptionThrowsKotlin;
 import contractstudy.utils.InputStreamToStringConversion;

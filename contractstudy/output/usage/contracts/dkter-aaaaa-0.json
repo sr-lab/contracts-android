@@ -1,0 +1,1 @@
+[{"cu":"dkter-aaaaa-0/app/src/main/java/io/github/dkter/aaaaa/MainActivity.kt","condition":"p0 != null","method":"beforeTextChanged(CharSequence?,Int,Int,Int)","additional_info":"\"This is an error\"","artefact_type":"METHOD","line":61,"name":"dkter-aaaaa","abstract_method":false,"type":"GuavaPreconditionCheckArgument","version":"0"}]

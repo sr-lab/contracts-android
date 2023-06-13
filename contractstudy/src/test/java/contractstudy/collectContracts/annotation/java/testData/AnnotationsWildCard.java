@@ -1,6 +1,9 @@
 package contractstudy.collectContracts.annotation.java.testData;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class AnnotationsWildCard {
 

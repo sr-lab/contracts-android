@@ -4,7 +4,7 @@ This collection provides different scripts to manage and clone Android projects.
 
 Currently, only [F-Droid](https://f-droid.org) is supported as an index source for projects.
 
-The available [Makefile](./Makefile) helsp automating some tasks.
+The available [Makefile](./Makefile) helps to automate various tasks.
 
 - [Collecting data from F-Droid](#collecting-data-from-f-droid)
   - [Installation Requirements](#installation-requirements)
@@ -12,10 +12,11 @@ The available [Makefile](./Makefile) helsp automating some tasks.
   - [Usage](#usage)
     - [Github Access Key](#github-access-key)
     - [Java and Kotlin projects support](#java-and-kotlin-projects-support)
-    - [Pagination (WIP)](#pagination-wip)
+    - [Pagination (To be improved)](#pagination-to-be-improved)
     - [Output File Paths](#output-file-paths)
     - [Clean output folder.](#clean-output-folder)
     - [Clone F-Droid projects](#clone-f-droid-projects)
+    - [Env files to add](#env-files-to-add)
 
 ## Installation Requirements
 
@@ -44,7 +45,7 @@ KOTLIN-PROJECTS-ANALYSIS = <boolean>
 ```
 If those variables are not present in the `config.env` file, scripts are going to consider both languages as accepted.
 
-### Pagination (WIP)
+### Pagination (To be improved)
 
 Since the execution of scripts that analyse and/or clone Github projects may take a while, you can segment by chunks the projects to analyse/clone by using the pagination variables - offset and limit - in `config.env` file such as
 ```
@@ -81,3 +82,43 @@ make get-fdroid-dataset
 | cleanProjects.py        | Removes from each project unwanted files such as tests and assets.   | 5-projects/*                  | 5-projects/*                                   |
 | prepareDataset.py        | Zips each cloned repositories and creates final folder structure.   | 5-projects/*                  | 6-dataset/*                                   |
 
+### Env files to add
+
+- ".env"
+
+```
+GITHUB-ACCESS-TOKEN="xxx"
+```
+
+- ".filePaths.env"
+
+```
+F-DROID-INDEX-FILE = "output/0-fdroid-index.xml"
+F-DROID-PROJECTS-LIST-FILE = "output/0-f-droid-projects.txt"
+GITHUB-PROJECTS-LIST-FILE = "output/1-github-projects.txt"
+NON-DUPLICATED-PROJECTS-LIST-FILE = "output/2-non-duplicated-projects.txt"
+FILTERED-PROJECTS-LIST-FILE = "output/3-filtered-projects.txt"
+PROJECTS-STATS-FILE = "output/3-projects-stats.csv"
+PROJECTS-VERSIONS-FILE = "output/4-projects-versions.txt"
+CLONED-PROJECTS-FOLDER = "output/5-projects"
+DATASET-PROJECTS-FOLDER = "output/6-dataset"
+DATASET-PROJECTS-LIST = "output/6-dataset.txt"
+```
+
+- "config.env"
+
+```
+# Filter
+JAVA-PROJECTS-ANALYSIS = True
+KOTLIN-PROJECTS-ANALYSIS = True
+#FILTER-PAGINATION-OFFSET=0
+#FILTER-PAGINATION-LIMIT=50
+
+# Versions file
+#VERSIONS-FILE-OFFSET=0
+#VERSIONS-FILE-LIMIT=10
+
+# Clone
+#CLONE-FILE-OFFSET=0
+#CLONE-FILE-LIMIT=10
+```

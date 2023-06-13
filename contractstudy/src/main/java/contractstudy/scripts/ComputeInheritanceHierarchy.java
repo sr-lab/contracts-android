@@ -21,7 +21,6 @@ import org.json.JSONObject;
 import java.io.File;
 import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -34,9 +33,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-/**
- *
- */
 public class ComputeInheritanceHierarchy implements Experiment {
 
   private static final File INPUT_SOURCE_CODE = new File(Preferences.getDataFolder());
@@ -87,8 +83,7 @@ public class ComputeInheritanceHierarchy implements Experiment {
           saveResultsToFile(outputFile, classesMap);
 
         } catch (Exception e) {
-          e.printStackTrace();
-          LOGGER.info("Skipping incompatible source-code version for " + contractsJsonFile);
+          LOGGER.info("Skipping incompatible source-code version for " + contractsJsonFile + " : " + e.getMessage());
         }
       };
 
@@ -175,7 +170,7 @@ public class ComputeInheritanceHierarchy implements Experiment {
         }
 
         List<ClassAndVersion> allParents = new ArrayList<>();
-        for (ClassCoordinates otherClassInstances: parents.keySet()) {
+        for (ClassCoordinates otherClassInstances : parents.keySet()) {
           ClassParents instance = parents.get(otherClassInstances);
           if (instance != null && Objects.equals(instance.getCuName(), c.getCuName())) {
             Set<ClassAndVersion> otherClassInstancesParents = instance.getParents(c.getClassName());

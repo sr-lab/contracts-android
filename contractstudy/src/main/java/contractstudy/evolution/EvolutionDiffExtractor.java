@@ -155,13 +155,12 @@ public class EvolutionDiffExtractor implements DiffExtractor {
       for (ContractElement record : removed) {
         errors.write((record.toString() + "\n").getBytes());
       }
-
       FileOutputStream ok = new FileOutputStream(ArtefactFactory.EVOLUTION_EVOLUTION_OK);
       for (DiffRecord record : results) {
         ok.write((record.toString() + "\n").getBytes());
       }
     } catch (FileNotFoundException e) {
-      e.printStackTrace();
+      LOGGER.warn("Exception trying to write to output files: " + e.getMessage());
     }
 
     return results;
@@ -251,7 +250,8 @@ public class EvolutionDiffExtractor implements DiffExtractor {
               String method = next.toString();
               methodsByCU.put(cuName, method);
             }
-          } catch (JSONException ignored) {}
+          } catch (JSONException ignored) {
+          }
         }
       }
     }
