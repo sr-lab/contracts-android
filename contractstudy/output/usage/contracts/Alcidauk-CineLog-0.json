@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/ulicae/cinelog/exportdb/CsvExportWriter.java","condition":"\"SimpleDateFormat\"","method":"write(LocalKino)","additional_info":"-","artefact_type":"CLASS","line":57,"name":"Alcidauk-CineLog","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

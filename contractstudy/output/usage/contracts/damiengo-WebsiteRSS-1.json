@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/damiengo/websiterss/ui/articledetail/ArticleDetailAdapter.kt","condition":"[ \"SetJavaScriptEnabled\" ]","method":"bind(EmbedModel)","additional_info":"-","artefact_type":"CLASS","line":213,"name":"damiengo-WebsiteRSS","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

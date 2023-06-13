@@ -1,1 +1,0 @@
-[{"cu":"src/main/java/com/veken0m/bitcoinium/WebViewerActivity.java","condition":"\"SetJavaScriptEnabled\"","method":"onCreateView(LayoutInflater,ViewGroup,Bundle)","additional_info":"-","artefact_type":"CLASS","line":21,"name":"veken0m-bitcoinium","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

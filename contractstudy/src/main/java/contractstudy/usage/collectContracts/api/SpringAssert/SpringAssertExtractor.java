@@ -7,7 +7,6 @@ import contractstudy.constants.constraint.ConstraintCategory;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
-import contractstudy.usage.collectContracts.api.CommonsValidate.CommonsValidate3.CommonsValidate3Extractor;
 import contractstudy.usage.collectContracts.api.SpringAssert.visitor.MethodVisitorToCollectSpringAssertInvocations;
 import contractstudy.usage.collectContracts.api.SpringAssert.visitor.MethodVisitorToCollectSpringAssertInvocationsKotlin;
 import contractstudy.usage.collectContracts.common.StaticImportCollector.StaticImportCollector;

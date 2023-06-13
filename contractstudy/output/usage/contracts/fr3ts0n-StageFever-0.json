@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/fr3ts0n/stagefever/SongItemFragment.java","condition":"\"ClickableViewAccessibility\"","method":"onSwipeLeft()","additional_info":"-","artefact_type":"METHOD","line":129,"name":"fr3ts0n-StageFever","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

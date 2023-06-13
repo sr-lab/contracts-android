@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/org/secuso/privacyfriendlyruler/activities/SettingsActivity.java","condition":"Build.VERSION_CODES.HONEYCOMB","method":"onOptionsItemSelected(MenuItem)","additional_info":"-","artefact_type":"CLASS","line":167,"name":"SecUSo-privacy-friendly-ruler","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

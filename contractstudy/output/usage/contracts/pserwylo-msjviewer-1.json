@@ -1,1 +1,0 @@
-[{"cu":"android/src/com/serwylo/msjviewer/activities/MainActivity.java","condition":"\"AddJavascriptInterface\"","method":"onCreate(Bundle)","additional_info":"-","artefact_type":"METHOD","line":18,"name":"pserwylo-msjviewer","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

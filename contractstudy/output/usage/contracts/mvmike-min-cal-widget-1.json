@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/kotlin/cat/mvmike/minimalcalendarwidget/domain/Percentage.kt","condition":"value in MIN_PERCENTAGE..MAX_PERCENTAGE","method":"-","additional_info":"","artefact_type":"METHOD","line":10,"name":"mvmike-min-cal-widget","abstract_method":false,"type":"KotlinRequire","version":"1"}]

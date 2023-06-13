@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/workingagenda/democracydroid/Adapters/StoryAdapter.java","condition":"txt != null","method":"getView(int,View,ViewGroup)","additional_info":"-","artefact_type":"METHOD","line":53,"name":"fenimore-DemocracyDroid","abstract_method":false,"type":"JavaAssert","version":"0"}]

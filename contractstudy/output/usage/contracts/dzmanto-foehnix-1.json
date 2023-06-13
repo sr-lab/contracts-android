@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/foehnix/widget/MyWidgetProvider.java","condition":"[api = Build.VERSION_CODES.LOLLIPOP]","method":"onEnabled(Context)","additional_info":"-","artefact_type":"METHOD","line":70,"name":"dzmanto-foehnix","abstract_method":false,"type":"AndroidXRequiresApi","version":"1"}]

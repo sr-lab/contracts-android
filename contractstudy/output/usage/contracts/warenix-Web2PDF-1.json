@@ -1,1 +1,0 @@
-[{"cu":"android/app/src/main/java/org/dyndns/warenix/web2pdf/MainActivity.java","condition":"VERSION_CODES.GINGERBREAD","method":"setSelect(int)","additional_info":"-","artefact_type":"CLASS","line":48,"name":"warenix-Web2PDF","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

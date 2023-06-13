@@ -1,1 +1,0 @@
-[{"cu":"src/com/twsitedapps/homemanager/Util.java","condition":"5","method":"getPkgMemory(int,Context)","additional_info":"-","artefact_type":"METHOD","line":113,"name":"rmack-TwistedHomeManager","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

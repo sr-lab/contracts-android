@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/org/secuso/privacyfriendlyfoodtracker/activities/SettingsActivity.java","condition":"Build.VERSION_CODES.HONEYCOMB","method":"onOptionsItemSelected(MenuItem)","additional_info":"-","artefact_type":"CLASS","line":187,"name":"SecUSo-privacy-friendly-food-tracker","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

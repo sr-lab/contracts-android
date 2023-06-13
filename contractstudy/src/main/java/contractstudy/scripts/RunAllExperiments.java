@@ -19,10 +19,10 @@ public class RunAllExperiments {
     new AnalyseContractUsage(),
     new CollectDatasetStats(),
     new CollectInvocationViaSuper(),
-    new ComputeInheritanceHierarchy(),
     new AnalyseContractEvolution(),
     new CollectProgramVersionStats(),
     new AnalyseContractUsageAcrossVersions(),
+    new ComputeInheritanceHierarchy(),
     new AnalyseHierarchyContracts(),
   };
 

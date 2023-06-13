@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/pl/edu/pjwstk/s999844/shoppinglist/adapters/ShoppingListAdapter.kt","condition":"[ \"NotifyDataSetChanged\" ]","method":"setItems(List<RequiredItem>)","additional_info":"-","artefact_type":"CLASS","line":69,"name":"Abrynos-ShoppingList","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

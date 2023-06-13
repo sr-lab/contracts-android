@@ -1,1 +1,0 @@
-[{"cu":"TransportsRennesHelper/src/main/java/fr/ybo/transportsrenneshelper/generateurmodele/Generateur.java","condition":"terminus == null","method":"compare(Horaire,Horaire)","additional_info":"\"Pas de terminus trouvé\"","artefact_type":"METHOD","line":402,"name":"ybonnel-TransportsRennes","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

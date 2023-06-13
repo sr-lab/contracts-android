@@ -2,6 +2,7 @@ package contractstudy.collectContracts.common.StaticImportCollector.java.testDat
 
 import com.google.common.base.Preconditions;
 import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 public class StaticImportClass {

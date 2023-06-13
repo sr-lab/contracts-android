@@ -1,1 +1,0 @@
-[{"cu":"src/com/stericson/RootTools/execution/Shell.java","condition":"close","method":"add(Command)","additional_info":"\"Unable to add commands to a closed shell\"","artefact_type":"METHOD","line":143,"name":"cernekee-ics-openconnect","abstract_method":false,"type":"CREIllegalStateException","version":"0"}]

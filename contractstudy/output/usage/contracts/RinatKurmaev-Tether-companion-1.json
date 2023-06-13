@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/fi/iki/elonen/NanoHTTPD.java","condition":"closeable instanceof ServerSocket","method":"safeClose(Object)","additional_info":"\"Unknown object to close\"","artefact_type":"METHOD","line":1774,"name":"RinatKurmaev-Tether-companion","abstract_method":true,"type":"CREIllegalArgumentException","version":"1"}]

@@ -1,6 +1,8 @@
-# Contract Usage in Android Java Applications
+# Contract Usage in Android Applications
 
-This repository contains scripts and data to create a dataset of Java and Kotlin applications, to extract semantic annotations and contract checking code from those Java and Kotlin programs, and to analyse how contracts are used and evolve.
+This repository includes a pipeline to create a dataset of Java and Kotlin application and a analysis tool to investigate the presence and usage of contracts in those applications.
+
+This is an extension of the tool proposed by J. Dietrich, D. J. Pearce, K. Jezek, and P. Brad in "Contracts in the wild: A study of java programs" (2017).
 
 ## Setup
 

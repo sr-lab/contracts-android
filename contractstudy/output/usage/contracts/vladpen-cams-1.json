@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/vladpen/Utils.kt","condition":"length % 2 == 0","method":"decodeString(String,String?=null)","additional_info":" \"Encoded string must have an even length\" ","artefact_type":"METHOD","line":136,"name":"vladpen-cams","abstract_method":false,"type":"KotlinCheck","version":"1"}]

@@ -1,1 +1,0 @@
-[{"cu":"src/fr/keuse/rightsalert/preference/RightsalertPreference.java","condition":"\"NewApi\"","method":"onCreate(Bundle)","additional_info":"-","artefact_type":"METHOD","line":16,"name":"kyriog-rights-alert","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/blazecode/tsviewer/util/tile/ClientTileService.kt","condition":"[ Build.VERSION_CODES.Q ]","method":"onStartListening()","additional_info":"-","artefact_type":"METHOD","line":20,"name":"BlazeCodeDev-TSViewer","abstract_method":false,"type":"AndroidXRequiresApi","version":"0"}]

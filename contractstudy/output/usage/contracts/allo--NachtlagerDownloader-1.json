@@ -1,1 +1,0 @@
-[{"cu":"src/de/laxu/apps/nachtlagerdownloader/MainActivity.java","condition":"req != null","method":"startDownload(View)","additional_info":"-","artefact_type":"METHOD","line":109,"name":"allo--NachtlagerDownloader","abstract_method":false,"type":"JavaAssert","version":"1"}]

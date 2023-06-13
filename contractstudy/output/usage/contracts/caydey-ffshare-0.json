@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/caydey/ffshare/utils/MediaCompressor.kt","condition":"[ \"SetTextI18n\" ]","method":"compressFile(Activity,Uri,(uri:Uri?)->Unit)","additional_info":"-","artefact_type":"METHOD","line":33,"name":"caydey-ffshare","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/fr/smarquis/sleeptimer/SleepNotification.kt","condition":"timeout > 0","method":"toggle()","additional_info":"","artefact_type":"METHOD","line":75,"name":"SimonMarquis-SleepTimer","abstract_method":false,"type":"KotlinRequire","version":"0"}]

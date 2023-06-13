@@ -1,1 +1,0 @@
-[{"cu":"android/src/main/java/fr/nicopico/dashclock/birthday/BirthdayService.java","condition":"applicationContext != null","method":"onInitialize(boolean)","additional_info":"-","artefact_type":"METHOD","line":64,"name":"nicopico-dev-dashclock-birthday","abstract_method":false,"type":"JavaAssert","version":"1"}]

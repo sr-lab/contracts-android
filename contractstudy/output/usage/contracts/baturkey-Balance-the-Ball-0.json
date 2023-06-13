@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/jeffliu/balancetheball/GameActivity.java","condition":"mSensorManager != null","method":"onCreate(Bundle)","additional_info":"-","artefact_type":"METHOD","line":42,"name":"baturkey-Balance-the-Ball","abstract_method":false,"type":"JavaAssert","version":"0"}]

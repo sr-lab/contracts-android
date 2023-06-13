@@ -1,1 +1,0 @@
-[{"cu":"src/cc/rainwave/android/RainwavePreferences.java","condition":"\"CommitPrefEdits\"","method":"clear()","additional_info":"-","artefact_type":"CLASS","line":44,"name":"OEP-rainwave-android","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

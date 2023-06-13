@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/link/standen/michael/fatesheets/view/AdapterLinearLayout.java","condition":"Build.VERSION_CODES.HONEYCOMB","method":"AdapterLinearLayout(Context, AttributeSet, int)","additional_info":"-","artefact_type":"CLASS","line":34,"name":"ScreamingHawk-fate-sheets","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

@@ -1,1 +1,0 @@
-[{"cu":"src/tyler/breisacher/scribe/model/Settings.java","condition":"gameMode.equals(\"superglyph\")","method":"setGameMode(String)","additional_info":"\"game mode: \" + gameMode","artefact_type":"METHOD","line":18,"name":"VelbazhdSoftwareLLC-Scribe4","abstract_method":false,"type":"CREIllegalArgumentException","version":"0"}]

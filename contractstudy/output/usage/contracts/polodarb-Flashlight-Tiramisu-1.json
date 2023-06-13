@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/pdb82/flashlighttiramisu/ui/fragments/MainFragment.kt","condition":"[ \"SetTextI18n\" ]","method":"onStopTrackingTouch(Slider)","additional_info":"-","artefact_type":"METHOD","line":280,"name":"polodarb-Flashlight-Tiramisu","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

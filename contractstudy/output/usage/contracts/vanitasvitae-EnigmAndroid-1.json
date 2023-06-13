@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/google/zxing/integration/android/IntentIntegrator.java","condition":"targetApplications.isEmpty()","method":"setTargetApplications(List<String>)","additional_info":"\"No target applications\"","artefact_type":"METHOD","line":234,"name":"vanitasvitae-EnigmAndroid","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

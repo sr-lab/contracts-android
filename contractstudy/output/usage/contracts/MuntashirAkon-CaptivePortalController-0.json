@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/io/github/muntashirakon/captiveportalcontroller/CPControllerTile.java","condition":"Build.VERSION_CODES.N","method":"updateTile(boolean,boolean)","additional_info":"-","artefact_type":"CLASS","line":8,"name":"MuntashirAkon-CaptivePortalController","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

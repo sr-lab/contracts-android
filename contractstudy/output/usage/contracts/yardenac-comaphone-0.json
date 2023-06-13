@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/me/hackerchick/raisetoanswer/RaiseToAnswerPhoneStateListener.kt","condition":"[ \"MissingPermission\" ]","method":"onCallStateChanged(Int,String)","additional_info":"-","artefact_type":"CLASS","line":28,"name":"yardenac-comaphone","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

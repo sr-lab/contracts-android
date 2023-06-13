@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/org/itishka/pointim/widgets/FlowLayout.java","condition":"(MeasureSpec.getMode(widthMeasureSpec) != MeasureSpec.UNSPECIFIED)","method":"onMeasure(int,int)","additional_info":"-","artefact_type":"METHOD","line":29,"name":"Tishka17-Point.im-Android","abstract_method":false,"type":"JavaAssert","version":"0"}]

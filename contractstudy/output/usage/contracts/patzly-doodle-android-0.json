@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/xyz/zedler/patrick/doodle/SettingsActivity.java","condition":"","method":"onActivityResult(int,int,Intent)","additional_info":"-","artefact_type":"METHOD_PARAMETER","line":192,"name":"patzly-doodle-android","abstract_method":false,"type":"AndroidXNullable","version":"0"}]

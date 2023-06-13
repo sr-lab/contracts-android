@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/me/gloeckl/fallasleep/SleepTimerTileService.kt","condition":"[ Build.VERSION_CODES.N ]","method":"-","additional_info":"-","artefact_type":"CLASS","line":12,"name":"moritzgloeckl-FallASleep","abstract_method":false,"type":"AndroidXRequiresApi","version":"1"}]

@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/github/muellerma/stopwatch/StopwatchService.kt","condition":"[ \"WakelockTimeout\" ]","method":"onStartCommand(Intent?,Int,Int)","additional_info":"-","artefact_type":"METHOD","line":29,"name":"mueller-ma-Stopwatch","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

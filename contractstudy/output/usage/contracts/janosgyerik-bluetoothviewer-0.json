@@ -1,1 +1,0 @@
-[{"cu":"bluetoothviewer/src/main/java/net/bluetoothviewer/BluetoothAdapterDelegate.java","condition":"adapter != null","method":"BluetoothAdapterDelegate(BluetoothAdapter)","additional_info":"-","artefact_type":"METHOD","line":13,"name":"janosgyerik-bluetoothviewer","abstract_method":false,"type":"JavaAssert","version":"0"}]

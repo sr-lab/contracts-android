@@ -1,6 +1,6 @@
 package contractstudy.inheritance.SuperCallSiteExtractor.kotlin.testData
 
-class SubClass2: ParentClass2 {
+class SubClass2 : ParentClass2 {
 
     constructor(text: String, age: String) : super(text, age)
 

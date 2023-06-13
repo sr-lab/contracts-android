@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/slash/batterychargelimit/SharedMethods.java","condition":"40 <= limit && limit <= 99","method":"handleLimitChange(Context,Object)","additional_info":"\"battery limit out of range\"","artefact_type":"METHOD","line":133,"name":"sriharshaarangi-BatteryChargeLimit","abstract_method":false,"type":"CRENumberFormatException","version":"1"}]

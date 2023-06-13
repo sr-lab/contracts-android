@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/de/mw136/tonuino/ui/bulk/BulkWriteFragment.kt","condition":"[ \"SetTextI18n\" ]","method":"onViewCreated(View,Bundle?)","additional_info":"-","artefact_type":"METHOD","line":38,"name":"marc136-tonuino-nfc-tools","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

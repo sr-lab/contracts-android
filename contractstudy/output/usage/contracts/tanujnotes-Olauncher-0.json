@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/app/olauncher/ui/HomeFragment.kt","condition":"[ \"WrongConstant\" \"PrivateApi\" ]","method":"onLongClick(View)","additional_info":"-","artefact_type":"METHOD","line":292,"name":"tanujnotes-Olauncher","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

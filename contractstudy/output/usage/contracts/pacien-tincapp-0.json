@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/org/pacien/tincapp/activities/LaunchActivity.kt","condition":"[ \"InflateParams\" ]","method":"onActivityResult(Int,Int,Intent?)","additional_info":"-","artefact_type":"METHOD","line":47,"name":"pacien-tincapp","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/org/bitbatzen/wlanscanner/MainActivity.java","condition":"Build.VERSION_CODES.M","method":"onReceive(Context,Intent)","additional_info":"-","artefact_type":"METHOD","line":106,"name":"bewue-WLANScanner","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

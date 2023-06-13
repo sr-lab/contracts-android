@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/danhasting/radar/fragments/RadarFragment.java","condition":"\"SetJavaScriptEnabled\"","method":"onCreateView(LayoutInflater,ViewGroup,Bundle)","additional_info":"-","artefact_type":"METHOD","line":57,"name":"dh4-WeatherRadar","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

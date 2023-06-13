@@ -1,1 +1,0 @@
-[{"cu":"src/uk/ac/swansea/eduroamcat/WifiConfigAPI18.java","condition":"18","method":"saveEapConfig(String,String,AuthenticationMethod)","additional_info":"-","artefact_type":"CLASS","line":17,"name":"GEANT-CAT-Android","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

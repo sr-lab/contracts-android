@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/superproductivity/superproductivity/FullscreenActivity.java","condition":"","method":"shouldOverrideUrlLoading(WebView,String)","additional_info":"-","artefact_type":"METHOD_PARAMETER","line":27,"name":"johannesjo-super-productivity-android","abstract_method":false,"type":"AndroidXNullable","version":"1"}]

@@ -1,1 +1,0 @@
-[{"cu":"app-android/app/src/main/java/io/github/powerinside/scrollsocket/CanvasView.java","condition":"\"ViewConstructor\"","method":"onTouchEvent(MotionEvent)","additional_info":"-","artefact_type":"CLASS","line":16,"name":"mo3rfan-ScrollSocket","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

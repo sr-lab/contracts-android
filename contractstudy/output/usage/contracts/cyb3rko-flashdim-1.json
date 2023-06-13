@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/kotlin/com/cyb3rko/flashdim/activities/MainActivity.kt","condition":"[ \"SetTextI18n\" ]","method":"onProgressChanged(Int)","additional_info":"-","artefact_type":"METHOD","line":311,"name":"cyb3rko-flashdim","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

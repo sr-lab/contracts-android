@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/majeur/xmlapkparser/IntReader.java","condition":"length < 0 || length > 4","method":"readInt(int)","additional_info":"","artefact_type":"METHOD","line":82,"name":"MajeurAndroid-Applications-Info","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

@@ -1,1 +1,0 @@
-[{"cu":"TopoSuite/src/ch/hgdev/toposuite/points/Point.java","condition":"number >= 0","method":"Point(int, double, double, double, boolean)","additional_info":"\"A point number must be a positive integer: %s\",number","artefact_type":"METHOD","line":51,"name":"hgdev-ch-toposuite-android","abstract_method":false,"type":"GuavaPreconditionCheckArgument","version":"0"}]

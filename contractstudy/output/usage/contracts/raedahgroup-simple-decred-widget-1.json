@@ -1,1 +1,0 @@
-[{"cu":"cryptowidget/src/main/java/com/brentpanther/cryptowidget/ExchangeHelper.java","condition":"\"BadHostnameVerifier\"","method":"verify(String,SSLSession)","additional_info":"-","artefact_type":"METHOD","line":78,"name":"raedahgroup-simple-decred-widget","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

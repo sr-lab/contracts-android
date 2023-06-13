@@ -1,1 +1,0 @@
-[{"cu":"GhostLog/app/src/main/java/com/nolanlawson/logcat/util/ArrayUtil.java","condition":"start <= end","method":"copyOfRange(int[],int,int)","additional_info":"","artefact_type":"METHOD","line":28,"name":"jgilfelt-GhostLog-integration","abstract_method":false,"type":"CREIndexOutOfBoundsException","version":"0"}]

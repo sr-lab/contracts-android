@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/mileskrell/texttorch/stats/SortTypeDialogFragment.kt","condition":"[ \"InflateParams\" ]","method":"onCreateDialog(Bundle?)","additional_info":"-","artefact_type":"CLASS","line":41,"name":"mileskrell-text-torch","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

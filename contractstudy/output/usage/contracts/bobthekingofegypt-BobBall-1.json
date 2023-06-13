@@ -1,1 +1,0 @@
-[{"cu":"src/org/bobstuff/bobball/Bar.java","condition":"active","method":"start(BarDirection,Rect)","additional_info":"\"Cannot start an already started bar\"","artefact_type":"METHOD","line":32,"name":"bobthekingofegypt-BobBall","abstract_method":false,"type":"CREIllegalStateException","version":"1"}]

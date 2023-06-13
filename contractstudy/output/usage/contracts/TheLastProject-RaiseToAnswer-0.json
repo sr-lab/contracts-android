@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/me/hackerchick/raisetoanswer/RaiseToAnswerPhoneStateListener.kt","condition":"[ \"MissingPermission\" ]","method":"onCallStateChanged(Int,String)","additional_info":"-","artefact_type":"CLASS","line":24,"name":"TheLastProject-RaiseToAnswer","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

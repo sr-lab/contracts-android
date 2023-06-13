@@ -6,7 +6,6 @@ import contractstudy.config.Logging;
 import contractstudy.constants.constraint.ContractElement;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
-import contractstudy.usage.collectContracts.api.SpringAssert.SpringAssertExtractor;
 import contractstudy.utils.LanguageUtils;
 import org.apache.log4j.Logger;
 

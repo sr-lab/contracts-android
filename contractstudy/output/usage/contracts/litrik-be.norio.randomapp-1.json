@@ -1,1 +1,0 @@
-[{"cu":"src/be/norio/randomapp/util/PrefsUtils.java","condition":"9","method":"apply(SharedPreferences.Editor)","additional_info":"-","artefact_type":"METHOD","line":58,"name":"litrik-be.norio.randomapp","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/io/mkg20001/arubanetworkslogin/LoginActivity.kt","condition":"[ Build.VERSION_CODES.HONEYCOMB_MR2 ]","method":"onRequestPermissionsResult(Int,Array<String>,IntArray)","additional_info":"-","artefact_type":"METHOD","line":239,"name":"mkg20001-aruba-networks-login","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

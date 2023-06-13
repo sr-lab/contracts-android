@@ -5,7 +5,6 @@ import com.github.javaparser.ast.CompilationUnit;
 import contractstudy.config.Logging;
 import contractstudy.constants.constraint.ConstraintCategory;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.inheritance.ProjectVersionHierarchyExtractor.ProjectVersionHierarchyExtractor;
 import contractstudy.model.ExtractionListener;
 import contractstudy.model.Extractor;
 import contractstudy.usage.collectContracts.api.CommonsValidate.CommonsValidate2.visitor.MethodVisitorToCollectCommons2ValidateInvocations;
@@ -27,6 +26,7 @@ import java.io.InputStream;
  * @author jens dietrich
  */
 public class CommonsValidate2Extractor implements Extractor<ContractElement> {
+
   private static final Logger LOGGER = Logging.getLogger(CommonsValidate2Extractor.class);
 
   @Override

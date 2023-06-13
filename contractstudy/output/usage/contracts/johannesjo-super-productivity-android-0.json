@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/superproductivity/superproductivity/WebHelper.kt","condition":"[ \"SetJavaScriptEnabled\" ]","method":"instanceView(Context)","additional_info":"-","artefact_type":"CLASS","line":13,"name":"johannesjo-super-productivity-android","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

@@ -1,1 +1,0 @@
-[{"cu":"android-rgb-tool/src/main/java/com/fastebro/androidrgbtool/commons/BaseActivity.java","condition":"\"NewApi\"","method":"onCreate(Bundle)","additional_info":"-","artefact_type":"METHOD","line":19,"name":"fasteque-rgb-tool","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

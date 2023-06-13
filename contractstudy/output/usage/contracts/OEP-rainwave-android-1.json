@@ -1,1 +1,0 @@
-[{"cu":"src/cc/rainwave/android/api/HttpHelper.java","condition":"args.length % 2 != 0","method":"encodeParams(String...)","additional_info":"\"Must have a multiple of two arguments\"","artefact_type":"METHOD","line":110,"name":"OEP-rainwave-android","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

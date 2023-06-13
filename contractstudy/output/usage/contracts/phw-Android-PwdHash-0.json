@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/uploadedlobster/PwdHash/algorithm/DomainExtractor.java","condition":"uri == null","method":"extractDomain(String)","additional_info":"\"Argument uri must not be null.\"","artefact_type":"METHOD","line":48,"name":"phw-Android-PwdHash","abstract_method":false,"type":"CREIllegalArgumentException","version":"0"}]

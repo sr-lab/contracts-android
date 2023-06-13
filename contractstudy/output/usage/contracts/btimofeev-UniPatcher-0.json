@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/org/emunix/unipatcher/UniPatcher.kt","condition":"[ 26 ]","method":"initNotificationChannel()","additional_info":"-","artefact_type":"METHOD","line":65,"name":"btimofeev-UniPatcher","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

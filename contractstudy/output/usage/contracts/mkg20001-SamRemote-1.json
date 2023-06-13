@@ -1,1 +1,0 @@
-[{"cu":"mobile/src/main/java/mkg20001/net/samremote/QuickSettings.java","condition":"Build.VERSION_CODES.N","method":"onTileRemoved()","additional_info":"-","artefact_type":"CLASS","line":30,"name":"mkg20001-SamRemote","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/cc/echonet/coolmicapp/SettingsActivity.java","condition":"Build.VERSION_CODES.HONEYCOMB","method":"onClick(DialogInterface,int)","additional_info":"-","artefact_type":"CLASS","line":147,"name":"CoolMicApp-CoolMicApp-Android","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

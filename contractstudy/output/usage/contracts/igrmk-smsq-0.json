@@ -1,1 +1,0 @@
-[{"cu":"android/app/src/main/java/com/github/igrmk/smsq/entities/DeliveryResult.kt","condition":"[ \"NewApi\" ]","method":"deserialize(Decoder)","additional_info":"-","artefact_type":"CLASS","line":45,"name":"igrmk-smsq","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

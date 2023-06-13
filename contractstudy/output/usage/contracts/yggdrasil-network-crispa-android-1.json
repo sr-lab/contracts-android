@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/org/yggdrasil/app/crispa/YggdrasilTunService.kt","condition":"[ Build.VERSION_CODES.O ]","method":"onDestroy()","additional_info":"-","artefact_type":"CLASS","line":298,"name":"yggdrasil-network-crispa-android","abstract_method":false,"type":"AndroidXRequiresApi","version":"1"}]

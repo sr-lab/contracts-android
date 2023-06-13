@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/dev/corruptedark/diditakemymeds/AddMedActivity.kt","condition":"[ \"CutPasteId\" ]","method":"onCreate(Bundle?)","additional_info":"-","artefact_type":"METHOD","line":99,"name":"CorruptedArk-did-i-take-my-meds","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

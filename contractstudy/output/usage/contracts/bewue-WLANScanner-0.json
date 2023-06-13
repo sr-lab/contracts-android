@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/org/bitbatzen/wlanscanner/FragmentWLANList.java","condition":"29","method":"handleEvent(EventID)","additional_info":"-","artefact_type":"CLASS","line":51,"name":"bewue-WLANScanner","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

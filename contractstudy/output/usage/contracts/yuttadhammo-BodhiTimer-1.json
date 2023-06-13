@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/org/yuttadhammo/BodhiTimer/Animation/CircleAnimation.kt","condition":"NONE","method":"getBitmapFromVector(Context?,Int)","additional_info":"-","artefact_type":"METHOD_PARAMETER","line":248,"name":"yuttadhammo-BodhiTimer","abstract_method":false,"type":"AndroidXDrawableRes","version":"1"}]

@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/termux/tasker/Constants.java","condition":"null == context","method":"getVersionCode(Context)","additional_info":"\"context cannot be null\"","artefact_type":"METHOD","line":17,"name":"termux-termux-tasker","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

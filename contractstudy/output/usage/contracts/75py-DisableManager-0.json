@@ -1,1 +1,0 @@
-[{"cu":"src/com/nagopy/android/disablemanager/util/dpm/DisablableJbMr1.java","condition":"Build.VERSION_CODES.JELLY_BEAN_MR1","method":"isDisablable(ApplicationInfo)","additional_info":"-","artefact_type":"CLASS","line":81,"name":"75py-DisableManager","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

@@ -1,1 +1,0 @@
-[{"cu":"src/com/fr3ts0n/ecu/gui/androbd/BtCommService.java","condition":"\"NewApi\"","method":"cancel()","additional_info":"-","artefact_type":"CLASS","line":42,"name":"fr3ts0n-AndrOBD","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

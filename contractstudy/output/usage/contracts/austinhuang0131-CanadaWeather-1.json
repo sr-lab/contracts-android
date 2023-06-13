@@ -1,1 +1,0 @@
-[{"cu":"androidWeather/src/main/java/ca/fwe/weather/backend/ForecastXMLParser.java","condition":"parser.getEventType() != XmlPullParser.START_TAG","method":"skip(XmlPullParser)","additional_info":"","artefact_type":"METHOD","line":65,"name":"austinhuang0131-CanadaWeather","abstract_method":false,"type":"CREIllegalStateException","version":"1"}]

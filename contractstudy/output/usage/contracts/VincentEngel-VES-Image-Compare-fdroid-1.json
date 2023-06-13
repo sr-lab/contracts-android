@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/vincentengelsoftware/androidimagecompare/viewClasses/ZoomImageView.java","condition":"","method":"onTouchEvent(MotionEvent)","additional_info":"-","artefact_type":"METHOD_PARAMETER","line":46,"name":"VincentEngel-VES-Image-Compare-fdroid","abstract_method":false,"type":"AndroidXNonNull","version":"1"}]

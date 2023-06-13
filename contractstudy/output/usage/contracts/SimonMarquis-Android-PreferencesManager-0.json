@@ -1,1 +1,0 @@
-[{"cu":"PreferencesManager/src/fr/simon/marquis/preferencesmanager/util/FastXmlSerializer.java","condition":"os == null","method":"setOutput(OutputStream,String)","additional_info":"","artefact_type":"METHOD","line":285,"name":"SimonMarquis-Android-PreferencesManager","abstract_method":false,"type":"CREIllegalArgumentException","version":"0"}]

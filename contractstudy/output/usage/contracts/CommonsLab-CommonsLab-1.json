@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/commonslab/commonslab/VideoRecording/AutoFitTextureView.java","condition":"width < 0 || height < 0","method":"setAspectRatio(int,int)","additional_info":"\"Size cannot be negative.\"","artefact_type":"METHOD","line":37,"name":"CommonsLab-CommonsLab","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

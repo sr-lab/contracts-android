@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/de/markusfisch/android/pielauncher/content/AppMenu.java","condition":"\"StaticFieldLeak\"","method":"onPostExecute(Void)","additional_info":"-","artefact_type":"METHOD","line":127,"name":"markusfisch-PieLauncher","abstract_method":true,"type":"AndroidSuppressLint","version":"1"}]

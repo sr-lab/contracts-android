@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/woefe/shoppinglist/activity/MainActivity.java","condition":"activity != null","method":"onValidateInput(String)","additional_info":"-","artefact_type":"METHOD","line":383,"name":"woefe-ShoppingList","abstract_method":false,"type":"JavaAssert","version":"1"}]

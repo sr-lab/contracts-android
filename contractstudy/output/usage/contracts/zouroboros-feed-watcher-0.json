@@ -1,1 +1,0 @@
-[{"cu":"SqlSchemaSpec/src/main/java/me/murks/sqlschemaspec/TableSpec.java","condition":"referencedColumn.getTable() != this","method":"join(ColumnSpec,ColumnSpec)","additional_info":"\"Invalid column\"","artefact_type":"METHOD","line":154,"name":"zouroboros-feed-watcher","abstract_method":false,"type":"CREIllegalArgumentException","version":"0"}]

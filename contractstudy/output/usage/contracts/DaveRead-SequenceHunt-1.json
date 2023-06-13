@@ -1,1 +1,0 @@
-[{"cu":"src/com/monead/games/android/sequence/sound/SoundManager.java","condition":"context == null","method":"addSound(int)","additional_info":"\"Set context before calling the addSound() method\"","artefact_type":"METHOD","line":81,"name":"DaveRead-SequenceHunt","abstract_method":false,"type":"CREIllegalStateException","version":"1"}]

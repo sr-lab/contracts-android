@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/akdev/nofbeventscraper/MainActivity.java","condition":"\"RestrictedApi\"","method":"onCreateOptionsMenu(Menu)","additional_info":"-","artefact_type":"METHOD","line":321,"name":"akaessens-NoFbEventScraper","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

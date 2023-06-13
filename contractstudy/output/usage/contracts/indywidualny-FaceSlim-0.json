@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/org/indywidualni/fblite/MainActivity.java","condition":"\"setJavaScriptEnabled\"","method":"onLongClick(View)","additional_info":"-","artefact_type":"METHOD","line":68,"name":"indywidualny-FaceSlim","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

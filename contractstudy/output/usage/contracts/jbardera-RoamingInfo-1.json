@@ -1,1 +1,0 @@
-[{"cu":"src/com/brapeba/roaminginfo/OnBootReceiver.java","condition":"\"InlinedApi\"","method":"onReceive(Context,Intent)","additional_info":"-","artefact_type":"METHOD","line":20,"name":"jbardera-RoamingInfo","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

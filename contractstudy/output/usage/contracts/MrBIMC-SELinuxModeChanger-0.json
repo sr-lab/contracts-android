@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/mrbimc/selinux/util/ContextUtil.kt","condition":"[ Build.VERSION_CODES.O ]","method":"createNotificationChannel()","additional_info":"-","artefact_type":"CLASS","line":95,"name":"MrBIMC-SELinuxModeChanger","abstract_method":false,"type":"AndroidTargetApi","version":"0"}]

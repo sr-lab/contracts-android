@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/thibaudperso/sonycamera/timelapse/control/connection/NFCHandler.java","condition":"10","method":"String>getCameraWifiSettingsFromTag(Tag,Parcelable[])","additional_info":"-","artefact_type":"CLASS","line":18,"name":"ThibaudM-timelapse-sony","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

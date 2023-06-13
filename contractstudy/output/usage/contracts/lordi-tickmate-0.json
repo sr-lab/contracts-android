@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/lab/prada/android/ui/infinitescroll/InfiniteScrollAdapter.java","condition":"(Looper.myLooper().equals(Looper.getMainLooper()))","method":"handledRefresh()","additional_info":"-","artefact_type":"METHOD","line":199,"name":"lordi-tickmate","abstract_method":true,"type":"JavaAssert","version":"0"}]

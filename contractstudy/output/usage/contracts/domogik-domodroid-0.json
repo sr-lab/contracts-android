@@ -1,1 +1,0 @@
-[{"cu":"Domodroid/src/main/java/Abstract/calcul.java","condition":"2 < 0","method":"Round_double(double)","additional_info":"","artefact_type":"METHOD","line":28,"name":"domogik-domodroid","abstract_method":false,"type":"CREIllegalArgumentException","version":"0"}]

@@ -24,8 +24,8 @@ import java.util.Objects;
 
 public class VisitorToCollectAnnotationsKotlin extends AbstractMethodVisitorKotlin {
 
-  private StaticImportState importState;
   private final Map<String, ConstraintType> annotationsMap;
+  private final StaticImportState importState;
 
   public VisitorToCollectAnnotationsKotlin(
     ExtractionListener<ContractElement> consumer,

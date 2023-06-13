@@ -1,1 +1,0 @@
-[{"cu":"src/com/example/android/monthcalendarwidget/MonthCalendarWidget.java","condition":"Build.VERSION_CODES.JELLY_BEAN","method":"onAppWidgetOptionsChanged(Context,AppWidgetManager,int,Bundle)","additional_info":"-","artefact_type":"METHOD","line":110,"name":"romannurik-Android-MonthCalendarWidget","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/github/mofosyne/tagdrop/util/SystemUiHiderHoneycomb.java","condition":"Build.VERSION_CODES.HONEYCOMB","method":"onSystemUiVisibilityChange(int)","additional_info":"-","artefact_type":"CLASS","line":14,"name":"mofosyne-tagdrop","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

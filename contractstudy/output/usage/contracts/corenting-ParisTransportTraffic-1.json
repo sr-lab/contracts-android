@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/fr/corenting/traficparis/ui/main/MainAdapter.kt","condition":"[ \"DiffUtilEquals\" ]","method":"areContentsTheSame(ListItemInterface,ListItemInterface)","additional_info":"-","artefact_type":"METHOD","line":27,"name":"corenting-ParisTransportTraffic","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

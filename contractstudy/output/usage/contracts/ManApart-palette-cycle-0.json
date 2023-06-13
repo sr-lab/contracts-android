@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/rak/pixellwp/cycling/jsonLoading/ImageLoader.kt","condition":"NONE","method":"getImageInfoForCollection(String,Long,WeatherType)","additional_info":"\"Could not find collection for $name\"","artefact_type":"METHOD","line":84,"name":"ManApart-palette-cycle","abstract_method":false,"type":"CREIllegalArgumentException","version":"0"}]

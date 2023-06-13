@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/cliambrown/easynoise/EasyNoiseWidget.kt","condition":"[ \"RemoteViewLayout\" ]","method":"updateAppWidget(Context,AppWidgetManager,Int)","additional_info":"-","artefact_type":"CLASS","line":69,"name":"cliambrown-EasyNoise","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

@@ -1,1 +1,0 @@
-[{"cu":"src/com/nolanlawson/apptracker/util/ArrayUtil.java","condition":"start <= end","method":"copyOfRange(int[],int,int)","additional_info":"","artefact_type":"METHOD","line":18,"name":"nolanlawson-AppTracker","abstract_method":false,"type":"CREIndexOutOfBoundsException","version":"1"}]

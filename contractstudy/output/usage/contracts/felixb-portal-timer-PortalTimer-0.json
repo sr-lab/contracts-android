@@ -1,1 +1,0 @@
-[{"cu":"src/de/ub0r/android/portaltimer/MainActivity.java","condition":"\"HandlerLeak\"","method":"dispatchMessage(Message)","additional_info":"-","artefact_type":"CLASS","line":39,"name":"felixb-portal-timer-PortalTimer","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

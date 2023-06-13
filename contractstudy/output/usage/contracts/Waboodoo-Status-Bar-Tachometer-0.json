@@ -1,1 +1,0 @@
-[{"cu":"Status Bar Tacho/src/ch/rmy/android/statusbar_tacho/SettingsActivity.java","condition":"\"DefaultLocale\"","method":"onLocationChanged(Location)","additional_info":"-","artefact_type":"METHOD","line":144,"name":"Waboodoo-Status-Bar-Tachometer","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

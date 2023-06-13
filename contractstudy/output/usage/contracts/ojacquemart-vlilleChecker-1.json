@@ -1,1 +1,0 @@
-[{"cu":"app/src/com/vlille/checker/ui/search/SearchableComponent.java","condition":"viewParent == null","method":"SearchableComponent(ViewParent)","additional_info":"\"View parent can not be null!\"","artefact_type":"METHOD","line":25,"name":"ojacquemart-vlilleChecker","abstract_method":false,"type":"CREIllegalArgumentException","version":"1"}]

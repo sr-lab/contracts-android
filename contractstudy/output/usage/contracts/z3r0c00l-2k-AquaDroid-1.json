@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/io/github/z3r0c00l_2k/aquadroid/recievers/NotifierReceiver.kt","condition":"[ \"ResourceType\" ]","method":"onReceive(Context,Intent)","additional_info":"-","artefact_type":"CLASS","line":31,"name":"z3r0c00l-2k-AquaDroid","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/io/github/datastopwatch/ui/stopwatch/StopwatchFragment.java","condition":"","method":"onCreateView(LayoutInflater,ViewGroup,Bundle)","additional_info":"-","artefact_type":"METHOD_PARAMETER","line":52,"name":"seoulcodingcafe-DataStopwatch","abstract_method":false,"type":"AndroidXNonNull","version":"1"}]

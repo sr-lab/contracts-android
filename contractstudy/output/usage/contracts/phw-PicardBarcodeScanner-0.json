@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/org/musicbrainz/picard/barcodescanner/views/ConnectionStatusView.kt","condition":"NONE","method":"checkConnectionStatus(String,Int,Int)","additional_info":"-","artefact_type":"METHOD_PARAMETER","line":83,"name":"phw-PicardBarcodeScanner","abstract_method":false,"type":"AndroidXStringRes","version":"0"}]

@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/hu/vmiklos/plees_tracker/TileService.kt","condition":"[ api = Build.VERSION_CODES.N ]","method":"-","additional_info":"-","artefact_type":"CLASS","line":20,"name":"vmiklos-plees-tracker","abstract_method":false,"type":"AndroidXRequiresApi","version":"1"}]

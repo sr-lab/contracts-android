@@ -1,1 +1,0 @@
-[{"cu":"src/org/epstudios/epmobile/CycleLength.java","condition":"(value != 0)","method":"calculate(int)","additional_info":"-","artefact_type":"METHOD","line":139,"name":"mannd-epmobile","abstract_method":false,"type":"JavaAssert","version":"0"}]

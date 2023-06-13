@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/de/bulling/barcodebuddyscanner/ContinuousCaptureActivity.java","condition":"\"SourceLockedOrientationActivity\"","method":"onCreate(Bundle)","additional_info":"-","artefact_type":"METHOD","line":29,"name":"Forceu-barcodebuddy-android","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

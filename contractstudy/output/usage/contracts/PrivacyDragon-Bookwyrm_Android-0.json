@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/nl/privacydragon/bookwyrm/StartActivity.java","condition":"\"SetJavaScriptEnabled\"","method":"onPageFinished(WebView,String)","additional_info":"-","artefact_type":"METHOD","line":15,"name":"PrivacyDragon-Bookwyrm_Android","abstract_method":false,"type":"AndroidSuppressLint","version":"0"}]

@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/javierllorente/adc/SettingsActivity.java","condition":"Build.VERSION_CODES.HONEYCOMB","method":"onOptionsItemSelected(MenuItem)","additional_info":"-","artefact_type":"CLASS","line":111,"name":"javierllorente-adc","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

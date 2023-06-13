@@ -1,1 +1,0 @@
-[{"cu":"src/main/java/org/billthefarmer/currency/CurrencyWidgetProvider.java","condition":"\"InlinedApi\"","method":"onUpdate(Context,AppWidgetManager,int[])","additional_info":"-","artefact_type":"METHOD","line":61,"name":"billthefarmer-currency","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]

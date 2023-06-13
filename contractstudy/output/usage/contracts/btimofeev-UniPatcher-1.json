@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/org/emunix/unipatcher/Utils.java","condition":"18","method":"getFreeSpace(File)","additional_info":"-","artefact_type":"METHOD","line":78,"name":"btimofeev-UniPatcher","abstract_method":false,"type":"AndroidTargetApi","version":"1"}]

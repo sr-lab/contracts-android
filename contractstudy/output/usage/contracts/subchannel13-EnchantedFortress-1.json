@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/hr/kravarscan/enchantedfortress/GameActivity.java","condition":"","method":"onSaveInstanceState(Bundle)","additional_info":"-","artefact_type":"METHOD_PARAMETER","line":222,"name":"subchannel13-EnchantedFortress","abstract_method":false,"type":"AndroidXNonNull","version":"1"}]

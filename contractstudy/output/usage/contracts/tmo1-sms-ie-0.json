@@ -1,1 +1,0 @@
-[{"cu":"app/src/main/java/com/github/tmo1/sms_ie/MainActivity.kt","condition":"NONE","method":"onCreateDialog(Bundle?)","additional_info":"\"Activity cannot be null\"","artefact_type":"METHOD","line":478,"name":"tmo1-sms-ie","abstract_method":false,"type":"CREIllegalStateException","version":"0"}]

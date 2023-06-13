@@ -1,1 +1,0 @@
-[{"cu":"dependencies/lib/src/main/java/com/banasiak/coinflip/lib/Util.java","condition":"\"NewApi\"","method":"?,?>execute(AsyncTask<T,?,?>,T...)","additional_info":"-","artefact_type":"METHOD","line":193,"name":"banasiak-CoinFlip","abstract_method":false,"type":"AndroidSuppressLint","version":"1"}]
