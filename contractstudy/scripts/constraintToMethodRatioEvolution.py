@@ -1,3 +1,6 @@
+# Consumes ./evolution/constraintsAcrossVersions.csv
+# Produces statistics about contracts and methods evolution.
+
 import csv
 import statistics
 import matplotlib.pyplot as plt

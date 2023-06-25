@@ -12,11 +12,17 @@ This tool performs a static analysis of the dataset's source code using the [Jav
 
 In the [preferences.properties](preferences.properties) file, you can specify what is the path of the dataset you want to evaluate and the path to output the results.
 
-### Running the scripts
+### Running The Scripts
 
 The main scripts to conduct the evaluation are located in [/src/main/java/contractstudy/scripts/*](./src/main/java/contractstudy/scripts/) folder.
+
+The script [RunAllExperiments](./src/main/java/contractstudy/scripts/RunAllExperiments.java) invokes all scripts to perform a complete experiment.
 
 You can run all scripts using the terminal through the next command:
 ```
 mvn exec:java  -Dexec.mainClass=contractstudy.scripts.RunAllExperiments (or other scripts)
 ```
+
+### Additional Scripts
+
+The [./scripts](./scripts) folder contains Python scripts that help to analyze the results.
