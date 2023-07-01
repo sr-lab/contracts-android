@@ -37,9 +37,7 @@ import java.util.Set;
 import static contractstudy.utils.CorpusUtils.listJsons;
 
 /**
- * A diff extractor for evolution data.
- *
- * @author jens dietrich
+ * Creates diff records for a method's contracts in two versions of the application.
  */
 public class EvolutionDiffExtractor implements DiffExtractor {
 
@@ -85,7 +83,6 @@ public class EvolutionDiffExtractor implements DiffExtractor {
     ListMultimap<String, ContractElement> constraintIndex = getIndexConstraintsByMethodOrClass(contractElements);
     Map<ProgramVersion, Multimap<String, String>> methodsByPVAndCU = getMethodsByProgramVersionAndCompilationUnit();
 
-    // build diff records
     Set<String> done = new HashSet<>();
     for (ContractElement pc : contractElements) {
 
@@ -93,7 +90,6 @@ public class EvolutionDiffExtractor implements DiffExtractor {
 
       if (done.add(key)) {
 
-        // Get next Version of the Program.
         ProgramVersion pv = pc.getProgramVersion();
         ProgramVersion succPV = pv.getNextVersion();
 
@@ -113,17 +109,9 @@ public class EvolutionDiffExtractor implements DiffExtractor {
           results.add(record);
         }
 
-        // Get previous version of the program.
-        // we only have to do this if the respective constraints are empty, otherwise we
-        // would double-count, see issue #16 for a discussion
         ProgramVersion prevPV = pv.getPreviousVersion();
         if (prevPV != null) {
           Multimap<String, String> methodsByCU = methodsByPVAndCU.get(prevPV);
-
-          // methodsByCU will be null in case the respective sources cannot be parsed
-          // this is an issue if for instance enum is used as an identifier in the program
-          String programPath = pc.getCuName().substring(pc.getCuName().indexOf("/"), pc.getCuName().length() - 1);
-          programPath = programPath.substring(programPath.indexOf("/"), programPath.length() - 1);
           boolean methodExists = methodsByCU != null && doesMethodExistsInVersion(pc, methodsByCU);
 
           if (methodExists) {

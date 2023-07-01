@@ -7,8 +7,6 @@ import org.apache.log4j.Logger;
 
 /**
  * This is the main script that invokes all experiments.
- * <p>
- * So far, new experiments must be added in this script in right order, no automatic management is provided.
  *
  * @author Kamil Jezek [kamil.jezek@verifalabs.com]
  */
@@ -38,9 +36,8 @@ public class RunAllExperiments {
   private static void allPrerequisitesExistOrElseThrow(Experiment experiment) {
     for (ExperimentArtefact artefact : experiment.requires()) {
       if (!artefact.exists()) {
-        throw new IllegalStateException(
-          "No artefact " + artefact.getName() + " found to proceed with " + experiment.provides()
-            .getName());
+        throw new IllegalStateException("No artefact " + artefact.getName() + " found to proceed with " +
+          experiment.provides().getName());
       }
     }
   }

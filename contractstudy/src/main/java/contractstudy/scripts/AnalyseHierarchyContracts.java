@@ -3,10 +3,10 @@ package contractstudy.scripts;
 import contractstudy.config.Logging;
 import contractstudy.config.Preferences;
 import contractstudy.constants.constraint.ContractElement;
-import contractstudy.evolution.SubtypeDiffExtractor;
 import contractstudy.evolution.constants.DiffResult;
 import contractstudy.evolution.model.DiffRecord;
 import contractstudy.evolution.model.Differ;
+import contractstudy.inheritance.SubtypeDiffExtractor;
 import contractstudy.scripts.model.ArtefactFactory;
 import contractstudy.scripts.model.Experiment;
 import contractstudy.scripts.model.ExperimentArtefact;
@@ -94,14 +94,12 @@ public class AnalyseHierarchyContracts implements Experiment {
       out.println("parent: " + record.getCu1());
       out.println("sub: " + record.getCu2());
       out.println("method: " + record.getMethodDecl1());
-
       out.println("parent constraints: ");
       for (ContractElement c : record.getConstraints1()) {
         String addInfo = c.getAdditionalInfo() == null ? "?" : c.getAdditionalInfo().replaceAll("\\r\\n|\\r|\\n", " ");
         out.println(
           "\t" + c.getKind() + " condition: \"" + c.getCondition() + "\" , add info: " + addInfo);
       }
-
       out.println("sub constraints: ");
       for (ContractElement c : record.getConstraints2()) {
         String addInfo = c.getAdditionalInfo() == null ? "?"
@@ -109,7 +107,6 @@ public class AnalyseHierarchyContracts implements Experiment {
         out.println(
           "\t" + c.getKind() + " condition: \"" + c.getCondition() + "\" , add info: " + addInfo);
       }
-
       out.println();
     } catch (IOException x) {
       LOGGER.warn("Exception writing details to log " + log.getAbsolutePath(), x);
