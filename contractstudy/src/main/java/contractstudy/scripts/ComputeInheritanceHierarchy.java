@@ -125,18 +125,15 @@ public class ComputeInheritanceHierarchy implements Experiment {
   private static File getContractsFoundJsonFileAssociatedWithProjectZip(
     Collection<File> foundContractsJsonFile, File sourceCodeZip) throws
     IndexOutOfBoundsException {
-    return foundContractsJsonFile.stream().filter(
-        contractFile -> doesContractsJsonFileBelongToProjectInSourceCode(contractFile, sourceCodeZip))
-      .collect(
-        Collectors.toList()).get(0);
+    return foundContractsJsonFile.stream()
+      .filter(contractFile -> doesContractsJsonFileBelongToProjectInSourceCode(contractFile, sourceCodeZip))
+      .collect(Collectors.toList()).get(0);
   }
 
   private static boolean doesContractsJsonFileBelongToProjectInSourceCode(File contractJsonFile,
     File sourceCodeZip) {
-    String contractFileName = contractJsonFile.getName()
-      .substring(0, contractJsonFile.getName().lastIndexOf("."));
-    String sourceCodeZipName = sourceCodeZip.getName()
-      .substring(0, sourceCodeZip.getName().lastIndexOf("."));
+    String contractFileName = contractJsonFile.getName().substring(0, contractJsonFile.getName().lastIndexOf("."));
+    String sourceCodeZipName = sourceCodeZip.getName().substring(0, sourceCodeZip.getName().lastIndexOf("."));
     return contractFileName.equals(sourceCodeZipName);
   }
 

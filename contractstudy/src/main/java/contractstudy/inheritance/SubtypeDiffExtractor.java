@@ -1,4 +1,4 @@
-package contractstudy.evolution;
+package contractstudy.inheritance;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.HashMultimap;
@@ -42,7 +42,7 @@ import static contractstudy.utils.CorpusUtils.listJsons;
 import static contractstudy.utils.CorpusUtils.listProjects;
 
 /**
- * @author Kamil Jezek [kamil.jezek@verifalabs.com]
+ * Creates diff records for the contracts in the subclass and superclass methods.
  */
 public class SubtypeDiffExtractor implements DiffExtractor {
 
@@ -58,8 +58,6 @@ public class SubtypeDiffExtractor implements DiffExtractor {
   /**
    * This creates index for the same constraints, which differ only in applied versions. In other words, it captures if the
    * same constraints is added again and again to different versions
-   *
-   * @return
    */
   private static String getIndexSameConstrDifferentVersion(final ContractElement pc) {
     ProgramVersion pv = pc.getProgramVersion();
@@ -226,7 +224,6 @@ public class SubtypeDiffExtractor implements DiffExtractor {
 
         ClassAndVersion subClass = ClassAndVersion.fromContractElement(contract);
         Set<ClassAndVersion> parents = inheritanceMap.get(subClass); //getParentsOfSubclass(inheritanceMap, subClass);
-
         List<ContractElement> constraints2 = constraintIndex.get(programMethodIdentifier);
 
         if (wasInputConstraintsNotProcessedYet(constraints2, processedIndexes)) {
@@ -235,7 +232,6 @@ public class SubtypeDiffExtractor implements DiffExtractor {
             Set<String> methods = methodsMap.get(parent);
 
             if (methods != null && methods.contains(contract.getMethodDeclaration())) {
-
               String parentKey = buildIndexKey(parent.getProgramVersion(), parent.getCuName(),
                 contract.getMethodDeclaration());
               List<ContractElement> constraints1 = constraintIndex.get(parentKey);
