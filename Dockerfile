@@ -3,7 +3,8 @@ FROM ubuntu:latest
 RUN apt-get update && \
     apt-get install -y openjdk-17-jdk maven
 
-VOLUME ["/contractstudy", "/datasetScripts"]
-WORKDIR /contractstudy
+WORKDIR /framework
 
-#CMD ["mvn", "clean", "install"]
+COPY . /framework
+
+VOLUME ["/framework/contractstudy", "/framework/datasetScripts"]
