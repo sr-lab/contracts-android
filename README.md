@@ -8,17 +8,18 @@ This is an extension of the tool proposed by J. Dietrich, D. J. Pearce, K. Jezek
 
 ### Running the Docker container 
 
-Inside the repository folder run the next commands to build the docker image and to run the container mapping the necessary volumes.
+Inside the repository folder run the next commands to build the docker image and to run the container mapping the necessary volumes:
 ```
 docker build -t contract-study .
 
-docker run -it --name contract-study -v "$(pwd)/contractstudy:/app/contractstudy" -v "$(pwd)/datasetScripts:/app/datasetScripts" contract-study
+docker run -d -it --name contract-study -v "$(pwd)/contractstudy:/app/contractstudy" -v "$(pwd)/datasetScripts:/app/datasetScripts" contract-study
 ```
 
-The last command maintains an interactive session inside the container. Here, you can run the next commands to start the contract study experiment.
+To execute the full experiment for an already existing dataset, run the next command:
 
 ```
-cd contractstudy
+docker exec contract-study bash -c "cd contractstudy && mvn exec:java -Dexec.mainClass=contractstudy.scripts.RunAllExperiments"
 
-mvn exec:java -Dexec.mainClass=contractstudy.scripts.RunAllExperiments
+docker cp contract-study:/framework/contractstudy/output ./contractstudy/
 ```
+
