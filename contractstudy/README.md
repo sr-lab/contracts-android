@@ -8,9 +8,9 @@ This tool performs a static analysis of the dataset's source code using the [Jav
 
 ## Setup and Usage
 
-### Input and Output
+### Dataset and Results
 
-In the [preferences.properties](preferences.properties) file, you can specify what is the path of the dataset you want to evaluate and the path to output the results.
+In the [preferences.properties](preferences.properties) file, you can specify the path of the dataset you want to evaluate and the path to output the results.
 
 ### Running The Scripts
 
