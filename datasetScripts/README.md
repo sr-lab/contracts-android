@@ -1,8 +1,8 @@
 # Collecting data from F-Droid
 
-This collection provides different scripts to manage and clone Android projects.
+This collection of Python scripts allow the creation and preparation of a dataset composed by Java and Kotlin applications.
 
-Currently, only [F-Droid](https://f-droid.org) is supported as an index source for projects.
+Currently, only [F-Droid](https://f-droid.org) is provided as an index source for projects. Still, given a list of Github URLs, you can use these scripts to clone and prepare any dataset of Java and Kotlin applications (not limited to Android projects).
 
 The available [Makefile](./Makefile) helps to automate various tasks.
 
