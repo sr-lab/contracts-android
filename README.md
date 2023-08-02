@@ -1,14 +1,18 @@
 # Contract Usage in Android Applications
 
-This repository includes a pipeline to create a dataset of Java and Kotlin application and a analysis tool to investigate the presence and usage of contracts in those applications.
+This repository includes a [pipeline](./datasetScripts) to create a dataset of Java and Kotlin applications and an [analysis tool](./contractstudy) to investigate the presence and usage of contracts in those applications.
 
 This is an extension of the tool proposed by J. Dietrich, D. J. Pearce, K. Jezek, and P. Brad in "Contracts in the wild: A study of java programs" (2017).
 
-## Setup
+## Experiment Setup
 
-### Running the Docker container 
+### Build the dataset
 
-Inside the repository folder run the next commands to build the docker image and to run the container mapping the necessary volumes:
+The analysis tool requires a dataset to be evaluated. This repository includes [scripts](./datasetScripts) to build that dataset. Still, you can create a dataset through any other approach, ensuring that the required dataset directory structure is respected.   
+
+### Running through Docker
+
+Inside the repository folder, run the next commands to build the docker image and to run the container mapping the necessary volumes:
 ```
 docker build -t contract-study .
 
