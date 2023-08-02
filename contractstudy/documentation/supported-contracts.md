@@ -117,195 +117,266 @@ private fun isBirthdateValidOrElseThrow(birthdate: String?) {
 
 ### Conditional Runtime Exception
 
-|-------------------------------------|----------------------------------|
-| AndroidRuntimeException             | MissingResourceException         |
-| ArithmeticException                 | NegativeArraySizeException       |
-| ArrayStoreException                 | NoSuchElementException           |
-| ArrayStoreException                 | NullPointerException             |
-| BufferOverflowException             | ParcelFormatException            |
-| BufferUnderflowException            | ParseException                   |
-| ClassCastException                  | ProviderException                |
-| CompletionException                 | ProviderNotFoundException        |
-| ConcurrentModificationException     | RejectedExecutionException       |
-| DOMException                        | SQLException                     |
-| DateTimeException                   | SecurityException                |
-| EmptyStackException                 | TypeNotPresentException          |
-| EnumConstantNotPresentException     | UncheckedIOException             |
-| FileSystemAlreadyExistsException    | UndeclaredThrowableException     |
-| FileSystemNotFoundException         | UnsupportedOperationException    |
-| IllegalArgumentException            | WrongMethodTypeException         |
-| IllegalMonitorStateException        | AcceptPendingException           |
-| IllegalStateException               | AccessControlException           |
-| IncompleteAnnotationException       | AlreadyBoundException            |
-| IndexOutOfBoundsException           | AlreadyConnectedException        |
-| LSException                         | ArrayIndexOutOfBoundsException   |
-| MalformedParameterizedTypeException | BadParceableException            |
-| MalformedParametersException        | CancellationException            |
-| UnsupportedAddressTypeException     | UnsupportedCharsetException      |
-| WritePendingException               | ZoneRulesException               |
-| CancelledKeyException               | PatternSyntaxException           |
-| ClosedDirectoryStreamException      | StringIndexOutOfBoundsException  |
-| ClosedFileSystemException           | ReadOnlyBufferException          |
-| ClosedFileSystemException           | ReadOnlyFileSystemException      |
-| ClosedSelectorException             | ReadPendingException             |
-| ClosedWatchServiceException         | ShutdownChannelGroupException    |
-| ConnectionPendingException          | StringIndexOutOfBoundsException  |
-| NonReadableChannelException         | UnknownFormatConversionException |
-| NonWritableChannelException         | UnknownFormatFlagsException      |
-| NotYetBoundException                | UnresolvedAddressException       |
-| NotYetConnectedException            | UnsupportedTemporalTypeException |
-| NumberFormatException               | OverlappingFileLockException     |
-|-------------------------------------|----------------------------------|
+- AndroidRuntimeException
+- MissingResourceException
+- ArithmeticException
+- NegativeArraySizeException
+- ArrayStoreException
+- NoSuchElementException
+- NullPointerException
+- BufferOverflowException
+- ParcelFormatException
+- BufferUnderflowException
+- ParseException
+- ClassCastException
+- ProviderException
+- CompletionException
+- ProviderNotFoundException
+- ConcurrentModificationException
+- RejectedExecutionException
+- DOMException
+- SQLException
+- DateTimeException
+- SecurityException
+- EmptyStackException
+- TypeNotPresentException
+- EnumConstantNotPresentException
+- UncheckedIOException
+- FileSystemAlreadyExistsException
+- UndeclaredThrowableException
+- FileSystemNotFoundException
+- UnsupportedOperationException
+- IllegalArgumentException
+- WrongMethodTypeException
+- IllegalMonitorStateException
+- AcceptPendingException
+- AccessControlException
+- IncompleteAnnotationException
+- AlreadyBoundException
+- IndexOutOfBoundsException
+- AlreadyConnectedException
+- LSException
+- ArrayIndexOutOfBoundsException
+- MalformedParameterizedTypeException
+- BadParceableException
+- CancellationException
+- UnsupportedAddressTypeException
+- UnsupportedCharsetException
+- WritePendingException
+- ZoneRulesException
+- CancelledKeyException
+- PatternSyntaxException
+- StringIndexOutOfBoundsException
+- ReadOnlyBufferException
+- ReadOnlyFileSystemException
+- ReadPendingException
+- ShutdownChannelGroupException
+- ConnectionPendingException
+- UnknownFormatConversionException
+- UnknownFormatFlagsException
+- NotYetBoundException
+- UnresolvedAddressException
+- UnsupportedTemporalTypeException
+- NumberFormatException
 
 ### APIs
 
-|-----------------------------------------|------------------------|
-| Apache lang2 Validate                   |                        |
-|                                         | allElementsOfType()    |
-|                                         | isTrue()               |
-|                                         | noNullElements()       |
-|                                         | notEmpty()             |
-|                                         | notNull()              |
-|                                         |                        |
-| Apacha lang3 Validate                   |                        |
-|                                         | allElementsOfType()    |
-|                                         | exclusiveBetween()     |
-|                                         | inclusiveBetween()     |
-|                                         | assignableFrom()       |
-|                                         | isInstanceOf()         |
-|                                         | matchesPattern()       |
-|                                         | notBlank()             |
-|                                         | validIndex()           |
-|                                         | validState()           |
-|                                         |                        |
-| Guava Preconditions                     |                        |
-|                                         | checkArgument()        |
-|                                         | checkState()           |
-|                                         | checkElementIndex()    |
-|                                         | checkPositionIndex()   |
-|                                         | checkNotNull()         |
-|                                         | checkPositionIndexes() |
-|                                         |                        |
-| Spring Assert                           |                        |
-|                                         | doesNotContain()       |
-|                                         | hasLength()            |
-|                                         | hasText()              |
-|                                         | notEmpty()             |
-|                                         | noNullElements()       |
-|                                         | isInstanceOf()         |
-|                                         | isAssignable()         |
-|                                         | state()                |
-|                                         | isNull()               |
-|                                         | isTrue()               |
-|                                         | notNull()              |
-|                                         |                        |
-|-----------------------------------------|------------------------|
+- Apache lang2 Validate
+  - allElementsOfType()
+  -  isTrue()
+  -  noNullElements()
+  -  notEmpty()
+  -  notNull()
+
+- Apache lang3 Validate
+  - allElementsOfType()
+  - exclusiveBetween()
+  - inclusiveBetween()
+  - assignableFrom()
+  - isInstanceOf()
+  - matchesPattern()
+  - notBlank()
+  - validIndex()
+  - validState()
+
+- Guava Preconditions
+  - checkArgument()
+  - checkState()
+  - checkElementIndex()
+  - checkPositionIndex()
+  - checkNotNull()
+  - checkPositionIndexes()
+
+- Spring Assert
+  - doesNotContain()
+  - hasLength()
+  - hasText()
+  - notEmpty()
+  - noNullElements()
+  - isInstanceOf()
+  - isAssignable()
+  - state()
+  - isNull()
+  - isTrue()
+  - notNull() 
+
 
 ### Assertions
 
-|-----------------------------------------|------------------------|
-| Java                                    |                        |
-|                                         | assert()               |
-|                                         |                        |
-| Kotlin                                  |                        |
-|                                         | assert()               |
-|                                         | require()              |
-|                                         | requireNotNull()       |
-|                                         | check()                |
-|                                         | checkNotNull()         |
-|-----------------------------------------|------------------------|
+- Java
+  - assert()
+- Kotlin
+  - assert()
+  - require()
+  - requireNotNull()
+  - check()
+  - checkNotNull()
+
 
 ### Annotations
 
-|---------------------------------|--------------------------------------|----------------------------------|
-| JSR305                          |                                      |                                  |
-|                                 | @CheckForNull                        | @CheckForSigned                  |
-|                                 | @MatchesPattern                      | @Nonnegative                     |
-|                                 | @Nonnul                              | @Nullable                        |
-|                                 | @OverridingMethodsMustInvokeSupper   | @ParametersAreNonnullByDefault   |
-|                                 | @RegEx                               | @Signed                          |
-|                                 | @Syntax                              | @Syntax                          |
-|                                 | @Tainted                             | @Untainted                       |
-|                                 | @WillClose                           | @WillCloseWhenClosed             |
-|                                 | @WillNotClose                        | @Guardedby                       |
-|                                 | @Immutable                           | @NotThreadSafe                   |
-|                                 | @ThreadSafe                          |                                  |
-|                                 |                                      |                                  |
-| JSR303, JSR349                  |                                      |                                  |
-|                                 | @Null                                | @DecimalMin                      |
-|                                 | @NotNull                             | @Size                            |
-|                                 | @AssertTrue                          | @Digits                          |
-|                                 | @AssertFalse                         | @Past                            |
-|                                 | @Min                                 | @Future                          |
-|                                 | @Max                                 | @Pattern                         |
-|                                 | @DecimalMax                          |                                  |
-|                                 |                                      |                                  |
-| JetBrain                        |                                      |                                  |
-|                                 | @Contract                            | @NotNull                         |
-|                                 | @Nullable                            | @PropertyKey                     |
-|                                 | @TestOnly                            |                                  |
-|                                 |                                      |                                  |
-| IntelliJ                        |                                      |                                  |
-|                                 | @BoxLayoutAxis                       | @CalendarMonth                   |
-|                                 | @CursorType                          | @FlowLayoutAlignment             |
-|                                 | @FontStyle                           | @HorizontalAlignment             |
-|                                 | @InputEventMask                      | @ListSelectionMode               |
-|                                 | @PatternFlags                        | @TabLayoutPolicy                 |
-|                                 | @AdjustableOrientation               | @Flow                            |
-|                                 | @Identifier                          | @TabPlacement                    |
-|                                 | @TitledBorderJustification           | @TitledBorderTitlePosition       |
-|                                 | @Language                            | @MagicConstant                   |
-|                                 | @Pattern                             | PrintFormat                      |
-|                                 | @PrintFormat                         | @RexExp                          |
-|                                 | @Subst                               |                                  |
-|                                 |                                      |                                  |
-| FindBugs                        |                                      |                                  |
-|                                 | @CheckForNull                        | @NonNull                         |
-|                                 | @Nullable                            | @PossiblyNull                    |
-|                                 | @FontStyle                           | @HorizontalAlignment             |
-|                                 | @UnkownNullness                      | @CreateObligation                |
-|                                 | @DischargesObligation                | @CleanupObligation               |
-|                                 |                                      |                                  |
-| Android                         |                                      |                                  |
-|                                 | @AndroidSupressLint                  | @AndroidTargetApi                |
-|                                 |                                      |                                  |
-| Androidx                        |                                      |                                  |
-|                                 | @AnimatorRes                         | @AnimRes                         |
-|                                 | @AnyRes                              | @AnyThread                       |
-|                                 | @AnyThread                           | @ArrayRes                        |
-|                                 | @AttrRes                             | @BinderThread                    |
-|                                 | @BinderThread                        | @BoolRes                         |
-|                                 | @CallSuper                           | @CheckResult                     |
-|                                 | @ChecksSdkIntAtLeast                 | @ColorInt                        |
-|                                 | @ColorLong                           | @ColorRes                        |
-|                                 | @ContentView                         | @DimenRes                        |
-|                                 | @Dimension                           | @NotInline                       |
-|                                 | @DrawableRes                         | @FloatRange                      |
-|                                 | @FloatRange                          | @FontRes                         |
-|                                 | @FontRes                             | @FractionRes                     |
-|                                 | @FractionRes                         | @GuardedBy                       |
-|                                 | @GuardedBy                           | @HalfFloat                       |
-|                                 | @IdRes                               | @InspectableProperty             |
-|                                 | @IntDef                              | @IntegerRes                      |
-|                                 | @InterpolatorRes                     | @IntRange                        |
-|                                 | @Keep                                | @LayoutRes                       |
-|                                 | @LongDef                             | @MainThread                      |
-|                                 | @MainThread                          | @MenuRes                         |
-|                                 | @NavigationRes                       | @NonNull                         |
-|                                 | @Nullable                            | @PluralsRec                      |
-|                                 | @Px                                  | @RawRes                          |
-|                                 | @RequiresApi                         | @RequiresFeature                 |
-|                                 | @RequiresPermission                  | @RestrictTo                      |
-|                                 | @Size                                | @StringDef                       |
-|                                 | @StringRes                           | @StyleableRes                    |
-|                                 | @StyleRes                            | @TransitionRes                   |
-|                                 | @UiThread                            | @VisibleForTesting               |
-|                                 | @WorkerThread                        | @XmlRes                          |
-|---------------------------------|--------------------------------------|----------------------------------|
+- JSR305
+  - @CheckForNull
+  - @CheckForSigned
+  - @MatchesPattern
+  - @Nonnegative
+  - @Nonnull
+  - @Nullable
+  - @OverridingMethodsMustInvokeSupper
+  - @ParametersAreNonnullByDefault
+  - @RegEx
+  - @Signed
+  - @Syntax
+  - @Tainted
+  - @Untainted
+  - @WillClose
+  - @WillCloseWhenClosed
+  - @WillNotClose
+  - @Guardedby
+  - @Immutable
+  - @NotThreadSafe
+  - @ThreadSafe
+
+- JSR303, JSR349
+  - @Null
+  - @DecimalMin
+  - @NotNull
+  - @Size
+  - @AssertTrue
+  - @Digits
+  - @AssertFalse
+  - @Past
+  - @Min
+  - @Future
+  - @Max
+  - @Pattern
+  - @DecimalMax
+
+- JetBrain
+  - @Contract
+  - @NotNull
+  - @Nullable
+  - @PropertyKey
+  - @TestOnly
+
+- IntelliJ
+  - @BoxLayoutAxis
+  - @CalendarMonth
+  - @CursorType
+  - @FlowLayoutAlignment
+  - @FontStyle
+  - @HorizontalAlignment
+  - @InputEventMask
+  - @ListSelectionMode
+  - @PatternFlags
+  - @TabLayoutPolicy
+  - @AdjustableOrientation
+  - @Flow
+  - @Identifier
+  - @TabPlacement
+  - @TitledBorderJustification
+  - @TitledBorderTitlePosition
+  - @Language
+  - @MagicConstant
+  - @Pattern
+  - @PrintFormat
+  - @RexExp
+  - @Subst
+
+- FindBugs
+  - @CheckForNull
+  - @NonNull
+  - @Nullable
+  - @PossiblyNull
+  - @FontStyle
+  - @HorizontalAlignment
+  - @UnkownNullness
+  - @CreateObligation
+  - @DischargesObligation
+  - @CleanupObligation
+
+- Android
+  - @AndroidSupressLint
+  - @AndroidTargetApi
+
+- Androix
+  - @AnimatorRes
+  - @AnimRes
+  - @AnyRes
+  - @AnyThread
+  - @ArrayRes
+  - @AttrRes
+  - @BinderThread
+  - @BoolRes
+  - @CallSuper
+  - @CheckResult
+  - @ChecksSdkIntAtLeast
+  - @ColorInt
+  - @ColorLong
+  - @ColorRes
+  - @ContentView
+  - @DimenRes
+  - @Dimension
+  - @NotInline
+  - @DrawableRes
+  - @FloatRange
+  - @FontRes
+  - @FractionRes
+  - @GuardedBy
+  - @HalfFloat
+  - @IdRes
+  - @InspectableProperty
+  - @IntDef
+  - @IntegerRes
+  - @InterpolatorRes
+  - @IntRange
+  - @Keep
+  - @LayoutRes
+  - @LongDef
+  - @MainThread
+  - @MenuRes
+  - @NavigationRes
+  - @NonNull
+  - @Nullable
+  - @PluralsRec
+  - @Px
+  - @RawRes
+  - @RequiresApi
+  - @RequiresFeature
+  - @RequiresPermission
+  - @RestrictTo
+  - @Size
+  - @StringDef
+  - @StringRes
+  - @StyleableRes
+  - @StyleRes
+  - @TransitionRes
+  - @UiThread
+  - @VisibleForTesting
+  - @WorkerThread
+  - @XmlRes
 
 ### Others
- 
-|-----------------------------------------|---------------------------------|
-| Kotlin                                  |                                 |
-|                                         | @ExperimentalContracts()        |
-|-----------------------------------------|---------------------------------|
+
+- Kotlin
+  - @ExperimentalContracts
