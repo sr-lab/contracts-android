@@ -2,9 +2,11 @@
 
 ## Overview
 
-This project investigates the presence and usage of contracts in Java and Kotlin applications. It is divided into three main components: usage, inheritance, and evolution. Although, each script can be run by itself, there are some data requirements that need to be observed.
+This tool investigates the presence and usage of contracts in Java and Kotlin applications. It is mainly divided in three components: [usage](.src/main/java/usage), [evolution](.src/main/java/evolution), and [inheritance](.src/main/java/inheritance).
 
-This tool performs a static analysis of the dataset's source code using the [JavaParser](https://javaparser.org) and [JetBrain's Kotlin compiler](https://github.com/JetBrains/kotlin) libraries.
+The identification of contracts is done through a static analysis of the dataset's source code using the [JavaParser](https://javaparser.org) and [JetBrain's Kotlin compiler](https://github.com/JetBrains/kotlin) libraries.
+
+The list of currently supported contracts can be seen [here](./documentation/supported-contracts.md).
 
 ## Setup and Usage
 
@@ -12,7 +14,7 @@ This tool performs a static analysis of the dataset's source code using the [Jav
 
 In the [preferences.properties](preferences.properties) file, you can specify the path of the dataset you want to evaluate and the path to output the results.
 
-### Running The Scripts
+### Running the scripts
 
 The main scripts to conduct the evaluation are located in [/src/main/java/contractstudy/scripts/*](./src/main/java/contractstudy/scripts/) folder.
 
