@@ -110,16 +110,18 @@ public class CollectInvocationViaSuper implements Experiment {
     try (PrintWriter out = new PrintWriter(new FileWriter(outputFile))) {
       out.println("program,version,cu,declaration,kind");
       for (SuperCallSite scs : superCallSites) {
-        out.print(scs.programVersion.getName().replaceAll(",", " "));
-        out.print(SEP);
-        out.print(scs.programVersion.getVersion().replaceAll(",", " "));
-        out.print(SEP);
-        out.print(scs.cu);
-        out.print(SEP);
-        out.print(scs.methodDeclaration.replaceAll(",", " "));
-        out.print(SEP);
-        out.print(scs.isMethod ? "method" : "constructor");
-        out.println();
+        if(scs.methodDeclaration != null) {
+          out.print(scs.programVersion.getName().replaceAll(",", " "));
+          out.print(SEP);
+          out.print(scs.programVersion.getVersion().replaceAll(",", " "));
+          out.print(SEP);
+          out.print(scs.cu);
+          out.print(SEP);
+          out.print(scs.methodDeclaration.replaceAll(",", " "));
+          out.print(SEP);
+          out.print(scs.isMethod ? "method" : "constructor");
+          out.println();
+        }
       }
     }
   }
