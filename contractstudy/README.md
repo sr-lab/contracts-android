@@ -14,6 +14,19 @@ The list of currently supported contracts can be seen [here](./documentation/sup
 
 In the [preferences.properties](preferences.properties) file, you can specify the path of the dataset you want to evaluate and the path to output the results.
 
+### Compiling the code
+We assume that Maven and Java 17 are installed.
+
+First, install the JAR file `lib/jct-1.3.jar` in your local Maven repository:
+```
+mvn install:install-file -Dfile=lib/jct-1.3.jar -DgroupId=jct -DartifactId=jct -Dversion=1.3 -Dpackaging=jar
+```
+
+To compile the code, run:
+```
+mvn clean compile
+```
+
 ### Running the scripts
 
 The main scripts to conduct the evaluation are located in [/src/main/java/contractstudy/scripts/*](./src/main/java/contractstudy/scripts/) folder.
