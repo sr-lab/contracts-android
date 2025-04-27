@@ -82,6 +82,7 @@ public class AnalyseContractEvolution implements Experiment {
         evolutionStatsInKotlin.compute(result, (k, v) -> (v == null) ? 1 : v + 1);
       }
     }
+    // JFF TODO: evolution per language is being computed, but not saved
 
     return evolutionStats;
   }
@@ -99,7 +100,8 @@ public class AnalyseContractEvolution implements Experiment {
       out.println(result);
       out.println("version 1: " + record.getProgramVersion1());
       out.println("version 2: " + record.getProgramVersion2());
-      out.println("compilation unit: " + record.getCu1());
+      out.println("compilation unit (v1): " + record.getCu2());
+      out.println("compilation unit (v2): " + record.getCu1());
       if (record.getMethodDecl1() != null) {
         out.println("method: " + record.getMethodDecl1());
       }
