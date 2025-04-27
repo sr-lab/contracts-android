@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class TestKotlinContractExtractor {
 
   private static final File TEST_DATA_FOLDER = new File(
-    Utils.getBasePathTestFolder() + "collectContracts/other/kotlincontract/testData");
+    Utils.getBasePathTestFolder() + "collectContracts/other/KotlinContract/testData");
 
   private static Stream<Arguments> getTestingParams() {
     return Stream.of(
