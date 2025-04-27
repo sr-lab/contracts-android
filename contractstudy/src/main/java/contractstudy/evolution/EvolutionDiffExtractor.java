@@ -46,8 +46,11 @@ public class EvolutionDiffExtractor implements DiffExtractor {
   static Logger LOGGER = Logging.getLogger(EvolutionDiffExtractor.class);
 
   private static String getIndexKey(ProgramVersion pv, String cu, String methodDeclaration) {
-    return pv.getName() + "-" + pv.getVersion() + '#' + cu + '/' + (methodDeclaration == null ? ""
-      : methodDeclaration);
+    // JFF: We normalize the CU name to be consistent with the method that tests whether a file in another version exists
+    String normalizedCU = cu.substring(cu.indexOf("/"));
+    normalizedCU = normalizedCU.substring(normalizedCU.indexOf("/"));
+    return pv.getName() + "-" + pv.getVersion() + '#' + normalizedCU + '/' + (methodDeclaration == null ? ""
+            : methodDeclaration);
   }
 
   public static File[] listProjects(File root) {
@@ -94,19 +97,25 @@ public class EvolutionDiffExtractor implements DiffExtractor {
         ProgramVersion succPV = pv.getNextVersion();
 
         if (succPV != null) {
-          String succKey = getIndexKey(succPV, pc.getCuName(), pc.getMethodDeclaration());
-          List<ContractElement> constraints1 = constraintIndex.get(key);
-          List<ContractElement> constraints2 = constraintIndex.get(succKey);
-          DiffRecord record = new DiffRecord(
-            constraints1,
-            pc.getProgramVersion(),
-            pc.getCuName(),
-            pc.getMethodDeclaration(),
-            constraints2,
-            succPV,
-            pc.getCuName(),
-            pc.getMethodDeclaration());
-          results.add(record);
+          // JFF: Added this to only consider cases where the file exists in the second version
+          Multimap<String, String> methodsByCU = methodsByPVAndCU.get(succPV);
+          boolean methodExists = methodsByCU != null && doesMethodExistsInVersion(pc, methodsByCU);
+
+          if(methodExists) {
+            String succKey = getIndexKey(succPV, pc.getCuName(), pc.getMethodDeclaration());
+            List<ContractElement> constraints1 = constraintIndex.get(key);
+            List<ContractElement> constraints2 = constraintIndex.get(succKey);
+            DiffRecord record = new DiffRecord(
+                    constraints1,
+                    pc.getProgramVersion(),
+                    pc.getCuName(),
+                    pc.getMethodDeclaration(),
+                    constraints2,
+                    succPV,
+                    pc.getCuName(),
+                    pc.getMethodDeclaration());
+            results.add(record);
+          }
         }
 
         ProgramVersion prevPV = pv.getPreviousVersion();
@@ -117,6 +126,7 @@ public class EvolutionDiffExtractor implements DiffExtractor {
           if (methodExists) {
             String prevKey = getIndexKey(prevPV, pc.getCuName(), pc.getMethodDeclaration());
             List<ContractElement> constraints2 = constraintIndex.get(prevKey);
+            // JFF: Only create new diff record if we haven't created it previously
             if (constraints2 == null || constraints2.isEmpty()) {
               List<ContractElement> constraints1 = constraintIndex.get(key);
               DiffRecord record = new DiffRecord(
@@ -183,7 +193,7 @@ public class EvolutionDiffExtractor implements DiffExtractor {
         return methodsInProgram.get(method).contains(contractInProgram.getMethodDeclaration());
       }
     }
-    return true;
+    return false;
   }
 
   private void getListOfUsageResults(List<ContractElement> contractElements, Set<ContractElement> removed)
