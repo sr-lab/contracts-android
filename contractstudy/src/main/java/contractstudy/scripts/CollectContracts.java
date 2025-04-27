@@ -10,14 +10,7 @@ import contractstudy.model.ProgramVersion;
 import contractstudy.scripts.model.ArtefactFactory;
 import contractstudy.scripts.model.Experiment;
 import contractstudy.scripts.model.ExperimentArtefact;
-import contractstudy.usage.collectContracts.annotation.AndroidAnnotationExtractor;
-import contractstudy.usage.collectContracts.annotation.AndroidXAnnotationExtractor;
-import contractstudy.usage.collectContracts.annotation.FindBugsAnnotationExtractor;
-import contractstudy.usage.collectContracts.annotation.IntellijExtractor;
-import contractstudy.usage.collectContracts.annotation.JSR303Extractor;
-import contractstudy.usage.collectContracts.annotation.JSR305ConcurrentExtractor;
-import contractstudy.usage.collectContracts.annotation.JSR305Extractor;
-import contractstudy.usage.collectContracts.annotation.JetBrainsExtractor;
+import contractstudy.usage.collectContracts.annotation.*;
 import contractstudy.usage.collectContracts.api.CommonsValidate.CommonsValidate2.CommonsValidate2Extractor;
 import contractstudy.usage.collectContracts.api.CommonsValidate.CommonsValidate3.CommonsValidate3Extractor;
 import contractstudy.usage.collectContracts.api.Guava.GuavaPreconditionsExtractor;
@@ -78,6 +71,7 @@ public class CollectContracts implements Experiment {
     new SpringAssertExtractor(),
     new AndroidAnnotationExtractor(),
     new AndroidXAnnotationExtractor(),
+    new AndroidSupportAnnotationExtractor(),
     new KotlinContractExtractor(),
   };
 
